@@ -1,8 +1,8 @@
 #define MAX_PAGE_LINES 20
 
 /obj/machinery/logging_machine
-	name = "surveillance machine"
-	desc = "It seems to be a contraption of sorts that stores a variety of logs. It seems to be connected to the city's mobile phone antenna."
+	name = "监控设备"
+	desc = "这台装置似乎能存储各种记录，看起来连接着城里的移动通信天线。"
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "relay"
 	density = TRUE
@@ -17,7 +17,7 @@
 	GLOB.logging_machines += src
 
 	register_context()
-	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Print Logs", rmb_text = "Clear Logs")
+	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "打印记录", rmb_text = "清除记录")
 
 /obj/machinery/logging_machine/Destroy(force)
 	GLOB.logging_machines -= src
@@ -29,30 +29,30 @@
 	. = ..()
 	if(!isnull(held_item))
 		return
-	context[SCREENTIP_CONTEXT_LMB] = "Print Logs"
-	context[SCREENTIP_CONTEXT_RMB] = "Clear Logs"
+	context[SCREENTIP_CONTEXT_LMB] = "打印记录"
+	context[SCREENTIP_CONTEXT_RMB] = "清除记录"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/logging_machine/examine(mob/user)
 	. = ..()
-	. += span_info(span_bold("Click")) + span_info(" on [src] to print all obtained logs.")
-	. += span_info(span_bold("Right Click")) + span_info(" on [src] to clear all obtained logs and clear all phone call breaches.")
+	. += span_info(span_bold("左键点击")) + span_info("[src]以打印所有已获取的记录。")
+	. += span_info(span_bold("右键点击")) + span_info("[src]以清除所有已获取的记录，并消除所有通话造成的避世戒律违规记录。")
 
 /obj/machinery/logging_machine/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(!length(saved_logs))
-		balloon_alert_to_viewers("no logs!")
+		balloon_alert_to_viewers("没有记录！")
 		return
-	balloon_alert_to_viewers("clearing logs!")
+	balloon_alert_to_viewers("正在清除记录！")
 	do_log_clearing(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/logging_machine/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(!length(saved_logs))
-		balloon_alert_to_viewers("no logs!")
+		balloon_alert_to_viewers("没有记录！")
 		return
-	balloon_alert_to_viewers("printing logs!")
+	balloon_alert_to_viewers("正在打印记录！")
 	do_log_printing(user)
 
 /obj/machinery/logging_machine/proc/do_log_printing(mob/living/user)

@@ -1,6 +1,6 @@
 import { type Feature, FeatureNumberInput } from '../base';
 
 export const age: Feature<number> = {
-  name: 'Age',
+  name: '年龄',
   component: FeatureNumberInput,
 };

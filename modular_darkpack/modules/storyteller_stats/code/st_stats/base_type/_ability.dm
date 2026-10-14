@@ -1,7 +1,7 @@
 /datum/st_stat/ability
-	name = "Ability Points"
+	name = "能力点数"
 	abstract_type = /datum/st_stat/ability
-	category = "Ability"
+	category = "能力"
 	freebie_point_cost = FREEBIE_COST_ABILITY
 	points = 27
 

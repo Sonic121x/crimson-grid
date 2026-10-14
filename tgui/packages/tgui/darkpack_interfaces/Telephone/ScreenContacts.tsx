@@ -57,12 +57,12 @@ export const ContactElement = (props: {
             </Box>
           </Stack.Item>
           <Stack.Item grow>
-            <Box>{contact.name || 'Unknown Name'}</Box>
+            <Box>{contact.name || '未知姓名'}</Box>
             <Box
               fontWeight={isUnread ? 'bold' : 'normal'}
               textColor={isUnread ? '#313131' : '#aaa'}
             >
-              {time ? time : contact.number || 'Unknown Number'}
+              {time ? time : contact.number || '未知号码'}
             </Box>
           </Stack.Item>
         </Stack>
@@ -154,7 +154,7 @@ export const ScreenContacts = (props: {
               >
                 <MenuBar.Dropdown.MenuItem
                   displayText={
-                    data.sim_published ? 'Unpublish number' : 'Publish number'
+                    data.sim_published ? '取消公开号码' : '公开号码'
                   }
                   onClick={() => {
                     act(
@@ -165,37 +165,37 @@ export const ScreenContacts = (props: {
                   }}
                 />
                 <MenuBar.Dropdown.MenuItem
-                  displayText={'Add Contact'}
+                  displayText={'添加联系人'}
                   onClick={() => {
                     act('add_contact');
                   }}
                 />
                 <MenuBar.Dropdown.MenuItem
-                  displayText={'Remove Contact'}
+                  displayText={'删除联系人'}
                   onClick={() => {
                     act('remove_contact');
                   }}
                 />
               </MenuBar.Dropdown>
             </MenuBar>
-            <Stack.Item grow>Contacts</Stack.Item>
+            <Stack.Item grow>联系人</Stack.Item>
           </Stack>
           <Stack.Item grow fontSize={1}>
             {data.sim_published_name
-              ? `Published as: ${data.sim_published_name}`
-              : 'Currently Unpublished'}
+              ? `公开名称：${data.sim_published_name}`
+              : '目前未公开'}
           </Stack.Item>
         </Box>
       </Stack.Item>
       {showSettings ? (
         <Stack.Item grow mb={6} mt={0}>
           <Box p={1} backgroundColor="#0003">
-            This Phone&apos;s Number: {my_number}
+            本机号码：{my_number}
           </Box>
         </Stack.Item>
       ) : (
         <Stack.Item grow mt={-1} style={{ overflowY: 'scroll' }}>
-          <Collapsible open={true} color="orange" title="My Contacts" ml={-0.5}>
+          <Collapsible open={true} color="orange" title="我的联系人" ml={-0.5}>
             {sorted_contacts.map((contact) => (
               <ContactElement
                 contact={contact}
@@ -214,7 +214,7 @@ export const ScreenContacts = (props: {
               />
             ))}
           </Collapsible>
-          <Collapsible color="orange" title="Published Numbers" ml={-0.5}>
+          <Collapsible color="orange" title="公开号码" ml={-0.5}>
             {sorted_published_numbers.map((contact) => (
               <ContactElement
                 contact={contact}
@@ -231,7 +231,7 @@ export const ScreenContacts = (props: {
               />
             ))}
           </Collapsible>
-          <Collapsible color="orange" title="Blocked Numbers" ml={-0.5}>
+          <Collapsible color="orange" title="黑名单号码" ml={-0.5}>
             {sorted_blocked_contacts.map((contact) => (
               <ContactElement
                 contact={contact}

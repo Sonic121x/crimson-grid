@@ -1,7 +1,7 @@
 // /card/ is a bit of a weird path but it allows us to inherit behavoir for wallet code.
 /obj/item/card/credit
-	name = "debit card"
-	desc = "Used to access bank money."
+	name = "借记卡"
+	desc = "用于存取银行账户中的资金。"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "card1"
 	item_flags = NOBLUDGEON
@@ -67,7 +67,7 @@
 /obj/item/card/credit/examine(mob/user)
 	. = ..()
 	if(registered_name)
-		. += span_notice("The card bears a name: [registered_name].")
+		. += span_notice("卡上印着姓名：[registered_name]。")
 
 /obj/item/card/credit/GetCreditCard()
 	return src

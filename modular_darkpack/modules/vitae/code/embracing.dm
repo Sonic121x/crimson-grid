@@ -3,11 +3,11 @@
 	if(second_party_embrace)
 		chat_message_receiver = second_party_embrace
 	if(!childe.can_be_embraced || !childe.mind)
-		to_chat(chat_message_receiver, span_notice("[childe.name] doesn't respond to the Vitae."))
+		to_chat(chat_message_receiver, span_notice("[childe.name]对血粹毫无反应。"))
 		return
 	// If they've been dead for more than 5 minutes, then nothing happens.
 	if(!((childe.timeofdeath + 5 MINUTES) > world.time))
-		to_chat(chat_message_receiver, span_notice("[childe] is totally <b>DEAD</b>!"))
+		to_chat(chat_message_receiver, span_notice("[childe]已经彻底<b>死去</b>了！"))
 		return FALSE
 
 	embrace_target(childe, second_party_embrace)
@@ -17,7 +17,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(src)] has Embraced [ADMIN_LOOKUPFLW(childe)]. [second_party_embrace ? "Using [second_party_embrace]'s vitae!" : null]")
 	childe.revive(full_heal_flags = HEAL_ALL, force_grab_ghost = TRUE)
 	childe.grab_ghost(force = TRUE)
-	to_chat(childe, span_cult("You rise with a start! You feel a tremendous pulse echoing in your ears. As you focus your mind on it, you discover it to be the last few throbs of your heart beating until it slows to a halt. The warmth from your skin slowly fades until it settles to the ambient temperature around you...- and you are very hungry."))
+	to_chat(childe, span_cult("你猛然惊醒！强烈的搏动声在耳畔回荡。凝神细听，你才发觉那是心脏最后的几次跳动，正逐渐减缓，直至停息。皮肤上的暖意缓缓褪去，最终与周围的温度融为一体……而你，饥渴难耐。"))
 
 	childe.make_kindred_from_sire(src)
 
@@ -79,9 +79,9 @@
 
 
 /mob/living/carbon/human/proc/prompt_permanent_embrace()
-	var/response = tgui_alert(src, "Do you wish to keep being a vampire on your save slot? This is a permanent choice, and you can't go back!", "Embrace", list("Yes", "No"))
+	var/response = tgui_alert(src, "是否将吸血鬼身份保存到当前角色存档？此选择永久生效，无法撤销！", "初拥", list("是", "否"))
 	//Verify if they accepted to save being a vampire
-	if(response != "Yes" || !client)
+	if(response != "是" || !client)
 		return
 
 	write_preference_midround(/datum/preference/choiced/splats, SPLAT_KINDRED)
@@ -114,5 +114,5 @@
 			childe_prefs_v.discipline_levels += 1
 	*/
 
-	to_chat(src, span_danger("You have chosen to permanently become a vampire!"))
+	to_chat(src, span_danger("你选择了永久成为吸血鬼！"))
 

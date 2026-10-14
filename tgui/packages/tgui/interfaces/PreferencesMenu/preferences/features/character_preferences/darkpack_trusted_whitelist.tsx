@@ -13,7 +13,7 @@ type ClanServerData = {
 };
 
 export const vampire_clan: FeatureChoiced = {
-  name: 'Clan',
+  name: '氏族',
   component: (props: FeatureValueProps<string, string, ClanServerData>) => {
     const { data } = useBackend<PreferencesMenuData>();
     const { serverData, handleSetValue, value } = props;

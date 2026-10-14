@@ -2,15 +2,15 @@
 import { CheckboxInput, type FeatureToggle, FeatureSliderInput, type FeatureNumeric } from '../base';
 
 export const blooper_hear: FeatureToggle = {
-  name: 'Enable hearing vocal bloopers',
+  name: '启用角色说话音效',
   category: 'SOUND',
-  description: `When enabled, allows you to hear other character's speech sounds.`,
+  description: `启用后，可以听见其他角色的说话音效。`,
   component: CheckboxInput,
 };
 
 export const sound_blooper_volume: FeatureNumeric = {
-  name: 'Vocal Blooper Volume',
+  name: '角色说话音效音量',
   category: 'SOUND',
-  description: 'The volume that the Vocal Barks sounds will play at.',
+  description: '角色说话音效的播放音量。',
   component: FeatureSliderInput,
 };

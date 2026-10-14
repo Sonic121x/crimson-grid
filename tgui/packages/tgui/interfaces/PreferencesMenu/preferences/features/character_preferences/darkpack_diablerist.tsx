@@ -2,8 +2,8 @@
 import { CheckboxInput, type FeatureToggle } from '../base';
 
 export const diablerist: FeatureToggle = {
-  name: 'Is Diablerist',
+  name: '血噬者',
   description:
-	'If checked, you will have committed Diablerie in your lifetime.',
+	'勾选后，表示你的角色曾经实施过血噬。',
   component: CheckboxInput,
 };

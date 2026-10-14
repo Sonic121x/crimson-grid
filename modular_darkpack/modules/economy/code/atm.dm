@@ -1,6 +1,6 @@
 /obj/machinery/atm
-	name = "\improper ATM machine"
-	desc = "Check your balance or make a transaction."
+	name = "\improper 自动取款机"
+	desc = "查询余额或办理存取款业务。"
 	icon = 'modular_darkpack/modules/economy/icons/atm.dmi'
 	icon_state = "atm"
 	anchored = TRUE
@@ -31,24 +31,24 @@
 /obj/machinery/atm/examine(mob/user)
 	. = ..()
 	if(logged_account)
-		. += span_notice("The screen is active with an account logged in.")
+		. += span_notice("屏幕亮着，已有账户登录。")
 
 /obj/machinery/atm/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(is_creditcard(tool))
 		var/obj/item/card/credit/card = tool
 		if(logged_in)
-			to_chat(user, span_notice("Someone is already logged in."))
+			to_chat(user, span_notice("已经有人登录了。"))
 			return ITEM_INTERACT_BLOCKING
 		logged_account = card.registered_account
-		to_chat(user, span_notice("Card swiped."))
+		to_chat(user, span_notice("刷卡成功。"))
 		return ITEM_INTERACT_SUCCESS
 	else if(iscash(tool))
 		if(!logged_in)
-			to_chat(user, span_notice("You need to be logged in."))
+			to_chat(user, span_notice("你需要先登录。"))
 			return ITEM_INTERACT_BLOCKING
 		var/value = tool.get_item_credit_value()
 		inserted_cash += value
-		to_chat(user, span_notice("You have deposited [value] [MONEY_NAME] into [src]. [src] now holds [inserted_cash] [MONEY_NAME]."))
+		to_chat(user, span_notice("你向[src]放入了[value] [MONEY_NAME]。[src]目前有[inserted_cash] [MONEY_NAME]待存入账户。"))
 		qdel(tool)
 		return ITEM_INTERACT_SUCCESS
 
@@ -81,7 +81,7 @@
 	if(.)
 		return
 	if(!logged_account)
-		to_chat(usr, span_notice("You need to swipe your card before interacting with [src]."))
+		to_chat(usr, span_notice("使用[src]前需要先刷卡。"))
 		return FALSE
 	switch(action)
 		if("login")
@@ -105,26 +105,26 @@
 		if("deposit")
 			if(inserted_cash > 0)
 				logged_account.adjust_money(inserted_cash, "ATM: Deposit")
-				to_chat(usr, span_notice("You have deposited [inserted_cash] [MONEY_NAME] into your card. Your new balance is [logged_account.account_balance] [MONEY_NAME]."))
+				to_chat(usr, span_notice("你已向银行卡存入[inserted_cash] [MONEY_NAME]。当前余额为[logged_account.account_balance] [MONEY_NAME]。"))
 				total_stored_cash += inserted_cash
 				inserted_cash = 0
 				return TRUE
 			else
-				to_chat(usr, span_notice("[src] is empty. Nothing to deposit."))
+				to_chat(usr, span_notice("[src]内没有待存入的现金。"))
 				return TRUE
 
 /obj/machinery/atm/proc/dispense_cash(amount, mob/user)
 	if(logged_account.account_balance < amount)
-		to_chat(usr, span_notice("Insufficient funds."))
+		to_chat(usr, span_notice("余额不足。"))
 		return
 	var/amount_drawn = 0
 	while(amount > 0)
 		var/drop_amount = min(amount, 1000)
 		if(drop_amount > total_stored_cash)
-			to_chat(user, span_notice("[src] has maxed out its withdraw limit"))
+			to_chat(user, span_notice("[src]的剩余现金不足，无法继续取款。"))
 			break
 		var/obj/item/stack/dollar/cash = new(loc, drop_amount)
-		to_chat(user, span_notice("You have withdrawn [drop_amount] [MONEY_NAME]."))
+		to_chat(user, span_notice("你已取出[drop_amount] [MONEY_NAME]。"))
 		try_put_in_hand(cash, user)
 		amount -= drop_amount
 		total_stored_cash -= drop_amount
@@ -138,7 +138,7 @@
 		total_stored_cash -= drop_amount
 
 /obj/item/circuitboard/machine/atm
-	name = "\improper ATM Machine"
+	name = "\improper 自动取款机"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/atm
 	req_components = list(

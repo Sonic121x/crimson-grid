@@ -365,14 +365,14 @@ function QuirkPage() {
 
     if (quirk.value > 0) {
       if (maxPositiveQuirks !== -1 && positiveQuirks >= maxPositiveQuirks) {
-        return "You can't have any more positive quirks!";
+        return "你无法再选择更多优势！";
       } else if (pointsEnabled && balance + quirk.value > 0) {
-        return 'You need a negative quirk to balance this out!';
+        return '你需要选择一项缺陷来平衡点数！';
       }
     }
     // DARKPACK EDIT ADD - MERITS_FLAWS
     if (balance - quirk.value < 0) {
-      return 'You need more freebie points to take this quirk!';
+      return '你的自由点数不足，无法选择这项特质！';
     }
     // DARKPACK EDIT ADD - MERITS_FLAWS
 
@@ -390,15 +390,15 @@ function QuirkPage() {
           incompatibleQuirk !== quirk.name &&
           selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
         ) {
-          return `This is incompatible with ${incompatibleQuirk}!`;
+          return `这与${incompatibleQuirk}不兼容！`;
         }
       }
     }
     if (data.clan_disallowed_quirks.includes(quirk.name)) {    // DARKPACK EDIT ADD - MERITS_FLAWS
-      return 'This quirk is incompatible with your selected clan.';    // DARKPACK EDIT END - MERITS_FLAWS
+      return '这项特质与你选择的氏族不兼容。';    // DARKPACK EDIT END - MERITS_FLAWS
     }
     if (data.splat_disallowed_quirks.includes(quirk.name)) { // DARKPACK EDIT CHANGE - SPLATS
-      return 'This quirk is incompatible with your selected splats.'; // DARKPACK EDIT CHANGE - SPLATS
+      return '这项特质与你选择的族类不兼容。'; // DARKPACK EDIT CHANGE - SPLATS
     }
     return;
   }
@@ -421,7 +421,7 @@ function QuirkPage() {
     const quirk = quirkInfo[quirkName];
 
     if (pointsEnabled && balance - quirk.value > 0) {
-      return 'You need to remove a positive quirk first!';
+      return '你需要先移除一项优势！';
     }
 
     return;
@@ -433,7 +433,7 @@ function QuirkPage() {
         <Stack vertical fill align="center">
           <Stack.Item>
             {maxPositiveQuirks > 0 ? (
-              <Box fontSize="1.3em">Positive Quirks</Box>
+              <Box fontSize="1.3em">优势</Box>
             ) : (
               <Box mt={pointsEnabled ? 3.4 : 0} />
             )}
@@ -451,12 +451,12 @@ function QuirkPage() {
 
           <Stack.Item>
             <Box as="b" fontSize="1.6em">
-              Available Quirks
+              可选特质
             </Box>
           </Stack.Item>
           <Stack.Item>
             <Input
-              placeholder="Search quirks..."
+              placeholder="搜索特质……"
               width="200px"
               value={searchQuery}
               onChange={setSearchQuery}
@@ -509,7 +509,7 @@ function QuirkPage() {
           <Stack.Item>
             {(
               // DARKPACK EDIT CHANGE START - (Removed pointsEnabled ? checks)
-              <Box fontSize="1.3em">Freebie Points</Box> // DARKPACK EDIT CHANGE - (Changed 'Quirk Balance' to 'Freebie Points')
+              <Box fontSize="1.3em">自由点数</Box> // DARKPACK EDIT CHANGE - (Changed 'Quirk Balance' to 'Freebie Points')
             )}
           </Stack.Item>
           <Stack.Item>
@@ -520,7 +520,7 @@ function QuirkPage() {
           </Stack.Item>
           <Stack.Item>
             <Box as="b" fontSize="1.6em">
-              Current Quirks
+              已选特质
             </Box>
           </Stack.Item>
           <Stack.Item p={1.5} /> {/* Filler to better align the menu*/}
@@ -581,7 +581,7 @@ export function QuirkPersonalityPage() {
               align="center"
               fontSize="14px"
             >
-              Merits/Flaws
+              优势／缺陷
             </Button>
           </Stack.Item>
           <Stack.Item grow>
@@ -592,7 +592,7 @@ export function QuirkPersonalityPage() {
               align="center"
               fontSize="14px"
             >
-              Nature/Demeanor
+              本性／外在性格
             </Button>
           </Stack.Item>
         </Stack>

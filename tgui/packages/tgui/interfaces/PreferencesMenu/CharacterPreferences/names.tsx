@@ -64,10 +64,10 @@ export function MultiNameInput(props: MultiNameProps) {
         <Section
           buttons={
             <Button color="red" onClick={props.handleClose}>
-              Close
+              关闭
             </Button>
           }
-          title="Alternate names"
+          title="其他名称"
         >
           <LabeledList>
             {sortNameWithKeyEntries(Object.entries(namesIntoGroups)).map(
@@ -88,7 +88,7 @@ export function MultiNameInput(props: MultiNameProps) {
                             <Stack.Item>
                               <Button
                                 icon="dice"
-                                tooltip="Randomize"
+                                tooltip="随机生成"
                                 tooltipPosition="right"
                                 onClick={() => handleRandomizeName(key)}
                               />

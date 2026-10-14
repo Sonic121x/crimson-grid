@@ -1,7 +1,7 @@
 /obj/item/stack/dollar
 	name = MONEY_NAME // Prob overkill to use the define here.
-	desc = "Wow! With enough of these, you could buy a lot! ...Pssh, yeah right."
-	singular_name = "dollar"
+	desc = "哇！只要有足够多的钱，你就能买好多东西！……呵，想得美。"
+	singular_name = "美元"
 	icon_state = "money1"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	lefthand_file = null

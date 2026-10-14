@@ -1,41 +1,41 @@
 /datum/st_stat/attribute/strength
-	name = "Strength"
-	description = "Affects your unarmed attack damage multiplier. Increases your chances to knock down an opponent in unarmed combat."
-	subcategory = "Physical"
+	name = "力量"
+	description = "影响徒手攻击的伤害倍率，提高徒手战斗中击倒对手的概率。"
+	subcategory = "身体"
 
 
 /datum/st_stat/attribute/dexterity
-	name = "Dexterity"
-	description = "Affects your speed and melee weapon accuracy. Increases your defense against being knocked down in unarmed combat. Increases the speed of certain actions."
-	subcategory = "Physical"
+	name = "敏捷"
+	description = "影响移动速度和近战武器命中率，提高徒手战斗中抵抗击倒的能力，并加快某些动作。"
+	subcategory = "身体"
 
 /datum/st_stat/attribute/dexterity/update_mob(mob/living/our_mob, initial)
 	our_mob.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/dexterity, multiplicative_slowdown = -(get_score() / 20))
 
 
 /datum/st_stat/attribute/stamina
-	name = "Stamina"
-	description = "Affects your maximum health. Used in Quietus."
-	subcategory = "Physical"
+	name = "耐力"
+	description = "影响生命值上限。用于静谧术。"
+	subcategory = "身体"
 
 /datum/st_stat/attribute/stamina/update_mob(mob/living/our_mob, initial)
 	our_mob.recalculate_max_health(initial)
 
 
 /datum/st_stat/attribute/charisma
-	name = "Charisma"
-	description = "A character's ability to entice and please others through their personality. Used in Dementation, Dominate and Presence."
-	subcategory = "Social"
+	name = "魅力"
+	description = "角色凭借个性吸引他人、赢得好感的能力。用于惑狂术、支配术和威仪术。"
+	subcategory = "社交"
 
 /datum/st_stat/attribute/manipulation
-	name = "Manipulation"
-	description = "A character's ability for self-expression in the interests of getting others to share their outlook or follow their whims. Used in social and mental disciplines."
-	subcategory = "Social"
+	name = "操控"
+	description = "角色通过言行让他人认同自己的观点或顺从自己意愿的能力。用于社交与心智类律能。"
+	subcategory = "社交"
 
 /datum/st_stat/attribute/appearance
-	name = "Appearance"
-	description = "A measure of how well a character makes a first impression. Used in social disciplines and makes your character more attractive."
-	subcategory = "Social"
+	name = "外貌"
+	description = "衡量角色给人留下的第一印象。用于社交类律能，也使角色更具吸引力。"
+	subcategory = "社交"
 
 /* For the bimbo in the audience
 /datum/st_stat/attribute/appearance/update_mob(mob/living/our_mob, initial)
@@ -44,16 +44,16 @@
 
 
 /datum/st_stat/attribute/perception
-	name = "Perception"
-	description = "A character's ability to observe their environment. Increases your examine speed. Used in Auspex."
-	subcategory = "Mental"
+	name = "感知"
+	description = "角色观察周围环境的能力。加快查看速度。用于灵视术。"
+	subcategory = "心智"
 
 /datum/st_stat/attribute/intelligence
-	name = "Intelligence"
-	description = "A character's grasp of facts and knowledge. It also governs a character's ability to reason, solve problems, and evaluate situations. Used in magic disciplines and rituals."
-	subcategory = "Mental"
+	name = "智力"
+	description = "角色掌握事实与知识的程度，也决定推理、解决问题和判断形势的能力。用于法术类律能与仪式。"
+	subcategory = "心智"
 
 /datum/st_stat/attribute/wits
-	name = "Wits"
-	description = "A character's ability to think on her feet and react quickly to a certain situation. It also reflects a character's general cleverness. Used in Necromancy."
-	subcategory = "Mental"
+	name = "机敏"
+	description = "角色临机应变、迅速作出反应的能力，也反映其整体机智程度。用于死灵术。"
+	subcategory = "心智"

@@ -48,7 +48,7 @@ function CharacterProfiles(props: ProfileProps) {
               }}
               fluid
             >
-              {profile ?? 'New Character'}
+              {profile ?? '新角色'}
             </Button>
           </Stack.Item>
         ))}
@@ -65,7 +65,7 @@ function CharacterProfiles(props: ProfileProps) {
             displayText={profiles[activeSlot]}
             options={profiles.map((profile, slot) => ({
               value: slot,
-              displayText: profile ?? 'New Character',
+              displayText: profile ?? '新角色',
             }))}
             onSelected={(slot) => {
               onClick(slot);
@@ -140,7 +140,7 @@ export function CharacterPreferenceWindow(props) {
       </Stack.Item>
       {!data.content_unlocked && (
         <Stack.Item align="center">
-          Buy BYOND premium for more slots!
+          购买 BYOND 会员可获得更多角色栏位！
         </Stack.Item>
       )}
       <Stack.Divider />
@@ -153,7 +153,7 @@ export function CharacterPreferenceWindow(props) {
               setPage={setCurrentPage}
               otherActivePages={[Page.Splats]} // DARKPACK EDIT CHANGE - SPLATS
             >
-              Character
+              角色
             </PageButton>
           </Stack.Item>
 
@@ -166,7 +166,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Stats}
               setPage={setCurrentPage}
             >
-              Stats
+              属性
             </PageButton>
           </Stack.Item>
           {['splat_kindred', 'splat_ghoul'].includes(
@@ -178,7 +178,7 @@ export function CharacterPreferenceWindow(props) {
                 page={Page.Disciplines}
                 setPage={setCurrentPage}
               >
-                Disciplines
+                律能
               </PageButton>
             </Stack.Item>
           )}
@@ -192,7 +192,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Loadout}
               setPage={setCurrentPage}
             >
-              Loadout
+              初始装备
             </PageButton>
           </Stack.Item>
 
@@ -206,7 +206,7 @@ export function CharacterPreferenceWindow(props) {
                     Fun fact: This isn't "Jobs" so that it intentionally
                     catches your eyes, because it's really important!
                   */}
-              Occupations
+              职业
             </PageButton>
           </Stack.Item>
 
@@ -231,7 +231,7 @@ export function CharacterPreferenceWindow(props) {
               page={Page.Quirks}
               setPage={setCurrentPage}
             >
-              Merits / Flaws
+              优势／缺陷
             </PageButton>
           </Stack.Item>
           {

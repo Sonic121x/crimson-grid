@@ -1,5 +1,5 @@
 /datum/storyteller_roll
-	var/bumper_text = "roll"
+	var/bumper_text = "检定"
 
 	/**
 	 * The difficulty of a roll.
@@ -143,17 +143,17 @@
 	using_output_type
 )
 	var/output_text = list()
-	var/dice_used_text = "[dice_amount] dice"
+	var/dice_used_text = "[dice_amount] 颗骰子"
 	if(auto_success_amount)
-		dice_used_text += " + [auto_success_amount] auto successes"
-	var/first_line = "[span_tooltip(show_rolling_with(roller, bonus_amount), dice_used_text)][hide_result ? "" : " vs. difficulty [difficulty_amount]"]."
+		dice_used_text += " + [auto_success_amount] 个自动成功"
+	var/first_line = "[span_tooltip(show_rolling_with(roller, bonus_amount), dice_used_text)][hide_result ? "" : "，难度 [difficulty_amount]"]。"
 	output_text += span_notice(first_line)
 
 	output_text += get_dice_display(rolled_dice, difficulty_amount, success_amount, hide_result)
 
 	var/roll_output_string
 	if(using_output_type == ROLL_PUBLIC) // A common combination of the bitfields, give it its own display.
-		roll_output_string = "public"
+		roll_output_string = "公开"
 	else
 		roll_output_string = jointext(bitfield_to_list(using_output_type, ROLL_OUTPUT_IC), "+")
 
@@ -239,7 +239,7 @@
 	output += jointext(stuff, "+")
 	if(bonus_amount)
 		output += "+[bonus_amount]"
-	return "Rolling [output]"
+	return "检定：[output]"
 
 /datum/storyteller_roll/proc/roll_dice(dice, auto_successes, sides = 10)
 	dice = max(dice, 1)
@@ -317,15 +317,15 @@
 
 /datum/storyteller_roll/proc/roll_result_text(success_result)
 	if(numerical)
-		return "[success_result] successes -"
+		return "[success_result] 个成功 -"
 	else
 		switch(success_result)
 			if(ROLL_SUCCESS)
-				return span_nicegreen("Success -")
+				return span_nicegreen("成功 -")
 			if(ROLL_FAILURE)
-				return span_danger("Failure -")
+				return span_danger("失败 -")
 			if(ROLL_BOTCH)
-				return span_bold(span_danger(("Botch -")))
+				return span_bold(span_danger(("大失败 -")))
 
 /datum/storyteller_roll/proc/get_dice_char(input)
 	// "11" represents automatic successes
@@ -361,6 +361,6 @@
 		return TRUE
 
 	if(feedback)
-		to_chat(roller, span_warning("You cannot reroll [bumper_text] yet. [round((old_mob_roll[OLD_ROLL_TIME] + reroll_cooldown - world.time)/10)]s left."))
+		to_chat(roller, span_warning("你暂时无法重掷[bumper_text]，还需等待 [round((old_mob_roll[OLD_ROLL_TIME] + reroll_cooldown - world.time)/10)] 秒。"))
 
 	return FALSE

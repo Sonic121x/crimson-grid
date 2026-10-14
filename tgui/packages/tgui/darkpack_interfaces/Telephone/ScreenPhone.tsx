@@ -57,8 +57,8 @@ export const ScreenPhone = (props: {
                 onClick={() => act('silent')}
                 className="Telephone__ContactsElement"
               >
-                <Stack.Item>Silent Mode:</Stack.Item>
-                <Stack.Item>{ringer ? 'Off' : 'On'}</Stack.Item>
+                <Stack.Item>静音模式：</Stack.Item>
+                <Stack.Item>{ringer ? '关闭' : '开启'}</Stack.Item>
               </Stack>
             </Stack.Item>
             <Stack.Item>
@@ -70,8 +70,8 @@ export const ScreenPhone = (props: {
                 onClick={() => act('vibration')}
                 className="Telephone__ContactsElement"
               >
-                <Stack.Item>Vibration Mode:</Stack.Item>
-                <Stack.Item>{vibration ? 'On' : 'Off'}</Stack.Item>
+                <Stack.Item>振动模式：</Stack.Item>
+                <Stack.Item>{vibration ? '开启' : '关闭'}</Stack.Item>
               </Stack>
             </Stack.Item>
             {/* CRIMSON EDIT ADDITION START */}
@@ -86,7 +86,7 @@ export const ScreenPhone = (props: {
                 }
                 className="Telephone__ContactsElement"
               >
-                <Stack.Item>Notification sound:</Stack.Item>
+                <Stack.Item>通知音：</Stack.Item>
                 <Stack.Item>{notification_sound}</Stack.Item>
               </Stack>
             </Stack.Item>
@@ -102,14 +102,14 @@ export const ScreenPhone = (props: {
                 className="Telephone__NumpadButton"
                 onClick={() => setApp(NavigableApps.Recents)}
               >
-                Recents
+                最近通话
               </Stack.Item>
               <Stack.Item
                 p={1}
                 className="Telephone__NumpadButton"
                 onClick={() => setApp(NavigableApps.Contacts)}
               >
-                Contacts
+                联系人
               </Stack.Item>
             </Stack>
           </Stack.Item>
@@ -122,7 +122,7 @@ export const ScreenPhone = (props: {
               height={4}
             >
               <Stack fill align="center" justify="center">
-                <Tooltip content="Add Contact">
+                <Tooltip content="添加联系人">
                   <Stack.Item
                     textAlign="center"
                     ml={1}
@@ -135,7 +135,7 @@ export const ScreenPhone = (props: {
                     <Icon name="plus" size={2} />
                   </Stack.Item>
                 </Tooltip>
-                <Tooltip content="Block">
+                <Tooltip content="拉黑">
                   <Stack.Item
                     textAlign="center"
                     ml={1}

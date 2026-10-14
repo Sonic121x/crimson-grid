@@ -73,7 +73,7 @@ const FeaturePdaDropdownInput = (
 };
 
 export const pda_ringtone_sound: Feature<string> = {
-  name: 'Phone Notification Sound',
+  name: '手机通知音效',
   // component: FeatureDropdownInput,
   component: FeaturePdaDropdownInput,
 };

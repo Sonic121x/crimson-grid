@@ -18,7 +18,7 @@
 /datum/guestbook/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Guestbook", "[user.real_name]'s Guestbook")
+		ui = new(user, src, "Guestbook", "[user.real_name]的人际名册")
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
@@ -44,7 +44,7 @@
 			var/new_name = params["new_name"]
 			new_name = reject_bad_name(new_name, max_length = 42)
 			if(!new_name)
-				to_chat(usr, span_warning("That's a pretty terrible name. <i>You can do better</i>."))
+				to_chat(usr, span_warning("这个名字可不怎么样。<i>换个更合适的吧</i>。"))
 				return FALSE
 			if(!rename_guest(usr, null, real_name, new_name, silent = FALSE))
 				return FALSE
@@ -58,19 +58,19 @@
 /datum/guestbook/proc/try_add_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(user == guest)
 		if(!silent)
-			to_chat(user, span_warning("That's you! You already know yourself plenty."))
+			to_chat(user, span_warning("那是你自己！你已经很了解自己了。"))
 		return FALSE
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
-	var/given_name = tgui_input_text(user, "What name do you want to give to [guest]?", "Guestbook Name", "", max_length = 42)
+	var/given_name = tgui_input_text(user, "你想如何称呼[guest]？", "名册称呼", "", max_length = 42)
 	if(!given_name)
 		if(!silent)
-			to_chat(user, span_warning("Nevermind."))
+			to_chat(user, span_warning("算了。"))
 		return FALSE
 	given_name = reject_bad_name(given_name)
 	if(!given_name)
 		if(!silent)
-			to_chat(user, span_warning("That's a pretty terrible name."))
+			to_chat(user, span_warning("这个名字可不怎么样。"))
 		return FALSE
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
@@ -87,12 +87,12 @@
 	var/existing_name = LAZYACCESS(known_names, real_name)
 	if(existing_name)
 		if(!silent)
-			to_chat(user, span_warning("You already know them as \"[existing_name]\"."))
+			to_chat(user, span_warning("你已经记得此人叫\"[existing_name]\"了。"))
 		return FALSE
 	LAZYADDASSOC(known_names, real_name, given_name)
 	user.save_guestbook(known_names)
 	if(!silent)
-		to_chat(user, span_notice("You memorize the face of [guest] as \"[given_name]\"."))
+		to_chat(user, span_notice("你记住了[guest]的面孔，并将其称为\"[given_name]\"。"))
 	return TRUE
 
 /datum/guestbook/proc/rename_guest(mob/living/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
@@ -102,13 +102,13 @@
 	LAZYSET(known_names, real_name, given_name)
 	user.save_guestbook(known_names)
 	if(!silent)
-		to_chat(user, span_notice("You re-memorize the face of \"[old_name]\" as \"[given_name]\"."))
+		to_chat(user, span_notice("你将记忆中\"[old_name]\"的称呼改为了\"[given_name]\"。"))
 	return TRUE
 
 /datum/guestbook/proc/try_remove_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(user == guest)
 		if(!silent)
-			to_chat(user, span_warning("That's you! You'll never forget yourself."))
+			to_chat(user, span_warning("那是你自己！你不会忘记自己的。"))
 		return
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
@@ -122,12 +122,12 @@
 	var/existing_name = LAZYACCESS(known_names, real_name)
 	if(!existing_name)
 		if(!silent)
-			to_chat(user, span_warning("You don't know them in the first place."))
+			to_chat(user, span_warning("你本来就不认识此人。"))
 		return FALSE
 	LAZYREMOVE(known_names, real_name)
 	user.save_guestbook(known_names)
 	if(!silent)
-		to_chat(user, span_notice("You forget the face of \"[existing_name]\"."))
+		to_chat(user, span_notice("你忘记了\"[existing_name]\"的面孔。"))
 	return TRUE
 
 /* Gets the requested name in reference to user.
@@ -148,21 +148,21 @@
 /datum/guestbook/proc/visibility_checks(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(QDELETED(guest))
 		if(!silent)
-			to_chat(user, span_warning("What?"))
+			to_chat(user, span_warning("什么？"))
 		return FALSE
 	var/mob/living/living_user = user
 	if(istype(living_user) && !can_see(living_user, guest, DEFAULT_SIGHT_DISTANCE))
 		if(!silent)
-			to_chat(user, span_warning("You can't see them!"))
+			to_chat(user, span_warning("你看不到此人！"))
 		return FALSE
 	var/face_name = guest.get_face_name()
 	if((face_name == "Unknown"))
 		if(!silent)
-			to_chat(user, span_warning("You can't see their face very well!"))
+			to_chat(user, span_warning("你看不清此人的脸！"))
 		return FALSE
 	if(get_dist(user, guest) > DEFAULT_SIGHT_DISTANCE)
 		if(!silent)
-			to_chat(user, span_warning("You need to take a closer look at them!"))
+			to_chat(user, span_warning("你需要靠近些才能看清此人！"))
 		return FALSE
 	return TRUE
 

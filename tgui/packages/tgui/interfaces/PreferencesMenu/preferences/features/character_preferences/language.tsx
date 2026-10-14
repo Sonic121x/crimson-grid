@@ -9,25 +9,25 @@ import {
 } from '../dropdowns';
 
 export const language: FeatureChoiced = {
-  name: 'Language',
+  name: '语言',
   component: FeatureIconnedDropdownInput,
 };
 
 export const language_speakable: FeatureToggle = {
-  name: 'Language Speakable',
-  description: `If unchecked, you'll only be able to understand the language,
-    but not speak it.`,
+  name: '能够使用该语言',
+  description: `取消勾选后，你只能理解这种语言，
+    无法用它说话。`,
   component: CheckboxInput,
 };
 
 export const language_skill: FeatureChoiced = {
-  name: 'Language Skill',
-  description: 'The percentage of the language you can understand.',
+  name: '语言熟练度',
+  description: '你能理解这种语言的百分比。',
   component: FeatureDropdownInput,
 };
 
 export const csl_strength: FeatureChoiced = {
-  name: 'Language Skill',
-  description: 'The percentage of Common you can understand.',
+  name: '语言熟练度',
+  description: '你能理解通用语的百分比。',
   component: FeatureDropdownInput,
 };

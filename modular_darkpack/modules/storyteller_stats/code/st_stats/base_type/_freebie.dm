@@ -1,5 +1,5 @@
 /datum/st_stat/freebie
-	name = "Freebie Points"
+	name = "自由点数"
 	abstract_type = /datum/st_stat/freebie
-	category = "Freebie"
+	category = "自由点数"
 	points = 15

@@ -1,110 +1,110 @@
 // Talents
 /datum/st_stat/ability/alertness
-	subcategory = "Talents"
-	name = "Alertness"
-	description = "Affects your character's intuition."
+	subcategory = "天赋"
+	name = "警觉"
+	description = "影响角色的直觉。"
 
 /datum/st_stat/ability/athletics
-	subcategory = "Talents"
-	name = "Athletics"
-	description = "Affects your character's physical wellbeing and endurance, as well as their ability to climb walls and jump."
+	subcategory = "天赋"
+	name = "运动"
+	description = "影响角色的体能与持久力，以及攀墙和跳跃的能力。"
 
 /datum/st_stat/ability/awareness
-	subcategory = "Talents"
-	name = "Awareness"
-	description = "Affects your character's attention to extreme detail. Used in Auspex."
+	subcategory = "天赋"
+	name = "灵觉"
+	description = "影响角色察觉细微之处的能力。用于灵视术。"
 
 /datum/st_stat/ability/brawl
-	subcategory = "Talents"
-	name = "Brawl"
-	description = "Affects your character's fist-fighting ability and the 'floor' of your unarmed damage."
+	subcategory = "天赋"
+	name = "斗殴"
+	description = "影响角色的徒手格斗能力和徒手伤害下限。"
 
 /datum/st_stat/ability/empathy
-	subcategory = "Talents"
-	name = "Empathy"
-	description = "Affects your character's ability to understand someone else's emotions and state of mind."
+	subcategory = "天赋"
+	name = "共情"
+	description = "影响角色理解他人情绪与心理状态的能力。"
 
 /datum/st_stat/ability/expression
-	subcategory = "Talents"
-	name = "Expression"
-	description = "Affects your character's ability to emote and express themselves."
+	subcategory = "天赋"
+	name = "表达"
+	description = "影响角色传达情绪和表达自我的能力。"
 
 /datum/st_stat/ability/intimidation
-	subcategory = "Talents"
-	name = "Intimidation"
-	description = "Affects your character's ability to persuade via coercion and violence. Used in Dominate, Presence and other mental and social disciplines."
+	subcategory = "天赋"
+	name = "威吓"
+	description = "影响角色借助胁迫和暴力说服他人的能力。用于支配术、威仪术及其他心智与社交类律能。"
 
 /datum/st_stat/ability/leadership
-	subcategory = "Talents"
-	name = "Leadership"
-	description = "Affects your character's natural affinity to lead, direct, take responsibility, and strategize. Increases your maximum follower/minion limit."
+	subcategory = "天赋"
+	name = "领导"
+	description = "影响角色领导、指挥、承担责任和制定策略的天赋，提高随从数量上限。"
 
 /datum/st_stat/ability/streetwise
-	subcategory = "Talents"
-	name = "Streetwise"
-	description = "Affects your character's familiarity with the criminal underworld and connections to lower-income communities."
+	subcategory = "天赋"
+	name = "街头智慧"
+	description = "影响角色对犯罪地下世界的熟悉程度，以及在低收入群体中的人脉。"
 
 /datum/st_stat/ability/subterfuge
-	subcategory = "Talents"
-	name = "Subterfuge"
-	description = "Affects your character's ability to sabotage and strike with stealth and deception. Used in Dominate, Presence, and Obfuscate."
+	subcategory = "天赋"
+	name = "诡诈"
+	description = "影响角色以隐秘和欺骗手段实施破坏与打击的能力。用于支配术、威仪术和朦胧术。"
 
 // Skills
 /datum/st_stat/ability/animal_ken
-	subcategory = "Skills"
-	name = "Animal Ken"
-	description = "Affects your character's affinity with animals and creatures."
+	subcategory = "技能"
+	name = "驯兽"
+	description = "影响角色与动物及其他生物相处的能力。"
 
 /datum/st_stat/ability/crafts
-	subcategory = "Skills"
-	name = "Crafts"
-	description = "Affects your character's ability to craft certain items."
+	subcategory = "技能"
+	name = "工艺"
+	description = "影响角色制作某些物品的能力。"
 
 /datum/st_stat/ability/drive
-	subcategory = "Skills"
-	name = "Drive"
-	description = "Determines how well your character can drive. At 0 points, you won't be able to drive at all."
+	subcategory = "技能"
+	name = "驾驶"
+	description = "决定角色的驾驶水平。为 0 点时，完全无法驾驶。"
 
 /datum/st_stat/ability/etiquette
-	subcategory = "Skills"
-	name = "Etiquette"
-	description = "Affects your character's ability to be perceived as pleasant in attitude."
+	subcategory = "技能"
+	name = "礼仪"
+	description = "影响角色以得体举止赢得他人好感的能力。"
 
 /datum/st_stat/ability/firearms
-	subcategory = "Skills"
-	name = "Firearms"
-	description = "Affects your character's skill with guns. Lowers the recoil of certain weapons. Each dot grants a 10% chance you deal 40% more damage from each bullet you shoot to a maximum of 50%."
+	subcategory = "技能"
+	name = "枪械"
+	description = "影响角色使用枪械的技巧，降低某些武器的后坐力。每点增加 10% 的概率，使每发子弹造成额外 40% 的伤害；该触发概率最高为 50%。"
 
 /datum/st_stat/ability/larceny
-	subcategory = "Skills"
-	name = "Larceny"
-	description = "Affects your character's ability to steal and lockpick. At 0 points, you won't be able to use lockpicks at all."
+	subcategory = "技能"
+	name = "盗窃"
+	description = "影响角色偷窃与撬锁的能力。为 0 点时，完全无法使用开锁工具。"
 
 /datum/st_stat/ability/melee
-	subcategory = "Skills"
-	name = "Melee"
-	description = "Affects your character's damage with all melee weapons."
+	subcategory = "技能"
+	name = "近战"
+	description = "影响角色使用各类近战武器造成的伤害。"
 
 /datum/st_stat/ability/performance
-	subcategory = "Skills"
-	name = "Performance"
-	description = "Affects your character's ability to act with talent. Used in Presence and Obfuscate."
+	subcategory = "技能"
+	name = "表演"
+	description = "影响角色展现表演才华的能力。用于威仪术和朦胧术。"
 
 /datum/st_stat/ability/stealth
-	subcategory = "Skills"
-	name = "Stealth"
-	description = "Affects your character's ability to sneak and go unnoticed. Used in Obfuscate."
+	subcategory = "技能"
+	name = "潜行"
+	description = "影响角色潜行和避免被发现的能力。用于朦胧术。"
 
 /datum/st_stat/ability/survival
-	subcategory = "Skills"
-	name = "Survival"
-	description = "Affects your character's ability to be survive on their own - whether thats in the wild or on cold, unforgiving city streets."
+	subcategory = "技能"
+	name = "生存"
+	description = "影响角色独立求生的能力，无论是在荒野，还是冰冷无情的城市街头。"
 
 // Knowledges
 /datum/st_stat/ability/academics
-	subcategory = "Knowledges"
-	name = "Academics"
-	description = "Affects your character's familiarity with academics and literature. Affects how many languages your character knows. At 0 points, your character will only know one language."
+	subcategory = "学识"
+	name = "学术"
+	description = "影响角色对学术与文学的熟悉程度，以及掌握的语言数量。为 0 点时，角色只懂一种语言。"
 
 /datum/st_stat/ability/academics/update_mob(mob/living/our_mob, initial)
 	our_mob.remove_all_partial_languages(LANGUAGE_ACADEMICS)
@@ -166,39 +166,39 @@
 
 
 /datum/st_stat/ability/computer
-	subcategory = "Knowledges"
-	name = "Computer"
+	subcategory = "学识"
+	name = "计算机"
 	/* V20 p. 108
 	This Knowledge represents the ability to operate and program computers, including mobile devices.
 	Most Computer use also imparts a degree of Internet awareness (if not savvy).
 	*/
-	description = "Affects your ability to use and interact with computerized devices."
+	description = "影响使用和操作计算机化设备的能力。"
 
 // This kinda sucks dick to do for every stat.
 /datum/st_stat/ability/computer/New()
 	. = ..()
 	if(CONFIG_GET(flag/punishing_zero_dots))
-		description += " At 0 points, you won't be able to use a computer."
+		description += " 为 0 点时，你将无法使用计算机。"
 
 /datum/st_stat/ability/finance
-	subcategory = "Knowledges"
-	name = "Finance"
-	description = "Affects your character's wealth and business acumen. Affects the starting balance of your character's bank account, as well as how much money they receive from selling items."
+	subcategory = "学识"
+	name = "金融"
+	description = "影响角色的财富与商业头脑，决定银行账户的初始余额以及出售物品的收入。"
 
 /datum/st_stat/ability/investigation
-	subcategory = "Knowledges"
-	name = "Investigation"
-	description = "Affects your character's ability to piece together observations to reach conclusions."
+	subcategory = "学识"
+	name = "调查"
+	description = "影响角色整合观察所得、推导结论的能力。"
 
 /datum/st_stat/ability/law
-	subcategory = "Knowledges"
-	name = "Law"
-	description = "Affects your character's familiarity with laws and policies in their appropriate contexts."
+	subcategory = "学识"
+	name = "法律"
+	description = "影响角色对法律、政策及其适用情境的熟悉程度。"
 
 /datum/st_stat/ability/medicine
-	subcategory = "Knowledges"
-	name = "Medicine"
-	description = "Affects your character's knowledge of anatomy, medicine, and emergency first aid protocols. Used in Vicissitude."
+	subcategory = "学识"
+	name = "医学"
+	description = "影响角色对解剖学、医学及紧急急救流程的了解。用于塑形术。"
 
 /datum/st_stat/ability/medicine/link_mob(mob/living/our_mob)
 	RegisterSignal(our_mob, COMSIG_LIVING_OPERATING_ON, PROC_REF(check_medicine_wound_tending))
@@ -207,27 +207,27 @@
 	UnregisterSignal(our_mob, COMSIG_LIVING_OPERATING_ON)
 
 /datum/st_stat/ability/occult
-	subcategory = "Knowledges"
-	name = "Occult"
-	description = "Affects your character's knowledge of esoteric and occult knowledge and concepts. Used in magic disciplines and affects your magical rituals. At occult 3 or higher, you can identify magical artifacts."
+	subcategory = "学识"
+	name = "神秘学"
+	description = "影响角色对秘传学问与神秘概念的了解。用于法术类律能，并影响法术仪式。神秘学达到 3 点或以上时，可鉴定魔法奇物。"
 
 /datum/st_stat/ability/politics
-	subcategory = "Knowledges"
-	name = "Politics"
-	description = "Affects your character's talent with regards to political manuevers."
+	subcategory = "学识"
+	name = "政治"
+	description = "影响角色运用政治手腕的能力。"
 
 /datum/st_stat/ability/science
-	subcategory = "Knowledges"
-	name = "Science"
-	description = "Affects your character's talent in the sciences, and their ability to synthesize chemicals."
+	subcategory = "学识"
+	name = "科学"
+	description = "影响角色的科学素养与化学品合成能力。"
 
 /datum/st_stat/ability/technology
-	subcategory = "Knowledges"
-	name = "Technology"
+	subcategory = "学识"
+	name = "技术"
 	/* V20 p. 110
 	The Technology Knowledge represents a broad acumen with electronics, computer hardware, and devices more elaborate than “machines,” which fall under the Crafts Skill.
 	If it has a processor, a transistor, or an integrated circuit — if it’s electronic rather than electrical manipulating it uses the Technology Knowledge.
 	This is the wide-ranging Ability used to build one’s own computer, install (or subvert) a security system, repair a mobile phone, or kitbash a shortwave radio.
 	You must always choose a specialization in Technology, even though you possess some skill in multiple fields.
 	*/
-	description = "Affects your character's familiarity with machines, devices, and electrical systems."
+	description = "影响角色对机械、设备和电气系统的熟悉程度。"

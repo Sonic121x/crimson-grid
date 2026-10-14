@@ -51,11 +51,11 @@ function DisciplineCard(props: DisciplineCardProps) {
                 <>
                   {isClanDiscipline && clanName && (
                     <Box color="gold" textAlign="center">
-                      ({clanName} Clan Discipline)
+                      （{clanName}氏族律能）
                     </Box>
                   )}
                   <Box color={isRare ? 'red' : 'label'} textAlign="center">
-                    {isRare ? 'Rare Discipline' : 'Common Discipline'}
+                    {isRare ? '稀有律能' : '常见律能'}
                   </Box>
                   {discipline.desc.split('\n').map((line, i) => (
                     <Box key={i}>{line}</Box>
@@ -77,11 +77,11 @@ function DisciplineCard(props: DisciplineCardProps) {
             <Box textAlign="center" fontSize="0.9em">
               {isClanDiscipline && (
                 <Box inline color="gold" mr={0.5}>
-                  Clan
+                  氏族
                 </Box>
               )}
               <Box inline color={isRare ? 'red' : 'label'}>
-                {isRare ? 'Rare' : 'Common'}
+                {isRare ? '稀有' : '常见'}
               </Box>
             </Box>
           </Stack.Item>
@@ -128,7 +128,7 @@ function DisciplinesInner(props: DisciplinesInnerProps) {
   const clanName = data.clan_name ?? null;
   const isGhoul = data.character_preferences.misc.splats === 'splat_ghoul';
   const pointsSpent = data.discipline_points_spent ?? 0;
-  const tier = data.discipline_tier ?? 'Fledgling';
+  const tier = data.discipline_tier ?? '雏血';
   const tierDetails = data.discipline_tier_details ?? '';
 
   const handleDotClick = (path: string, position: number, currentLevel: number) => {
@@ -149,7 +149,7 @@ function DisciplinesInner(props: DisciplinesInnerProps) {
       {tierDetails && (
         <Stack.Item>
           <Section>
-            <Collapsible title={`The ${tier}`} open={true} icon={'info'}>
+            <Collapsible title={`身份：${tier}`} open={true} icon={'info'}>
               {tierDetails.split('\n\n').map((paragraph, i) => (
                 <Box key={i} mb={i < tierDetails.split('\n\n').length - 1 ? 1 : 0}>
                   {paragraph}
@@ -163,7 +163,7 @@ function DisciplinesInner(props: DisciplinesInnerProps) {
         <Stack vertical align="center">
           <Stack.Item>
             <Box fontSize={1.5} bold textAlign="center">
-              Disciplines
+              律能
             </Box>
           </Stack.Item>
           <Stack.Item>
@@ -186,20 +186,20 @@ function DisciplinesInner(props: DisciplinesInnerProps) {
       </Stack.Item>
       <Stack.Item>
         <Box color="label" textAlign="center">
-          {pointsRemaining >= 0 ? pointsRemaining : 0} / {pointsAvailable} dots remaining
+          剩余 {pointsRemaining >= 0 ? pointsRemaining : 0} / {pointsAvailable} 点
         </Box>
       </Stack.Item>
       <Stack.Item>
         <Box color="label" textAlign="center">
           <i>
             {isGhoul
-              ? 'Ghouls only have access to a maximum of one dot in each discipline. To unlock more, the Ghoul must be embraced.'
-              : "A Kindred's immortal age determines their dot balance. The higher their age, the more dots they can assign."}
+              ? '血仆每项律能最多只能分配一点。若想进一步提升，必须接受初拥。'
+              : "血族的不朽岁月决定了可分配的律能点数。经历的岁月越长，可分配的点数越多。"}
           </i>
         </Box>
         <Box color="label" textAlign="center">
           <i>
-            Hover over a discipline's name to view the stats used. Passives don't require a roll.
+            将鼠标悬停在律能名称上可查看所用属性。被动能力无需掷骰。
           </i>
         </Box>
       </Stack.Item>

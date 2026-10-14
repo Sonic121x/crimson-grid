@@ -187,9 +187,9 @@ export const ScreenHome = (props: {
   const convertTo12Hour = (timeStr: string) => {
     const [hourStr, minute] = timeStr.split(':');
     const hour = parseInt(hourStr, 10);
-    const period = hour >= 12 ? 'PM' : 'AM';
+    const period = hour >= 12 ? '下午' : '上午';
     const displayHour = hour % 12 || 12;
-    return `${displayHour}:${minute} ${period}`;
+    return `${period} ${displayHour}:${minute}`;
   };
   const displayTime = convertTo12Hour(time);
 
@@ -262,7 +262,7 @@ export const ScreenHome = (props: {
             <Stack.Item>
               <AppIcon
                 backgroundColor="#505050"
-                text="Settings"
+                text="设置"
                 iconName="cogs"
                 iconColor="white"
                 onClick={() => navigateTo(NavigableApps.Settings)}
@@ -271,7 +271,7 @@ export const ScreenHome = (props: {
             <Stack.Item>
               <AppIcon
                 backgroundColor="#fff"
-                text="Gallery"
+                text="图库"
                 iconName="file-image"
                 iconColor="orange"
               />
@@ -279,7 +279,7 @@ export const ScreenHome = (props: {
             <Stack.Item>
               <AppIcon
                 backgroundColor="#fff"
-                text="Camera"
+                text="相机"
                 iconName="camera"
                 iconColor="black"
               />
@@ -329,7 +329,7 @@ export const ScreenHome = (props: {
                 backgroundColor="#00dd00"
                 iconColor="white"
                 iconName="phone"
-                text="Phone"
+                text="电话"
                 onClick={() => navigateTo(NavigableApps.Phone)}
               />
             </Stack.Item>
@@ -338,7 +338,7 @@ export const ScreenHome = (props: {
                 backgroundColor="#e58e1d"
                 iconColor="white"
                 iconName="user"
-                text="Contacts"
+                text="联系人"
                 onClick={() => navigateTo(NavigableApps.Contacts)}
               />
             </Stack.Item>
@@ -347,7 +347,7 @@ export const ScreenHome = (props: {
                 backgroundColor="blue"
                 iconColor="white"
                 iconName="comments"
-                text="Message+"
+                text="短信+"
                 notification={unreadCount}
                 onClick={() => navigateTo(NavigableApps.Messages)}
               />
@@ -355,7 +355,7 @@ export const ScreenHome = (props: {
             <Stack.Item>
               <AppIcon
                 backgroundColor="#00f7ffff"
-                text="Browser"
+                text="浏览器"
                 iconName="globe-americas"
                 iconColor="black"
                 onClick={() => navigateTo(NavigableApps.Browser)}

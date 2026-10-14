@@ -1,6 +1,6 @@
 #define UI_LIVING_BLOODPOOL "EAST-2:29,CENTER-4:4"
 /atom/movable/screen/bloodpool
-	name = "bloodpool"
+	name = "血池"
 	//icon = 'modular_darkpack/modules/blood_drinking/icons/bloodpool.dmi'
 	//32x32 version
 	icon = 'modular_darkpack/modules/blood_drinking/icons/bloodpool.dmi'
@@ -17,7 +17,7 @@
 /atom/movable/screen/bloodpool/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_LMB] = "Check blood points"
+	context[SCREENTIP_CONTEXT_LMB] = "查看血点"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -26,11 +26,11 @@
 		var/mob/living/bloodbag = usr
 		bloodbag.update_blood_hud()
 		if(bloodbag.bloodpool <= 0)
-			to_chat(bloodbag, span_bolddanger("You've got [bloodbag.bloodpool]/[bloodbag.maxbloodpool] blood points."))
+			to_chat(bloodbag, span_bolddanger("你拥有 [bloodbag.bloodpool]/[bloodbag.maxbloodpool] 血点。"))
 		else if(HAS_TRAIT(bloodbag, TRAIT_NEEDS_BLOOD))
-			to_chat(bloodbag, span_warning("You've got [bloodbag.bloodpool]/[bloodbag.maxbloodpool] blood points and are gripped with hunger!"))
+			to_chat(bloodbag, span_warning("你拥有 [bloodbag.bloodpool]/[bloodbag.maxbloodpool] 血点，正饱受饥渴折磨！"))
 		else
-			to_chat(bloodbag, span_notice("You've got [bloodbag.bloodpool]/[bloodbag.maxbloodpool] blood points."))
+			to_chat(bloodbag, span_notice("你拥有 [bloodbag.bloodpool]/[bloodbag.maxbloodpool] 血点。"))
 
 	return ..()
 

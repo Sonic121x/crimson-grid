@@ -23,7 +23,7 @@ export const ScreenSoundSettingsNotificationSound = (props: {
             onClick={() => setApp(NavigableApps.SoundSettings)}
           />
           <Stack.Item grow ml={1}>
-            Notification Sound
+            通知音
           </Stack.Item>
         </Stack>
       </Stack.Item>
@@ -71,7 +71,7 @@ export const ScreenSoundSettingsNotificationSound = (props: {
 
                       {selected && (
                         <Stack.Item fontSize={0.85} mt={-0.4} color="#1976d2">
-                          Current notification sound
+                          当前通知音
                         </Stack.Item>
                       )}
                     </Stack>

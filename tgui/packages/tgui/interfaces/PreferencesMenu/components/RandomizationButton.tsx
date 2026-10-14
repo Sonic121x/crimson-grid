@@ -5,17 +5,17 @@ import { RandomSetting } from '../types';
 
 const options = [
   {
-    displayText: 'Do not randomize',
+    displayText: '不随机生成',
     value: RandomSetting.Disabled,
   },
 
   {
-    displayText: 'Always randomize',
+    displayText: '始终随机生成',
     value: RandomSetting.Enabled,
   },
 
   {
-    displayText: 'Randomize when antagonist',
+    displayText: '担任对抗角色时随机生成',
     value: RandomSetting.AntagOnly,
   },
 ];

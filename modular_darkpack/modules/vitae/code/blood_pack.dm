@@ -66,14 +66,14 @@ GLOBAL_LIST_INIT(human_blood_types, list(
 
 
 /obj/item/reagent_containers/blood/vitae
-	name = "\improper vampire vitae pack (full)"
+	name = "\improper 吸血鬼血粹袋（满）"
 	blood_type = /datum/blood_type/kindred
 
 
 /////////////////////////////////////////////////////////////////
 
 /obj/item/reagent_containers/blood/bweedpack
-	name = "\improper elite blood pack (full)"
+	name = "\improper 特制血袋（满）"
 	start_blood_amount = 160
 
 /obj/item/reagent_containers/blood/bweedpack/Initialize(mapload)
@@ -83,7 +83,7 @@ GLOBAL_LIST_INIT(human_blood_types, list(
 	reagents.add_reagent(/datum/reagent/toxin/lipolicide, 20)
 
 /obj/item/reagent_containers/blood/cokepack
-	name = "\improper elite blood pack (full)"
+	name = "\improper 特制血袋（满）"
 	start_blood_amount = 185
 
 /obj/item/reagent_containers/blood/cokepack/Initialize(mapload)
@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(human_blood_types, list(
 	reagents.add_reagent(/datum/reagent/drug/methamphetamine, 15)
 
 /obj/item/reagent_containers/blood/morphpack
-	name = "\improper elite blood pack (full)"
+	name = "\improper 特制血袋（满）"
 	start_blood_amount = 180
 
 /obj/item/reagent_containers/blood/morphpack/Initialize(mapload)
@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(human_blood_types, list(
 	reagents.add_reagent(/datum/reagent/medicine/morphine, 10)
 
 /obj/item/reagent_containers/blood/methpack
-	name = "\improper elite blood pack (full)"
+	name = "\improper 特制血袋（满）"
 	start_blood_amount = 185
 
 /obj/item/reagent_containers/blood/methpack/Initialize(mapload)

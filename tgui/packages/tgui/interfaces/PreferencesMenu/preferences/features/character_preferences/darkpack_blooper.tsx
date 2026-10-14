@@ -35,25 +35,25 @@ const FeatureBlooperDropdownInput = (
 };
 
 export const blooper_choice: FeatureChoiced = {
-  name: 'Character Voice',
+  name: '角色声音',
   component: FeatureBlooperDropdownInput,
 };
 
 export const blooper_speed: FeatureNumeric = {
-  name: 'Character Voice Speed %',
-  description: 'Lower number, slower voice. Higher number, faster voice.',
+  name: '角色语速 %',
+  description: '数值越低，语速越慢；数值越高，语速越快。',
   component: FeatureSliderInput,
 };
 
 export const blooper_pitch: FeatureNumeric = {
-  name: 'Character Voice Pitch %',
-  description: 'Lower number, deeper pitch. Higher number, higher pitch.',
+  name: '角色音调 %',
+  description: '数值越低，声音越低沉；数值越高，声音越尖细。',
   component: FeatureSliderInput,
 };
 
 export const blooper_pitch_range: FeatureNumeric = {
-  name: 'Character Voice Range %',
+  name: '角色音调变化幅度 %',
   description:
-    'Lower number, less pitch range. Higher number, more pitch range.',
+    '数值越低，音调变化越小；数值越高，音调变化越大。',
   component: FeatureSliderInput,
 };

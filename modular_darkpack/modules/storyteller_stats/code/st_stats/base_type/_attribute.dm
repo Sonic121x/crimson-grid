@@ -1,7 +1,7 @@
 /datum/st_stat/attribute
-	name = "Attribute Points"
+	name = "属性点数"
 	abstract_type = /datum/st_stat/attribute
-	category = "Attribute"
+	category = "属性"
 	starting_score = 1
 	score = 1
 	points = 15
