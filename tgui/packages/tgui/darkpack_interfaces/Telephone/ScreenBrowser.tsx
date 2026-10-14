@@ -26,7 +26,7 @@ const contentBoxRef = useRef<HTMLDivElement>(null);
 useEffect(() => {
 	(window as any).goobleSearch = () => {
 		const input = document.getElementById('searchInput') as HTMLInputElement;
-		const query = input?.value || 'your search';
+		const query = input?.value || '你的搜索内容';
 		setGoobleSearchQuery(query);
 		setGoobleShowResults(true);
 	};
@@ -98,7 +98,7 @@ useEffect(() => {
 		if (currentSite === 'www.gooble.com') {
 			(window as any).goobleSearch = () => {
 				const input = document.getElementById('searchInput') as HTMLInputElement;
-				const query = input?.value || 'your search';
+				const query = input?.value || '你的搜索内容';
 				setGoobleSearchQuery(query);
 				setGoobleShowResults(true);
 			};
@@ -130,7 +130,7 @@ return (
             }}
             style={{ cursor: 'pointer' }}
         />
-        <Stack.Item grow>EndBrowser v1.0.1</Stack.Item>
+        <Stack.Item grow>安德浏览器 v1.0.1</Stack.Item>
         </Stack>
     </Stack.Item>
 
@@ -138,7 +138,7 @@ return (
         <Stack>
         <Stack.Item grow>
             <input
-            placeholder= 'Enter a URL'
+            placeholder= '输入网址'
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             onKeyDown={(e) => handleKeyPress(e as React.KeyboardEvent<HTMLInputElement>)}
@@ -165,7 +165,7 @@ return (
                 userSelect: 'none',
             }}
             >
-            Go
+            前往
             </Box>
         </Stack.Item>
         </Stack>

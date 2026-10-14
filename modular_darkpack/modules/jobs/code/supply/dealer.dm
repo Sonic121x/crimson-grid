@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "nobody. You are beholden only to yourself."
+	supervisors = "无人。你只对自己负责。"
 	config_tag = "DEALER"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/dealer
@@ -29,7 +29,7 @@
 	)
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL, SPLAT_GAROU, SPLAT_NONE)
 	splat_slots = list(SPLAT_NONE = 1)
-	description = "You provide both legal and illegal supplies to those that get busy during the night. You are your own person yet you know people are out for you. Time to buckle in..."
+	description = "你向夜间活动的人提供合法与非法的物资。你独来独往，也清楚有人正打着你的主意。准备迎接麻烦吧……"
 	minimum_masquerade = 0
 
 /datum/outfit/job/vampire/dealer

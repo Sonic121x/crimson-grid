@@ -25,7 +25,7 @@ export const ScreenViewingChannel = (props: {
           fontSize={1.5}
         >
           <Stack align="center">
-            <Stack.Item grow>IRC</Stack.Item>
+            <Stack.Item grow>IRC 频道</Stack.Item>
             <Stack.Item
               style={{ cursor: 'pointer' }}
               onClick={() => {
@@ -43,18 +43,18 @@ export const ScreenViewingChannel = (props: {
             viewing_channel.messages.map((message) => (
               <Box key={message.time_stamp} backgroundColor="#0004">
                 <Box color="maroon">
-                  Story by {message.author} - [{message.time_stamp}]
+                  作者：{message.author} - [{message.time_stamp}]
                 </Box>
                 <Box dangerouslySetInnerHTML={{ __html: message.body }} />
                 {message.caption ? (
                   <Box>
-                    Image attachment not viewable, caption: {message.caption}
+                    无法查看图片附件，说明：{message.caption}
                   </Box>
                 ) : null}
               </Box>
             ))
         ) : (
-          'ERROR: Channel invalid.'
+          '错误：频道无效。'
         )}
       </Stack.Item>
     </Stack>
@@ -79,7 +79,7 @@ export const ScreenIRC = (props) => {
           fontSize={1.5}
         >
           <Stack align="center">
-            <Stack.Item grow>IRC</Stack.Item>
+            <Stack.Item grow>IRC 频道</Stack.Item>
           </Stack>
         </Box>
       </Stack.Item>

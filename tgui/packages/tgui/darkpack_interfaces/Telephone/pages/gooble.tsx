@@ -233,19 +233,19 @@ ${!showResults ? `
 			type="text"
 			id="searchInput"
 			class="search-box"
-			placeholder="Search Gooble or type a URL"
-			aria-label="Search"
+			placeholder="使用咕博搜索或输入网址"
+			aria-label="搜索"
 			value="${searchQuery}"
 		/>
 	</div>
 
 	<div class="button-wrapper">
-		<button class="gooble-button" onclick="window.goobleSearch()">Gooble Search</button>
-		<button class="gooble-button" onclick="window.goobleSearch()">I'm Feeling Lucky</button>
+		<button class="gooble-button" onclick="window.goobleSearch()">咕博搜索</button>
+		<button class="gooble-button" onclick="window.goobleSearch()">手气不错</button>
 	</div>
 
 	<div class="footer-text">
-		Gooble Search - Making the world's information accessible
+		咕博搜索 - 让世界的信息触手可及
 	</div>
 </div>
 ` : `
@@ -257,22 +257,22 @@ ${!showResults ? `
 		<input
 			type="text"
 			class="results-search-box"
-			value="${searchQuery || 'your search'}"
+			value="${searchQuery || '你的搜索内容'}"
 			readonly
 		/>
 	</div>
 
-	<div class="results-stats">No results found for "${searchQuery || 'your search'}"</div>
+	<div class="results-stats">未找到与“${searchQuery || '你的搜索内容'}”相关的结果</div>
 
 	<div class="no-results">
-		<h2>Your search did not match any documents.</h2>
-		<p><strong>Suggestions:</strong></p>
+		<h2>没有找到符合搜索条件的文档。</h2>
+		<p><strong>建议：</strong></p>
 		<div class="suggestions">
 			<ul>
-				<li>Make sure all words are spelled correctly.</li>
-				<li>Try different keywords.</li>
-				<li>Try more general keywords.</li>
-				<li>Try fewer keywords.</li>
+				<li>请检查输入是否有误。</li>
+				<li>尝试其他关键词。</li>
+				<li>尝试更宽泛的关键词。</li>
+				<li>尝试减少关键词。</li>
 			</ul>
 		</div>
 	</div>

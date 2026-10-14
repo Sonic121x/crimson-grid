@@ -1,6 +1,6 @@
 /datum/job/vampire/sheriff
 	title = JOB_SHERIFF
-	description = "Protect the Prince and the Masquerade. You are their sword."
+	description = "保护亲王，维护避世戒律。你就是他们手中的利剑。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	faction = FACTION_CAMARILLA
 	total_positions = 1

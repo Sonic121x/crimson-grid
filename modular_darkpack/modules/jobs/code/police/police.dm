@@ -23,7 +23,7 @@
 	allowed_splats = list(SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE)
 	splat_slots = list(SPLAT_GHOUL = 2, SPLAT_KINFOLK = 2)
 
-	description = "Enforce the Law."
+	description = "执法维序。"
 	minimum_masquerade = 0
 
 	known_contacts = list(

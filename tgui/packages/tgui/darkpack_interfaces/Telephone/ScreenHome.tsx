@@ -287,7 +287,7 @@ export const ScreenHome = (props: {
             <Stack.Item>
               <AppIcon
                 backgroundColor="#4a90e2"
-                text="EndPost"
+                text="安德快讯"
                 iconName="bullhorn"
                 iconColor="white"
                 onClick={() => navigateTo(NavigableApps.Endpost)}

@@ -34,7 +34,7 @@
 	)
 	allowed_splats = list(SPLAT_NONE, SPLAT_GHOUL)
 	splat_slots = list(SPLAT_NONE = 2, SPLAT_GHOUL = 2)
-	description = "You are a bartender of the local biker hangout. Serve the eclectic clients that pass through, and try not to ask too many questions."
+	description = "你在本地摩托车手聚集的酒吧当调酒师。招待形形色色的过客，尽量少打听。"
 	minimum_masquerade = 0
 
 /datum/outfit/job/vampire/tapster

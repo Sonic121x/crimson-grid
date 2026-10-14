@@ -1,6 +1,6 @@
 /datum/job/vampire/keeper
 	title = JOB_GAROU_KEEPER
-	description = "You are the bottom of the Sept's pecking order, keeper of the Sept and its surrounding bawn. Ensure that it is clean and tidy for the spirits, and maintain your tribe's caern."
+	description = "你在社群中资历最浅，负责照管社群驻地及周边领地。保持环境整洁，以敬诸灵，并维护部族的圣地。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_GAIA
 	total_positions = 5

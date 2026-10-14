@@ -1,6 +1,6 @@
 /obj/item/smartphone
-	name = "smartphone"
-	desc = "A portable device to call anyone you want."
+	name = "智能手机"
+	desc = "一台便携设备，让你能拨打任何人的电话。"
 	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/phones/icons/phone_onfloor.dmi')
 	base_icon_state = "phone"
@@ -135,14 +135,14 @@
 
 /obj/item/smartphone/examine(mob/user)
 	. = ..()
-	. += span_notice("[EXAMINE_HINT("Interact")] to look at the screen.")
-	. += span_notice("[EXAMINE_HINT("Alt-Click")] or [EXAMINE_HINT("Right-Click")] to toggle the screen.")
+	. += span_notice("[EXAMINE_HINT("互动")]以查看屏幕。")
+	. += span_notice("[EXAMINE_HINT("Alt+左键点击")]或[EXAMINE_HINT("右键点击")]以开关屏幕。")
 	if(sim_card)
-		. += span_notice("[EXAMINE_HINT("Ctrl-Click")] to remove [sim_card].")
+		. += span_notice("[EXAMINE_HINT("Ctrl+左键点击")]以取出[sim_card]。")
 		if(sim_card.phone_number && (user.is_holding(src) || isobserver(user)))
-			. += span_notice("Its phone number is [span_bold("[sim_card.phone_number]")].")
+			. += span_notice("本机号码为[span_bold("[sim_card.phone_number]")]。")
 	else
-		. += span_notice("You can [EXAMINE_HINT("Insert")] a SIM card.")
+		. += span_notice("你可以[EXAMINE_HINT("插入")]一张 SIM 卡。")
 
 /obj/item/smartphone/attack_self(mob/user, modifiers)
 	. = ..()
@@ -160,10 +160,10 @@
 	if(!user.is_holding(src))
 		return CLICK_ACTION_BLOCKING
 	if(!sim_card)
-		balloon_alert(user, "no sim card!")
+		balloon_alert(user, "没有 SIM 卡！")
 		return CLICK_ACTION_BLOCKING
 	if(do_after(user, 2 SECONDS, src))
-		balloon_alert(user, "you remove \the [sim_card]!")
+		balloon_alert(user, "你取出了[sim_card]！")
 		log_phone("[key_name(user)] removed a SIM card with the number [sim_card.phone_number].")
 		switch(current_state)
 			if(PHONE_CALLING)
@@ -183,12 +183,12 @@
 	if(!istype(tool, /obj/item/sim_card))
 		return NONE
 	if(sim_card)
-		balloon_alert(user, "[sim_card] already installed!")
+		balloon_alert(user, "已经装有[sim_card]！")
 		return ITEM_INTERACT_BLOCKING
 	if(!user.transferItemToLoc(tool, src))
-		balloon_alert(user, "failed to install [tool]!")
+		balloon_alert(user, "未能装入[tool]！")
 		return ITEM_INTERACT_BLOCKING
-	balloon_alert(user, "you insert \the [tool]!")
+	balloon_alert(user, "你插入了[tool]！")
 	sim_card = tool
 	sim_card.phone_weakref = WEAKREF(src)
 	log_phone("[key_name(user)] inserted a SIM card with the number [sim_card.phone_number].")
@@ -222,7 +222,7 @@
 		data["my_number"] = sim_card.phone_number
 		data["no_sim_card"] = FALSE
 	else
-		data["my_number"] = "No SIM card inserted"
+		data["my_number"] = "未插入 SIM 卡"
 		data["no_sim_card"] = TRUE
 	data["phone_in_call"] = (current_state == PHONE_IN_CALL) ? TRUE : FALSE
 	data["phone_ringing"] = (current_state == PHONE_RINGING) ? TRUE : FALSE
@@ -277,7 +277,7 @@
 		data["calling_user"] = ""
 
 	data["time"] = server_timestamp("hh:mm", ic_time = TRUE)
-	data["date"] = server_timestamp("Day, Month DD, YYYY", ic_time = TRUE)
+	data["date"] = server_timestamp("YYYY年MM月DD日", ic_time = TRUE)
 	data["background_url"] = phone_background
 	data["city_name"] = SSmapping.current_map.map_name
 
@@ -368,19 +368,19 @@
 			return TRUE
 
 		if("publish_number")
-			var/name = tgui_input_text(user, "What name will represent you in the phonebook. Example: Jane Doe | Anarchy Rose Manager", "Publish Number", max_length = MAX_MESSAGE_LEN)
+			var/name = tgui_input_text(user, "你想在电话簿中使用什么名称？例如：简·多伊 | 无政府玫瑰经理", "公开号码", max_length = MAX_MESSAGE_LEN)
 			if(!name)
-				to_chat(user, span_danger("You must enter a name to be published under."))
+				to_chat(user, span_danger("你必须输入公开使用的名称。"))
 				return
-			var/make_persistent = tgui_alert(user, "Do you want to make this number persistent between rounds? If one is already persistent for this character, this will override it.", "Number Persistence", list("Yes", "No"))
+			var/make_persistent = tgui_alert(user, "是否跨局保留这个号码的公开信息？如果此角色已有保存的信息，将被覆盖。", "号码信息保存", list("是", "否"))
 			if(!sim_card)
-				to_chat(user, span_danger("You must insert a SIM card to publish your number."))
+				to_chat(user, span_danger("插入 SIM 卡后才能公开号码。"))
 				return
 			for(var/contact in SSphones.published_phone_numbers)
 				if(SSphones.published_phone_numbers[contact] == sim_card.phone_number)
-					to_chat(user, span_danger("Error: This number is already published."))
+					to_chat(user, span_danger("错误：这个号码已经公开。"))
 					return TRUE
-			publish_number(user, name, save = (make_persistent == "Yes"))
+			publish_number(user, name, save = (make_persistent == "是"))
 			return TRUE
 
 		if("unpublish_number")
@@ -391,8 +391,8 @@
 				var/mob/living/carbon/owner = owner_weakref?.resolve()
 				var/name_pref = owner.client?.prefs?.read_preference(/datum/preference/text/phone_published_name)
 				if(name_pref)
-					make_persistent = tgui_alert(user, "Do you want to remove this as a persistent number?", "Number Persistence", list("Remove persistently", "Just for today"))
-				unpublish_number(user, contact, save = (make_persistent == "Remove persistently"))
+					make_persistent = tgui_alert(user, "是否一并移除跨局保存的号码公开信息？", "号码信息保存", list("永久移除", "仅限今天"))
+				unpublish_number(user, contact, save = (make_persistent == "永久移除"))
 				return TRUE
 
 		if("custom_background")
@@ -400,41 +400,41 @@
 			if(!user.client?.is_donator())
 				var/patreon_link = CONFIG_GET(string/patreon_link)
 				var/twitch_link = CONFIG_GET(string/twitch_link)
-				var/notice = "This is a donator exclusive feature. You may only be able to set a background if you are a " + \
-					"[patreon_link ? "<a href='[patreon_link]'>": ""]Patreon supporter[patreon_link ? "</a>": ""] or " + \
-					"[twitch_link ? "<a href='[twitch_link]'>": ""]Twitch subscriber[twitch_link ? "</a>": ""]."
+				var/notice = "这是赞助者专属功能。你可能需要成为" + \
+					"[patreon_link ? "<a href='[patreon_link]'>": ""]Patreon 赞助者[patreon_link ? "</a>": ""]或" + \
+					"[twitch_link ? "<a href='[twitch_link]'>": ""]Twitch 订阅者[twitch_link ? "</a>": ""]才能设置壁纸。"
 				to_chat(user, span_notice(notice))
 				return
 			// CRIMSON EDIT END
-			to_chat(user, span_danger("Do NOT use images that can be considered offensive or obscene, or that contain references to something that happened after the year [CURRENT_STATION_YEAR]. Recommended image dimensions: 400x600 "))
-			custom_background = tgui_input_text(user, "Input background image URL", "Custom Background")
+			to_chat(user, span_danger("请勿使用冒犯性或淫秽图片，也不要包含[CURRENT_STATION_YEAR]年之后的事物。推荐图片尺寸：400x600 "))
+			custom_background = tgui_input_text(user, "输入壁纸图片网址", "自定义壁纸")
 			if(!custom_background)
-				to_chat(user, span_danger("You must input a URL to set a custom background."))
+				to_chat(user, span_danger("设置自定义壁纸需要输入图片网址。"))
 				return
 			phone_background = custom_background
 			log_phone("[key_name(user)] set a custom background image on [src]: [custom_background]")
 			return TRUE
 
 		if("add_contact")
-			var/number = passed_number || tgui_input_text(user, "Input number", "Add Contact")
+			var/number = passed_number || tgui_input_text(user, "输入号码", "添加联系人")
 			if(!number)
-				to_chat(user, span_danger("You must provide a number."))
+				to_chat(user, span_danger("你必须输入号码。"))
 				return FALSE
 			if(length(number) > 15)
-				to_chat(user, span_danger("Entered number is too long"))
+				to_chat(user, span_danger("输入的号码过长"))
 				return FALSE
 			for(var/datum/phonecontact/contact as anything in contacts)
 				if(contact.number == number)
-					to_chat(user, span_danger("This phone number is already in your contacts list!"))
+					to_chat(user, span_danger("联系人列表中已有这个号码！"))
 					return FALSE
 			var/stripped_number = replacetext(number, " ", "") // remove spaces
-			var/new_contact_name = tgui_input_text(user, "Input name", "Add Contact")
+			var/new_contact_name = tgui_input_text(user, "输入姓名", "添加联系人")
 			if(!new_contact_name)
-				to_chat(user, span_danger("You must provide a name for the contact."))
+				to_chat(user, span_danger("你必须为联系人输入姓名。"))
 				return FALSE
 			for(var/datum/phonecontact/contact as anything in contacts)
 				if(contact.number == number)
-					to_chat(user, span_danger("This phone number is already in your contacts list!"))
+					to_chat(user, span_danger("联系人列表中已有这个号码！"))
 					return FALSE
 
 			var/datum/phonecontact/new_contact = new()
@@ -445,9 +445,9 @@
 			return TRUE
 
 		if("remove_contact")
-			var/number = passed_number || tgui_input_text(user, "Input number", "Remove Contact")
+			var/number = passed_number || tgui_input_text(user, "输入号码", "删除联系人")
 			if(length(number) > 15)
-				to_chat(user, span_danger("Entered number is too long"))
+				to_chat(user, span_danger("输入的号码过长"))
 				return FALSE
 			for(var/datum/phonecontact/contact in contacts)
 				if(contact.number == number)
@@ -457,29 +457,29 @@
 			return FALSE
 
 		if("block")
-			var/block_number = passed_number || tgui_input_text(user, "Input number to block", "Block Contact")
+			var/block_number = passed_number || tgui_input_text(user, "输入要拉黑的号码", "拉黑联系人")
 			if(!block_number)
-				to_chat(user, span_warning("You must provide a number."))
+				to_chat(user, span_warning("你必须输入号码。"))
 				return FALSE
 			if(length(block_number) > 15)
-				to_chat(user, span_warning("Invalid number."))
+				to_chat(user, span_warning("号码无效。"))
 				return FALSE
 			for(var/datum/phonecontact/contact as anything in blocked_contacts)
 				if(contact.number == block_number)
-					to_chat(user, span_danger("This phone number is already blocked!"))
+					to_chat(user, span_danger("这个号码已经被拉黑！"))
 					return FALSE
 
 			var/datum/phonecontact/blocked_contact = new()
 			block_number = replacetext(block_number, " ", "")
 			blocked_contact.number = "[block_number]"
-			blocked_contact.name = "Blocked [length(blocked_contacts)+1]"
+			blocked_contact.name = "黑名单联系人[length(blocked_contacts)+1]"
 			blocked_contacts += blocked_contact
 			return TRUE
 
 		if("unblock")
-			var/number = passed_number || tgui_input_text(user, "Input number to unblock", "Unblock Contact")
+			var/number = passed_number || tgui_input_text(user, "输入要解除拉黑的号码", "解除拉黑")
 			if(!number)
-				to_chat(user, span_warning("You must provide a number."))
+				to_chat(user, span_warning("你必须输入号码。"))
 				return FALSE
 			for(var/datum/phonecontact/unblocked_contact in blocked_contacts)
 				if(unblocked_contact.number == number)
@@ -489,22 +489,22 @@
 
 		if("delete_call_history")
 			if(!length(phone_history_list))
-				to_chat(user, span_danger("You have no call history to delete."))
+				to_chat(user, span_danger("没有可删除的通话记录。"))
 				return FALSE
 
-			to_chat(user, span_notice("Your total amount of history saved is: [length(phone_history_list)]"))
-			var/number_of_deletions = tgui_input_number(user, "Input the amount that you want to delete", "Deletion Amount", max_value = length(phone_history_list))
+			to_chat(user, span_notice("目前共保存了[length(phone_history_list)]条通话记录。"))
+			var/number_of_deletions = tgui_input_number(user, "输入要删除的条数", "删除条数", max_value = length(phone_history_list))
 			if(!number_of_deletions)
 				return FALSE
 
 			//Delete the call history depending on the amount inputed by the User
 			if(number_of_deletions > length(phone_history_list))
 				//Verify if the requested amount in bigger than the history list.
-				to_chat(user, span_warning("You cannot delete more items than the history contains."))
+				to_chat(user, span_warning("删除条数不能超过现有记录总数。"))
 				return FALSE
 			else
 				phone_history_list.Cut(1, number_of_deletions + 1)
-			to_chat(user, span_notice("[number_of_deletions] call history entries were deleted. Remaining: [length(phone_history_list)]"))
+			to_chat(user, span_notice("已删除[number_of_deletions]条通话记录。剩余：[length(phone_history_list)]条。"))
 			return TRUE
 
 		if("terminal_sound")
@@ -514,23 +514,23 @@
 
 		if("silent")
 			ringer = !ringer
-			balloon_alert(user, "ringer [ringer ? "on" : "off"]!")
+			balloon_alert(user, "铃声已[ringer ? "开启" : "关闭"]！")
 			if(!ringer)
 				remove_shared_particles(/particles/phone_ringing, delete_on_empty = FALSE)
 			return TRUE
 
 		if("vibration")
 			vibration = !vibration
-			balloon_alert(user, "vibration [vibration ? "on" : "off"]!")
+			balloon_alert(user, "振动已[vibration ? "开启" : "关闭"]！")
 			return TRUE
 
 		if("speaker")
 			if(phone_radio.canhear_range == 1)
 				phone_radio.canhear_range = 3
-				balloon_alert(user, "speaker on!")
+				balloon_alert(user, "免提已开启！")
 			else
 				phone_radio.canhear_range = 1
-				balloon_alert(user, "speaker off!")
+				balloon_alert(user, "免提已关闭！")
 			return TRUE
 
 		if("set_background")
@@ -541,16 +541,16 @@
 			if(!phone_radio.is_on())
 				return FALSE
 			phone_radio.set_broadcasting(!phone_radio.get_broadcasting())
-			balloon_alert(user, "[!phone_radio.get_broadcasting() ? "muted" : "unmuted"]!")
+			balloon_alert(user, "麦克风[!phone_radio.get_broadcasting() ? "已静音" : "已取消静音"]！")
 
 		if("hold_call")
 			phone_radio.set_listening(!phone_radio.get_listening())
 			if(!phone_radio.get_listening())
 				phone_radio.set_on(FALSE) // do not use set_phone_radio() as it fully resets the radio
-				balloon_alert(user, "on hold!")
+				balloon_alert(user, "通话已保持！")
 			else
 				phone_radio.set_on(TRUE)
-				balloon_alert(user, "resumed!")
+				balloon_alert(user, "通话已恢复！")
 
 		if("wiki")
 			wiki_book.display_content(user)
@@ -622,7 +622,7 @@
 
 /obj/item/smartphone/proc/publish_number(mob/user, sim_name, save = FALSE)
 	SSphones.published_phone_numbers[sim_name] = sim_card.phone_number
-	to_chat(user, span_notice("Your number is now published."))
+	to_chat(user, span_notice("你的号码已公开。"))
 	sim_card.published = TRUE
 	sim_card.published_name = sim_name
 	var/mob/living/carbon/human/owner = owner_weakref?.resolve()
@@ -634,7 +634,7 @@
 	SSphones.published_phone_numbers -= contact
 	sim_card.published = FALSE
 	sim_card.published_name = null
-	to_chat(user, span_notice("Your number is now unpublished."))
+	to_chat(user, span_notice("你的号码已取消公开。"))
 	var/mob/living/carbon/human/owner = owner_weakref?.resolve()
 	var/name_pref = owner.client?.prefs?.read_preference(/datum/preference/text/phone_published_name)
 	if(save && owner && name_pref)
@@ -674,13 +674,13 @@
 //stuff to do after a text is received
 /obj/item/smartphone/proc/after_text_received(contact_name, message_text)
 	// This should support having your notifiactions set to hidden to not show detials without opening the app.
-	receive_notification("Message+", contact_name, message_text)
+	receive_notification("短信+", contact_name, message_text)
 
 /obj/item/smartphone/proc/format_conversation(contact_number)
 	var/datum/phone_conversation/conversation = get_conversation(contact_number)
 
 	if(!conversation)
-		conversation = new("Unknown", contact_number)
+		conversation = new("未知联系人", contact_number)
 
 	var/list/formatted_messages = list()
 	for(var/datum/phone_message/msg in conversation.messages)
@@ -707,7 +707,7 @@
 
 	var/new_post = list(
 		"body" = trim(body),
-		"date" = server_timestamp("Day, Month DD, YYYY", ic_time = TRUE),
+		"date" = server_timestamp("YYYY年MM月DD日", ic_time = TRUE),
 		"time" = server_timestamp("hh:mm", ic_time = TRUE),
 		"author" = endpost_username
 	)
@@ -718,7 +718,7 @@
 	return TRUE
 
 /obj/item/smartphone/proc/endpost_registration(mob/user)
-	var/new_username = tgui_input_text(user, "Choose your username:", "EndPost Registration", max_length = 14) //max size of 14 chars or it starts bumping elements around
+	var/new_username = tgui_input_text(user, "选择用户名：", "安德快讯注册", max_length = 14) //max size of 14 chars or it starts bumping elements around
 	log_phone("[key_name(user)] [endpost_username ? "updated" : "registered"] their username as [new_username]")
 	endpost_username = new_username
 	return TRUE

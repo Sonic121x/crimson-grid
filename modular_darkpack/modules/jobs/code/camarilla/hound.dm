@@ -1,6 +1,6 @@
 /datum/job/vampire/hound
 	title = JOB_HOUND
-	description = "You are the Prince's enforcer. You report to the Sheriff and uphold the Traditions."
+	description = "你是亲王麾下的执法者。听从治安官指挥，维护传统戒律。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CAMARILLA
 	total_positions = 7

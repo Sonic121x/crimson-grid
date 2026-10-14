@@ -3,7 +3,7 @@
 	faction = FACTION_SABBAT
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = " the Laws of Hospitality"
+	supervisors = "待客之律"
 	config_tag = "VOIVODE"
 	outfit = /datum/outfit/job/vampire/voivode
 	job_flags = CITY_JOB_FLAGS
@@ -18,7 +18,7 @@
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_TZIMISCE)
 
-	description = "You are a Childe of the Voivode-in-Waiting, the ancient Tzimisce Elder who has rested beneath the Earth for an age longer than the city that now rests on their bones. Honor them in all your actions, and remember that you walk with their favor."
+	description = "你是沉眠领主的子嗣。这位古老的茨密希长老沉睡于地下的岁月，比建在其躯骸之上的城市还要悠久。你的一举一动都应为其增光，并牢记自己承蒙着领主的眷顾。"
 	minimum_masquerade = 2
 
 	known_contacts = list(

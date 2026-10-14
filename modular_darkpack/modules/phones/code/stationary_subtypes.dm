@@ -1,6 +1,6 @@
 /obj/item/smartphone/payphone
-	name = "payphone"
-	desc = "Ring ring. Ring ring. Ring ring."
+	name = "公用电话"
+	desc = "铃铃。铃铃。铃铃。"
 	ONFLOOR_ICON_HELPER(null)
 	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	base_icon_state = "payphone"
@@ -15,8 +15,8 @@
 	ui_interact(user)
 
 /obj/item/smartphone/clean
-	name = "cleaner phone"
-	desc = "The usual phone of a cleaning company used to communicate with employees"
+	name = "清洁公司电话"
+	desc = "清洁公司用来联系员工的普通电话。"
 	ONFLOOR_ICON_HELPER(null)
 	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	base_icon_state = "phone_black"
@@ -31,8 +31,8 @@
 	ui_interact(user)
 
 /obj/item/smartphone/emergency
-	name = "911 dispatch phone"
-	desc = "A phone used for emergency calls."
+	name = "911 接警电话"
+	desc = "用于接听紧急求助来电的电话。"
 	ONFLOOR_ICON_HELPER(null)
 	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	base_icon_state = "phone_red"

@@ -83,23 +83,23 @@ export const browser_endron = () => {
 	<div class="endron-card">
 		<img src="${logoUrl}" style="max-width: 150px; margin: 1em auto; display: block;" />
         <div class="endron-accent"></div>
-		<h2>About</h2>
+		<h2>关于我们</h2>
 		<p>
-			Our planet, vast, majestic, and bountiful. For thousands of years, humans have enjoyed what the earth has provided. Because life is abundant and its resources unlimited.
+			我们的星球广袤、壮丽而富饶。数千年来，人类享受着大地的馈赠，因为这里生机盎然，资源无穷无尽。
 		</p>
 		<p>
-			At Endron, we strive to make the best use of our planet's resources and to make this world your world.
+			安德隆致力于充分利用地球的资源，让这个世界成为你的世界。
             <br><br>
-            Over time, humans have tamed nature and the elements so we can move freely within it. With Endron, we can live the life we've always dreamed of.
+            长久以来，人类驯服自然与天地之力，得以自由驰骋。有了安德隆，梦想中的生活将成为现实。
 		</p>
 		<p>
-			With Endron, we can create a prosperous and flourishing future. Together, we can make our planet our home.
+			携手安德隆，我们能够创造繁荣昌盛的未来。齐心协力，让这颗星球成为我们的家园。
             <br><br>
-            <strong class="endron-tagline">Endron, for a greener tomorrow.</strong>
+            <strong class="endron-tagline">安德隆，为了更绿色的明天。</strong>
 		</p>
 
 		<hr />
-		<p class="endron-footer">© EndBrowser v1.0.1</p>
+		<p class="endron-footer">© 安德浏览器 v1.0.1</p>
 	</div>
 </div>
 	`;

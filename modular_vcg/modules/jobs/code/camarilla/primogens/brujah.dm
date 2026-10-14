@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_brujah
 	title = JOB_PRIMOGEN_BRUJAH
-	description = "Offer your infinite knowledge to Prince of the City. Ensure that your clan does not cause too much trouble and too many fights with the local authorities. Your cover identity as the owner of the local gym has remained steady for now, ensure that it stays that way."
+	description = "以渊博的学识辅佐本市亲王。约束氏族成员，别让他们惹出太多麻烦，或频繁与当地当局冲突。你以本地健身房老板为掩护，目前身份尚且稳固，务必维持下去。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

@@ -241,21 +241,21 @@ DEFINE_BITFIELD(departments_bitflags, list(
 #define CITY_JOB_FLAGS (JOB_CREW_MANIFEST|JOB_EQUIP_RANK|JOB_CREW_MEMBER|JOB_NEW_PLAYER_JOINABLE|JOB_REOPEN_ON_ROUNDSTART_LOSS|JOB_ASSIGN_QUIRKS)
 
 // Variable macros used to declare who is the supervisor for a given job, announced to the player when they join as any given job.
-#define SUPERVISOR_TRADITIONS "the Traditions"
-#define SUPERVISOR_LITANY "the Litany"
-#define SUPERVISOR_PRINCE "the Prince"
-#define SUPERVISOR_SHERIFF "the Sheriff"
-#define SUPERVISOR_PRIMOGEN_BANU_HAQIM "the Banu Haqim Primogen"
-#define SUPERVISOR_BARON "the Baron"
-#define SUPERVISOR_CLINIC_DIRECTOR "the Clinic Director"
-#define SUPERVISOR_CLUB_DIRECTOR PRIMARY_NIGHTCLUB_COMPANY + " Night Club Owner"
-#define SUPERVISOR_POLICE_CAPTAIN "the Police Captain"
-#define SUPERVISOR_POLICE_CAPTAIN_AND_SERGEANT "the Police Captain and Sergeant"
-#define SUPERVISOR_CAMARILLA "the Camarilla"
-#define SUPERVISOR_REGENT "the Regent"
-#define SUPERVISOR_SENESCHAL_PUBLIC "the COO"
-#define SUPERVISOR_BARON_PUBLIC "the Bar's Owner"
-#define SUPERVISOR_SOCIETY_OF_LEOPOLD "the Society of Leopold, the Inquisition, the local Provincial, and God"
+#define SUPERVISOR_TRADITIONS "传统戒律"
+#define SUPERVISOR_LITANY "律诫"
+#define SUPERVISOR_PRINCE "亲王"
+#define SUPERVISOR_SHERIFF "治安官"
+#define SUPERVISOR_PRIMOGEN_BANU_HAQIM "哈基姆之裔元老"
+#define SUPERVISOR_BARON "男爵"
+#define SUPERVISOR_CLINIC_DIRECTOR "诊所主任"
+#define SUPERVISOR_CLUB_DIRECTOR PRIMARY_NIGHTCLUB_COMPANY + "夜总会老板"
+#define SUPERVISOR_POLICE_CAPTAIN "警监"
+#define SUPERVISOR_POLICE_CAPTAIN_AND_SERGEANT "警监和警长"
+#define SUPERVISOR_CAMARILLA "密党"
+#define SUPERVISOR_REGENT "秘所摄政"
+#define SUPERVISOR_SENESCHAL_PUBLIC "首席运营官"
+#define SUPERVISOR_BARON_PUBLIC "酒吧老板"
+#define SUPERVISOR_SOCIETY_OF_LEOPOLD "圣利奥波德协会、宗教裁判所、本地教区长及上帝"
 
 // Playtime tracking system, see jobs_exp.dm
 // weird one.

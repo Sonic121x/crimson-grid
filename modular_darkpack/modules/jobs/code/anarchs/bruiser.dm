@@ -37,7 +37,7 @@
 	allowed_splats = list(SPLAT_KINDRED)
 	maximal_generation = 9
 	maximum_immortal_age = 200
-	description = "You are the enforcer of the Anarchs. The baron is always in need of muscle power. Enforce the Traditions - in the anarch way."
+	description = "你是自由派的打手。男爵总需要有人提供武力支持。用自由派的方式执行传统戒律。"
 	minimum_masquerade = 2
 
 /datum/outfit/job/vampire/bruiser

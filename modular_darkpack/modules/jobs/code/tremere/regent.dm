@@ -17,7 +17,7 @@
 
 	exp_requirements = EXP_REQ_HEAD
 
-	description = "Lead the Chantry. You serve as both the Regent and Tremere Primogen. You report to the Tremere Lord of this region first, Prince second."
+	description = "领导秘所。你兼任秘所摄政与睿魔尔元老。你的首要上级是本地区的睿魔尔领主，其次才是亲王。"
 	minimum_masquerade = 4
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_TREMERE)

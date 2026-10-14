@@ -14,7 +14,7 @@
 
 	tgui_icon = FA_ICON_SOAP
 
-	description = "Keep the streets clean. You are paid to keep your mouth shut about the things you see."
+	description = "保持街道清洁。拿了这份钱，就得对目睹的一切守口如瓶。"
 	maximal_generation = 11
 	maximum_immortal_age = 100
 	minimum_masquerade = 0

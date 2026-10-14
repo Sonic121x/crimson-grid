@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_malkavian
 	title = JOB_PRIMOGEN_MALKAVIAN
-	description = "Offer your infinite knowledge to Prince of the City. As the de facto leader of Clan Malkavian, you are expected to provide guidance and insight to the Prince on behalf of the Malkavian clan." // CRIMSON EDIT - #203 - Original : 	description = "Offer your infinite knowledge to Prince of the City. You likely have a hold over the local hospital, make good use of it and ensure the blood bags remain available."
+	description = "以渊博的学识辅佐本市亲王。作为魔卡维氏族事实上的领袖，你应代表氏族向亲王提供指引与洞见。" // CRIMSON EDIT - #203 - Original : 	description = "Offer your infinite knowledge to Prince of the City. You likely have a hold over the local hospital, make good use of it and ensure the blood bags remain available."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

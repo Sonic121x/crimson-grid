@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_lasombra
 	title = JOB_PRIMOGEN_LASOMBRA
-	description = "Offer your infinite knowledge to Prince of the City. Monitor those of your Clan and your lesser cousins, while holding a Court of Blood as need be, for all it takes for the Camarilla to turn on you is one mistake. You and Your Clan were given a domain in the local Church and in the vicinity of a swarm of Lupines, keep matters under control."
+	description = "以渊博的学识辅佐本市亲王。监管氏族成员与旁支亲族，必要时召开血之法庭；只需一次失误，密党就可能与你反目。你和氏族获封的领地位于本地教堂，周围盘踞着一群狼人，务必控制住局面。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

@@ -1,6 +1,6 @@
 /datum/job/vampire/condottieri
 	title = JOB_CONDOTTIERI
-	description = "You are a Condottieri for the Society of Leopold - assigned to this Cenacle to protect the Inquisitors and the Novices undergoing their Novitiate. Your role is closer to defense than it is the actual completion of offensive missions undertaken by the other Inquisitors - however, the Condottieri remain highly respected as an elite and deadly subdivision of the Society of Leopold."
+	description = "你是圣利奥波德协会的雇佣护卫，被派往这处地方会所，保护审判官和仍在见习的修士。你的职责以防卫为主，较少参与其他审判官执行的进攻任务。不过，雇佣护卫作为协会中精锐而致命的一支力量，始终备受尊重。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_CITY
 	total_positions = 2

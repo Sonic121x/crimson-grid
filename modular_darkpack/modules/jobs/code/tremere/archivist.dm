@@ -14,7 +14,7 @@
 
 	tgui_icon = FA_ICON_BOX_ARCHIVE
 
-	description = "Keep a census of events and provide information to neonates. Listen to the Regent Carefully. Study blood magic and protect the chantry."
+	description = "记录各类事件，为新血提供信息。仔细听从秘所摄政的指示。研习血魔法，保护秘所。"
 	maximal_generation = 9
 	maximum_immortal_age = 200
 	minimum_masquerade = 3

@@ -13,79 +13,79 @@ export const ScreenBackgrounds = (props: {
 
   const choices = [
     {
-      name: 'Snowy Mountain',
+      name: '雪山',
       key: 'BG_1',
     },
     {
-      name: 'Dog in Nature',
+      name: '自然中的狗',
       key: 'BG_2',
     },
     {
-      name: 'Waves',
+      name: '海浪',
       key: 'BG_3',
     },
     {
-      name: 'Relaxing Cat',
+      name: '悠闲的猫',
       key: 'BG_4',
     },
     {
-      name: 'Happy Dog',
+      name: '快乐的狗',
       key: 'BG_5',
     },
     {
-      name: 'Natural Landscape',
+      name: '自然风光',
       key: 'BG_6',
     },
     {
-      name: 'Mr. Mittens',
+      name: '白爪先生',
       key: 'BG_7',
     },
     {
-      name: 'Lazy Cat',
+      name: '懒猫',
       key: 'BG_8',
     },
     {
-      name: 'Dozerine',
+      name: '瞌睡狗',
       key: 'BG_9',
     },
     {
-      name: 'Golden Gate Bridge',
+      name: '金门大桥',
       key: 'BG_10',
     },
     {
-      name: 'Forest of Firs',
+      name: '冷杉林',
       key: 'BG_11',
     },
     {
-      name: 'Police Motorcycles',
+      name: '警用摩托车',
       key: 'BG_12',
     },
     {
-      name: 'Pixel Art',
+      name: '像素画',
       key: 'BG_13',
     },
     {
-      name: 'Sleepy Cat',
+      name: '困倦的猫',
       key: 'BG_14',
     },
     {
-      name: 'Snowy Landscape',
+      name: '雪景',
       key: 'BG_15',
     },
     {
-      name: 'Bokeh Lights',
+      name: '朦胧灯光',
       key: 'BG_16',
     },
     {
-      name: 'Modern Wallpaper',
+      name: '现代壁纸',
       key: 'BG_17',
     },
     {
-      name: 'Tree Canopy',
+      name: '林冠',
       key: 'BG_18',
     },
     {
-      name: 'Custom',
+      name: '自定义',
       key: 'custom_background',
     },
     /*
@@ -116,7 +116,7 @@ export const ScreenBackgrounds = (props: {
             onClick={() => setApp(NavigableApps.Settings)}
             style={{ cursor: 'pointer' }}
           />
-          <Stack.Item grow ml={1}>Backgrounds</Stack.Item>
+          <Stack.Item grow ml={1}>壁纸</Stack.Item>
         </Stack>
       </Stack.Item>
       <Stack.Item grow overflowY="auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -157,7 +157,7 @@ export const ScreenBackgrounds = (props: {
               style={{ cursor: 'pointer' }}
             >
               <Stack.Item height={2} grow ml={3} mb={3}>
-                <Box><Icon ml={-0.5} mt={1.5} size={2} name="cog" /><Stack.Item ml={7} mt={-3}> Custom </Stack.Item></Box>
+                <Box><Icon ml={-0.5} mt={1.5} size={2} name="cog" /><Stack.Item ml={7} mt={-3}> 自定义 </Stack.Item></Box>
               </Stack.Item>
             </Stack>
           </Stack.Item>

@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 8
 	spawn_positions = 8
-	supervisors = "the Dealer"
+	supervisors = "供货商"
 	config_tag = "SUPPLY"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/supply_tech
@@ -16,7 +16,7 @@
 
 	tgui_icon = FA_ICON_BOX
 
-	description = "You work at the warehouse, moving boxes and selling not-quite legal goods to anyone who has the money."
+	description = "你在仓库干活、搬运箱子，并把不太合法的货物卖给任何付得起钱的人。"
 	maximal_generation = 9
 	maximum_immortal_age = 200
 	minimum_masquerade = 0

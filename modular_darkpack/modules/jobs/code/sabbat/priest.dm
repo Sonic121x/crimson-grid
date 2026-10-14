@@ -3,7 +3,7 @@
 	faction = FACTION_SABBAT
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "Caine"
+	supervisors = "该隐"
 	config_tag = "SABBAT_PRIEST"
 	outfit = /datum/outfit/job/vampire/sabbatpriest
 	allowed_splats = list(SPLAT_KINDRED)
@@ -15,7 +15,7 @@
 
 	tgui_icon = FA_ICON_CROSS
 
-	description = "You are the Sabbat Priest. You are charged with the supervision of the ritae of your pack. You also serve as the second-in-command to the Ductus. Consecrate the Vaulderie for new Sabbat, consult your tome for rites to aid your pack, and ensure the Sabbat live on in Caine's favor. NOTE: BY PLAYING THIS ROLE YOU AGREE TO AND HAVE READ THE SERVER'S RULES ON ESCALATION FOR ANTAGS. KEEP THINGS INTERESTING AND ENGAGING FOR BOTH SIDES. KILLING PLAYERS JUST BECAUSE YOU CAN MAY RESULT IN A ROLEBAN."
+	description = "你是魔宴祭司，负责主持战团的各类仪式，也是战团首领的副手。为新成员主持共血仪式，查阅典籍，用仪式帮助战团，确保魔宴同盟在该隐的眷顾下延续。【注意】选择此角色即表示你已阅读并同意服务器关于对抗角色冲突升级的规则。务必让双方都能参与其中、享受互动。仅因自己有能力就随意杀害其他玩家角色，可能导致你被禁止选择此类角色。"
 	minimum_masquerade = 0
 	display_order = JOB_DISPLAY_ORDER_SABBATPRIEST
 	whitelisted = TRUE
@@ -44,50 +44,50 @@
 	antag_hud_name = "priest"
 
 /obj/item/sabbat_priest_tome
-	name = "Sabbat Priest's Tome"
-	desc = "A tome adorned with the symbol of the Sabbat."
+	name = "魔宴祭司典籍"
+	desc = "一本饰有魔宴同盟标志的典籍。"
 	icon = 'modular_darkpack/modules/jobs/icons/sabbat.dmi'
 	icon_state = "sabbat-tome"
 
 /datum/sabbat_ritae/ritae_description
-	var/name = "Ritae Description"
-	var/desc = "Ritae Description"
+	var/name = "仪式说明"
+	var/desc = "仪式说明"
 
 /datum/sabbat_ritae/ritae_description/pack_credo
-	name = "Pack Credo"
-	desc = "We are the Sword of Caine. We do not bow to the Masquerade. We are not slaves to the Elders, nor tools of the Antediluvians. Through blood and fire, we prepare for Gehenna. We act not in secrecy, but in strength, united as one Pack. Death to traitors. Death to tyrants. Caine wills it.\n"
+	name = "战团信条"
+	desc = "我们是该隐之剑。我们不向避世戒律屈膝。我们不是长老的奴隶，也不是上古者的工具。历经血与火，我们为末日审判做好准备。我们凭借力量行动，不靠藏头露尾；我们团结一心，同属一个战团。叛徒必死，暴君必亡。此乃该隐的意志。\n"
 
 /datum/sabbat_ritae/ritae_description/vaulderie_info
-	name = "The Vaulderie"
-	desc = "The Vaulderie is a ritual by which a vinculum is established among a pack. It establishes a low level, communal blood bond among its participants. It severs blood bonds, reminding all Cainites to be free from the Elders who usurped Caine. Perform this ritual via the Vaulderie Goblet or Silver Goblet. Each member must drip their vitae into the cup, which is then shared among all participants.\n"
+	name = "共血仪式"
+	desc = "共血仪式在战团成员之间建立共血纽带，使参与者形成程度较浅的共同血缚。它会切断原有血缚，提醒所有该隐后裔摆脱那些篡夺该隐权柄的长老。使用共血仪式高脚杯或银制高脚杯举行仪式。每名成员都必须将自己的血粹滴入杯中，再由全体参与者共饮。\n"
 
 /datum/sabbat_ritae/ritae_description/shovelhead_info
-	name = "Creation Rites"
-	desc = "The Creation Rites we are often slandered for. A Cainite makes their way into the True Sabbat by conquering their fear of fire and death in our lair, walking straight through our campfire. In times of desperation, however, and especially if we feel the need to embrace en masse, we may use the 'shovelhead method', embracing new Cainites and digging them into a shallow grave, awakening their frenzy, their Beast, their true nature... \n"
+	name = "新生仪式"
+	desc = "我们常因新生仪式遭受诋毁。该隐后裔须在巢穴中直穿篝火，战胜对火焰与死亡的恐惧，才得以成为真正的魔宴成员。但在危急关头，尤其是需要大规模初拥时，我们可能采用“铲头法”：初拥新的该隐后裔，将其埋入浅坟，唤醒他们的狂乱、心兽与真正本性……\n"
 
 /datum/sabbat_ritae/ritae_description/monomacy_info
-	name = "Monomacy"
-	desc = "The Rite of Monomacy is a rite which calls two Sabbat Cainites to duel when they may not settle their dispute peacefully or rationally. The challenger uses the Monomacy Circle Rune located within our lair to call the challenged to combat, where the challenged may accept, or decline, the duel. The Priest must decide whether or not the dispute is worthy of monomacy. The challenged Cainite gets to decide the terms of the duel, such as weapons, disciplines allowed or not, torpor or final death, and location... The Priest has ultimate power of the ritae, and the pack, always, and may declare certain duels as null and void.\n"
+	name = "决斗仪式"
+	desc = "当两名魔宴同盟的该隐后裔无法和平、理性地解决争端时，可通过决斗仪式一决高下。挑战者使用巢穴中的决斗法阵符文发出挑战，被挑战者可以接受或拒绝。祭司必须裁定争端是否值得以决斗解决。被挑战者有权决定决斗条件，例如武器、是否允许使用律能、以长眠还是终亡为终点，以及决斗地点等。祭司始终对仪式与战团拥有最终权威，可以宣布某场决斗无效。\n"
 
 /datum/sabbat_ritae/ritae_description/bloodbath_info
-	name = "Blood Bath"
-	desc = "The Rite of the Blood Bath is the rite by which the Priest may select a new Ductus, usually taking place after the previous Ductus was challenged to Monomacy. Each Sabbat Cainite who wishes to serve the new Ductus approaches our bathtub, and contributes a large amount of vitae using the ritual knife. The new Ductus then bathes in the blood of the pack which recognizes them, where the Priest then uses the Tome on the bathtub, and upon exiting the bathtub, the Priest is to scoop up the blood in a Vaulderie Goblet, for all to drink of, consecrating the new Pack formation's vinculum. \n"
+	name = "血浴"
+	desc = "血浴是祭司选立新任战团首领的仪式，通常在前任首领遭到决斗挑战后举行。每位愿意效忠新首领的魔宴成员都要走到浴缸前，用仪式刀献出大量血粹。新首领随后浸入拥护自己的战团成员所献之血，祭司则对浴缸使用典籍。待首领离开浴缸，祭司须用共血仪式高脚杯舀取血液，供所有人共饮，为新战团的共血纽带赋予神圣意义。\n"
 
 /datum/sabbat_ritae/ritae_description/war_party_hunt_info
-	name = "War Party"
-	desc = "The Ritus of the War Party may be invoked by using the War Party totem, fashioned from an Elder Cainite's skull. Its dark power calls upon all who have taken part of the Vaulderie in the city to return to our lair to discuss plans for a War Party,  where we may strike at the heretics, the pretenders, and the cowards who hide behind the Masquerade. The Elders betrayed Caine, and we are his vengeance made flesh.\n"
+	name = "战团出征"
+	desc = "使用该隐后裔长老头骨制成的出征图腾，即可发起战团出征仪式。它的黑暗力量会召回城中所有参加过共血仪式的人，让大家返回巢穴商议出征计划，打击异端、冒牌者，以及躲在避世戒律背后的懦夫。长老背叛了该隐，而我们就是他复仇意志的化身。\n"
 
 /datum/sabbat_ritae/ritae_description/blood_feast_info
-	name = "Blood Feast"
-	desc = "The Blood Feast is a rite of celebration held by the pack, usually when any formal gathering is declared. Each of our Cainites, with the Priest being able to choose whether or not they participate, leaves in a competition for the hunt. Woe unto the Cainite who brings some foul beggar with blood that tastes of dirt. This Rite shall be a competition, to see who may offer the most worthy morsel to the communal pack, whether that is a nosy police officer, a Rogue Sabbat Cainite, or a worthy heretical Cainite for diablerie, the strength of the pack shall be shown, and we shall all feast this night. \n"
+	name = "血宴"
+	desc = "血宴是战团的庆典仪式，通常在正式集会时举行。每位该隐后裔都要外出参加狩猎竞赛，祭司可以自行决定是否参与。谁要是带回一个血如泥土般难喝的肮脏乞丐，可就有苦头吃了。仪式要比一比，谁能为整个战团献上最上等的佳肴：爱管闲事的警察、离经叛道的魔宴成员，或值得施以血噬的异端血族。战团将展现力量，今夜我们皆可饱餐。\n"
 
 /datum/sabbat_ritae/ritae_description/wild_hunt_info
-	name = "Wild Hunt"
-	desc = "None may defy Caine - especially not those who have undertaken the Vaulderie! Traitors and defectors to Caine and the Sabbat shall be struck down with a rightful war party, along with any who know of their treachery. Diablerie, burning them atop our ritual fire with a stake still in their putrid heart, or mutilation may take place, before they are sentenced to death. None may defy Caine, and none may escape Caine's vengeance, not the Elders of the Camarilla or traitors to the pack.\n "
+	name = "狂猎"
+	desc = "无人可以违抗该隐，尤其是参加过共血仪式的人！背叛该隐与魔宴同盟的叛徒和逃亡者，以及知晓其叛行的人，都将遭到正义战团的讨伐。他们可能受到血噬、肢体摧残，或在腐朽心脏仍插着木桩时被投入仪式之火，直至被处以死刑。无人可以违抗该隐，也无人能逃脱他的复仇，密党的长老与战团的叛徒皆不例外。\n "
 
 /obj/item/sabbat_priest_tome/attack_self(mob/living/carbon/human/user)
 	if(!user.mind || !is_sabbatist(user.mind.assigned_role))
-		to_chat(user, "You feel nothing when you touch this tome.")
+		to_chat(user, "触碰这本典籍时，你没有感到任何异样。")
 		return
 
 	var/is_priest = is_sabbat_priest(user.mind.assigned_role)
@@ -96,47 +96,47 @@
 	icon_state = "[original_icon_state]-open"
 	addtimer(CALLBACK(src, PROC_REF(close_book)), 10 SECONDS)
 
-	to_chat(user, "These are the Auctoritas Ritae given to you by Caine.")
+	to_chat(user, "这些是该隐赐予你们的权威仪式。")
 
 	// Define all ritae datums
 	var/list/ritae_datums = list(
-		"Pack Credo" = new /datum/sabbat_ritae/ritae_description/pack_credo(),
-		"Vaulderie" = new /datum/sabbat_ritae/ritae_description/vaulderie_info(),
-		"Shovelhead" = new /datum/sabbat_ritae/ritae_description/shovelhead_info(),
-		"Monomacy" = new /datum/sabbat_ritae/ritae_description/monomacy_info(),
-		"Blood Bath" = new /datum/sabbat_ritae/ritae_description/bloodbath_info(),
-		"War Party" = new /datum/sabbat_ritae/ritae_description/war_party_hunt_info(),
-		"Blood Feast" = new /datum/sabbat_ritae/ritae_description/blood_feast_info(),
-		"Wild Hunt" = new /datum/sabbat_ritae/ritae_description/wild_hunt_info()
+		"战团信条" = new /datum/sabbat_ritae/ritae_description/pack_credo(),
+		"共血仪式" = new /datum/sabbat_ritae/ritae_description/vaulderie_info(),
+		"铲头法" = new /datum/sabbat_ritae/ritae_description/shovelhead_info(),
+		"决斗仪式" = new /datum/sabbat_ritae/ritae_description/monomacy_info(),
+		"血浴" = new /datum/sabbat_ritae/ritae_description/bloodbath_info(),
+		"战团出征" = new /datum/sabbat_ritae/ritae_description/war_party_hunt_info(),
+		"血宴" = new /datum/sabbat_ritae/ritae_description/blood_feast_info(),
+		"狂猎" = new /datum/sabbat_ritae/ritae_description/wild_hunt_info()
 	)
 
 	var/list/ritae_options = list()
 
 	// Everyone can see "Pack Credo"
 	if(is_priest)
-		ritae_options += "Pack Credo (Edit)"
+		ritae_options += "战团信条（编辑）"
 	else
-		ritae_options += "Pack Credo"
+		ritae_options += "战团信条"
 
 	// Only Priests can see other ritae
 	if(is_priest)
 		for(var/name in ritae_datums)
-			if(name != "Pack Credo")
+			if(name != "战团信条")
 				ritae_options += name
 
-	var/choice = tgui_input_list(user, "Select a Rite to learn about:", "Sabbat Ritae", ritae_options)
+	var/choice = tgui_input_list(user, "选择要了解的仪式：", "魔宴仪式", ritae_options)
 	if(!choice)
 		return
 
-	if(choice == "Pack Credo (Edit)")
-		var/datum/sabbat_ritae/ritae_description/pack_credo/credo = ritae_datums["Pack Credo"]
-		to_chat(user, span_cult("<b>Pack Credo:</b>"))
+	if(choice == "战团信条（编辑）")
+		var/datum/sabbat_ritae/ritae_description/pack_credo/credo = ritae_datums["战团信条"]
+		to_chat(user, span_cult("<b>战团信条：</b>"))
 		to_chat(user, span_cult("[credo.desc]"))
 
-		var/new_credo = tgui_input_text(user, "Enter your interpretation of the Sabbat's goals:", "Edit Pack Credo", credo.desc)
+		var/new_credo = tgui_input_text(user, "输入你对魔宴同盟目标的理解：", "编辑战团信条", credo.desc)
 		if(new_credo && new_credo != credo.desc)
 			credo.desc = new_credo
-			to_chat(user, span_cult("You update your pack's interpretation of the Sabbat Credo."))
+			to_chat(user, span_cult("你更新了战团对魔宴信条的诠释。"))
 		return
 
 	var/datum/sabbat_ritae/ritae_description/ritus = ritae_datums[choice]

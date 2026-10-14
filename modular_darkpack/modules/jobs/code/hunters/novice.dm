@@ -1,6 +1,6 @@
 /datum/job/vampire/novice
 	title = JOB_NOVICE
-	description = "You are Novice who is undergoing, or a Tertiary who has just passed, their Novitiate in the Inquisition's organization The Society of Saint Leopold. Whether you were a lay-person or undergoing official clerical or religious training, your main task in the Society is now to study, scout, document, and be educated on the various supernatural creatures that threaten God's kingdom and it's balance - as well as remaining prepared for when your name is called."
+	description = "你是宗教裁判所下属圣利奥波德协会的见习修士，正在经历见习期；也可能是刚完成见习的在俗修士。无论你此前是普通信徒，还是接受过正式的神职或修会训练，如今在协会的主要任务都是学习、侦察并记录那些威胁上帝国度及其秩序的超自然生物，同时随时准备响应召唤。"
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3

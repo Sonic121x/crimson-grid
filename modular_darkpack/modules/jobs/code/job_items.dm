@@ -1,31 +1,31 @@
 
 /obj/item/card/prince
-	name = "leader badge"
-	desc = "King in the castle!"
+	name = "领袖徽章"
+	desc = "城堡里的王！"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "prince_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/sheriff
-	name = "head security badge"
-	desc = "A badge which shows honour and dedication."
+	name = "安保主管徽章"
+	desc = "一枚象征荣誉与奉献的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "head_sec_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/camarilla
-	name = "security badge"
-	desc = "A badge which shows honour and dedication."
+	name = "保安徽章"
+	desc = "一枚象征荣誉与奉献的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "sec_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/clerk
-	name = "clerk badge"
-	desc = "A badge which shows buerocracy qualification."
+	name = "文员徽章"
+	desc = "一枚证明行政办事资格的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "red_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -33,12 +33,12 @@
 	worn_icon_state = "red_id"
 
 /obj/item/card/clerk/harpy
-	name = "public relations manager badge"
-	desc = "A badge which denotes the wearer as a PR Manager of Transamerica."
+	name = "公关经理徽章"
+	desc = "一枚表明佩戴者是泛美公司公关经理的徽章。"
 
 /obj/item/card/tower_employee
-	name = "Millenium Tower Employee ID"
-	desc = "An ID showing employment with the Millenium Tower - Maybe they give you free donuts."
+	name = "千禧大厦员工证"
+	desc = "一张证明你受雇于千禧大厦的证件——也许他们会给你免费甜甜圈。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "green_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -46,8 +46,8 @@
 	worn_icon_state = "green_id"
 
 /obj/item/card/bruiser
-	name = "bruiser badge"
-	desc = "A badge which shows grit."
+	name = "打手徽章"
+	desc = "一枚象征坚韧的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "bruiser_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -55,8 +55,8 @@
 	worn_icon_state = "bruiser_badge"
 
 /obj/item/card/sweeper
-	name = "sweeper badge"
-	desc = "A badge which shows perspective."
+	name = "清道夫徽章"
+	desc = "一枚象征洞察力的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "sweeper_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -64,8 +64,8 @@
 	worn_icon_state = "sweeper_badge"
 
 /obj/item/card/emissary
-	name = "emissary badge"
-	desc = "A badge which shows a favored voice, interlaced with gold thread."
+	name = "使者徽章"
+	desc = "一枚交织着金线的徽章，象征着受到重视的话语权。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "emissary_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -73,8 +73,8 @@
 	worn_icon_state = "emissary_badge"
 
 /obj/item/card/baron
-	name = "eagle badge"
-	desc = "The badge of a leader. The eagle stands proud, surrounded by the gold of their nest."
+	name = "雄鹰徽章"
+	desc = "一枚领袖的徽章。雄鹰傲然挺立，金色的巢穴环绕其身。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "eagle_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -82,8 +82,8 @@
 	worn_icon_state = "eagle_badge"
 
 /obj/item/card/tapster
-	name = "bartender badge"
-	desc = "A badge displaying a beverage glass."
+	name = "调酒师徽章"
+	desc = "一枚饰有酒杯图案的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "tapster_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -92,28 +92,28 @@
 	worn_icon_state = "bruiser_badge"
 
 /obj/item/card/clinic
-	name = "medical badge"
-	desc = "A badge which shows medical qualification."
+	name = "医务徽章"
+	desc = "一枚证明医疗资质的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "green_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/clinic/director
-	name = "clinic director's badge"
-	desc = "A badge which shows not only medical qualification, but also an authority over the clinic."
+	name = "诊所主任徽章"
+	desc = "一枚不仅证明医疗资质，也象征诊所管理权的徽章。"
 
 /obj/item/card/archive
-	name = "scholar badge"
-	desc = "A badge which shows a love of culture."
+	name = "学者徽章"
+	desc = "一枚象征对文化热爱的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "grey_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/regent
-	name = "erudite scholar badge"
-	desc = "A badge which shows a deep understanding of culture."
+	name = "博学学者徽章"
+	desc = "一枚象征深厚文化学识的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "regent_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -121,8 +121,8 @@
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/cleaning
-	name = "janitor badge"
-	desc = "A badge which shows cleaning employment."
+	name = "清洁工徽章"
+	desc = "一枚证明清洁工身份的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "blue_card"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -130,24 +130,24 @@
 	worn_icon_state = "blue_card"
 
 /obj/item/card/graveyard
-	name = "keeper badge"
-	desc = "A badge which shows graveyard employment."
+	name = "守墓人徽章"
+	desc = "一枚证明墓园职员身份的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "blue_card"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/dealer
-	name = "business badge"
-	desc = "A badge which shows business."
+	name = "商务徽章"
+	desc = "一枚彰显生意人身份的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "red_card"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/supplytech
-	name = "technician badge"
-	desc = "A badge which shows supply employment."
+	name = "技师徽章"
+	desc = "一枚证明补给部门职员身份的徽章。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "supply_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -155,8 +155,8 @@
 	worn_icon_state = "head_sec_badge"
 
 /obj/item/card/hunter
-	name = "cross"
-	desc = "When you come into the land that the Lord your God is giving you, you must not learn to imitate the abhorrent practices of those nations. No one shall be found among you who makes a son or daughter pass through fire, or who practices divination, or is a soothsayer, or an augur, or a sorcerer, or one who casts spells, or who consults ghosts or spirits, or who seeks oracles from the dead. For whoever does these things is abhorrent to the Lord; it is because of such abhorrent practices that the Lord your God is driving them out before you (Deuteronomy 18:9-12)."
+	name = "十字架"
+	desc = "当你进入主你的上帝赐给你的土地时，不可效法那些民族可憎的习俗。你们中不可有人让自己的儿女经火，也不可有人占卜、算命、观兆、行巫术、施咒、问鬼、通灵或向亡者求问。凡行这些事的人都为主所憎恶；正是因为这些可憎的习俗，主你的上帝才将他们从你面前赶走。（《申命记》18:9-12）"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "hunter_badge"
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_NECK | ITEM_SLOT_BELT
@@ -164,11 +164,11 @@
 	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
 
 /obj/item/card/hunter/silver
-	name = "silver cross"
+	name = "银十字架"
 	icon_state = "hunter_silver"
 
 /obj/item/card/hunter/gothic
-	name = "gothic cross"
+	name = "哥特式十字架"
 	icon_state = "hunter_gothic"
 
 /obj/item/card/hunter/attack_self(mob/living/user)
@@ -188,7 +188,7 @@
 /obj/item/card/hunter/proc/bang(turf/turf, mob/living/living_mob, mob/living/user)
 	if(living_mob.stat == DEAD || living_mob == user || living_mob.mind?.holy_role) // Can't flash yourself
 		return
-	living_mob.show_message(span_warning(span_bold("GOD SEES YOU!")), MSG_AUDIBLE)
+	living_mob.show_message(span_warning(span_bold("上帝在注视你！")), MSG_AUDIBLE)
 
 	if(HAS_TRAIT(living_mob, TRAIT_REPELLED_BY_HOLINESS))
 		living_mob.emote("scream")
@@ -208,13 +208,13 @@
 	if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS) && target != user && !target.mind?.holy_role)
 		COOLDOWN_START(user, true_faith_cd, 30 SECONDS)
 		lightningbolt(target)
-		to_chat(target, span_userdanger("The gods have punished you for your sins!"))
+		to_chat(target, span_userdanger("诸神因你的罪行降下了惩罚！"))
 
 
 // POLICE
 /obj/item/card/police
-	name = "police officer badge"
-	desc = "A silver star made of smooth polished metal, indicating the wearer to be a police officer of the San Francisco Police Department."
+	name = "警员警徽"
+	desc = "一颗由光滑抛光金属制成的银星，表明佩戴者是旧金山警察局的警员。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "police_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -222,8 +222,8 @@
 	worn_icon_state = "police_badge"
 
 /obj/item/card/government
-	name = "emergency dispatcher badge"
-	desc = "Sponsored by the Government."
+	name = "紧急调度员徽章"
+	desc = "由政府提供。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "red_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -231,21 +231,21 @@
 	worn_icon_state = "red_id"
 
 /obj/item/card/police/sergeant
-	name = "police sergeant badge"
-	desc = "A silver star with intricate silver engravings, indicating the wearer to be a sergeant of the San Francisco Police Department."
+	name = "警长警徽"
+	desc = "一颗带有精致银色雕饰的银星，表明佩戴者是旧金山警察局的警长。"
 
 /obj/item/card/police/captain
-	name = "police captain badge"
-	desc = "A gold star with intricate 10k gold-filled engravings, indicating the wearer to be a captain of the San Francisco Police Department."
+	name = "警监警徽"
+	desc = "一颗带有精致 10K 包金雕饰的金星，表明佩戴者是旧金山警察局的警监。"
 
 /obj/item/card/police/fbi
-	name = "fbi special agent badge"
-	desc = "A rather ornate badge made of polished gold-like metal. It has the words \"Federal Bureau of Investigation\" engraved on it."
+	name = "联邦调查局特工徽章"
+	desc = "一枚用抛光金色金属制成的华丽徽章，上面刻着\"联邦调查局\"几个字。"
 
 // CULTISTS
 /obj/item/card/bahari
-	name = "cultist badge"
-	desc = "This shows your devotion to the dark mother."
+	name = "教徒徽章"
+	desc = "这象征着你对黑暗之母的虔诚。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "id14"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -253,8 +253,8 @@
 	worn_icon_state = "police_badge"
 
 /obj/item/card/noddist
-	name = "cultist badge"
-	desc = "This shows your devotion to the dark father."
+	name = "教徒徽章"
+	desc = "这象征着你对黑暗之父的虔诚。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "id15"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -263,8 +263,8 @@
 
 //TZIMISCE ROLES
 /obj/item/card/voivode
-	name = "ancient badge"
-	desc = "You have to wear this filthy thing to be recognized."
+	name = "古老徽章"
+	desc = "你得戴着这肮脏玩意儿，别人才认得出你的身份。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "id12"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -272,8 +272,8 @@
 	worn_icon_state = "head_sec_badge"
 
 /obj/item/card/bogatyr
-	name = "dusty badge"
-	desc = "You have to wear this because the Voivode wants you to."
+	name = "落灰的徽章"
+	desc = "你得戴着它，因为领主要求你这么做。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "id12"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -282,8 +282,8 @@
 
 // PRIMOGEN STUFF
 /obj/item/card/primogen
-	name = "mysterious primogen badge"
-	desc = "Sponsored by the Shadow Government."
+	name = "神秘的元老徽章"
+	desc = "由影子政府提供。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "id12"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -291,8 +291,8 @@
 	worn_icon_state = "head_sec_badge"
 
 /obj/item/card/whip
-	name = "primogen's whip badge"
-	desc = "This badge shows your servitude to an important person."
+	name = "元老督导徽章"
+	desc = "这枚徽章表明你为一位大人物效力。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "onyx_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -300,8 +300,8 @@
 	worn_icon_state = "onyx_badge"
 
 /obj/item/card/steward
-	name = "primogen's steward badge"
-	desc = "This badge shows you're very good at taking care of someone else's property."
+	name = "元老管家徽章"
+	desc = "这枚徽章表明你很擅长打理别人的财产。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "emerald_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -309,8 +309,8 @@
 	worn_icon_state = "emerald_badge"
 
 /obj/item/card/myrmidon
-	name = "primogen's myrmidon badge"
-	desc = "A badge which shows you're responsible enough to protect someone important but not responsible enough to protect the most important."
+	name = "元老亲卫徽章"
+	desc = "这枚徽章表明你足以担负保护大人物的责任，但还不足以保护最重要的那一位。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "ruby_badge"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -318,8 +318,8 @@
 	worn_icon_state = "ruby_badge"
 
 /obj/item/card/park_ranger
-	name = "Park Ranger badge"
-	desc = "Only you can prevent forest fires."
+	name = "公园巡护员徽章"
+	desc = "预防森林火灾，就靠你了。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "grey_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -327,24 +327,24 @@
 	worn_icon_state = "grey_id"
 
 /obj/item/card/park_ranger/oversight
-	name = "NPS Oversight Committee badge"
-	desc = "You have been out in the woods to know that you arent afraid of anything but one specific topic out there. Leadership."
+	name = "国家公园管理局监督委员会徽章"
+	desc = "你在林间见惯了风浪，知道自己无所畏惧，唯独一件事除外：担任领袖。"
 
 /obj/item/card/park_ranger/leader
-	name = "Lead Park Ranger badge"
-	desc = "These are your woods and your lands. Keep them safe."
+	name = "公园巡护队长徽章"
+	desc = "这些林地与土地归你守护。保护好它们。"
 
 /obj/item/card/park_ranger/guide
-	name = "Park Guide badge"
-	desc = "Remember, Dire Wolves arent real, as far as you tell people."
+	name = "公园向导徽章"
+	desc = "记住，恐狼并不存在——至少对外要这么说。"
 
 /obj/item/card/park_ranger/biologist
-	name = "NPS Biologist badge"
-	desc = "You love the outdoors? Good, you are now taking care of a wide outdoors area."
+	name = "国家公园管理局生物学家徽章"
+	desc = "你热爱户外？很好，现在一大片野外区域都归你照管了。"
 
 /obj/item/card/pentex
-	name = "\improper " + MAIN_EVIL_COMPANY + " employee badge"
-	desc = "Congratulations, wagie."
+	name = "\improper " + MAIN_EVIL_COMPANY + "员工徽章"
+	desc = "恭喜你，打工仔。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "green_id"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
@@ -352,21 +352,21 @@
 	worn_icon_state = "green_id"
 
 /obj/item/card/pentex/branch_lead
-	name = "\improper " + MAIN_EVIL_COMPANY + " Branch Lead badge"
-	desc = "How bad can I be?"
+	name = "\improper " + MAIN_EVIL_COMPANY + "分部主管徽章"
+	desc = "我能有多坏呢？"
 
 /obj/item/card/pentex/executive
-	name = "\improper " + MAIN_EVIL_COMPANY + " Executive card"
-	desc = "All the customers are buying."
+	name = "\improper " + MAIN_EVIL_COMPANY + "高管证"
+	desc = "顾客们都在掏钱。"
 
 /obj/item/card/pentex/affairs
-	name = "\improper " + MAIN_EVIL_COMPANY + " Internal Affairs card"
-	desc = "And the Lawyers are denying."
+	name = "\improper " + MAIN_EVIL_COMPANY + "内务调查员证"
+	desc = "律师们都在否认。"
 
 /obj/item/card/pentex/secchief
-	name = "\improper " + MAIN_EVIL_COMPANY + " Chief of Security badge"
-	desc = "Its not illegal if nobody finds out about it. Now if only " + MAIN_EVIL_COMPANY + " would pay for a single tank for you."
+	name = "\improper " + MAIN_EVIL_COMPANY + "安保主管徽章"
+	desc = "只要没人发现，就不算违法。要是" + MAIN_EVIL_COMPANY + "肯出钱给你买辆坦克就好了。"
 
 /obj/item/card/pentex/sec
-	name = "\improper " + MAIN_EVIL_COMPANY + " Security Agent badge"
-	desc = "Corporate Security, a step above a mall cop. Better paid than a real cop."
+	name = "\improper " + MAIN_EVIL_COMPANY + "安保员徽章"
+	desc = "企业保安，比商场保安高一级，薪水比真正的警察还高。"

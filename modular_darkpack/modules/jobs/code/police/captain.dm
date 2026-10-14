@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the SFPD Chief"
+	supervisors = "旧金山警察局局长"
 	config_tag = "POLICE_CAPTAIN"
 	outfit = /datum/outfit/job/vampire/police_captain
 	job_flags = CITY_JOB_FLAGS
@@ -19,7 +19,7 @@
 
 	allowed_splats = list(SPLAT_NONE)
 
-	description = "Underpaid, overworked, and understrength. Do your best to keep the order in " + CITY_NAME + ". Keep the officers in line."
+	description = "薪水微薄、工作繁重、人手短缺。尽力维持" + CITY_NAME + "的秩序，管好手下的警员。"
 	minimum_masquerade = 0
 
 	known_contacts = list(

@@ -340,28 +340,28 @@
 /datum/job/proc/get_spawn_message_information(alt_title = title) // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message_information()
 	SHOULD_CALL_PARENT(TRUE)
 	var/list/info = list()
-	info += "<b>You are the [alt_title].</b>\n" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
+	info += "<b>你的职业是[alt_title]。</b>\n" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
 	var/related_policy = get_policy(policy_override || title)
 	var/radio_info = get_radio_information()
 	if(related_policy)
 		info += related_policy
 	if(supervisors)
-		info += "As the [alt_title == title ? alt_title : "[alt_title] ([title])"] you answer directly to [supervisors]. Special circumstances may change this." // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
+		info += "作为[alt_title == title ? alt_title : "[alt_title]（[title]）"]，你的直属上级或遵从对象为：[supervisors]。特殊情况下可能有所变动。" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
 	if(radio_info)
 		info += radio_info
 	if(req_admin_notify)
-		info += "<b>You are playing a job that is important for Game Progression. \
-			If you have to disconnect, please notify the admins via adminhelp.</b>"
+		info += "<b>你所扮演的职业对游戏进程十分重要。\
+			如果必须下线，请通过管理员求助功能通知管理员。</b>"
 	if(CONFIG_GET(number/minimal_access_threshold))
-		info += span_boldnotice("As this station was initially staffed with a \
-			[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
-			have been added to your ID card.")
+		info += span_boldnotice("由于本站开局时\
+			[CONFIG_GET(flag/jobs_have_minimal_access) ? "人员充足，你的身份卡仅获授本职工作所需的权限" : "人手不足，你的身份卡可能获授了额外权限"]\
+			。")
 	return info
 
 /// Returns information pertaining to this job's radio.
 /datum/job/proc/get_radio_information()
 	if(job_flags & JOB_CREW_MEMBER)
-		return "<b>Prefix your message with :h to speak on your department's radio. To see other prefixes, look closely at your headset.</b>"
+		return "<b>在消息前加上 :h 即可通过部门无线电发言。仔细查看耳机，可了解其他频道前缀。</b>"
 
 /datum/outfit/job
 	name = "Standard Gear"

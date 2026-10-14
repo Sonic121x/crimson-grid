@@ -3,7 +3,7 @@
 	faction = FACTION_GIOVANNI
 	total_positions = 10
 	spawn_positions = 10
-	supervisors = "the Family"
+	supervisors = "家族"
 	config_tag = "LA_FAMIGLIA"
 	outfit = /datum/outfit/job/vampire/famiglia
 	job_flags = CITY_JOB_FLAGS
@@ -25,7 +25,7 @@
 	allowed_clans = list(VAMPIRE_CLAN_CAITIFF)
 	maximal_generation = 9
 	maximum_immortal_age = 200
-	description = "Your family is a strange one. Maybe you are strange too, because sitting next to your great uncles as an equal is something you are greatly interested in."
+	description = "你的家族很古怪。也许你也一样，因为你十分向往有朝一日能与叔祖辈平起平坐。"
 	minimum_masquerade = 0
 
 /datum/outfit/job/vampire/famiglia

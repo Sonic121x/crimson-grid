@@ -3,7 +3,7 @@
 	faction = FACTION_GIOVANNI
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Family and the Traditions"
+	supervisors = "家族与传统戒律"
 	config_tag = "CAPO"
 	outfit = /datum/outfit/job/vampire/capo
 	job_flags = CITY_JOB_FLAGS
@@ -27,7 +27,7 @@
 		JOB_EMISSARY
 	)
 
-	description = "Pure blood runs through your veins and, with it, old power. Throughout your long life you have learnt to hold onto two things and never let go: money, and family."
+	description = "纯粹的血脉与古老的力量在你体内流淌。在漫长的一生中，你学会了牢牢抓住两样东西，永不放手：金钱，还有家族。"
 	minimum_masquerade = 0
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_GIOVANNI)

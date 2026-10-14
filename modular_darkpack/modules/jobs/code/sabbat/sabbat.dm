@@ -13,9 +13,9 @@
 	add_team_hud(owner.current, /datum/antagonist/sabbatist)
 
 /datum/antagonist/sabbatist/on_removal()
-	to_chat(owner.current, span_userdanger("You are no longer the part of Sabbat!"))
+	to_chat(owner.current, span_userdanger("你不再是魔宴同盟的一员！"))
 	return ..()
 
 /datum/antagonist/sabbatist/greet()
-	to_chat(owner.current, span_alertsyndie("You are now part of the Sabbat."))
+	to_chat(owner.current, span_alertsyndie("你现在是魔宴同盟的一员了。"))
 	//owner.announce_objectives()

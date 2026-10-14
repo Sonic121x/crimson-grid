@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "nobody. You are beholden only to yourself."
+	supervisors = "无人。你只对自己负责。"
 	config_tag = "MOUNTAIN_MASTER"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/mountain_master
@@ -21,7 +21,7 @@
 		JOB_DEALER
 	)
 	allowed_splats = list(SPLAT_NONE)
-	description = "You are the head of the Triad, a secretive criminal organization. You are responsible for overseeing all operations and ensuring the loyalty of your subordinates."
+	description = "你是秘密犯罪组织三合会的首领，负责统筹一切事务，确保手下忠心不二。"
 	minimum_masquerade = 3
 
 /datum/outfit/job/vampire/mountain_master

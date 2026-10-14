@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = " the SF local government."
+	supervisors = "旧金山市政府"
 	config_tag = "DISPATCHER"
 	outfit = /datum/outfit/job/vampire/dispatcher
 	job_flags = CITY_JOB_FLAGS
@@ -19,7 +19,7 @@
 	allowed_splats = list(SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE)
 	//splat_slots = list(SPLAT_GHOUL = 1, SPLAT_KINFOLK = 1) CRIMSON EDIT REMOVAL - Triad & other Roles
 
-	description = "Report emergencies to the correct emergency service."
+	description = "将紧急事件通报给相应的应急部门。"
 	minimum_masquerade = 0
 	known_contacts = list(
 		JOB_POLICE_CAPTAIN,

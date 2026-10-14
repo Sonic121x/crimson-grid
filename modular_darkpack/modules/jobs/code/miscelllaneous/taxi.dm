@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "your cab service"
+	supervisors = "你所属的出租车公司"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/taxi
 	config_tag = "TAXI_DRIVER"
@@ -19,7 +19,7 @@
 		JOB_TAXI_DRIVER
 	)
 
-	description = "Drive people in the city."
+	description = "开车接送城里的乘客。"
 	minimum_masquerade = 0
 	//Not including a max generation for reasons of Caine.
 

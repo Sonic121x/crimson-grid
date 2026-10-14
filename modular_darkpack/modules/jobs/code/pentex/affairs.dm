@@ -1,11 +1,11 @@
 /datum/job/vampire/affairs
 	title = JOB_PENTEX_AFFAIRS
-	description = "You are the internal affairs agent operating for " + MAIN_EVIL_COMPANY + ". You know the bloody and vile needs commanded of destruction will lead to jeopardy, and your duty is to see excellence on task rewarded and acknowledged, and curb the invariable atrocities that could endanger the greater plans of Pentex."
+	description = "你是" + MAIN_EVIL_COMPANY + "的内务专员。你明白，为毁灭而提出的血腥卑劣要求会招来危机。你的职责是让出色的工作得到认可与奖励，并遏制那些屡屡发生、可能危及潘特克斯整体计划的暴行。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Board and the Branch Lead"
+	supervisors = "董事会与分部负责人"
 	req_admin_notify = 1
 	minimal_player_age = 25
 	exp_requirements = EXP_REQ_MINOR

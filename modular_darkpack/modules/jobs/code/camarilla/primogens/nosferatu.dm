@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_nosferatu
 	title = JOB_PRIMOGEN_NOSFERATU
-	description = "Offer your infinite knowledge to Prince of the City, and run the warren, your domain watches over the sewers."
+	description = "以渊博的学识辅佐本市亲王，管理巢穴；下水道处于你的领地监控之下。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

@@ -1,6 +1,6 @@
 /datum/job/vampire/truthcatcher
 	title = JOB_GAROU_TRUTHCATCHER
-	description = "You are the most highly regarded Philodox within the Sept, granted the honor of being the ultimate arbitrator. It is your duty to meditate matters within the Sept. Enact your judgement upon anyone who violates the Litany."
+	description = "你是社群中最德高望重的半月仲裁者，获授最终裁决的重任。调解社群内部的纠纷是你的职责。对任何违反律诫的人作出审判。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_GAIA
 	total_positions = 1

@@ -2,9 +2,9 @@
 #define CITY_POLICE_DEPARTMENT CITY_NAME + " Police Department"
 
 #define NEWSPAPER_COMPANY "Angel Times"
-#define PRIMARY_NIGHTCLUB_COMPANY "Dora"
+#define PRIMARY_NIGHTCLUB_COMPANY "多拉"
 
-#define SEPT_NAME "Sept of the Western Eye"
+#define SEPT_NAME "西境之眼社群"
 
 #define EVIL_COMPANY "Pentex Group"
 
