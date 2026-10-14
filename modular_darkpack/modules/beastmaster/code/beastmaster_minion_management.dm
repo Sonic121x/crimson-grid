@@ -26,7 +26,7 @@
 
 	//all mobs that we want to control need an ai_controller. if they don't have it - they just cant be controlled.
 	if(!minion.ai_controller)
-		to_chat(src, span_warning("[minion] cannot be commanded!"))
+		to_chat(src, span_warning("无法指挥[minion]！"))
 		if(ispath(minion_or_type))
 			qdel(minion)
 		return FALSE
@@ -62,7 +62,7 @@
 	if(!had_minions)
 		register_beastmaster_signals()
 
-	to_chat(src, span_notice("You bind [minion] to your will!"))
+	to_chat(src, span_notice("你使[minion]臣服于你的意志！"))
 	return TRUE
 
 //when the minion dies we need to remove them from beastmaster_minions, and if there are no more minions, remove the signals from the master.
@@ -101,14 +101,14 @@
 	if(istype(living_minion))
 		if(living_minion in beastmaster_minions)
 			if(feedback)
-				to_chat(src, span_warning("[living_minion] already heads your commands."))
+				to_chat(src, span_warning("[living_minion]已经听命于你。"))
 			return FALSE
 
 	//limit of (leadership) + 1
 	var/max_minions = st_get_stat(STAT_LEADERSHIP) + 1
 	if(length(beastmaster_minions) >= max_minions)
 		if(feedback)
-			to_chat(src, span_warning("You cannot control more than [max_minions] minion[max_minions > 1 ? "s" : ""]!"))
+			to_chat(src, span_warning("你最多只能控制[max_minions]个仆从！"))
 		return FALSE
 
 	return TRUE

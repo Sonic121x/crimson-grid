@@ -22,7 +22,7 @@
 	return ..()
 
 /obj/effect/ebeam/reacting/blowtorch
-	name = "blowtorch"
+	name = "喷灯"
 	react_on_init = TRUE
 
 /datum/beam/blowtorch/process(seconds_per_tick)
@@ -76,7 +76,7 @@
 	victim.apply_damage(50, BURN)
 	victim.adjust_fire_stacks(3, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
 	victim.ignite_mob()
-	to_chat(victim, span_boldwarning("You are engulfed in infernal flames!"))
+	to_chat(victim, span_boldwarning("炼狱之火吞没了你！"))
 
 /datum/action/cooldown/spell/cone/staggered/entropic_plume_infernal/calculate_cone_shape(current_level)
 	// At the first level (that isn't level 1) we will be small

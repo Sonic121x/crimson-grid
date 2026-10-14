@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/daimonori
-	true_name = "Daimonori"
-	true_desc = "Increases thaumaturgy damage."
+	true_name = "戴蒙诺里"
+	true_desc = "提高血魔法造成的伤害。"
 	icon_state = "daimonori"
 	research_value = 20
 

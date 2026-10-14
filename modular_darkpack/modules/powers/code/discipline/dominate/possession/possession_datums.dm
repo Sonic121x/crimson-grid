@@ -28,7 +28,7 @@
 	end_action.Grant(mortal)
 
 	vamp.toggle_resting()
-	vamp.visible_message(span_warning("[vamp]'s eyes roll back and they collapse into a catatonic state!"))
+	vamp.visible_message(span_warning("[vamp]双眼翻白，瘫倒在地，陷入僵直失神的状态！"))
 	possession_active = TRUE
 	RegisterSignal(mortal, COMSIG_LIVING_DEATH, PROC_REF(handle_death_during_possession))
 
@@ -40,7 +40,7 @@
 		handle_death_during_possession()
 		return
 
-	to_chat(vamp, span_warning("You withdraw from [mortal.real_name]'s mind and return to your own body."))
+	to_chat(vamp, span_warning("你退出了[mortal.real_name]的心灵，回到自己的肉身。"))
 
 	vamp.ckey = mortal.ckey
 	if(mortal.mind)
@@ -51,7 +51,7 @@
 		mortal.ckey = observer.ckey
 		if(observer.mind)
 			mortal.mind = observer.mind
-		to_chat(mortal, span_notice("Your consciousness returns to your own body as the foreign presence withdraws."))
+		to_chat(mortal, span_notice("外来的意识退去，你的意识重新回到了自己的身体。"))
 	log_combat(vamp, mortal, "Has ended their Possession ")
 	mortal.possessed = FALSE
 	cleanup()
@@ -63,18 +63,18 @@
 	var/mob/living/carbon/human/mortal = mortal_body?.resolve()
 	var/mob/living/possession_observer/observer = mortal_observer?.resolve()
 
-	to_chat(vamp, span_boldwarning("The death of your host body violently ejects you from their mind!"))
+	to_chat(vamp, span_boldwarning("宿主的死亡将你从其心灵中猛地驱逐了出来！"))
 	vamp.ckey = mortal.ckey
 	if(mortal.mind)
 		vamp.mind = mortal.mind
 
 	vamp.adjust_brute_loss(50)
-	vamp.visible_message(span_danger("[vamp] suddenly convulses violently and falls into what appears to be a coma!"))
-	to_chat(vamp, span_boldwarning("The psychic shock of your host's death sends you into torpor!"))
+	vamp.visible_message(span_danger("[vamp]突然剧烈抽搐，随即陷入了仿佛昏迷的状态！"))
+	to_chat(vamp, span_boldwarning("宿主死亡带来的精神冲击使你陷入长眠！"))
 	vamp.torpor(DAMAGE_TRAIT)
 
 	if(observer)
-		to_chat(observer, span_boldwarning("Your body has died while you were displaced from it. You fade into oblivion..."))
+		to_chat(observer, span_boldwarning("你离体期间，肉身已经死亡。你的意识渐渐消逝于虚无……"))
 		observer.ghostize()
 
 	cleanup()
@@ -101,8 +101,8 @@
 	qdel(src)
 
 /mob/living/possession_observer
-	name = "displaced consciousness"
-	real_name = "displaced consciousness"
+	name = "离体意识"
+	real_name = "离体意识"
 	var/datum/weakref/possessed_body
 	var/datum/weakref/controller
 
@@ -116,20 +116,20 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_warning("Your consciousness has been displaced from your body by a supernatural force. You can only observe as another mind controls your physical form."))
-	to_chat(src, span_notice("You are helpless to act, but can still observe and think. Pray that the intruder releases control soon..."))
+	to_chat(src, span_warning("一股超自然力量将你的意识逐出了肉身。另一个心灵控制着你的身体，你只能旁观。"))
+	to_chat(src, span_notice("你无法行动，但仍能观察和思考。祈祷入侵者早日放弃控制吧……"))
 
 /mob/living/possession_observer/say(message,bubble_type,list/spans = list(),sanitize = TRUE,datum/language/language,ignore_spam = FALSE,forced,filterproof = FALSE,message_range = 7,datum/saymode/saymode,list/message_mods = list())
-	to_chat(src, span_warning("You have no voice while displaced from your body!"))
+	to_chat(src, span_warning("意识离体时，你无法发出声音！"))
 	return FALSE
 
 /mob/living/possession_observer/emote(act, m_type = null, message = null, intentional = FALSE)
-	to_chat(src, span_warning("You cannot express yourself while displaced from your body!"))
+	to_chat(src, span_warning("意识离体时，你无法做出任何表情动作！"))
 	return FALSE
 
 /datum/action/end_possession
-	name = "End Possession"
-	desc = "Release control of the possessed body and return to your own."
+	name = "结束附身"
+	desc = "放弃对被附身者身体的控制，回到自己的肉身。"
 	button_icon_state = "possession_end"
 	check_flags = NONE
 	var/datum/weakref/controller

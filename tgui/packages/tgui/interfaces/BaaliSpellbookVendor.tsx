@@ -62,7 +62,7 @@ const ProductRow = (props) => {
         <b style={{ color: inStock ? '#00b300' : '#666666' }}>{product.name}</b>
         <br />
         <span style={{ fontSize: '0.8em', color: inStock ? '#996666' : '#555555' }}>
-          Stock: {product.stock || 0}
+          库存：{product.stock || 0}
         </span>
       </Table.Cell>
       <Table.Cell>
@@ -71,7 +71,7 @@ const ProductRow = (props) => {
           onClick={() => onPurchase(product.ref)}
           style={{ minWidth: '105px', textAlign: 'center' }}
         >
-          {inStock ? `${product.price || 0} favor` : 'Out of Stock!'}
+          {inStock ? `${product.price || 0} 点恩宠` : '已售罄！'}
         </Button>
       </Table.Cell>
     </Table.Row>
@@ -82,22 +82,22 @@ export const BaaliSpellbookVendor = (props) => {
   const { act, data } = useBackend<SpellbookVendorData>();
 
   const { product_records = [], user } = data;
-  const greeting = 'Greetings, accursed...';
+  const greeting = '你好，受诅咒者……';
 
   return (
     <Window width={465} height={700} theme="blood_cult">
       <Window.Content scrollable>
-        <Section title="Infernalist" style={STYLE.section}>
+        <Section title="炼狱信徒" style={STYLE.section}>
           {user && (
             <Box style={{ color: '#248f24' }}>
               {greeting}
               <br />
-              You have <b style={{ color: '#00b300' }}>{user.points} favor</b>.
+              你拥有 <b style={{ color: '#00b300' }}>{user.points} 点恩宠</b>。
             </Box>
           )}
         </Section>
 
-        <Section title="Infernal Compendium" style={STYLE.section}>
+        <Section title="炼狱典藏" style={STYLE.section}>
           <Table style={STYLE.tableDark}>
             {product_records.map((product) => (
               <ProductRow

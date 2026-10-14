@@ -1,12 +1,12 @@
 /datum/discipline/thaumaturgy
 	name = "Thaumaturgy"
-	desc = {"Opens the secrets of blood magic and how you use it, allows to steal other's blood. Violates Masquerade.
-	Difficulty scales depending on the dots used.
-● A Taste for Blood: Permanent Willpower
-●● Blood Rage: Permanent Willpower
-●●● Blood of Potency: Permanent Willpower
-●●●● Theft of Vitae: Permanent Willpower
-●●●●● Cauldron of Blood: Permanent Willpower"}
+	desc = {"揭示血魔法的奥秘与施展方法，使你能够窃取他人的血液。违反避世戒律。
+	难度随所用能力的等级变化。
+● 血之品鉴：永久意志力
+●● 血之狂怒：永久意志力
+●●● 强效之血：永久意志力
+●●●● 窃取血粹：永久意志力
+●●●●● 沸血之釜：永久意志力"}
 	icon_state = "thaumaturgy"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/thaumaturgy
@@ -53,7 +53,7 @@
 		thaumaturgy_botch_effect()
 		return TRUE
 	else if(success_count == 0)
-		to_chat(owner, span_notice("Your magic fizzles out!"))
+		to_chat(owner, span_notice("你的法术消散了！"))
 		return TRUE
 	return FALSE
 
@@ -61,23 +61,23 @@
 	var/random_effect = rand(1, 3)
 	switch(random_effect)
 		if(1)
-			to_chat(owner, span_userdanger("You feel like something snapped inside of you!"))
+			to_chat(owner, span_userdanger("你感觉体内有什么东西断裂了！"))
 			//for(var/obj/item/bodypart/limb in owner.bodyparts)
 				///var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/severe, /datum/wound/blunt/moderate)) TODO : chaz, wounds
 				//limb.force_wound_upwards(type_wound)
 		if(2)
-			to_chat(owner, span_userdanger("You feel like there's a sun inside of you!"))
+			to_chat(owner, span_userdanger("你感觉仿佛有一轮太阳正在体内燃烧！"))
 			owner.adjust_fire_stacks(5)
 			owner.ignite_mob()
 		if(3)
-			to_chat(owner, span_userdanger("You feel slightly less competent!"))
+			to_chat(owner, span_userdanger("你感觉自己有些力不从心！"))
 			owner.st_add_stat_mod(STAT_TEMPORARY_WILLPOWER, -1, "thaummaturgy_failure")
 
 //------------------------------------------------------------------------------------------------
 
 /datum/discipline_power/thaumaturgy/a_taste_for_blood
-	name = "A Taste for Blood"
-	desc = "Touch the blood of a subject and gain information about the subject."
+	name = "血之品鉴"
+	desc = "触碰目标的血液，从中获取有关血液主人的信息。"
 
 	level = 1
 	range = 1
@@ -100,17 +100,17 @@
 		return
 	var/datum/reagent/blood/blood = target.reagents.has_reagent(/datum/reagent/blood, check_subtypes = TRUE)
 	if(!blood)
-		to_chat(owner, span_notice("This blood tastes bland."))
+		to_chat(owner, span_notice("这血尝起来平淡无奇。"))
 		return
 
 	var/datum/weakref/donor_ref = blood.data["donor"]
 	if(!donor_ref)
-		to_chat(owner, span_notice("This blood tastes bland."))
+		to_chat(owner, span_notice("这血尝起来平淡无奇。"))
 		return
 
 	var/mob/living/carbon/human/blood_owner = donor_ref.resolve()
 	if(!blood_owner)
-		to_chat(owner, span_notice("This blood tastes bland."))
+		to_chat(owner, span_notice("这血尝起来平淡无奇。"))
 		return
 
 	var/list/message = list()
@@ -118,12 +118,12 @@
 
 	if(success_count > 1)
 		if(get_kindred_splat(blood_owner))
-			message += span_notice("The blood tastes like a kindred's blood.")
+			message += span_notice("这血尝起来像是血族的血液。")
 		else
-			message += span_danger("The blood doesn't taste like that of a kindred's.")
+			message += span_danger("这血尝起来不像血族的血液。")
 			get_kindred_splat = FALSE
 	else
-		message += span_danger("The blood doesn't taste like that of a kindred's.")
+		message += span_danger("这血尝起来不像血族的血液。")
 		get_kindred_splat = FALSE
 
 	if(!get_kindred_splat)
@@ -132,28 +132,28 @@
 
 	var/blood_generation = blood_owner.get_generation()
 	if(success_count > 2)
-		message += span_notice("This blood tastes like that of the [blood_generation]\th generation.")
+		message += span_notice("这血尝起来像是第[blood_generation]世代的血液。")
 	else
-		message += span_notice("This blood tastes like that of the [rand(LOWEST_GENERATION_LIMIT, blood_generation)]\th generation.")
+		message += span_notice("这血尝起来像是第[rand(LOWEST_GENERATION_LIMIT, blood_generation)]世代的血液。")
 
 	if(success_count > 3)
-		message += span_notice("The owner of the blood has [blood_owner.bloodpool] blood points left.")
+		message += span_notice("血液主人还剩[blood_owner.bloodpool]血点。")
 	else
-		message += span_notice("The owner of the blood has [rand(1, blood_owner.bloodpool)] blood points left.")
+		message += span_notice("血液主人还剩[rand(1, blood_owner.bloodpool)]血点。")
 
 	if(success_count > 4)
 		if(HAS_TRAIT(blood_owner, TRAIT_DIABLERIE))
-			message += span_danger("The owner of this blood has commmited the act of Diablerie in their past.")
+			message += span_danger("这份血液的主人曾经实施过血噬。")
 	else if(success_count <= 0) //Botches.
-		message += span_danger("The owner of this blood has commmited the act of Diablerie in their past.")
+		message += span_danger("这份血液的主人曾经实施过血噬。")
 
 	to_chat(owner, boxed_message(jointext(message, "\n")))
 
 //------------------------------------------------------------------------------------------------
 
 /datum/discipline_power/thaumaturgy/blood_rage
-	name = "Blood Rage"
-	desc = "Impose your will on another Kindred's vitae and force them to spend it as you wish."
+	name = "血之狂怒"
+	desc = "将你的意志强加于另一名血族的血粹，迫使其按你的意愿消耗血粹。"
 
 	effect_sound = 'sound/effects/magic/demon_consume.ogg'
 
@@ -188,8 +188,8 @@
 //------------------------------------------------------------------------------------------------
 
 /datum/discipline_power/thaumaturgy/blood_of_potency
-	name = "Blood of Potency"
-	desc = "Supernaturally thicken your vitae as if you were of a lower Generation."
+	name = "强效之血"
+	desc = "以超自然力量强化血粹，使其宛如更低世代血族的血液。"
 
 	level = 3
 
@@ -210,7 +210,7 @@
 	. = ..()
 	if(activated)
 		if(alert)
-			to_chat(owner, span_warning("You cannot cast [src] more than once per night!"))
+			to_chat(owner, span_warning("你每晚只能施展一次[src]！"))
 		return FALSE
 	return TRUE
 
@@ -219,7 +219,7 @@
 		return
 	var/current_generation = owner.get_generation()
 	if(current_generation <= 4)
-		to_chat(owner, span_warning("You can't make your blood any more powerful!"))
+		to_chat(owner, span_warning("你无法进一步增强血液的力量了！"))
 		return
 	var/points_to_spend = success_count
 	var/chosen_generation
@@ -228,7 +228,7 @@
 	var/list/generation_choices = list()
 	for(var/i in 1 to points_to_spend)
 		generation_choices += clamp((current_generation - i), 4, HIGHEST_GENERATION_LIMIT) //No becoming an Antediluvian.
-	chosen_generation = tgui_input_list(owner, "What Generation would you like to lower your blood's potency to?", "Generation", generation_choices, null)
+	chosen_generation = tgui_input_list(owner, "你希望将血液强化到哪个更低的世代？", "世代", generation_choices, null)
 
 	if(!chosen_generation)
 		chosen_generation = current_generation - 1
@@ -238,7 +238,7 @@
 	var/list/time_choices = list()
 	for(var/i in 1 to points_to_spend)
 		time_choices += i
-	set_time = tgui_input_list(owner, "How many hours do you want this to last?", "Time", time_choices, 1)
+	set_time = tgui_input_list(owner, "你希望效果持续多少小时？", "时长", time_choices, 1)
 	if(!set_time)
 		set_time = 1
 
@@ -249,8 +249,8 @@
 //------------------------------------------------------------------------------------------------
 
 /datum/discipline_power/thaumaturgy/theft_of_vitae
-	name = "Theft of Vitae"
-	desc = "Draw your target's blood to you, supernaturally absorbing it as it flies."
+	name = "窃取血粹"
+	desc = "将目标的血液牵引向你，并在其飞来时以超自然力量吸收。"
 
 	level = 4
 
@@ -274,7 +274,7 @@
 		return
 
 	owner.Beam(BeamTarget = target, icon_state = "drainbeam", time = 1 SECONDS)
-	target.visible_message(span_danger("[target]'s blood streams out in a torrent towards [owner]!"), span_userdanger("Your blood streams out in a torrent towards [owner]!"))
+	target.visible_message(span_danger("[target]的血液喷涌而出，流向[owner]！"), span_userdanger("你的血液喷涌而出，流向[owner]！"))
 	if(get_kindred_splat(target) || get_ghoul_splat(target))
 		var/blood_taken = clamp(success_count, 0, target.bloodpool)
 		target.adjust_blood_pool(-blood_taken)
@@ -301,8 +301,8 @@
 
 //CAULDRON OF BLOOD
 /datum/discipline_power/thaumaturgy/cauldron_of_blood
-	name = "Cauldron of Blood"
-	desc = "Boil your target's blood in their body, killing almost anyone."
+	name = "沸血之釜"
+	desc = "让目标体内的血液沸腾，几乎无人能在此术下生还。"
 
 	level = 5
 	range = 1
@@ -324,7 +324,7 @@
 	if(..())
 		return
 
-	target.visible_message(span_danger("As [owner] touches [target], their body seems to boil!"), span_userdanger("As [owner] touches you, your body feels like it's boiling in a pool of lava!"))
+	target.visible_message(span_danger("[owner]触碰[target]时，后者的身体仿佛沸腾起来！"), span_userdanger("[owner]触碰你时，你感觉身体仿佛在熔岩池中沸腾！"))
 	playsound(target, pick('sound/effects/wounds/sizzle1.ogg', 'sound/effects/wounds/sizzle2.ogg'), 50, TRUE)
 	target.adjust_blood_pool(-success_count)
 	if(isnpc(target))

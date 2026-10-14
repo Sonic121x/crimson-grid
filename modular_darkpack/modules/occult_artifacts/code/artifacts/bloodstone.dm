@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/bloodstone
-	true_name = "bloodstone"
-	true_desc = "A pulsing crimson stone that creates a mystical bond with its identifier."
+	true_name = "血石"
+	true_desc = "一颗不断搏动的猩红石头，会与鉴定它的人建立神秘联系。"
 	icon = 'modular_darkpack/modules/paths/icons/bloodstone_artifact.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/paths/icons/bloodstone_artifact_onfloor.dmi')
 	icon_state = "bloodstone"
@@ -15,7 +15,7 @@
 		var/mob/living/carbon/human/user = usr
 		if(ishuman(user))
 			bound_identifier = WEAKREF(user)
-			to_chat(user, span_warning("The bloodstone pulses with dark energy as it bonds to your essence. You will always know its location."))
+			to_chat(user, span_warning("血石涌动着黑暗能量，与你的本质相连。你将永远知晓它的位置。"))
 
 			tracking_action = new /datum/action/bloodstone_track(user, src)
 			tracking_action.Grant(user)
@@ -30,8 +30,8 @@
 	return ..()
 
 /datum/action/bloodstone_track
-	name = "Track Bloodstone"
-	desc = "Sense the location of your bound bloodstone."
+	name = "追踪血石"
+	desc = "感知与你绑定的血石的位置。"
 	button_icon = 'modular_darkpack/modules/paths/icons/bloodstone_artifact.dmi'
 	button_icon_state = "bloodstone_track"
 	check_flags = AB_CHECK_CONSCIOUS
@@ -48,16 +48,16 @@
 
 	var/obj/item/occult_artifact/vampire/bloodstone/bloodstone = tracked_stone.resolve()
 	if(!bloodstone)
-		to_chat(owner, span_warning("The bloodstone bond has been severed."))
+		to_chat(owner, span_warning("你与血石的联系已被切断。"))
 		Remove(owner)
 		qdel(src)
 		return FALSE
 
 	var/turf/stone_turf = get_turf(bloodstone)
 	if(!stone_turf)
-		to_chat(owner, span_warning("You cannot sense the bloodstone's location."))
+		to_chat(owner, span_warning("你无法感知血石的位置。"))
 		return FALSE
 
 	var/area/stone_area = get_area(bloodstone)
-	to_chat(owner, span_notice("The bloodstone whispers its location: [stone_area.name] ([stone_turf.x], [stone_turf.y])"))
+	to_chat(owner, span_notice("血石低语着它的位置：[stone_area.name]（[stone_turf.x]，[stone_turf.y]）"))
 	return TRUE

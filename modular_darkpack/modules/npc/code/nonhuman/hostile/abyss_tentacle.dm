@@ -2,8 +2,8 @@
 GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 
 /mob/living/basic/abyss_tentacle
-	name = "abyssal tentacle"
-	desc = "A shadowy tentacle from the abyss that seeks to grab and crush its prey."
+	name = "深渊触须"
+	desc = "一条来自深渊的暗影触须，试图抓住并碾碎猎物。"
 	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "goliath_tentacle_wiggle"
 	icon_living = "goliath_tentacle_wiggle"
@@ -17,10 +17,10 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attack_verb_continuous = "crushes"
-	attack_verb_simple = "crush"
+	attack_verb_continuous = "碾压"
+	attack_verb_simple = "碾压"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
-	speak_emote = list("writhes")
+	speak_emote = list("扭动着说")
 	basic_mob_flags = DEL_ON_DEATH
 	mobility_flags = NONE
 	move_resist = MOVE_FORCE_EXTREMELY_STRONG
@@ -93,7 +93,7 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
 	grabbed.apply_damage(40, BRUTE)
-	to_chat(grabbed, span_danger("The tentacle tightens its grip, crushing you!"))
+	to_chat(grabbed, span_danger("触须越缠越紧，正在挤压你的身体！"))
 	playsound(tentacle, 'sound/mobs/non-humanoids/venus_trap/venus_trap_hurt.ogg', 50, FALSE)
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
@@ -136,8 +136,8 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 	if(ai_controller?.blackboard[BB_ABYSS_TENTACLE_GRABBED])
 		return
 	if(target.client)
-		to_chat(target, span_userdanger("A shadowy tentacle grabs you!"))
-	visible_message(span_danger("[src] grabs hold of [target]!"))
+		to_chat(target, span_userdanger("一条暗影触须抓住了你！"))
+	visible_message(span_danger("[src]抓住了[target]！"))
 
 	playsound(src, 'sound/misc/moist_impact.ogg', 50, FALSE)
 	target.Stun(5)
@@ -147,7 +147,7 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 	if(ai_controller?.blackboard[BB_ABYSS_TENTACLE_MODE] == ABYSS_TENTACLE_MODE_CONTROL)
 		target.mobility_flags &= ~(MOBILITY_STAND | MOBILITY_MOVE)
 		target.set_resting(TRUE, TRUE, TRUE)
-		to_chat(target, span_userdanger("The tentacle forces you to the ground!"))
+		to_chat(target, span_userdanger("触须把你按倒在地！"))
 
 	ai_controller?.set_blackboard_key(BB_ABYSS_TENTACLE_GRABBED, target)
 	GLOB.global_tentacle_grabs += target
@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 			target.set_resting(FALSE, TRUE, TRUE)
 
 		UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
-		to_chat(target, span_notice("The tentacle releases you!"))
+		to_chat(target, span_notice("触须放开了你！"))
 
 		if(add_cooldown)
 			recently_released += target
@@ -192,17 +192,17 @@ GLOBAL_LIST_EMPTY(global_tentacle_grabs)
 			var/rollcheck = SSroll.storyteller_roll_datum(source, applic_stats = list(STAT_STRENGTH))
 			switch(rollcheck)
 				if(ROLL_SUCCESS)
-					to_chat(source, span_notice("You break free from the tentacle's grasp!"))
+					to_chat(source, span_notice("你挣脱了触须的束缚！"))
 					release_mob(source, TRUE)
 					return
 				if(ROLL_FAILURE, ROLL_BOTCH)
-					to_chat(source, span_warning("You struggle against the tentacle but can't break free!"))
+					to_chat(source, span_warning("你拼命挣扎，却无法挣脱触须！"))
 
-		source.visible_message(span_danger("The tentacle pulls [source] back!"))
+		source.visible_message(span_danger("触须把[source]拉了回去！"))
 		source.forceMove(get_turf(src))
 
 /mob/living/basic/abyss_tentacle/death(gibbed)
-	visible_message(span_danger("[src] retracts back into the shadows!"))
+	visible_message(span_danger("[src]缩回了阴影之中！"))
 	release_grabbed_mob()
 	. = ..()
 

@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/shapeshift/gangrel/beast_form
-	name = "Gangrel Form"
-	desc = "Take on the shape of an animal."
+	name = "冈格罗形态"
+	desc = "化身为动物。"
 
 	possible_shapes = list(
 		/mob/living/basic/bat/protean,
@@ -49,8 +49,8 @@
 			)
 
 /mob/living/basic/gangrel
-	name = "horrid form"
-	desc = "The pinnacle of bestial terror. Unbelievably tough."
+	name = "骇人形态"
+	desc = "兽性恐怖的极致，坚韧得令人难以置信。"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "gangrel_f"
 	icon_living = "gangrel_f"
@@ -62,8 +62,8 @@
 	butcher_results = list(/obj/item/stack/sheet/meat = 10)
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "劈砍"
+	attack_verb_simple = "劈砍"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 	combat_mode = TRUE
 	bloodpool = 10

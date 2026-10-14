@@ -5,11 +5,11 @@
  */
 /datum/pet_command/fetch
 	command_name = "Fetch"
-	command_desc = "Command your pet to retrieve something you throw or point at."
+	command_desc = "命令你的宠物取回你扔出或指向的物品。"
 	radial_icon_state = "fetch"
 	requires_pointing = TRUE
 	speech_commands = list("fetch")
-	command_feedback = "bounces"
+	command_feedback = "蹦跳"
 	pointed_reaction = "with great interest"
 	/// If true, this command will trigger if the pet sees a friend throw any item, if they're not doing anything else
 	var/trigger_on_throw = TRUE
@@ -31,7 +31,7 @@
 	UnregisterSignal(unfriended, COMSIG_MOB_THROW)
 
 /datum/pet_command/fetch/retrieve_command_text(atom/living_pet, atom/target)
-	return isnull(target) ? null : "signals [living_pet] to fetch [target]!"
+	return isnull(target) ? null : "示意[living_pet]取回[target]！"
 
 /// A friend has thrown something, if we're listening or at least not busy then go get it
 /datum/pet_command/fetch/proc/listened_throw(mob/living/carbon/thrower)

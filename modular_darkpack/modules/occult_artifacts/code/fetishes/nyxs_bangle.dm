@@ -1,9 +1,9 @@
 /* Nyx's Bangle */
 /obj/item/occult_artifact/werewolf/nyxs_bangle
-	name = "silver bracelet"
-	desc = "A chain bracelet made of silver."
-	true_name = "Nyx's Bangle"
-	true_desc = "A silver bracelet with numerous glyphs."
+	name = "银手链"
+	desc = "一条银制链式手镯。"
+	true_name = "倪克斯手镯"
+	true_desc = "一只刻满符文的银手镯。"
 	icon_state = "bangle"
 	worn_icon_state = "bangle"
 	slot_flags = ITEM_SLOT_GLOVES | ITEM_SLOT_ID
@@ -14,7 +14,7 @@
 
 /obj/item/occult_artifact/werewolf/nyxs_bangle/identify()
 	. = ..()
-	say("I am [spirit_name]... Hide now, in shadow.")
+	say("我是[spirit_name]……此刻，藏身暗影之中吧。")
 
 /obj/item/occult_artifact/werewolf/nyxs_bangle/ungrant_powers()
 	. = ..()
@@ -55,6 +55,6 @@
 /obj/item/occult_artifact/werewolf/nyxs_bangle/examine(mob/user)
 	. = ..()
 	if(identified)
-		. += span_nicegreen("Hide everything but your bestial eyes in shadow.")
-		. += span_notice("<b>EQUIP</b> [src] in the <b>ID</b> slot or <b>GLOVES</b> slot or <b>HOLD</b> it in your hand to become partially invisible in shadow.")
-		. += span_purple("Imbued with [spirit_name].")
+		. += span_nicegreen("让暗影遮蔽你的一切，只留下野兽般的双眼。")
+		. += span_notice("将[src]<b>装备</b>在<b>身份卡</b>栏或<b>手套</b>栏，或<b>握在手中</b>，即可在暗影中部分隐形。")
+		. += span_purple("其中寄宿着[spirit_name]。")

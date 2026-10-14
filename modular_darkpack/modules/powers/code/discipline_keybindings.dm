@@ -17,16 +17,16 @@
 	switch (slot)
 		if (0)
 			name = "unselect Discipline"
-			full_name = "Unselect Discipline"
-			description = "Unselect the Discipline you previously used keybinds to select"
+			full_name = "取消选择律能"
+			description = "取消先前用快捷键选中的律能"
 		if (1)
 			// Bloodheal is technically counted as a Discipline and it always takes slot 1
 			name = "select Bloodheal"
-			full_name = "Select Bloodheal"
+			full_name = "选择血疗术"
 		else
 			name = "select Discipline [slot - 1]"
-			full_name = "Select Discipline [slot - 1]"
-			description = "Select your [slot - 1]\th Discipline in the order you were given them"
+			full_name = "选择第[slot - 1]项律能"
+			description = "按获得顺序选择你的第[slot - 1]项律能"
 
 /datum/keybinding/discipline_select/down(client/user, turf/target, mousepos_x, mousepos_y)
 	. = ..()
@@ -54,8 +54,8 @@
 	classic_keys = list()
 	src.level = level
 	name = "activate Discipline level [level]"
-	full_name = "Activate Discipline level [level]"
-	description = "Activate the [level]\th level power of your selected Discipline"
+	full_name = "施展律能第[level]级能力"
+	description = "施展当前所选律能的第[level]级能力"
 
 /datum/keybinding/discipline_activate/down(client/user, turf/target, mousepos_x, mousepos_y)
 	. = ..()
@@ -85,7 +85,7 @@
 	src.discipline_type = discipline_type
 	src.level = level
 	name = "activate [discipline_type::name] [level]"
-	full_name = "Activate [discipline_type::name] [level]"
+	full_name = "施展[DISCIPLINE_DISPLAY_NAME(discipline_type::name)] [level]"
 
 /datum/keybinding/discipline_power/down(client/user, turf/target, mousepos_x, mousepos_y)
 	. = ..()

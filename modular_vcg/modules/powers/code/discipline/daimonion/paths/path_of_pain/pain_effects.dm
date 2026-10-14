@@ -6,8 +6,8 @@
 	var/botches_total = 0
 
 /atom/movable/screen/alert/status_effect/pain_botch
-	name = "Path of Pain Botch"
-	desc = "You scratch your own skin, thirsting for pain."
+	name = "痛苦之道大失败"
+	desc = "你渴求痛苦，不断抓挠自己的皮肤。"
 	icon_state = "blooddrunk"
 
 /datum/status_effect/pain_botch/on_apply()
@@ -32,8 +32,8 @@
 	alert_type = /atom/movable/screen/alert/status_effect/hundred_deaths
 
 /atom/movable/screen/alert/status_effect/hundred_deaths
-	name = "One Hundred Deaths"
-	desc = "You feel the weight of one hundred deaths crushing your body and soul."
+	name = "百死折磨"
+	desc = "你感到百次死亡的重压正碾碎你的身躯与灵魂。"
 	icon_state = "blooddrunk"
 
 /datum/status_effect/hundred_deaths/on_creation(mob/living/carbon/new_owner)

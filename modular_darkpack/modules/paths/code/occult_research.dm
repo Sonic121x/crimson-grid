@@ -37,14 +37,14 @@ SUBSYSTEM_DEF(occult_research)
 
 	if(COOLDOWN_FINISHED(src, research_notification_cooldown))
 		COOLDOWN_START(src, research_notification_cooldown, 10 MINUTES)
-		to_chat(user, span_notice("Your occult studies have yielded [research_gain] research points. Total: [user.research_points]"))
+		to_chat(user, span_notice("你的神秘学研究带来了[research_gain]研究点。当前总计：[user.research_points]"))
 
-GAME_VERB_PROC_DESC(/mob/living/carbon/human, check_research_points, "Check Research Points", "Check your current research point balance.", null)
+GAME_VERB_PROC_DESC(/mob/living/carbon/human, check_research_points, "查看研究点", "查看你当前拥有的研究点。", null)
 	if(!get_discipline(/datum/discipline/thaumaturgy))
-		to_chat(src, span_alert("You lack occult knowledge."))
+		to_chat(src, span_alert("你缺乏神秘学知识。"))
 		return
 
-	to_chat(src, span_notice("You currently have [research_points] research points."))
+	to_chat(src, span_notice("你当前拥有[research_points]研究点。"))
 
 
 /datum/controller/subsystem/occult_research/proc/process_blood_collection(mob/living/carbon/human/caster, datum/reagent/blood/blood_sample)
@@ -63,7 +63,7 @@ GAME_VERB_PROC_DESC(/mob/living/carbon/human, check_research_points, "Check Rese
 
 	// check if the bloods already been collected
 	if(LAZYFIND(collected_blood, blood_identifier))
-		to_chat(caster, span_notice("This blood was already identified."))
+		to_chat(caster, span_notice("这份血液已经鉴定过了。"))
 		return
 
 	LAZYADD(collected_blood, blood_identifier)
@@ -74,23 +74,23 @@ GAME_VERB_PROC_DESC(/mob/living/carbon/human, check_research_points, "Check Rese
 
 	if(blood_splat)
 		var/datum/splat/splat_type = GLOB.splat_list[blood_splat]
-		splat_name = splat_type::name
+		splat_name = list("Kindred" = "血族", "Garou" = "狼人", "Corax" = "渡鸦变形者", "Ghoul" = "血仆")[splat_type::name] || splat_type::name
 
 	switch(blood_splat)
 		if(SPLAT_KINDRED)
 			var/generation = blood_data["generation"]
 			var/clan = blood_data["clan"]
 			research_award = (GHOUL_GENERATION - generation) * 5
-			research_message = "You gain new insights into the [splat_name] from clan [clan]! You gain [research_award] research points."
+			research_message = "你对[CLAN_DISPLAY_NAME(clan)]氏族的[splat_name]有了新的认识！获得了[research_award]研究点。"
 		if(SPLAT_GAROU)
 			research_award = 30
-			research_message = "You gain [research_award] research points."
+			research_message = "你获得了[research_award]研究点。"
 		if(SPLAT_CORAX)
 			research_award = 30
-			research_message = "You gain [research_award] research points."
+			research_message = "你获得了[research_award]研究点。"
 		if(SPLAT_GHOUL)
 			research_award = 5
-			research_message = "You gain [research_award] research points."
+			research_message = "你获得了[research_award]研究点。"
 		/*
 		if(SPLAT_KUEI_JIN)
 			research_award = 15

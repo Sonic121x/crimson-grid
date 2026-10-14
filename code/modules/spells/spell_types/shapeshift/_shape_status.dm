@@ -74,7 +74,7 @@
 /// Called when the transformed mob tries to change into a different kind of mob, we wouldn't handle this well so we'll just turn back
 /datum/status_effect/shapechange_mob/proc/on_mob_transformed(mob/living/source)
 	var/mob/living/revealed_mob = caster_mob
-	source.visible_message(span_warning("[revealed_mob] gets pulled back to their normal form!"))
+	source.visible_message(span_warning("[revealed_mob]被迫恢复了原形！"))
 	restore_caster()
 	revealed_mob.Paralyze(10 SECONDS, ignore_canstun = TRUE)
 
@@ -248,9 +248,9 @@
 	return ..() // Kill our owner and revert, like normal
 
 /atom/movable/screen/alert/status_effect/shapeshifted
-	name = "Shapeshifted"
-	desc = "Your form is not your own... you're shapeshifted into another creature! \
-		A wizard could turn you back - or maybe you're stuck like this for good?"
+	name = "变形中"
+	desc = "这并非你本来的形态……你变成了另一种生物！ \
+		巫师或许能让你恢复原形——又或许你永远都得保持这副模样了？"
 	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "shapeshifted"
 	clickable_glow = TRUE

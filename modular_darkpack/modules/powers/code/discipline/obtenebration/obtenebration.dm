@@ -1,11 +1,11 @@
 /datum/discipline/obtenebration
 	name = "Obtenebration"
-	desc = {"Controls the darkness around you.
-● Shadow Play: Passive
-●● Shroud of Night: Manipulation + Occult (difficulty 7)
-●●● Arms of the Abyss: Manipulation + Occult (difficulty 7)
-●●●● Black Metamorphosis: Manipulation + Courage (difficulty 7)
-●●●●● Tenebrous Form: Passive"}
+	desc = {"操纵周围的黑暗。
+● 弄影术：被动
+●● 夜幕遮蔽：操控 + 神秘学（难度 7）
+●●● 深渊之臂：操控 + 神秘学（难度 7）
+●●●● 黑暗蜕变：操控 + 勇气（难度 7）
+●●●●● 暗影形态：被动"}
 	icon_state = "obtenebration"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/obtenebration
@@ -39,8 +39,8 @@
 	icon_state = "curse0"
 
 /datum/discipline_power/obtenebration/shadow_play
-	name = "Shadow Play"
-	desc = "Manipulate shadows to block visibility."
+	name = "弄影术"
+	desc = "操纵阴影，遮挡视线。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -87,8 +87,8 @@
 		QDEL_NULL(cbutton)
 
 /datum/discipline_power/obtenebration/shroud_of_night
-	name = "Shroud of Night"
-	desc = "Turn the shadows into appendages to pull your enemies."
+	name = "夜幕遮蔽"
+	desc = "将阴影化作肢体，拖拽敌人。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
@@ -113,8 +113,8 @@
 	casing.fire_casing(target, owner, null, null, null, ran_zone(), 0,  owner)
 
 /datum/discipline_power/obtenebration/arms_of_the_abyss
-	name = "Arms of the Abyss"
-	desc = "Use shadows as your arms to harm and grab others from afar."
+	name = "深渊之臂"
+	desc = "以阴影为臂，从远处伤害并抓住他人。"
 
 	level = 3
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -166,12 +166,12 @@
 				new_tentacle.ai_controller?.set_blackboard_key(BB_ABYSS_TENTACLE_MODE, aggro_mode)
 				active_tentacles += new_tentacle
 	else
-		to_chat(usr, span_warning("The area is too bright for the shadows to manifest!"))
+		to_chat(usr, span_warning("这片区域太亮，阴影无法显现！"))
 		return FALSE
 
 /datum/discipline_power/obtenebration/black_metamorphosis
-	name = "Black Metamorphosis"
-	desc = "Fuse with your inner darkness, gaining shadowy armor."
+	name = "黑暗蜕变"
+	desc = "与内在的黑暗融合，获得暗影护甲。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -187,17 +187,17 @@
 /datum/discipline_power/obtenebration/black_metamorphosis/pre_activation_checks()
 	. = ..()
 	if(activating) // Prevent multi-activation while the do_after is ongoing
-		to_chat(owner, span_warning("You are already attempting to activate Black Metamorphosis!"))
+		to_chat(owner, span_warning("你已经在尝试施展黑暗蜕变了！"))
 		return FALSE
 
 	if(owner.get_generation() >= 10)
 		activating = TRUE
-		to_chat(owner, span_warning("Your body starts to meld with the shadows..."))
+		to_chat(owner, span_warning("你的身体开始与阴影融合……"))
 		if(do_after(owner, 2 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 	else if(owner.get_generation() <= 9)
 		activating = TRUE
-		to_chat(owner, span_warning("Your body starts to rapidly meld with the shadows..."))
+		to_chat(owner, span_warning("你的身体开始迅速与阴影融合……"))
 		if(do_after(owner, 1 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 
@@ -210,27 +210,27 @@
 			successful = TRUE
 			owner.damage_resistance += 40 // CRIMSON EDIT ADD - Makes Obtenebration not as strong as some other stuff
 			animate(owner, color = "#000000", time = 1 SECONDS, loop = 1)
-			to_chat(owner, span_green("You successfully fuse with the shadows!"))
+			to_chat(owner, span_green("你成功与阴影融为一体！"))
 		if(ROLL_FAILURE)
-			to_chat(owner, span_warning("You fail to control the shadows!"))
+			to_chat(owner, span_warning("你未能控制住阴影！"))
 			deactivate()
 		if(ROLL_BOTCH)
 			owner.apply_damage(60, BRUTE) // 2 levels of lethal damage on a botch
-			to_chat(owner, span_danger("The shadows lash out at you as you fail to fuse with them!"))
+			to_chat(owner, span_danger("你未能与阴影融合，反遭它们袭击！"))
 			deactivate()
 
 /datum/discipline_power/obtenebration/black_metamorphosis/deactivate()
 	. = ..()
 	if(!successful)
 		return
-	to_chat(owner, span_notice("The shadows fall away from your body."))
+	to_chat(owner, span_notice("阴影从你的身体上褪去。"))
 	playsound(owner.loc, 'sound/effects/magic/voidblink.ogg', 50, FALSE)
 	owner.damage_resistance -= 40 // CRIMSON EDIT - Reduces Strength of Obetenebration 4
 	animate(owner, color = initial(owner.color), time = 1 SECONDS, loop = 1)
 
 /datum/discipline_power/obtenebration/tenebrous_form
-	name = "Tenebrous Form"
-	desc = "Become a shadow and resist all but fire, sunlight, and magic!"
+	name = "暗影形态"
+	desc = "化身为阴影，抵御除火焰、阳光和魔法以外的一切伤害！"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
@@ -247,23 +247,23 @@
 /datum/discipline_power/obtenebration/tenebrous_form/pre_activation_checks()
 	. = ..()
 	if(activating) // Prevent multi-activation while the do_after is ongoing
-		to_chat(owner, span_warning("You are already attempting to activate Tenebrous Form!"))
+		to_chat(owner, span_warning("你已经在尝试进入暗影形态了！"))
 		return FALSE
 
 	// do_after timer based on generation; gen 9 and below can spend more BP per turn, so it activates faster
 	if(owner.get_generation() >= 10)
 		activating = TRUE
-		to_chat(owner, span_warning("Your body slowly starts to turn into an inky blot of shadow..."))
+		to_chat(owner, span_warning("你的身体开始缓缓化为一团墨色阴影……"))
 		if(do_after(owner, 3 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 	else if(owner.get_generation() == 9)
 		activating = TRUE
-		to_chat(owner, span_warning("Your body starts to turn into an inky blot of shadow..."))
+		to_chat(owner, span_warning("你的身体开始化为一团墨色阴影……"))
 		if(do_after(owner, 2 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 	else if(owner.get_generation() <= 8)
 		activating = TRUE
-		to_chat(owner, span_warning("Your body rapidly starts to turn into an inky blot of shadow..."))
+		to_chat(owner, span_warning("你的身体开始迅速化为一团墨色阴影……"))
 		if(do_after(owner, 1 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 
@@ -292,7 +292,7 @@
 
 /datum/discipline_power/obtenebration/tenebrous_form/deactivate()
 	. = ..()
-	to_chat(owner, span_notice("You return to your normal form."))
+	to_chat(owner, span_notice("你恢复了原本的形态。"))
 	playsound(owner.loc, 'sound/effects/magic/voidblink.ogg', 50, FALSE)
 	MODIFY_PHYSIOLOGY(owner, BRUTE, 10)
 	MODIFY_PHYSIOLOGY(owner, BURN, 0.5)
@@ -315,8 +315,8 @@
 
 // Aggro mode control for Arms of the Abyss
 /datum/action/aggro_mode
-	name = "Tentacle Control"
-	desc = "Switches the aggro mode of your Arms of the Abyss"
+	name = "触须控制"
+	desc = "切换深渊之臂的攻击模式。"
 	button_icon = 'modular_darkpack/master_files/icons/hud/screen_gen.dmi'
 	button_icon_state = "harm"
 	var/current_mode = ABYSS_TENTACLE_MODE_AGGRESSIVE
@@ -341,12 +341,12 @@
 		return
 
 	var/list/options = list(
-		ABYSS_TENTACLE_MODE_AGGRESSIVE = "Aggressive (grab and damage targets)",
-		ABYSS_TENTACLE_MODE_CONTROL = "Control (grab and restrain without damage)",
-		ABYSS_TENTACLE_MODE_PASSIVE = "Passive (don't attack or grab)"
+		"攻击（抓住并伤害目标）" = ABYSS_TENTACLE_MODE_AGGRESSIVE,
+		"控制（抓住并束缚目标，不造成伤害）" = ABYSS_TENTACLE_MODE_CONTROL,
+		"被动（不攻击或抓取）" = ABYSS_TENTACLE_MODE_PASSIVE
 	)
 
-	var/select = tgui_input_list(tentacle_owner, "Select tentacle behaviour", "Tentacle Mode", options)
+	var/select = options[tgui_input_list(tentacle_owner, "选择触须的行为", "触须模式", options)]
 	if(!select || !tentacle_owner)
 		return
 	if(!abyss_power)
@@ -367,7 +367,7 @@
 				T.recently_released.Cut()
 
 	if(tentacles)
-		to_chat(tentacle_owner, span_notice("You set your tentacle[tentacles == 1 ? "" : "s"] to [select] mode."))
+		to_chat(tentacle_owner, span_notice("你将触须设为[list(ABYSS_TENTACLE_MODE_AGGRESSIVE = "攻击", ABYSS_TENTACLE_MODE_CONTROL = "控制", ABYSS_TENTACLE_MODE_PASSIVE = "被动")[select]]模式。"))
 		update_button_icon()
 
 /datum/action/aggro_mode/proc/update_button_icon()
@@ -382,8 +382,8 @@
 
 // Shadow removal button for Shadow Play
 /datum/action/clear_shadows
-	name = "Clear Shadows"
-	desc = "Clears all currently active Shadow Play shadows"
+	name = "消散阴影"
+	desc = "消散当前所有由弄影术创造的阴影。"
 	button_icon = 'icons/mob/effects/genetics.dmi'
 	button_icon_state = "shadow_portal"
 	var/datum/discipline_power/obtenebration/shadow_play/power

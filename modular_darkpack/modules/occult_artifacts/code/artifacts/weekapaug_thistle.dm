@@ -3,8 +3,8 @@
 	bullet = 10
 
 /obj/item/occult_artifact/vampire/weekapaug_thistle
-	true_name = "Weekapaug Thistle"
-	true_desc = "Increases combat defense."
+	true_name = "威卡帕格蓟"
+	true_desc = "提高战斗防御能力。"
 	icon_state = "w_thistle"
 	research_value = 10
 

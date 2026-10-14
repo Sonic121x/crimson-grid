@@ -1,11 +1,11 @@
 /datum/discipline/quietus
 	name = "Quietus"
-	desc = {"The signature discipline of the Banu Haqim, Quietus allows the user to create poison and assassinate their targets quietly, manipulating their blood. Violates Masquerade.
-● Silence of Death: Passive
-●● Scorpion's Touch: Permanent Willpower (difficulty 6)
-●●● Dagon's Call: Stamina vs. target's Willpower
-●●●● Baal's Caress: Passive
-●●●●● Taste of Death: Stamina + Athletics (difficulty 6)"}
+	desc = {"哈基姆之裔的标志性律能。静谧术让使用者操纵血液、制造毒素，悄无声息地暗杀目标。违反避世戒律。
+● 死亡寂静：被动
+●● 毒蝎之触：永久意志力（难度 6）
+●●● 达贡之唤：耐力，对抗目标的意志力
+●●●● 巴尔之抚：被动
+●●●●● 死亡之味：耐力 + 运动（难度 6）"}
 	icon_state = "quietus"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/quietus
@@ -19,8 +19,8 @@
 
 //SILENCE OF DEATH
 /datum/discipline_power/quietus/silence_of_death
-	name = "Silence of Death"
-	desc = "Create an area of pure silence around you, deafening the screams of your targets. This mystical silence radiates from your body, muting all noise within a 7 tile radius."
+	name = "死亡寂静"
+	desc = "在周围创造一片绝对寂静的区域，淹没目标的尖叫。这种神秘的寂静从你体内向外扩散，消除半径 7 格范围内的所有声音。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
@@ -47,8 +47,8 @@
 
 //SCORPIONS TOUCH
 /datum/discipline_power/quietus/scorpions_touch
-	name = "Scorpion's Touch"
-	desc = "Create a powerful venom to destroy your target's Stamina."
+	name = "毒蝎之触"
+	desc = "制造强效毒液，摧毁目标的耐力。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND
@@ -63,7 +63,7 @@
 	var/success_count = SSroll.storyteller_roll_datum(owner, roll_datum = /datum/storyteller_roll/scorpions_touch)
 
 	if(success_count <= 0)
-		to_chat(owner, span_warning("Your blood fails to transform into poison!"))
+		to_chat(owner, span_warning("你的血液未能转化为毒液！"))
 		return FALSE
 
 	switch(success_count)
@@ -85,7 +85,7 @@
 	for(var/i in 1 to min(max_conversion, owner.bloodpool))
 		bp_options += i
 
-	blood_converted = tgui_input_list(owner, "How many blood points will you use to create this toxin?", "Scorpion's Touch", bp_options)
+	blood_converted = tgui_input_list(owner, "你要消耗多少血点来制造这种毒素？", "毒蝎之触", bp_options)
 	if(!blood_converted)
 		return FALSE
 
@@ -98,11 +98,11 @@
 	var/obj/item/held_weapon = owner.get_active_held_item()
 	if(held_weapon && isitem(held_weapon))
 		if(held_weapon.GetComponent(/datum/component/scorpions_touch_poison))
-			to_chat(owner, span_warning("[held_weapon] is already poisoned!"))
+			to_chat(owner, span_warning("[held_weapon]已经淬毒了！"))
 			return
 
 		held_weapon.AddComponent(/datum/component/scorpions_touch_poison, blood_converted, debuff_duration)
-		to_chat(owner, span_notice("You coat [held_weapon] with your venomous blood!"))
+		to_chat(owner, span_notice("你将有毒的血液涂在[held_weapon]上！"))
 	else
 		owner.drop_all_held_items()
 		//Banu Haqim can 'spit' this venom too - perhaps throw the touch attack item...?
@@ -111,8 +111,8 @@
 
 //DAGON'S CALL
 /datum/discipline_power/quietus/dagons_call
-	name = "Dagon's Call"
-	desc = "Curse anyone you've touched in the last hour to drown in their own blood."
+	name = "达贡之唤"
+	desc = "诅咒你在过去一小时内触碰过的人，使其溺毙于自身的血液之中。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
@@ -149,7 +149,7 @@
 	var/datum/weakref/target_ref = WEAKREF(target)
 	marked_targets[target_ref] = world.time
 
-	to_chat(owner, span_notice("You mark [target] with your touch."))
+	to_chat(owner, span_notice("你通过触碰在[target]身上留下印记。"))
 
 /datum/discipline_power/quietus/dagons_call/proc/get_valid_targets()
 	var/list/valid = list()
@@ -177,7 +177,7 @@
 	var/list/valid_targets = get_valid_targets()
 
 	if(!length(valid_targets))
-		to_chat(owner, span_warning("You haven't marked anyone with your touch yet!"))
+		to_chat(owner, span_warning("你尚未通过触碰给任何人留下印记！"))
 		return FALSE
 
 	return TRUE
@@ -191,7 +191,7 @@
 	for(var/mob/living/carbon/human/target as anything in valid_targets)
 		target_names[target.name] = target
 
-	var/chosen_name = tgui_input_list(owner, "Choose your target:", "Dagon's Call", target_names)
+	var/chosen_name = tgui_input_list(owner, "选择目标：", "达贡之唤", target_names)
 	if(!chosen_name)
 		return
 
@@ -207,23 +207,23 @@
 	var/net_successes = attacker_successes - victim_successes
 
 	if(net_successes <= 0)
-		to_chat(owner, span_warning("[victim] resists Dargon's Call."))
+		to_chat(owner, span_warning("[victim]抵抗了达贡之唤。"))
 		return
 
 	victim.adjust_fire_loss(10 * net_successes)
 
-	to_chat(owner, span_boldwarning("You invoke Dagon's Call on [victim], choking them with their own blood!"))
-	to_chat(victim, span_userdanger("Your blood vessels burst as you drown in your own blood!"))
+	to_chat(owner, span_boldwarning("你对[victim]施展达贡之唤，让其被自身的血液呛住！"))
+	to_chat(victim, span_userdanger("你的血管破裂，自身的血液正将你溺毙！"))
 
 	if(victim.stat != DEAD)
-		var/continue_call = tgui_alert(owner, "Continue Dagon's Call for 1 additional Willpower?", "Dagon's Call", list("Yes", "No"))
-		if(continue_call == "Yes" && owner.st_add_stat_mod(STAT_TEMPORARY_WILLPOWER, -1, "Dagon's Call")) //requires stat preferences pr
+		var/continue_call = tgui_alert(owner, "额外消耗 1 点意志力以继续达贡之唤？", "达贡之唤", list("是", "否"))
+		if(continue_call == "是" && owner.st_add_stat_mod(STAT_TEMPORARY_WILLPOWER, -1, "Dagon's Call")) //requires stat preferences pr
 			strike_victim(victim)
 
 //BAAL'S CARESS
 /datum/discipline_power/quietus/baals_caress
-	name = "Baal's Caress"
-	desc = "Transmute your vitae into a toxin that destroys all flesh it touches."
+	name = "巴尔之抚"
+	desc = "将你的血粹转化为毒素，摧毁它触及的一切血肉。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND
@@ -238,17 +238,17 @@
 /datum/discipline_power/quietus/baals_caress/can_activate(atom/target)
 	. = ..()
 	if(!isitem(target))
-		to_chat(owner, span_warning("[src] can only be used on weapons!"))
+		to_chat(owner, span_warning("[src]只能用于武器！"))
 		return FALSE
 
 	var/obj/item/weapon = target
 
 	if(!weapon.sharpness)
-		to_chat(owner, span_warning("[src] can only be used on bladed weapons!"))
+		to_chat(owner, span_warning("[src]只能用于带刃武器！"))
 		return FALSE
 
 	if(weapon.GetComponent(/datum/component/baals_caress))
-		to_chat(owner, span_warning("This weapon is already poisoned!"))
+		to_chat(owner, span_warning("这件武器已经淬毒了！"))
 		return FALSE
 
 /datum/discipline_power/quietus/baals_caress/activate(obj/item/melee/vamp/target)
@@ -261,19 +261,19 @@
 	var/max_layers = user.bloodpool
 
 	if(max_layers <= 0)
-		to_chat(owner, span_warning("You don't have any blood to coat the weapon with!"))
+		to_chat(owner, span_warning("你没有可用于涂抹武器的血液！"))
 		return
 
-	var/layers = tgui_input_number(owner, "How many blood points do you want to use?", "Baal's Caress", 1, max_layers, 1)
+	var/layers = tgui_input_number(owner, "你要消耗多少血点？", "巴尔之抚", 1, max_layers, 1)
 	if(!layers)
 		return
 	user.adjust_blood_pool(-layers)
 	target.AddComponent(/datum/component/baals_caress, owner, layers)
-	to_chat(owner, span_notice("You imbue [target] with [layers] layer\s of your toxic vitae!"))
+	to_chat(owner, span_notice("你为[target]涂上了 [layers] 层有毒的血粹！"))
 
 //TASTE OF DEATH
 /obj/projectile/quietus
-	name = "acid spit"
+	name = "酸毒唾液"
 	icon_state = "toxin"
 	pass_flags = PASSTABLE
 	damage = 60
@@ -284,8 +284,8 @@
 	ricochet_chance = 0
 
 /obj/item/gun/magic/quietus
-	name = "acid spit"
-	desc = "Spit poison on your targets."
+	name = "酸毒唾液"
+	desc = "向目标喷吐毒液。"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "har4ok"
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL | NOBLUDGEON
@@ -303,8 +303,8 @@
 	item_flags = DROPDEL
 
 /obj/item/ammo_casing/magic/quietus
-	name = "acid spit"
-	desc = "A spit."
+	name = "酸毒唾液"
+	desc = "一口唾液。"
 	projectile_type = /obj/projectile/quietus
 	caliber = CALIBER_TENTACLE
 	firing_effect_type = null
@@ -337,8 +337,8 @@
 	applicable_stats = list(STAT_STAMINA, STAT_ATHLETICS)
 
 /datum/discipline_power/quietus/taste_of_death
-	name = "Taste of Death"
-	desc = "Spit a glob of caustic blood at your enemies."
+	name = "死亡之味"
+	desc = "向敌人吐出一团具有腐蚀性的血液。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND

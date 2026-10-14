@@ -1,19 +1,19 @@
-#define SENSE_VISION "Vision"
-#define SENSE_HEARING "Hearing"
-#define SENSE_SMELL "Smell"
-#define SENSE_TASTE "Taste"
-#define SENSE_TOUCH "Touch"
-#define TELEPATHY_MIND_READING "Mind Reading"
-#define TELEPATHY_IMPLANT_THOUGHT "Implant Thoughts"
+#define SENSE_VISION "视觉"
+#define SENSE_HEARING "听觉"
+#define SENSE_SMELL "嗅觉"
+#define SENSE_TASTE "味觉"
+#define SENSE_TOUCH "触觉"
+#define TELEPATHY_MIND_READING "读心"
+#define TELEPATHY_IMPLANT_THOUGHT "植入思绪"
 
 /datum/discipline/auspex
 	name = "Auspex"
-	desc = {"Allows to see entities, auras and their health through walls.
-● Heightened Senses: Passive
-●● Aura Perception: Passive
-●●● The Spirit's Touch: Passive
-●●●● Telepathy: Intelligence + Subterfuge vs. target's Willpower
-●●●●● Psychic Projection: Perception + Awareness (difficulty 7)"}
+	desc = {"透过墙壁看见生物、灵光及其健康状况。
+● 感官强化：被动
+●● 灵光感知：被动
+●●● 灵魂之触：被动
+●●●● 心灵感应：智力 + 诡诈，对抗目标的意志力
+●●●●● 灵魂投射：感知 + 灵觉（难度 7）"}
 	icon_state = "auspex"
 	power_type = /datum/discipline_power/auspex
 
@@ -26,8 +26,8 @@
 
 //HEIGHTENED SENSES
 /datum/discipline_power/auspex/heightened_senses
-	name = "Heightened Senses"
-	desc = "Enhances your senses far past human limitations."
+	name = "感官强化"
+	desc = "将你的感官增强至远超人类极限的程度。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -39,7 +39,7 @@
 /datum/discipline_power/auspex/heightened_senses/activate()
 	. = ..()
 
-	var/list/chosen_sense = tgui_input_checkboxes(owner, "Choose a sense to heighten", "Heightened Senses", list(
+	var/list/chosen_sense = tgui_input_checkboxes(owner, "选择要强化的感官", "感官强化", list(
 		SENSE_VISION,
 		SENSE_HEARING,
 		SENSE_SMELL,
@@ -105,15 +105,15 @@
 
 
 /datum/storyteller_roll/aura_perception
-	bumper_text = "aura reading"
+	bumper_text = "解读灵光"
 	difficulty = 8
 	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
 	roll_output_type = ROLL_FLAG_ROLLER
 
 //AURA PERCEPTION
 /datum/discipline_power/auspex/aura_perception
-	name = "Aura Perception"
-	desc = "Allows you to perceive the auras of those near you."
+	name = "灵光感知"
+	desc = "让你感知周围人的灵光。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -132,7 +132,7 @@
 		if(ROLL_SUCCESS)
 			return TRUE
 		else
-			to_chat(owner, span_danger("You fail to read into anything at all..."))
+			to_chat(owner, span_danger("你什么也没能解读出来……"))
 			return FALSE
 
 /datum/discipline_power/auspex/aura_perception/activate()
@@ -152,8 +152,8 @@
 
 //THE SPIRIT'S TOUCH
 /datum/discipline_power/auspex/the_spirits_touch
-	name = "The Spirit's Touch"
-	desc = "Allows you to feel the physical wellbeing of those near you."
+	name = "灵魂之触"
+	desc = "让你感知周围人的身体状况。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -258,8 +258,8 @@
 
 //TELEPATHY
 /datum/discipline_power/auspex/telepathy
-	name = "Telepathy"
-	desc = "Project your thoughts into the mind of another."
+	name = "心灵感应"
+	desc = "将你的思绪投射到他人的心中。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -278,13 +278,13 @@
 	frenzy_usable = FALSE
 
 /datum/storyteller_roll/telepathy_success
-	bumper_text = "mind reading"
+	bumper_text = "读心"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_SUBTERFUGE)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/storyteller_roll/disguise_voice_roll
-	bumper_text = "disguise voice"
+	bumper_text = "伪装声音"
 	applicable_stats = list(STAT_MANIPULATION, STAT_SUBTERFUGE)
 	numerical = FALSE
 	roll_output_type = ROLL_FLAG_ROLLER
@@ -292,13 +292,13 @@
 /datum/discipline_power/auspex/telepathy/pre_activation_checks(mob/living/target)
 	. = ..()
 		// need linebreaks... but \n and <br> arent working...
-	var/telepathy_type = tgui_input_list(owner, "What kind of Telepathy would you like to perform? Reading the minds of supernaturals requires expending one temporary willpower point.", "Telepathy Type Selection", telepathy_types, TELEPATHY_IMPLANT_THOUGHT)
+	var/telepathy_type = tgui_input_list(owner, "你想施展哪种心灵感应？读取超自然生物的思绪需要消耗 1 点临时意志力。", "选择心灵感应模式", telepathy_types, TELEPATHY_IMPLANT_THOUGHT)
 	if(!telepathy_type) // prevents it from running anyway if you press cancel (a lot of disciplines do this), cancellable without cd.
 		return FALSE
 	switch(telepathy_type)
 		if(TELEPATHY_MIND_READING)
 			if(!COOLDOWN_FINISHED(src, mind_read_cd))
-				to_chat(owner, span_warning("Your mind reading ability is still on cooldown for [DisplayTimeText(COOLDOWN_TIMELEFT(src, mind_read_cd))]!"))
+				to_chat(owner, span_warning("你的读心能力还需冷却[round(COOLDOWN_TIMELEFT(src, mind_read_cd) / 10, 0.1)]秒！"))
 				return FALSE
 
 			if(!telepathy_roll)
@@ -310,29 +310,29 @@
 				if(get_kindred_splat(target) || get_shifter_splat(target))
 					owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
 			else
-				to_chat(owner, span_warning("You failed to read their mind!"))
+				to_chat(owner, span_warning("你未能读取对方的思绪！"))
 				COOLDOWN_START(src, mind_read_cd, 3 MINUTES)
 				return FALSE
 			//var/supernatural_splat = issupernatural(target)??? the current issupernatural just checks for a single splat, which doesnt qualify for the -1 willpower, think its just other 'undead' p137 V20
 
 		if(TELEPATHY_IMPLANT_THOUGHT)
 			if(!COOLDOWN_FINISHED(src, implant_tht_cd)) // No cd would be nice, but we also don't want spam.
-				to_chat(owner, span_warning("Your implant thought ability is still on cooldown for [DisplayTimeText(COOLDOWN_TIMELEFT(src, implant_tht_cd))]!"))
+				to_chat(owner, span_warning("你的植入思绪能力还需冷却[round(COOLDOWN_TIMELEFT(src, implant_tht_cd) / 10, 0.1)]秒！"))
 				return FALSE
 
-			var/disguise_voice_prompt = tgui_input_list(owner, "Attempt to disguise the origin of the implanted thought? Requires a Manipulation + Subterfuge roll at the difficulty of the target's Perception + Awareness", "Disguise Voice", list("Yes", "No"), "No")
+			var/disguise_voice_prompt = tgui_input_list(owner, "要尝试伪装植入思绪的来源吗？需要进行操控 + 诡诈掷骰，难度为目标的感知 + 灵觉。", "伪装声音", list("是", "否"), "否")
 			switch(disguise_voice_prompt)
-				if("Yes")
+				if("是")
 					if(!disguise_roll)
 						disguise_roll = new()
 					disguise_roll.difficulty = target.st_get_stat(STAT_PERCEPTION) + target.st_get_stat(STAT_AWARENESS)
 					switch(disguise_roll.st_roll(owner, target))
 						if(ROLL_SUCCESS)
-							disguised_voice = tgui_input_text(owner, "What will be the 'voice' of this implanted thought?", "Implanted Voice Selection")
+							disguised_voice = tgui_input_text(owner, "这段植入的思绪会以谁的“声音”出现？", "选择植入的声音")
 						if(ROLL_FAILURE, ROLL_BOTCH)
-							to_chat(owner, span_danger("You fail to disguise your voice - the subject hears your voice in their head!"))
+							to_chat(owner, span_danger("你未能伪装声音——对方在脑海中听到了你的声音！"))
 							disguised_voice = owner.real_name
-				if("No")
+				if("否")
 					disguised_voice = owner.real_name
 	telepathy_type_selected = telepathy_type
 	return TRUE
@@ -344,7 +344,7 @@
 	var/specific_search
 	switch(telepathy_type_selected)
 		if(TELEPATHY_IMPLANT_THOUGHT)
-			input_message = tgui_input_text(owner, "What message will you project to them?", "Telepathic Message")
+			input_message = tgui_input_text(owner, "你想向对方传递什么信息？", "心灵传讯")
 			if(!input_message)
 				return
 
@@ -352,50 +352,50 @@
 				return
 
 			log_directed_talk(owner, target, input_message, LOG_SAY, "Telepathy")
-			to_chat(owner, span_notice("You project your thoughts into [GET_GUESTBOOK_NAME(owner, target)]'s mind: \"[input_message]\""))
-			to_chat(target, span_boldannounce("You hear the voice of [target?.mind?.guestbook?.get_known_name(target, disguised_voice) || disguised_voice] in your thoughts: \"[input_message]\""))
+			to_chat(owner, span_notice("你将思绪投射到[GET_GUESTBOOK_NAME(owner, target)]的脑海中：“[input_message]”"))
+			to_chat(target, span_boldannounce("你的脑海中响起了[target?.mind?.guestbook?.get_known_name(target, disguised_voice) || disguised_voice]的声音：“[input_message]”"))
 			COOLDOWN_START(src, implant_tht_cd, 5 SECONDS)
 
 		if(TELEPATHY_MIND_READING)
-			var/flavor_text_telepathy = "Someone nearby reads your mind without your knowing. They may read vivid and clear internal monologuing, or they may only get a brief collection of thoughts, emotions, and symbolism, depending on how many successes they score." + get_flavor_text(successes)
-			var/mind_reading_search = tgui_input_list(owner, "Are you searching their mind for specific information? Deeper secrets and long-past memories require more successes.", "Mind Reading Specifics", list("Yes", "No"), "No")
-			if(mind_reading_search == "Yes")
-				specific_search = tgui_input_text(owner, "What are you trying to mind read from your victim?", "Mind Reading Search Input", max_length = (MAX_MESSAGE_LEN * 10))
+			var/flavor_text_telepathy = "附近有人正在你毫不知情的情况下读取你的思绪。根据成功数，对方可能读到生动清晰的内心独白，也可能只能捕捉到零散的想法、情绪和象征意象。" + get_flavor_text(successes)
+			var/mind_reading_search = tgui_input_list(owner, "你要在对方的思绪中寻找特定信息吗？深藏的秘密和久远的记忆需要更多成功数。", "读心目标", list("是", "否"), "否")
+			if(mind_reading_search == "是")
+				specific_search = tgui_input_text(owner, "你想从目标的思绪中读取什么？", "输入读心目标", max_length = (MAX_MESSAGE_LEN * 10))
 				if(!specific_search)
-					specific_search = "something specific"
+					specific_search = "某项特定信息"
 
 			var/prompt_message = flavor_text_telepathy
 			if(specific_search)
-				prompt_message += "The telepath specifically scans your mind for : [specific_search]"
+				prompt_message += "读心者正在你的思绪中专门寻找：[specific_search]"
 				message_admins("[owner.real_name] (ckey: [owner.key]) uses Auspex 4 'Telepathy' to read the mind of [target.real_name] (ckey: [target.key]) searching for '[specific_search]' with [successes] successes.")
 			else
-				prompt_message += "The telepath searches your recent thoughts and emotions..."
+				prompt_message += "读心者正在探查你近期的想法和情绪……"
 
-			input_message = tgui_input_text(target, prompt_message, "Mind Being Read")
+			input_message = tgui_input_text(target, prompt_message, "你的思绪正被读取")
 			if(!input_message)
-				input_message = "Fragmented, unclear thoughts and impressions."
+				input_message = "零碎而模糊的想法与印象。"
 
 			if(!sanitize_input_message(input_message))
 				return
 
 			log_directed_talk(target, owner, input_message, LOG_SAY, "Telepathy (Mind Reading)")
 			message_admins("[target.real_name]'s (ckey: [target.key]) mind is read by [owner.real_name] (ckey: [owner.key]) who searched their mind for '[specific_search ? specific_search : "recent thoughts and emotions"]'. The owner intercepted the following thoughts or memories : [input_message]")
-			to_chat(owner, span_notice("You read [GET_GUESTBOOK_NAME(owner, target)]'s thoughts with [successes] successes: [input_message]"))
+			to_chat(owner, span_notice("你以[successes]个成功数读到了[GET_GUESTBOOK_NAME(owner, target)]的思绪：[input_message]"))
 			COOLDOWN_START(src, mind_read_cd, 3 MINUTES)
 
 /datum/discipline_power/auspex/telepathy/proc/get_flavor_text(successes)
-	var/message = "As your mind is read with [successes] successes, "
+	var/message = "此次读心取得了[successes]个成功数，"
 	switch(successes)
 		if(1)
-			message += "the most surface-level thoughts or unspoken comments are easily read, but if your character was expecting their mind to be read, they can make an effort to obfuscate their true thoughts..."
+			message += "最表层的想法或未说出口的话很容易被读到。不过，如果你的角色预料到自己会被读心，就可以设法掩饰真实的想法……"
 		if(2)
-			message += "the person reading your mind begins to probe deeper into your subconcious, revealing deeper, or clearer, thoughts..."
+			message += "读心者开始深入你的潜意识，揭露更深层或更清晰的想法……"
 		if(3)
-			message += "your mind begins to be probed at a deep level, revealing verbatim thoughts, details, secrets and recent memories..."
+			message += "你的心灵开始受到深度探查，具体的内心独白、细节、秘密和近期记忆逐一显露……"
 		if(4)
-			message += "your mind is being deeply invaded. Hidden thoughts, suppressed emotions, and secrets you've tried to bury begin to surface. The attacker can access memories and feelings you may have forgotten without you ever knowing..."
+			message += "你的心灵正遭到深度入侵。隐藏的想法、压抑的情绪和你试图埋藏的秘密开始浮现。入侵者能在你毫不知情的情况下，触及连你自己都可能遗忘的记忆和感受……"
 		if(5 to INFINITY)
-			message += "your deepest secrets and most buried memories are laid bare. The telepath can access traumatic experiences, long-forgotten events, and the darkest corners of your psyche. Nothing is hidden..."
+			message += "你最深的秘密和埋藏最久的记忆已完全暴露。读心者可以触及创伤经历、早已遗忘的往事，以及你心灵最黑暗的角落。一切都无所遁形……"
 	return message
 
 /datum/discipline_power/auspex/telepathy/proc/sanitize_input_message(input_message)
@@ -410,8 +410,8 @@
 
 //PSYCHIC PROJECTION
 /datum/discipline_power/auspex/psychic_projection
-	name = "Psychic Projection"
-	desc = "Leave your body behind and fly across the land."
+	name = "灵魂投射"
+	desc = "脱离肉身，自由飞越大地。"
 
 	willpower_cost = 1
 	level = 5
@@ -426,7 +426,7 @@
 	if(roll == ROLL_SUCCESS)
 		owner.enter_avatar()
 	else
-		to_chat(owner, span_warning("Your mind fails to leave your body."))
+		to_chat(owner, span_warning("你的意识未能脱离肉身。"))
 
 #undef TELEPATHY_MIND_READING
 #undef TELEPATHY_IMPLANT_THOUGHT

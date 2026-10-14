@@ -1,4 +1,4 @@
-//targeting bitflags, NONE or 0 if targeting self exclusively
+#define DISCIPLINE_DISPLAY_NAME(discipline_name) (GLOB.localized_discipline_names[discipline_name] || discipline_name)
 ///Allows for self to also be selected in ranged targeting, SET TO 0 IF NOT TARGETED OR RANGED
 #define TARGET_SELF (1<<0)
 ///Targets anything of type /obj and its children

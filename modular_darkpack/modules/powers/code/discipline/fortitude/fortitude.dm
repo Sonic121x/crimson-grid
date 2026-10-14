@@ -1,11 +1,11 @@
 /datum/discipline/fortitude
 	name = "Fortitude"
-	desc = {"Boosts armor.
-● Fortitude 1: Passive
-●● Fortitude 2: Passive
-●●● Fortitude 3: Passive
-●●●● Fortitude 4: Passive
-●●●●● Fortitude 5: Passive"}
+	desc = {"增强防护。
+● 坚韧术 1：被动
+●● 坚韧术 2：被动
+●●● 坚韧术 3：被动
+●●●● 坚韧术 4：被动
+●●●●● 坚韧术 5：被动"}
 	icon_state = "fortitude"
 	power_type = /datum/discipline_power/fortitude
 
@@ -18,8 +18,8 @@
 
 //FORTITUDE 1
 /datum/discipline_power/fortitude/one
-	name = "Fortitude 1"
-	desc = "Harden your muscles. Become sturdier than the bodybuilders."
+	name = "坚韧术 1"
+	desc = "让肌肉更加坚实，比健美运动员还要强健。"
 
 	level = 1
 
@@ -48,8 +48,8 @@
 
 //FORTITUDE 2
 /datum/discipline_power/fortitude/two
-	name = "Fortitude 2"
-	desc = "Become as stone. Let nothing breach your protections."
+	name = "坚韧术 2"
+	desc = "身如磐石，让一切都无法突破你的防护。"
 
 	level = 2
 
@@ -78,8 +78,8 @@
 
 //FORTITUDE 3
 /datum/discipline_power/fortitude/three
-	name = "Fortitude 3"
-	desc = "Look down upon those who would try to kill you. Shrug off grievous attacks."
+	name = "坚韧术 3"
+	desc = "蔑视那些妄图杀死你的人，轻松承受猛烈的攻击。"
 
 	level = 3
 
@@ -108,8 +108,8 @@
 
 //FORTITUDE 4
 /datum/discipline_power/fortitude/four
-	name = "Fortitude 4"
-	desc = "Be like steel. Walk into fire and come out only singed."
+	name = "坚韧术 4"
+	desc = "身如钢铁，穿过火海也只留下轻微灼痕。"
 
 	level = 4
 
@@ -138,8 +138,8 @@
 
 //FORTITUDE 5
 /datum/discipline_power/fortitude/five
-	name = "Fortitude 5"
-	desc = "Reach the pinnacle of toughness. Never fear anything again."
+	name = "坚韧术 5"
+	desc = "将坚韧提升至巅峰，从此无所畏惧。"
 
 	level = 5
 

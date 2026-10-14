@@ -1,11 +1,11 @@
 /datum/discipline/potence
 	name = "Potence"
-	desc = {"Boosts melee and unarmed damage.
-● Potence 1: Passive
-●● Potence 2: Passive
-●●● Potence 3: Passive
-●●●● Potence 4: Passive
-●●●●● Potence 5: Passive"}
+	desc = {"提升近战与徒手攻击的伤害。
+● 巨力术 1：被动
+●● 巨力术 2：被动
+●●● 巨力术 3：被动
+●●●● 巨力术 4：被动
+●●●●● 巨力术 5：被动"}
 	icon_state = "potence"
 	power_type = /datum/discipline_power/potence
 
@@ -43,8 +43,8 @@
 
 //POTENCE 1
 /datum/discipline_power/potence/one
-	name = "Potence 1"
-	desc = "Enhance your muscles. Never hit softly."
+	name = "巨力术 1"
+	desc = "强化肌肉，每次出手都力道十足。"
 
 	level = 1
 
@@ -58,8 +58,8 @@
 
 //POTENCE 2
 /datum/discipline_power/potence/two
-	name = "Potence 2"
-	desc = "Become powerful beyond your muscles. Wreck people and things."
+	name = "巨力术 2"
+	desc = "获得超越肌肉极限的力量，摧毁挡路的人与物。"
 
 	level = 2
 
@@ -73,8 +73,8 @@
 
 //POTENCE 3
 /datum/discipline_power/potence/three
-	name = "Potence 3"
-	desc = "Become a force of destruction. Lift and break the unliftable and the unbreakable."
+	name = "巨力术 3"
+	desc = "化身毁灭之力，举起不可撼动之物，击碎坚不可摧之物。"
 
 	level = 3
 
@@ -88,8 +88,8 @@
 
 //POTENCE 4
 /datum/discipline_power/potence/four
-	name = "Potence 4"
-	desc = "Become an unyielding machine for as long as your Vitae lasts."
+	name = "巨力术 4"
+	desc = "只要血粹尚未耗尽，你就是一台永不停歇的机器。"
 
 	level = 4
 
@@ -103,8 +103,8 @@
 
 //POTENCE 5
 /datum/discipline_power/potence/five
-	name = "Potence 5"
-	desc = "The people could worship you as a god if you showed them this."
+	name = "巨力术 5"
+	desc = "若向世人展示这股力量，他们或许会奉你为神。"
 
 	level = 5
 

@@ -1,12 +1,12 @@
 /datum/discipline/melpominee
 	name = "Melpominee"
-	desc = {"Named for the Greek Muse of Tragedy, Melpominee is a unique discipline of the Daughters of Cacophony. It explores the power of the voice, shaking the very soul of those nearby and allowing the vampire to perform sonic feats otherwise impossible.
-● The Missing Voice: Passive
-●● Phantom Speaker: Wits + Performance (difficulty 7)
-●●● Madrigal: Wits + Performance vs. target's Wits + Awareness
-●●●● Siren's Beckoning: Wits + Performance vs. target's Willpower
-●●●●● Virtuosa: Passive toggle
-●●●●●● Shattering Crescendo: Passive"}
+	desc = {"悲歌术以希腊悲剧缪斯为名，是喧嚣之女独有的律能。它发掘声音的力量，撼动周围人的灵魂，让血族以声音创造超乎常理的奇迹。
+● 无形之声：被动
+●● 幻音传声：机敏 + 表演（难度 7）
+●●● 牧歌：机敏 + 表演，对抗目标的机敏 + 灵觉
+●●●● 海妖之召：机敏 + 表演，对抗目标的意志力
+●●●●● 歌艺大师：被动，可切换
+●●●●●● 碎裂强音：被动"}
 	icon_state = "melpominee"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/melpominee
@@ -49,12 +49,12 @@
  *
  */
 /obj/effect/the_missing_voice
-	name = "disembodied voice"
-	desc = "What are you, a ghost lip-reader?"
+	name = "无形的声音"
+	desc = "怎么，你还能读懂幽灵的唇语？"
 
 /datum/discipline_power/melpominee/the_missing_voice
-	name = "The Missing Voice"
-	desc = "Throw your voice to any place you can see."
+	name = "无形之声"
+	desc = "将你的声音投向视线所及的任意位置。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
@@ -64,7 +64,7 @@
 
 /datum/discipline_power/melpominee/the_missing_voice/activate(atom/movable/target)
 	. = ..()
-	var/new_say = tgui_input_text(owner, "What will you say?")
+	var/new_say = tgui_input_text(owner, "你想说什么？")
 	if(!new_say)
 		return
 
@@ -74,15 +74,15 @@
 		return
 
 	if(findtext(new_say, "*"))
-		to_chat(owner, span_danger("You can't emote with [name]!"))
+		to_chat(owner, span_danger("你无法通过[name]使用表情动作！"))
 		return
 
 	var/obj/dummy = new /obj/effect/the_missing_voice(get_turf(target)) // snowflake code but it's more robust than engineering some evil to_chat mechanism
 	if(!(dummy in view(world.view, owner)))
-		to_chat(owner, span_warning("You need line of sight to the location your voice is coming from."))
+		to_chat(owner, span_warning("你必须能看见声音传出的位置。"))
 		return
 
-	dummy.name = owner.get_generic_name(TRUE, TRUE) + "'s voice"
+	dummy.name = owner.get_generic_name(TRUE, TRUE) + "的声音"
 	dummy.say(message = new_say, forced = "melpominee 1")
 	QDEL_IN(dummy, 2 TURNS)
 
@@ -100,7 +100,7 @@
  *
  */
 /datum/storyteller_roll/phantom_speaker
-	bumper_text = "Phantom Speaker"
+	bumper_text = "幻音传声"
 	difficulty = 7
 	successes_needed = 1
 	applicable_stats = list(STAT_WITS, STAT_PERFORMANCE)
@@ -109,8 +109,8 @@
 	spammy_roll = TRUE
 
 /datum/discipline_power/melpominee/phantom_speaker
-	name = "Phantom Speaker"
-	desc = "Project your voice to anyone you've met, speaking to them from afar."
+	name = "幻音传声"
+	desc = "将声音投向你见过的任何人，与远方的对方交谈。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_SPEAK
@@ -122,7 +122,7 @@
 /datum/discipline_power/melpominee/phantom_speaker/activate()
 	. = ..()
 	if(!owner.mind.guestbook.known_names) // Who do we know
-		to_chat(owner, span_warning("You don't seem to know anyone you can speak to right now...")) // You have no friends.
+		to_chat(owner, span_warning("你认识的人中，似乎没有现在能与你交谈的对象……")) // You have no friends.
 		return
 	// Guys we add to the input below
 	var/list/targets = list()
@@ -137,17 +137,17 @@
 	var/mob/living/listener
 
 	if(!HAS_TRAIT_FROM(owner, TRAIT_VIRTUOSA, type))
-		listener = tgui_input_list(owner, "Who will you project your voice to?", "Phantom Speaker", targets)
+		listener = tgui_input_list(owner, "你想将声音传给谁？", "幻音传声", targets)
 		if(!listener)
 			return
 		listener_list[WEAKREF(listener)] = 0
 	else // We can talk to mulitple people (Melpominee 5)
-		listener_list = tgui_input_checkboxes(owner, "Who will you project your voice to?", "Phantom Speaker", targets)
+		listener_list = tgui_input_checkboxes(owner, "你想将声音传给谁？", "幻音传声", targets)
 
 	if(!length(listener_list)) // We didn't pick anyone
 		return
 
-	var/input_message = tgui_input_text(owner, "What message will you project to them?", title = "Phantom Speaker")
+	var/input_message = tgui_input_text(owner, "你想向对方传递什么信息？", title = "幻音传声")
 	if (!input_message)
 		return
 
@@ -157,13 +157,13 @@
 		return
 
 	if(findtext(input_message, "*"))
-		to_chat(owner, span_danger("You can't emote with [name]!"))
+		to_chat(owner, span_danger("你无法通过[name]使用表情动作！"))
 		return
 
 	var/language = owner.get_selected_language()
 	var/message = owner.compose_message(owner, language, input_message)
 	// Composed message of all the people in listener_list
-	var/those_who_hear = "[english_list(listener_list)]."
+	var/those_who_hear = "[english_list(listener_list, nothing_text = "无人", and_text = "和", comma_text = "、", final_comma_text = "")]"
 
 	// The roll itself; wits+perception against diff 7
 	var/mob/living/caster = owner
@@ -174,7 +174,7 @@
 	var/roll_result = roll_datum.st_roll(caster)
 
 	if(roll_result < ROLL_SUCCESS)
-		to_chat(owner, span_notice("Your voice fails to reach the ears of [those_who_hear]"))
+		to_chat(owner, span_notice("你的声音未能传入[those_who_hear]的耳中。"))
 		return
 
 	for(var/mob/living/guy in listener_list)
@@ -193,10 +193,10 @@
 		owner.adjust_blood_pool(bp_used)
 
 	for(var/mob/living/final_listeners in listener_list)
-		to_chat(final_listeners, span_boldannounce("<i>You hear a voice in your head...</i>"))
+		to_chat(final_listeners, span_boldannounce("<i>你的脑海中响起了一个声音……</i>"))
 		final_listeners.Hear(owner, language, span_purple(message), message_mods = list(MODE_SING))
 
-	to_chat(owner, span_notice("Your voice reaches the ears of [those_who_hear]"))
+	to_chat(owner, span_notice("你的声音传入了[those_who_hear]的耳中。"))
 
 /**
  * ••• Madrigal - p453-454
@@ -209,8 +209,8 @@
  *
  */
 /datum/discipline_power/melpominee/madrigal
-	name = "Madrigal"
-	desc = "Sing a siren song, swaying the emotions of all around you."
+	name = "牧歌"
+	desc = "唱出海妖般的歌声，左右周围所有人的情绪。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
@@ -225,7 +225,7 @@
 	if(HAS_TRAIT(owner, TRAIT_ENCHANTING_VOICE))
 		our_difficulty -= 2
 	var/our_power = SSroll.storyteller_roll_datum(owner, difficulty = our_difficulty, applic_stats = list(STAT_WITS, STAT_PERFORMANCE), numerical = TRUE)
-	var/emotion = tgui_input_list(owner, "What emotion do you wish to incite?", "Madrigal", GLOB.emotion_to_quality)
+	var/emotion = GLOB.localized_emotion_choices[tgui_input_list(owner, "你想激起哪种情绪？", "牧歌", GLOB.localized_emotion_choices)]
 
 	for(var/mob/living/carbon/member in ohearers(7, owner))
 		audience += member
@@ -240,18 +240,18 @@
 	target.set_emotion(emotion)
 	ADD_TRAIT(target, TRAIT_FORCED_EMOTION, type)
 
-	to_chat(target, span_purple("You are overwhelmed with [GLOB.emotion_to_quality[emotion]]."))
+	to_chat(target, span_purple("你被[GLOB.emotion_to_quality[emotion]]的情绪淹没了。"))
 	var/datum/status_effect/forced_emotion/emoji = target.apply_status_effect(/datum/status_effect/forced_emotion)
-	emoji.linked_alert.desc = "Something in you is making you dwell on a sense of [GLOB.emotion_to_quality[emotion]]."
+	emoji.linked_alert.desc = "内心的某种感受让你沉浸在[GLOB.emotion_to_quality[emotion]]之中。"
 
 /datum/discipline_power/melpominee/madrigal/deactivate()
 	. = ..()
 	for(var/mob/living/carbon/member in audience)
 		if(HAS_TRAIT_FROM(member, TRAIT_FORCED_EMOTION, type))
-			to_chat(member, span_nicegreen("You are no longer overwhelmed with [GLOB.emotion_to_quality[member.current_emotion]]."))
+			to_chat(member, span_nicegreen("你不再被[GLOB.emotion_to_quality[member.current_emotion]]的情绪淹没了。"))
 			REMOVE_TRAIT(member, TRAIT_FORCED_EMOTION, type)
 		else if(HAS_TRAIT(member, TRAIT_FORCED_EMOTION))
-			to_chat(member, span_nicegreen("You feel your [GLOB.emotion_to_quality[member.current_emotion]] weakening."))
+			to_chat(member, span_nicegreen("你感到自己的[GLOB.emotion_to_quality[member.current_emotion]]正在减弱。"))
 			REMOVE_TRAIT(member, TRAIT_FORCED_EMOTION, type)
 
 	audience = list()
@@ -267,7 +267,7 @@
  *
  */
 /datum/storyteller_roll/sirens_beckoning // Difficulty is the victim's willpower
-	bumper_text = "Siren's Beckoning"
+	bumper_text = "海妖之召"
 	applicable_stats = list(STAT_WITS, STAT_PERFORMANCE)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -278,8 +278,8 @@
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/discipline_power/melpominee/sirens_beckoning
-	name = "Siren's Beckoning"
-	desc = "Sing an unearthly song to stun those around you."
+	name = "海妖之召"
+	desc = "唱出超凡的歌声，震慑周围的人。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
@@ -308,7 +308,7 @@
 /datum/discipline_power/melpominee/sirens_beckoning/activate(mob/living/target) // TODO: sliding difficulty for willpower
 	. = ..()
 	setup_particles()
-	to_chat(owner, span_purple("You begin to sing a haunting melody."))
+	to_chat(owner, span_purple("你开始吟唱一曲萦绕心头的旋律。"))
 
 	owner.Stun(1 TURNS)
 	channeling = TRUE
@@ -386,7 +386,7 @@
 	for(var/mob/living/carbon/listener in listener_list)
 		listener.remove_overlay(POWERS_LAYER)
 
-	owner.visible_message(span_purple("[owner]'s haunting melody ceases."), span_purple("You stop singing."))
+	owner.visible_message(span_purple("[owner]那萦绕心头的旋律停歇了。"), span_purple("你停止了歌唱。"))
 	channeling = FALSE
 	QDEL_NULL(particle_generator)
 	turns_left = 4
@@ -409,8 +409,8 @@
  *
  */
 /datum/discipline_power/melpominee/virtuosa
-	name = "Virtuosa"
-	desc = "Augment your abilities, allowing some powers to be used on multiple people."
+	name = "歌艺大师"
+	desc = "强化你的能力，让部分律能可以同时作用于多人。"
 
 	level = 5
 	toggled = TRUE
@@ -437,8 +437,8 @@
  *
  */
 /datum/discipline_power/melpominee/death_of_the_drum
-	name = "Shattering Crescendo"
-	desc = "Scream at an unnatural pitch, shattering the bodies of your enemies."
+	name = "碎裂强音"
+	desc = "以超乎常理的音高尖啸，震碎敌人的躯体。"
 
 	level = 6
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK

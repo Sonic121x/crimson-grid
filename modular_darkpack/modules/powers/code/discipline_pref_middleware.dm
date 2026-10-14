@@ -1,4 +1,4 @@
-//discipline stuff
+GLOBAL_LIST_INIT(localized_discipline_names, list("Animalism" = "兽性术", "Auspex" = "灵视术", "Bloodheal" = "血疗术", "Celerity" = "迅捷术", "Daimonion" = "恶魔术", "Dementation" = "惑狂术", "Dominate" = "支配术", "Fortitude" = "坚韧术", "Melpominee" = "悲歌术", "Mytherceria" = "妖灵术", "Necromancy" = "死灵术", "Obeah" = "愈灵术", "Obfuscate" = "朦胧术", "Obtenebration" = "暗影术", "Potence" = "巨力术", "Presence" = "威仪术", "Protean" = "变形术", "Quietus" = "静谧术", "Serpentis" = "蛇形术", "Temporis" = "时流术", "Thanatosis" = "尸化术", "Thaumaturgy" = "血魔法", "Torpor" = "长眠", "Valeren" = "勇战术", "Vicissitude" = "塑形术", "Visceratika" = "岩肤术", "Lure of Flames" = "诱焰之道", "Path of the Levinbolt" = "雷霆之道", "Taking of Spirit" = "摄魂之道", "Path of Pain" = "痛苦之道", "Fires of Inferno" = "炼狱之火"))
 GLOBAL_LIST_INIT(rare_discipline_types, list(
 	/datum/discipline/quietus,
 	/datum/discipline/temporis,
@@ -42,12 +42,12 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 
 	// we are assuming that diablerists gain discipline points or disciplines.
 	if(discipline_points_spent > discipline_points_budget && !client.prefs.read_preference(/datum/preference/toggle/diablerist))
-		tgui_alert(src, "You have [discipline_points_spent] discipline points spent, but your character is only allowed [discipline_points_budget]! Please fix your character preferences before joining.", "Discipline Points Overspent", list("OK"))
+		tgui_alert(src, "你已分配了[discipline_points_spent]点律能，但这个角色最多只能分配[discipline_points_budget]点！请先调整角色设置，再加入游戏。", "律能点数超额", list("确定"))
 		return FALSE
 
 	if(!has_any_discipline)
-		var/choice = tgui_alert(src, "You have not allocated any discipline dots! As a precaution, you will automatically be assigned 1 dot in each of your clan's common disciplines when you spawn.", "Disciplines Not Configured", list("I understand", "Go Back"))
-		return choice == "I understand"
+		var/choice = tgui_alert(src, "你还没有分配任何律能点数！为避免角色缺少能力，入场时系统会自动为你所属氏族的每项常见律能分配1点。", "尚未配置律能", list("我明白了", "返回"))
+		return choice == "我明白了"
 	return TRUE
 
 // discipline weights (trusted players arent affected by these)
@@ -174,27 +174,27 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	if(immortal_age <= 10)
 		return list(
 			"points" = DISCIPLINE_BUDGET_FLEDGLING,
-			"tier" = "Fledgling",
-			"details" ="As a Fledgling, you are still learning how to control your new powers, and face your new problems. You are much the same person as you were prior to the embrace, for good or for bad. The phrase \"Life's sucks and then you die\" leaves out how much it sucks to be dead, but you're starting to learn that first-hand. You might be recently declared dead or reported missing, and are struggling to piece together a new unlife without the support network you had when you were alive. There are a lot of rules and customs you're unfamiliar with, and older kindred look down on you. You may be alone, hiding out after a string of murders post-embrace that put you on the radar of law enforcement and the Camarilla, or under the watchful eye of your Sire learning to control yourself under their wing. Either way, you're going to need help to navigate all of this.")
+			"tier" = "雏血",
+			"details" ="作为雏血，你还在学习控制新获得的力量，应对随之而来的麻烦。无论好坏，你与初拥前的自己仍相差无几。人们常说“活着受罪，到头来还是一死”，却没说死后也同样难熬，而你正开始亲身体会这一点。你可能刚被宣告死亡或被报失踪，失去了生前的人际支持，只能艰难地拼凑自己的不死生活。许多规则与习俗令你陌生，年长的血族也瞧不起你。也许你在初拥后接连杀人，引起了执法机关和密党的注意，如今正独自躲藏；也许你正受血亲严密看管，在其庇护下学习自制。无论如何，要应付这一切，你都需要帮助。")
 	if(immortal_age <= 100)
 		return list(
 			"points" = DISCIPLINE_BUDGET_NEONATE,
-			"tier" = "Neonate",
-			"details" = "As a Neonate, you're starting to get the hang of things with your unlife. You have learned to control your urges enough to be mostly left to your own devices, but older kindred can still smell your inexperience from a mile away. Friends and family you once knew are beginning to grow old and pass away due to natural causes, leaving you with the lasting emotional scars from their absence. Any who you remain in contact with but haven't told about your embrace are likely suspicious about your lack of aging and absence during the day. As a result, you've learned to remain mostly composed, and to keep things close to the vest, especially when it comes to interacting with Kine. With your Kine touchstones dwindling or gone, you'll begin to find solace in others... Or else your humanity might start to fade with them.")
+			"tier" = "新血",
+			"details" = "作为新血，你开始适应自己的不死生活。你已学会约束冲动，大体能独立行事，但年长的血族依然一眼就能看穿你的稚嫩。昔日亲友逐渐衰老、寿终，他们的离去留下难以磨灭的伤痕。那些仍与你往来、却不知道你已接受初拥的人，想必会怀疑你为何容颜不老、白天又不见踪影。因此，你学会了保持镇定、谨言慎行，尤其是在与凡人相处时。随着维系你人性的凡人日渐凋零，甚至全部离去，你将开始从其他人身上寻找慰藉……否则，你的人性也可能随他们一同消逝。")
 	if(immortal_age <= 200)
 		return list(
 			"points" = DISCIPLINE_BUDGET_ANCILLAE,
-			"tier" = "Ancilla",
-			"details" = "As an Ancilla, you are a dignified member of kindred society. Ancient by Anarch standards, middle-aged by Camarillan. The ties you once held to your originally life have faded with the deaths of your loved ones over a century prior. You have come to find a new family along the way; either by siring childer of your own or making and keeping friendships that have lasted you through the ages. You are a composed, mature vampire that others often turn to when decisions need additional input, or important things need doing.")
+			"tier" = "资深者",
+			"details" = "作为资深者，你是血族社会中受人尊重的一员。在自由派眼里你已十分古老，在密党看来却只是中年。一个多世纪前亲友的离世，早已让你与生前生活的联系逐渐淡去。在漫长岁月中，你找到了新的家人：或是亲自初拥的子嗣，或是相交多年、始终维系着的挚友。你是一位沉着而成熟的吸血鬼，人们需要商议决策或处理要事时，往往会求助于你。")
 	return list("points" = DISCIPLINE_BUDGET_ELDER,
-			"tier" = "Elder",
-			"details" = "As an Elder of your clan, you are a walking history book. You have learned to keep quiet about your true age and origins, and have likely made a coterie of enemies, some alive some dead. Walking through time as the winding centipede, crawling into centuries unfamiliar as you learn and adapt to each new shifting culture. You may have emerged from torpor after a battle you may or may not remember years prior, thrust into a world you don't recognize. You likely possess a reputation for good or for bad, for something you may or may not have done hundreds of years ago. Some may take solace in your company as a familiar face, some may want to turn you to ash for a petty grievance from lifetimes prior. If your true age is discovered, the Camarilla will likely try to employ you as an enforcer due to your strength... or an aspiring lick might come along to diablerize you and take your power for themselves. To have survived this long, you're cautious, old, and cunning. Your routines are important, and you stay out of the petty squables of younger Kindred if you can help it.")
+			"tier" = "长老",
+			"details" = "作为氏族长老，你是一部活着的史书。你已学会对自己的真实年龄与来历守口如瓶，也很可能结下了许多仇敌，其中有些尚存，有些早已死去。你如蜿蜒的蜈蚣般穿行于时间，爬入一个又一个陌生的世纪，不断学习并适应变迁的文化。也许多年前的一场战斗令你陷入长眠，如今你醒来，却置身于一个不认识的世界，连那场战斗都未必还记得。你很可能因数百年前的一些事而声名在外，或褒或贬，至于那些事是否真是你做的，早已难以分辨。有人因你这张熟悉的面孔而感到慰藉，也有人为了几辈子以前的微末恩怨，恨不得将你化为灰烬。若你的真实年龄暴露，密党很可能看中你的力量，试图招揽你充当执行者……也可能有野心勃勃的舔血者找上门来，想通过血噬夺走你的力量。能存活至今，你必定谨慎、老练而狡黠。你重视自己的习惯，也尽可能远离年轻血族的小打小闹。")
 
 /proc/get_ghoul_discipline_budget(discipline_count = 0)
 	return list(
 		"points" = max(3, discipline_count), // pool expands for each additional discipline they've been taught, but they can never assign more than 1 per
-		"tier" = "Ghoul",
-		"details" = "As a Ghoul, you are the working class of Kindred society. Not quite Kine, not quite Kindred. An outsider in both worlds. You might have a Domitor, or maybe an 'employer', a Kindred who supplies you regular donations of Kindred blood that sustains your long, ageless life and supernatural abilities. Or, more rarely, you might be a freelancing ghoul that takes Kindred blood where you can find it, a practice heavily frowned upon and could get you killed if the Camarilla ever found out. You keep your head down for the most part and do what you're told, because one wrong look and the only price a Kindred might have to pay for ending your life is a small favor to the Kindred that holds your leash. You're able to run errands for your Domitor during the day time, and use basic forms of the supernatural abilities drawn from the blood you drink.. but for as long as you continue to drink, you will continue to inherit their clan curse, too.")
+		"tier" = "血仆",
+		"details" = "作为血仆，你是血族社会中的劳苦阶层。你既不完全是凡人，也算不上血族，在两个世界里都是局外人。你可能侍奉着一位血主，或所谓的“雇主”：一名定期赐予你血液的血族，借此维系你漫长不老的生命与超自然能力。更少见的情况是，你是四处寻找血族之血的自由血仆。这种做法极受鄙视，一旦被密党发现，甚至可能招来杀身之祸。你大多时候低头听命，因为哪怕只是一个不合宜的眼神，也可能让血族杀了你，而其代价不过是欠你的主人一个小小的人情。你能在白天替血主跑腿，也能运用所饮之血赋予的基础超自然能力……但只要你继续饮血，也就会继续承受他们的氏族诅咒。")
 
 /datum/preference_middleware/disciplines/get_constant_data()
 	var/list/data = list()
@@ -211,7 +211,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 			continue
 
 		var/list/disc_data = list()
-		disc_data["name"] = discipline.name
+		disc_data["name"] = DISCIPLINE_DISPLAY_NAME(discipline.name)
 		disc_data["desc"] = discipline.desc
 		disc_data["max_level"] = discipline.max_selectable_level || length(discipline.all_powers)
 		disc_data["icon"] = initial(discipline.icon)
@@ -229,7 +229,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!isnewplayer(user) && ("[user.client.prefs.default_slot]" in user.persistent_client.joined_as_slots))
-		to_chat(user, span_warning("You may not adjust discipline dots of characters that have played in the current round.")) // so people dont mess up their saves
+		to_chat(user, span_warning("本回合已经入场的角色无法调整律能点数。")) // so people dont mess up their saves
 		return FALSE
 
 	var/discipline = params["discipline"]
@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(rare_discipline_types, list(
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!isnewplayer(user) && ("[user.client.prefs.default_slot]" in user.persistent_client.joined_as_slots))
-		to_chat(user, span_warning("You may not adjust discipline dots of characters that have played in the current round."))
+		to_chat(user, span_warning("本回合已经入场的角色无法调整律能点数。"))
 		return FALSE
 	var/clan_value = preferences.read_preference(/datum/preference/choiced/subsplat/vampire_clan)
 	if(!clan_value)

@@ -1,45 +1,45 @@
 /obj/item/occult_book/veneficorum_artum_sanguis
-	name = "Veneficorum Artum Sanguis"
-	desc = "To the untrained eyes of Mortals and unknowing Kindred, this book appears to be some manner of Latin text, but those Kindred who truly know the history of the Tremere recognize the author - Inner Councilman Etrius of the Tremere. The Veneficorum - as it is called by most Magi of the Tremere, is the oldest and most foundational work of Thaumaturgical inquiry known to the Tremere, and chronicles the early experiments and exploits in the developments of Thaumaturgy. The work is thorough and explicit in its explanation of many procedures, rituals, and concepts of how to use Blood Magic. The Tremere guard all copies of this work extremely jealously - as they fear that any Kindred in posession of this work may use it to learn Thaumaturgy. This book is EXTREMELY RARE, with only a dozen or so copies ever being made of the original tome from Vienna."
+	name = "血术秘典"
+	desc = "在未经训练的凡人和不明内情的血族看来，这似乎只是一本拉丁文著作；但真正了解睿魔尔历史的血族会认出它的作者——睿魔尔内议会成员艾特里乌斯。大多数睿魔尔法师将这部著作称为《血术秘典》。它是睿魔尔所知最古老、最具奠基意义的血魔法研究著作，记述了血魔法发展初期的实验与探索。本书详尽而明确地阐释了血魔法的诸多施术步骤、仪式与概念。睿魔尔对每一本抄本都严加看管，因为他们担心任何得到此书的血族都能借此习得血魔法。本书极其罕见，维也纳原典流传出的抄本总共只有十余本。"
 	research_value = 50
 	study_cooldown = 30 MINUTES
 	study_research_value = 100
 	icon_state = "veneficorum"
 	study_flavor_texts = list(
-		"You delve into Etrius's detailed explanations of blood manipulation, gaining deeper insight into the fundamental principles of Thaumaturgy.",
-		"The ancient text reveals secrets of ritual preparation and the proper channeling of vitae through arcane and Hermetic formulae.",
-		"You study the meticulously documented experiments on blood manipulation, understanding the precise movements and incantations required.",
-		"The Veneficorum details the hierarchical structure of Thaumaturgical power, explaining how the Tremere maintain their mystical dominance - such is the way of a Clan with power unmatched, and envied by all.",
-		"Ancient diagrams and formulae illuminate the connection between mortal blood and supernatural power, expanding your understanding of the Art.",
-		"You absorb Etrius's warnings about the dangers of improper blood magic, learning from the failures and catastrophes of early practitioners.",
-		"The text describes the creation of blood-based wards and protective circles, knowledge jealously guarded by the Tremere hierarchy.",
-		"You study the philosophical underpinnings of Thaumaturgy, understanding how will, blood, and ancient knowledge combine to reshape reality.",
-		"The book reveals the historical development of various Thaumaturgical paths, each built upon centuries of experimentation and refinement.",
-		"Ancient Latin passages describe the transformation of the Tremere from mortal mages to vampiric masters of blood sorcery.",
-		"Multiple passages detail the conflicts the Tremeres faced from all sides - their 'siege mentality' lasting to this day. Attacked on all sides by the Lupines, the Tzimisce, the Nosferatu, the Gangrel, and yet, the power of Thaumaturgy was our salvation. We must protect it at all costs.",
-		"'Go forth, young student, master the blood, master the will, study under your senior Magi, and bend reality to your will. Transcend. Evolve. Ensure the survival of our kind. Innovate. Expand. Conquer.' - A final note from Etrius at the end of this work"
+		"你深入研读艾特里乌斯对血液操纵的详尽阐述，对血魔法的基本原理有了更深的领悟。",
+		"这部古籍揭示了仪式筹备的奥秘，以及如何借助奥术与赫尔墨斯术式正确引导血粹。",
+		"你研读了详实的血液操纵实验记录，领会了施术所需的精确动作与咒语。",
+		"《血术秘典》详述了血魔法力量的层级结构，解释了睿魔尔如何维系其神秘学霸权——这便是一个力量无可匹敌、令众生觊觎的氏族的行事之道。",
+		"古老的图示与术式阐明了凡人血液和超自然力量之间的联系，加深了你对这门秘术的理解。",
+		"你牢记艾特里乌斯对滥用血魔法之危害的告诫，从早期施术者的失败与灾难中汲取教训。",
+		"书中记载了以鲜血构筑结界与防护法阵的方法，这是睿魔尔高层严守的秘密。",
+		"你研习血魔法的哲学根基，理解了意志、鲜血与古老知识如何结合，从而重塑现实。",
+		"这本书揭示了血魔法各条道途的发展历程，每一条道途都凝聚着数百年的实验与改进。",
+		"古老的拉丁文段落记述了睿魔尔如何从凡人法师转变为精通血术的吸血鬼。",
+		"多处段落详述了睿魔尔四面受敌的处境——他们的“受围心态”延续至今。狼人、茨密希、诺斯费拉图和冈格罗从四面八方向我们发起进攻，然而血魔法的力量拯救了我们。我们必须不惜一切代价保护它。",
+		"“前进吧，年轻的学徒。掌握鲜血，掌握意志，向资深法师求教，让现实屈从于你的意志。超越。进化。确保吾族存续。创新。扩张。征服。”——艾特里乌斯在本书末尾留下的最后一则寄语"
 	)
 
 
 
 /obj/item/occult_book/das_tiefe_geheimnis
-	name = "Das Tiefe Geheimnis"
-	desc = "Das Tiefe Geheimnis - this copy is an English translation, titled 'The Dark Secret'. The most common musings on blood magic Hermeticism, this book was written by Johann Kloepfer, a member of the Cologne Chantry, in the 15th century. Found in nearly every major Chantry, and studied at least once by virtually every Tremere, this book lays the foundation for the most common Paths (Blood and Lure of Flames), Rituals, and Principles of Thaumaturgy. Unfortunately, this work is known to have several glaring errors in its descriptions of some of the most common rituals, making the work useful only in a supplemental capacity. Many Tremere believe Kloepfer placed these ommissions intentionally to safeguard the art of Thaumaturgy from non-Tremere. Most copies, including this one, are littered with copious hand-written notes and corrections added by members over the centuries."
+	name = "深邃奥秘"
+	desc = "《深邃奥秘》——这一册是英文译本，译名为《黑暗秘辛》。这是流传最广的血魔法赫尔墨斯学说论著，由科隆秘所成员约翰·克勒普弗于十五世纪撰写。几乎每座大型秘所都藏有此书，几乎每位睿魔尔都至少研读过一次。它为最常见的血魔法道途（鲜血之道与诱焰之道）、仪式和基本原理奠定了基础。遗憾的是，书中对一些常见仪式的描述存在数处明显错误，因此只能作为辅助读物。许多睿魔尔认为，这些缺漏是克勒普弗有意留下的，目的是防止血魔法秘术流入氏族之外。包括这一册在内，大多数抄本上都布满了数百年来氏族成员留下的手写批注与勘误。"
 	research_value = 20
 	study_cooldown = 15 MINUTES
 	study_research_value = 50
 	icon_state = "tiefe"
 	study_flavor_texts = list(
-		"You study Kloepfer's foundational explanations of the Path of Blood, cross-referencing the handwritten corrections in the margins.",
-		"The text details the basic principles of the Lure of Flames, though you notice several deliberate omissions that have been filled in by later scholars.",
-		"You examine the fundamental rituals described by Kloepfer, noting where centuries of Tremere have added their own insights and corrections.",
-		"The book's exploration of Hermetic principles provides a solid foundation, despite the intentional errors you've learned to identify.",
-		"Marginal notes from previous readers reveal the true incantations behind Kloepfer's deliberately obscured ritual descriptions.",
-		"You study the basic ward creation techniques, comparing Kloepfer's original text with the extensive annotations added over the centuries.",
-		"The fundamental theory of vitae manipulation becomes clearer as you cross-reference the original text with generations of scholarly corrections.",
-		"Kloepfer's discussion of Thaumaturgical hierarchy and apprenticeship provides insight into traditional Tremere teaching methods.",
-		"You decipher the intentionally cryptic passages about blood transmutation, aided by the copious notes left by previous students.",
-		"The text's exploration of basic protective circles and ritual preparation gives you a better grasp of foundational Thaumaturgy.",
-		"Annotations reveal the true nature of several 'errors' in Kloepfer's work, showing how the author protected Tremere secrets from outsiders.",
-		"You study the relationship between will, blood, and incantation as described in this cornerstone work of Thaumaturgical literature."
+		"你研读克勒普弗对鲜血之道基础原理的阐述，并对照页边的手写勘误逐一核查。",
+		"书中详述了诱焰之道的基本原理，不过你也发现了几处有意留下的缺漏，如今已由后来的学者补全。",
+		"你研习克勒普弗所述的基础仪式，留意数百年来睿魔尔学者添写的心得与修正。",
+		"尽管书中有些刻意留下的错误，而你已学会辨认，它对赫尔墨斯原理的论述仍为你打下了扎实的基础。",
+		"前人留在页边的批注揭示了真正的咒语，它们原本被克勒普弗有意含糊其辞的仪式描述掩盖了。",
+		"你研习构筑结界的基础技巧，将克勒普弗的原文与数百年来积累的大量注解相互对照。",
+		"随着你将原文与历代学者的勘误相互参照，血粹操纵的基本理论逐渐清晰起来。",
+		"克勒普弗对血魔法层级与师徒制度的论述，让你更深入地了解了睿魔尔的传统教学方式。",
+		"借助前人留下的大量笔记，你解读了那些刻意写得晦涩难懂的血液转化段落。",
+		"书中对基础防护法阵和仪式筹备的探讨，让你更好地掌握了血魔法基础。",
+		"批注揭示了克勒普弗著作中几处“错误”的真实用意，让你看出作者如何保护睿魔尔的秘密不被外人窃取。",
+		"你研习这部血魔法奠基著作中有关意志、鲜血与咒语之间关系的论述。"
 	)

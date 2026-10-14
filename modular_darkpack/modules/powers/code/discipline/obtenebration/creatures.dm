@@ -1,24 +1,24 @@
 // Dubiously deprecated as i think we replaced them with /mob/living/basic/shadow_guard
 /mob/living/basic/lasombra
-	name = "shadow abomination"
-	desc = "A ferocious, fang-bearing creature that resembles a spider."
+	name = "暗影憎恶"
+	desc = "一只形似蜘蛛的凶猛生物，长着尖利的獠牙。"
 	icon = 'modular_darkpack/modules/npc/icons/shadow_guard.dmi'
 	icon_state = "shadow"
 	icon_living = "shadow"
 	mob_biotypes = MOB_SPIRIT
 	basic_mob_flags = DEL_ON_DEATH
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "轻轻推开"
+	response_disarm_simple = "轻轻推开"
 	speed = -1
 	maxHealth = 100
 	health = 100
 	obj_damage = 50
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
 	attack_sound = 'sound/items/weapons/bite.ogg'
-	speak_emote = list("gnashes")
+	speak_emote = list("咬牙切齿地说")
 	faction = list(VAMPIRE_CLAN_LASOMBRA)
 	pressure_resistance = 200
 	bloodpool = 0

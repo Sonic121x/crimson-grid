@@ -1,121 +1,121 @@
-Ashen Pact
-Ashen Sovereign
-Ashen Veil
-Ashfall Covenant
-Ashveil
-Blood of the Forgotten
-Bloodharrow
-Bloodmourn
-Bloodsong of the Lost
-Crown of Ruin
-Grave of the Faithless
-Graveblight
-Gravebloom
-Gravetide
-Harrowlight
-Harrowmire
-Hollowwind
-Mournspire
-Mournveil
-Night of the Unmourned
-Oathbreaker’s Dawn
-Oathbreaker’s Rest
-Oathfire
-Oathless Dawn
-Ruinveil
-Ruin’s Choir
-Ruin’s Embrace
-Shadeborn
-Storm Upon the Barrow
-Storm of the Faithless
-The Ashen Reign
-The Ashen Revenant
-The Banished King
-The Banshee’s Gift
-The Bitter End
-The Bitter Promise
-The Black Eulogy
-The Black Lament
-The Black Rebirth
-The Black Sermon
-The Bladed Choir
-The Bleak Ascendant
-The Bleeding Hunt
-The Bleeding Moon
-The Blight of Kings
-The Bloodlit Exile
-The Bone Lantern
-The Bone Sunder
-The Broken Host
-The Broken Pyre
-The Burning Quiet
-The Cinder Choir
-The Crimson Reproach
-The Crimson Wake
-The Crimson Weald
-The Cursed Benediction
-The Deathlight Covenant
-The Dread Covenant
-The Eclipsed Throne
-The Endless Hunt
-The Endless Woe
-The Eternal Lament
-The Final Benediction
-The Forgotten Banquet
-The Forgotten Legion
-The Forgotten Warden
-The Frosted Grin
-The Frozen Hymn
-The Gilded Scourge
-The Gloomfeast
-The Grave Hymnal
-The Graven Host
-The Graven Oath
-The Hollow Feast
-The Hollow Glory
-The Hollow Monarch
-The Hollow Vow
-The Iron Dirge
-The Iron Wail
-The Last Benediction
-The Last Oathkeeper
-The Last Winter’s Oath
-The Long Mourning
-The Lost Crusade
-The Mourner’s Wake
-The Mourning Gale
-The Mourning Throne
-The Nameless Howl
-The Nameless Rite
-The Pale Confessor
-The Pale Dominion
-The Pale Dread
-The Pale Maw
-The Pale Reckoner
-The Pale Reclaiming
-The Pale Requiem
-The Pale Resurgence
-The Pale Supplicant
-The Red Pilgrimage
-The Sable Pilgrimage
-The Shadow’s Debt
-The Shadow’s Triumph
-The Shattered Crown
-The Shattered Hymn
-The Silent Dominion
-The Silent Herald
-The Silent Hunt
-The Silent Reckoning
-The Sorrow’s Feast
-The Waking Grief
-The Weeping Hunt
-The Whispered End
-The Widow’s Cry
-The Withered Hunt
-The Withering Crown
-The Wraith’s Vow
-Thornwake
-Vowrend
-Whisper of the Gallows
-Wraithbound
-Wraithspire
+灰烬之契
+灰烬君主
+灰烬帷幕
+落灰盟约
+灰幕
+遗忘者之血
+血之折磨
+血之哀悼
+迷失者的血歌
+毁灭之冠
+失信者之墓
+墓中疫病
+墓中之花
+墓潮
+苦痛之光
+苦痛泥沼
+空洞之风
+哀悼尖塔
+哀幕
+无人悼念之夜
+背誓者的黎明
+背誓者的安息
+誓火
+无誓黎明
+毁灭之幕
+毁灭合唱
+毁灭之拥
+幽影之子
+坟丘上的风暴
+失信者的风暴
+灰烬统治
+灰烬亡魂
+流放之王
+报丧女妖的馈赠
+苦涩终局
+苦涩承诺
+黑色悼词
+黑色悲叹
+黑色重生
+黑色布道
+利刃合唱
+凄凉升华者
+流血之猎
+流血之月
+诸王之灾
+血光中的流亡者
+白骨灯笼
+碎骨者
+破碎军团
+破败柴堆
+燃烧的寂静
+余烬合唱
+猩红谴责
+猩红守灵
+猩红林地
+受诅咒的祝福
+死亡之光盟约
+恐怖盟约
+蚀影王座
+无尽狩猎
+无尽悲苦
+永恒悲叹
+终末祝福
+遗忘之宴
+遗忘军团
+遗忘守卫
+霜覆笑容
+冰封圣歌
+镀金之鞭
+幽暗之宴
+坟墓圣歌集
+石刻军团
+铭刻誓言
+空洞之宴
+空洞荣耀
+空洞君王
+空洞誓约
+铁之挽歌
+铁之哀嚎
+最后的祝福
+最后的守誓者
+末冬之誓
+漫长哀悼
+失落圣战
+哀悼者的守灵
+哀悼狂风
+哀悼王座
+无名长嚎
+无名仪式
+苍白告解者
+苍白统御
+苍白恐惧
+苍白巨口
+苍白清算者
+苍白收复
+苍白安魂曲
+苍白复起
+苍白祈求者
+红色朝圣
+玄黑朝圣
+暗影之债
+暗影的凯旋
+破碎王冠
+破碎圣歌
+无声统御
+无声先驱
+无声狩猎
+无声清算
+悲伤之宴
+苏醒的悲痛
+哭泣之猎
+低语终焉
+寡妇之泣
+枯萎之猎
+凋零之冠
+怨灵之誓
+荆棘守灵
+裂誓
+绞架低语
+缚魂
+怨灵尖塔

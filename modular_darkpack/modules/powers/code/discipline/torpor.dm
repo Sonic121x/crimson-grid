@@ -1,13 +1,13 @@
 /datum/discipline/torpor
 	name = "Torpor"
-	desc = "We fall into a false death state, allowing us to feign death."
+	desc = "我们进入假死状态，伪装成已经死亡。"
 	icon_state = "quietus"
 	power_type = /datum/discipline_power/torpor
 	selectable = FALSE // so it doesn't show up in the admin UI as selectable
 
 /datum/discipline_power/torpor
-	name = "Torpor"
-	desc = "We fall into a false death state, allowing us to feign death."
+	name = "长眠"
+	desc = "我们进入假死状态，伪装成已经死亡。"
 	vitae_cost = 1
 	target_type = TARGET_SELF
 
@@ -26,7 +26,7 @@
 	if(!enable_fakedeath(owner))
 		CRASH("Kindred revive failed to enter fakedeath when it should have been in a valid state to.")
 
-	to_chat(owner, span_changeling("We begin our torpor, preparing energy to arise once more."))
+	to_chat(owner, span_changeling("我们开始长眠，积蓄再次苏醒的力量。"))
 	return TRUE
 
 /// Used to enable fakedeath and register relevant signals / start timers
@@ -74,7 +74,7 @@
 		return
 
 	source.cure_fakedeath(CHANGELING_TRAIT)
-	to_chat(source, span_changeling("We exit our torpor early."))
+	to_chat(source, span_changeling("我们提前结束了长眠。"))
 
 /datum/discipline_power/torpor/proc/revive(mob/living/carbon/user)
 	if(!istype(user))
@@ -87,7 +87,7 @@
 	var/flags_to_heal = (HEAL_DAMAGE|HEAL_BODY|HEAL_STATUS|HEAL_CC_STATUS)
 	// but leave out limbs so we can do it specially
 	user.revive(flags_to_heal & ~HEAL_LIMBS)
-	to_chat(user, span_changeling("We have revived ourselves."))
+	to_chat(user, span_changeling("我们已经恢复生机。"))
 	SEND_SIGNAL(user, COMSIG_MASQUERADE_VIOLATION)
 
 /datum/discipline_power/torpor/proc/ready_to_regenerate(mob/user)
@@ -100,7 +100,7 @@
 	if(!HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
 		return
 
-	to_chat(user, span_changeling("We are ready to revive."))
+	to_chat(user, span_changeling("我们已经准备好恢复生机。"))
 	enable_revive(user)
 
 /datum/discipline_power/torpor/can_activate(mob/living/user)
@@ -111,7 +111,7 @@
 		return
 	//Confirmation for living kindreds if they want to fake their death
 	if(user.stat != DEAD)
-		if(tgui_alert(user, "Are we sure we wish to fake our own death?", "Feign Death", list("Yes", "No")) != "Yes")
+		if(tgui_alert(user, "我们确定要进入假死状态吗？", "假死", list("是", "否")) != "是")
 			return
 		if(QDELETED(user) || QDELETED(src) || !can_enter_torpor(user))
 			return
@@ -127,6 +127,6 @@
 
 /datum/discipline_power/torpor/proc/can_enter_torpor(mob/living/user)
 	if(HAS_TRAIT_FROM(user, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
-		user.balloon_alert(user, "already reviving!")
+		user.balloon_alert(user, "已在恢复生机！")
 		return FALSE
 	return TRUE

@@ -42,8 +42,8 @@
 	speed = -0.6
 
 /mob/living/basic/pet/cat/protean
-	name = "cat"
-	desc = "Kitty!!"
+	name = "猫"
+	desc = "小猫咪！！"
 	maxHealth = 300
 	health = 300
 	speed = -0.8
@@ -56,8 +56,8 @@
 	icon_dead = "cat3_dead"
 	base_icon_state = "cat3"
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "claw"
+	attack_verb_continuous = "爪击"
+	attack_verb_simple = "爪击"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 	can_breed = FALSE

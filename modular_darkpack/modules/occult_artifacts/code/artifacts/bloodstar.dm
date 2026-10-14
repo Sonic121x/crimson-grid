@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/bloodstar
-	true_name = "Bloodstar"
-	true_desc = "Increases Bloodpower efficiency."
+	true_name = "血星"
+	true_desc = "提高血能的使用效率。"
 	icon_state = "bloodstar"
 	research_value = 10
 

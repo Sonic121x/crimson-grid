@@ -1,11 +1,11 @@
 /datum/discipline/celerity
 	name = "Celerity"
-	desc = {"Boosts your speed. Violates Masquerade.
-● Celerity 1: Passive
-●● Celerity 2: Passive
-●●● Celerity 3: Passive
-●●●● Celerity 4: Passive
-●●●●● Celerity 5: Passive"}
+	desc = {"提升你的速度。违反避世戒律。
+● 迅捷术 1：被动
+●● 迅捷术 2：被动
+●●● 迅捷术 3：被动
+●●●● 迅捷术 4：被动
+●●●●● 迅捷术 5：被动"}
 	icon_state = "celerity"
 	power_type = /datum/discipline_power/celerity
 
@@ -22,7 +22,7 @@
 	if (!istype(power, /datum/discipline_power/temporis/patience_of_the_norns) && !istype(power, /datum/discipline_power/temporis/clothos_gift))
 		return
 
-	to_chat(owner, span_userdanger("You try to use Temporis, but your active Celerity accelerates your temporal field out of your control!"))
+	to_chat(owner, span_userdanger("你试图施展时流术，但正在生效的迅捷术使你的时间场加速，彻底失去了控制！"))
 	INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 3 SECONDS)
 
@@ -30,8 +30,8 @@
 
 //CELERITY 1
 /datum/discipline_power/celerity/one
-	name = "Celerity 1"
-	desc = "Enhances your speed to make everything a little bit easier."
+	name = "迅捷术 1"
+	desc = "提升速度，让一切都稍微轻松一些。"
 
 	check_flags = DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
 
@@ -62,8 +62,8 @@
 
 //CELERITY 2
 /datum/discipline_power/celerity/two
-	name = "Celerity 2"
-	desc = "Significantly improves your speed and reaction time."
+	name = "迅捷术 2"
+	desc = "显著提升速度，让反应更加敏捷。"
 
 	check_flags = DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
 
@@ -94,8 +94,8 @@
 
 //CELERITY 3
 /datum/discipline_power/celerity/three
-	name = "Celerity 3"
-	desc = "Move faster. React in less time. Your body is under perfect control."
+	name = "迅捷术 3"
+	desc = "移动更快，反应更迅速。你的身体尽在掌控之中。"
 
 	check_flags = DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
 
@@ -126,8 +126,8 @@
 
 //CELERITY 4
 /datum/discipline_power/celerity/four
-	name = "Celerity 4"
-	desc = "Breach the limits of what is humanly possible. Move like a lightning bolt."
+	name = "迅捷术 4"
+	desc = "突破人类极限，行动如同闪电。"
 
 	check_flags = DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
 
@@ -158,8 +158,8 @@
 
 //CELERITY 5
 /datum/discipline_power/celerity/five
-	name = "Celerity 5"
-	desc = "You are like light. Blaze your way through the world."
+	name = "迅捷术 5"
+	desc = "你宛如一道光，飞驰于世间。"
 
 	check_flags = DISC_CHECK_LYING | DISC_CHECK_IMMOBILE
 

@@ -1,11 +1,11 @@
-///Shows a tgui window with memories
-GAME_VERB_DESC(/mob, emotion_panel, "Emotion Panel", "Change your character's emotions.", "IC")
+GLOBAL_LIST_INIT(localized_emotion_choices, list("恐惧" = "Afraid", "好斗" = "Aggressive", "愤怒" = "Angry", "怨怼" = "Bitter", "平静" = "Calm", "怜悯" = "Compassionate", "保守" = "Conservative", "消沉" = "Depressed", "欲望" = "Desirous", "不信任" = "Distrustful", "嫉妒" = "Envious", "兴奋" = "Excited", "慷慨" = "Generous", "快乐" = "Happy", "憎恨" = "Hateful", "理想主义" = "Idealistic", "纯真" = "Innocent", "爱意" = "Lovestruck", "执念" = "Obsessed", "悲伤" = "Sad", "灵性" = "Spiritual", "怀疑" = "Suspicious", "焦虑" = "Anxious", "困惑" = "Confused", "心不在焉" = "Daydreaming", "精神错乱" = "Psychotic", "自信" = "Confidence", "腐化" = "Corruption"))
+GAME_VERB_DESC(/mob, emotion_panel, "情绪面板", "改变你的角色情绪。", "IC")
 	if(HAS_TRAIT(src, TRAIT_FORCED_EMOTION))
-		to_chat(src, span_warning("You cannot change emotions right now."))
+		to_chat(src, span_warning("你现在无法改变情绪。"))
 		return FALSE
 
 	// This really shouldnt be using aura here. it needs to be detached and made unrelenient on aura/auspex. - Fallcon
-	var/new_emotion = tgui_input_list(src, "What are you feeling?", "Feelings", GLOB.aura_list)
+	var/new_emotion = GLOB.localized_emotion_choices[tgui_input_list(src, "你现在是什么心情？", "情绪", GLOB.localized_emotion_choices)]
 	if(isnull(new_emotion))
 		return FALSE
 	set_emotion(new_emotion)
@@ -27,8 +27,8 @@ GAME_VERB_DESC(/mob, emotion_panel, "Emotion Panel", "Change your character's em
 	alert_type = /atom/movable/screen/alert/status_effect/question_emotion
 
 /atom/movable/screen/alert/status_effect/question_emotion
-	name = "Questioning emotion"
-	desc = "Something in you is making you dwell on your emotions."
+	name = "审视情绪"
+	desc = "内心的某种感受让你反复审视自己的情绪。"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "riddle"
 	click_master = FALSE
@@ -53,7 +53,7 @@ GAME_VERB_DESC(/mob, emotion_panel, "Emotion Panel", "Change your character's em
 	alert_type = /atom/movable/screen/alert/status_effect/forced_emotion
 
 /atom/movable/screen/alert/status_effect/forced_emotion
-	name = "Forced emotion"
-	desc = "Something is forcing your mind into a particular emotion."
+	name = "强加的情绪"
+	desc = "某种力量正迫使你的心灵陷入特定情绪。"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "in_love"

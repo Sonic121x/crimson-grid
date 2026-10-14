@@ -132,7 +132,7 @@
 		if (power.cancelable || power.toggled)
 			power.try_deactivate(direct = TRUE, alert = TRUE)
 		else
-			to_chat(owner, span_warning("[power] is already active!"))
+			to_chat(owner, span_warning("[power]已经启用！"))
 	else //activate
 		if (power.target_type == NONE) //self activation
 			power.try_activate()
@@ -161,7 +161,7 @@
 
 // Update name, desc, and icon to the new power's
 /datum/action/discipline/proc/refresh_power_display()
-	name = discipline.current_power?.name || discipline.name
+	name = discipline.current_power?.name || DISCIPLINE_DISPLAY_NAME(discipline.name)
 	desc = discipline.current_power?.desc || discipline.desc
 
 	overlay_icon_state = num2text(discipline.level_casting)

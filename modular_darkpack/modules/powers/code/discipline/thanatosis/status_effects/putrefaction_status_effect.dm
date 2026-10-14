@@ -1,6 +1,6 @@
 /atom/movable/screen/alert/status_effect/putrefaction
-	name = "Putrefaction"
-	desc = "Your face has aged terribly!"
+	name = "腐败"
+	desc = "你的面容衰老得可怕！"
 	icon_state = "wounded_soldier"
 
 /datum/status_effect/putrefaction

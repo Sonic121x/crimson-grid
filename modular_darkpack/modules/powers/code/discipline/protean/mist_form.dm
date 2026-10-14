@@ -1,11 +1,11 @@
 /datum/action/cooldown/spell/shapeshift/gangrel/mist
-	name = "Mist Form"
-	desc = "Dissipate your body and move as mist."
+	name = "雾化形态"
+	desc = "将身体化为雾气，以雾的形态移动。"
 	possible_shapes = list(/mob/living/basic/mist)
 
 /mob/living/basic/mist
-	name = "mist"
-	desc = "A cloud of mist."
+	name = "雾气"
+	desc = "一团雾气。"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smoke"
 	icon_living = "smoke"

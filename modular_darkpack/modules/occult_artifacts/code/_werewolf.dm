@@ -35,6 +35,6 @@ GLOBAL_LIST_INIT(animal_spirits, world.file2list("modular_darkpack/modules/occul
 
 	if(length(spirit_table))
 		spirit_name = pick(spirit_table)
-		spirit_desc = "[spirit_name], a spirit of [spirit_type]"
+		spirit_desc = "[list(SPIRIT_NIGHT = "夜之灵", SPIRIT_DARKNESS = "暗之灵", SPIRIT_VENGEANCE = "复仇之灵", SPIRIT_ANIMAL = "兽之灵")[spirit_type]]·[spirit_name]"
 
 	return spirit_desc

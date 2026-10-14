@@ -23,6 +23,6 @@
 		owner.set_blood_pool(owner.maxbloodpool)
 
 /atom/movable/screen/alert/status_effect/blood_of_potency
-	name = "Blood of Potency"
-	desc = "You can feel your blood being stronger!"
+	name = "强效之血"
+	desc = "你能感觉到血液变得更强大了！"
 	icon_state = "blooddrunk"

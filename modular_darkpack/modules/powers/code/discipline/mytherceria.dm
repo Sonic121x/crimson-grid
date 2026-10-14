@@ -1,11 +1,11 @@
 /datum/discipline/mytherceria
 	name = "Mytherceria"
-	desc = {"Mytherceria is a Discipline that manifests in faerie-blooded vampires such as the Kiasyd and Maeghar. It grants the vampire mystical senses, the ability to steal knowledge, and other powers attributed to fae.
-● Fey Sight: Passive
-●● Darkling Trickery: Passive
-●●● Goblinism: Passive
-●●●● Chanjelin Ward: Passive
-●●●●● Riddle Phantastique: Passive"}
+	desc = {"妖灵术显现于奇亚希德、梅加尔等具有妖精血脉的吸血鬼身上。它赋予吸血鬼神秘感官、窃取知识的能力，以及其他属于妖精的力量。
+● 妖精视界：被动
+●● 暗妖诡术：被动
+●●● 地精召唤：被动
+●●●● 换生灵符印：被动
+●●●●● 幻奇谜题：被动"}
 	icon_state = "mytherceria"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/mytherceria
@@ -18,8 +18,8 @@
 
 //FEY SIGHT
 /datum/discipline_power/mytherceria/fey_sight
-	name = "Fey Sight"
-	desc = "Sense magical items on another person."
+	name = "妖精视界"
+	desc = "感知他人携带的魔法物品。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
@@ -31,7 +31,7 @@
 
 /datum/discipline_power/mytherceria/fey_sight/activate(mob/living/target)
 	. = ..()
-	to_chat(owner, span_purple("Your fae senses reach out to detect what they're carrying..."))
+	to_chat(owner, span_purple("你的妖精感官向外延伸，探查对方携带的物品……"))
 	for(var/obj/item/item in target.get_all_contents())
 		/* Magic limbs.... should be fine?
 		if(isorgan(item) || isbodypart(item))
@@ -44,8 +44,8 @@
 
 //DARKLING TRICKERY
 /datum/discipline_power/mytherceria/darkling_trickery
-	name = "Darkling Trickery"
-	desc = "Steal trinkets from your victims from afar."
+	name = "暗妖诡术"
+	desc = "从远处窃取受害者身上的小物件。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_FREE_HAND | DISC_CHECK_LYING
@@ -65,10 +65,10 @@
 		choices[thing.name] = thing
 
 	if(!length(choices))
-		to_chat(owner, span_warning("[target] has nothing to steal."))
+		to_chat(owner, span_warning("[target]身上没有可偷的东西。"))
 		return
 
-	var/picked_name = tgui_input_list(owner, "Choose an item to steal", "Darkling Trickery", choices)
+	var/picked_name = tgui_input_list(owner, "选择要窃取的物品", "暗妖诡术", choices)
 	var/obj/item/stolen_item = choices[picked_name]
 	if(QDELETED(stolen_item) || !(stolen_item in target.get_all_contents()))
 		return
@@ -78,8 +78,8 @@
 
 //GOBLINISM
 /datum/discipline_power/mytherceria/goblinism
-	name = "Goblinism"
-	desc = "Summon a mischievous goblin to latch onto your enemies' faces."
+	name = "地精召唤"
+	desc = "召唤一只顽劣的地精，让它扒住敌人的脸。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_FREE_HAND
@@ -99,8 +99,8 @@
 	goblin.throw_at(target, 10, 14, owner)
 
 /obj/item/clothing/mask/facehugger/kiasyd
-	name = "goblin"
-	desc = "A green changeling creature."
+	name = "地精"
+	desc = "一只绿色的换生灵生物。"
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "goblin"
@@ -113,7 +113,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		C.adjust_brute_loss(5)
-		to_chat(user, span_warning("[src] bites!"))
+		to_chat(user, span_warning("[src]咬人了！"))
 		return
 	. = ..()
 
@@ -126,8 +126,8 @@
 		return FALSE
 	if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger/kiasyd))
 		return FALSE
-	target.visible_message(span_danger("[src] leaps at [target]'s face!"), \
-		span_userdanger("[src] leaps at your face!"))
+	target.visible_message(span_danger("[src]跃向[target]的脸！"), \
+		span_userdanger("[src]跃向你的脸！"))
 
 	if(target.head)
 		var/obj/item/clothing/W = target.head
@@ -137,8 +137,8 @@
 		var/obj/item/clothing/W = target.wear_mask
 		if(target.dropItemToGround(W, TRUE))
 			target.visible_message(
-				span_danger("[src] tears [W] off of [target]'s face!"), \
-				span_userdanger("[src] tears [W] off of your face!"))
+				span_danger("[src]从[target]脸上扯下了[W]！"), \
+				span_userdanger("[src]从你脸上扯下了[W]！"))
 	target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	var/datum/cb = CALLBACK(src,/obj/item/clothing/mask/facehugger/kiasyd/proc/eat_head)
 	for(var/i in 1 to 10)
@@ -150,13 +150,13 @@
 /obj/item/clothing/mask/facehugger/kiasyd/proc/eat_head()
 	if(iscarbon(loc))
 		var/mob/living/carbon/C = loc
-		to_chat(C, span_warning("[src] is eating your face!"))
+		to_chat(C, span_warning("[src]正在啃食你的脸！"))
 		C.apply_damage(5, BRUTE)
 
 //CHANJELIN WARD
 /datum/discipline_power/mytherceria/chanjelin_ward
-	name = "Chanjelin Ward"
-	desc = "Create a symbol that disorientates your victim."
+	name = "换生灵符印"
+	desc = "创造一道符印，使受害者迷失方向。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -177,8 +177,8 @@
 
 //RIDDLE PHANTASTIQUE
 /datum/discipline_power/mytherceria/riddle_phantastique
-	name = "Riddle Phantastique"
-	desc = "Pose a confounding riddle to your victim, forcing them to answer it before they can do anything else."
+	name = "幻奇谜题"
+	desc = "向受害者提出一道令人困惑的谜题，迫使其先作答才能做其他事情。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_SPEAK
@@ -193,12 +193,12 @@
 /datum/discipline_power/mytherceria/riddle_phantastique/activate(mob/living/target)
 	. = ..()
 	if(length(stored_riddles))
-		var/list/riddle_list = list("Create a new riddle...")
+		var/list/riddle_list = list("创建新谜题……")
 		for(var/datum/riddle/riddle in stored_riddles)
 			riddle_list += riddle.riddle_text
-		var/try_riddle = tgui_input_list(owner, "Select a Riddle:", "Riddle", riddle_list)
+		var/try_riddle = tgui_input_list(owner, "选择一道谜题：", "谜题", riddle_list)
 		if(try_riddle)
-			if(try_riddle == "Create a new riddle...")
+			if(try_riddle == "创建新谜题……")
 				var/datum/riddle/riddle = new ()
 				if(riddle.create_riddle(owner))
 					stored_riddles += riddle
@@ -230,8 +230,8 @@
 	var/riddle_answer
 
 /atom/movable/screen/alert/riddle
-	name = "Riddle"
-	desc = "You have a riddle to solve!"
+	name = "谜题"
+	desc = "你有一道谜题需要解答！"
 	icon_state = "riddle"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	var/datum/riddle/riddle
@@ -245,7 +245,7 @@
 			riddle.try_answer(M, src)
 
 /datum/riddle/proc/try_answer(mob/living/answerer, atom/movable/screen/alert/riddle/new_alert)
-	var/try_answer = tgui_input_list(answerer, riddle_text, "Riddle", shuffle(riddle_options.Copy()))
+	var/try_answer = tgui_input_list(answerer, riddle_text, "谜题", shuffle(riddle_options.Copy()))
 	if(try_answer)
 		answer_riddle(answerer, try_answer, new_alert)
 
@@ -255,38 +255,38 @@
 
 /datum/riddle/proc/create_riddle(mob/living/carbon/human/riddler)
 	var/proceed = FALSE
-	var/text_riddle = tgui_input_text(riddler, "Create a riddle:", "Riddle", "Is it something?")
+	var/text_riddle = tgui_input_text(riddler, "创建一道谜题：", "谜题", "它是什么东西？")
 	if(text_riddle)
 		riddle_text = trim(copytext_char(sanitize(text_riddle), 1, MAX_MESSAGE_LEN))
-		var/right_answer = tgui_input_text(riddler, "Create a right answer:", "Riddle", "Something")
+		var/right_answer = tgui_input_text(riddler, "填写正确答案：", "谜题", "某样东西")
 		if(right_answer)
 			riddle_answer = trim(copytext_char(sanitize(right_answer), 1, MAX_MESSAGE_LEN))
 			riddle_options += trim(copytext_char(sanitize(right_answer), 1, MAX_MESSAGE_LEN))
 			proceed = TRUE
-			var/answer1 = tgui_input_text(riddler, "Create another answer:", "Riddle", "Anything")
+			var/answer1 = tgui_input_text(riddler, "填写另一个答案：", "谜题", "任何东西")
 			if(answer1)
 				riddle_options += trim(copytext_char(sanitize(answer1), 1, MAX_MESSAGE_LEN))
-				var/answer2 = tgui_input_text(riddler, "Create another answer:", "Riddle", "Anything")
+				var/answer2 = tgui_input_text(riddler, "填写另一个答案：", "谜题", "任何东西")
 				if(answer2)
 					riddle_options += trim(copytext_char(sanitize(answer2), 1, MAX_MESSAGE_LEN))
-					var/answer3 = tgui_input_text(riddler, "Create another answer:", "Riddle", "Anything")
+					var/answer3 = tgui_input_text(riddler, "填写另一个答案：", "谜题", "任何东西")
 					if(answer3)
 						riddle_options += trim(copytext_char(sanitize(answer3), 1, MAX_MESSAGE_LEN))
-						var/answer4 = tgui_input_text(riddler, "Create another answer:", "Riddle", "Anything")
+						var/answer4 = tgui_input_text(riddler, "填写另一个答案：", "谜题", "任何东西")
 						if(answer4)
 							riddle_options += trim(copytext_char(sanitize(answer4), 1, MAX_MESSAGE_LEN))
 	if(proceed)
-		to_chat(riddler, "New riddle created.")
+		to_chat(riddler, "新谜题已创建。")
 		return src
 	else
-		to_chat(riddler, span_danger("Your riddle is too complicated."))
+		to_chat(riddler, span_danger("你的谜题太复杂了。"))
 		return FALSE
 
 /datum/riddle/proc/answer_riddle(mob/living/answerer, the_answer, atom/movable/screen/alert/riddle/alert)
 	if(the_answer != riddle_answer)
 		alert.bad_answers++
 		to_chat(answerer,
-			span_danger("WRONG ANSWER."))
+			span_danger("回答错误。"))
 		if(alert.bad_answers >= round(length(riddle_options)/2))
 			if(iscarbon(answerer))
 				var/mob/living/carbon/C = answerer
@@ -294,14 +294,14 @@
 				if(tongue)
 					tongue.Remove(C)
 			to_chat(answerer,
-				span_danger("THE RIDDLE REMOVES YOUR LYING TONGUE AS IT FLEES."))
+				span_danger("谜题消散时，扯走了你说谎的舌头。"))
 			answerer.remove_movespeed_modifier(/datum/movespeed_modifier/riddle)
 			alert.bad_answers = 0
 			alert.riddle = null
 			answerer.clear_alert("riddle")
 	else
 		to_chat(answerer,
-			span_nicegreen("You feel the riddle's hold over you vanish."))
+			span_nicegreen("你感觉谜题对你的束缚消失了。"))
 		alert.riddle = null
 		answerer.remove_movespeed_modifier(/datum/movespeed_modifier/riddle)
 		answerer.say(the_answer)

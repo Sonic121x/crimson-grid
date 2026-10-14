@@ -1,5 +1,5 @@
 /obj/effect/client_image_holder/baali_demon
-	name = "infernal demon"
+	name = "炼狱恶魔"
 	image_icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	image_state = "baali"
 	var/mob/living/target //person who had daimonion 4 used on them
@@ -43,46 +43,46 @@
 	step_away(victim, get_turf(src))
 
 /obj/effect/client_image_holder/baali_demon/spectre
-	name = "specter"
+	name = "幽魂"
 	image_icon = 'modular_darkpack/modules/deprecated/icons/mob.dmi'
 	image_state = "shade"
 
 /obj/effect/client_image_holder/baali_demon/wyrm
-	name = "wyrmic avatar"
+	name = "妖蛆化身"
 	image_icon = 'modular_darkpack/modules/deprecated/icons/48x64.dmi'
 	image_state = "bigskeleton"
 
 /obj/effect/client_image_holder/baali_demon/tremere
-	name = "RECLAIMER"
+	name = "回收者"
 	image_icon = 'modular_darkpack/modules/deprecated/icons/48x64.dmi'
 	image_state = "4armstzi"
 
 /obj/effect/client_image_holder/baali_demon/banu
-	name = "LOREMASTER"
+	name = "秘识大师"
 	image_icon = 'modular_darkpack/modules/antediluvian_sarcophagus/icons/the_antediluvian.dmi'
 	image_state = "eva"
 
 /obj/effect/client_image_holder/baali_demon/proc/on_contact(mob/living/victim)
-	victim.visible_message(span_warning("[victim] falls on their knees"), span_warning("[src.name] grasps your head with its hands"))
+	victim.visible_message(span_warning("[victim]双膝跪地。"), span_warning("[src.name]用双手抓住你的头。"))
 	// CRIMSON GRID ADD: DARK THAUMATURGY
 	victim.Immobilize(3 SECONDS)
 	if(victim.body_position == STANDING_UP)
 		victim.toggle_resting()
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
 	victim.playsound_local(src, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/demonlaugh1.ogg', 50, FALSE)
-	to_chat(victim, span_cult("HELL IS REAL, IT HAS TOUCHED ME"))
+	to_chat(victim, span_cult("地狱真实存在，它已经触碰到了我！"))
 
 /obj/effect/client_image_holder/baali_demon/spectre/on_contact(mob/living/victim)
-	victim.visible_message(span_warning("[victim] collapses onto the ground"), span_warning("[src.name] touches you with an outstretched hand"))
+	victim.visible_message(span_warning("[victim]瘫倒在地。"), span_warning("[src.name]伸出手触碰你。"))
 	// CRIMSON GRID ADD: DARK THAUMATURGY
 	victim.Immobilize(3 SECONDS)
 	if(victim.body_position == STANDING_UP)
 		victim.toggle_resting()
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
-	to_chat(victim, span_cult("THE SPIRIT HAS TAKEN SOMETHING FROM ME"))
+	to_chat(victim, span_cult("那个灵体从我身上夺走了什么！"))
 
 /obj/effect/client_image_holder/baali_demon/wyrm/on_contact(mob/living/victim)
-	victim.visible_message(span_warning("[victim] whines in animalistic fear"), span_cult("THE WYRM HAS NOTICED ME"))
+	victim.visible_message(span_warning("[victim]惊恐地发出野兽般的呜咽。"), span_cult("妖蛆注意到我了！"))
 	// CRIMSON GRID ADD: DARK THAUMATURGY
 	victim.Immobilize(3 SECONDS)
 	if(victim.body_position == STANDING_UP)
@@ -91,7 +91,7 @@
 	victim.playsound_local(src, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/malklaugh.ogg', 50, FALSE)
 
 /obj/effect/client_image_holder/baali_demon/banu/on_contact(mob/living/victim)
-	victim.visible_message(span_warning("[victim] grasps their chest, feeling for a hole"), span_cult("THE [src.name] PLUCKS OUT YOUR HEART"))
+	victim.visible_message(span_warning("[victim]捂住胸口，摸索着仿佛存在的空洞。"), span_cult("[src.name]挖出了你的心脏！"))
 	// CRIMSON GRID ADD: DARK THAUMATURGY
 	victim.Immobilize(3 SECONDS)
 	if(victim.body_position == STANDING_UP)
@@ -99,7 +99,7 @@
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
 
 /obj/effect/client_image_holder/baali_demon/tremere/on_contact(mob/living/victim)
-	victim.visible_message(span_warning("[victim] collapses onto the ground, convulsing"), span_cult("THE [src.name] TAKES YOUR VITAE"))
+	victim.visible_message(span_warning("[victim]倒地抽搐。"), span_cult("[src.name]夺走了你的血粹！"))
 	victim.playsound_local(src, 'modular_darkpack/modules/powers/sounds/daimonion_laughs/malklaugh.ogg', 50, FALSE)
 	// CRIMSON GRID ADD: DARK THAUMATURGY
 	victim.Immobilize(3 SECONDS)

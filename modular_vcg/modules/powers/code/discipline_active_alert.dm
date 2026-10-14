@@ -7,8 +7,8 @@
 		return
 
 	power_ref = WEAKREF(power)
-	name = "[power.name] Active"
-	desc = "Drawing on your blood to stay active. Click to switch it off."
+	name = "[power.name]已启用"
+	desc = "正在消耗你的血液以维持效果。点击可关闭。"
 	icon = power.discipline.icon
 	icon_state = power.discipline.icon_state
 
