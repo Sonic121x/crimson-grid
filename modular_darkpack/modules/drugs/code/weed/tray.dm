@@ -26,8 +26,8 @@
 	return ..()
 
 /obj/machinery/hydroponics/simple/wooden
-	name = "wooden planter box"
-	desc = "A wooden plant tray"
+	name = "木制种植箱"
+	desc = "木制的种植槽。"
 	icon_state = "wooden_tray"
 	plant_offset_y = 2
 
@@ -36,8 +36,8 @@
 	return TRUE
 
 /obj/machinery/hydroponics/simple/plastic
-	name = "plastic planter box"
-	desc = "A plastic plant tray"
+	name = "塑料种植箱"
+	desc = "塑料制的种植槽。"
 	icon_state = "plastic_tray"
 	plant_offset_y = 3
 

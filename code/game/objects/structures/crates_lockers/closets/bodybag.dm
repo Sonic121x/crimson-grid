@@ -1,6 +1,6 @@
 /obj/structure/closet/body_bag
-	name = "body bag"
-	desc = "A plastic bag designed for the storage and transportation of cadavers."
+	name = "尸袋"
+	desc = "用于存放和运送尸体的塑料袋。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "bodybag"
 	density = FALSE
@@ -85,11 +85,11 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while unzipped."))
+		to_chat(the_folder, span_warning("你费力地折叠[src]，但拉链没拉上，怎么也折不好。"))
 		return
 	for(var/content_thing in contents)
 		if(istype(content_thing, /mob) || isobj(content_thing))
-			to_chat(the_folder, span_warning("There are too many things inside of [src] to fold it up!"))
+			to_chat(the_folder, span_warning("[src]里装的东西太多，无法折叠！"))
 			return
 	// toto we made it!
 	return TRUE
@@ -101,7 +101,7 @@
  * * the_folder - aka user
  */
 /obj/structure/closet/body_bag/proc/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[the_folder] folds up [src]."))
+	visible_message(span_notice("[the_folder]把[src]折叠起来。"))
 	the_folder.put_in_hands(undeploy_bodybag(the_folder.loc))
 
 /// Makes the bag into an item, returns that item
@@ -175,13 +175,13 @@
 /obj/structure/closet/body_bag/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_RMB] = "Fold up"
+		context[SCREENTIP_CONTEXT_RMB] = "折叠"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(held_item.tool_behaviour == TOOL_WIRECUTTER || held_item.get_sharpness())
-		context[SCREENTIP_CONTEXT_LMB] = "Remove [pinned ? "Paper" : "Tag"]"
+		context[SCREENTIP_CONTEXT_LMB] = "移除[pinned ? "纸张" : "标签"]"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(!pinned && istype(held_item, /obj/item/paper) && !opened)
-		context[SCREENTIP_CONTEXT_LMB] = "Pin Paper"
+		context[SCREENTIP_CONTEXT_LMB] = "别上纸张"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(can_scan_through && istype(held_item, /obj/item/healthanalyzer) && !opened)
 		context[SCREENTIP_CONTEXT_LMB] = "Scan Contents"
@@ -201,18 +201,18 @@
 /obj/structure/closet/body_bag/examine(mob/user)
 	. = ..()
 	if(tag_name)
-		. += span_info("The tag reads: [tag_name]")
+		. += span_info("标签上写着：[tag_name]")
 	if(pinned)
 		if(get_dist(user, src) <= 2 && user.client)
 			pinned.ui_interact(user)
 		else
-			. += span_smallnoticeital("There's a paper pinned to the bag, but you can't make out what it says.")
+			. += span_smallnoticeital("袋子上别着一张纸，但你看不清上面写了什么。")
 	if(can_scan_through)
 		. += span_notice("The walls of the bag are thin enough to scan through via a <b>health analyzer</b>.")
 
 /obj/structure/closet/body_bag/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(tag_name && tool.tool_behaviour == TOOL_WIRECUTTER || tool.get_sharpness())
-		to_chat(user, span_notice("You cut the tag off [src]."))
+		to_chat(user, span_notice("你剪掉了[src]上的标签。"))
 		playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 		tag_name = null
 		update_appearance()
@@ -236,7 +236,7 @@
 		if(force || !user || user.loc == src)
 			pinned.forceMove(drop_location())
 			return TRUE // force open, no user, or we can't take the note out from inside
-		balloon_alert(user, "paper removed")
+		balloon_alert(user, "已取下纸张")
 		if(!user.put_in_inactive_hand(pinned) && pinned.loc == src)
 			pinned.forceMove(drop_location())
 		return FALSE // blocked the open action

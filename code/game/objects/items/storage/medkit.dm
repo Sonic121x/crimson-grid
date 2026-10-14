@@ -9,8 +9,8 @@
  * First Aid Kits
  */
 /obj/item/storage/medkit
-	name = "medkit"
-	desc = "It's an emergency medical kit for those serious boo-boos."
+	name = "医疗包"
+	desc = "用来应付严重磕碰伤痛的应急医疗包。"
 	icon = 'icons/obj/storage/medkit.dmi'
 	icon_state = "medkit"
 	inhand_icon_state = "medkit"
@@ -279,7 +279,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/tactical_lite
-	name = "combat first aid kit"
+	name = "战斗急救包"
 	icon_state = "medkit_tactical_lite"
 	inhand_icon_state = "medkit-tactical-lite"
 	damagetype_healed = HEAL_ALL_DAMAGE
@@ -364,8 +364,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/coroner
-	name = "compact coroner's medkit"
-	desc = "A smaller medical kit designed primarily for assisting in dissecting the deceased, rather than treating the living."
+	name = "验尸官便携医疗包"
+	desc = "一款小型医疗包，主要用于协助解剖死者，而不是医治活人。"
 	icon = 'icons/obj/storage/medkit.dmi'
 	icon_state = "compact_coronerkit"
 	inhand_icon_state = "coronerkit"

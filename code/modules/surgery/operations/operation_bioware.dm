@@ -43,9 +43,9 @@
 		SSblackbox.record_feedback("tally", "bioware", 1, status_effect_gained)
 
 /datum/surgery_operation/limb/bioware/vein_threading
-	name = "thread veins"
-	rnd_name = "Symvasculodesis (Vein Threading)" // "together vessel fusion"
-	desc = "Weave a patient's veins into a reinforced mesh, reducing blood loss from injuries."
+	name = "编织血管"
+	rnd_name = "血管交织术（编织血管）" // "together vessel fusion"
+	desc = "将患者的血管编成坚固的网状结构，减少受伤时的失血。"
 	status_effect_gained = /datum/status_effect/bioware/heart/threaded_veins
 
 /datum/surgery_operation/limb/bioware/vein_threading/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
@@ -76,9 +76,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/muscled_veins
-	name = "muscled veins"
-	rnd_name = "Myovasculoplasty (Muscled Veins)" // "muscle vessel reshaping"
-	desc = "Add a muscled membrane to a patient's veins, allowing them to pump blood without a heart."
+	name = "肌化血管"
+	rnd_name = "血管肌化成形术（肌化血管）" // "muscle vessel reshaping"
+	desc = "为患者血管增添肌性膜，使血管无需心脏也能泵送血液。"
 	status_effect_gained = /datum/status_effect/bioware/heart/muscled_veins
 
 /datum/surgery_operation/limb/bioware/muscled_veins/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
@@ -109,9 +109,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/nerve_splicing
-	name = "splice nerves"
-	rnd_name = "Symneurodesis (Spliced Nerves)" // "together nerve fusion"
-	desc = "Splice a patient's nerves together to make them more resistant to stuns."
+	name = "交接神经"
+	rnd_name = "神经交接术（交接神经）" // "together nerve fusion"
+	desc = "将患者的神经交接在一起，提高对眩晕效果的抵抗力。"
 	time = 15.5 SECONDS
 	status_effect_gained = /datum/status_effect/bioware/nerves/spliced
 
@@ -143,9 +143,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/nerve_grounding
-	name = "ground nerves"
-	rnd_name = "Xanthoneuroplasty (Grounded Nerves)" // "yellow nerve reshaping". see: yellow gloves
-	desc = "Reroute a patient's nerves to act as grounding rods, protecting them from electrical shocks."
+	name = "神经接地"
+	rnd_name = "神经接地成形术（神经接地）" // "yellow nerve reshaping". see: yellow gloves
+	desc = "重新布置患者的神经，使其发挥接地棒的作用，防止电击。"
 	time = 15.5 SECONDS
 	status_effect_gained = /datum/status_effect/bioware/nerves/grounded
 
@@ -177,9 +177,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/ligament_hook
-	name = "reshape ligaments"
-	rnd_name = "Arthroplasty (Ligament Hooks)" // "joint reshaping"
-	desc = "Reshape a patient's ligaments to allow limbs to be manually reattached if severed - at the cost of making them easier to detach."
+	name = "重塑韧带"
+	rnd_name = "关节成形术（钩状韧带）" // "joint reshaping"
+	desc = "重塑患者的韧带，使断肢可以手动接回，但代价是肢体更容易脱落。"
 	status_effect_gained = /datum/status_effect/bioware/ligaments/hooked
 
 /datum/surgery_operation/limb/bioware/ligament_hook/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
@@ -211,9 +211,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/ligament_reinforcement
-	name = "strengthen ligaments"
-	rnd_name = "Arthrorrhaphy (Ligament Reinforcement)" // "joint strengthening" / "joint stitching"
-	desc = "Strengthen a patient's ligaments to make dismemberment more difficult, at the cost of making nerve connections easier to interrupt."
+	name = "强化韧带"
+	rnd_name = "关节缝合术（韧带强化）" // "joint strengthening" / "joint stitching"
+	desc = "强化患者的韧带，使肢体更难被切断，但代价是神经连接更容易中断。"
 	status_effect_gained = /datum/status_effect/bioware/ligaments/reinforced
 
 /datum/surgery_operation/limb/bioware/ligament_reinforcement/on_preop(obj/item/bodypart/limb, mob/living/surgeon, tool)
@@ -244,9 +244,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/cortex_folding
-	name = "cortex folding"
-	rnd_name = "Encephalofractoplasty (Cortex Folding)" // it's a stretch - "brain fractal reshaping"
-	desc = "A biological upgrade which folds a patient's cerebral cortex into a fractal pattern, increasing neural density and flexibility."
+	name = "皮质折叠"
+	rnd_name = "脑分形塑形术（皮质折叠）" // it's a stretch - "brain fractal reshaping"
+	desc = "一种生体强化，将患者的大脑皮质折叠成分形结构，提高神经密度与可塑性。"
 	operation_flags = OPERATION_AFFECTS_MOOD | OPERATION_NOTABLE | OPERATION_MORBID | OPERATION_LOCKED | OPERATION_NO_PATIENT_REQUIRED
 	status_effect_gained = /datum/status_effect/bioware/cortex // Not actually applied, simply for compatibility checks
 	required_zone = BODY_ZONE_HEAD
@@ -309,9 +309,9 @@
 	operation_flags = parent_type::operation_flags | OPERATION_MECHANIC
 
 /datum/surgery_operation/limb/bioware/cortex_imprint
-	name = "cortex imprinting"
-	rnd_name = "Encephalopremoplasty (Cortex Imprinting)" // it's a stretch - "brain print reshaping"
-	desc = "A biological upgrade which carves a patient's cerebral cortex into a self-imprinting pattern, increasing neural density and resilience."
+	name = "皮质铭刻"
+	rnd_name = "脑印痕塑形术（皮质铭刻）" // it's a stretch - "brain print reshaping"
+	desc = "一种生体强化，将患者的大脑皮质刻成自我铭印的结构，提高神经密度与韧性。"
 	status_effect_gained = /datum/status_effect/bioware/cortex/imprinted
 	required_zone = BODY_ZONE_HEAD
 

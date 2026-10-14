@@ -14,8 +14,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //MATCHES//
 ///////////
 /obj/item/match
-	name = "match"
-	desc = "A simple match stick, used for lighting fine smokables."
+	name = "火柴"
+	desc = "一根普通火柴，用于点燃上好的烟草制品。"
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
 	inhand_icon_state = "cigoff"
@@ -48,22 +48,22 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/match/update_name(updates)
 	. = ..()
 	if(lit)
-		name = "lit [initial(name)]"
+		name = "燃烧的[initial(name)]"
 	else if(burnt)
-		name = "burnt [initial(name)]"
+		name = "烧尽的[initial(name)]"
 	else if(broken)
-		name = "broken [initial(name)]"
+		name = "折断的[initial(name)]"
 	else
 		name = "[initial(name)]"
 
 /obj/item/match/update_desc(updates)
 	. = ..()
 	if(lit)
-		desc = "[initial(desc)] This one is lit."
+		desc = "[initial(desc)]这根已经点燃。"
 	else if(burnt)
-		desc = "[initial(desc)] This one has seen better days."
+		desc = "[initial(desc)]这根已经用过了。"
 	else if(broken)
-		desc = "[initial(desc)] This one is broken."
+		desc = "[initial(desc)]这根已经折断。"
 	else
 		desc = initial(desc)
 
@@ -145,10 +145,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return ..()
 
 	if(cig.lit)
-		to_chat(user, span_warning("[cig] is already lit!"))
+		to_chat(user, span_warning("[cig]已经点燃了！"))
 		return
 
-	cig.attempt_light(user, src, target_mob == user ? null : span_notice("[user] holds [src] out for [target_mob], and lights [cig]."))
+	cig.attempt_light(user, src, target_mob == user ? null : span_notice("[user]把[src]递到[target_mob]面前，点燃了[cig]。"))
 
 /// Finds a cigarette on another mob to help light.
 /obj/item/proc/help_light_cig(mob/living/M)
@@ -191,8 +191,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //////////////////
 
 /obj/item/cigarette
-	name = "cigarette"
-	desc = "A roll of tobacco and nicotine. It is not food."
+	name = "香烟"
+	desc = "一卷含有尼古丁的烟草。这可不是食物。"
 	icon = 'icons/obj/cigarettes.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/master_files/icons/obj/cigarettes_onfloor.dmi') // DARKPACK EDIT ADD
 	worn_icon = 'icons/mob/clothing/mask.dmi'
@@ -342,7 +342,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	to_edit.layer = new_layer
 
 /obj/item/cigarette/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is huffing [src] as quickly as [user.p_they()] can! It looks like [user.p_theyre()] trying to give [user.p_them()]self cancer."))
+	user.visible_message(span_suicide("[user]正在拼命猛吸[src]！看起来是想让自己患上癌症。"))
 	return (TOXLOSS|OXYLOSS)
 
 /obj/item/cigarette/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -359,11 +359,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	// Maybe jank, but the reason it's like this is that you can ignore ignition_effect() and also provide no text by giving an empty string to text_override, while still lighting.
 
 	if(!check_oxygen(user)) //cigarettes need oxygen
-		balloon_alert(user, "no air!")
+		balloon_alert(user, "没有空气！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(!smoketime)
-		to_chat(user, span_warning("There is nothing to smoke!"))
+		to_chat(user, span_warning("没有东西可抽！"))
 		return ITEM_INTERACT_BLOCKING
 
 	light(text_override)
@@ -390,12 +390,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(istype(glass, /obj/item/reagent_containers/cup/mortar))
 		return NONE
 	if(glass.reagents.trans_to(src, chem_volume, transferred_by = user)) //if reagents were transferred, show the message
-		to_chat(user, span_notice("You dip \the [src] into \the [glass]."))
+		to_chat(user, span_notice("你把[src]浸入[glass]。"))
 	//if not, either the beaker was empty, or the cigarette was full
 	else if(!glass.reagents.total_volume)
-		to_chat(user, span_warning("[glass] is empty!"))
+		to_chat(user, span_warning("[glass]是空的！"))
 	else
-		to_chat(user, span_warning("[src] is full!"))
+		to_chat(user, span_warning("[src]已经吸满了！"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/cigarette/update_icon_state()
@@ -442,11 +442,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	// Custom handling for the hallucination effect
 	if(reagents?.has_reagent(/datum/reagent/flash_powder))
 		if(!isliving(loc))
-			loc.visible_message(span_hear("\The [src] burns up!"))
+			loc.visible_message(span_hear("[src]烧了起来！"))
 			qdel(src)
 			return
 		var/mob/living/user = loc
-		loc.visible_message(span_hear("[user]'s [name] burns up as [p_they(user)] fall to the ground!"), span_danger("The solution violently explodes!"))
+		loc.visible_message(span_hear("[user]倒在地上，[name]烧了起来！"), span_danger("溶液发生了猛烈爆炸！"))
 		user.flash_act(INFINITY, visual = TRUE, length = 5 SECONDS)
 		user.playsound_local(get_turf(user), SFX_EXPLOSION, 50, TRUE)
 		user.cause_hallucination(/datum/hallucination/death, "trick trick [name]")
@@ -489,7 +489,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	update_appearance(UPDATE_ICON)
 	set_light_on(FALSE)
 	if(ismob(loc))
-		to_chat(loc, span_notice("Your [name] goes out."))
+		to_chat(loc, span_notice("你的[name]熄灭了。"))
 	QDEL_NULL(cig_smoke)
 	QDEL_NULL(mob_smoke)
 
@@ -510,23 +510,23 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	if(isnull(guy_infront))
 		smoker.visible_message(
-			span_notice("[smoker] exhales a large cloud of smoke from [src]."),
-			span_notice("You exhale a large cloud of smoke from [src]."),
+			span_notice("[smoker]抽着[src]，吐出一大团烟雾。"),
+			span_notice("你抽着[src]，吐出一大团烟雾。"),
 		)
 
 	else if(ishuman(guy_infront) && guy_infront.get_bodypart(BODY_ZONE_HEAD) && !guy_infront.is_pepper_proof())
 		smoker.visible_message(
-			span_notice("[smoker] exhales a large cloud of smoke from [src] directly at [guy_infront]'s face!"),
-			span_notice("You exhale a large cloud of smoke from [src] directly at [guy_infront]'s face."),
+			span_notice("[smoker]抽着[src]，对着[guy_infront]的脸吐出一大团烟雾！"),
+			span_notice("你抽着[src]，对着[guy_infront]的脸吐出一大团烟雾。"),
 			ignored_mobs = guy_infront,
 		)
-		to_chat(guy_infront, span_warning("You get a face full of smoke from [smoker]'s [name]!"))
+		to_chat(guy_infront, span_warning("[smoker]抽[name]时吐出的烟雾喷了你一脸！"))
 		smoke_in_face(guy_infront)
 
 	else
 		smoker.visible_message(
-			span_notice("[smoker] exhales a large cloud of smoke from [src] at [guy_infront]."),
-			span_notice("You exhale a large cloud of smoke from [src] at [guy_infront]."),
+			span_notice("[smoker]抽着[src]，朝[guy_infront]吐出一大团烟雾。"),
+			span_notice("你抽着[src]，朝[guy_infront]吐出一大团烟雾。"),
 		)
 
 	if(!isturf(smoker.loc))
@@ -608,14 +608,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!isnull(user))
 		if(done_early)
 			if(isfloorturf(location) && location.has_gravity())
-				user.visible_message(span_notice("[user] calmly drops and treads on [src], putting it out instantly."))
+				user.visible_message(span_notice("[user]从容地丢下[src]并一脚踩灭。"))
 				new /obj/effect/decal/cleanable/ash(location)
 				long_exhale(user)
 			else
-				user.visible_message(span_notice("[user] pinches out [src]."))
+				user.visible_message(span_notice("[user]捏灭了[src]。"))
 			how_long_have_we_been_smokin = 0 SECONDS
 		else
-			to_chat(user, span_notice("Your [name] goes out."))
+			to_chat(user, span_notice("你的[name]熄灭了。"))
 	new type_butt(location)
 	qdel(src)
 
@@ -625,17 +625,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	var/mob/living/carbon/fire_guy = target_mob
 	if(fire_guy.on_fire && !lit)
-		light(span_notice("[user] lights [src] with [fire_guy]'s burning body. What a cold-blooded badass."))
+		light(span_notice("[user]借着[fire_guy]燃烧的身体点燃了[src]。真是个冷血狠人。"))
 		return
 	var/obj/item/cigarette/cig = help_light_cig(fire_guy)
 	if(!lit || !cig || user.combat_mode)
 		return ..()
 
 	if(cig.lit)
-		to_chat(user, span_warning("\The [cig] is already lit!"))
+		to_chat(user, span_warning("[cig]已经点燃了！"))
 		return
 
-	cig.attempt_light(user, src, fire_guy == user ? null : span_notice("[user] holds \the [src] out for [fire_guy], and lights [fire_guy.p_their()] [cig.name]."))
+	cig.attempt_light(user, src, fire_guy == user ? null : span_notice("[user]把[src]递到[fire_guy]面前，点燃了对方的[cig.name]。"))
 
 /obj/item/cigarette/fire_act(exposed_temperature, exposed_volume)
 	light()
@@ -661,15 +661,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	smoke_all = TRUE // so that it doesn't runout of oxygen while being smoked in space
 
 /obj/item/cigarette/dromedary
-	desc = "A DromedaryCo brand cigarette. Contrary to popular belief, does not contain Calomel, but is reported to have a watery taste."
+	desc = "一支单峰驼公司牌香烟。与普遍看法相反，它并不含甘汞，不过据说味道很淡。"
 	list_reagents = list(/datum/reagent/drug/nicotine = 13, /datum/reagent/water = 5) //camel has water
 
 /obj/item/cigarette/uplift
-	desc = "An Uplift Smooth brand cigarette. Smells refreshing."
+	desc = "一支提神柔和牌香烟。闻起来很清新。"
 	list_reagents = list(/datum/reagent/drug/nicotine = 13, /datum/reagent/consumable/menthol = 5)
 
 /obj/item/cigarette/robust
-	desc = "A Robust brand cigarette."
+	desc = "一支劲健牌香烟。"
 
 /obj/item/cigarette/greytide
 	name = "grey mainthol"
@@ -701,11 +701,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.add_reagent(pick_weight(possible_reagents), rand(10, 15))
 
 /obj/item/cigarette/robustgold
-	desc = "A Robust Gold brand cigarette."
+	desc = "一支金装劲健牌香烟。"
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/gold = 3) // Just enough to taste a hint of expensive metal.
 
 /obj/item/cigarette/carp
-	desc = "A Carp Classic brand cigarette. A small label on its side indicates that it does NOT contain carpotoxin."
+	desc = "一支鲤鱼经典牌香烟。侧面的小标签说明它不含鲤鱼毒素。"
 
 /obj/item/cigarette/carp/Initialize(mapload)
 	. = ..()
@@ -732,7 +732,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/toxin/lipolicide = 4, /datum/reagent/ammonia = 2, /datum/reagent/toxin/plantbgone = 1, /datum/reagent/toxin = 1.5)
 
 /obj/item/cigarette/xeno
-	desc = "A Xeno Filtered brand cigarette."
+	desc = "一支异星过滤牌香烟。"
 	lung_harm = 0.1 // DARKPACK EDIT CHANGE - ORIGINAL: lung_harm = 2
 	list_reagents = list (/datum/reagent/drug/nicotine = 20) // DARKPACK EDIT CHANGE - ORIGINAL: list_reagents = list (/datum/reagent/drug/nicotine = 20, /datum/reagent/medicine/regen_jelly = 15, /datum/reagent/drug/krokodil = 4)
 
@@ -744,7 +744,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/cigarette/rollie
 	name = "rollie"
-	desc = "A roll of dried plant matter wrapped in thin paper."
+	desc = "用薄纸包裹干燥植物制成的一支手卷烟。"
 	icon_state = "spliffoff"
 	icon_on = "spliffon"
 	icon_off = "spliffoff"
@@ -835,8 +835,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	smoke_all = TRUE //timmy's not getting out of this one
 
 /obj/item/cigbutt/roach
-	name = "roach"
-	desc = "A manky old roach, or for non-stoners, a used rollup."
+	name = "手卷烟蒂"
+	desc = "一个脏兮兮的旧手卷烟蒂。对不抽大麻的人来说，就是抽剩的卷烟。"
 	icon_state = "roach"
 
 /obj/item/cigbutt/greycigbutt
@@ -875,8 +875,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 // CIGARS //
 ////////////
 /obj/item/cigarette/cigar
-	name = "cigar"
-	desc = "A brown roll of tobacco and... well, you're not quite sure. This thing's huge!"
+	name = "雪茄"
+	desc = "一卷棕色烟草，里面还有……好吧，你也说不准。这东西真大！"
 	icon_state = "cigaroff"
 	icon_on = "cigaron"
 	icon_off = "cigaroff" //make sure to add positional sprites in icons/obj/cigarettes.dmi if you add more.
@@ -891,12 +891,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	choke_time_max = 40 SECONDS
 
 /obj/item/cigarette/cigar/premium
-	name = "premium cigar"
+	name = "高级雪茄"
 	//this is the version that actually spawns in premium cigar cases, the distinction is made so that the smoker quirk can differentiate between the default cigar box and its subtypes
 
 /obj/item/cigarette/cigar/cohiba
-	name = "\improper Cohiba Robusto cigar"
-	desc = "There's little more you could want from a cigar."
+	name = "\improper 高希霸罗布图雪茄"
+	desc = "对于一支雪茄，你几乎再也挑不出什么毛病。"
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
@@ -906,8 +906,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/cigbutt/cigarbutt/cohiba
 
 /obj/item/cigarette/cigar/havana
-	name = "premium Havanian cigar"
-	desc = "A cigar fit for only the best of the best."
+	name = "高级哈瓦那雪茄"
+	desc = "只配得上顶尖人物的雪茄。"
 	icon_state = "cigar3off"
 	icon_on = "cigar3on"
 	icon_off = "cigar3off"
@@ -917,8 +917,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/cigbutt/cigarbutt/havana
 
 /obj/item/cigbutt
-	name = "cigarette butt"
-	desc = "A manky old cigarette butt."
+	name = "香烟蒂"
+	desc = "一个脏兮兮的旧香烟蒂。"
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cigbutt"
 	w_class = WEIGHT_CLASS_TINY
@@ -928,8 +928,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	return list(/datum/reagent/carbon = 2)
 
 /obj/item/cigbutt/cigarbutt
-	name = "cigar butt"
-	desc = "A manky old cigar butt."
+	name = "雪茄蒂"
+	desc = "一个脏兮兮的旧雪茄蒂。"
 	icon_state = "cigarbutt"
 
 /obj/item/cigbutt/cigarbutt/cohiba
@@ -1040,8 +1040,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //ROLLING//
 ///////////
 /obj/item/rollingpaper
-	name = "rolling paper"
-	desc = "A thin piece of paper used to make fine smokeables."
+	name = "卷烟纸"
+	desc = "一张用来制作上好手卷烟的薄纸。"
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper"
 	w_class = WEIGHT_CLASS_TINY
@@ -1055,8 +1055,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //VAPE NATION//
 ///////////////
 /obj/item/vape
-	name = "\improper E-Cigarette"
-	desc = "A classy and highly sophisticated electronic cigarette, for classy and dignified gentlemen. A warning label reads \"Warning: Do not fill with flammable materials.\""//<<< i'd vape to that.
+	name = "\improper 电子烟"
+	desc = "一款优雅而精巧的电子烟，供体面讲究的绅士使用。警告标签写着：‘警告：请勿填充易燃物质。’"//<<< i'd vape to that.
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/vape"
 	post_init_icon_state = "vape"
@@ -1090,13 +1090,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/drug/nicotine, 50)
 
 /obj/item/vape/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is puffin hard on dat vape, [user.p_they()] trying to join the vape life on a whole notha plane!"))//it doesn't give you cancer, it is cancer
+	user.visible_message(span_suicide("[user]正玩命猛吸电子烟，看来是想去另一个世界继续吞云吐雾！"))//it doesn't give you cancer, it is cancer
 	return (TOXLOSS|OXYLOSS)
 
 /obj/item/vape/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!screw)
 		screw = TRUE
-		to_chat(user, span_notice("You open the cap on [src]."))
+		to_chat(user, span_notice("你打开了[src]的盖子。"))
 		reagents.flags |= OPENCONTAINER
 		if(obj_flags & EMAGGED)
 			icon_state = "vapeopen_high"
@@ -1109,7 +1109,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			set_greyscale(new_config = /datum/greyscale_config/vape/open_low)
 	else
 		screw = FALSE
-		to_chat(user, span_notice("You close the cap on [src]."))
+		to_chat(user, span_notice("你盖上了[src]的盖子。"))
 		reagents.flags &= ~(OPENCONTAINER)
 		icon_state = initial(post_init_icon_state) || initial(icon_state)
 		set_greyscale(new_config = initial(greyscale_config))
@@ -1119,22 +1119,22 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(screw && !(obj_flags & EMAGGED))//also kinky
 		if(!super)
 			super = TRUE
-			to_chat(user, span_notice("You increase the voltage of [src]."))
+			to_chat(user, span_notice("你调高了[src]的电压。"))
 			icon_state = "vapeopen_med"
 			set_greyscale(new_config = /datum/greyscale_config/vape/open_med)
 		else
 			super = FALSE
-			to_chat(user, span_notice("You decrease the voltage of [src]."))
+			to_chat(user, span_notice("你调低了[src]的电压。"))
 			icon_state = "vapeopen_low"
 			set_greyscale(new_config = /datum/greyscale_config/vape/open_low)
 
 	if(screw && (obj_flags & EMAGGED))
-		to_chat(user, span_warning("[src] can't be modified!"))
+		to_chat(user, span_warning("[src]无法改装！"))
 
 /obj/item/vape/emag_act(mob/user, obj/item/card/emag/emag_card) // I WON'T REGRET WRITTING THIS, SURLY.
 
 	if (!screw)
-		balloon_alert(user, "open the cap first!")
+		balloon_alert(user, "请先打开盖子！")
 		return FALSE
 
 	if (obj_flags & EMAGGED)
@@ -1151,10 +1151,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/vape/attack_self(mob/user)
 	if(!screw)
-		balloon_alert(user, "open the cap first!")
+		balloon_alert(user, "请先打开盖子！")
 		return
 	if(reagents.total_volume > 0)
-		to_chat(user, span_notice("You empty [src] of all reagents."))
+		to_chat(user, span_notice("你倒空了[src]中的所有试剂。"))
 		reagents.clear_reagents()
 
 /obj/item/vape/equipped(mob/user, slot)
@@ -1163,10 +1163,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	if(screw)
-		to_chat(user, span_warning("You need to close the cap first!"))
+		to_chat(user, span_warning("你需要先盖上盖子！"))
 		return
 
-	to_chat(user, span_notice("You start puffing on the vape."))
+	to_chat(user, span_notice("你开始抽电子烟。"))
 	reagents.flags &= ~(NO_REACT)
 	reagents.handle_reactions()
 	if(QDELETED(src))
@@ -1211,7 +1211,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 	if(!reagents.total_volume)
 		if(ismob(loc))
-			to_chat(M, span_warning("[src] is empty!"))
+			to_chat(M, span_warning("[src]已经空了！"))
 			STOP_PROCESSING(SSobj, src)
 			//it's reusable so it won't unequip when empty
 		return
@@ -1230,7 +1230,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.apply_damage(20, BURN, BODY_ZONE_HEAD)
 			M.Paralyze(300)
 			do_sparks(5, TRUE, src)
-			to_chat(M, span_userdanger("[src] suddenly explodes in your mouth!"))
+			to_chat(M, span_userdanger("[src]突然在你嘴里爆炸了！"))
 			qdel(src)
 			return
 	else if(super)

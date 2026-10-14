@@ -6,7 +6,7 @@ import type { SpriteData, SpriteEditorToolContext } from '../types';
 
 export class Bucket extends Tool {
   icon = 'fill-drip';
-  name = 'Fill';
+  name = '填充';
 
   onMouseDown(
     context: SpriteEditorToolContext,

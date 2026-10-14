@@ -1,8 +1,8 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 /obj/machinery/hydroponics/soil //Not actually hydroponics at all! Honk!
-	name = "soil"
-	desc = "A patch of dirt."
+	name = "土壤"
+	desc = "一小片泥土。"
 	icon = 'modular_darkpack/modules/drugs/icons/tray.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "soil"
 	circuit = null
@@ -39,11 +39,11 @@
 	if(tool.tool_behaviour != TOOL_SHOVEL) //Spades can still uproot plants on left click
 		return ..()
 
-	balloon_alert(user, "digging up soil...")
+	balloon_alert(user, "正在挖土……")
 	if(!tool.use_tool(src, user, 3 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
-	balloon_alert(user, "bagged")
+	balloon_alert(user, "已装袋")
 	new sack_type(loc, src) //The bag handles sucking up the soil, stopping processing and setting relevants stats.
 	return ITEM_INTERACT_SUCCESS
 
@@ -91,8 +91,8 @@
 	wet_overlay = null // DARKPACK EDIT ADD
 
 /obj/machinery/hydroponics/soil/coir
-	name = "coconut coir" // DARKPACK EDIT CHANGE
-	desc = "A type of traditional growing medium made from the husk of coconuts.\nMushrooms of all kinds thrive due to the high organic content enabling them to mature faster." // DARKPACK EDIT CHANGE
+	name = "椰糠" // DARKPACK EDIT CHANGE
+	desc = "用椰子外壳制成的传统栽培基质。\n富含有机质，让各种蘑菇茁壮生长、更快成熟。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/service/hydroponics/equipment.dmi' // DARKPACK EDIT ADD
 	icon_state = "soil_coir"
 	maxnutri = 20
@@ -101,8 +101,8 @@
 	wet_overlay = null // DARKPACK EDIT ADD
 
 /obj/machinery/hydroponics/soil/worm
-	name = "worm castings"
-	desc = "A type of compost created when the humble worm dutifully works the soil.\n\nIt is packed with nutrients unlocked by said creatures digestive system. Give thanks to the worm!"
+	name = "蚯蚓粪肥"
+	desc = "不起眼的蚯蚓辛勤耕耘土壤时制造的堆肥。\n\n蚯蚓的消化系统释放出丰富的养分。感谢蚯蚓吧！"
 	// icon_state = "soil_worm" // DARKPACK EDIT REMOVAL
 	maxnutri = 35
 	maxwater = 200
@@ -117,8 +117,8 @@
 */
 
 /obj/machinery/hydroponics/soil/rich
-	name = "rich soil"
-	desc = "A rich patch of dirt, usually used in gardens."
+	name = "沃土"
+	desc = "一小片肥沃的泥土，通常用于花园。"
 	//icon_state = "rich_soil" // DARKPACK EDIT REMOVAL
 	maxnutri = 20
 	sack_type = /obj/item/soil_sack/rich
@@ -126,8 +126,8 @@
 /////////////////// Soil Sacks ///////////////////////
 /// Holder items that store the soils until deployed.
 /obj/item/soil_sack
-	name = "soil sack"
-	desc = "A large plastic bag containing commercial garden soil. It is packed with sand, peat and manure. While you might not care much for such mixture, the plants have strange tastes."
+	name = "袋装园艺土"
+	desc = "装着商品园艺土的大塑料袋，里面混着沙子、泥炭和粪肥。你或许不喜欢这种混合物，不过植物的口味很奇特。"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "soil_sack"
 	inhand_icon_state = "soil_sack"
@@ -177,7 +177,7 @@
 		return ..()
 
 	if(locate(/obj/machinery/hydroponics/soil) in interacting_with)
-		to_chat(user, span_alert("There is already a bed of soil there!"))
+		to_chat(user, span_alert("那里已经铺着土壤了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!do_after(user, 1 SECONDS, interacting_with))
@@ -249,8 +249,8 @@
 	stored_soil = /obj/machinery/hydroponics/soil/gel
 
 /obj/item/soil_sack/coir
-	name = "#1™ coconut coir sack" // DARKPACK EDIT CHANGE
-	desc = "A sack of coconut coir. The fiberous roots are composted until they separate into individual fibres.\n\nProvides an excellent food source for mushrooms." // DARKPACK EDIT CHANGE
+	name = "#1™袋装椰糠" // DARKPACK EDIT CHANGE
+	desc = "一袋椰糠。纤维状的根经过堆肥处理，分解成一根根纤维。\n\n能为蘑菇提供极佳的养料。" // DARKPACK EDIT CHANGE
 	icon_state = "soil_sack_coir"
 	inhand_icon_state = "soil_sack_coir"
 	base_icon_state = "soil_sack_coir"
@@ -258,8 +258,8 @@
 	stored_soil = /obj/machinery/hydroponics/soil/coir
 
 /obj/item/soil_sack/worm
-	name = "worm castings sack"
-	desc = "A sack of vermicompost, also known as worm castings.\n\nThis invertebrate manure not only contains plant nutrients and undigested organic matter, it also harbours a rich flora of beneficial microorganisms."
+	name = "袋装蚯蚓粪肥"
+	desc = "一袋蚯蚓堆肥，也称蚯蚓粪肥。\n\n这种无脊椎动物的粪肥不仅含有植物养分与未消化的有机物，还富含有益微生物。"
 	icon_state = "soil_sack_worm"
 	inhand_icon_state = "soil_sack_worm"
 	base_icon_state = "soil_sack_worm"
@@ -267,7 +267,7 @@
 	stored_soil = /obj/machinery/hydroponics/soil/worm
 
 /obj/item/soil_sack/rich
-	name = "rich soil sack"
-	desc = "A sack of rich black soil.\nAs your gaze falls upon it, you feel a bit more connected to the land."
+	name = "袋装沃土"
+	desc = "一袋肥沃的黑土。\n看着它，你感觉自己与大地又亲近了几分。"
 	custom_premium_price = PAYCHECK_CREW * 1.5
 	stored_soil = /obj/machinery/hydroponics/soil/rich

@@ -11,8 +11,8 @@
  * Pens
  */
 /obj/item/pen
-	name = "pen"
-	desc = "It's a normal black ink pen."
+	name = "笔"
+	desc = "普通的黑色墨水笔。"
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "pen"
 	inhand_icon_state = "pen"
@@ -78,7 +78,7 @@
 	SIGNAL_HANDLER
 
 	if(user)
-		balloon_alert(user, "clicked")
+		balloon_alert(user, "咔哒")
 	playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, -3)
 	icon_state = initial(icon_state) + (active ? "_retracted" : "")
 	update_appearance(UPDATE_ICON)
@@ -103,16 +103,16 @@
 	SIGNAL_HANDLER
 
 /obj/item/pen/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is scribbling numbers all over [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku..."))
+	user.visible_message(span_suicide("[user]正用[src]在自己身上写满数字！看起来是想自……做数独？"))
 	return BRUTELOSS
 
 /obj/item/pen/blue
-	desc = "It's a normal blue ink pen."
+	desc = "普通的蓝色墨水笔。"
 	icon_state = "pen_blue"
 	colour = COLOR_BLUE
 
 /obj/item/pen/red
-	desc = "It's a normal red ink pen."
+	desc = "普通的红色墨水笔。"
 	icon_state = "pen_red"
 	colour = COLOR_RED
 	throw_speed = 4 // red ones go faster (in this case, fast enough to embed!)
@@ -123,37 +123,37 @@
 	colour = COLOR_WHITE
 
 /obj/item/pen/fourcolor
-	desc = "It's a fancy four-color ink pen, set to black."
-	name = "four-color pen"
+	desc = "精巧的四色墨水笔，目前使用黑色。"
+	name = "四色笔"
 	icon_state = "pen_4color"
 	colour = COLOR_BLACK
 	can_click = FALSE
 
 /obj/item/pen/fourcolor/attack_self(mob/living/carbon/user)
 	. = ..()
-	var/chosen_color = "black"
+	var/chosen_color = "黑色"
 	switch(colour)
 		if(COLOR_BLACK)
 			colour = COLOR_RED
-			chosen_color = "red"
+			chosen_color = "红色"
 			throw_speed++
 		if(COLOR_RED)
 			colour = COLOR_VIBRANT_LIME
-			chosen_color = "green"
+			chosen_color = "绿色"
 			throw_speed--
 		if(COLOR_VIBRANT_LIME)
 			colour = COLOR_BLUE
-			chosen_color = "blue"
+			chosen_color = "蓝色"
 		else
 			colour = COLOR_BLACK
-	to_chat(user, span_notice("\The [src] will now write in [chosen_color]."))
-	desc = "It's a fancy four-color ink pen, set to [chosen_color]."
-	balloon_alert(user, "clicked")
+	to_chat(user, span_notice("[src]现在会写出[chosen_color]字迹。"))
+	desc = "精巧的四色墨水笔，目前使用[chosen_color]。"
+	balloon_alert(user, "咔哒")
 	playsound(src, 'sound/machines/click.ogg', 30, TRUE, -3)
 
 /obj/item/pen/fountain
-	name = "fountain pen"
-	desc = "It's a common fountain pen, with a faux wood body. Rumored to work in zero gravity situations."
+	name = "钢笔"
+	desc = "带有仿木笔身的普通钢笔，据说在失重环境中也能书写。"
 	icon_state = "pen-fountain"
 	font = FOUNTAIN_PEN_FONT
 	requires_gravity = FALSE // fancy spess pens
@@ -162,8 +162,8 @@
 	can_click = FALSE
 
 /obj/item/pen/charcoal
-	name = "charcoal stylus"
-	desc = "It's just a wooden stick with some compressed ash on the end. At least it can write."
+	name = "炭笔"
+	desc = "不过是一头裹着压实灰烬的木棍，至少能写字。"
 	icon_state = "pen-charcoal"
 	colour = "#696969"
 	font = CHARCOAL_FONT
@@ -175,7 +175,7 @@
 	return list(/datum/reagent/ash = 5, /datum/reagent/cellulose = 10)
 
 /datum/crafting_recipe/charcoal_stylus
-	name = "Charcoal Stylus"
+	name = "炭笔"
 	result = /obj/item/pen/charcoal
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1, /datum/reagent/ash = 30)
 	time = 3 SECONDS
@@ -187,7 +187,7 @@
 
 /datum/atom_skin/cap_pen/apply(atom/apply_to, mob/user)
 	. = ..()
-	apply_to.desc = "It's an expensive [preview_name] fountain pen. The nib is quite sharp."
+	apply_to.desc = "一支昂贵的[GLOB.localized_reskin_names[preview_name] || preview_name]钢笔，笔尖相当锋利。"
 	apply_to.update_desc()
 
 /datum/atom_skin/cap_pen/clear_skin(atom/clear_from, mob/user)
@@ -215,8 +215,8 @@
 	new_icon_state = "pen-fountain-cb"
 
 /obj/item/pen/fountain/captain
-	name = "captain's fountain pen"
-	desc = "It's an expensive Oak fountain pen. The nib is quite sharp."
+	name = "船长钢笔"
+	desc = "一支昂贵的橡木钢笔，笔尖相当锋利。"
 	icon_state = "pen-fountain-o"
 	force = 5
 	throwforce = 5

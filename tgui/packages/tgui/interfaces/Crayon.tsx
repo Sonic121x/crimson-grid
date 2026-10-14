@@ -37,12 +37,12 @@ export const Crayon = (props) => {
     <Window width={600} height={600}>
       <Window.Content scrollable>
         {!!capOrChanges && (
-          <Section title="Basic">
+          <Section title="基本设置">
             <LabeledList>
-              <LabeledList.Item label="Cap">
+              <LabeledList.Item label="盖子">
                 <Button
                   icon={is_capped ? 'power-off' : 'times'}
-                  content={is_capped ? 'On' : 'Off'}
+                  content={is_capped ? '已盖上' : '已取下'}
                   selected={is_capped}
                   onClick={() => act('toggle_cap')}
                 />
@@ -50,14 +50,14 @@ export const Crayon = (props) => {
               <ColorItem />
               <LabeledList.Item>
                 <Button
-                  content="Custom color"
+                  content="自定义颜色"
                   onClick={() => act('custom_color')}
                 />
               </LabeledList.Item>
             </LabeledList>
           </Section>
         )}
-        <Section title="Stencil">
+        <Section title="图案模板">
           <LabeledList>
             {drawables.map((drawable) => {
               const items = drawable.items || [];
@@ -81,13 +81,13 @@ export const Crayon = (props) => {
           </LabeledList>
         </Section>
         {!!is_literate_user && (
-          <Section title="Text">
+          <Section title="文字">
             <LabeledList>
-              <LabeledList.Item label="Current Buffer">
+              <LabeledList.Item label="当前待写文字">
                 {text_buffer}
               </LabeledList.Item>
             </LabeledList>
-            <Button content="New Text" onClick={() => act('enter_text')} />
+            <Button content="输入新文字" onClick={() => act('enter_text')} />
           </Section>
         )}
       </Window.Content>

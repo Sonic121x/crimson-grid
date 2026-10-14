@@ -1,7 +1,7 @@
 
 /obj/item/bodypart/chest
 	name = BODY_ZONE_CHEST
-	desc = "It's impolite to stare at a person's chest."
+	desc = "盯着别人的胸部看可不礼貌。"
 	icon_state = "default_human_chest"
 	max_damage = LIMB_MAX_HP_CORE
 	body_zone = BODY_ZONE_CHEST
@@ -270,10 +270,10 @@
 
 /obj/item/bodypart/arm/left
 	name = "left arm"
-	desc = "Did you know that the word 'sinister' stems originally from the \
-		Latin 'sinestra' (left hand), because the left hand was supposed to \
-		be possessed by the devil? This arm appears to be possessed by no \
-		one though."
+	desc = "你知道英文中表示‘邪恶’的sinister一词，最初源自\
+		拉丁语sinestra（左手）吗？这是因为人们曾认为\
+		左手被魔鬼附身。不过这条手臂看起来\
+		谁也没有附身。"
 	icon_state = "default_human_l_arm"
 	body_zone = BODY_ZONE_L_ARM
 	body_part = ARM_LEFT
@@ -319,8 +319,8 @@
 
 /obj/item/bodypart/arm/right
 	name = "right arm"
-	desc = "Over 87% of humans are right handed. That figure is much lower \
-		among humans missing their right arm."
+	desc = "超过87%的人类惯用右手。不过在失去右臂的人类中，\
+		这一比例要低得多。"
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
 	icon_state = "default_human_r_arm"

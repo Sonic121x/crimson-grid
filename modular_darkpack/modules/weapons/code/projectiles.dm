@@ -3,17 +3,17 @@
 
 // 9x19mm Parabellum
 /obj/projectile/bullet/darkpack/vamp9mm
-	name = "9mm bullet"
+	name = "9mm子弹"
 	damage = 18
 	exposed_wound_bonus = 10
 
 /obj/projectile/bullet/darkpack/vamp9mm/plus
-	name = "9mm HV bullet"
+	name = "9mm高速弹"
 	damage = 22
 	armour_penetration = 10
 
 /obj/projectile/bullet/darkpack/vamp9mm/silver
-	name = "9mm silver bullet"
+	name = "9mm银弹"
 
 /obj/projectile/bullet/darkpack/vamp9mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
@@ -21,19 +21,19 @@
 
 // .45 ACP
 /obj/projectile/bullet/darkpack/vamp45acp
-	name = ".45 ACP bullet"
+	name = ".45 ACP子弹"
 	damage = 20
 	armour_penetration = 5
 
 /obj/projectile/bullet/darkpack/vamp45acp/HP
-	name = ".45 ACP hollow point bullet"
+	name = ".45 ACP空尖弹"
 	damage = 25
 	armour_penetration = 0
 	wound_bonus = 5
 	wound_bonus = 5
 
 /obj/projectile/bullet/darkpack/vamp45acp/silver
-	name = ".45 ACP silver bullet"
+	name = ".45 ACP银弹"
 
 /obj/projectile/bullet/darkpack/vamp45acp/silver/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
@@ -41,14 +41,14 @@
 
 // .44 Magnum
 /obj/projectile/bullet/darkpack/vamp44
-	name = ".44 bullet"
+	name = ".44子弹"
 	damage = 35
 	armour_penetration = 15
 	exposed_wound_bonus = -5
 	wound_bonus = 10
 
 /obj/projectile/bullet/darkpack/vamp44/silver
-	name = ".44 silver bullet"
+	name = ".44银弹"
 	//icon_state = "s44"
 
 /obj/projectile/bullet/darkpack/vamp44/silver/on_hit(atom/target, blocked = 0, pierce_hit)
@@ -57,14 +57,14 @@
 
 // .50 BMG/AE
 /obj/projectile/bullet/darkpack/vamp50
-	name = ".50 BMG bullet"
+	name = ".50 BMG子弹"
 	damage = 70
 	armour_penetration = 20
 	exposed_wound_bonus = 5
 	wound_bonus = 5
 
 /obj/projectile/bullet/darkpack/vamp50ae
-	name = ".50 AE bullet"
+	name = ".50 AE子弹"
 	damage = 40
 	armour_penetration = 20
 	exposed_wound_bonus = 5
@@ -72,7 +72,7 @@
 
 // 5.56mm NATO
 /obj/projectile/bullet/darkpack/vamp556mm
-	name = "5.56mm bullet"
+	name = "5.56mm子弹"
 	damage = 45
 	armour_penetration = 25
 	exposed_wound_bonus = -5
@@ -92,7 +92,7 @@
 		M.ignite_mob()
 
 /obj/projectile/bullet/darkpack/vamp556mm/silver
-	name = "5.56mm silver bullet"
+	name = "5.56mm银弹"
 	armour_penetration = 20
 
 /obj/projectile/bullet/darkpack/vamp556mm/silver/on_hit(atom/target, blocked = 0, pierce_hit)
@@ -101,7 +101,7 @@
 
 // 5.45x39mm
 /obj/projectile/bullet/darkpack/vamp545mm
-	name = "5.45mm bullet"
+	name = "5.45mm子弹"
 	damage = 40
 	armour_penetration = 30
 	exposed_wound_bonus = -5
@@ -109,7 +109,7 @@
 
 // 4.6mm HK
 /obj/projectile/bullet/darkpack/vamp46mm
-	name = "4.6mm bullet"
+	name = "4.6mm子弹"
 	damage = 19
 	armour_penetration = 30
 	exposed_wound_bonus = 0
@@ -117,7 +117,7 @@
 
 // 12 Gauge
 /obj/projectile/bullet/shotgun_slug/vamp
-	name = "12g shotgun slug"
+	name = "12号霰弹枪独头弹"
 	damage = 70
 	armour_penetration = 15
 	exposed_wound_bonus = 5
@@ -132,7 +132,7 @@
 		knockdown_roll.difficulty = 3 + (!isnull(firer) ? rand(1,2) : 0)
 		if(knockdown_roll.st_roll(target, firer ? firer : src) == ROLL_FAILURE)
 			hit_person.Knockdown(20)
-			to_chat(hit_person, span_danger("The force of a projectile sends you sprawling!"))
+			to_chat(hit_person, span_danger("弹丸的冲击力把你打翻在地！"))
 
 /obj/projectile/bullet/shotgun_slug/vamp/silver
 	name = "12g silver shotgun slug"
@@ -143,19 +143,19 @@
 	fera_silver_damage(target, 3)
 
 /obj/projectile/bullet/darkpack/rubber
-	name = "12g shotgun rubber shot"
+	name = "12号霰弹枪橡胶弹"
 	damage = 5
 	stamina = 50
 	exposed_wound_bonus = 5
 	wound_bonus = -5
 
 /obj/projectile/bullet/darkpack/incap
-	name = "12g shotgun incapacitation shot"
+	name = "12号霰弹枪失能弹"
 	damage = 15
 	stamina = 80
 
 /obj/projectile/bullet/darkpack/shotpellet
-	name = "12g shotgun pellet"
+	name = "12号霰弹枪弹丸"
 	damage = 9
 	range = 22 //range of where you can see + one screen after
 	armour_penetration = 10
@@ -188,7 +188,7 @@
 
 // Crossbow Bolt
 /obj/projectile/bullet/crossbow_bolt
-	name = "bolt"
+	name = "弩箭"
 	damage = 45
 	armour_penetration = 75
 	exposed_wound_bonus = 30
@@ -208,7 +208,7 @@
 
 // 7.62x51mm NATO
 /obj/projectile/bullet/darkpack/vamp762x51mm
-	name = "7.62x51mm bullet"
+	name = "7.62x51mm子弹"
 	damage = 55
 	armour_penetration = 25
 	exposed_wound_bonus = -5
@@ -236,7 +236,7 @@
 	fera_silver_damage(target, 4)
 
 /obj/projectile/bullet/darkpack/vamp75
-	name = ".75 ball"
+	name = ".75圆弹"
 	damage = 100
 	armour_penetration = 5
 	exposed_wound_bonus = 5

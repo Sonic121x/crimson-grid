@@ -5,7 +5,7 @@
 
 /datum/wound/slash
 	name = "Slashing (Cut) Wound"
-	undiagnosed_name = "Cut"
+	undiagnosed_name = "割伤"
 	sound_effect = 'sound/items/weapons/slice.ogg'
 
 /datum/wound/slash/get_self_check_description(self_aware)
@@ -14,13 +14,13 @@
 
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("一处小[LOWER_TEXT(undiagnosed_name || name)]正在渗血。")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("一处[LOWER_TEXT(undiagnosed_name || name)]正在渗血。")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("一处严重的[LOWER_TEXT(undiagnosed_name || name)]正在流血！")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("一处重度[LOWER_TEXT(undiagnosed_name || name)]正在大量流血！！")
 
 /datum/wound_pregen_data/flesh_slash
 	abstract = TRUE
@@ -295,13 +295,13 @@
 	return span_warning("The flesh on this limb appears badly lacerated.")
 
 /datum/wound/slash/flesh/moderate
-	name = "Rough Abrasion"
-	desc = "Patient's skin has been badly scraped, generating moderate blood loss."
-	treat_text = "Apply bandaging or suturing to the wound. \
-		Follow up with food and a rest period."
-	treat_text_short = "Apply bandaging or suturing."
-	examine_desc = "has an open cut"
-	occur_text = "is cut open, slowly leaking blood"
+	name = "严重擦伤"
+	desc = "患者皮肤遭到严重擦伤，造成中度失血。"
+	treat_text = "包扎或缝合伤口。\
+		之后补充食物并休息一段时间。"
+	treat_text_short = "包扎或缝合伤口。"
+	examine_desc = "有一道开放性割伤"
+	occur_text = "被割开，缓缓渗出鲜血"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.75
@@ -316,7 +316,7 @@
 
 /datum/wound/slash/flesh/moderate/update_descriptions()
 	if(!limb.can_bleed())
-		occur_text = "is cut open"
+		occur_text = "被割开了"
 
 /datum/wound_pregen_data/flesh_slash/abrasion
 	abstract = FALSE
@@ -326,14 +326,14 @@
 	threshold_minimum = 20
 
 /datum/wound/slash/flesh/severe
-	name = "Open Laceration"
-	desc = "Patient's skin is ripped clean open, allowing significant blood loss."
-	treat_text = "Swiftly apply bandaging or suturing to the wound, \
-		or make use of blood clotting agents or cauterization. \
-		Follow up with iron supplements or saline-glucose and a rest period."
-	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
-	examine_desc = "has a severe cut"
-	occur_text = "is ripped open, veins spurting blood"
+	name = "开放性裂伤"
+	desc = "患者皮肤完全裂开，造成大量失血。"
+	treat_text = "迅速包扎或缝合伤口，\
+		也可使用凝血剂或烧灼止血。\
+		之后补充铁剂或生理盐水葡萄糖溶液，并休息一段时间。"
+	treat_text_short = "包扎、缝合、使用凝血剂或烧灼止血。"
+	examine_desc = "有一道严重割伤"
+	occur_text = "被撕开，静脉喷出鲜血"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2.75
@@ -357,17 +357,17 @@
 
 /datum/wound/slash/flesh/severe/update_descriptions()
 	if(!limb.can_bleed())
-		occur_text = "is ripped open"
+		occur_text = "被撕开了"
 
 /datum/wound/slash/flesh/critical
-	name = "Weeping Avulsion"
-	desc = "Patient's skin is completely torn open, along with significant loss of tissue. Extreme blood loss will lead to quick death without intervention."
-	treat_text = "Immediately apply bandaging or suturing to the wound, \
-		or make use of blood clotting agents or cauterization. \
-		Follow up supervised resanguination."
-	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
-	examine_desc = "is carved down to the bone, spraying blood wildly"
-	occur_text = "is torn open, spraying blood wildly"
+	name = "大量出血的撕脱伤"
+	desc = "患者皮肤完全撕裂，并伴有大量组织缺损。若不干预，严重失血将迅速致死。"
+	treat_text = "立即包扎或缝合伤口，\
+		也可使用凝血剂或烧灼止血。\
+		之后在监护下补充血容量。"
+	treat_text_short = "包扎、缝合、使用凝血剂或烧灼止血。"
+	examine_desc = "伤口深可见骨，鲜血狂喷"
+	occur_text = "被撕裂，鲜血狂喷"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 3.75
@@ -384,7 +384,7 @@
 
 /datum/wound/slash/flesh/critical/update_descriptions()
 	if (!limb.can_bleed())
-		occur_text = "is torn open"
+		occur_text = "被撕裂了"
 
 /datum/wound_pregen_data/flesh_slash/avulsion
 	abstract = FALSE

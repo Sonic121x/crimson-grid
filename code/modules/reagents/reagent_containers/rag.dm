@@ -1,6 +1,6 @@
 /obj/item/rag
-	name = "damp rag"
-	desc = "For cleaning up messes, you suppose."
+	name = "湿抹布"
+	desc = "你想，大概是用来清理脏东西的。"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "rag"
@@ -24,21 +24,21 @@
 
 /obj/item/rag/examine(mob/user)
 	. = ..()
-	. += span_notice("Adding [/datum/reagent/water::name] or [/datum/reagent/space_cleaner::name] to it would make it a fair bit better at scrubbing.")
+	. += span_notice("加些水或太空清洁剂，擦洗效果会好上不少。")
 	switch(blood_level)
 		if(1 to 4)
-			. += span_info("The [name] is a bit dirty, but it should still be good for cleaning.")
+			. += span_info("[name]有点脏，但应该还能用来清洁。")
 		if(5 to 9)
-			. += span_warning("This [name] is dirty! But it still probably has a few wipes left in it.")
+			. += span_warning("[name]很脏了！不过大概还能再擦几下。")
 		if(10 to INFINITY)
-			. += span_warning("This [name] is filthy! I couldn't clean a thing with it!")
+			. += span_warning("[name]脏透了！拿它根本擦不干净东西！")
 
 /obj/item/rag/interact(mob/user)
 	. = ..()
 	if(loc != user || blood_level <= 4)
 		return
 
-	balloon_alert(user, "wringing out...")
+	balloon_alert(user, "正在拧干……")
 	if(!do_after(user, (wrings + 2) * 1 SECONDS, src))
 		return
 
@@ -53,15 +53,15 @@
 /obj/item/rag/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/reagent_containers/spray))
 		if(tool.reagents.total_volume <= 0)
-			balloon_alert(user, "spray is empty!")
+			balloon_alert(user, "喷瓶是空的！")
 			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.holder_full())
-			balloon_alert(user, "[name] is full!")
+			balloon_alert(user, "[name]已吸满液体！")
 			return ITEM_INTERACT_BLOCKING
 
 		tool.reagents.trans_to(reagents, tool.reagents.total_volume, transferred_by = user)
-		balloon_alert(user, "[name] spritzed")
+		balloon_alert(user, "已喷湿[name]")
 		var/obj/item/reagent_containers/spray/spray = tool
 		playsound(src, spray.spray_sound, 33, TRUE, -6)
 		return ITEM_INTERACT_SUCCESS
@@ -76,7 +76,7 @@
 		holder.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 
 /obj/item/rag/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is smothering [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正用[src]捂住自己的口鼻！看起来是想自杀！"))
 	return OXYLOSS
 
 /obj/item/rag/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -88,12 +88,12 @@
 	var/log_object = "containing [reagentlist]"
 	if(!carbon_target.is_mouth_covered())
 		reagents.trans_to(carbon_target, reagents.total_volume, transferred_by = user, methods = INGEST)
-		carbon_target.visible_message(span_danger("[user] smothers \the [carbon_target] with \the [src]!"), span_userdanger("[user] smothers you with \the [src]!"), span_hear("You hear some struggling and muffled cries of surprise."))
+		carbon_target.visible_message(span_danger("[user]用[src]捂住了[carbon_target]的口鼻！"), span_userdanger("[user]用[src]捂住了你的口鼻！"), span_hear("你听到挣扎声和含混的惊叫声。"))
 		log_combat(user, carbon_target, "smothered", src, log_object)
 	else
 		reagents.expose(carbon_target, TOUCH)
 		reagents.clear_reagents()
-		carbon_target.visible_message(span_notice("[user] touches \the [carbon_target] with \the [src]."))
+		carbon_target.visible_message(span_notice("[user]用[src]碰了碰[carbon_target]。"))
 		log_combat(user, carbon_target, "touched", src, log_object)
 	return ITEM_INTERACT_SUCCESS
 
@@ -115,7 +115,7 @@
 		// snowflakeeeee check to make it a bit more intuitive when cleaning the rag.
 		if(istype(atom_to_clean, /obj/structure/sink))
 			return CLEAN_BLOCKED|CLEAN_DONT_BLOCK_INTERACTION
-		atom_to_clean.balloon_alert(cleaner, "[name] is too dirty!")
+		atom_to_clean.balloon_alert(cleaner, "[name]太脏了！")
 		return CLEAN_BLOCKED
 	if(loc == cleaner)
 		return CLEAN_ALLOWED
@@ -151,7 +151,7 @@
 		add_blood_DNA(all_blood_dna)
 	update_appearance()
 	if(blood_level >= 10)
-		to_chat(cleaner, span_warning("[src] is too dirty to clean anything else! Wash it first!"))
+		to_chat(cleaner, span_warning("[src]太脏了，无法继续清洁！先洗一洗吧！"))
 	if(prob(10 * blood_level))
 		bloody_holder(cleaner)
 

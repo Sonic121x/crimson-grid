@@ -44,7 +44,7 @@
 	if(!tool.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
 		return ITEM_INTERACT_BLOCKING
 
-	user.balloon_alert(user, "slicing apart...")
+	user.balloon_alert(user, "正在切割拆解……")
 	if(!tool.use_tool(src, user, 4 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
@@ -243,8 +243,8 @@
 
 
 /obj/structure/statue/sandstone/venus //call me when we add marble i guess
-	name = "statue of a pure maiden"
-	desc = "An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a toolbox. By Jove, it's easily the most gorgeous depiction of a woman you've ever seen. The artist must truly be a master of his craft. Shame about the broken arm, though."
+	name = "纯洁少女雕像"
+	desc = "一尊古老的大理石雕像。少女留着垂地的长辫，手持工具箱。天哪，这绝对是你见过最美的女性雕像，作者一定是位技艺超群的大师。可惜断了一条手臂。"
 	icon = 'icons/obj/art/statuelarge.dmi'
 	icon_state = "venus"
 
@@ -299,8 +299,8 @@
 
 ///////////Other Stuff//////////////////////////////////////////////
 /obj/item/chisel
-	name = "chisel"
-	desc = "Breaking and making art since 4000 BC. This one uses advanced technology to allow the creation of lifelike moving statues."
+	name = "凿子"
+	desc = "从公元前4000年起就用于破坏和创造艺术。这把凿子运用了先进技术，能雕出栩栩如生、会动的雕像。"
 	icon = 'icons/obj/art/statue.dmi'
 	icon_state = "chisel"
 	inhand_icon_state = "screwdriver_nuke"
@@ -315,8 +315,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.75)
-	attack_verb_continuous = list("stabs")
-	attack_verb_simple = list("stab")
+	attack_verb_continuous = list("刺击")
+	attack_verb_simple = list("刺击")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	usesound = list('sound/effects/pickaxe/picaxe1.ogg', 'sound/effects/pickaxe/picaxe2.ogg', 'sound/effects/pickaxe/picaxe3.ogg')
 	drop_sound = 'sound/items/handling/tools/screwdriver_drop.ogg'
@@ -390,7 +390,7 @@ Moving interrupts
 
 /// Starts or continues the sculpting action on the carving block material
 /obj/item/chisel/proc/start_sculpting(mob/living/user)
-	user.balloon_alert(user, "sculpting block...")
+	user.balloon_alert(user, "正在雕刻坯料……")
 	playsound(src, pick(usesound), 75, TRUE)
 	sculpting = TRUE
 	//How long whole process takes
@@ -414,7 +414,7 @@ Moving interrupts
 	total_progress_bar.end_progress()
 	if(!interrupted && !QDELETED(prepared_block))
 		prepared_block.create_statue()
-		user.balloon_alert(user, "statue finished")
+		user.balloon_alert(user, "雕像已完成")
 		if(HAS_PERSONALITY(user, /datum/personality/creative))
 			user.add_mood_event("creative_sculpting", /datum/mood_event/creative_sculpting)
 		if(HAS_PERSONALITY(user, /datum/personality/unimaginative))
@@ -427,7 +427,7 @@ Moving interrupts
 	tracked_user = user
 	RegisterSignal(tracked_user, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 	if(!silent)
-		user.balloon_alert(user, "select sculpt target")
+		user.balloon_alert(user, "选择雕刻对象")
 
 /obj/item/chisel/dropped(mob/user, silent)
 	. = ..()
@@ -441,7 +441,7 @@ Moving interrupts
 	prepared_block = null
 
 	if(!silent && tracked_user)
-		tracked_user.balloon_alert(tracked_user, "sculpting cancelled!")
+		tracked_user.balloon_alert(tracked_user, "雕刻已取消！")
 
 	if(tracked_user)
 		UnregisterSignal(tracked_user, COMSIG_MOVABLE_MOVED)
@@ -459,18 +459,18 @@ Moving interrupts
 		choices[statue_path] = image(icon = initial(abstract_statue.icon), icon_state = initial(abstract_statue.icon_state))
 
 	if(!choices.len)
-		user.balloon_alert(user, "no statues for material!")
+		user.balloon_alert(user, "此材料没有可选雕像！")
 
 	var/choice = show_radial_menu(user, prepared_block, choices, require_near = TRUE)
 	if(choice)
 		prepared_block.current_preset_type = choice
 		var/image/chosen_looks = choices[choice]
 		prepared_block.current_target = chosen_looks.appearance
-		user.balloon_alert(user, "statue selected")
+		user.balloon_alert(user, "已选定雕像")
 
 /obj/structure/carving_block
-	name = "block"
-	desc = "Ready for sculpting."
+	name = "雕刻坯料"
+	desc = "已经备好，可以雕刻了。"
 	icon = 'icons/obj/art/statue.dmi'
 	icon_state = "block"
 	material_flags = MATERIAL_EFFECTS | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS | MATERIAL_ADD_PREFIX
@@ -504,7 +504,7 @@ Moving interrupts
 	else
 		current_target = target.appearance
 	var/mutable_appearance/ma = current_target
-	user.balloon_alert(user, "sculpt target is [ma.name]")
+	user.balloon_alert(user, "雕刻对象为[ma.name]")
 
 /obj/structure/carving_block/proc/reset_target()
 	current_target = null
@@ -522,12 +522,12 @@ Moving interrupts
 /obj/structure/carving_block/proc/is_viable_target(mob/living/user, atom/movable/target)
 	//Only things on turfs
 	if(!isturf(target.loc))
-		user.balloon_alert(user, "no sculpt target!")
+		user.balloon_alert(user, "没有雕刻对象！")
 		return FALSE
 	//No big icon things
 	var/list/icon_dimensions = get_icon_dimensions(target.icon)
 	if(icon_dimensions["width"] != ICON_SIZE_X || icon_dimensions["height"] != ICON_SIZE_Y)
-		user.balloon_alert(user, "sculpt target is too big!")
+		user.balloon_alert(user, "雕刻对象太大！")
 		return FALSE
 	return TRUE
 
@@ -541,8 +541,8 @@ Moving interrupts
 		new_statue.set_visuals(current_target)
 		new_statue.set_custom_materials(custom_materials)
 		var/mutable_appearance/ma = current_target
-		new_statue.name = "statue of [ma.name]"
-		new_statue.desc = "A carved statue depicting [ma.name]."
+		new_statue.name = "[ma.name]雕像"
+		new_statue.desc = "描绘[ma.name]的雕像。"
 		qdel(src)
 
 /obj/structure/carving_block/proc/set_completion(value)
@@ -594,7 +594,7 @@ Moving interrupts
 		qdel(fake_statue)
 
 /obj/structure/statue/custom
-	name = "custom statue"
+	name = "定制雕像"
 	icon_state = "base"
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
 	appearance_flags = TILE_BOUND | PIXEL_SCALE | KEEP_TOGETHER | LONG_GLIDE //Added keep together in case targets has weird layering

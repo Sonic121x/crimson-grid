@@ -5,8 +5,8 @@
  * Power cells, used primarily for handheld and portable things. Holds a reasonable amount of power.
  */
 /obj/item/stock_parts/power_store/cell
-	name = "power cell"
-	desc = "A rechargeable electrochemical power cell."
+	name = "电池"
+	desc = "一块可充电的电化学电池。"
 	icon = 'icons/obj/machines/cell_charger.dmi'
 	icon_state = "cell"
 	inhand_icon_state = "cell"
@@ -114,7 +114,7 @@
 	chargerate = STANDARD_CELL_RATE
 
 /obj/item/stock_parts/power_store/cell/high
-	name = "high-capacity power cell"
+	name = "高容量电池"
 	icon_state = "hcell"
 	emp_damage_modifier = 3
 	maxcharge = STANDARD_CELL_CHARGE * 10
@@ -126,7 +126,7 @@
 	empty = TRUE
 
 /obj/item/stock_parts/power_store/cell/super
-	name = "super-capacity power cell"
+	name = "超大容量电池"
 	icon_state = "scell"
 	emp_damage_modifier = 5
 	maxcharge = STANDARD_CELL_CHARGE * 20
@@ -191,8 +191,8 @@
 	return ..()
 
 /obj/item/stock_parts/power_store/cell/potato
-	name = "potato battery"
-	desc = "A rechargeable starch based power cell."
+	name = "土豆电池"
+	desc = "一块以淀粉为基础的可充电电池。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "potato"
 	maxcharge = STANDARD_CELL_CHARGE * 0.3

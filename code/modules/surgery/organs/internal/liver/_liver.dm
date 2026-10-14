@@ -4,7 +4,7 @@
 
 /obj/item/organ/liver
 	name = "liver"
-	desc = "Pairing suggestion: chianti and fava beans."
+	desc = "推荐搭配：基安蒂葡萄酒和蚕豆。"
 	icon_state = "liver"
 
 	w_class = WEIGHT_CLASS_SMALL
@@ -150,9 +150,9 @@
 /obj/item/organ/liver/organ_failure(seconds_per_tick)
 	switch(failure_time/LIVER_FAILURE_STAGE_SECONDS)
 		if(1)
-			to_chat(owner, span_userdanger("You feel stabbing pain in your abdomen!"))
+			to_chat(owner, span_userdanger("你的腹部传来刺痛！"))
 		if(2)
-			to_chat(owner, span_userdanger("You feel a burning sensation in your gut!"))
+			to_chat(owner, span_userdanger("你的肚子里传来灼烧感！"))
 			owner.vomit(VOMIT_CATEGORY_DEFAULT)
 		if(3)
 			to_chat(owner, span_userdanger("You feel painful acid in your throat!"))

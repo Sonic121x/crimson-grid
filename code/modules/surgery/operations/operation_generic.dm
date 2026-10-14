@@ -1,10 +1,10 @@
 // Basic operations for moving back and forth between surgery states
 /// First step of every surgery, makes an incision in the skin
 /datum/surgery_operation/limb/incise_skin
-	name = "make skin incision"
+	name = "切开皮肤"
 	// rnd_name = "Laparotomy / Craniotomy / Myotomy (Make Incision)" // Maybe we keep this one simple
-	desc = "Make an incision in the patient's skin to access internal organs. \
-		Causes \"cut skin\" surgical state."
+	desc = "在患者皮肤上切开一道口子，以接触内脏。\
+		造成‘皮肤切开’手术状态。"
 	required_bodytype = ~BODYTYPE_ROBOTIC
 	replaced_by = /datum/surgery_operation/limb/incise_skin/abductor
 	implements = list(
@@ -26,7 +26,7 @@
 	var/biostate_blacklist = BIO_CHITIN
 
 /datum/surgery_operation/limb/incise_skin/get_any_tool()
-	return "Any sharp edged item"
+	return "任何边缘锋利的物品"
 
 /datum/surgery_operation/limb/incise_skin/get_default_radial_image()
 	return image('icons/hud/surgery_radial.dmi', "make_incision")
@@ -47,11 +47,11 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You begin to make an incision in [FORMAT_LIMB_OWNER(limb)]..."),
-		span_notice("[surgeon] begins to make an incision in [FORMAT_LIMB_OWNER(limb)]."),
-		span_notice("[surgeon] begins to make an incision in [FORMAT_LIMB_OWNER(limb)]."),
+		span_notice("你开始在[FORMAT_LIMB_OWNER(limb)]上切开一道口子……"),
+		span_notice("[surgeon]开始在[FORMAT_LIMB_OWNER(limb)]上切开一道口子。"),
+		span_notice("[surgeon]开始在[FORMAT_LIMB_OWNER(limb)]上切开一道口子。"),
 	)
-	display_pain(limb.owner, "You feel a stabbing in your [limb.plaintext_zone].")
+	display_pain(limb.owner, "你的[limb.plaintext_zone]传来刺痛。")
 
 /datum/surgery_operation/limb/incise_skin/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	. = ..() // default success message
@@ -69,9 +69,9 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("[blood_name] pools around the incision in [FORMAT_LIMB_OWNER(limb)]."),
-		span_notice("[blood_name] pools around the incision in [FORMAT_LIMB_OWNER(limb)]."),
-		span_notice("[blood_name] pools around the incision in [FORMAT_LIMB_OWNER(limb)]."),
+		span_notice("[blood_name]在[FORMAT_LIMB_OWNER(limb)]的切口周围积聚。"),
+		span_notice("[blood_name]在[FORMAT_LIMB_OWNER(limb)]的切口周围积聚。"),
+		span_notice("[blood_name]在[FORMAT_LIMB_OWNER(limb)]的切口周围积聚。"),
 	)
 
 /// Subtype for thick skinned creatures (Xenomorphs)
@@ -99,9 +99,9 @@
 
 /// Pulls the skin back to access internals
 /datum/surgery_operation/limb/retract_skin
-	name = "retract skin"
-	desc = "Retract the patient's skin to access their internal organs. \
-		Causes \"skin open\" surgical state."
+	name = "牵开皮肤"
+	desc = "牵开患者的皮肤，以接触内脏。\
+		造成‘皮肤张开’手术状态。"
 	operation_flags = OPERATION_NO_PATIENT_REQUIRED
 	required_bodytype = ~BODYTYPE_ROBOTIC
 	replaced_by = /datum/surgery_operation/limb/retract_skin/abductor
@@ -125,11 +125,11 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You begin to retract the skin in [FORMAT_LIMB_OWNER(limb)]..."),
-		span_notice("[surgeon] begins to retract the skin in [FORMAT_LIMB_OWNER(limb)]."),
-		span_notice("[surgeon] begins to retract the skin in [FORMAT_LIMB_OWNER(limb)]."),
+		span_notice("你开始牵开[FORMAT_LIMB_OWNER(limb)]的皮肤……"),
+		span_notice("[surgeon]开始牵开[FORMAT_LIMB_OWNER(limb)]的皮肤。"),
+		span_notice("[surgeon]开始牵开[FORMAT_LIMB_OWNER(limb)]的皮肤。"),
 	)
-	display_pain(limb.owner, "You feel a severe stinging pain spreading across your [limb.plaintext_zone] as the skin is pulled back.")
+	display_pain(limb.owner, "皮肤被拉开时，你的[limb.plaintext_zone]传来一阵剧烈刺痛。")
 
 /datum/surgery_operation/limb/retract_skin/on_success(obj/item/bodypart/limb)
 	. = ..()
@@ -144,9 +144,9 @@
 
 /// Closes the skin
 /datum/surgery_operation/limb/close_skin
-	name = "mend skin incision"
-	desc = "Mend the incision in the patient's skin, closing it up. \
-		Clears most surgical states."
+	name = "闭合皮肤切口"
+	desc = "修复并闭合患者皮肤上的切口。\
+		清除大部分手术状态。"
 	required_bodytype = ~BODYTYPE_ROBOTIC
 	operation_flags = OPERATION_PRIORITY_NEXT_STEP | OPERATION_NO_PATIENT_REQUIRED
 	replaced_by = /datum/surgery_operation/limb/close_skin/abductor

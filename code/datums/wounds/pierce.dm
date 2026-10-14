@@ -3,7 +3,7 @@
 	Piercing wounds
 */
 /datum/wound/pierce
-	undiagnosed_name = "Puncture"
+	undiagnosed_name = "穿刺伤"
 	threshold_penalty = 5
 
 /datum/wound/pierce/get_self_check_description(self_aware)
@@ -12,13 +12,13 @@
 
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("一处小[LOWER_TEXT(undiagnosed_name || name)]正在渗血。")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("一处[LOWER_TEXT(undiagnosed_name || name)]正在渗血。")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("一处严重的[LOWER_TEXT(undiagnosed_name || name)]正在流血！")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("一处重度[LOWER_TEXT(undiagnosed_name || name)]正在大量流血！！")
 
 /datum/wound/pierce/bleed
 	name = "Piercing Wound"
@@ -192,14 +192,14 @@
 	return span_warning("The flesh on this limb appears badly perforated.")
 
 /datum/wound/pierce/bleed/moderate
-	name = "Minor Skin Breakage"
-	desc = "Patient's skin has been broken open, causing severe bruising and minor internal bleeding in affected area."
+	name = "轻度皮肤破损"
+	desc = "患者皮肤破裂，伤处出现严重瘀伤和轻微内出血。"
 	treat_text = "Apply bandaging or suturing to the wound, make use of blood clotting agents, \
 		cauterization, or in extreme circumstances, exposure to extreme cold or vaccuum. \
 		Follow with food and a rest period."
-	treat_text_short = "Apply bandaging or suturing."
-	examine_desc = "has a small, torn hole, gently bleeding"
-	occur_text = "spurts out a thin stream of blood"
+	treat_text_short = "包扎或缝合伤口。"
+	examine_desc = "有一个撕裂的小孔，缓缓渗血"
+	occur_text = "喷出一股细细的血流"
 	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.25
@@ -216,8 +216,8 @@
 
 /datum/wound/pierce/bleed/moderate/update_descriptions()
 	if(!limb.can_bleed())
-		examine_desc = "has a small, torn hole"
-		occur_text = "splits a small hole open"
+		examine_desc = "有一个撕裂的小孔"
+		occur_text = "裂开了一个小孔"
 
 /datum/wound_pregen_data/flesh_pierce/breakage
 	abstract = FALSE
@@ -248,18 +248,18 @@
 	abstract = FALSE
 
 /datum/wound/pierce/bleed/moderate/projectile
-	name = "Minor Skin Penetration"
-	desc = "Patient's skin has been pierced through, causing severe bruising and minor internal bleeding in affected area."
+	name = "轻度皮肤贯穿伤"
+	desc = "患者皮肤被贯穿，伤处出现严重瘀伤和轻微内出血。"
 	treat_text = "Apply bandaging or suturing to the wound, make use of blood clotting agents, \
 		cauterization, or in extreme circumstances, exposure to extreme cold or vaccuum. \
 		Follow with food and a rest period."
-	examine_desc = "has a small, circular hole, gently bleeding"
+	examine_desc = "有一个小圆孔，缓缓渗血"
 	clot_rate = 0
 
 /datum/wound/pierce/bleed/moderate/projectile/update_descriptions()
 	if(!limb.can_bleed())
-		examine_desc = "has a small, circular hole"
-		occur_text = "splits a small hole open"
+		examine_desc = "有一个小圆孔"
+		occur_text = "裂开了一个小孔"
 
 /datum/wound_pregen_data/flesh_pierce/breakage/projectile
 	wound_path_to_generate = /datum/wound/pierce/bleed/moderate/projectile
@@ -270,14 +270,14 @@
 	return weight
 
 /datum/wound/pierce/bleed/severe
-	name = "Open Stab Puncture"
-	desc = "Patient's internal tissue is penetrated, causing sizeable internal bleeding and reduced limb stability."
+	name = "开放性刺伤"
+	desc = "患者内部组织被刺穿，造成大量内出血，肢体稳定性下降。"
 	treat_text = "Swiftly apply bandaging or suturing to the wound, make use of blood clotting agents or saline-glucose, \
 		cauterization, or in extreme circumstances, exposure to extreme cold or vaccuum. \
 		Follow with iron supplements and a rest period."
-	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
-	examine_desc = "is pierced clear through, with bits of tissue obscuring the open hole"
-	occur_text = "looses a violent spray of blood, revealing a pierced wound"
+	treat_text_short = "包扎、缝合、使用凝血剂或烧灼止血。"
+	examine_desc = "被完全刺穿，碎裂的组织遮住了伤口"
+	occur_text = "猛地喷出鲜血，露出穿刺伤口"
 	sound_effect = 'sound/effects/wounds/pierce2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2
@@ -294,7 +294,7 @@
 
 /datum/wound/pierce/bleed/severe/update_descriptions()
 	if(!limb.can_bleed())
-		occur_text = "tears a hole open"
+		occur_text = "撕开了一个洞"
 
 /datum/wound_pregen_data/flesh_pierce/open_puncture
 	abstract = FALSE
@@ -309,8 +309,8 @@
 	return weight
 
 /datum/wound/pierce/bleed/severe/projectile
-	name = "Open Bullet Puncture"
-	examine_desc = "is pierced clear through, with bits of tissue obscuring the cleanly torn hole"
+	name = "开放性枪伤"
+	examine_desc = "被完全贯穿，碎裂的组织遮住了边缘整齐的弹孔"
 	clot_rate = 0
 
 /datum/wound_pregen_data/flesh_pierce/open_puncture/projectile
@@ -383,14 +383,14 @@
 	. = ..()
 
 /datum/wound/pierce/bleed/critical
-	name = "Ruptured Cavity"
-	desc = "Patient's internal tissue and circulatory system is shredded, causing significant internal bleeding and damage to internal organs."
+	name = "腔体破裂"
+	desc = "患者内部组织和循环系统遭到撕裂，造成大量内出血及内脏损伤。"
 	treat_text = "Immediately apply bandaging or suturing to the wound, make use of blood clotting agents or saline-glucose, \
 		cauterization, or in extreme circumstances, exposure to extreme cold or vaccuum. \
 		Follow with supervised resanguination."
-	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
-	examine_desc = "is ripped clear through, barely held together by exposed bone"
-	occur_text = "blasts apart, sending chunks of viscera flying in all directions"
+	treat_text_short = "包扎、缝合、使用凝血剂或烧灼止血。"
+	examine_desc = "被彻底撕穿，仅靠裸露的骨骼勉强相连"
+	occur_text = "炸裂开来，内脏碎块四处飞溅"
 	sound_effect = 'sound/effects/wounds/pierce3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 2.5

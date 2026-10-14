@@ -1,7 +1,7 @@
 /datum/surgery_operation/limb/amputate
-	name = "amputate limb"
-	rnd_name = "Disarticulation (Amputation)"
-	desc = "Sever a limb from a patient's body."
+	name = "截肢"
+	rnd_name = "关节离断术（截肢）"
+	desc = "从患者身体上切除一条肢体。"
 	operation_flags = OPERATION_MORBID | OPERATION_AFFECTS_MOOD | OPERATION_NOTABLE
 	required_bodytype = ~(BODYTYPE_ROBOTIC|BODYTYPE_PEG)
 	implements = list(
@@ -42,21 +42,21 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You begin to sever [limb.owner]'s [limb.plaintext_zone]..."),
-		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone]."),
-		span_notice("[surgeon] begins to sever [limb.owner]'s [limb.plaintext_zone] with [tool]."),
+		span_notice("你开始切断[limb.owner]的[limb.plaintext_zone]……"),
+		span_notice("[surgeon]开始切断[limb.owner]的[limb.plaintext_zone]。"),
+		span_notice("[surgeon]开始用[tool]切断[limb.owner]的[limb.plaintext_zone]。"),
 	)
-	display_pain(limb.owner, "You feel a gruesome pain in your [limb.plaintext_zone]'s joint!")
+	display_pain(limb.owner, "你的[limb.plaintext_zone]关节传来可怕的剧痛！")
 
 /datum/surgery_operation/limb/amputate/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You successfully amputate [limb.owner]'s [limb.plaintext_zone]!"),
-		span_notice("[surgeon] successfully amputates [limb.owner]'s [limb.plaintext_zone]!"),
-		span_notice("[surgeon] finishes severing [limb.owner]'s [limb.plaintext_zone]."),
+		span_notice("你成功切除了[limb.owner]的[limb.plaintext_zone]！"),
+		span_notice("[surgeon]成功切除了[limb.owner]的[limb.plaintext_zone]！"),
+		span_notice("[surgeon]切断了[limb.owner]的[limb.plaintext_zone]。"),
 	)
-	display_pain(limb.owner, "You can no longer feel your [limb.plaintext_zone]!")
+	display_pain(limb.owner, "你再也感觉不到自己的[limb.plaintext_zone]了！")
 	if(HAS_MIND_TRAIT(surgeon, TRAIT_MORBID))
 		surgeon.add_mood_event("morbid_dissection_success", /datum/mood_event/morbid_dissection_success)
 	limb.drop_limb()

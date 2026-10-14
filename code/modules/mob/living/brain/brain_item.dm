@@ -1,6 +1,6 @@
 /obj/item/organ/brain
 	name = "brain"
-	desc = "A piece of juicy meat found in a person's head."
+	desc = "人头里的一块多汁肉块。"
 	icon_state = "brain"
 	visual = TRUE
 	throw_speed = 3
@@ -9,8 +9,8 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_BRAIN
 	organ_flags = ORGAN_ORGANIC | ORGAN_VITAL | ORGAN_PROMINENT
-	attack_verb_continuous = list("attacks", "slaps", "whacks")
-	attack_verb_simple = list("attack", "slap", "whack")
+	attack_verb_continuous = list("攻击", "拍打", "敲打")
+	attack_verb_simple = list("攻击", "拍打", "敲打")
 
 	///The brain's organ variables are significantly more different than the other organs, with half the decay rate for balance reasons, and twice the maxHealth
 	decay_factor = STANDARD_ORGAN_DECAY * 0.5 //30 minutes of decaying to result in a fully damaged brain, since a fast decay rate would be unfun gameplay-wise

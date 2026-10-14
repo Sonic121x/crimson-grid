@@ -11,7 +11,7 @@
 
 // Base type. Subtypes are found in /grown dir. Lavaland-based subtypes can be found in mining/ash_flora.dm
 /obj/item/food/grown
-	name = "fresh produce" // so recipe text doesn't say 'snack'
+	name = "新鲜农产品" // so recipe text doesn't say 'snack'
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "berrypile"
 	worn_icon = 'icons/mob/clothing/head/hydroponics.dmi'
@@ -110,7 +110,7 @@
 	if(!dry_grind || HAS_TRAIT(src, TRAIT_DRIED))
 		return TRUE
 	if (user)
-		to_chat(user, span_warning("[src] needs to be dry before it can be ground up!"))
+		to_chat(user, span_warning("[src]需要干燥后才能研磨！"))
 	return FALSE
 
 /// Turns the nutriments and vitamins into the distill reagent or fruit wine
@@ -178,7 +178,7 @@
 	if(tool.get_sharpness())
 		playsound(src, 'sound/items/weapons/slice.ogg', 25, TRUE, -1)
 		if(do_after(user, 2 SECONDS, src))
-			to_chat(user, span_notice("You split apart the [src]!"))
+			to_chat(user, span_notice("你把[src]切开了！"))
 			seedify(src, 1, user = user)
 			return ITEM_INTERACT_SUCCESS
 		return ITEM_INTERACT_FAILURE

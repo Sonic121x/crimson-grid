@@ -1,7 +1,7 @@
 /datum/surgery_operation/organ/lobotomy
-	name = "lobotomize"
-	rnd_name = "Lobotomy (Lobotomy)"
-	desc = "Repair most of a patient's brain traumas, with the risk of causing new permanent traumas."
+	name = "脑叶切除"
+	rnd_name = "脑叶切除术（脑叶切除）"
+	desc = "修复患者大部分脑部创伤，但有造成新的永久性创伤的风险。"
 	rnd_desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	operation_flags = OPERATION_MORBID | OPERATION_AFFECTS_MOOD | OPERATION_LOCKED | OPERATION_NOTABLE | OPERATION_NO_PATIENT_REQUIRED
 	implements = list(
@@ -20,7 +20,7 @@
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 
 /datum/surgery_operation/organ/lobotomy/get_any_tool()
-	return "Any sharp edged item"
+	return "任何边缘锋利的物品"
 
 /datum/surgery_operation/organ/lobotomy/tool_check(obj/item/tool)
 	// Require edged sharpness OR a tool behavior match

@@ -40,8 +40,8 @@
 * Comes with a large number of visual customization options for coders who with to add new variants.
 **/
 /obj/item/reagent_containers/cup/jerrycan
-	name = "plastic jerrycan"
-	desc = "A voluminous container made from the finest HDPE.\n\nNow with integrated Smart Cap™ technology to prevent expensive spills when handling industrial liquids."
+	name = "塑料提桶"
+	desc = "用优质高密度聚乙烯制成的大容量容器。\n\n现已集成智能桶盖™技术，防止操作工业液体时发生代价高昂的泄漏。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	righthand_file = 'icons/mob/inhands/items/chemistry_righthand.dmi'
 	lefthand_file = 'icons/mob/inhands/items/chemistry_lefthand.dmi'
@@ -108,23 +108,23 @@
 	inhand_icon_state = "jerrycan_yellow"
 
 /obj/item/reagent_containers/cup/jerrycan/eznutriment
-	name = "E-Z-Nutrient™ can"
-	desc = "A large container presumably filled to the brim with 'E-Z-Nutrient'-brand plant nutrient. It can't get easier than this."
+	name = "简易营养液™桶"
+	desc = "大容器，看起来装满了“简易营养液”牌植物营养液。没有比这更省事的了。"
 	label_type = LABEL_EZ_NUTRIENT
 	list_reagents = list(/datum/reagent/plantnutriment/eznutriment = 200)
 	custom_price = PAYCHECK_CREW * 1
 
 /obj/item/reagent_containers/cup/jerrycan/left4zed
-	name = "Left 4 Zed™ can"
-	desc = "A large container labled 'Left 4 Zed' plant nutrient. A good choice when the stronger stuff is unavailable."
+	name = "求生之植™营养液桶"
+	desc = "贴着“求生之植”植物营养液标签的大容器。找不到更强效的产品时，这是个不错的选择。"
 	label_type = LABEL_LEFT_4_ZED
 	cap_type = CAP_GREEN
 	list_reagents = list(/datum/reagent/plantnutriment/left4zednutriment = 200)
 	custom_price = PAYCHECK_CREW * 1.2
 
 /obj/item/reagent_containers/cup/jerrycan/robustharvest
-	name = "Robust Harvest™ can"
-	desc = "A large container labled 'Robust Harvest' plant nutrient. Only trust 'Robust Harvest' for a robust yield."
+	name = "丰收营养液™桶"
+	desc = "贴着“丰收营养液”标签的大容器。想要好收成，就认准“丰收营养液”。"
 	label_type = LABEL_ROBUST_HARVEST
 	list_reagents = list(/datum/reagent/plantnutriment/robustharvestnutriment = 200)
 	custom_price = PAYCHECK_CREW * 1.5

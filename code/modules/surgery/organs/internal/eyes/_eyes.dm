@@ -1,7 +1,7 @@
 /obj/item/organ/eyes
 	name = BODY_ZONE_PRECISE_EYES
 	icon_state = "eyes"
-	desc = "I see you!"
+	desc = "我看见你了！"
 	visual = TRUE
 	zone = BODY_ZONE_PRECISE_EYES
 	slot = ORGAN_SLOT_EYES
@@ -13,12 +13,12 @@
 	high_threshold = 0.3 * STANDARD_ORGAN_THRESHOLD //threshold at 30
 	low_threshold = 0.2 * STANDARD_ORGAN_THRESHOLD //threshold at 20
 
-	low_threshold_passed = span_info("Distant objects become somewhat less tangible.")
-	high_threshold_passed = span_info("Everything starts to look a lot less clear.")
-	now_failing = span_warning("Darkness envelopes you, as your eyes go blind!")
-	now_fixed = span_info("Color and shapes are once again perceivable.")
-	high_threshold_cleared = span_info("Your vision functions passably once more.")
-	low_threshold_cleared = span_info("Your vision is cleared of any ailment.")
+	low_threshold_passed = span_info("远处的物体变得有些模糊。")
+	high_threshold_passed = span_info("眼前的一切都开始变得模糊不清。")
+	now_failing = span_warning("你的双眼失明，黑暗将你笼罩！")
+	now_fixed = span_info("你又能分辨颜色和形状了。")
+	high_threshold_cleared = span_info("你的视力再次恢复到勉强可用的程度。")
+	low_threshold_cleared = span_info("你的视力已完全恢复正常。")
 
 	/// Sight flags this eye pair imparts on its user.
 	var/sight_flags = NONE

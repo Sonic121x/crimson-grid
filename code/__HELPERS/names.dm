@@ -73,7 +73,7 @@ GLOBAL_VAR(command_name)
 	if (GLOB.command_name)
 		return GLOB.command_name
 
-	var/name = "Central Command"
+	var/name = "中央指挥部"
 
 	GLOB.command_name = name
 	return name
@@ -110,7 +110,7 @@ GLOBAL_VAR(command_name)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_STATION_NAME_CHANGED, new_name, old_name)
 
 /proc/new_station_name()
-	return "[CITY_NAME] [CURRENT_STATION_YEAR]" // DARKPACK EDIT CHANGE
+	return "[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME] [CURRENT_STATION_YEAR]" // DARKPACK EDIT CHANGE
 	/* // DARKPACK EDIT REMOVAL - This aint no station
 	var/random = rand(1,5)
 	var/new_station_name = ""
@@ -173,7 +173,7 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 
 	// Prefix
-	name += pick("Clandestine", "Prima", "Blue", "Zero-G", "Max", "Blasto", "North", "Omni", "Newton", "Cyber", "Bonk", "Gene", "Gib")
+	name += pick("秘密", "首席", "蓝色", "零重力", "极限", "爆破", "北方", "万象", "牛顿", "赛博", "重击", "基因", "碎肉")
 
 	// Suffix
 	if (prob(80))
@@ -181,16 +181,16 @@ GLOBAL_VAR(command_name)
 
 		// Full
 		if (prob(60))
-			name += pick("Syndicate", "Consortium", "Collective", "Corporation", "Group", "Holdings", "Biotech", "Industries", "Systems", "Products", "Chemicals", "Enterprises", "Family", "Creations", "International", "Intergalactic", "Interplanetary", "Foundation", "Positronics", "Hive")
+			name += pick("辛迪加", "联合体", "合作社", "公司", "集团", "控股", "生物技术", "工业", "系统", "制品", "化工", "企业", "家族", "创意", "国际", "星系际", "星际", "基金会", "正电子科技", "蜂巢")
 		// Broken
 		else
-			name += pick("Syndi", "Corp", "Bio", "System", "Prod", "Chem", "Inter", "Hive")
+			name += pick("辛迪", "公司", "生物", "系统", "制品", "化工", "国际", "蜂巢")
 			name += pick("", "-")
-			name += pick("Tech", "Co", "Tek", "X", "Inc", "Code")
+			name += pick("科技", "公司", "技术", "X", "股份", "代码")
 	// Small
 	else
 		name += pick("-", "*", "")
-		name += pick("Tech", "Co", "Tek", "X", "Inc", "Gen", "Star", "Dyne", "Code", "Hive")
+		name += pick("科技", "公司", "技术", "X", "股份", "基因", "星辰", "动力", "代码", "蜂巢")
 
 	return name
 
@@ -289,10 +289,10 @@ GLOBAL_VAR(command_name)
 				. += ", "
 
 /proc/odd_organ_name()
-	return "[pick(GLOB.gross_adjectives)], [pick(GLOB.gross_adjectives)] organ"
+	return "[pick(GLOB.gross_adjectives)]、[pick(GLOB.gross_adjectives)]的器官"
 
 /proc/hive_name()
-	return "[pick(GLOB.hive_names)]-hive"
+	return "[pick(GLOB.hive_names)]蜂巢"
 
 /**
  * Generate a name devices
@@ -336,47 +336,47 @@ GLOBAL_VAR(command_name)
 /proc/tool_behaviour_name(tool_behaviour)
 	switch(tool_behaviour)
 		if(TOOL_CROWBAR)
-			return "a crowbar"
+			return "一根撬棍"
 		if(TOOL_MULTITOOL)
-			return "a multitool"
+			return "一个多功能工具"
 		if(TOOL_SCREWDRIVER)
-			return "a screwdriver"
+			return "一把螺丝刀"
 		if(TOOL_WIRECUTTER)
-			return "a pair of wirecutters"
+			return "一把剪线钳"
 		if(TOOL_WRENCH)
-			return "a wrench"
+			return "一把扳手"
 		if(TOOL_WELDER)
-			return "a welder"
+			return "一把焊枪"
 		if(TOOL_ANALYZER)
-			return "an analyzer tool"
+			return "一个分析工具"
 		if(TOOL_MINING)
-			return "a mining implement"
+			return "一件采矿工具"
 		if(TOOL_SHOVEL)
-			return "a digging tool"
+			return "一件挖掘工具"
 		if(TOOL_RETRACTOR)
-			return "a retractor"
+			return "一把拉钩"
 		if(TOOL_HEMOSTAT)
-			return "something to clamp bleeding"
+			return "能够钳夹止血的工具"
 		if(TOOL_CAUTERY)
-			return "a cautery"
+			return "一把烧灼器"
 		if(TOOL_DRILL)
-			return "a drilling tool"
+			return "一件钻孔工具"
 		if(TOOL_SCALPEL)
-			return "a fine cutting tool"
+			return "一件精细切割工具"
 		if(TOOL_SAW)
-			return "a saw"
+			return "一把锯子"
 		if(TOOL_BONESET)
-			return "a bone setter"
+			return "一把正骨钳"
 		if(TOOL_KNIFE)
-			return "a cutting tool"
+			return "一件切割工具"
 		if(TOOL_BLOODFILTER)
-			return "a blood filter"
+			return "一个血液过滤器"
 		if(TOOL_ROLLINGPIN)
-			return "a rolling pin"
+			return "一根擀面杖"
 		if(TOOL_RUSTSCRAPER)
-			return "a rust scraper"
+			return "一把除锈刮刀"
 		else
-			return "something... but the gods didn't set this up right (Please report this bug)"
+			return "某种工具……但造物主没有设置好（请报告此问题）"
 
 ///Find the first name of a mob from a passed string with regex
 /proc/first_name(given_name)

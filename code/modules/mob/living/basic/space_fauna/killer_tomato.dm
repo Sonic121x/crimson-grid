@@ -5,8 +5,8 @@
 */
 
 /mob/living/basic/killer_tomato
-	name = "Killer Tomato"
-	desc = "It's a horrifyingly enormous beef tomato, and it's packing extra beef!"
+	name = "杀人番茄"
+	desc = "一颗大得吓人的牛排番茄，而且格外有劲！"
 	icon_state = "tomato"
 	icon_living = "tomato"
 	icon_dead = "tomato_dead"
@@ -24,8 +24,8 @@
 	response_harm_simple = "smack"
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	attack_verb_continuous = "slams"
-	attack_verb_simple = "slam"
+	attack_verb_continuous = "猛撞"
+	attack_verb_simple = "猛撞"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	faction = list(FACTION_PLANTS)
 

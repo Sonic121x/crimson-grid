@@ -1,7 +1,7 @@
 /obj/item/melee/baton
 	name = "police baton"
 	desc = "A wooden truncheon for beating criminal scum."
-	desc_controls = "Left click to stun, right click to harm."
+	desc_controls = "左键击晕，右键造成伤害。"
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "classic_baton"
 	inhand_icon_state = "classic_baton"
@@ -55,22 +55,22 @@
 	var/activated_word = "ready"
 
 	/// The context to show when the baton is active and targeting a living thing
-	var/context_living_target_active = "Stun"
+	var/context_living_target_active = "击晕"
 
 	/// The context to show when the baton is active and targeting a living thing in combat mode
-	var/context_living_target_active_combat_mode = "Stun"
+	var/context_living_target_active_combat_mode = "击晕"
 
 	/// The context to show when the baton is inactive and targeting a living thing
-	var/context_living_target_inactive = "Prod"
+	var/context_living_target_inactive = "戳碰"
 
 	/// The context to show when the baton is inactive and targeting a living thing in combat mode
-	var/context_living_target_inactive_combat_mode = "Attack"
+	var/context_living_target_inactive_combat_mode = "攻击"
 
 	/// The RMB context to show when the baton is active and targeting a living thing
-	var/context_living_rmb_active = "Attack"
+	var/context_living_rmb_active = "攻击"
 
 	/// The RMB context to show when the baton is inactive and targeting a living thing
-	var/context_living_rmb_inactive = "Attack"
+	var/context_living_rmb_inactive = "攻击"
 
 /obj/item/melee/baton/Initialize(mapload)
 	. = ..()
@@ -87,17 +87,17 @@
 	if(affect_cyborg)
 		readout += "It can stun cyborgs for [round((stun_time_cyborg/10), 1)] seconds."
 
-	readout += "\n[active ? "It is currently [span_warning("[activated_word]")], and capable of stunning." : "It is [span_warning("not [activated_word]")], and not capable of stunning."]"
+	readout += "\n[active ? "目前[span_warning("已就绪")]，可以击晕目标。" : "目前[span_warning("未就绪")]，无法击晕目标。"]"
 
 	if(stamina_damage <= 0) // The advanced baton actually does have 0 stamina damage so...yeah.
 		readout += "Either it is [span_warning("completely unable to perform a stunning strike")], or it [span_warning("attacks via some unusual method")]."
 		return readout.Join("\n")
 
-	readout += "It takes [span_warning("[HITS_TO_CRIT(stamina_damage)] strike\s")] to stun an enemy."
+	readout += "击晕敌人需要[span_warning("[HITS_TO_CRIT(stamina_damage)]次打击")]。"
 
-	readout += "\nThe effects of each strike can be mitigated by utilizing [span_warning("[armour_type_against_stun]")] armor."
+	readout += "\n[span_warning("[armour_type_against_stun == MELEE ? "近战" : armour_type_against_stun]")]护甲可以减轻每次打击的效果。"
 
-	readout += "\nIt has a stun armor-piercing capability of [span_warning("[stun_armour_penetration]%")]."
+	readout += "\n击晕攻击的护甲穿透率为[span_warning("[stun_armour_penetration]%")]。"
 	return readout.Join("\n")
 
 /obj/item/melee/baton/proc/add_deep_lore()
@@ -125,7 +125,7 @@
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.check_chunky_fingers() && user.is_holding(src) && !HAS_MIND_TRAIT(user, TRAIT_CHUNKYFINGERS_IGNORE_BATON))
 			if(!harmbatonning)
-				balloon_alert(human_user, "fingers are too big!")
+				balloon_alert(human_user, "手指太粗了！")
 			return FALSE
 	if(!COOLDOWN_FINISHED(src, cooldown_check))
 		if(wait_desc && !harmbatonning)
@@ -133,7 +133,7 @@
 		return FALSE
 	if(HAS_TRAIT_FROM(target, TRAIT_IWASBATONED, REF(user)) ) //no doublebaton abuse anon!
 		if(!harmbatonning)
-			target.balloon_alert(user, "can't stun yet!")
+			target.balloon_alert(user, "暂时无法击晕！")
 		return FALSE
 	return TRUE
 
@@ -164,8 +164,8 @@
 	// clumsy people redirect this attack - yes, this bypasses IWASBATONED and such
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
 		user.visible_message(
-			span_danger("[user] accidentally hits [user.p_them()]self over the head with [src]! What a doofus!"),
-			span_userdanger("You accidentally hit yourself over the head with [src]!"),
+			span_danger("[user]不小心用[src]打中了自己的头！真是个笨蛋！"),
+			span_userdanger("你不小心用[src]打中了自己的头！"),
 			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		)
 
@@ -216,7 +216,7 @@
 		return NONE
 
 	if (isobj(target))
-		context[SCREENTIP_CONTEXT_LMB] = "Attack"
+		context[SCREENTIP_CONTEXT_LMB] = "攻击"
 	else
 		if (active)
 			context[SCREENTIP_CONTEXT_RMB] = context_living_rmb_active
@@ -271,8 +271,8 @@
 /obj/item/melee/baton/proc/get_stun_description(mob/living/target, mob/living/user)
 	PROTECTED_PROC(TRUE)
 	. = list()
-	.["visible"] = span_danger("[user] knocks [target] down with [src]!")
-	.["local"] = span_userdanger("[user] knocks you down with [src]!")
+	.["visible"] = span_danger("[user]用[src]击倒了[target]！")
+	.["local"] = span_userdanger("[user]用[src]击倒了你！")
 
 /// Default message for stunning a cyborg.
 /obj/item/melee/baton/proc/get_cyborg_stun_description(mob/living/target, mob/living/user)
@@ -457,7 +457,7 @@
 /obj/item/melee/baton/security
 	name = "stun baton"
 	desc = "The Secure Apprehension Device, as developed by Nanotrasen. Delivers a precise shock to a target's central nervous system to incapacitate them."
-	desc_controls = "Left click to stun, right click to harm."
+	desc_controls = "左键击晕，右键造成伤害。"
 	icon = 'icons/obj/weapons/baton.dmi'
 	icon_state = "stunbaton"
 	base_icon_state = "stunbaton"
@@ -466,8 +466,8 @@
 	icon_angle = -45
 	force = 10
 	wound_bonus = 0
-	attack_verb_continuous = list("beats")
-	attack_verb_simple = list("beat")
+	attack_verb_continuous = list("殴打")
+	attack_verb_simple = list("殴打")
 	armor_type = /datum/armor/baton_security
 	throwforce = 7
 	force_say_chance = 50
@@ -480,9 +480,9 @@
 	on_stun_volume = 50
 	active = FALSE
 	stun_on_harmbaton = TRUE
-	wait_desc = "still charging!"
+	wait_desc = "仍在充能！"
 	activated_word = "activated"
-	context_living_rmb_active = "Harmful Stun"
+	context_living_rmb_active = "击晕并造成伤害"
 	light_range = 1.5
 	light_system = OVERLAY_LIGHT
 	light_on = FALSE
@@ -527,11 +527,11 @@
 
 /obj/item/melee/baton/security/suicide_act(mob/living/user)
 	if(cell?.charge && active)
-		user.visible_message(span_suicide("[user] is putting the live [name] in [user.p_their()] mouth! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]把通电的[name]塞进嘴里！看起来是想自杀！"))
 		finalize_baton_attack(user, user)
 		return FIRELOSS
 	else
-		user.visible_message(span_suicide("[user] is shoving \the [src] down their throat! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]把[src]塞进喉咙！看起来是想自杀！"))
 		return OXYLOSS
 
 /obj/item/melee/baton/security/Destroy()
@@ -587,9 +587,9 @@
 /obj/item/melee/baton/security/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += span_notice("\The [src] is [round(cell.percent())]% charged.")
+		. += span_notice("[src]的剩余电量为[round(cell.percent())]%。")
 	else
-		. += span_warning("\The [src] does not have a power source installed.")
+		. += span_warning("[src]未安装电源。")
 
 /obj/item/melee/baton/security/screwdriver_act(mob/living/user, obj/item/tool)
 	if(tryremovecell(user))
@@ -600,40 +600,40 @@
 	if(!istype(tool, /obj/item/stock_parts/power_store/cell))
 		return NONE
 	if(cell)
-		to_chat(user, span_warning("[src] already has a cell!"))
+		to_chat(user, span_warning("[src]已经装有电池！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(astype(tool, /obj/item/stock_parts/power_store/cell).maxcharge < cell_hit_cost)
-		to_chat(user, span_notice("[src] requires a higher capacity cell."))
+		to_chat(user, span_notice("[src]需要容量更大的电池。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!user.transferItemToLoc(tool, src))
 		return ITEM_INTERACT_BLOCKING
 
 	cell = tool
-	to_chat(user, span_notice("You install a cell in [src]."))
+	to_chat(user, span_notice("你给[src]装上了电池。"))
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/melee/baton/security/proc/tryremovecell(mob/user)
 	if(cell && can_remove_cell)
 		cell.forceMove(drop_location())
-		to_chat(user, span_notice("You remove the cell from [src]."))
+		to_chat(user, span_notice("你从[src]中取出了电池。"))
 		return TRUE
 	return FALSE
 
 /obj/item/melee/baton/security/attack_self(mob/user)
 	if(cell?.charge >= cell_hit_cost && !active)
 		turn_on(user)
-		balloon_alert(user, "turned on")
+		balloon_alert(user, "已开启")
 	else
 		turn_off()
 		if(!cell)
-			balloon_alert(user, "no power source!")
+			balloon_alert(user, "未安装电源！")
 		else if(cell?.charge < cell_hit_cost)
-			balloon_alert(user, "out of charge!")
+			balloon_alert(user, "电量耗尽！")
 		else
-			balloon_alert(user, "turned off")
+			balloon_alert(user, "已关闭")
 	add_fingerprint(user)
 
 /// Toggles the stun baton's light
@@ -670,8 +670,8 @@
 /obj/item/melee/baton/security/try_stun(mob/living/target, mob/living/user, harmbatonning)
 	if(!active && !harmbatonning && !user.combat_mode)
 		target.visible_message(
-			span_warning("[user] prods [target] with [src]. Luckily it was off."),
-			span_warning("[user] prods you with [src]. Luckily it was off."),
+			span_warning("[user]用[src]戳了戳[target]。幸好它没有通电。"),
+			span_warning("[user]用[src]戳了戳你。幸好它没有通电。"),
 			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		)
 		return FALSE
@@ -704,7 +704,7 @@
 /obj/item/melee/baton/security/proc/apply_stun_effect_end(mob/living/target)
 	var/trait_check = HAS_TRAIT(target, TRAIT_BATON_RESISTANCE) //var since we check it in out to_chat as well as determine stun duration
 	if(!target.IsKnockdown())
-		to_chat(target, span_warning("Your muscles seize, making you collapse[trait_check ? ", but your body quickly recovers..." : "!"]"))
+		to_chat(target, span_warning("你的肌肉痉挛，让你倒在地上[trait_check ? "，不过你的身体很快就恢复了……" : "！"]"))
 
 	if(!trait_check)
 		target.Knockdown(knockdown_time)
@@ -712,8 +712,8 @@
 /obj/item/melee/baton/security/get_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] = span_danger("[user] stuns [target] with [src]!")
-	.["local"] = span_userdanger("[user] stuns you with [src]!")
+	.["visible"] = span_danger("[user]用[src]电晕了[target]！")
+	.["local"] = span_userdanger("[user]用[src]电晕了你！")
 
 /obj/item/melee/baton/security/get_cyborg_stun_description(mob/living/target, mob/living/user)
 	. = ..()

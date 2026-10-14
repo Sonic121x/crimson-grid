@@ -1,5 +1,5 @@
 /obj/structure/fluff/grate // TODO: make the floor dry faster? Or maybe stop wetting all-together
-	name = "large grate"
+	name = "大型排水格栅"
 	desc = "Shiny. Is that a hairball?"
 	icon = 'modular_darkpack/modules/decor/icons/grate.dmi'
 	icon_state = "grate"
@@ -7,7 +7,7 @@
 	layer = BELOW_CATWALK_LAYER
 
 /obj/structure/fluff/grate/rusty
-	desc = "Rusty. Is that a hairball?"
+	desc = "锈迹斑斑。那是一团毛发吗？"
 	icon_state = "grate-rust"
 
 /obj/structure/fluff/grate/round

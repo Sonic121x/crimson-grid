@@ -1,6 +1,6 @@
 /obj/item/bodypart
 	name = "limb"
-	desc = "Why is it detached..."
+	desc = "怎么掉下来了……"
 	abstract_type = /obj/item/bodypart
 	force = 3
 	throwforce = 3
@@ -623,17 +623,17 @@
 			if(!human_victim.get_bodypart(body_zone))
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!try_attach_limb(victim))
-					to_chat(user, span_warning("[human_victim]'s body rejects [src]!"))
+					to_chat(user, span_warning("[human_victim]的身体排斥[src]！"))
 					forceMove(human_victim.loc)
 					return
 				if(check_for_frankenstein(victim))
 					bodypart_flags |= BODYPART_IMPLANTED
 				if(human_victim == user)
-					human_victim.visible_message(span_warning("[human_victim] jams [src] into [human_victim.p_their()] empty socket!"),\
-					span_notice("You force [src] into your empty socket, and it locks into place!"))
+					human_victim.visible_message(span_warning("[human_victim]把[src]塞进自己的空关节窝！"),\
+					span_notice("你把[src]硬塞进自己的空关节窝，它牢牢卡住了！"))
 				else
-					human_victim.visible_message(span_warning("[user] jams [src] into [human_victim]'s empty socket!"),\
-					span_notice("[user] forces [src] into your empty socket, and it locks into place!"))
+					human_victim.visible_message(span_warning("[user]把[src]塞进[human_victim]的空关节窝！"),\
+					span_notice("[user]把[src]硬塞进你的空关节窝，它牢牢卡住了！"))
 				return
 	return ..()
 
@@ -1827,7 +1827,7 @@
 		return FALSE
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
-		owner.visible_message(span_danger("\The [current_gauze.name] on [owner]'s [name] falls away in rags."), span_warning("\The [current_gauze.name] on your [name] falls away in rags."), vision_distance=COMBAT_MESSAGE_RANGE)
+		owner.visible_message(span_danger("[owner]的[name]上的[current_gauze.name]碎成破布，脱落了。"), span_warning("你的[name]上的[current_gauze.name]碎成破布，脱落了。"), vision_distance=COMBAT_MESSAGE_RANGE)
 		qdel(current_gauze)
 	return TRUE
 

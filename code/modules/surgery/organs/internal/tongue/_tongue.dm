@@ -1,6 +1,6 @@
 /obj/item/organ/tongue
 	name = "tongue"
-	desc = "A fleshy muscle mostly used for lying."
+	desc = "一块肉质肌肉，主要用来说谎。"
 	icon_state = "tongue"
 
 	zone = BODY_ZONE_PRECISE_MOUTH

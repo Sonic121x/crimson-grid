@@ -47,7 +47,7 @@
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/mixedbouquet
-	name = "Mixed bouquet"
+	name = "混合花束"
 	result = /obj/item/bouquet
 	reqs = list(
 		/obj/item/food/grown/flower/poppy/lily = 2,
@@ -57,13 +57,13 @@
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/sunbouquet
-	name = "Sunflower bouquet"
+	name = "向日葵花束"
 	result = /obj/item/bouquet/sunflower
 	reqs = list(/obj/item/food/grown/flower/sunflower = 6)
 	category = CAT_ENTERTAINMENT
 
 /datum/crafting_recipe/poppybouquet
-	name = "Poppy bouquet"
+	name = "罂粟花束"
 	result = /obj/item/bouquet/poppy
 	reqs = list (/obj/item/food/grown/flower/poppy = 6)
 	category = CAT_ENTERTAINMENT

@@ -1,7 +1,7 @@
 /datum/surgery_operation/limb/autopsy
-	name = "autopsy"
-	rnd_name = "Androtomy (Dissection and Autopsy)"
-	desc = "Perform a detailed analysis of a deceased patient's body."
+	name = "尸检"
+	rnd_name = "人体解剖术（解剖与尸检）"
+	desc = "对已死亡患者的尸体进行详细分析。"
 	implements = list(/obj/item/autopsy_scanner = 1)
 	time = 10 SECONDS
 	success_sound = 'sound/machines/printer.ogg'
@@ -32,9 +32,9 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You begin performing an autopsy on [limb.owner]..."),
-		span_notice("[surgeon] uses [tool] to perform an autopsy on [limb.owner]."),
-		span_notice("[surgeon] uses [tool] on [limb.owner]'s chest."),
+		span_notice("你开始对[limb.owner]进行尸检……"),
+		span_notice("[surgeon]使用[tool]对[limb.owner]进行尸检。"),
+		span_notice("[surgeon]对着[limb.owner]的胸部使用[tool]。"),
 	)
 
 /datum/surgery_operation/limb/autopsy/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/autopsy_scanner/tool, list/operation_args)

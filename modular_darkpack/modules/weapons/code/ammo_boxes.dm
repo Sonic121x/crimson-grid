@@ -7,19 +7,19 @@
 // 9x19mm Parabellum
 
 /obj/item/ammo_box/darkpack/c9mm
-	name = "ammo box (9mm)"
+	name = "弹药盒（9mm）"
 	icon_state = "9box"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	max_ammo = 100
 	custom_price = 300
 
 /obj/item/ammo_box/darkpack/c9mm/plus
-	name = "ammo box (9mm, +P)"
-	desc = "a box of High Velocity (HV) ammo."
+	name = "弹药盒（9mm，+P）"
+	desc = "一盒高速（HV）弹药。"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm/plus
 
 /obj/item/ammo_box/darkpack/c9mm/silver
-	name = "ammo box (9mm silver)"
+	name = "弹药盒（9mm银弹）"
 	icon_state = "9box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm/silver
 	max_ammo = 100
@@ -34,31 +34,31 @@
 
 // .45 ACP
 /obj/item/ammo_box/darkpack/c45acp
-	name = "ammo box (.45 ACP)"
+	name = "弹药盒（.45 ACP）"
 	icon_state = "45box"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp
 	max_ammo = 100
 
 /obj/item/ammo_box/darkpack/c45acp/hp
-	name = "ammo box (.45 ACP HP)"
+	name = "弹药盒（.45 ACP空尖弹）"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp/HP
 	max_ammo = 100
 
 /obj/item/ammo_box/darkpack/c45acp/silver
-	name = "ammo box (.45 ACP silver)"
+	name = "弹药盒（.45 ACP银弹）"
 	icon_state = "45box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp/silver
 	max_ammo = 100
 
 // .44 Magnum
 /obj/item/ammo_box/darkpack/c44
-	name = "ammo box (.44)"
+	name = "弹药盒（.44）"
 	icon_state = "44box"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	max_ammo = 60
 
 /obj/item/ammo_box/darkpack/c44/silver
-	name = "ammo box (.44 silver)"
+	name = "弹药盒（.44银弹）"
 	icon_state = "44box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c44/silver
 	max_ammo = 60
@@ -72,47 +72,47 @@
 
 // .50 BMG
 /obj/item/ammo_box/darkpack/c50
-	name = "ammo box (.50 BMG)"
+	name = "弹药盒（.50 BMG）"
 	icon_state = "50box"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
 	max_ammo = 20
 
 // 5.56mm NATO
 /obj/item/ammo_box/darkpack/c556
-	name = "ammo box (5.56)"
+	name = "弹药盒（5.56）"
 	icon_state = "556box"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm
 	max_ammo = 60
 	custom_price = 2000
 
 /obj/item/ammo_box/darkpack/c556/incendiary
-	name = "incendiary ammo box (5.56)"
+	name = "燃烧弹盒（5.56）"
 	icon_state = "incendiary"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm/incendiary
 
 /obj/item/ammo_box/darkpack/c556/silver
-	name = "ammo box (5.56 silver)"
+	name = "弹药盒（5.56银弹）"
 	icon_state = "556box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm/silver
 	max_ammo = 60
 
 // 5.45x39mm
 /obj/item/ammo_box/darkpack/c545
-	name = "ammo box (5.45)"
+	name = "弹药盒（5.45）"
 	icon_state = "545box"
 	ammo_type = /obj/item/ammo_casing/vampire/c545mm
 	max_ammo = 60
 
 // 4.6mm HK // DARKPACK TODO: Ammo box for 4.6mm NATO
 /obj/item/ammo_box/darkpack/c46pdw
-	name = "ammo box (4.6mm)"
+	name = "弹药盒（4.6mm）"
 	icon_state = "46box"
 	ammo_type = /obj/item/ammo_casing/vampire/c46pdw
 	max_ammo = 100
 
 // 12 Gauge
 /obj/item/ammo_box/darkpack/c12g
-	name = "ammo box (12g)"
+	name = "弹药盒（12号）"
 	icon_state = "12box"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	max_ammo = 30
@@ -124,18 +124,18 @@
 	max_ammo = 30
 
 /obj/item/ammo_box/darkpack/c12g/buck
-	name = "ammo box (12g, 00 buck)"
+	name = "弹药盒（12号，00号鹿弹）"
 	icon_state = "12box_buck"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck
 	custom_price = 400
 
 /obj/item/ammo_box/darkpack/c12g/rubber
-	name = "ammo box (12g, rubber shot)"
+	name = "弹药盒（12号，橡胶弹）"
 	icon_state = "12box_rubber"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/rubber
 
 /obj/item/ammo_box/darkpack/c12g/incap
-	name = "ammo box (12g, High Impact Incapacitation Round)"
+	name = "弹药盒（12号，高冲击失能弹）"
 	icon_state = "12box_incap"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/incap
 
@@ -158,7 +158,7 @@
 
 // 7.62x51mm NATO
 /obj/item/ammo_box/darkpack/c762x51mm
-	name = "ammo box (7.62x51mm)"
+	name = "弹药盒（7.62x51mm）"
 	icon_state = "762box"
 	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm
 	max_ammo = 80

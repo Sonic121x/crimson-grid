@@ -100,13 +100,13 @@
 		return
 
 	// When our force degrades to zero or below, we're all done
-	to_chat(user, span_warning("All the [degradation_noun] have fallen off [our_plant] from violent whacking!"))
+	to_chat(user, span_warning("猛烈挥打让[our_plant]的[degradation_noun == "petals" ? "花瓣" : degradation_noun == "leaves" ? "叶片" : degradation_noun]全部脱落了！"))
 	qdel(our_plant)
 
 /// Novaflower's attack effects (sets people on fire) + degradation on attack
 /datum/plant_gene/trait/attack/novaflower_attack
 	name = "Heated Petals"
-	description = "Hitting with it may cause things to combust."
+	description = "用它击打物体可能引起燃烧。"
 	force_multiplier = 0.2
 	degrades_after_hit = TRUE
 	degradation_noun = "petals"
@@ -117,7 +117,7 @@
 		return
 
 	var/obj/item/seeds/our_seed = our_plant.get_plant_seed()
-	to_chat(target, span_danger("You are lit on fire from the intense heat of [our_plant]!"))
+	to_chat(target, span_danger("[our_plant]的炽热高温点燃了你！"))
 	target.adjust_fire_stacks(round(our_seed.potency / 20))
 	if(target.ignite_mob())
 		message_admins("[ADMIN_LOOKUPFLW(user)] set [ADMIN_LOOKUPFLW(target)] on fire with [our_plant] at [AREACOORD(user)]")
@@ -128,15 +128,15 @@
 /// Sunflower's attack effect (shows cute text)
 /datum/plant_gene/trait/attack/sunflower_attack
 	name = "Bright Petals"
-	description = "Makes others feel the power on hit."
+	description = "击中别人时，让对方感受花朵的力量。"
 
 /datum/plant_gene/trait/attack/sunflower_attack/after_attack_effect(obj/item/our_plant, atom/target, mob/user, list/modifiers)
 	if(ismob(target))
 		var/mob/target_mob = target
-		user.visible_message("<font color='green'>[user] smacks [target_mob] with [user.p_their()] [our_plant.name]! <font color='orange'><b>FLOWER POWER!</b></font></font>", ignored_mobs = list(target_mob, user))
+		user.visible_message("<font color='green'>[user]用[our_plant.name]拍打[target_mob]！<font color='orange'><b>花朵的力量！</b></font></font>", ignored_mobs = list(target_mob, user))
 		if(target_mob != user)
-			to_chat(target_mob, "<font color='green'>[user] smacks you with [our_plant]!<font color='orange'><b>FLOWER POWER!</b></font></font>")
-		to_chat(user, "<font color='green'>Your [our_plant.name]'s <font color='orange'><b>FLOWER POWER</b></font> strikes [target_mob]!</font>")
+			to_chat(target_mob, "<font color='green'>[user]用[our_plant]拍打你！<font color='orange'><b>花朵的力量！</b></font></font>")
+		to_chat(user, "<font color='green'>你的[our_plant.name]以<font color='orange'><b>花朵的力量</b></font>击中了[target_mob]！</font>")
 
 	return ..()
 
@@ -207,23 +207,23 @@
 /// Novaflower's hand burn on backfire
 /datum/plant_gene/trait/backfire/novaflower_heat
 	name = "Burning Stem"
-	description = "The stem may burn your hand."
+	description = "茎部可能会灼伤你的手。"
 	cancel_action_on_backfire = TRUE
 	trait_flags = TRAIT_SHOW_EXAMINE
 
 /datum/plant_gene/trait/backfire/novaflower_heat/backfire_effect(obj/item/our_plant, mob/living/carbon/user)
-	to_chat(user, span_danger("[our_plant] singes your bare hand!"))
+	to_chat(user, span_danger("[our_plant]灼伤了你没戴手套的手！"))
 	our_plant.investigate_log("self-burned [key_name(user)] for [our_plant.force] at [AREACOORD(user)]", INVESTIGATE_BOTANY)
 	user.apply_damage(our_plant.force, our_plant.damtype, user.get_active_hand(), wound_bonus = CANT_WOUND)
 
 /// Normal Nettle hannd burn on backfire
 /datum/plant_gene/trait/backfire/nettle_burn
 	name = "Stinging Stem"
-	description = "The stem may sting your hand."
+	description = "茎部可能会蜇伤你的手。"
 	trait_flags = TRAIT_SHOW_EXAMINE
 
 /datum/plant_gene/trait/backfire/nettle_burn/backfire_effect(obj/item/our_plant, mob/living/carbon/user)
-	to_chat(user, span_danger("[our_plant] burns your bare hand!"))
+	to_chat(user, span_danger("[our_plant]灼伤了你没戴手套的手！"))
 	our_plant.investigate_log("self-burned [key_name(user)] for [our_plant.force] at [AREACOORD(user)]", INVESTIGATE_BOTANY)
 	user.apply_damage(our_plant.force, our_plant.damtype, user.get_active_hand(), wound_bonus = CANT_WOUND)
 
@@ -238,7 +238,7 @@
 		return
 
 	user.Paralyze(10 SECONDS)
-	to_chat(user, span_userdanger("You are stunned by the powerful acids of [our_plant]!"))
+	to_chat(user, span_userdanger("[our_plant]的强酸使你痛得动弹不得！"))
 
 /// Ghost-Chili heating up on backfire
 /datum/plant_gene/trait/backfire/chili_heat
@@ -300,7 +300,7 @@
 /// Bluespace Tomato squashing on the user on backfire
 /datum/plant_gene/trait/backfire/bluespace
 	name = "Bluespace Volatility"
-	description = "You may be spaced out if you hold this unprotected."
+	description = "没有防护就拿着它，可能会让你被传送走。"
 	cancel_action_on_backfire = TRUE
 	genes_to_check = list(/datum/plant_gene/trait/squash)
 
@@ -308,7 +308,7 @@
 	if(prob(50))
 		return
 
-	to_chat(user, span_danger("[our_plant] slips out of your hand!"))
+	to_chat(user, span_danger("[our_plant]从你手中滑落了！"))
 
 	var/obj/item/seeds/our_seed = our_plant.get_plant_seed()
 	var/datum/plant_gene/trait/squash/squash_gene = our_seed.get_gene(/datum/plant_gene/trait/squash)
@@ -317,7 +317,7 @@
 /// Traits for plants that can be activated to turn into a mob.
 /datum/plant_gene/trait/mob_transformation
 	name = "Dormant Ferocity"
-	description = "It comes to life when shaken in hand."
+	description = "拿在手中摇晃就会活过来。"
 	icon = FA_ICON_HEART_PULSE
 	trait_ids = ATTACK_SELF_ID
 	/// Whether mobs spawned by this trait are dangerous or not.
@@ -361,8 +361,8 @@
 		return
 
 	if(target != user)
-		to_chat(user, span_warning("[our_plant] is twitching and shaking, preventing you from feeding it to [target]."))
-	to_chat(target, span_warning("[our_plant] is twitching and shaking, preventing you from eating it."))
+		to_chat(user, span_warning("[our_plant]不停抽动挣扎，让你无法把它喂给[target]。"))
+	to_chat(target, span_warning("[our_plant]不停抽动挣扎，让你无法吃下它。"))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /*
@@ -379,10 +379,10 @@
 		return
 
 	if(dangerous && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_notice("You decide not to awaken [our_plant]. It may be very dangerous!"))
+		to_chat(user, span_notice("你决定不唤醒[our_plant]。它可能非常危险！"))
 		return
 
-	to_chat(user, span_notice("You begin to awaken [our_plant]..."))
+	to_chat(user, span_notice("你开始唤醒[our_plant]……"))
 	begin_awaken(our_plant, 3 SECONDS)
 	our_plant.investigate_log("was awakened by [key_name(user)] at [AREACOORD(user)].", INVESTIGATE_BOTANY)
 
@@ -396,7 +396,7 @@
 	SIGNAL_HANDLER
 
 	if(!awakening && !isspaceturf(user.loc) && prob(25))
-		our_plant.visible_message(span_danger("[our_plant] begins to growl and shake!"))
+		our_plant.visible_message(span_danger("[our_plant]开始低吼并抖动！"))
 		begin_awaken(our_plant, 1 SECONDS)
 		our_plant.investigate_log("was awakened (via plant backfire) by [key_name(user)] at [AREACOORD(user)].", INVESTIGATE_BOTANY)
 
@@ -439,7 +439,7 @@
 		spawned_basicmob.set_varspeed(calculated_speed)
 
 	our_plant.forceMove(our_plant.drop_location())
-	spawned_mob.visible_message(span_notice("[our_plant] growls as it suddenly awakens!"))
+	spawned_mob.visible_message(span_notice("[our_plant]低吼着突然苏醒了！"))
 	qdel(our_plant)
 
 /// Killer Tomato's transformation gene.
@@ -697,7 +697,7 @@
 /// Poppy's unique trait that allows slicing for sap
 /datum/plant_gene/trait/opium_production
 	name = "Sap Buds"
-	description = "Using a knife or other sharp object on the plant between ages 200 seconds to 400 seconds will yield a sap."
+	description = "在植物生长至200到400秒时，用刀或其他锋利物品割开它，可以收集汁液。"
 	icon = FA_ICON_PILLS
 	/// Has parent plant been harvested for sap already?
 	var/extracted = FALSE
@@ -717,13 +717,13 @@
 		return NONE
 
 	if(source.age < 10)
-		to_chat(user, span_warning("The [LOWER_TEXT(source.myseed.plantname)] are too young to extract sap from!"))
+		to_chat(user, span_warning("[LOWER_TEXT(source.myseed.plantname)]还太嫩，无法提取汁液！"))
 		return ITEM_INTERACT_FAILURE
 	if(source.age > 19)
-		to_chat(user, span_warning("The [LOWER_TEXT(source.myseed.plantname)] are too old to extract sap from!"))
+		to_chat(user, span_warning("[LOWER_TEXT(source.myseed.plantname)]已经太老，无法提取汁液！"))
 		return ITEM_INTERACT_FAILURE
 	if(extracted)
-		to_chat(user, span_warning("The [LOWER_TEXT(source.myseed.plantname)] have already been harvested for sap!"))
+		to_chat(user, span_warning("[LOWER_TEXT(source.myseed.plantname)]的汁液已经采集过了！"))
 		return ITEM_INTERACT_FAILURE
 
 	extracted = TRUE
@@ -731,8 +731,8 @@
 	playsound(src, 'sound/effects/bubbles/bubbles.ogg', 30, TRUE)
 	playsound(tool, 'sound/items/weapons/bladeslice.ogg', 30, TRUE)
 	user.visible_message(
-		span_notice("[user] carefully slices open a [source.myseed.species] pod, extracting a sap."),
-		span_notice("You carefully slice the [source.myseed.species]'s pod, collecting the fragrant, alluring sap."),
+		span_notice("[user]小心地割开[source.myseed.plantname]的果荚，提取汁液。"),
+		span_notice("你小心地割开[source.myseed.plantname]的果荚，收集芳香诱人的汁液。"),
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
 	return ITEM_INTERACT_SUCCESS

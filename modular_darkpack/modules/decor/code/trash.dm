@@ -1,6 +1,6 @@
 
 /obj/effect/decal/cleanable/trash
-	name = "trash"
+	name = "垃圾"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "trash1"
 	base_icon_state = "trash"
@@ -16,7 +16,7 @@
 	return isclosedturf(here_turf)
 
 /obj/effect/decal/cleanable/litter
-	name = "litter"
+	name = "散落垃圾"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "paper1"
 	clean_type = CLEAN_TYPE_HARD_DECAL
@@ -30,7 +30,7 @@
 	return isclosedturf(here_turf)
 
 /obj/effect/decal/cleanable/cardboard
-	name = "cardboard"
+	name = "纸板"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "cardboard1"
 	clean_type = CLEAN_TYPE_HARD_DECAL
@@ -47,7 +47,7 @@
 	return isclosedturf(here_turf)
 
 /obj/effect/decal/cleanable/trash/big
-	name = "trash"
+	name = "垃圾"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "bigtrash1"
 	base_icon_state = "bigtrash"
@@ -55,7 +55,7 @@
 	variants = 12
 
 /obj/effect/decal/cleanable/trash/books
-	name = "trash"
+	name = "垃圾"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "books1"
 	base_icon_state = "books"

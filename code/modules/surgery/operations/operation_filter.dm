@@ -1,7 +1,7 @@
 /datum/surgery_operation/limb/filter_blood
-	name = "blood filtration"
-	rnd_name = "Hemodialysis (Blood Filtration)"
-	desc = "Remove unwanted chemicals from a patient's bloodstream."
+	name = "过滤血液"
+	rnd_name = "血液透析（过滤血液）"
+	desc = "清除患者血液中不需要的化学物质。"
 	implements = list(/obj/item/blood_filter = 1)
 	time = 2.5 SECONDS
 	operation_flags = OPERATION_LOOPING
@@ -12,9 +12,9 @@
 
 /datum/surgery_operation/limb/filter_blood/all_required_strings()
 	. = list()
-	. += "operate on chest (target chest)"
+	. += "在胸部进行手术（瞄准胸部）"
 	. += ..()
-	. += "the patient must not be husked"
+	. += "患者不能处于干瘪状态"
 
 /datum/surgery_operation/limb/filter_blood/get_default_radial_image()
 	return image(/obj/item/blood_filter)
@@ -27,7 +27,7 @@
 
 /datum/surgery_operation/limb/filter_blood/on_preop(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	. = ..()
-	display_pain(limb.owner, "You feel a throbbing pain in your chest!")
+	display_pain(limb.owner, "你的胸口传来一阵阵抽痛！")
 
 /datum/surgery_operation/limb/filter_blood/on_success(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	. = ..()
@@ -39,9 +39,9 @@
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("[tool] completes a cycle filtering [limb.owner]'s blood."),
-		span_notice("[tool] whirrs as it filters [limb.owner]'s blood."),
-		span_notice("[tool] whirrs as it pumps."),
+		span_notice("[tool]完成了一轮对[limb.owner]的血液过滤。"),
+		span_notice("[tool]嗡嗡作响，过滤着[limb.owner]的血液。"),
+		span_notice("[tool]在泵送时嗡嗡作响。"),
 	)
 
 	if(surgeon.is_holding_item_of_type(/obj/item/healthanalyzer))
@@ -59,7 +59,7 @@
 
 /datum/surgery_operation/limb/filter_blood/proc/has_filterable_chems(mob/living/carbon/target, obj/item/blood_filter/bloodfilter)
 	if(!length(target.reagents?.reagent_list))
-		bloodfilter.audible_message(span_notice("[bloodfilter] pings as it reports no chemicals detected in [target]'s blood."))
+		bloodfilter.audible_message(span_notice("[bloodfilter]鸣响，报告[target]的血液中未检测到化学物质。"))
 		playsound(target, 'sound/machines/ping.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1)
 		return FALSE
 

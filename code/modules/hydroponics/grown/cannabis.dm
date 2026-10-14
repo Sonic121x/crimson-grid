@@ -1,12 +1,12 @@
 // Cannabis
 /obj/item/seeds/cannabis
-	name = "cannabis seed pack"
-	desc = "Taxable."
+	name = "大麻种子包"
+	desc = "可以征税。"
 	icon = 'modular_darkpack/modules/drugs/icons/items.dmi' // DARKPACK EDIT CHANGE - DRUGS
 	icon_state = "seed-cannabis"
 	plant_icon_offset = 7 // DARKPACK EDIT CHANGE - DRUGS
 	species = "cannabis"
-	plantname = "Cannabis Plant"
+	plantname = "大麻植株"
 	product = /obj/item/food/grown/cannabis
 	maturation = 8
 	potency = 20
@@ -123,8 +123,8 @@
 	seed = /obj/item/seeds/cannabis
 	icon = 'modular_darkpack/modules/drugs/icons/items.dmi' // DARKPACK EDIT CHANGE - DRUGS
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/drugs/icons/onfloor.dmi')// DARKPACK EDIT ADD - DRUGS
-	name = "cannabis leaf"
-	desc = "They say that next year they're going to try to legalise it." // DARKPACK EDIT CHANGE
+	name = "大麻叶"
+	desc = "听说他们明年打算推动大麻合法化。" // DARKPACK EDIT CHANGE
 	icon_state = "cannabis"
 	bite_consumption_mod = 4
 	foodtypes = VEGETABLES //i dont really know what else weed could be to be honest

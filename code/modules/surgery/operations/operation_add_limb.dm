@@ -2,8 +2,8 @@
 
 // This surgery is so snowflake that it doesn't use any of the operation subtypes, it forges its own path
 /datum/surgery_operation/limb/prosthetic_replacement
-	name = "prosthetic replacement"
-	desc = "Replace a missing limb with a prosthetic (or arbitrary) item."
+	name = "安装替代肢体"
+	desc = "用假肢或其他物品替代缺失的肢体。"
 	implements = list(
 		/obj/item/bodypart = 1,
 		/obj/item = 1,
@@ -23,24 +23,24 @@
 	VAR_PRIVATE/list/cached_prosthetic_options
 
 /datum/surgery_operation/limb/prosthetic_replacement/get_recommended_tool()
-	return "any limb / any item"
+	return "任意肢体／任意物品"
 
 /datum/surgery_operation/limb/prosthetic_replacement/get_any_tool()
-	return "Any suitable arm replacement"
+	return "任何适合替代手臂的物品"
 
 /datum/surgery_operation/limb/prosthetic_replacement/all_required_strings()
 	. = ..()
-	. += "the limb must be missing / a stump"
+	. += "肢体必须缺失或只剩残端"
 
 /datum/surgery_operation/limb/prosthetic_replacement/any_required_strings()
-	return list("arms may receive any suitable item in lieu of a replacement limb") + ..()
+	return list("手臂可用任何合适的物品代替肢体") + ..()
 
 /datum/surgery_operation/limb/prosthetic_replacement/get_radial_options(obj/item/bodypart/chest/chest, obj/item/tool, operating_zone)
 	var/datum/radial_menu_choice/option = LAZYACCESS(cached_prosthetic_options, tool.type)
 	if(!option)
 		option = new()
-		option.name = "attach [initial(tool.name)]"
-		option.info = "Replace the patient's missing limb with [initial(tool.name)]."
+		option.name = "接上[initial(tool.name)]"
+		option.info = "用[initial(tool.name)]替代患者缺失的肢体。"
 		option.image = image(tool.type)
 		LAZYSET(cached_prosthetic_options, tool.type, option)
 

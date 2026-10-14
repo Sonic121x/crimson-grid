@@ -1,9 +1,9 @@
 /obj/item/seeds/tower
-	name = "tower-cap mycelium pack"
-	desc = "This mycelium grows into tower-cap mushrooms."
+	name = "塔菇菌丝包"
+	desc = "这些菌丝会长成塔菇。"
 	icon_state = "mycelium-tower"
 	species = "towercap"
-	plantname = "Tower Caps"
+	plantname = "塔菇"
 	product = /obj/item/grown/log
 	lifespan = 80
 	endurance = 50
@@ -20,11 +20,11 @@
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/seeds/tower/steel
-	name = "steel-cap mycelium pack"
-	desc = "This mycelium grows into steel logs."
+	name = "钢菇菌丝包"
+	desc = "这些菌丝会长成钢制原木。"
 	icon_state = "mycelium-steelcap"
 	species = "steelcap"
-	plantname = "Steel Caps"
+	plantname = "钢菇"
 	product = /obj/item/grown/log/steel
 	mutatelist = null
 	reagents_add = list(/datum/reagent/cellulose = 0.05, /datum/reagent/iron = 0.05)
@@ -32,22 +32,22 @@
 
 /obj/item/grown/log
 	seed = /obj/item/seeds/tower
-	name = "tower-cap log"
-	desc = "It's better than bad, it's good!"
+	name = "塔菇原木"
+	desc = "可不是一般的好，是真的棒！"
 	icon_state = "logs"
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 3
-	attack_verb_continuous = list("bashes", "batters", "bludgeons", "whacks")
-	attack_verb_simple = list("bash", "batter", "bludgeon", "whack")
+	attack_verb_continuous = list("猛砸", "殴打", "重击", "敲打")
+	attack_verb_simple = list("猛砸", "殴打", "重击", "敲打")
 	/// Type of plank you can get from this type of log
 	var/plank_type = /obj/item/stack/sheet/mineral/wood
 	/// How many planks you can get from this type of log, without counting seed potency
 	var/plank_count = 1
 	/// Name of plank, shown in context tips and balloon alerts when cutting the log
-	var/plank_name = "wooden planks"
+	var/plank_name = "木板"
 	var/static/list/accepted = typecacheof(list(
 		/obj/item/food/grown/tobacco,
 		/obj/item/food/grown/tea,
@@ -75,18 +75,18 @@
 
 	if(held_item.get_sharpness())
 		// May be a little long, but I think "cut into planks" for steel caps may be confusing.
-		context[SCREENTIP_CONTEXT_LMB] = "Cut into [plank_name]"
+		context[SCREENTIP_CONTEXT_LMB] = "切成[plank_name]"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(CheckAccepted(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Make torch"
+		context[SCREENTIP_CONTEXT_LMB] = "制作火把"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	return NONE
 
 /obj/item/grown/log/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(tool.get_sharpness())
-		user.balloon_alert(user, "made [plank_count] [plank_name]")
+		user.balloon_alert(user, "制成了[plank_count]份[plank_name]")
 		new plank_type(user.loc, plank_count)
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS
@@ -94,10 +94,10 @@
 	if(CheckAccepted(tool))
 		var/obj/item/food/grown/leaf = tool
 		if(!HAS_TRAIT(leaf, TRAIT_DRIED))
-			balloon_alert(user, "dry it first!")
+			balloon_alert(user, "需要先干燥！")
 			return ITEM_INTERACT_BLOCKING
 
-		user.balloon_alert(user, "torch crafted")
+		user.balloon_alert(user, "火把制作完成")
 		var/obj/item/flashlight/flare/torch/new_torch = new /obj/item/flashlight/flare/torch(user.loc)
 		user.dropItemToGround(tool)
 		user.put_in_active_hand(new_torch)
@@ -118,11 +118,11 @@
 
 /obj/item/grown/log/steel
 	seed = /obj/item/seeds/tower/steel
-	name = "steel-cap log"
-	desc = "It's made of metal."
+	name = "钢菇原木"
+	desc = "它是金属做的。"
 	icon_state = "steellogs"
 	plank_type = /obj/item/stack/rods
-	plank_name = "rods"
+	plank_name = "金属杆"
 
 /obj/item/grown/log/steel/CheckAccepted(obj/item/I)
 	return FALSE

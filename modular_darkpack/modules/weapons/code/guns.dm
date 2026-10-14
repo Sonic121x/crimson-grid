@@ -42,12 +42,12 @@
 	recoil = 3
 
 /obj/item/gun/ballistic/revolver/darkpack/magnum
-	name = "magnum revolver"
-	desc = "Feelin' lucky, punk?"
+	name = "马格南左轮手枪"
+	desc = "小子，觉得自己运气不错？"
 
 /obj/item/gun/ballistic/revolver/darkpack/snub
-	name = "snub-nosed revolver"
-	desc = "a cheap Saturday night special revolver. Sometimes called a 'purse gun'. It takes 9mm rounds."
+	name = "短管左轮手枪"
+	desc = "一把廉价的小型左轮手枪，有时也被称为‘手袋枪’。使用9mm弹药。"
 	icon_state = "revolver_snub"
 	inhand_icon_state = "revolver_snub"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
@@ -76,7 +76,7 @@
 	recoil = 3
 
 /obj/item/ammo_box/magazine/m44
-	name = "handgun magazine (.44)"
+	name = "手枪弹匣（.44）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "deagle"
@@ -86,8 +86,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/deagle
-	name = "\improper Desert Eagle"
-	desc = "A powerful .44 handgun."
+	name = "\improper 沙漠之鹰"
+	desc = "一把威力强大的.44口径手枪。"
 	icon_state = "deagle"
 	inhand_icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -97,7 +97,7 @@
 	serial_type = "MR"
 
 /obj/item/ammo_box/magazine/m50
-	name = "handgun magazine (.50)"
+	name = "手枪弹匣（.50）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "deagle"
@@ -107,8 +107,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/deagle/c50
-	name = "\improper McLusky .50 caliber "
-	desc = "An extremely powerful, and rare, handcannon."
+	name = "\improper 麦克拉斯基.50口径手枪 "
+	desc = "一把极其强大而罕见的手炮。"
 	icon_state = "deagle50"
 	inhand_icon_state = "deagle"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/m50
@@ -117,7 +117,7 @@
 	weapon_weight = WEAPON_MEDIUM	//Firing .50 at 70 dam, think this is fair.
 
 /obj/item/ammo_box/magazine/darkpack45acp
-	name = "pistol magazine (.45 ACP)"
+	name = "手枪弹匣（.45 ACP）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "m1911"
@@ -127,8 +127,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/m1911
-	name = "\improper Colt 1911"
-	desc = "A reliable .45 ACP handgun."
+	name = "\improper 柯尔特1911"
+	desc = "一把可靠的.45 ACP手枪。"
 	icon_state = "m1911"
 	inhand_icon_state = "m1911"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack45acp
@@ -138,7 +138,7 @@
 	serial_type = "CM"
 
 /obj/item/ammo_box/magazine/glock9mm
-	name = "automatic pistol magazine (9mm)"
+	name = "自动手枪弹匣（9mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "glock19"
@@ -148,8 +148,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/glock19
-	name = "\improper Brokk 19"
-	desc = "Very fast 9mm handgun."
+	name = "\improper 布洛克19"
+	desc = "一把射速很快的9mm手枪。"
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
@@ -163,7 +163,7 @@
 	serial_type = "GG"
 
 /obj/item/ammo_box/magazine/glock45acp
-	name = "automatic pistol magazine (.45 ACP)"
+	name = "自动手枪弹匣（.45 ACP）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "glock21"
@@ -176,8 +176,8 @@
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp/HP
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/glock21
-	name = "\improper Brokk 21"
-	desc = "Very fast 45 ACP handgun."
+	name = "\improper 布洛克21"
+	desc = "一把射速很快的45 ACP手枪。"
 	icon_state = "glock19"
 	inhand_icon_state = "glock19"
 	w_class = WEIGHT_CLASS_SMALL
@@ -192,8 +192,8 @@
 	serial_type = "GG"
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/beretta
-	name = "\improper Elite 92G"
-	desc = "A 9mm pistol favored among law enforcement and criminal alike due to it's use in action movies. Often, it is wielded in pairs."
+	name = "\improper 精英92G"
+	desc = "一把因动作电影而深受执法人员和罪犯喜爱的9mm手枪。经常被成对使用。"
 	icon_state = "beretta"
 	inhand_icon_state = "beretta"
 	w_class = WEIGHT_CLASS_SMALL
@@ -216,7 +216,7 @@
 	fire_sound_volume = 110
 
 /obj/item/ammo_box/magazine/semi9mm
-	name = "pistol magazine (9mm)"
+	name = "手枪弹匣（9mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "semi9mm"
@@ -232,7 +232,7 @@
 
 //AUTOMATICS
 /obj/item/ammo_box/magazine/darkpack9mm
-	name = "uzi magazine (9mm)"
+	name = "乌兹弹匣（9mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "uzi"
@@ -242,8 +242,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/uzi
-	name = "\improper Killamatic Uzi"
-	desc = "A lightweight, burst-fire submachine gun, for when you really want someone dead. Uses 9mm rounds."
+	name = "\improper 杀戮者乌兹"
+	desc = "一把轻便的点射冲锋枪，适合你铁了心要干掉某人的时候。使用9mm弹药。"
 	icon_state = "uzi"
 	inhand_icon_state = "uzi"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/darkpack9mm
@@ -259,7 +259,7 @@
 	serial_type = "IWI"
 
 /obj/item/ammo_box/magazine/darkpack9mp5
-	name = "mp5 magazine (9mm)"
+	name = "MP5弹匣（9mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "mp5"
@@ -270,7 +270,7 @@
 
 /obj/item/gun/ballistic/automatic/darkpack/mp5
 	name = "\improper HK MP5"
-	desc = "A lightweight submachine gun, for when you really want to do some dirty cool job. Uses 9mm rounds."
+	desc = "一把轻便的冲锋枪，适合那些又脏又酷的差事。使用9mm弹药。"
 	icon_state = "mp5"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
@@ -294,7 +294,7 @@
 
 
 /obj/item/ammo_box/magazine/darkpack45smg
-	name = ".45 SMG magazine"
+	name = ".45冲锋枪弹匣"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "mac10" //uzi sprite placeholder
@@ -304,8 +304,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/mac10
-	name = "\improper Braddock .45"
-	desc = "A box filled with bullets. The high cyclic rate and low weight means it's only good for spraying and then praying. Uses .45 caliber rounds."
+	name = "\improper 布拉多克.45"
+	desc = "一个装满子弹的盒子。射速高、重量轻，除了扫射后祈祷，也干不了别的。使用.45口径弹药。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "mac10"
@@ -330,7 +330,7 @@
 	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/ammo_box/magazine/darkpack45custom
-	name = ".45 custom magazine"
+	name = ".45定制弹匣"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "mac10" //uzi sprite placeholder
@@ -340,8 +340,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/mac10/super
-	name = "\improper Cleaner Custom"
-	desc = "A .45 submachine gun with a suppressor installed on the tip, which helps balance it out when firing. Dark Blood magic has enabled the wire stock to be used"
+	name = "\improper 清道夫定制型"
+	desc = "一把枪口装有消音器的.45冲锋枪，有助于保持射击平衡。黑暗血魔法让它的钢丝枪托得以发挥作用。"
 	icon = 'modular_darkpack/modules/deprecated/icons/64x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "mac10_super"
@@ -355,7 +355,7 @@
 	can_unsuppress = FALSE
 
 /obj/item/ammo_box/magazine/darkpack/c46pdw
-	name = "4.6mm MP7 magazine"
+	name = "4.6mm MP7弹匣"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "mp7"
@@ -365,7 +365,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/darkpack/c46pdw/ext
-	name = "4.6mm MP7 extended magazine"
+	name = "4.6mm MP7加长弹匣"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "mp7"
@@ -376,7 +376,7 @@
 
 /obj/item/gun/ballistic/automatic/darkpack/mp7
 	name = "\improper HK MP7"
-	desc = "A Machine Pistol recently adopted by the German Military. Comes loaded with armor-piercing rounds, use responsibly."
+	desc = "德国军队近期采用的一种自动手枪。装有穿甲弹，请谨慎使用。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "mp7"
@@ -399,7 +399,7 @@
 	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/ammo_box/magazine/darkpack556
-	name = "carbine magazine (5.56mm)"
+	name = "卡宾枪弹匣（5.56mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "rifle"
@@ -415,8 +415,8 @@
 	custom_price = 200
 
 /obj/item/gun/ballistic/automatic/darkpack/ar15
-	name = "\improper CAR-15 Carbine"
-	desc = "The black sexy assault rifle, designated 'CAR-15'."
+	name = "\improper CAR-15卡宾枪"
+	desc = "一把黑色的性感突击步枪，型号为‘CAR-15’。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "rifle"
@@ -437,8 +437,8 @@
 	serial_type = "CAR"
 
 /obj/item/gun/ballistic/automatic/darkpack/huntrifle
-	name = "hunting rifle"
-	desc = "A semi-automatic hunting rifle, just like what your dad used to shoot. If your dad didn't go out to get milk, anyways."
+	name = "猎枪"
+	desc = "一把半自动猎枪，就像你老爸以前用的那种。当然，前提是他没有借口买牛奶就一去不回。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	worn_icon = 'icons/mob/clothing/back.dmi'
@@ -461,7 +461,7 @@
 	serial_type = "R&C"
 
 /obj/item/ammo_box/magazine/darkpack545
-	name = "rifle magazine (5.45mm)"
+	name = "步枪弹匣（5.45mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "ak"
@@ -471,8 +471,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/ak74
-	name = "\improper Kalashnikov's Automatic Rifle 74"
-	desc = "Pretty old, but also easy fireable and cleanable by vodka.Uses 5.45 rounds."
+	name = "\improper 卡拉什尼科夫74型自动步枪"
+	desc = "虽然老旧，但操作简单，还能用伏特加清洗。使用5.45弹药。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	worn_icon = 'icons/mob/clothing/back.dmi'
@@ -509,7 +509,7 @@
 	recoil = 8	//Increased recoil due to sawing off the stock on a full-auto. Bootleg draco.
 
 /obj/item/ammo_box/magazine/darkpackaug
-	name = "AUG magazine (5.56mm)"
+	name = "AUG弹匣（5.56mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "aug"
@@ -519,8 +519,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/aug
-	name = "\improper Steyr AUG-77"
-	desc = "An Austrian 5.56 bullpup design, designated 'Steyr AUG-77'."
+	name = "\improper 斯泰尔AUG-77"
+	desc = "奥地利设计的5.56口径无托步枪，型号为‘斯泰尔AUG-77’。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "aug"
@@ -542,7 +542,7 @@
 	serial_type = "SA"
 
 /obj/item/ammo_box/magazine/darkpackthompson
-	name = "tommy gun magazine (.45 ACP)"
+	name = "汤普森冲锋枪弹匣（.45 ACP）"
 	icon_state = "thompson"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
@@ -552,8 +552,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/thompson
-	name = "\improper Thompson Submachine Gun"
-	desc = "\"Arrivederci, you dumb motherfucker.\"" // a legendary wod13 screenshot
+	name = "\improper 汤普森冲锋枪"
+	desc = "‘再见了，你这个蠢逼。’" // a legendary wod13 screenshot
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "thompson"
@@ -627,8 +627,8 @@
 	max_ammo = 13
 
 /obj/item/gun/ballistic/rifle/darkpack/lever
-	name = "lever action rifle"
-	desc = "A .44 caliber lever action rifle, perfect for casual hunters, reenactors, and urban cowboys. Yeehaw!"
+	name = "杠杆式步枪"
+	desc = "一把.44口径杠杆式步枪，非常适合休闲猎人、历史重演爱好者和都市牛仔。驾！"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -680,8 +680,8 @@
 	//multiload = TRUE
 
 /obj/item/gun/ballistic/automatic/darkpack/sniper
-	name = "sniper rifle"
-	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
+	name = "狙击步枪"
+	desc = "一把能造成重大伤害的远程武器。不，你不能瞬镜。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "sniper"
@@ -713,8 +713,8 @@
 	serial_type = "RB"
 
 /obj/item/gun/ballistic/automatic/darkpack/autosniper
-	name = "auto-sniper rifle"
-	desc = "A semi-automatic marksman rifle. This particular model is very popular in video games as of late."
+	name = "半自动狙击步枪"
+	desc = "一把半自动精确射手步枪。这个型号最近在电子游戏中颇受欢迎。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "psg1"
@@ -745,8 +745,8 @@
 	serial_type = "DS"
 
 /obj/item/ammo_box/magazine/vamp762x51PSG1
-	name = "Auto-sniper magazine (7.62 NATO)"
-	desc = "A magazine for an Automatic Sniper rifle loaded in 7.62 NATO."
+	name = "半自动狙击步枪弹匣（7.62 NATO）"
+	desc = "用于半自动狙击步枪的弹匣，装填7.62 NATO弹药。"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	//lefthand_file = 'code/modules/wod13/lefthand.dmi'
 	//righthand_file = 'code/modules/wod13/righthand.dmi'
@@ -766,8 +766,8 @@
 	masquerade_violating = FALSE
 
 /obj/item/gun/ballistic/shotgun/vampire
-	name = "shotgun"
-	desc = "A traditional shotgun with wood furniture and a six-round tube magazine."
+	name = "霰弹枪"
+	desc = "一把传统霰弹枪，配有木质护木、枪托和六发管式弹仓。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -810,7 +810,7 @@
 	masquerade_violating = FALSE
 
 /obj/item/gun/ballistic/shotgun/vamp_remington
-	name = "remington shotgun"
+	name = "雷明顿霰弹枪"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -837,8 +837,8 @@
 	rack()
 
 /obj/item/gun/ballistic/shotgun/vamp_remington/sawnoff
-	name = "sawn-off remington 1187"
-	desc = "A Remington 11-87 shotgun that's had the barrel extension crudely sawn off.. this is definitely illegal"
+	name = "锯短雷明顿1187"
+	desc = "一把枪管延长段被粗暴锯掉的雷明顿11-87霰弹枪……这绝对是非法改装。"
 	icon_state = "1187_sawn"
 	inhand_icon_state = "1187_sawn"
 	worn_icon_state = "1187_sawn"
@@ -849,8 +849,8 @@
 
 //Suppressor code is currently borking during unit tests, so i'm just gonna get rid of it and see if that helps
 /obj/item/suppressor/darkpack_oil
-	name = "modified oil filter"
-	desc = "An old oil filter.. there seems to be attachment grooves lathed onto the barrel for a Remington 11-87."
+	name = "改装机油滤芯"
+	desc = "一个旧机油滤芯……筒身似乎车出了用于雷明顿11-87的连接槽。"
 	icon = 'modular_darkpack/modules/weapons/icons/attachments.dmi'
 	icon_state = "oil_filter"
 
@@ -862,9 +862,9 @@
 	masquerade_violating = FALSE
 
 /obj/item/gun/ballistic/shotgun/vampire/doublebarrel
-	name = "double barrel shotgun"
-	desc = "A old fashioned double barrel shotgun with fine wood furnishing, complete with a double-trigger system."
-	sawn_desc = "A old fashioned double barrel shotgun, complete with a double-trigger system. This one's sawn down well past the legal barrel length.."
+	name = "双管霰弹枪"
+	desc = "一把老式双管霰弹枪，配有精美的木质护木和枪托，以及双扳机系统。"
+	sawn_desc = "一把配有双扳机系统的老式双管霰弹枪。这把的枪管已被锯得远短于法定长度……"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -904,7 +904,7 @@
 	weapon_weight = WEAPON_MEDIUM	//Lets you one-hand it on sawing.
 
 /obj/item/ammo_box/magazine/darkpackautoshot
-	name = "shotgun magazine (12ga)"
+	name = "霰弹枪弹匣（12号）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "spas15"
@@ -914,8 +914,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/autoshotgun
-	name = "\improper Jaegerspas-XV"
-	desc = "A semi-automatic shotgun. It looks more like an assault rifle than a shotgun and fires at a deadly pace."
+	name = "\improper 猎兵SPAS-XV"
+	desc = "一把半自动霰弹枪。外观更像突击步枪，射速快得致命。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "spas15"
@@ -938,8 +938,8 @@
 	serial_type = "AL"
 
 /obj/item/gun/ballistic/shotgun/toy/crossbow/vampire
-	name = "crossbow"
-	desc = "Welcome to the Middle Ages!"
+	name = "弩"
+	desc = "欢迎来到中世纪！"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -968,8 +968,8 @@
 	max_ammo = 1	//It's a fucking musket
 
 /obj/item/gun/ballistic/automatic/darkpack/musket
-	name = "antique musket"
-	desc = "A antique musket, likely from the mid 19th century. Luckily this appears to be a simple cartrige loader; just load it, ram, cock, and fire!"
+	name = "古董火枪"
+	desc = "一把可能来自19世纪中期的古董火枪。幸好它似乎采用简单的弹药包装填方式，只需装填、压实、扳起击锤，再开火！"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "musket"

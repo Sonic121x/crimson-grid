@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/applicator/pill
-	name = "pill"
-	desc = "A tablet or capsule."
+	name = "药片"
+	desc = "一片药或一粒胶囊。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "pill"
 	inhand_icon_state = "pill"
@@ -22,9 +22,9 @@
 /obj/item/reagent_containers/applicator/pill/proc/reagent_special_examine(datum/source, mob/user, list/examine_list, can_see_insides = FALSE)
 	SIGNAL_HANDLER
 	if (layers_remaining)
-		examine_list += span_notice("Its sugary shell will last approximately [layers_remaining] seconds in a human stomach.")
+		examine_list += span_notice("它的糖衣在人胃中大约能维持[layers_remaining]秒。")
 	else
-		examine_list += span_warning("Its shell is completely dissolved!")
+		examine_list += span_warning("它的糖衣已经完全溶解了！")
 
 ///Runs the consumption code, can be overriden for special effects
 /obj/item/reagent_containers/applicator/pill/on_consumption(mob/living/consumer, mob/giver, list/modifiers)
@@ -40,7 +40,7 @@
 			if (prob(max(0, 100 * (layers_remaining - PILL_MAX_TASTE_LAYERS))))
 				consumer.taste_list(reagents)
 			else if (!consumer.check_tasting_blocks())
-				consumer.send_taste_message("starchy sugar")
+				consumer.send_taste_message("淀粉和糖")
 			stomach.consume_thing(src)
 			return
 
@@ -58,14 +58,14 @@
 		return NONE
 
 	if(target.is_drainable() && !target.reagents.total_volume)
-		to_chat(user, span_warning("[target] is empty! There's nothing to dissolve [src] in."))
+		to_chat(user, span_warning("[target]是空的！里面没有能溶解[src]的液体。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(target.reagents.holder_full())
-		to_chat(user, span_warning("[target] is full."))
+		to_chat(user, span_warning("[target]已满。"))
 		return ITEM_INTERACT_BLOCKING
 
-	user.visible_message(span_warning("[user] slips something into [target]!"), span_notice("You dissolve [src] in [target]."), null, 2)
+	user.visible_message(span_warning("[user]偷偷往[target]里放了什么东西！"), span_notice("你将[src]溶解在[target]中。"), null, 2)
 	reagents.trans_to(target, reagents.total_volume, transferred_by = user)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
@@ -79,13 +79,13 @@
 	var/use_verb = null
 	if (istype(tool, /obj/item/reagent_containers/dropper))
 		container = tool
-		use_verb = "squirt"
+		use_verb = "挤"
 	else if (istype(tool, /obj/item/reagent_containers/cup))
 		container = tool
 		if (!container.is_drainable())
-			to_chat(user, span_warning("You cannot pour [container]'s contents onto [src]!"))
+			to_chat(user, span_warning("你无法将[container]里的液体倒到[src]上！"))
 			return ITEM_INTERACT_BLOCKING
-		use_verb = "pour"
+		use_verb = "倒"
 
 	if (!container)
 		return NONE
@@ -93,12 +93,12 @@
 	var/datum/reagent/consumable/sugar/sugar = container.reagents.has_reagent(/datum/reagent/consumable/sugar)
 	if (sugar)
 		if (layers_remaining >= PILL_MAX_LAYERS) // Full minute
-			to_chat(user, span_warning("[src]'s coating is too thick for you to cover it in any more sugar!"))
+			to_chat(user, span_warning("[src]的糖衣太厚了，无法再裹上更多糖！"))
 			return ITEM_INTERACT_BLOCKING
 		var/to_apply = floor(min(container.amount_per_transfer_from_this, sugar.volume, PILL_MAX_LAYERS - layers_remaining))
 		container.reagents.remove_reagent(/datum/reagent/consumable/sugar, to_apply)
 		layers_remaining += to_apply
-		to_chat(user, span_notice("You [use_verb] some of [container]'s contents onto [src], thickening its sugary shell."))
+		to_chat(user, span_notice("你将[container]中的少许液体[use_verb]到[src]上，使糖衣变厚。"))
 		return ITEM_INTERACT_SUCCESS
 
 	var/datum/reagent/water/water = container.reagents.has_reagent(/datum/reagent/water)
@@ -106,13 +106,13 @@
 		return ..()
 
 	if (!layers_remaining) // No coating
-		to_chat(user, span_warning("[src] doesn't have any more external layers to dissolve!"))
+		to_chat(user, span_warning("[src]已经没有可溶解的外层糖衣了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	var/to_apply = floor(min(container.amount_per_transfer_from_this, water.volume, layers_remaining))
 	container.reagents.remove_reagent(/datum/reagent/water, to_apply)
 	layers_remaining -= to_apply
-	to_chat(user, span_notice("You [use_verb] some of [container]'s contents onto [src], dissolving its sugary shell."))
+	to_chat(user, span_notice("你将[container]中的少许液体[use_verb]到[src]上，溶解了它的糖衣。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/reagent_containers/applicator/pill/proc/on_digestion(datum/source, obj/item/organ/stomach/stomach, mob/living/carbon/owner, seconds_per_tick)
@@ -154,7 +154,7 @@
  */
 /obj/item/reagent_containers/applicator/pill/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item, discover_after = FALSE)
 	if(victim.get_food_taste_reaction(source_item) != FOOD_LIKED) // If you don't like the food then you notice the pill you just swallowed
-		to_chat(victim, span_warning("You swallow something small. [source_item ? "Was that in [source_item]?" : ""]"))
+		to_chat(victim, span_warning("你吞下了一个小东西。[source_item ? "它原本在[source_item]里面吗？" : ""]"))
 	on_consumption(victim, user)
 	return FALSE
 
@@ -216,22 +216,22 @@
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/multiver
-	name = "multiver pill"
-	desc = "Neutralizes many common toxins and scales with unique medicine in the system. Diluted with granibitaluri."
+	name = "多效净药片"
+	desc = "中和多种常见毒素，效果随体内并用药物种类的增加而增强。以微伤宁稀释。"
 	icon_state = "pill17"
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 5, /datum/reagent/medicine/granibitaluri = 5)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/epinephrine
-	name = "epinephrine pill"
-	desc = "Used to stabilize patients."
+	name = "肾上腺素药片"
+	desc = "用于稳定患者状况。"
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/mannitol
-	name = "mannitol pill"
-	desc = "Used to treat brain damage."
+	name = "甘露醇药片"
+	desc = "用于治疗脑损伤。"
 	icon_state = "pill17"
 	list_reagents = list(/datum/reagent/medicine/mannitol = 15)
 	rename_with_volume = TRUE
@@ -276,22 +276,22 @@
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/psicodine
-	name = "psicodine pill"
-	desc = "Used to treat mental instability and phobias."
+	name = "安神定药片"
+	desc = "用于治疗精神不稳定和恐惧症。"
 	list_reagents = list(/datum/reagent/medicine/psicodine = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/penacid
-	name = "pentetic acid pill"
-	desc = "Used to expunge radiation and toxins."
+	name = "喷替酸药片"
+	desc = "用于清除体内辐射与毒素。"
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/neurine
-	name = "neurine pill"
-	desc = "Used to treat non-severe mental traumas."
+	name = "神经修复剂药片"
+	desc = "用于治疗轻度精神创伤。"
 	list_reagents = list(/datum/reagent/medicine/neurine = 10)
 	icon_state = "pill22"
 	rename_with_volume = TRUE
@@ -342,8 +342,8 @@
 
 
 /obj/item/reagent_containers/applicator/pill/lsd
-	name = "sunshine pill"
-	desc = "Engraved on this split-coloured pill is a half-sun, half-moon."
+	name = "阳光药片"
+	desc = "这颗双色药片上刻着一半太阳、一半月亮的图案。"
 	list_reagents = list(/datum/reagent/drug/mushroomhallucinogen = 15, /datum/reagent/toxin/mindbreaker = 15)
 	icon_state = "pill14"
 
@@ -406,22 +406,22 @@
 	count_towards_achievement = FALSE
 
 /obj/item/reagent_containers/applicator/pill/potassiodide
-	name = "potassium iodide pill"
-	desc = "Used to reduce low radiation damage very effectively."
+	name = "碘化钾药片"
+	desc = "对减轻轻度辐射损伤非常有效。"
 	icon_state = "pill11"
 	list_reagents = list(/datum/reagent/medicine/potass_iodide = 15)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/probital
-	name = "Probital pill"
-	desc = "Used to treat brute damage of minor and moderate severity.The carving in the pill says 'Eat before ingesting'. Causes fatigue and diluted with granibitaluri."
+	name = "愈肌宁药片"
+	desc = "用于治疗轻度与中度外伤。药片上刻着“饭后服用”。会引起疲劳，并以微伤宁稀释。"
 	icon_state = "pill12"
 	list_reagents = list(/datum/reagent/medicine/c2/probital = 5, /datum/reagent/medicine/granibitaluri = 10)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/applicator/pill/iron
-	name = "iron pill"
-	desc = "Used to reduce bloodloss slowly."
+	name = "补铁药片"
+	desc = "用于缓慢缓解失血。"
 	icon_state = "pill8"
 	list_reagents = list(/datum/reagent/iron = 30)
 	rename_with_volume = TRUE

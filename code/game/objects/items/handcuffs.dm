@@ -15,7 +15,7 @@
 	icon = 'icons/obj/weapons/restraints.dmi'
 
 /obj/item/restraints/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正在用[src]勒自己的脖子！看起来是在自杀！"))
 	return OXYLOSS
 
 // Zipties, cable cuffs, etc. Can be cut with wirecutters instantly.
@@ -31,8 +31,8 @@
  * Clicking people with those will cause an attempt at handcuffing them to occur
 */
 /obj/item/restraints/handcuffs
-	name = "handcuffs"
-	desc = "Use this to keep prisoners in line."
+	name = "手铐"
+	desc = "用来让囚犯老实一点。"
 	gender = PLURAL
 	icon_state = "handcuff"
 	worn_icon_state = "handcuff"
@@ -87,40 +87,40 @@
 /// Handles all of the checks and application in a typical situation where someone attacks a carbon victim with the handcuff item.
 /obj/item/restraints/handcuffs/proc/attempt_to_cuff(mob/living/carbon/victim, mob/living/user)
 	if(SEND_SIGNAL(victim, COMSIG_CARBON_CUFF_ATTEMPTED, user) & COMSIG_CARBON_CUFF_PREVENT)
-		victim.balloon_alert(user, "can't be handcuffed!")
+		victim.balloon_alert(user, "无法戴上手铐！")
 		return
 
 	if(handcuffs_clumsiness_check(user))
 		return
 
 	if(!isnull(victim.handcuffed))
-		victim.balloon_alert(user, "already handcuffed!")
+		victim.balloon_alert(user, "已经戴着手铐！")
 		return
 
 	if(!victim.canBeHandcuffed())
-		victim.balloon_alert(user, "can't be handcuffed!")
+		victim.balloon_alert(user, "无法戴上手铐！")
 		return
 
 // DARKPACK EDIT ADD START
 	if(HAS_TRAIT(victim, TRAIT_NO_CUFF))
-		victim.balloon_alert(user, "you can't handcuff [victim]!")
+		victim.balloon_alert(user, "你无法给[victim]戴上手铐！")
 		return
 // DARKPACK EDIT ADD END
 
 	victim.visible_message(
-		span_danger("[user] is trying to put [src] on [victim]!"),
-		span_userdanger("[user] is trying to put [src] on you!"),
+		span_danger("[user]正试图给[victim]戴上[src]！"),
+		span_userdanger("[user]正试图给你戴上[src]！"),
 	)
 
 	if(victim.is_blind())
-		to_chat(victim, span_userdanger("As you feel someone grab your wrists, [src] start digging into your skin!"))
+		to_chat(victim, span_userdanger("你感到有人抓住了你的手腕，[src]开始勒进你的皮肤！"))
 
 	playsound(loc, cuffsound, 30, TRUE, -2)
 	log_combat(user, victim, "attempted to handcuff")
 
 	if(!do_after(user, get_handcuff_time(user), victim, timed_action_flags = IGNORE_SLOWDOWNS) || !victim.canBeHandcuffed())
-		victim.balloon_alert(user, "failed to handcuff!")
-		to_chat(user, span_warning("You fail to handcuff [victim]!"))
+		victim.balloon_alert(user, "上铐失败！")
+		to_chat(user, span_warning("你没能给[victim]戴上手铐！"))
 		log_combat(user, victim, "failed to handcuff")
 		return
 
@@ -128,8 +128,8 @@
 	playsound(loc, cuffsuccesssound, 30, TRUE, -2)
 
 	victim.visible_message(
-		span_notice("[user] handcuffs [victim]."),
-		span_userdanger("[user] handcuffs you."),
+		span_notice("[user]给[victim]戴上了手铐。"),
+		span_userdanger("[user]给你戴上了手铐。"),
 	)
 
 	log_combat(user, victim, "successfully handcuffed")

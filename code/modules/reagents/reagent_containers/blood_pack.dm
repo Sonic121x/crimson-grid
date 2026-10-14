@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/blood
-	name = "blood pack"
-	desc = "Contains blood used for transfusion. Must be attached to an IV drip."
+	name = "血袋"
+	desc = "装着输血用的血液，必须连接输液架使用。"
 	icon = 'icons/obj/medical/bloodpack.dmi'
 	icon_state = "bloodpack"
 	volume = 200
@@ -27,7 +27,7 @@
 /obj/item/reagent_containers/blood/update_name(updates)
 	. = ..()
 	if(!labeled)
-		name = "blood pack[blood_type ? " - [blood_type::name]" : ""]"
+		name = "血袋[blood_type ? " - [blood_type::name]" : ""]"
 
 /obj/item/reagent_containers/blood/random
 	icon_state = "random_bloodpack"
@@ -89,4 +89,4 @@
 /obj/item/reagent_containers/blood/nameformat(input, user)
 	playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 	labeled = TRUE
-	return "blood pack[input? " - [input]" : null]"
+	return "血袋[input? " - [input]" : null]"

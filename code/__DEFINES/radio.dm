@@ -218,10 +218,10 @@
 
 // Voice description defines (mainly used to indicate gender at the moment).
 /// Description for a plural voice.
-#define VOICE_DESCRIPTION_PLURAL "Their voice sounds gender neutral."
+#define VOICE_DESCRIPTION_PLURAL "对方的声音听起来较为中性。"
 /// Description for a gender neutral voice.
-#define VOICE_DESCRIPTION_NEUTER "Its voice sounds gender neutral."
+#define VOICE_DESCRIPTION_NEUTER "它的声音听起来较为中性。"
 /// Description for a feminine voice.
-#define VOICE_DESCRIPTION_FEMININE "Her voice sounds feminine."
+#define VOICE_DESCRIPTION_FEMININE "她的声音听起来偏女性。"
 /// Description for a masculine voice.
-#define VOICE_DESCRIPTION_MASCULINE "His voice sounds masculine."
+#define VOICE_DESCRIPTION_MASCULINE "他的声音听起来偏男性。"

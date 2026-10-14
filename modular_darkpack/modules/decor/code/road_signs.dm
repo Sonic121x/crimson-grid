@@ -1,13 +1,13 @@
 /obj/structure/roadsign
-	name = "road sign"
-	desc = "Do not drive your car cluelessly."
+	name = "道路标志"
+	desc = "开车可别不看路。"
 	icon = 'modular_darkpack/modules/decor/icons/road_signs.dmi'
 	icon_state = "stop"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/roadsign/stop
-	name = "stop sign"
+	name = "停车让行标志"
 	icon_state = "stop"
 
 /obj/structure/roadsign/fourway
@@ -20,7 +20,7 @@
 	icon_state = "wrongway"
 
 /obj/structure/roadsign/noparking
-	name = "no parking sign"
+	name = "禁止停车标志"
 	icon_state = "noparking"
 
 /obj/structure/roadsign/noturnleft
@@ -36,7 +36,7 @@
 	icon_state = "noturnback"
 
 /obj/structure/roadsign/nopedestrian
-	name = "no pedestrian sign"
+	name = "禁止行人通行标志"
 	icon_state = "nopedestrian"
 
 /obj/structure/roadsign/exitright
@@ -47,7 +47,7 @@
 
 
 /obj/structure/roadsign/street
-	name = "street sign"
+	name = "街道标牌"
 	icon_state = "street"
 	/// IF set, will override the getter for the area's name
 	var/custom_street_name
@@ -61,14 +61,14 @@
 	var/street_name = get_street_name()
 	if(!street_name)
 		return
-	name = "street sign ([street_name])"
+	name = "街道标牌（[street_name]）"
 
 /obj/structure/roadsign/street/update_desc(updates)
 	. = ..()
 	var/street_name = get_street_name()
 	if(!street_name)
 		return
-	desc = "A street sign declaring you are at \"[street_name]\""
+	desc = "街道标牌，标明这里是\"[street_name]\"。"
 
 /obj/structure/roadsign/street/proc/get_street_name()
 	if(custom_street_name)
@@ -85,7 +85,7 @@
 	icon_state = "onewayright"
 
 /obj/structure/roadsign/busstop
-	name = "bus stop sign"
+	name = "公交站牌"
 	icon_state = "busstop"
 
 /obj/structure/roadsign/railcrossing
@@ -101,35 +101,35 @@
 	icon_state = "onlyleft"
 
 /obj/structure/roadsign/speedlimit
-	name = "speed limit sign"
+	name = "限速标志"
 	icon_state = "speed50"
 
 /obj/structure/roadsign/speedlimit40
-	name = "speed limit sign"
+	name = "限速标志"
 	icon_state = "speed40"
 
 /obj/structure/roadsign/speedlimit25
-	name = "speed limit sign"
+	name = "限速标志"
 	icon_state = "speed25"
 
 /obj/structure/roadsign/warningtrafficlight
-	name = "traffic light warning sign"
+	name = "注意交通信号灯标志"
 	icon_state = "warningtrafficlight"
 
 /obj/structure/roadsign/warningdeer
 	icon_state = "warningdeer"
 
 /obj/structure/roadsign/warningpedestrian
-	name = "pedestrian warning sign"
+	name = "注意行人标志"
 	icon_state = "warningpedestrian"
 
 /obj/structure/roadsign/circleofdoom
 	icon_state = "circleofdoom"
 
 /obj/structure/roadsign/parking
-	name = "parking sign"
+	name = "停车标志"
 	icon_state = "parking"
 
 /obj/structure/roadsign/crosswalk
-	name = "crosswalk sign"
+	name = "人行横道标志"
 	icon_state = "crosswalk"

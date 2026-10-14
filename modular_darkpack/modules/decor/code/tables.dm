@@ -1,7 +1,7 @@
 
 /obj/structure/table/modern
-	name = "modern table"
-	desc = "Obnoxious fiberglass table."
+	name = "现代风格桌子"
+	desc = "浮夸的玻璃纤维桌。"
 	icon = 'icons/obj/smooth_structures/alien_table.dmi'
 	icon_state = "alien_table-0"
 	base_icon_state = "alien_table"
@@ -14,8 +14,8 @@
 	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_TABLES
 
 /obj/structure/table/countertop
-	name = "countertop"
-	desc = "A countertop with a solid base."
+	name = "柜台"
+	desc = "底座结实的柜台。"
 	icon = 'icons/obj/smooth_structures/darkpack/bubway_table.dmi'
 	icon_state = "bubway_table-0"
 	base_icon_state = "bubway_table"
@@ -24,7 +24,7 @@
 	can_flip = FALSE
 
 /obj/structure/table/countertop/bubway
-	desc = "A corperate countertop for serving food."
+	desc = "连锁餐饮店用来供应食物的柜台。"
 	icon = 'icons/obj/smooth_structures/darkpack/bubway_table.dmi'
 	icon_state = "bubway_table-0"
 	base_icon_state = "bubway_table"
@@ -33,7 +33,7 @@
 
 
 /obj/structure/table/countertop/bacotell
-	desc = "A corperate countertop for serving food."
+	desc = "连锁餐饮店用来供应食物的柜台。"
 	icon = 'icons/obj/smooth_structures/darkpack/bacotell_table.dmi'
 	icon_state = "bacotell_table-0"
 	base_icon_state = "bacotell_table"
@@ -128,7 +128,7 @@
 	base_icon_state = possible_base_icon_states[possible_icons.Find(icon)]
 
 /obj/structure/table/wood/bar
-	desc = "A somewhat fancy table used at restauraunts. Featuring a simplistic anchored leg design, wow!"
+	desc = "餐厅里用的桌子，还有点讲究。采用简约的固定桌腿设计，哇！"
 	icon_state = "table-0"
 	base_icon_state = "table"
 	icon = 'modular_darkpack/modules/decor/icons/table_wood_bar.dmi'
@@ -210,8 +210,8 @@
 // Metal Large tables /
 
 /obj/structure/table/no_smooth/large/metal
-	name = "metal table"
-	desc = "A solid, wide metal table. Nothing about it stands out in particular."
+	name = "金属桌"
+	desc = "宽大结实的金属桌，没有什么特别之处。"
 	icon_state = "table_metal_wide"
 	max_integrity = 300
 	frame = /obj/structure/table_frame
@@ -231,8 +231,8 @@
 // Wood Non-Smoothing tables //
 
 /obj/structure/table/no_smooth/wood
-	name = "wood table"
-	desc = "A simple round wooden table. You wish you could make something this nice."
+	name = "木桌"
+	desc = "简洁的圆形木桌。真希望自己也能做出这么漂亮的东西。"
 	icon_state = "table_wood_round"
 	max_integrity = 150
 	frame = /obj/structure/table_frame/wood
@@ -240,18 +240,18 @@
 	buildstack = /obj/item/stack/sheet/mineral/wood
 
 /obj/structure/table/no_smooth/wood/square
-	name = "wood table"
-	desc = "A simple squared wooden table. You wish you could make something this nice."
+	name = "木桌"
+	desc = "简洁的方形木桌。真希望自己也能做出这么漂亮的东西。"
 	icon_state = "table_wood_square"
 
 /obj/structure/table/no_smooth/wood/low
-	name = "coffee table"
-	desc = "A table that is relatively low to the ground, designed to prop things up on while you sit on your sofa."
+	name = "茶几"
+	desc = "矮桌，方便你坐在沙发上时随手放些东西。"
 	icon_state = "table_wood_low"
 
 /obj/structure/table/no_smooth/wood/stand
-	name = "bed stand"
-	desc = "A tall table that is often found beside beds or landfills."
+	name = "床头桌"
+	desc = "高脚桌，常见于床边或垃圾填埋场。"
 	icon_state = "table_wood_stand"
 
 /obj/structure/table/no_smooth/wood/end
@@ -260,8 +260,8 @@
 	icon_state = "table_wood_end"
 
 /obj/structure/table/no_smooth/wood/cablereel
-	name = "cable reel"
-	desc = "Once it held copper cable, now it holds all sorts of stuff."
+	name = "电缆卷盘"
+	desc = "曾经绕着铜缆，如今放着各种杂物。"
 	icon_state = "cable_reel"
 
 // Wood Large tables //
@@ -290,8 +290,8 @@
 	icon_state = "desk_wood_small"
 
 /obj/structure/table/no_smooth/large/wood/stand
-	name = "wood console"
-	desc = "A smooth IDEA-branded console. Mostly just looks good in a room."
+	name = "木制边柜"
+	desc = "光滑的宜迪牌边柜。主要作用就是摆在房间里好看。"
 	icon_state = "stand_wood"
 
 /obj/structure/table/no_smooth/large/wood/stand/alt

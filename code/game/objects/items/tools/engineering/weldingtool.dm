@@ -1,6 +1,6 @@
 /obj/item/weldingtool
-	name = "welding tool"
-	desc = "A standard edition welder produced by NUMIG." // DARKPACK EDIT CHANGE
+	name = "焊枪"
+	desc = "纽米格生产的标准型焊枪。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder"
 	inhand_icon_state = "welder"
@@ -116,7 +116,7 @@
 
 
 /obj/item/weldingtool/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] welds [user.p_their()] every orifice closed! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正把自己身上的每个孔洞都焊死！看起来是想自杀！"))
 	return FIRELOSS
 
 /obj/item/weldingtool/screwdriver_act(mob/living/user, obj/item/tool)
@@ -146,7 +146,7 @@
 /obj/item/weldingtool/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!status && interacting_with.is_refillable())
 		reagents.trans_to(interacting_with, reagents.total_volume, transferred_by = user)
-		to_chat(user, span_notice("You empty [src]'s fuel tank into [interacting_with]."))
+		to_chat(user, span_notice("你把[src]燃料箱里的燃料倒进[interacting_with]。"))
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 	if(!ishuman(interacting_with))
@@ -249,7 +249,7 @@
 // /Switches the welder on
 /obj/item/weldingtool/proc/switched_on(mob/user)
 	if(!status)
-		balloon_alert(user, "unsecured!")
+		balloon_alert(user, "尚未固定好！")
 		return
 	set_welding(!welding)
 	if(welding)
@@ -261,7 +261,7 @@
 			update_appearance()
 			START_PROCESSING(SSobj, src)
 		else
-			balloon_alert(user, "no fuel!")
+			balloon_alert(user, "没有燃料！")
 			switched_off()
 	else
 		playsound(loc, deactivation_sound, 50, TRUE)
@@ -279,7 +279,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	. = ..()
-	. += "It contains [get_fuel()] unit\s of fuel out of [max_fuel]."
+	. += "内有[get_fuel()]单位燃料，容量为[max_fuel]单位。"
 
 /obj/item/weldingtool/get_temperature()
 	return welding * heat
@@ -291,27 +291,27 @@
 /// If welding tool ran out of fuel during a construction task, construction fails.
 /obj/item/weldingtool/tool_use_check(mob/living/user, amount, heat_required)
 	if(!isOn() || !check_fuel())
-		to_chat(user, span_warning("[src] has to be on to complete this task!"))
+		to_chat(user, span_warning("必须先点燃[src]才能完成这项操作！"))
 		return FALSE
 	if(get_fuel() < amount)
-		to_chat(user, span_warning("You need more welding fuel to complete this task!"))
+		to_chat(user, span_warning("焊接燃料不足，无法完成这项操作！"))
 		return FALSE
 	if(heat < heat_required)
-		to_chat(user, span_warning("[src] is not hot enough to complete this task!"))
+		to_chat(user, span_warning("[src]的温度不够高，无法完成这项操作！"))
 		return FALSE
 	return TRUE
 
 /// Ran when the welder is attacked by a screwdriver.
 /obj/item/weldingtool/proc/flamethrower_screwdriver(obj/item/tool, mob/user)
 	if(welding)
-		to_chat(user, span_warning("Turn it off first!"))
+		to_chat(user, span_warning("先把它关掉！"))
 		return
 	status = !status
 	if(status)
-		to_chat(user, span_notice("You resecure [src] and close the fuel tank."))
+		to_chat(user, span_notice("你重新固定好[src]并关闭了燃料箱。"))
 		reagents.flags &= ~(OPENCONTAINER)
 	else
-		to_chat(user, span_notice("[src] can now be attached, modified, and refuelled."))
+		to_chat(user, span_notice("现在可以组装、改装[src]或为其加注燃料了。"))
 		reagents.flags |= OPENCONTAINER
 	add_fingerprint(user)
 
@@ -325,14 +325,14 @@
 				user.transferItemToLoc(src, flamethrower_frame, TRUE)
 			flamethrower_frame.weldtool = src
 			add_fingerprint(user)
-			to_chat(user, span_notice("You add a rod to a welder, starting to build a flamethrower."))
+			to_chat(user, span_notice("你把一根铁棒装到焊枪上，开始制作火焰喷射器。"))
 			user.put_in_hands(flamethrower_frame)
 		else
-			to_chat(user, span_warning("You need one rod to start building a flamethrower!"))
+			to_chat(user, span_warning("你需要一根铁棒才能开始制作火焰喷射器！"))
 
 /obj/item/weldingtool/ignition_effect(atom/ignitable_atom, mob/user)
 	if(use_tool(ignitable_atom, user, 0))
-		return span_rose("[user] casually lights [ignitable_atom] with [src], what a badass.")
+		return span_rose("[user]随手用[src]点燃了[ignitable_atom]，真够酷的。")
 	else
 		return ""
 

@@ -15,7 +15,7 @@
  * Overridden by the various subtypes of plant genes to format their respective names.
  */
 /datum/plant_gene/proc/get_name()
-	return name
+	return list("Liquid Contents" = "液态内质", "Slippery Skin" = "光滑表皮", "Electrical Activity" = "电活性", "Bioluminescence" = "生物发光", "Red Bioluminescence" = "红色生物发光", "Bluespace Activity" = "蓝空间活性", "Perennial Growth" = "多年生长", "Capacitive Cell Production" = "储能电池生成", "Hypodermic Prickles" = "皮下注入刺", "Invasive Spreading" = "侵入式蔓延", "Natural Insecticide" = "天然驱虫", "Weed Adaptation" = "杂草适应", "Fungal Vitality" = "真菌活力", "Semiaquatic" = "半水生", "Soil Lover" = "喜土", "Heated Petals" = "炽热花瓣", "Bright Petals" = "明亮花瓣", "Sharpened Leaves" = "锐利叶片", "Aggressive Sharpened Leaves" = "强效锐利叶片", "Burning Stem" = "灼热茎秆", "Stinging Stem" = "刺痛茎秆", "Aggressive Stinging Stem" = "强效刺痛茎秆", "Anti-Magic Vacuoles" = "抗魔液泡")[name] || name
 
 /*
  * Check if the seed can accept this plant gene.
@@ -63,9 +63,9 @@
 /datum/plant_gene/reagent/get_name()
 	var/formatted_name
 	if(!(mutability_flags & PLANT_GENE_REMOVABLE))
-		formatted_name += "Fragile "
+		formatted_name += "脆弱的"
 	var/datum/reagent/reagent = reagent_id
-	formatted_name += "[reagent.name] production [rate*100]%"
+	formatted_name += "[reagent.name]产量[rate*100]%"
 	return formatted_name
 
 /*
@@ -137,10 +137,10 @@
 	var/formatted_name
 	if(!(mutability_flags & PLANT_GENE_REMOVABLE))
 		if(!(mutability_flags & PLANT_GENE_GRAFTABLE))
-			formatted_name += "Immutable "
+			formatted_name += "不可变的"
 		else
-			formatted_name += "Essential "
-	formatted_name += name
+			formatted_name += "必需的"
+	formatted_name += ..()
 	return formatted_name
 
 /*
@@ -211,7 +211,7 @@
 /datum/plant_gene/trait/squash
 	name = "Liquid Contents"
 	icon = FA_ICON_DROPLET
-	description = "It may burst open from the internal pressure on impact."
+	description = "受到撞击时可能因内部压力而爆裂。"
 	trait_ids = THROW_IMPACT_ID | REAGENT_TRANSFER_ID | ATTACK_SELF_ID
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
@@ -240,14 +240,14 @@
 	if(istype(our_plant))
 		if(ispath(our_plant.splat_type, /obj/effect/decal/cleanable/food/plant_smudge))
 			var/obj/plant_smudge = new our_plant.splat_type(our_turf)
-			plant_smudge.name = "[our_plant.name] smudge"
+			plant_smudge.name = "[our_plant.name]污渍"
 			if(our_plant.filling_color)
 				plant_smudge.color = our_plant.filling_color
 		else if(our_plant.splat_type)
 			new our_plant.splat_type(our_turf)
 	else
 		var/obj/effect/decal/cleanable/food/plant_smudge/misc_smudge = new(our_turf)
-		misc_smudge.name = "[our_plant.name] smudge"
+		misc_smudge.name = "[our_plant.name]污渍"
 		misc_smudge.color = "#82b900"
 
 	our_plant.visible_message(span_warning("[our_plant] is squashed."),span_hear("You hear a smack."))
@@ -269,7 +269,7 @@
  */
 /datum/plant_gene/trait/slip
 	name = "Slippery Skin"
-	description = "Watch your step around this."
+	description = "在它附近行走时小心脚下。"
 	icon = FA_ICON_PERSON_FALLING
 	rate = 1.6
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
@@ -311,7 +311,7 @@
  */
 /datum/plant_gene/trait/cell_charge
 	name = "Electrical Activity"
-	description = "It can electrocute on interaction or recharge batteries when eaten."
+	description = "接触时可能触电，食用时则能为电池充电。"
 	icon = FA_ICON_BOLT
 	rate = 0.2
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
@@ -382,7 +382,7 @@
 	name = "Bioluminescence"
 	icon = FA_ICON_LIGHTBULB
 	rate = 0.03
-	description = "It emits a soft glow."
+	description = "它散发着柔和的光芒。"
 	trait_flags = TRAIT_SHOW_EXAMINE
 	trait_ids = GLOW_ID
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
@@ -460,7 +460,7 @@
  */
 /datum/plant_gene/trait/teleport
 	name = "Bluespace Activity"
-	description = "It causes people to teleport on interaction."
+	description = "接触它会使人传送。"
 	icon = FA_ICON_RIGHT_LEFT
 	rate = 0.1
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
@@ -547,7 +547,7 @@
 /// Allows a plant to be harvested multiple times.
 /datum/plant_gene/trait/repeated_harvest
 	name = "Perennial Growth"
-	description = "It may be harvested multiple times from the same plant."
+	description = "同一株植物可以多次收获。"
 	icon = FA_ICON_CUBES_STACKED
 	/// Don't allow replica pods to be multi harvested, please.
 	seed_blacklist = list(
@@ -563,7 +563,7 @@
  */
 /datum/plant_gene/trait/battery
 	name = "Capacitive Cell Production"
-	description = "It can work like a power cell when wired properly."
+	description = "接好电线后，它能像电池一样供电。"
 	icon = FA_ICON_CAR_BATTERY
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 	/// The number of cables needed to make a battery.
@@ -630,7 +630,7 @@
 		pocell.maxcharge *= (electrical_gene.rate * 100)
 
 	pocell.charge = pocell.maxcharge
-	pocell.name = "[our_plant.name] battery"
+	pocell.name = "[our_plant.name]电池"
 	pocell.desc = "A rechargeable plant-based power cell. This one has a rating of [display_energy(pocell.maxcharge)], and you should not swallow it."
 	qdel(our_plant)
 
@@ -640,7 +640,7 @@
  */
 /datum/plant_gene/trait/stinging
 	name = "Hypodermic Prickles"
-	description = "It stings, passing some reagents in the process."
+	description = "它会刺人，并在过程中注入一些试剂。"
 	icon = FA_ICON_SYRINGE
 	trait_ids = REAGENT_TRANSFER_ID
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
@@ -731,7 +731,7 @@
 /// Invasive spreading lets the plant jump to other trays, and the spreading plant won't replace plants of the same type.
 /datum/plant_gene/trait/invasive
 	name = "Invasive Spreading"
-	description = "It attempts to spread around if not contained."
+	description = "若不加限制，它会尝试向四周蔓延。"
 	icon = FA_ICON_VIRUS
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
@@ -1013,7 +1013,7 @@
 /// Traits for flowers, makes plants not decompose.
 /datum/plant_gene/trait/preserved
 	name = "Natural Insecticide"
-	description = "It does not attract ants or decompose."
+	description = "它不会招来蚂蚁，也不会腐烂。"
 	icon = FA_ICON_BUG_SLASH
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
@@ -1047,13 +1047,13 @@
 /// Weeds don't get annoyed by weeds in their tray.
 /datum/plant_gene/trait/plant_type/weed_hardy
 	name = "Weed Adaptation"
-	description = "It is a weed that needs no nutrients and doesn't suffer from other weeds."
+	description = "这是一种无需营养液、也不受其他杂草影响的杂草。"
 	icon = FA_ICON_SEEDLING
 
 /// Mushrooms need less light and have a minimum yield.
 /datum/plant_gene/trait/plant_type/fungal_metabolism
 	name = "Fungal Vitality"
-	description = "It is a mushroom that needs no water, less light and can't be overtaken by weeds."
+	description = "这是一种无需浇水、光照需求较低且不会被杂草侵占的蘑菇。"
 	icon = FA_ICON_DROPLET_SLASH
 
 /// A plant that thrives in toxic environments.
@@ -1074,12 +1074,12 @@
 
 /datum/plant_gene/trait/semiaquatic
 	name = "Semiaquatic"
-	description = "A type of plant that thrives in flooded conditions due to less competion from weeds, but can also grow on land."
+	description = "这种植物能在陆地上生长，在积水环境中则因杂草竞争较少而长得更好。"
 	icon = FA_ICON_BOWL_RICE
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
 /datum/plant_gene/trait/soil_lover
 	name = "Soil Lover"
-	description = "A plant that needs the firm embrace of soil to develop properly, produces small irregular produce when grown hydroponically."
+	description = "这种植物需要扎根土壤才能正常发育，水培时只会结出小而畸形的产物。"
 	icon =  FA_ICON_MOUND
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE

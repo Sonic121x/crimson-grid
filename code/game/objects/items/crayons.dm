@@ -22,8 +22,8 @@
  */
 
 /obj/item/toy/crayon
-	name = "crayon"
-	desc = "A colourful crayon. Looks tasty. Mmmm..."
+	name = "蜡笔"
+	desc = "一支色彩鲜艳的蜡笔。看起来很好吃。嗯……"
 	icon = 'icons/obj/art/crayons.dmi'
 	icon_state = "crayonred"
 	worn_icon_state = "crayon"
@@ -306,10 +306,10 @@
 		if(self_contained)
 			qdel(src)
 		else
-			balloon_alert(user, "empty!")
+			balloon_alert(user, "已经用完！")
 		return TRUE
 	if(charges_left < amount && requires_full)
-		balloon_alert(user, "not enough left!")
+		balloon_alert(user, "剩余颜料不足！")
 		return TRUE
 
 	return FALSE
@@ -331,37 +331,37 @@
 	. = list()
 
 	var/list/g_items = list()
-	. += list(list("name" = "Graffiti", "items" = g_items))
+	. += list(list("name" = "涂鸦", "items" = g_items))
 	for(var/g in graffiti)
 		g_items += list(list("item" = g))
 
 	var/list/glh_items = list()
-	. += list(list("name" = "Graffiti Large Horizontal", "items" = glh_items))
+	. += list(list("name" = "大型横向涂鸦", "items" = glh_items))
 	for(var/glh in graffiti_large_h)
 		glh_items += list(list("item" = glh))
 
 	var/list/S_items = list()
-	. += list(list("name" = "Symbols", "items" = S_items))
+	. += list(list("name" = "符号", "items" = S_items))
 	for(var/S in symbols)
 		S_items += list(list("item" = S))
 
 	var/list/D_items = list()
-	. += list(list("name" = "Drawings", "items" = D_items))
+	. += list(list("name" = "图画", "items" = D_items))
 	for(var/D in drawings)
 		D_items += list(list("item" = D))
 
 	var/list/O_items = list()
-	. += list(list(name = "Oriented", "items" = O_items))
+	. += list(list(name = "定向图案", "items" = O_items))
 	for(var/O in oriented)
 		O_items += list(list("item" = O))
 
 	var/list/R_items = list()
-	. += list(list(name = "Runes", "items" = R_items))
+	. += list(list(name = "符文", "items" = R_items))
 	for(var/R in runes)
 		R_items += list(list("item" = R))
 
 	var/list/rand_items = list()
-	. += list(list(name = "Random", "items" = rand_items))
+	. += list(list(name = "随机", "items" = rand_items))
 	for(var/i in randoms)
 		if(!is_literate_user) // no spelling allowed
 			if(i == RANDOM_LETTER || i == RANDOM_NUMBER || i == RANDOM_PUNCTUATION)
@@ -416,7 +416,7 @@
 			set_painting_tool_color(paint_color)
 			. = TRUE
 		if("enter_text")
-			var/txt = tgui_input_text(usr, "Choose what to write", "Scribbles", text_buffer, max_length = MAX_MESSAGE_LEN)
+			var/txt = tgui_input_text(usr, "请输入要写的内容", "涂写", text_buffer, max_length = MAX_MESSAGE_LEN)
 			if(isnull(txt))
 				return
 			txt = crayon_text_strip(txt)
@@ -448,7 +448,7 @@
 		target = target.loc
 
 	if(!isValidSurface(target))
-		target.balloon_alert(user, "can't use there!")
+		target.balloon_alert(user, "无法在此使用！")
 		return ITEM_INTERACT_BLOCKING
 
 	var/drawing = drawtype
@@ -487,20 +487,20 @@
 	if(check_empty(user, cost))
 		return ITEM_INTERACT_BLOCKING
 
-	var/temp = "rune"
+	var/temp = "符文"
 	var/ascii = (length(drawing) == 1)
 	if(ascii && is_lowercase_character(drawing))
-		temp = "letter"
+		temp = "字母"
 	else if(ascii && is_digit(drawing))
-		temp = "number"
+		temp = "数字"
 	else if(drawing in punctuation)
-		temp = "punctuation mark"
+		temp = "标点符号"
 	else if(drawing in symbols)
-		temp = "symbol"
+		temp = "符号"
 	else if(drawing in drawings)
-		temp = "drawing"
+		temp = "图画"
 	else if(drawing in (graffiti|oriented))
-		temp = "graffiti"
+		temp = "涂鸦"
 
 	var/graf_rot
 	if(drawing in oriented)
@@ -522,10 +522,10 @@
 		clicky = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(ICON_SIZE_Y/2), ICON_SIZE_Y/2)
 
 	if(!instant)
-		to_chat(user, span_notice("You start drawing a [temp] on \the [target]..."))
+		to_chat(user, span_notice("你开始在[target]上绘制[temp]……"))
 
 	if(pre_noise)
-		audible_message(span_notice("You hear spraying."))
+		audible_message(span_notice("你听到喷漆声。"))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/wait_time = DRAW_TIME
@@ -561,7 +561,7 @@
 					affected_turfs += left
 					affected_turfs += right
 				else
-					balloon_alert(user, "no room!")
+					balloon_alert(user, "没有空间！")
 					return ITEM_INTERACT_BLOCKING
 		created_art.add_hiddenprint(user)
 		if(istagger)
@@ -570,16 +570,16 @@
 			created_art.AddElement(/datum/element/art, BAD_ART)
 
 	if(!instant)
-		to_chat(user, span_notice("You finish drawing \the [temp]."))
+		to_chat(user, span_notice("你画好了[temp]。"))
 	else
-		to_chat(user, span_notice("You spray a [temp] on \the [target.name]"))
+		to_chat(user, span_notice("你在[target.name]上喷绘了[temp]。"))
 
 	if(length(text_buffer) > 1)
 		text_buffer = copytext(text_buffer, length(text_buffer[1]) + 1)
 		SStgui.update_uis(src)
 
 	if(post_noise)
-		audible_message(span_hear("You hear spraying."))
+		audible_message(span_hear("你听到喷漆声。"))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/fraction = min(1, . / reagents.maximum_volume)
@@ -594,7 +594,7 @@
 ///Checks if the user is still adjacent to the target (used for do_after extra_checks)
 /obj/item/toy/crayon/proc/adjacency_check(mob/user, atom/target)
 	if(!user.Adjacent(target))
-		user.balloon_alert(user, "moved too far away!")
+		user.balloon_alert(user, "离得太远了！")
 		return FALSE
 	return TRUE
 
@@ -612,13 +612,13 @@
 	if(!IS_DEAD_OR_FAKING(pwned_human))
 		return NONE
 
-	interacting_with.balloon_alert(user, "drawing outline...")
+	interacting_with.balloon_alert(user, "正在描画轮廓……")
 	if(!do_after(user, DRAW_TIME, target = pwned_human))
 		return ITEM_INTERACT_FAILURE
 	if(!use_charges(user, 1))
 		return ITEM_INTERACT_FAILURE
 
-	to_chat(user, span_notice("You draw a chalk outline around [pwned_human]."))
+	to_chat(user, span_notice("你用粉笔沿着[pwned_human]描出了轮廓。"))
 	var/obj/effect/decal/cleanable/crayon/chalk_line = new(get_turf(pwned_human), paint_color, "body", "chalk outline", null, null, "A vaguely [pwned_human] shaped body outline.", outline_strength)
 	chalk_line.pixel_y = (pwned_human.pixel_y + pwned_human.pixel_z)
 	chalk_line.pixel_x = (pwned_human.pixel_x + pwned_human.pixel_w)
@@ -634,7 +634,7 @@
 	)
 
 /obj/item/toy/crayon/red
-	name = "red crayon"
+	name = "红色蜡笔"
 	icon_state = "crayonred"
 	paint_color = COLOR_CRAYON_RED
 	crayon_color = "red"
@@ -642,7 +642,7 @@
 	dye_color = DYE_RED
 
 /obj/item/toy/crayon/orange
-	name = "orange crayon"
+	name = "橙色蜡笔"
 	icon_state = "crayonorange"
 	paint_color = COLOR_CRAYON_ORANGE
 	crayon_color = "orange"
@@ -650,7 +650,7 @@
 	dye_color = DYE_ORANGE
 
 /obj/item/toy/crayon/yellow
-	name = "yellow crayon"
+	name = "黄色蜡笔"
 	icon_state = "crayonyellow"
 	paint_color = COLOR_CRAYON_YELLOW
 	crayon_color = "yellow"
@@ -658,7 +658,7 @@
 	dye_color = DYE_YELLOW
 
 /obj/item/toy/crayon/green
-	name = "green crayon"
+	name = "绿色蜡笔"
 	icon_state = "crayongreen"
 	paint_color = COLOR_CRAYON_GREEN
 	crayon_color = "green"
@@ -666,7 +666,7 @@
 	dye_color = DYE_GREEN
 
 /obj/item/toy/crayon/blue
-	name = "blue crayon"
+	name = "蓝色蜡笔"
 	icon_state = "crayonblue"
 	paint_color = COLOR_CRAYON_BLUE
 	crayon_color = "blue"
@@ -674,7 +674,7 @@
 	dye_color = DYE_BLUE
 
 /obj/item/toy/crayon/purple
-	name = "purple crayon"
+	name = "紫色蜡笔"
 	icon_state = "crayonpurple"
 	paint_color = COLOR_CRAYON_PURPLE
 	crayon_color = "purple"
@@ -682,7 +682,7 @@
 	dye_color = DYE_PURPLE
 
 /obj/item/toy/crayon/black
-	name = "black crayon"
+	name = "黑色蜡笔"
 	icon_state = "crayonblack"
 	paint_color = COLOR_CRAYON_BLACK
 	crayon_color = "black"
@@ -690,8 +690,8 @@
 	dye_color = DYE_BLACK
 
 /obj/item/toy/crayon/white
-	name = "stick of chalk"
-	desc = "A stark-white stick of chalk."
+	name = "粉笔"
+	desc = "一支洁白的粉笔。"
 	icon_state = "crayonwhite"
 	paint_color = COLOR_WHITE
 	crayon_color = "white"
@@ -728,8 +728,8 @@
  */
 
 /obj/item/storage/crayons
-	name = "box of crayons"
-	desc = "A box of crayons for all your rune drawing needs."
+	name = "蜡笔盒"
+	desc = "一盒蜡笔，满足你绘制各种符文的需要。"
 	icon = 'icons/obj/art/crayons.dmi'
 	icon_state = "crayonbox"
 	w_class = WEIGHT_CLASS_SMALL
@@ -754,20 +754,20 @@
 /obj/item/storage/crayons/attack_self(mob/user)
 	. = ..()
 	if(contents.len > 0)
-		balloon_alert(user, "too full to fold!")
+		balloon_alert(user, "里面东西太多，无法折叠！")
 		return
 	if(flags_1 & HOLOGRAM_1)
 		return
 
 	var/obj/item/stack/sheet/cardboard/cardboard = new (user.drop_location())
-	to_chat(user, span_notice("You fold the [src] into cardboard."))
+	to_chat(user, span_notice("你将[src]折成了纸板。"))
 	user.put_in_active_hand(cardboard)
 	qdel(src)
 
 //Spraycan stuff
 
 /obj/item/toy/crayon/spraycan
-	name = "spray can"
+	name = "喷漆罐"
 	icon_state = "spraycan"
 	worn_icon_state = "spraycan"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
@@ -780,7 +780,7 @@
 	inhand_icon_state = "spraycan"
 	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
-	desc = "A metallic container containing tasty paint."
+	desc = "一个装着美味油漆的金属罐。"
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_CREW * 2.5
 
@@ -875,7 +875,7 @@
 			. += "It's roughly [PERCENT(charges_left/charges)]% full."
 		else
 			. += "It is empty."
-	. += span_notice("Alt-click [src] to [ is_capped ? "take the cap off" : "put the cap on"].")
+	. += span_notice("Alt点击[src]可[ is_capped ? "取下盖子" : "盖上盖子"]。")
 
 
 /obj/item/toy/crayon/spraycan/can_use_on(atom/target, mob/user, list/modifiers)
@@ -892,7 +892,7 @@
 
 /obj/item/toy/crayon/spraycan/use_on(atom/target, mob/user, list/modifiers)
 	if(is_capped)
-		balloon_alert(user, "take the cap off first!")
+		balloon_alert(user, "请先取下盖子！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(check_empty(user))
@@ -910,8 +910,8 @@
 			return ITEM_INTERACT_BLOCKING
 
 		var/mob/living/carbon/carbon_target = target
-		user.visible_message(span_danger("[user] sprays [src] into the face of [target]!"))
-		to_chat(target, span_userdanger("[user] sprays [src] into your face!"))
+		user.visible_message(span_danger("[user]用[src]朝[target]脸上喷漆！"))
+		to_chat(target, span_userdanger("[user]用[src]朝你脸上喷漆！"))
 
 		if(carbon_target.client)
 			carbon_target.set_eye_blur_if_lower(6 SECONDS)
@@ -928,7 +928,7 @@
 		reagents.expose(carbon_target, VAPOR, fraction * volume_multiplier)
 
 	else if(actually_paints && target.is_atom_colour(paint_color, min_priority_index = WASHABLE_COLOUR_PRIORITY))
-		balloon_alert(user, "[target.p_theyre()] already that color!")
+		balloon_alert(user, "目标已经是这个颜色了！")
 		return ITEM_INTERACT_BLOCKING
 
 	var/saturation_mode = SATURATION_MULTIPLY
@@ -944,7 +944,7 @@
 
 		if(pre_noise || post_noise)
 			playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
-		user.visible_message(span_notice("[user] coats [target] with spray paint!"), span_notice("You coat [target] with spray paint."))
+		user.visible_message(span_notice("[user]给[target]喷上了油漆！"), span_notice("你给[target]喷上了油漆。"))
 		return ITEM_INTERACT_SUCCESS
 
 	if(!isobj(target) || (target.flags_1 & UNPAINTABLE_1))
@@ -958,11 +958,11 @@
 
 		if(pre_noise || post_noise)
 			playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
-		user.visible_message(span_notice("[user] coats [target] with spray paint!"), span_notice("You coat [target] with spray paint."))
+		user.visible_message(span_notice("[user]给[target]喷上了油漆！"), span_notice("你给[target]喷上了油漆。"))
 		return ITEM_INTERACT_SUCCESS
 
 	if (color_is_dark && saturation_mode == SATURATION_OVERRIDE && !(target.flags_1 & ALLOW_DARK_PAINTS_1))
-		to_chat(user, span_warning("A color that dark on an object like this? Surely not..."))
+		to_chat(user, span_warning("给这种东西涂这么暗的颜色？还是算了吧……"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(target, /obj/item/pipe))
@@ -999,7 +999,7 @@
 
 	if(pre_noise || post_noise)
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
-	user.visible_message(span_notice("[user] coats [target] with spray paint!"), span_notice("You coat [target] with spray paint."))
+	user.visible_message(span_notice("[user]给[target]喷上了油漆！"), span_notice("你给[target]喷上了油漆。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/toy/crayon/spraycan/proc/color_limb(obj/item/bodypart/limb, mob/living/user)
@@ -1029,7 +1029,7 @@
 	if(!has_cap)
 		return CLICK_ACTION_BLOCKING
 	is_capped = !is_capped
-	balloon_alert(user, is_capped ? "capped" : "cap removed")
+	balloon_alert(user, is_capped ? "已盖上盖子" : "已取下盖子")
 	update_appearance()
 	return CLICK_ACTION_SUCCESS
 

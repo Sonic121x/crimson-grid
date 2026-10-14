@@ -217,14 +217,14 @@
 
 	playsound(src, storage_type.rustle_sound, 50, TRUE)
 
-	balloon_alert(user, "ooh, free coupon")
+	balloon_alert(user, "噢，免费优惠券")
 	var/obj/item/coupon/attached_coupon = new
 	user.put_in_hands(attached_coupon)
 	attached_coupon.generate(rigged_omen ? COUPON_OMEN : null, null, user)
 	attached_coupon = null
 	spawn_coupon = FALSE
-	name = "discarded cigarette packet"
-	desc = "An old cigarette packet with the back torn off, worth less than nothing now."
+	name = "丢弃的烟盒"
+	desc = "背面被撕掉的旧烟盒，现在连一文都不值了。"
 	atom_storage.max_slots = 0
 
 /obj/item/storage/fancy/cigarettes/Initialize(mapload)
@@ -256,7 +256,7 @@
 /obj/item/storage/fancy/cigarettes/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	if(locate(/obj/item/lighter) in contents)
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove lighter"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "取出打火机"
 	context[SCREENTIP_CONTEXT_RMB] = "取出[contents_tag]"
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -264,7 +264,7 @@
 	. = ..()
 
 	if(spawn_coupon)
-		. += span_notice("There's a coupon on the back of the pack! You can tear it off once it's empty.")
+		. += span_notice("烟盒背面有张优惠券！等烟盒空了就能撕下来。")
 
 /obj/item/storage/fancy/cigarettes/update_icon_state()
 	. = ..()
@@ -305,8 +305,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper Camel packet" // DARKPACK EDIT CHANGE
-	desc = "I'd walk a mile for a Camel!" // DARKPACK EDIT CHANGE
+	name = "\improper 骆驼香烟" // DARKPACK EDIT CHANGE
+	desc = "为了一支骆驼，我愿步行一英里！" // DARKPACK EDIT CHANGE
 	icon_state = "dromedary"
 	base_icon_state = "dromedary"
 	spawn_type = /obj/item/cigarette/dromedary
@@ -317,8 +317,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_uplift
-	name = "\improper Uplift Smooth packet"
-	desc = "Your favorite brand, now menthol flavored."
+	name = "\improper 提神柔和牌香烟"
+	desc = "你钟爱的品牌，如今推出薄荷口味。"
 	icon_state = "uplift"
 	base_icon_state = "uplift"
 	spawn_type = /obj/item/cigarette/uplift
@@ -329,8 +329,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_robust
-	name = "\improper Malboro packet" // DARKPACK EDIT CHANGE
-	desc = "You get a lot to like with Malboro." // DARKPACK EDIT CHANGE
+	name = "\improper 马尔博罗香烟" // DARKPACK EDIT CHANGE
+	desc = "马尔博罗，总有让你喜欢的地方。" // DARKPACK EDIT CHANGE
 	icon_state = "robust"
 	base_icon_state = "robust"
 	spawn_type = /obj/item/cigarette/robust
@@ -341,8 +341,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_robustgold
-	name = "\improper Malboro Gold packet" // DARKPACK EDIT CHANGE
-	desc = "You get a lot to like with Malboro." // DARKPACK EDIT CHANGE
+	name = "\improper 金装马尔博罗香烟" // DARKPACK EDIT CHANGE
+	desc = "马尔博罗，总有让你喜欢的地方。" // DARKPACK EDIT CHANGE
 	icon_state = "robustg"
 	base_icon_state = "robustg"
 	spawn_type = /obj/item/cigarette/robustgold
@@ -366,8 +366,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_carp
-	name = "\improper Carp Classic packet"
-	desc = "Since 1896." // DARKPACK EDIT CHANGE
+	name = "\improper 鲤鱼经典牌香烟"
+	desc = "始于1896年。" // DARKPACK EDIT CHANGE
 	icon_state = "carp"
 	base_icon_state = "carp"
 	spawn_type = /obj/item/cigarette/carp
@@ -434,8 +434,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_xeno
-	name = "\improper Newport packet" // DARKPACK EDIT CHANGE
-	desc = "Alive with pleasure!" // DARKPACK EDIT CHANGE
+	name = "\improper 新港香烟" // DARKPACK EDIT CHANGE
+	desc = "畅享活力与愉悦！" // DARKPACK EDIT CHANGE
 	icon_state = "slime"
 	base_icon_state = "slime"
 	spawn_type = /obj/item/cigarette/xeno
@@ -505,8 +505,8 @@
 /////////////
 
 /obj/item/storage/fancy/cigarettes/cigars
-	name = "\improper premium cigar case"
-	desc = "A case of premium cigars. Very expensive."
+	name = "\improper 高级雪茄盒"
+	desc = "一盒高级雪茄。价格不菲。"
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cigarcase"
 	base_icon_state = "cigarcase"
@@ -538,8 +538,8 @@
 		cigar_position++
 
 /obj/item/storage/fancy/cigarettes/cigars/cohiba
-	name = "\improper Cohiba Robusto cigar case"
-	desc = "A case of imported Cohiba cigars, renowned for their strong flavor."
+	name = "\improper 高希霸罗布图雪茄盒"
+	desc = "一盒进口高希霸雪茄，以浓郁的风味闻名。"
 	icon_state = "cohibacase"
 	base_icon_state = "cohibacase"
 	spawn_type = /obj/item/cigarette/cigar/cohiba
@@ -549,8 +549,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigars/havana
-	name = "\improper premium Havanian cigar case"
-	desc = "A case of classy Havanian cigars."
+	name = "\improper 高级哈瓦那雪茄盒"
+	desc = "一盒精致的哈瓦那雪茄。"
 	icon_state = "havanacase"
 	base_icon_state = "havanacase"
 	spawn_type = /obj/item/cigarette/cigar/havana

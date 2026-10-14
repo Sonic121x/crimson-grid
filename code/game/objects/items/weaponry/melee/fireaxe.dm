@@ -18,8 +18,8 @@ GLOBAL_DATUM(bridge_axe, /obj/item/fireaxe)
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BACK
-	attack_verb_continuous = list("attacks", "chops", "cleaves", "tears", "lacerates", "cuts")
-	attack_verb_simple = list("attack", "chop", "cleave", "tear", "lacerate", "cut")
+	attack_verb_continuous = list("攻击", "砍劈", "劈开", "撕扯", "撕裂", "切割")
+	attack_verb_simple = list("攻击", "砍劈", "劈开", "撕扯", "撕裂", "切割")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	armor_type = /datum/armor/item_fireaxe
@@ -62,7 +62,7 @@ GLOBAL_DATUM(bridge_axe, /obj/item/fireaxe)
 	return ..()
 
 /obj/item/fireaxe/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] axes [user.p_them()]self from head to toe! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]用斧头从头到脚砍着自己！看起来是在自杀！"))
 	return BRUTELOSS
 
 /obj/item/fireaxe/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)

@@ -114,9 +114,9 @@
 
 /obj/item/seeds/examine(mob/user)
 	. = ..()
-	. += span_notice("Use a pen on it to rename it or change its description.")
+	. += span_notice("可以用笔修改它的名称或说明。")
 	if(reagents_add && user.can_see_reagents())
-		. += span_notice("- Plant Reagents -")
+		. += span_notice("- 植物所含试剂 -")
 		for(var/datum/plant_gene/reagent/reagent_gene in genes)
 			. += span_notice("- [reagent_gene.get_name()] -")
 
@@ -467,7 +467,7 @@
 	. = input
 	if(product && !productdesc)
 		productdesc = initial(product.desc)
-	var/newproductdesc = tgui_input_text(user, "Write a new product description", "Product Description", productdesc, max_length = MAX_DESC_LEN)
+	var/newproductdesc = tgui_input_text(user, "填写新的收获物说明", "收获物说明", productdesc, max_length = MAX_DESC_LEN)
 	if(isnull(newproductdesc))
 		return
 	if(!user.can_perform_action(src))

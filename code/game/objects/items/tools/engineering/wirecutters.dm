@@ -1,6 +1,6 @@
 /obj/item/wirecutters
-	name = "wirecutters"
-	desc = "This cuts wires."
+	name = "剪线钳"
+	desc = "用来剪断电线。"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi' // DARKPACK EDIT CHANGE - ORIGINAL: icon = 'icons/obj/tools.dmi'
 	icon_state = "fixer" // DARKPACK EDIT CHANGE - ORIGINAL: icon_state = "cutters_map"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi') // DARKPACK EDIT ADD
@@ -25,8 +25,8 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*0.8)
-	attack_verb_continuous = list("pinches", "nips")
-	attack_verb_simple = list("pinch", "nip")
+	attack_verb_continuous = list("夹击", "夹咬")
+	attack_verb_simple = list("夹击", "夹咬")
 	hitsound = 'sound/items/tools/wirecutter.ogg'
 	usesound = 'sound/items/tools/wirecutter.ogg'
 	operating_sound = 'sound/items/tools/wirecutter_cut.ogg'
@@ -66,7 +66,7 @@
 	return ..()
 
 /obj/item/wirecutters/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is cutting at [user.p_their()] arteries with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正用[src]剪自己的动脉！看起来是想自杀！"))
 	playsound(loc, usesound, 50, TRUE, -1)
 	return BRUTELOSS
 

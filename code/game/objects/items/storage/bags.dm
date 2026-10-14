@@ -249,7 +249,7 @@
 	custom_materials = list(/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /obj/item/storage/bag/plants
-	name = "plant bag"
+	name = "植物收集袋"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "plantbag"
 	worn_icon_state = "plantbag"

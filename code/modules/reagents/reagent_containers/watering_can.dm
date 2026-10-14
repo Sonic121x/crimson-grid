@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/cup/watering_can
-	name = "watering can"
-	desc = "It's a watering can. It is scientifically proved that using a watering can to simulate rain increases plant happiness!"
+	name = "浇水壶"
+	desc = "一只浇水壶。科学证明，用浇水壶模拟降雨能让植物更快乐！"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "watering_can"
 	inhand_icon_state = "watering_can"

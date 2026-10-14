@@ -406,7 +406,7 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	var/list/borgs = active_free_borgs()
 	if(borgs.len)
 		if(user)
-			. = input(user,"Unshackled cyborg signals detected:", "Cyborg Selection", borgs[1]) in sort_list(borgs)
+			. = input(user,"检测到未连接人工智能的机器人信号：", "选择机器人", borgs[1]) in sort_list(borgs)
 		else
 			. = pick(borgs)
 	return .
@@ -415,7 +415,7 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	var/list/ais = active_ais(FALSE, z, skip_syndicate, only_syndicate)
 	if(ais.len)
 		if(user)
-			. = input(user,"AI signals detected:", "AI Selection", ais[1]) in sort_list(ais)
+			. = input(user,"检测到人工智能信号：", "选择人工智能", ais[1]) in sort_list(ais)
 		else
 			. = pick(ais)
 	return .
@@ -495,29 +495,29 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 /proc/parse_zone(zone)
 	switch(zone)
 		if(BODY_ZONE_CHEST)
-			return "chest"
+			return "胸部"
 		if(BODY_ZONE_HEAD)
-			return "head"
+			return "头部"
 		if(BODY_ZONE_PRECISE_R_HAND)
-			return "right hand"
+			return "右手"
 		if(BODY_ZONE_PRECISE_L_HAND)
-			return "left hand"
+			return "左手"
 		if(BODY_ZONE_L_ARM)
-			return "left arm"
+			return "左臂"
 		if(BODY_ZONE_R_ARM)
-			return "right arm"
+			return "右臂"
 		if(BODY_ZONE_L_LEG)
-			return "left leg"
+			return "左腿"
 		if(BODY_ZONE_R_LEG)
-			return "right leg"
+			return "右腿"
 		if(BODY_ZONE_PRECISE_L_FOOT)
-			return "left foot"
+			return "左脚"
 		if(BODY_ZONE_PRECISE_R_FOOT)
-			return "right foot"
+			return "右脚"
 		if(BODY_ZONE_PRECISE_GROIN)
-			return "groin"
+			return "腹股沟"
 		else
-			return zone
+			return zone == BODY_ZONE_PRECISE_EYES ? "眼部" : zone == BODY_ZONE_PRECISE_MOUTH ? "口部" : zone
 
 ///Takes a zone and returns its "parent" zone, if it has one.
 /proc/deprecise_zone(precise_zone)
@@ -543,41 +543,41 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 /proc/parse_slot_flags(slot_flags)
 	var/list/slot_strings = list()
 	if(slot_flags & ITEM_SLOT_BACK)
-		slot_strings += "back"
+		slot_strings += "背部"
 	if(slot_flags & ITEM_SLOT_MASK)
-		slot_strings += "mask"
+		slot_strings += "面罩"
 	if(slot_flags & ITEM_SLOT_NECK)
-		slot_strings += "neck"
+		slot_strings += "颈部"
 	if(slot_flags & ITEM_SLOT_HANDCUFFED)
-		slot_strings += "handcuff"
+		slot_strings += "手铐"
 	if(slot_flags & ITEM_SLOT_LEGCUFFED)
-		slot_strings += "legcuff"
+		slot_strings += "脚镣"
 	if(slot_flags & ITEM_SLOT_BELT)
-		slot_strings += "belt"
+		slot_strings += "腰带"
 	if(slot_flags & ITEM_SLOT_ID)
-		slot_strings += "id"
+		slot_strings += "身份证"
 	if(slot_flags & ITEM_SLOT_EARS)
-		slot_strings += "ear"
+		slot_strings += "耳部"
 	if(slot_flags & ITEM_SLOT_EYES)
-		slot_strings += "glasses"
+		slot_strings += "眼镜"
 	if(slot_flags & ITEM_SLOT_GLOVES)
-		slot_strings += "glove"
+		slot_strings += "手套"
 	if(slot_flags & ITEM_SLOT_HEAD)
-		slot_strings += "head"
+		slot_strings += "头部"
 	if(slot_flags & ITEM_SLOT_FEET)
-		slot_strings += "shoe"
+		slot_strings += "鞋子"
 	if(slot_flags & ITEM_SLOT_OCLOTHING)
-		slot_strings += "oversuit"
+		slot_strings += "外衣"
 	if(slot_flags & ITEM_SLOT_ICLOTHING)
-		slot_strings += "undersuit"
+		slot_strings += "内层衣物"
 	if(slot_flags & ITEM_SLOT_SUITSTORE)
-		slot_strings += "suit storage"
+		slot_strings += "外衣储物位"
 	if(slot_flags & (ITEM_SLOT_LPOCKET|ITEM_SLOT_RPOCKET))
-		slot_strings += "pocket"
+		slot_strings += "口袋"
 	if(slot_flags & ITEM_SLOT_HANDS)
-		slot_strings += "hand"
+		slot_strings += "手部"
 	if(slot_flags & ITEM_SLOT_DEX_STORAGE)
-		slot_strings += "dextrous storage"
+		slot_strings += "灵巧储物位"
 	return slot_strings
 
 ///Returns the direction that the initiator and the target are facing

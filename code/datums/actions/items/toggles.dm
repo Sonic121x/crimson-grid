@@ -3,19 +3,19 @@
 /datum/action/item_action/toggle/New(Target)
 	..()
 	var/obj/item/item_target = target
-	name = "Toggle [item_target.name]"
+	name = "切换[item_target.name]"
 
 /datum/action/item_action/toggle_light
-	name = "Toggle Light"
+	name = "开关灯光"
 
 /datum/action/item_action/toggle_computer_light
 	name = "Toggle Flashlight"
 
 /datum/action/item_action/toggle_hood
-	name = "Toggle Hood"
+	name = "戴上／放下兜帽"
 
 /datum/action/item_action/toggle_firemode
-	name = "Toggle Firemode"
+	name = "切换射击模式"
 
 /datum/action/item_action/toggle_gunlight
 	name = "Toggle Gunlight"

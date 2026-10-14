@@ -1,8 +1,8 @@
 // Inside is: Standard, Doctor, Advanced, Brute, Burn, Oxygen, Toxins, IFAK & Combat First aid/Medical kits
 
 /obj/item/storage/medkit/darkpack
-	name = "first-aid kit"
-	desc = "A first aid kit ideal for handling common, non-life threatening injuries."
+	name = "急救包"
+	desc = "适合处理常见、无生命危险伤势的急救包。"
 	icon_state = "firstaid"
 	inhand_icon_state = "firstaid"
 	icon = 'modular_darkpack/modules/storage/icons/firstaidkit.dmi'
@@ -12,8 +12,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/storage/medkit/darkpack/standard
-	name = "first-aid kit"
-	desc = "A handheld medical kit ideal for handling common, non-life threatening injuries."
+	name = "急救包"
+	desc = "适合处理常见、无生命危险伤势的手提医疗包。"
 
 /obj/item/storage/medkit/darkpack/standard/PopulateContents()
 	if(empty)
@@ -27,8 +27,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/doctor
-	name = "doctors kit"
-	desc = "A handheld medical suite containing basic medical tools and some surgery equipment."
+	name = "医生医疗包"
+	desc = "一套手提医疗用品，内含基础医疗工具和部分手术器械。"
 	icon_state = "firstaid_doctor"
 	inhand_icon_state = "firstaid_doctor"
 	storage_type = /datum/storage/medkit/darkpack/doctor
@@ -50,8 +50,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/advanced
-	name = "advanced first-aid kit"
-	desc = "A handheld medical kit designed for handling advanced injuries."
+	name = "高级急救包"
+	desc = "用于处理复杂伤势的手提医疗包。"
 	icon_state = "firstaid_advanced"
 	inhand_icon_state = "firstaid_advanced"
 
@@ -67,8 +67,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/brute
-	name = "brute treatment kit"
-	desc = "A handheld medical kit ideal for handling someone who has found the front of a moving truck."
+	name = "创伤救治包"
+	desc = "适合救治迎头撞上行驶中卡车的不幸人士的手提医疗包。"
 	icon_state = "firstaid_brute"
 	inhand_icon_state = "firstaid_brute"
 
@@ -84,8 +84,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/burn
-	name = "burn treatment kit"
-	desc = "A handheld medical kit ideal for handling someone who has fought fire."
+	name = "烧伤救治包"
+	desc = "适合救治与烈火搏斗过的伤者的手提医疗包。"
 	icon_state = "firstaid_burn"
 	inhand_icon_state = "firstaid_burn"
 
@@ -101,8 +101,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/oxy
-	name = "o2 treatment kit"
-	desc = "A handheld medical kit ideal for handling someone who has been left breathless."
+	name = "缺氧救治包"
+	desc = "适合救治喘不上气的患者的手提医疗包。"
 	icon_state = "firstaid_oxy"
 	inhand_icon_state = "firstaid_oxy"
 
@@ -118,8 +118,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/tox
-	name = "toxin treatment kit"
-	desc = "A handheld medical kit ideal for handling someone who has fallen into a vat of radioactive goop."
+	name = "中毒救治包"
+	desc = "适合救治掉进一大桶放射性黏液的不幸人士的手提医疗包。"
 	icon_state = "firstaid_tox"
 	inhand_icon_state = "firstaid_tox"
 
@@ -135,8 +135,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/ifak
-	name = "IFAK"
-	desc = "An Individual First-Aid Kit, for when it's just you and me."
+	name = "个人急救包"
+	desc = "个人急救包，适合只有你我相依为命的时候。"
 	icon_state = "firstaid_ifak"
 	inhand_icon_state = "firstaid_ifak"
 	custom_price = 20
@@ -152,8 +152,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/medkit/darkpack/combat
-	name = "combat medical kit"
-	desc = "A medical suite designed for when you need your strongest potions to take into battle."
+	name = "战斗医疗包"
+	desc = "一套医疗用品，供你带着最强效的药剂奔赴战场。"
 	icon_state = "firstaid_combat"
 	inhand_icon_state = "firstaid_combat"
 	storage_type = /datum/storage/medkit/darkpack/combat

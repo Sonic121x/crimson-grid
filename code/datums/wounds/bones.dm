@@ -228,15 +228,15 @@
 
 /// Joint Dislocation (Moderate Blunt)
 /datum/wound/blunt/bone/moderate
-	name = "Joint Dislocation"
-	undiagnosed_name = "Dislocation"
+	name = "关节脱位"
+	undiagnosed_name = "脱臼"
 	a_or_from = "a"
-	desc = "Patient's limb has been unset from socket, causing pain and reduced motor function."
-	treat_text = "Apply Bonesetter to the affected limb. \
-		Manual relocation by via an aggressive grab and a tight hug to the affected limb may also suffice."
-	treat_text_short = "Apply Bonesetter, or manually relocate the limb."
-	examine_desc = "is awkwardly janked out of place"
-	occur_text = "janks violently and becomes unseated"
+	desc = "患者肢体关节脱位，导致疼痛及运动功能下降。"
+	treat_text = "对受伤肢体使用正骨器。\
+		也可用强力抓握控制患者，再紧握受伤肢体手动复位。"
+	treat_text_short = "使用正骨器，或手动将肢体复位。"
+	examine_desc = "以别扭的姿势脱离了原位"
+	occur_text = "猛地扭曲，关节脱臼了"
 	severity = WOUND_SEVERITY_MODERATE
 	interaction_efficiency_penalty = 1.3
 	limp_slowdown = 3
@@ -246,7 +246,7 @@
 	status_effect_type = /datum/status_effect/wound/blunt/bone/moderate
 	scar_keyword = "dislocate"
 
-	simple_desc = "Patient's bone has been dislocated, causing limping or reduced dexterity."
+	simple_desc = "患者骨骼脱位，导致跛行或灵巧度下降。"
 	simple_treat_text = "<b>Bandaging</b> the wound will reduce its impact until treated with a bonesetter. Most commonly, it is treated by aggressively grabbing someone and helpfully wrenching the limb in place, though there's room for malfeasance when doing this."
 	homemade_treat_text = "Besides bandaging and wrenching, <b>bone setters</b> can be printed in lathes and utilized on oneself at the cost of great pain. As a last resort, <b>crushing</b> the patient with a <b>firelock</b> has sometimes been noted to fix their dislocated limb."
 
@@ -371,13 +371,13 @@
 */
 
 /datum/wound/blunt/bone/severe
-	name = "Hairline Fracture"
-	desc = "Patient's bone has suffered a crack in the foundation, causing serious pain and reduced limb functionality."
-	treat_text = "Repair surgically. In the event of an emergency, an application of bone gel over the affected area will fix over time. \
-		A splint or sling of medical gauze can also be used to prevent the fracture from worsening."
-	treat_text_short = "Repair surgically, or apply bone gel. A splint or gauze sling can also be used."
-	examine_desc = "appears grotesquely swollen, jagged bumps hinting at chips in the bone"
-	occur_text = "sprays chips of bone and develops a nasty looking bruise"
+	name = "骨裂"
+	desc = "患者骨骼出现裂纹，导致剧痛和肢体功能下降。"
+	treat_text = "通过手术修复。紧急情况下，可在伤处涂抹接骨凝胶，等待逐步修复。\
+		也可用夹板或医用纱布吊带防止骨折恶化。"
+	treat_text_short = "进行手术修复，或涂抹接骨凝胶。也可使用夹板或纱布吊带。"
+	examine_desc = "肿胀得不成样子，凹凸不平的隆起暗示骨骼已经碎裂"
+	occur_text = "迸出骨屑，并出现骇人的瘀伤"
 
 	severity = WOUND_SEVERITY_SEVERE
 	interaction_efficiency_penalty = 2
@@ -393,7 +393,7 @@
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_INTERIOR)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
 
-	simple_desc = "Patient's bone has cracked in the middle, drastically reducing limb functionality."
+	simple_desc = "患者骨骼中部裂开，肢体功能大幅下降。"
 	simple_treat_text = "<b>Bandaging</b> the wound will reduce its impact until <b>surgically treated</b> with bone gel and surgical tape."
 	homemade_treat_text = "<b>Bone gel and surgical tape</b> may be applied directly to the wound, though this is quite difficult for most people to do so individually unless they've dosed themselves with one or more <b>painkillers</b> (Morphine and Miner's Salve have been known to help)"
 
@@ -407,16 +407,16 @@
 
 /// Compound Fracture (Critical Blunt)
 /datum/wound/blunt/bone/critical
-	name = "Compound Fracture"
+	name = "开放性骨折"
 	undiagnosed_name = null // you can tell it's a compound fracture at a glance because of a skin breakage
 	a_or_from = "a"
-	desc = "Patient's bones have suffered multiple fractures, \
-		couped with a break in the skin, causing significant pain and near uselessness of limb."
-	treat_text = "Immediately bind the affected limb with gauze or a splint. Repair surgically. \
-		In the event of an emergency, bone gel and surgical tape can be applied to the affected area to fix over a long period of time."
-	treat_text_short = "Repair surgically, or apply bone gel and surgical tape. A splint or gauze sling should also be used."
-	examine_desc = "is thoroughly pulped and cracked, exposing shards of bone to open air"
-	occur_text = "cracks apart, exposing broken bones to open air"
+	desc = "患者骨骼多处骨折，\
+		同时伴有皮肤破损，引起剧痛，肢体几乎无法使用。"
+	treat_text = "立即用纱布或夹板固定受伤肢体，并通过手术修复。\
+		紧急情况下，可在伤处使用接骨凝胶和医用胶带，等待较长时间逐步修复。"
+	treat_text_short = "进行手术修复，或使用接骨凝胶和医用胶带。还应使用夹板或纱布吊带。"
+	examine_desc = "血肉模糊、骨骼碎裂，骨片暴露在外"
+	occur_text = "断裂开来，碎骨暴露在外"
 
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 2.5
@@ -435,7 +435,7 @@
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 	surgery_states = SURGERY_SKIN_CUT | SURGERY_BONE_SAWED // Bad enough to count as a busted skull/ribcage
 
-	simple_desc = "Patient's bones have effectively shattered completely, causing total immobilization of the limb."
+	simple_desc = "患者骨骼几乎完全粉碎，肢体彻底无法活动。"
 	simple_treat_text = "<b>Bandaging</b> the wound will slightly reduce its impact until <b>surgically treated</b> with bone gel and surgical tape."
 	homemade_treat_text = "Although this is extremely difficult and slow to function, <b>Bone gel and surgical tape</b> may be applied directly to the wound, though this is nigh-impossible for most people to do so individually unless they've dosed themselves with one or more <b>painkillers</b> (Morphine and Miner's Salve have been known to help)"
 
@@ -452,8 +452,8 @@
 // doesn't make much sense for "a" bone to stick out of your head
 /datum/wound/blunt/bone/critical/apply_wound(obj/item/bodypart/L, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, attack_direction = null, wound_source = "Unknown", replacing = FALSE)
 	if(L.body_zone == BODY_ZONE_HEAD)
-		occur_text = "splits open, exposing a bare, cracked skull through the flesh and blood"
-		examine_desc = "has an unsettling indent, with bits of skull poking out"
+		occur_text = "裂开，血肉间露出破裂的颅骨"
+		examine_desc = "有一处骇人的凹陷，颅骨碎片从中刺出"
 	. = ..()
 
 /// if someone is using bone gel on our wound

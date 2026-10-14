@@ -2,7 +2,7 @@
 
 /// Adding or removing specific organs
 /datum/surgery_operation/limb/organ_manipulation
-	name = "organ manipulation"
+	name = "器官操作"
 	abstract_type = /datum/surgery_operation/limb/organ_manipulation
 	operation_flags = OPERATION_MORBID | OPERATION_NOTABLE | OPERATION_NO_PATIENT_REQUIRED
 	required_bodytype = ~BODYTYPE_ROBOTIC
@@ -45,7 +45,7 @@
 	implements = remove_implements + insert_implements
 
 /datum/surgery_operation/limb/organ_manipulation/get_recommended_tool()
-	return "[..()] / organ"
+	return "[..()]／器官"
 
 /datum/surgery_operation/limb/organ_manipulation/get_default_radial_image()
 	return image('icons/obj/medical/surgery_ui.dmi', "surgery_any")
@@ -269,8 +269,8 @@
 	display_pain(limb.owner, "Your [limb.plaintext_zone] throbs with pain as your new [organ.name] comes to life!")
 
 /datum/surgery_operation/limb/organ_manipulation/internal
-	name = "internal organ manipulation"
-	desc = "Manipulate a patient's internal organs."
+	name = "内脏操作"
+	desc = "对患者的内脏进行操作。"
 	replaced_by = /datum/surgery_operation/limb/organ_manipulation/internal/abductor
 	all_surgery_states_required = SURGERY_SKIN_OPEN|SURGERY_ORGANS_CUT
 

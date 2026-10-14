@@ -4,15 +4,15 @@
 	abstract_type = /obj/structure/railing/darkpack
 
 /obj/structure/railing/darkpack/metal
-	name = "guard rail"
-	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building"
+	name = "护栏"
+	desc = "用途广泛的坚固护栏，包括但不限于：确保你不会从四层楼高的屋顶上飞出去。"
 	icon_state = "civ_full"
 
 /obj/structure/railing/darkpack/metal/solo
 	icon_state = "civ_solo"
 
 /obj/structure/railing/darkpack/metal/industrial
-	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building. It's got a slick orange taint, so you know it's to workplace regulations."
+	desc = "用途广泛的坚固护栏，包括但不限于：确保你不会从四层楼高的屋顶上飞出去。涂着亮眼的橙色，一看就符合工作场所的规章。"
 	icon_state = "indus_full"
 
 /obj/structure/railing/darkpack/metal/industrial/solo
@@ -24,8 +24,8 @@
 	icon_state = "railings_sewer"
 
 /obj/structure/railing/darkpack/wood
-	name = "wooden fence"
-	desc = "A classic wooden fence. It doesn't get more homely than this."
+	name = "木栅栏"
+	desc = "经典的木栅栏。没有比这更有家的感觉了。"
 	icon_state = "wood_full"
 	base_icon_state = "wood_full"
 	item_deconstruct = /obj/item/stack/sheet/mineral/wood

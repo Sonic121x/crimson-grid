@@ -12,8 +12,8 @@
 	wound_bonus = -10
 	throwforce = 13
 	demolition_mod = 1.25
-	attack_verb_continuous = list("beats", "smacks")
-	attack_verb_simple = list("beat", "smack")
+	attack_verb_continuous = list("殴打", "猛击")
+	attack_verb_simple = list("殴打", "猛击")
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3.5)
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_HUGE

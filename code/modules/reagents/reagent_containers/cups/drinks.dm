@@ -115,8 +115,8 @@
 // Formatting is the same as food.
 
 /obj/item/reagent_containers/cup/glass/coffee
-	name = "robust coffee"
-	desc = "Careful, the beverage you're about to enjoy is extremely hot."
+	name = "浓郁咖啡"
+	desc = "小心，你将要享用的饮料非常烫。"
 	icon = 'icons/obj/drinks/coffee.dmi'
 	icon_state = "coffee"
 	inhand_icon_state = "coffee"
@@ -210,8 +210,8 @@
 	base_icon_state = "mug_nt"
 
 /obj/item/reagent_containers/cup/glass/coffee_cup
-	name = "coffee cup"
-	desc = "A heat-formed plastic coffee cup. Can theoretically be used for other hot drinks, if you're feeling adventurous."
+	name = "咖啡杯"
+	desc = "一个热成型塑料咖啡杯。理论上也能装其他热饮，如果你想冒险试试的话。"
 	icon = 'icons/obj/drinks/coffee.dmi'
 	icon_state = "coffee_cup_e"
 	base_icon_state = "coffee_cup"

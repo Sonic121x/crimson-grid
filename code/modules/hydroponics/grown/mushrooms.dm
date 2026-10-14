@@ -1,5 +1,5 @@
 /obj/item/food/grown/mushroom
-	name = "mushroom"
+	name = "蘑菇"
 	abstract_type = /obj/item/food/grown/mushroom
 	bite_consumption_mod = 3
 	foodtypes = VEGETABLES
@@ -9,11 +9,11 @@
 
 // Reishi
 /obj/item/seeds/reishi
-	name = "reishi mycelium pack"
-	desc = "This mycelium grows into something medicinal and relaxing."
+	name = "灵芝菌丝包"
+	desc = "这些菌丝会长成具有药用价值、令人放松的真菌。"
 	icon_state = "mycelium-reishi"
 	species = "reishi"
-	plantname = "Reishi"
+	plantname = "灵芝"
 	product = /obj/item/food/grown/mushroom/reishi
 	lifespan = 35
 	endurance = 35
@@ -30,17 +30,17 @@
 
 /obj/item/food/grown/mushroom/reishi
 	seed = /obj/item/seeds/reishi
-	name = "reishi"
-	desc = "<I>Ganoderma lucidum</I>: A special fungus known for its medicinal and stress relieving properties."
+	name = "灵芝"
+	desc = "<I>Ganoderma lucidum</I>：一种以药用价值和舒缓压力的功效闻名的特殊真菌。"
 	icon_state = "reishi"
 
 // Fly Amanita
 /obj/item/seeds/amanita
-	name = "fly amanita mycelium pack"
-	desc = "This mycelium grows into something horrible."
+	name = "毒蝇伞菌丝包"
+	desc = "这些菌丝会长成可怕的东西。"
 	icon_state = "mycelium-amanita"
 	species = "amanita"
-	plantname = "Fly Amanitas"
+	plantname = "毒蝇伞"
 	product = /obj/item/food/grown/mushroom/amanita
 	lifespan = 50
 	endurance = 35
@@ -57,17 +57,17 @@
 
 /obj/item/food/grown/mushroom/amanita
 	seed = /obj/item/seeds/amanita
-	name = "fly amanita"
-	desc = "<I>Amanita Muscaria</I>: Learn poisonous mushrooms by heart. Only pick mushrooms you know."
+	name = "毒蝇伞"
+	desc = "<I>Amanita Muscaria</I>：务必牢记毒蘑菇的特征。只采自己认识的蘑菇。"
 	icon_state = "amanita"
 
 // Destroying Angel
 /obj/item/seeds/angel
-	name = "destroying angel mycelium pack"
-	desc = "This mycelium grows into something devastating."
+	name = "毁灭天使菌丝包"
+	desc = "这些菌丝会长成致命的东西。"
 	icon_state = "mycelium-angel"
 	species = "angel"
-	plantname = "Destroying Angels"
+	plantname = "毁灭天使"
 	product = /obj/item/food/grown/mushroom/angel
 	lifespan = 50
 	endurance = 35
@@ -84,8 +84,8 @@
 
 /obj/item/food/grown/mushroom/angel
 	seed = /obj/item/seeds/angel
-	name = "destroying angel"
-	desc = "<I>Amanita Virosa</I>: Deadly poisonous basidiomycete fungus filled with alpha amatoxins."
+	name = "毁灭天使"
+	desc = "<I>Amanita Virosa</I>：一种含有大量α鹅膏毒素的剧毒担子菌。"
 	icon_state = "angel"
 	wine_power = 60
 
@@ -117,11 +117,11 @@
 
 // Plump Helmet
 /obj/item/seeds/plump
-	name = "plump-helmet mycelium pack"
-	desc = "This mycelium grows into helmets... maybe."
+	name = "厚盔菇菌丝包"
+	desc = "这些菌丝会长成头盔……也许吧。"
 	icon_state = "mycelium-plump"
 	species = "plump"
-	plantname = "Plump-Helmet Mushrooms"
+	plantname = "厚盔菇"
 	product = /obj/item/food/grown/mushroom/plumphelmet
 	maturation = 8
 	production = 1
@@ -136,18 +136,18 @@
 
 /obj/item/food/grown/mushroom/plumphelmet
 	seed = /obj/item/seeds/plump
-	name = "plump-helmet"
-	desc = "<I>Plumus Hellmus</I>: Plump, soft and s-so inviting~"
+	name = "厚盔菇"
+	desc = "<I>Plumus Hellmus</I>：饱满、柔软，而且好、好诱人～"
 	icon_state = "plumphelmet"
 	distill_reagent = /datum/reagent/consumable/ethanol/manly_dorf
 
 // Walking Mushroom
 /obj/item/seeds/plump/walkingmushroom
-	name = "walking mushroom mycelium pack"
-	desc = "This mycelium will grow into huge stuff!"
+	name = "行走菇菌丝包"
+	desc = "这些菌丝会长成大块头！"
 	icon_state = "mycelium-walkingmushroom"
 	species = "walkingmushroom"
-	plantname = "Walking Mushrooms"
+	plantname = "行走菇"
 	product = /obj/item/food/grown/mushroom/walkingmushroom
 	lifespan = 30
 	endurance = 30
@@ -162,18 +162,18 @@
 
 /obj/item/food/grown/mushroom/walkingmushroom
 	seed = /obj/item/seeds/plump/walkingmushroom
-	name = "walking mushroom"
-	desc = "<I>Plumus Locomotus</I>: The beginning of the great walk."
+	name = "行走菇"
+	desc = "<I>Plumus Locomotus</I>：伟大旅程的起点。"
 	icon_state = "walkingmushroom"
 	can_distill = FALSE
 
 // Chanterelle
 /obj/item/seeds/chanter
-	name = "chanterelle mycelium pack"
-	desc = "This mycelium grows into chanterelle mushrooms."
+	name = "鸡油菌菌丝包"
+	desc = "这些菌丝会长成鸡油菌。"
 	icon_state = "mycelium-chanter"
 	species = "chanter"
-	plantname = "Chanterelle Mushrooms"
+	plantname = "鸡油菌"
 	product = /obj/item/food/grown/mushroom/chanterelle
 	lifespan = 35
 	endurance = 20
@@ -191,8 +191,8 @@
 
 /obj/item/food/grown/mushroom/chanterelle
 	seed = /obj/item/seeds/chanter
-	name = "chanterelle cluster"
-	desc = "<I>Cantharellus Cibarius</I>: These jolly yellow little shrooms sure look tasty!"
+	name = "鸡油菌簇"
+	desc = "<I>Cantharellus Cibarius</I>：这些讨喜的黄色小蘑菇看起来真美味！"
 	icon_state = "chanterelle"
 
 /obj/item/food/grown/mushroom/chanterelle/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -202,7 +202,7 @@
 	if(seed.potency < 95)
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You hollow out the chanterelle with [tool]."))
+	to_chat(user, span_notice("你用[tool]掏空了鸡油菌。"))
 	remove_item_from_storage(user)
 	if(seed.resistance_flags & FIRE_PROOF)
 		user.put_in_hands(new /obj/item/clothing/head/wizard/chanterelle/fireproof())
@@ -213,11 +213,11 @@
 
 //Jupiter Cup
 /obj/item/seeds/chanter/jupitercup
-	name = "jupiter cup mycelium pack"
-	desc = "This mycelium grows into jupiter cups. Zeus would be envious at the power at your fingertips."
+	name = "朱庇特杯菌丝包"
+	desc = "这些菌丝会长成朱庇特杯。你指尖蕴藏的力量连宙斯都会嫉妒。"
 	icon_state = "mycelium-jupitercup"
 	species = "jupitercup"
-	plantname = "Jupiter Cups"
+	plantname = "朱庇特杯"
 	product = /obj/item/food/grown/mushroom/jupitercup
 	lifespan = 40
 	production = 4
@@ -237,8 +237,8 @@
 
 /obj/item/food/grown/mushroom/jupitercup
 	seed = /obj/item/seeds/chanter/jupitercup
-	name = "jupiter cup"
-	desc = "A strange red mushroom, its surface is moist and slick. You wonder how many tiny worms have met their fate inside."
+	name = "朱庇特杯"
+	desc = "一种表面湿润光滑的奇异红蘑菇。不知有多少小虫葬身其中。"
 	icon_state = "jupitercup"
 
 // Glowshroom

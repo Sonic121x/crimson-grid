@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/syringe
-	name = "syringe"
-	desc = "A syringe that can hold up to 15 units."
+	name = "注射器"
+	desc = "最多容纳15单位液体的注射器。"
 	icon = 'icons/obj/medical/syringe.dmi'
 	base_icon_state = "syringe"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -58,23 +58,23 @@
 	log_combat(user, target, "attempted to inject", src, addition="which had [contained]")
 
 	if(!reagents.total_volume)
-		to_chat(user, span_warning("[src] is empty! Right-click to draw."))
+		to_chat(user, span_warning("[src]是空的！右键点击可抽取液体。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!isliving(target) && !target.is_injectable(user))
-		to_chat(user, span_warning("You cannot directly fill [target]!"))
+		to_chat(user, span_warning("你无法直接向[target]注入液体！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(target.reagents.holder_full())
-		to_chat(user, span_notice("[target] is full."))
+		to_chat(user, span_notice("[target]已满。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(isliving(target))
 		var/mob/living/living_target = target
 		if(living_target != user)
 			living_target.visible_message(
-				span_danger("[user] is trying to inject [living_target]!"),
-				span_userdanger("[user] is trying to inject you!"),
+				span_danger("[user]正试图给[living_target]注射！"),
+				span_userdanger("[user]正试图给你注射！"),
 			)
 			if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), living_target, extra_checks = CALLBACK(src, PROC_REF(try_syringe), living_target, user)))
 				return ITEM_INTERACT_BLOCKING
@@ -83,8 +83,8 @@
 			if(living_target.reagents.holder_full())
 				return ITEM_INTERACT_BLOCKING
 			living_target.visible_message(
-				span_danger("[user] injects [living_target] with the syringe!"),
-				span_userdanger("[user] injects you with the syringe!"),
+				span_danger("[user]用注射器给[living_target]注射！"),
+				span_userdanger("[user]用注射器给你注射！"),
 			)
 
 		if(living_target == user)
@@ -93,7 +93,7 @@
 			log_combat(user, living_target, "injected", src, addition="which had [contained]")
 
 	if(reagents.trans_to(target, amount_per_transfer_from_this, transferred_by = user, methods = INJECT))
-		to_chat(user, span_notice("You inject [amount_per_transfer_from_this] units of the solution. The syringe now contains [reagents.total_volume] units."))
+		to_chat(user, span_notice("你注射了[amount_per_transfer_from_this]单位溶液。注射器内还剩[reagents.total_volume]单位。"))
 		target.update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
@@ -108,7 +108,7 @@
 	SEND_SIGNAL(target, COMSIG_LIVING_TRY_SYRINGE_WITHDRAW, user)
 
 	if(reagents.holder_full())
-		to_chat(user, span_notice("[src] is full."))
+		to_chat(user, span_notice("[src]已满。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(isliving(target))
@@ -116,30 +116,30 @@
 		var/drawn_amount = reagents.maximum_volume - reagents.total_volume
 		if(target != user)
 			target.visible_message(
-				span_danger("[user] is trying to take a blood sample from [target]!"),
-				span_userdanger("[user] is trying to take a blood sample from you!"),
+				span_danger("[user]正试图从[target]身上采集血样！"),
+				span_userdanger("[user]正试图从你身上采集血样！"),
 			)
 			if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), target, extra_checks = CALLBACK(src, PROC_REF(try_syringe), living_target, user)))
 				return ITEM_INTERACT_BLOCKING
 			if(reagents.holder_full())
 				return ITEM_INTERACT_BLOCKING
 		if(living_target.transfer_blood_to(src, drawn_amount))
-			user.visible_message(span_notice("[user] takes a blood sample from [living_target]."))
+			user.visible_message(span_notice("[user]从[living_target]身上采集了血样。"))
 		else
-			to_chat(user, span_warning("You are unable to draw any blood from [living_target]!"))
+			to_chat(user, span_warning("你无法从[living_target]身上抽到血！"))
 		return ITEM_INTERACT_SUCCESS
 
 	if(!target.reagents.total_volume)
-		to_chat(user, span_warning("[target] is empty!"))
+		to_chat(user, span_warning("[target]是空的！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!target.is_drawable(user))
-		to_chat(user, span_warning("You cannot directly remove reagents from [target]!"))
+		to_chat(user, span_warning("你无法直接从[target]中抽取试剂！"))
 		return ITEM_INTERACT_BLOCKING
 
 	var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transferred_by = user) // transfer from, transfer to - who cares?
 	if(trans)
-		to_chat(user, span_notice("You fill [src] with [trans] units of the solution. It now contains [reagents.total_volume] units."))
+		to_chat(user, span_notice("你向[src]中抽入了[trans]单位溶液。里面现有[reagents.total_volume]单位。"))
 	target.update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
@@ -148,9 +148,9 @@
  */
 /obj/item/reagent_containers/syringe/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item,  discover_after = TRUE)
 	if(source_item)
-		to_chat(victim, span_boldwarning("There's \a [src] in [source_item]!!"))
+		to_chat(victim, span_boldwarning("[source_item]里藏着[src]！！"))
 	else
-		to_chat(victim, span_boldwarning("[src] injects you!"))
+		to_chat(victim, span_boldwarning("[src]向你体内注入了液体！"))
 
 	victim.apply_damage(5, BRUTE, BODY_ZONE_HEAD)
 	reagents?.trans_to(victim, round(reagents.total_volume*(2/3)), transferred_by = user, methods = INJECT)
@@ -267,8 +267,8 @@
 	list_reagents = list(/datum/reagent/medicine/calomel = 15)
 
 /obj/item/reagent_containers/syringe/convermol
-	name = "syringe (convermol)"
-	desc = "Contains convermol. Diluted with granibitaluri."
+	name = "注射器（氧转宁）"
+	desc = "内含氧转宁，以微伤宁稀释。"
 	list_reagents = list(/datum/reagent/medicine/c2/convermol = 6, /datum/reagent/medicine/granibitaluri = 9)
 
 /obj/item/reagent_containers/syringe/antiviral
@@ -422,13 +422,13 @@
 	list_reagents = list(/datum/reagent/medicine/pen_acid = 15)
 
 /obj/item/reagent_containers/syringe/syriniver
-	name = "syringe (syriniver)"
-	desc = "Contains syriniver, used to treat toxins and purge chemicals.The tag on the syringe states 'Inject one time per minute'"
+	name = "注射器（注净灵）"
+	desc = "内含注净灵，用于解毒和清除体内化学物质。注射器标签写着“每分钟注射一次”。"
 	list_reagents = list(/datum/reagent/medicine/c2/syriniver = 15)
 
 /obj/item/reagent_containers/syringe/contraband
-	name = "unlabeled syringe"
-	desc = "A syringe containing some sort of unknown chemical cocktail."
+	name = "无标签注射器"
+	desc = "装着某种不明化学混合液的注射器。"
 
 /obj/item/reagent_containers/syringe/contraband/Initialize(mapload)
 	. = ..()
