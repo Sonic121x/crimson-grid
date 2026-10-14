@@ -8,8 +8,8 @@
 */
 /datum/symptom/deafness
 	name = "Deafness"
-	desc = "The virus causes inflammation of the eardrums, causing intermittent deafness."
-	illness = "Aural Perforation"
+	desc = "病毒导致耳膜发炎，引发间歇性耳聋。"
+	illness = "耳膜穿孔"
 	stealth = 0
 	resistance = 1
 	stage_speed = 1
@@ -21,8 +21,8 @@
 	required_organ = ORGAN_SLOT_EARS
 	symptom_cure = /datum/reagent/medicine/psicodine
 	threshold_descs = list(
-		"Resistance 9" = "Causes permanent deafness, instead of intermittent.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"抗性 9" = "造成永久性耳聋，而非间歇性耳聋。",
+		"隐蔽性 4" = "症状在发作前难以察觉。",
 	)
 	var/causes_permanent_deafness = FALSE
 	var/suppress_warning = FALSE
@@ -50,17 +50,17 @@
 	switch(advanced_disease.stage)
 		if(3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("You hear a ringing in your ear.", "Your ears pop.")]"))
+				to_chat(infected_mob, span_warning("[pick("你听到耳内响起鸣声。", "你的耳内啵地响了一声。")]"))
 		if(5)
 			if(causes_permanent_deafness)
 				if(!HAS_TRAIT_FROM(infected_mob, TRAIT_DEAF, DISEASE_TRAIT))
-					to_chat(infected_mob, span_userdanger("Your ears pop painfully and start bleeding!"))
+					to_chat(infected_mob, span_userdanger("你的耳内啪地一声，传来剧痛并开始流血！"))
 					// Just absolutely murder me man
 					infected_mob.adjust_organ_loss(ORGAN_SLOT_EARS, INFINITY)
 					infected_mob.emote("scream")
 					ADD_TRAIT(infected_mob, TRAIT_DEAF, DISEASE_TRAIT)
 			else
-				to_chat(infected_mob, span_userdanger("Your ears pop and begin ringing loudly!"))
+				to_chat(infected_mob, span_userdanger("你的耳内啵地一声，随后响起刺耳的鸣声！"))
 				var/obj/item/organ/ears/ears = infected_mob.get_organ_slot(ORGAN_SLOT_EARS)
 				var/deafness_to_add = min(40 SECONDS - ears.temporary_deafness, 30 SECONDS)
 				if(deafness_to_add > 0)

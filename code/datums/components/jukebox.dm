@@ -138,7 +138,7 @@
 		UNTYPED_LIST_ADD(songs_data, list( \
 			"name" = song_name, \
 			"length" = DisplayTimeText(one_song.song_length), \
-			"beat" = one_song.song_beat_deciseconds || "Unknown", \
+			"beat" = one_song.song_beat_deciseconds || "未知", \
 		))
 
 	data["active"] = !!active_song_sound

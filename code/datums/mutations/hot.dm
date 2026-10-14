@@ -1,8 +1,8 @@
 /datum/mutation/cindikinesis
-	name = "Cindikinesis"
-	desc = "The subject can draw heat out of the air to produce a pile of ash at will."
+	name = "凝灰"
+	desc = "受试者能够从空气中汲取热量，随意生成一堆灰烬。"
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your hand feels warm.")
+	text_gain_indication = span_notice("你的手感到温暖。")
 	instability = POSITIVE_INSTABILITY_MINOR
 	difficulty = 10
 	synchronizer_coeff = 1
@@ -11,7 +11,7 @@
 
 /datum/action/cooldown/spell/conjure_item/ash
 	name = "Create Ash"
-	desc = "Concentrates pyrokinetic forces to create ash, useful for basically nothing."
+	desc = "凝聚火焰之力生成灰烬，基本没什么用。"
 	button_icon_state = "ash"
 
 	cooldown_time = 5 SECONDS
@@ -22,10 +22,10 @@
 	delete_on_failure = FALSE
 
 /datum/mutation/pyrokinesis
-	name = "Pyrokinesis"
-	desc = "The subject can draw positive energy from the environment to fire a bolt of hot energy at will."
+	name = "控火"
+	desc = "受试者能够从环境中汲取正能量，随意发射灼热能量弹。"
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your hand feels hot!")
+	text_gain_indication = span_notice("你的手感到灼热！")
 	instability = POSITIVE_INSTABILITY_MODERATE
 	difficulty = 12
 	synchronizer_coeff = 1
@@ -35,7 +35,7 @@
 
 /datum/action/cooldown/spell/pointed/projectile/pyro
 	name = "Pyrobeam"
-	desc = "This power fires a heated bolt at a target."
+	desc = "向目标发射一枚灼热能量弹。"
 	button_icon_state = "firebeam"
 	base_icon_state = "firebeam"
 	active_overlay_icon_state = "bg_spell_border_active_blue"
@@ -44,6 +44,6 @@
 	spell_requirements = NONE
 	antimagic_flags = NONE
 
-	active_msg = "You focus your pyrokinesis!"
-	deactive_msg = "You cool down."
+	active_msg = "你开始凝聚火焰之力！"
+	deactive_msg = "你冷静了下来。"
 	projectile_type = /obj/projectile/temp/pyro

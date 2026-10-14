@@ -20,7 +20,7 @@
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 	if(!grant_message) //Yes we could do this in the init call with default args, but it scares people
-		grant_message = "You have become friends with [faction_to_grant]"
+		grant_message = "你与[faction_to_grant == FACTION_CARP ? "太空鲤鱼" : faction_to_grant]成为了朋友。"
 	src.faction_to_grant = faction_to_grant
 	src.holy_role_required = holy_role_required
 	src.grant_message = grant_message
@@ -36,18 +36,18 @@
 /datum/component/faction_granter/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(used)
-		examine_list += span_notice("[parent]'s favor granting power has been used up.")
+		examine_list += span_notice("[parent]用来赐予好感的力量已经耗尽了。")
 	else
-		examine_list += span_notice("Using [parent] in your hand will grant you favor with [faction_to_grant]\s")
+		examine_list += span_notice("手持[parent]并使用它，即可获得[faction_to_grant == FACTION_CARP ? "太空鲤鱼" : faction_to_grant]的好感。")
 
 ///signal called on parent being interacted with in hand
 /datum/component/faction_granter/proc/on_self_attack(atom/source, mob/user)
 	SIGNAL_HANDLER
 	if(used)
-		to_chat(user, span_warning("The power of [parent] has been used up!"))
+		to_chat(user, span_warning("[parent]的力量已经耗尽了！"))
 		return
 	if(user.mind?.holy_role < holy_role_required)
-		to_chat(user, span_warning("You are not holy enough to invoke the power of [parent]!"))
+		to_chat(user, span_warning("你的神圣资质不足以唤起[parent]的力量！"))
 		return
 
 	to_chat(user, grant_message)

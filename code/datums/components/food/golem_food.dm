@@ -44,10 +44,10 @@
 	if (user.combat_mode || !HAS_TRAIT(target, TRAIT_ROCK_EATER))
 		return
 	if (extra_validation && !extra_validation.Invoke())
-		source.balloon_alert(user, "not edible!")
+		source.balloon_alert(user, "不能食用！")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	if (!snack_type.can_consume(target))
-		source.balloon_alert(user, "can't consume!")
+		source.balloon_alert(user, "无法吃下！")
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	if (isnull(golem_snack))
 		create_golem_snack(source)

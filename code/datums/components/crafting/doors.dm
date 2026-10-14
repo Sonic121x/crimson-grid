@@ -1,5 +1,5 @@
 /datum/crafting_recipe/shutters
-	name = "Shutters"
+	name = "卷帘门"
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 5,
 		/obj/item/stack/cable_coil = 5,
@@ -13,7 +13,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/blast_doors
-	name = "Blast Door"
+	name = "防爆门"
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 15,
 		/obj/item/stack/cable_coil = 15,

@@ -39,10 +39,10 @@
 /datum/component/defaceable/proc/on_hovered(atom/source, list/context, obj/item/held_item, mob/user)
 	if (HAS_TRAIT(source, TRAIT_DEFACED))
 		if (is_type_in_list(held_item, list(/obj/item/reagent_containers/spray, /obj/item/soap, /obj/item/rag)))
-			context[SCREENTIP_CONTEXT_LMB] = "Clean"
+			context[SCREENTIP_CONTEXT_LMB] = "清理"
 	else
 		if (istype(held_item, /obj/item/pen) || istype(held_item, /obj/item/toy/crayon))
-			context[SCREENTIP_CONTEXT_LMB] = "Draw [drawing_of ? drawing_of : "on"]"
+			context[SCREENTIP_CONTEXT_LMB] = "[drawing_of ? "画上[list("a face" = "一张脸", "eyes" = "眼睛")[drawing_of] || drawing_of]" : "涂画"]"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /// See if someone can draw on us
@@ -100,4 +100,4 @@
 /// See it there
 /datum/component/defaceable/proc/on_examined(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_notice("Someone has crudely drawn [drawing_of] on [source.p_them()].")
+	examine_list += span_notice("有人在上面粗糙地画了[list("a face" = "一张脸", "eyes" = "眼睛")[drawing_of] || drawing_of]。")

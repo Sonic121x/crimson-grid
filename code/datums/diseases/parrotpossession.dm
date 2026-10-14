@@ -1,15 +1,15 @@
 /datum/disease/parrot_possession
-	name = "Parrot Possession"
+	name = "鹦鹉附身"
 	max_stages = 1
-	spread_text = "None"
+	spread_text = "不传染"
 	spread_flags = DISEASE_SPREAD_SPECIAL
 	disease_flags = CURABLE
-	cure_text = /datum/reagent/water/holywater::name
+	cure_text = "圣水"
 	cures = list(/datum/reagent/water/holywater)
 	cure_chance = 10
-	agent = "Avian Vengence"
+	agent = "鸟类的复仇"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "Subject is possessed by the vengeful spirit of a parrot. Call the Chaplain."
+	desc = "患者被一只鹦鹉的复仇怨灵附身了。请找牧师。"
 	severity = DISEASE_SEVERITY_MEDIUM
 	infectable_biotypes = MOB_ORGANIC|MOB_UNDEAD|MOB_ROBOTIC|MOB_MINERAL
 	bypasses_immunity = TRUE //2spook
@@ -37,8 +37,8 @@
 		UnregisterSignal(inside_parrot, list(COMSIG_PREQDELETED, COMSIG_MOVABLE_MOVED))
 		inside_parrot.forceMove(affected_mob.drop_location())
 		affected_mob.visible_message(
-			span_danger("[inside_parrot] is violently driven out of [affected_mob]!"),
-			span_userdanger("[inside_parrot] bursts out of your chest!"),
+			span_danger("[inside_parrot]被猛烈地从[affected_mob]体内驱逐出来！"),
+			span_userdanger("[inside_parrot]从你的胸口猛冲而出！"),
 		)
 	parrot_controller = null
 	return ..()

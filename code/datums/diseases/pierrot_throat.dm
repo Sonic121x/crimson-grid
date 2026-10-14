@@ -1,15 +1,15 @@
 /datum/disease/pierrot_throat
-	name = "Pierrot's Throat"
+	name = "丑角喉症"
 	max_stages = 4
-	spread_text = "Airborne"
-	cure_text = "Banana products, especially banana bread."
+	spread_text = "空气传播"
+	cure_text = "香蕉制品，尤其是香蕉面包。"
 	cures = list(/datum/reagent/consumable/banana)
 	cure_chance = 50
-	agent = "H0NI<42 Virus"
+	agent = "H0NI<42病毒"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spreading_modifier = 0.75
-	desc = "A strange virus rumored to originate from unwashed clown costumes. \
-		If left untreated the subject's vocal cords will be affected, likely driving others to insanity."
+	desc = "一种奇怪的病毒，据说源于没洗过的小丑服。\
+		若不治疗，患者的声带将受影响，很可能把周围的人逼疯。"
 	severity = DISEASE_SEVERITY_MEDIUM
 	required_organ = ORGAN_SLOT_TONGUE
 
@@ -21,13 +21,13 @@
 	switch(stage)
 		if(1)
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel a little silly."))
+				to_chat(affected_mob, span_danger("你觉得自己有点傻乎乎的。"))
 		if(2)
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You start seeing rainbows."))
+				to_chat(affected_mob, span_danger("你的眼前开始出现彩虹。"))
 		if(3)
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your thoughts are interrupted by a loud <b>HONK!</b>"))
+				to_chat(affected_mob, span_danger("一声响亮的<b>HONK!</b>打断了你的思绪。"))
 		if(4)
 			if(SPT_PROB(2.5, seconds_per_tick))
 				affected_mob.say( pick( list("HONK!", "Honk!", "Honk.", "Honk?", "Honk!!", "Honk?!", "Honk...") ) , forced = "pierrot's throat")

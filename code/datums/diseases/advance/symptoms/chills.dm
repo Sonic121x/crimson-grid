@@ -10,8 +10,8 @@
 
 /datum/symptom/chills
 	name = "Chills"
-	desc = "The virus inhibits the body's thermoregulation, cooling the body down."
-	illness = "Cold Shoulder"
+	desc = "病毒抑制身体的体温调节功能，使体温降低。"
+	illness = "冷肩症"
 	stealth = 1
 	resistance = 2
 	stage_speed = 3
@@ -21,8 +21,8 @@
 	symptom_delay = 20
 	symptom_cure = /datum/reagent/medicine/leporazine
 	threshold_descs = list(
-		"Stage Speed 5" = "Increases the intensity of the cooling; the host can fall below safe temperature levels.",
-		"Stage Speed 10" = "Increases the intensity of the cooling even further."
+		"发展速度 5" = "增强降温效果，宿主体温可能降至安全范围以下。",
+		"发展速度 10" = "进一步增强降温效果。"
 	)
 	var/unsafe = FALSE //over the cold threshold
 
@@ -42,9 +42,9 @@
 		return
 	var/mob/living/carbon/M = A.affected_mob
 	if(!unsafe || A.stage < 4)
-		to_chat(M, span_warning("[pick("You feel cold.", "You shiver.")]"))
+		to_chat(M, span_warning("[pick("你感到寒冷。", "你打了个寒战。")]"))
 	else
-		to_chat(M, span_userdanger("[pick("You feel your blood run cold.", "You feel ice in your veins.", "You feel like you can't heat up.", "You shiver violently.")]"))
+		to_chat(M, span_userdanger("[pick("你感到血液变得冰冷。", "你觉得血管里结了冰。", "你觉得怎么也暖和不起来。", "你冻得剧烈发抖。")]"))
 	set_body_temp(A.affected_mob, A)
 
 /**

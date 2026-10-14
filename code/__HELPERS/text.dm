@@ -24,11 +24,11 @@
 ///returns nothing with an alert instead of the message if it contains something in the ic filter, and sanitizes normally if the name is fine. It returns nothing so it backs out of the input the same way as if you had entered nothing.
 /proc/sanitize_name(target, allow_numbers = FALSE, cap_after_symbols = TRUE)
 	if(is_ic_filtered(target) || is_soft_ic_filtered(target))
-		tgui_alert(usr, "You cannot set a name that contains a word prohibited in IC chat!")
+		tgui_alert(usr, "名称不能包含角色内聊天中禁止使用的词语！")
 		return ""
 	var/result = reject_bad_name(target, allow_numbers = allow_numbers, strict = TRUE, cap_after_symbols = cap_after_symbols)
 	if(!result)
-		tgui_alert(usr, "Invalid name.")
+		tgui_alert(usr, "名称无效。")
 		return ""
 	return sanitize(result)
 
@@ -1107,7 +1107,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 ///runs `piglatin_word()` proc on each word in a sentence. preserves caps and punctuation
 /proc/piglatin_sentence(text)
-	var/text_length = length(text)
+	var/text_length = length_char(text)
 
 	//remove caps since words will be shuffled
 	text = LOWER_TEXT(text)
@@ -1115,12 +1115,12 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/punctuation = ""
 	var/punctuation_hit_list = list("!","?",".","-")
 	for(var/letter_index in text_length to 1 step -1)
-		var/letter = text[letter_index]
+		var/letter = copytext_char(text, letter_index, letter_index + 1)
 		if(!(letter in punctuation_hit_list))
 			break
 		punctuation += letter
 	punctuation = reverse_text(punctuation)
-	text = copytext(text, 1, ((text_length + 1) - length(punctuation)))
+	text = copytext_char(text, 1, ((text_length + 1) - length_char(punctuation)))
 
 	//now piglatin each word
 	var/list/old_words = splittext(text, " ")
@@ -1135,23 +1135,23 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 ///takes "word", and returns it piglatinized.
 /proc/piglatin_word(word)
-	if(length(word) == 1)
+	if(length_char(word) == 1)
 		return word
-	var/first_letter = copytext(word, 1, 2)
-	var/first_two_letters = copytext(word, 1, 3)
+	var/first_letter = copytext_char(word, 1, 2)
+	var/first_two_letters = copytext_char(word, 1, 3)
 	var/first_word_is_vowel = (first_letter in VOWELS)
-	var/second_word_is_vowel = (copytext(word, 2, 3) in VOWELS)
+	var/second_word_is_vowel = (copytext_char(word, 2, 3) in VOWELS)
 	//If a word starts with a vowel add the word "way" at the end of the word.
 	if(first_word_is_vowel)
 		return word + pick("yay", "way", "hay") //in cultures around the world it's different, so heck lets have fun and make it random. should still be readable
 	//If a word starts with a consonant and a vowel, put the first letter of the word at the end of the word and add "ay."
 	if(!first_word_is_vowel && second_word_is_vowel)
-		word = copytext(word, 2)
+		word = copytext_char(word, 2)
 		word += first_letter
 		return word + "ay"
 	//If a word starts with two consonants move the two consonants to the end of the word and add "ay."
 	if(!first_word_is_vowel && !second_word_is_vowel)
-		word = copytext(word, 3)
+		word = copytext_char(word, 3)
 		word += first_two_letters
 		return word + "ay"
 	//otherwise unmutated
@@ -1189,28 +1189,28 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 /proc/weight_class_to_text(w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
-			. = "tiny"
+			. = "微型"
 		if(WEIGHT_CLASS_SMALL)
-			. = "small"
+			. = "小型"
 		if(WEIGHT_CLASS_NORMAL)
-			. = "normal-sized"
+			. = "中型"
 		if(WEIGHT_CLASS_BULKY)
-			. = "bulky"
+			. = "大型"
 		if(WEIGHT_CLASS_HUGE)
-			. = "huge"
+			. = "巨型"
 		if(WEIGHT_CLASS_GIGANTIC)
-			. = "gigantic"
+			. = "超巨型"
 		else
 			. = ""
 
 /proc/weight_class_to_tooltip(w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY to WEIGHT_CLASS_SMALL)
-			return "This item can fit into pockets, boxes and backpacks."
+			return "此物品可以放进口袋、盒子和背包。"
 		if(WEIGHT_CLASS_NORMAL)
-			return "This item can fit into backpacks."
+			return "此物品可以放进背包。"
 		if(WEIGHT_CLASS_BULKY to WEIGHT_CLASS_GIGANTIC)
-			return "This item is too large to fit into any standard storage."
+			return "此物品过大，无法放入任何标准储物容器。"
 	return ""
 
 /// Removes all non-alphanumerics from the text, keep in mind this can lead to id conflicts

@@ -103,7 +103,7 @@
 		var/datum/material/M = I
 		var/amt = materials[I] / SHEET_MATERIAL_AMOUNT
 		if(amt)
-			examine_texts += span_notice("It has [amt] sheets of [LOWER_TEXT(M.name)] stored.")
+			examine_texts += span_notice("储存了[amt]份[M.get_localized_name()]板材。")
 
 /datum/material_container/vv_edit_var(var_name, var_value)
 	var/old_flags = mat_container_flags
@@ -326,7 +326,7 @@
 			//duffle bags needs to be unzipped
 			if(target_item.atom_storage?.locked)
 				if(!(mat_container_flags & MATCONTAINER_SILENT))
-					to_chat(user, span_warning("[target_item] has its storage locked"))
+					to_chat(user, span_warning("[target_item]的储物空间已锁定。"))
 				return
 
 			//anything that isn't a stack cannot be split so find out if we have enough space, we don't want to consume half the contents of an object & leave it in a broken state
@@ -337,7 +337,7 @@
 					total_amount += get_item_material_amount(weapon)
 				if(!has_space(total_amount))
 					if(!(mat_container_flags & MATCONTAINER_SILENT))
-						to_chat(user, span_warning("[parent] does not have enough space for [target_item]!"))
+						to_chat(user, span_warning("[parent]没有足够的空间容纳[target_item]！"))
 					return
 
 			first_checks = FALSE
@@ -347,7 +347,7 @@
 		if(isstack(target_item) && precise_insertion)
 			var/atom/current_parent = parent
 			item_stack = target_item
-			var/requested_amount = tgui_input_number(user, "How much do you want to insert?", "Inserting [item_stack.singular_name]s", item_stack.amount, item_stack.amount)
+			var/requested_amount = tgui_input_number(user, "要放入多少？", "放入[item_stack.singular_name]", item_stack.amount, item_stack.amount)
 			if(!requested_amount || QDELETED(target_item) || QDELETED(user) || QDELETED(src))
 				continue
 			if(parent != current_parent || user.get_active_held_item() != active_held)
@@ -465,28 +465,28 @@
 							var/obj/item/stack/stack = item
 							var/sheets = min(count, amount) //minimum between sheets inserted vs sheets consumed(values differ for alloys)
 							if (sheets > 1)
-								to_chat(user, span_notice("[sheets] [stack.singular_name][plural_s(stack.singular_name)] were added to [parent]."))
+								to_chat(user, span_notice("已将[sheets]份[stack.singular_name]放入[parent]。"))
 							else
-								to_chat(user, span_notice("The [stack.singular_name] was added to [parent]."))
+								to_chat(user, span_notice("已将[stack.singular_name]放入[parent]。"))
 						else
 							if (count > 1)
-								to_chat(user, span_notice("[count] [item.name][plural_s(item.name)], worth [amount] sheet\s, were added to [parent]."))
+								to_chat(user, span_notice("已将[count]件[item.name]放入[parent]，折合[amount]份板材。"))
 							else
-								to_chat(user, span_notice("\The [item], worth [amount] sheet\s, [item.p_were()] added to [parent]."))
+								to_chat(user, span_notice("已将[item]放入[parent]，折合[amount]份板材。"))
 					if(MATERIAL_INSERT_ITEM_NO_SPACE) //no space
-						to_chat(user, span_warning("[parent] has no space to accept \the [item]!"))
+						to_chat(user, span_warning("[parent]没有空间容纳[item]！"))
 					if(MATERIAL_INSERT_ITEM_NO_MATS) //no materials inside these items
 						if(isstack(item))
 							var/obj/item/stack/stack = item
-							to_chat(user, span_warning("The [stack.singular_name] has no materials that can be accepted by [parent]!"))
+							to_chat(user, span_warning("[stack.singular_name]不含[parent]可以接收的材料！"))
 						else
-							to_chat(user, span_warning("\The [item][count > 1 ? "[plural_s(item.name)] have" : " [item.p_have()]"] no materials that can be accepted by [parent]!"))
+							to_chat(user, span_warning("[count > 1 ? "这[count]件" : ""][item]不含[parent]可以接收的材料！"))
 					if(MATERIAL_INSERT_ITEM_FAILURE) //could be because the material type was not accepted or other stuff
 						if (isstack(item))
 							var/obj/item/stack/stack = item
-							to_chat(user, span_warning("The [stack.singular_name] was rejected by [parent]!"))
+							to_chat(user, span_warning("[parent]拒绝接收[stack.singular_name]！"))
 						else
-							to_chat(user, span_warning("\The [item][count > 1 ? "[plural_s(item.name)] were" : " [item.p_were()]"] rejected by [parent]!"))
+							to_chat(user, span_warning("[parent]拒绝接收[count > 1 ? "这[count]件" : ""][item]！"))
 
 	//finally delete the items
 	for(var/obj/item/deleting as anything in to_delete)
@@ -796,8 +796,8 @@
 		return NONE
 
 	if (isstack(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Insert stack"
-	context[SCREENTIP_CONTEXT_RMB] = "Insert"
+		context[SCREENTIP_CONTEXT_LMB] = "放入整叠"
+	context[SCREENTIP_CONTEXT_RMB] = "放入"
 
 	return CONTEXTUAL_SCREENTIP_SET
 

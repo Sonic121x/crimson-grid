@@ -2,7 +2,7 @@
 	name = "Create Legion Skull"
 	button_icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	button_icon_state = "legion_head"
-	desc = "Create a legion skull to chase down a targeted enemy"
+	desc = "制造一个军团头骨，追击选定的敌人"
 	cooldown_time = 2 SECONDS
 
 /datum/action/cooldown/mob_cooldown/create_legion_skull/Activate(atom/target_atom)

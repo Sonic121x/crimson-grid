@@ -18,7 +18,7 @@
 
 /// Interdyne medical Staff
 /datum/id_trim/syndicom/Interdyne
-	honorifics = list(", PhD.")
+	honorifics = list("博士")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/Interdyne/pharmacist
@@ -50,7 +50,7 @@
 	access = list(ACCESS_SYNDICATE, ACCESS_MAINT_TUNNELS)
 	big_pointer = FALSE
 	pointer_color = null
-	honorifics = list("Auditor")
+	honorifics = list("审计员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 

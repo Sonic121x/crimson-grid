@@ -204,7 +204,7 @@
 	if (hidden)
 		return
 	var/datum/radial_menu_choice/choice = new()
-	choice.name = list("Stay" = "停留", "Loose" = "自由行动", "Follow" = "跟随", "Play Dead" = "装死", "Good Boy" = "夸奖", "Attack" = "攻击", "Breed" = "繁殖", "Use ability" = "使用能力", "Protect owner" = "保护主人", "Fish" = "钓鱼", "Move" = "移动", "Fetch" = "取回", "Befriend" = "交好")[command_name] || command_name
+	choice.name = list("Stay" = "停留", "Loose" = "自由行动", "Follow" = "跟随", "Play Dead" = "装死", "Good Boy" = "夸奖", "Attack" = "攻击", "Breed" = "繁殖", "Use ability" = "使用能力", "Protect owner" = "保护主人", "Fish" = "钓鱼", "Move" = "移动", "Fetch" = "取回", "Befriend" = "交好", "Clean" = "清洁", "Automate mining" = "自动采矿", "Minebot ability" = "矿工机器人能力", "Toggle lights" = "切换灯光", "Dump ore" = "卸下矿石", "Swirl" = "盘旋", "Enter beehive" = "进入蜂箱", "Exit beehive" = "离开蜂箱", "Scatter" = "散开", "Launch solarbeam" = "发射日光束", "Rapid seeds" = "种子连射", "Flop" = "扑压", "Poison Bubble" = "毒泡", "Blood Rain" = "血雨", "Summon Toads" = "召唤蟾蜍", "Spit" = "吐出", "Draw Rune" = "绘制符文", "Lights" = "灯光", "Photo" = "拍照", "Trick Sequence" = "连环把戏", "Charge" = "冲锋", "Mine" = "采矿")[command_name] || command_name
 	choice.image = icon(icon = radial_icon, icon_state = radial_icon_state)
 	return list("[command_name]" = choice)
 

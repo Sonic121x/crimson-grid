@@ -1,5 +1,5 @@
 /datum/martial_art/kaza_ruk
-	name = "Kaza Ruk"
+	name = "蜥蜴搏击术"
 	id = MARTIALART_KAZA_RUK
 	grab_damage_modifier = 5
 	grab_escape_chance_modifier = -10
@@ -28,8 +28,8 @@
 	return ..()
 
 /datum/action/neck_chop
-	name = "Neck Chop"
-	desc = "Injures the neck, stopping the victim from speaking for a while."
+	name = "劈颈"
+	desc = "击伤目标颈部，使其暂时无法说话。"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "neckchop"
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
@@ -40,17 +40,17 @@
 		return
 	var/datum/martial_art/source = target
 	if (source.streak == "neck_chop")
-		owner.visible_message(span_danger("[owner] assumes a neutral stance."), "<b><i>Your next attack is cleared.</i></b>")
-		owner.balloon_alert(owner, "cleared")
+		owner.visible_message(span_danger("[owner]恢复了普通架势。"), "<b><i>已取消预备的招式。</i></b>")
+		owner.balloon_alert(owner, "已取消")
 		source.streak = ""
 	else
-		owner.visible_message(span_danger("[owner] assumes the Neck Chop stance!"), "<b><i>Your next attack will be a Neck Chop.</i></b>")
-		owner.balloon_alert(owner, "neck chop")
+		owner.visible_message(span_danger("[owner]摆出了劈颈的架势！"), "<b><i>你的下一次攻击将使出劈颈。</i></b>")
+		owner.balloon_alert(owner, "劈颈")
 		source.streak = "neck_chop"
 
 /datum/action/low_sweep
-	name = "Low Sweep"
-	desc = "Trips the victim, knocking them down for a brief moment."
+	name = "低扫"
+	desc = "绊倒目标，使其短暂倒地。"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "legsweep"
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
@@ -61,17 +61,17 @@
 		return
 	var/datum/martial_art/source = target
 	if (source.streak == "low_sweep")
-		owner.visible_message(span_danger("[owner] assumes a neutral stance."), "<b><i>Your next attack is cleared.</i></b>")
-		owner.balloon_alert(owner, "cleared")
+		owner.visible_message(span_danger("[owner]恢复了普通架势。"), "<b><i>已取消预备的招式。</i></b>")
+		owner.balloon_alert(owner, "已取消")
 		source.streak = ""
 	else
-		owner.visible_message(span_danger("[owner] assumes the Low Sweep stance!"), "<b><i>Your next attack will be a Low Sweep.</i></b>")
-		owner.balloon_alert(owner, "low sweep")
+		owner.visible_message(span_danger("[owner]摆出了低扫的架势！"), "<b><i>你的下一次攻击将使出低扫。</i></b>")
+		owner.balloon_alert(owner, "低扫")
 		source.streak = "low_sweep"
 
 /datum/action/lung_punch//referred to internally as 'quick choke'
-	name = "Lung Punch"
-	desc = "Delivers a strong punch just above the victim's abdomen, constraining the lungs. The victim will be unable to breathe for a short time."
+	name = "击肺拳"
+	desc = "向目标腹部上方猛击一拳，压迫其肺部，使其短时间内无法呼吸。"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "lungpunch"
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
@@ -82,24 +82,24 @@
 		return
 	var/datum/martial_art/source = target
 	if (source.streak == "quick_choke")
-		owner.visible_message(span_danger("[owner] assumes a neutral stance."), "<b><i>Your next attack is cleared.</i></b>")
-		owner.balloon_alert(owner, "cleared")
+		owner.visible_message(span_danger("[owner]恢复了普通架势。"), "<b><i>已取消预备的招式。</i></b>")
+		owner.balloon_alert(owner, "已取消")
 		source.streak = ""
 	else
-		owner.visible_message(span_danger("[owner] assumes the Lung Punch stance!"), "<b><i>Your next attack will be a Lung Punch.</i></b>")
-		owner.balloon_alert(owner, "lung punch")
+		owner.visible_message(span_danger("[owner]摆出了击肺拳的架势！"), "<b><i>你的下一次攻击将使出击肺拳。</i></b>")
+		owner.balloon_alert(owner, "击肺拳")
 		source.streak = "quick_choke"//internal name for lung punch
 
 /datum/martial_art/kaza_ruk/activate_style(mob/living/new_holder)
 	. = ..()
-	to_chat(new_holder, span_userdanger("You know the arts of [name]!"))
-	to_chat(new_holder, span_danger("Place your cursor over a move at the top of the screen to see what it does."))
+	to_chat(new_holder, span_userdanger("你掌握了[name]！"))
+	to_chat(new_holder, span_danger("将鼠标移到屏幕上方的招式图标上，即可查看其效果。"))
 	neckchop.Grant(new_holder)
 	lowsweep.Grant(new_holder)
 	lungpunch.Grant(new_holder)
 
 /datum/martial_art/kaza_ruk/deactivate_style(mob/living/remove_from)
-	to_chat(remove_from, span_userdanger("You suddenly forget the arts of [name]..."))
+	to_chat(remove_from, span_userdanger("你突然忘记了[name]的招式……"))
 	neckchop?.Remove(remove_from)
 	lowsweep?.Remove(remove_from)
 	lungpunch?.Remove(remove_from)
@@ -128,22 +128,22 @@
 		return MARTIAL_ATTACK_INVALID // Does 5 damage, so we can't let pacifists leg sweep.
 
 	var/tail_sweeping = FALSE
-	var/sweeping_language = "leg"
+	var/sweeping_language = "腿"
 	if(ishuman(attacker))
 		var/mob/living/carbon/possible_human = attacker
 		var/obj/item/organ/tail/lizard/possible_lizard_tail = possible_human.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 		if(possible_lizard_tail)
 			tail_sweeping = TRUE
-			sweeping_language = "tail"
+			sweeping_language = "尾巴"
 
 	defender.visible_message(
-		span_warning("[attacker] [sweeping_language] sweeps [defender]!"),
-		span_userdanger("Your legs are sweeped by [attacker]!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker]用[sweeping_language]扫倒了[defender]！"),
+		span_userdanger("[attacker]扫中了你的双腿！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 		null,
 		attacker,
 	)
-	to_chat(attacker, span_danger("You [sweeping_language] sweep [defender]!"))
+	to_chat(attacker, span_danger("你用[sweeping_language]扫倒了[defender]！"))
 	playsound(attacker, 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 
 	if(tail_sweeping)
@@ -157,13 +157,13 @@
 /datum/martial_art/kaza_ruk/proc/quick_choke(mob/living/attacker, mob/living/defender)//is actually lung punch
 	attacker.do_attack_animation(defender)
 	defender.visible_message(
-		span_warning("[attacker] pounds [defender] on the chest!"),
-		span_userdanger("Your chest is slammed by [attacker]! You can't breathe!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker]猛击[defender]的胸口！"),
+		span_userdanger("[attacker]猛击了你的胸口！你喘不过气了！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
-	to_chat(attacker, span_danger("You pound [defender] on the chest!"))
+	to_chat(attacker, span_danger("你猛击[defender]的胸口！"))
 	playsound(attacker, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	if(defender.losebreath <= 10)
 		defender.losebreath = clamp(defender.losebreath + 5, 0, 10)
@@ -176,13 +176,13 @@
 		return MARTIAL_ATTACK_INVALID // Does 10 damage, so we can't let pacifists neck chop.
 	attacker.do_attack_animation(defender)
 	defender.visible_message(
-		span_warning("[attacker] karate chops [defender]'s neck!"),
-		span_userdanger("Your neck is karate chopped by [attacker], rendering you unable to speak!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker]用手刀劈中了[defender]的颈部！"),
+		span_userdanger("[attacker]用手刀劈中了你的颈部，让你无法说话！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
-	to_chat(attacker, span_danger("You karate chop [defender]'s neck, rendering [defender.p_them()] unable to speak!"))
+	to_chat(attacker, span_danger("你用手刀劈中了[defender]的颈部，使其无法说话！"))
 	playsound(attacker, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	defender.apply_damage(10, attacker.get_attack_type(), BODY_ZONE_HEAD)
 	defender.adjust_silence_up_to(20 SECONDS, 20 SECONDS)
@@ -207,13 +207,13 @@
 	if(prob(60) && stuff_in_hand && defender.temporarilyRemoveItemFromInventory(stuff_in_hand))
 		attacker.put_in_hands(stuff_in_hand)
 		defender.visible_message(
-			span_danger("[attacker] disarms [defender]!"),
-			span_userdanger("You're disarmed by [attacker]!"),
-			span_hear("You hear aggressive shuffling!"),
+			span_danger("[attacker]缴械了[defender]！"),
+			span_userdanger("你被[attacker]缴械了！"),
+			span_hear("你听到激烈的扭打声！"),
 			COMBAT_MESSAGE_RANGE,
 			attacker,
 		)
-		to_chat(attacker, span_danger("You disarm [defender]!"))
+		to_chat(attacker, span_danger("你缴械了[defender]！"))
 		playsound(defender, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		log_combat(attacker, defender, "disarmed (Kaza Ruk)", addition = "(disarmed of [stuff_in_hand])")
 	return MARTIAL_ATTACK_INVALID // normal shove
@@ -239,20 +239,20 @@
 
 	var/tail_usage = FALSE
 	var/kicking = (atk_effect == ATTACK_EFFECT_KICK)
-	var/kick_language = "an axe kick"
-	var/strike_language = "an elbow strike"
+	var/kick_language = "下劈踢"
+	var/strike_language = "肘击"
 	if(ishuman(source))
 		var/mob/living/carbon/possible_human = source
 		var/obj/item/organ/tail/lizard/possible_lizard_tail = possible_human.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 		if(possible_lizard_tail)
 			tail_usage = TRUE
-			kick_language = "a helmsplitter tail strike"
-			strike_language = "a whiplash tail spin"
+			kick_language = "劈头尾击"
+			strike_language = "回旋尾鞭"
 
 	source.visible_message(
-		span_warning("[source] follows up with [kicking ? kick_language : strike_language] against [target]!"),
-		span_notice("You deliver [kicking ? kick_language : strike_language] against [target]!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[source]紧接着对[target]使出一记[kicking ? kick_language : strike_language]！"),
+		span_notice("你对[target]使出一记[kicking ? kick_language : strike_language]！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 	)
 	if(tail_usage)
 		source.emote(kicking ? "flip" : "spin")
@@ -301,9 +301,9 @@
 	reskin_color = list(0.33, 0.33, 0.33, 0, 0, 0, 0, 0, 1)
 
 /obj/item/clothing/gloves/kaza_ruk/sec//more obviously named, given to sec
-	name = "kaza ruk gloves"
-	desc = "These gloves seem to guide you through a non-lizardperson friendly variant of the Tiziran martial art, Kaza Ruk. \
-		You're not entirely sure how they do that. Probably nanites."
+	name = "蜥蜴搏击术手套"
+	desc = "这副手套似乎能引导你使出提兹拉蜥蜴搏击术的改良招式，就算不是蜥蜴人也能轻松运用。\
+		你也不太清楚它是怎么做到的。大概靠的是纳米机器人吧。"
 	icon_state = "fightgloves"
 	greyscale_colors = "#c41e0d"
 	cold_protection = HANDS
@@ -316,8 +316,8 @@
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/kaza_ruk, infinite = TRUE)
 
 /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
-	name = "combat gloves plus"
-	desc = "These tactical gloves are fireproof and electrically insulated. These gloves seem to guide you through a non-lizardperson friendly variant of the Tiziran martial art, Kaza Ruk."
+	name = "强化战斗手套"
+	desc = "这副战术手套既防火又绝缘，还似乎能引导你使出提兹拉蜥蜴搏击术的改良招式，就算不是蜥蜴人也能轻松运用。"
 	icon_state = "black"
 	greyscale_colors = "#2f2e31"
 	siemens_coefficient = 0

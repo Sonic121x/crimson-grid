@@ -15,7 +15,7 @@
 
 	INVOKE_ASYNC(big_guy, TYPE_PROC_REF(/atom/movable, start_pulling), batman)
 	big_guy.face_atom(batman)
-	batman.visible_message(span_warning("[batman] gets a slightly too tight hug from [big_guy]!"), span_userdanger("You feel your body break as [big_guy] embraces you!"))
+	batman.visible_message(span_warning("[big_guy]给了[batman]一个有些过紧的拥抱！"), span_userdanger("[big_guy]紧紧抱住你，你感觉自己的骨头都被压断了！"))
 	for(var/zone in GLOB.all_body_zones - BODY_ZONE_HEAD)
 		batman.apply_damage(15, BRUTE, zone, wound_bonus = 35)
 

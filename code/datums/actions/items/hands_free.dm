@@ -9,4 +9,4 @@
 
 /datum/action/item_action/hands_free/moth_googles
 	name = "Toggle Zoom"
-	desc = "Look further out with the help of your mothic googles."
+	desc = "借助蛾人护目镜看得更远。"

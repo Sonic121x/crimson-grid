@@ -177,13 +177,13 @@ SUBSYSTEM_DEF(shuttle)
 		//Adds access requirements to the end of each description.
 		if(pack.access && pack.access_view)
 			if(pack.access == pack.access_view)
-				pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open or purchase."
+				pack.desc += "开启或购买需要[SSid_access.get_access_desc(pack.access)]权限。"
 			else
-				pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open, or [SSid_access.get_access_desc(pack.access_view)] access to purchase."
+				pack.desc += "开启需要[SSid_access.get_access_desc(pack.access)]权限，购买需要[SSid_access.get_access_desc(pack.access_view)]权限。"
 		else if(pack.access)
-			pack.desc += " Requires [SSid_access.get_access_desc(pack.access)] access to open."
+			pack.desc += "开启需要[SSid_access.get_access_desc(pack.access)]权限。"
 		else if(pack.access_view)
-			pack.desc += " Requires [SSid_access.get_access_desc(pack.access_view)] access to purchase."
+			pack.desc += "购买需要[SSid_access.get_access_desc(pack.access_view)]权限。"
 
 		supply_packs[pack.id] = pack
 
@@ -274,10 +274,10 @@ SUBSYSTEM_DEF(shuttle)
 		log_shuttle("[msg] Alive: [alive], Roundstart: [total], Threshold: [threshold]")
 		emergency_no_recall = TRUE
 		priority_announce(
-			text = "Catastrophic casualties detected: crisis shuttle protocols activated - jamming recall signals across all frequencies.",
-			title = "Emergency Shuttle Dispatched",
+			text = "检测到灾难性伤亡：已启动穿梭机危机协议，正在干扰所有频率的召回信号。",
+			title = "紧急穿梭机已派出",
 			sound = ANNOUNCER_SHUTTLECALLED,
-			sender_override = "Emergency Shuttle Uplink Alert",
+			sender_override = "紧急穿梭机上行链路警报",
 			color_override = "orange",
 		)
 		if(EMERGENCY_IDLE_OR_RECALLED || emergency.timeLeft(1) > emergency_call_time * ALERT_COEFF_AUTOEVAC_CRITICAL)
@@ -288,10 +288,10 @@ SUBSYSTEM_DEF(shuttle)
 		CRASH("Emergency shuttle block was called, but missing a value for the lockout duration")
 	if(admin_emergency_no_recall)
 		priority_announce(
-			text = "Emergency shuttle uplink interference detected, shuttle call disabled while the system reinitializes. Estimated restore in [DisplayTimeText(lockout_timer, round_seconds_to = 60)].",
-			title = "Uplink Interference",
+			text = "检测到紧急穿梭机上行链路受到干扰，系统重新初始化期间无法呼叫穿梭机。预计于 [DisplayTimeText(lockout_timer, round_seconds_to = 60)] 后恢复。",
+			title = "上行链路受干扰",
 			sound = 'sound/announcer/announcement/announce_dig.ogg',
-			sender_override = "Emergency Shuttle Uplink Alert",
+			sender_override = "紧急穿梭机上行链路警报",
 			color_override = "grey",
 		)
 		addtimer(CALLBACK(src, PROC_REF(unblock_recall)), lockout_timer)
@@ -302,10 +302,10 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/unblock_recall()
 	if(admin_emergency_no_recall)
 		priority_announce(
-			text= "Emergency shuttle uplink services are now back online.",
-			title = "Uplink Restored",
+			text= "紧急穿梭机上行链路服务已恢复。",
+			title = "上行链路已恢复",
 			sound = 'sound/announcer/announcement/announce_dig.ogg',
-			sender_override = "Emergency Shuttle Uplink Alert",
+			sender_override = "紧急穿梭机上行链路警报",
 			color_override = "green",
 		)
 		return
@@ -328,21 +328,21 @@ SUBSYSTEM_DEF(shuttle)
 /datum/controller/subsystem/shuttle/proc/canEvac()
 	var/shuttle_refuel_delay = CONFIG_GET(number/shuttle_refuel_delay)
 	if(world.time - SSticker.round_start_time < shuttle_refuel_delay)
-		return "The emergency shuttle is refueling. Please wait [DisplayTimeText(shuttle_refuel_delay - (world.time - SSticker.round_start_time))] before attempting to call."
+		return "紧急穿梭机正在补充燃料。请等待 [DisplayTimeText(shuttle_refuel_delay - (world.time - SSticker.round_start_time))] 后再尝试呼叫。"
 
 	switch(emergency.mode)
 		if(SHUTTLE_RECALL)
-			return "The emergency shuttle may not be called while returning to CentCom."
+			return "紧急穿梭机正在返回中央指挥部，无法呼叫。"
 		if(SHUTTLE_CALL)
-			return "The emergency shuttle is already on its way."
+			return "紧急穿梭机已在途中。"
 		if(SHUTTLE_DOCKED)
-			return "The emergency shuttle is already here."
+			return "紧急穿梭机已经抵达。"
 		if(SHUTTLE_IGNITING)
-			return "The emergency shuttle is firing its engines to leave."
+			return "紧急穿梭机正在启动引擎准备离开。"
 		if(SHUTTLE_ESCAPE)
-			return "The emergency shuttle is moving away to a safe distance."
+			return "紧急穿梭机正在驶离至安全距离。"
 		if(SHUTTLE_STRANDED)
-			return "The emergency shuttle has been disabled by CentCom."
+			return "中央指挥部已停用紧急穿梭机。"
 
 	return TRUE
 
@@ -382,14 +382,14 @@ SUBSYSTEM_DEF(shuttle)
 		return
 
 	if(length(trim(call_reason)) < CALL_SHUTTLE_REASON_LENGTH && SSsecurity_level.get_current_level_as_number() > SEC_LEVEL_GREEN)
-		to_chat(user, span_alert("You must provide a reason."))
+		to_chat(user, span_alert("你必须提供理由。"))
 		return
 
 	var/area/signal_origin = get_area(user)
 	call_evac_shuttle(call_reason, signal_origin)
 
 	log_shuttle("[key_name(user)] has called the emergency shuttle.")
-	deadchat_broadcast(" has called the shuttle at [span_name("[signal_origin.name]")].", span_name("[user.real_name]"), user, message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast("在[span_name("[signal_origin.name]")]呼叫了穿梭机。", span_name("[user.real_name]"), user, message_type=DEADCHAT_ANNOUNCEMENT)
 	if(call_reason)
 		SSblackbox.record_feedback("text", "shuttle_reason", 1, "[call_reason]")
 		log_shuttle("Shuttle call reason: [call_reason]")
@@ -405,7 +405,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	call_reason = trim(html_encode(call_reason))
 
-	var/emergency_reason = "\n\nNature of emergency:\n[call_reason]"
+	var/emergency_reason = "\n\n紧急情况说明：\n[call_reason]"
 
 	emergency.request(
 		signal_origin = signal_origin,
@@ -431,16 +431,16 @@ SUBSYSTEM_DEF(shuttle)
 
 	if(!admiral_message)
 		admiral_message = pick(GLOB.admiral_messages)
-	var/intercepttext = "<font size = 3><b>Nanotrasen Update</b>: Request For Shuttle.</font><hr>\
-						To whom it may concern:<br><br>\
-						We have taken note of the situation upon [station_name()] and have come to the \
-						conclusion that it does not warrant the abandonment of the station.<br>\
-						If you do not agree with our opinion we suggest that you open a direct \
-						line with us and explain the nature of your crisis.<br><br>\
-						<i>This message has been automatically generated based upon readings from long \
-						range diagnostic tools. To assure the quality of your request every finalized report \
-						is reviewed by an on-call rear admiral.<br>\
-						<b>Rear Admiral's Notes:</b> \
+	var/intercepttext = "<font size = 3><b>纳诺传讯最新通告</b>：穿梭机请求。</font><hr>\
+						致相关人员：<br><br>\
+						我们已了解[station_name()]的现状，并认定\
+						当前情况不足以构成放弃空间站的理由。<br>\
+						如果你们对此有异议，建议与我们建立直接\
+						通讯，说明所面临危机的具体情况。<br><br>\
+						<i>此消息依据远程\
+						诊断设备的读数自动生成。为确保妥善处理请求，每份最终报告\
+						均由值班少将审核。<br>\
+						<b>少将批注：</b>\
 						[admiral_message]"
 	print_command_report(intercepttext, announce = TRUE)
 
@@ -464,7 +464,7 @@ SUBSYSTEM_DEF(shuttle)
 	log_shuttle("[key_name(user)] has recalled the shuttle.")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has recalled the shuttle.")
 	if(!hide_origin)
-		deadchat_broadcast(" has recalled the shuttle from [span_name("[get_area_name(user, TRUE)]")].", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
+		deadchat_broadcast("在[span_name("[get_area_name(user, TRUE)]")]召回了穿梭机。", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 	return TRUE
 
 /// Can this user recall the emergency shuttle? Returns TRUE if they can, otherwise returns FALSE.
@@ -599,20 +599,20 @@ SUBSYSTEM_DEF(shuttle)
 		emergency.timer = null
 		emergency.sound_played = FALSE
 		priority_announce(
-			text = "Departure has been postponed indefinitely pending conflict resolution.",
-			title = "Hostile Environment Detected",
+			text = "离站已无限期推迟，直至冲突解决。",
+			title = "检测到敌对环境",
 			sound = 'sound/announcer/notice/notice1.ogg',
-			sender_override = "Emergency Shuttle Uplink Alert",
+			sender_override = "紧急穿梭机上行链路警报",
 			color_override = "grey",
 		)
 	if(!emergency_no_escape && (emergency.mode == SHUTTLE_STRANDED || emergency.mode == SHUTTLE_DOCKED))
 		emergency.mode = SHUTTLE_DOCKED
 		emergency.setTimer(emergency_dock_time)
 		priority_announce(
-			text = "You have [DisplayTimeText(emergency_dock_time)] to board the emergency shuttle.",
-			title = "Hostile Environment Resolved",
+			text = "你有 [DisplayTimeText(emergency_dock_time)] 的时间登上紧急穿梭机。",
+			title = "敌对环境已解除",
 			sound = 'sound/announcer/announcement/announce_dig.ogg',
-			sender_override = "Emergency Shuttle Uplink Alert",
+			sender_override = "紧急穿梭机上行链路警报",
 			color_override = "green",
 		)
 

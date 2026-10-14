@@ -26,7 +26,7 @@
 /datum/element/muffles_speech/proc/emote_override(mob/living/source, key, params, type_override, intentional, datum/emote/emote)
 	SIGNAL_HANDLER
 	if(!emote.hands_use_check && (emote.emote_type & EMOTE_AUDIBLE))
-		source.audible_message("makes a [pick("strong ", "weak ", "")]noise.", audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE)
+		source.audible_message("发出[pick("响亮的", "微弱的", "")]声音。", audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE)
 		return COMPONENT_CANT_EMOTE
 	return NONE
 
@@ -61,7 +61,7 @@
 
 /datum/element/muffles_speech/proc/fail_spellcast(mob/living/source, datum/action/cooldown/spell/spell)
 	spell.invocation(source)
-	to_chat(source, span_warning("Your mouth covering is making it difficult to say the correct words to cast [spell]..."))
+	to_chat(source, span_warning("嘴上的遮挡物让你难以正确念出施放[spell]所需的咒语……"))
 	if(source.click_intercept == spell)
 		spell.unset_click_ability(source, refund_cooldown = TRUE)
 	spell.StartCooldown(2 SECONDS)

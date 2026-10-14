@@ -14,7 +14,7 @@
 	category = CAT_WEAPON_AMMO
  */
 /datum/crafting_recipe/paperball
-	name = "Paper Ball"
+	name = "纸团"
 	result = /obj/item/ammo_casing/rebar/paperball
 	reqs = list(
 		/obj/item/paper = 1,
@@ -23,7 +23,7 @@
 	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/rebarsyndie
-	name = "jagged iron rod"
+	name = "锯齿铁杆"
 	result = /obj/item/ammo_casing/rebar/syndie
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 1,
@@ -93,7 +93,7 @@
 */
 
 /datum/crafting_recipe/improvisedslug
-	name = "Junk Shell"
+	name = "废料霰弹"
 	result = /obj/effect/spawner/random/junk_shell
 	reqs = list(
 		/obj/item/stack/sheet/iron = 2,
@@ -108,7 +108,7 @@
 	skill_dots_minimum = 3 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/trashball
-	name = "Trashball"
+	name = "垃圾炮弹"
 	result = /obj/item/stack/cannonball/trashball
 	reqs = list(
 		/obj/item/stack/sheet = 5,
@@ -119,7 +119,7 @@
 	unit_test_spawn_extras = list(/obj/item/stack/sheet/iron = 5) //the sheet type is abstract
 
 /datum/crafting_recipe/arrow
-	name = "Arrow"
+	name = "箭"
 	result = /obj/item/ammo_casing/arrow
 	reqs = list(
 		/obj/item/stack/sheet/mineral/wood = 1,
@@ -134,7 +134,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/sticky_arrow
-	name = "Sticky arrow"
+	name = "黏性箭"
 	result = /obj/item/ammo_casing/arrow/sticky
 	reqs = list(
 		/obj/item/ammo_casing/arrow = 1,
@@ -145,7 +145,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY
 
 /datum/crafting_recipe/poison_arrow
-	name = "Poison arrow"
+	name = "毒箭"
 	result = /obj/item/ammo_casing/arrow/poison
 	reqs = list(
 		/obj/item/ammo_casing/arrow = 1,
@@ -156,7 +156,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY
 
 /datum/crafting_recipe/plastic_arrow
-	name = "Plastic Arrow"
+	name = "塑料箭"
 	result = /obj/item/ammo_casing/arrow/plastic
 	reqs = list(
 		/obj/item/stack/sheet/plastic = 1,
@@ -170,7 +170,7 @@
 
 
 /datum/crafting_recipe/holy_arrow
-	name = "Holy Arrow"
+	name = "神圣箭"
 	result = /obj/item/ammo_casing/arrow/holy
 	reqs = list(
 		/obj/item/ammo_casing/arrow = 1,
@@ -184,7 +184,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/ashen_arrow
-	name = "Ashen Arrow"
+	name = "灰烬箭"
 	result = /obj/item/ammo_casing/arrow/ashen
 	reqs = list(
 		/obj/item/stack/sheet/bone = 1,

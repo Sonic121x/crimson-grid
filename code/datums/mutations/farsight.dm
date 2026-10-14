@@ -1,10 +1,10 @@
 /datum/mutation/farsight
-	name = "Farsight"
-	desc = "The subject's eyes are able to see further than normal."
+	name = "远视"
+	desc = "受试者的眼睛能看得比常人更远。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MINOR
-	text_gain_indication = span_notice("You feel your eyes tingle.")
-	text_lose_indication = span_notice("Your eyes feel normal.")
+	text_gain_indication = span_notice("你感到双眼一阵麻痒。")
+	text_lose_indication = span_notice("你的双眼感觉正常了。")
 	difficulty = 16
 	power_coeff = 1
 	power_path = /datum/action/cooldown/spell/farsight
@@ -17,7 +17,7 @@
 
 /datum/action/cooldown/spell/farsight
 	name = "Farsight"
-	desc = "You can see further than normal."
+	desc = "你能看得比常人更远。"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "eye"
 

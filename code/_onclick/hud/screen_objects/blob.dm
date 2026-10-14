@@ -10,8 +10,8 @@
 	closeToolTip(usr)
 
 /atom/movable/screen/blob/jump_to_node
-	name = "Jump to Node"
-	desc = "Moves your camera to a selected blob node."
+	name = "跳转至节点"
+	desc = "将视角移至选定的黏液团节点。"
 	icon_state = "ui_tonode"
 	screen_loc = ui_inventory
 
@@ -22,8 +22,8 @@
 	blob.jump_to_node()
 
 /atom/movable/screen/blob/jump_to_core
-	name = "Jump to Core"
-	desc = "Moves your camera to your blob core."
+	name = "跳转至核心"
+	desc = "将视角移至你的黏液团核心。"
 	icon_state = "ui_tocore"
 	screen_loc = ui_zonesel
 
@@ -31,8 +31,8 @@
 	if(hud?.mymob && isovermind(hud.mymob))
 		var/mob/eye/blob/B = hud.mymob
 		if(!B.placed)
-			name = "Place Blob Core"
-			desc = "Attempt to place your blob core at this location."
+			name = "放置黏液团核心"
+			desc = "尝试在此处放置你的黏液团核心。"
 		else
 			name = initial(name)
 			desc = initial(desc)
@@ -48,15 +48,15 @@
 
 /atom/movable/screen/blob/blobbernaut
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Blobbernaut (ERROR)"
-	desc = "Produces a strong, smart blobbernaut from a factory blob for (ERROR) resources.<br>The factory blob used will become fragile and unable to produce spores."
+	name = "生产黏液巨兽（错误）"
+	desc = "消耗（错误）资源，从黏液团工厂中生成一只强壮而有智慧的黏液巨兽。<br>使用的工厂会变得脆弱，且无法再生产孢子。"
 	icon_state = "ui_blobbernaut"
 	screen_loc = ui_belt
 
 /atom/movable/screen/blob/blobbernaut/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Blobbernaut ([BLOBMOB_BLOBBERNAUT_RESOURCE_COST])"
-	desc = "Produces a strong, smart blobbernaut from a factory blob for [BLOBMOB_BLOBBERNAUT_RESOURCE_COST] resources.<br>The factory blob used will become fragile and unable to produce spores."
+	name = "生产黏液巨兽（[BLOBMOB_BLOBBERNAUT_RESOURCE_COST]）"
+	desc = "消耗[BLOBMOB_BLOBBERNAUT_RESOURCE_COST]资源，从黏液团工厂中生成一只强壮而有智慧的黏液巨兽。<br>使用的工厂会变得脆弱，且无法再生产孢子。"
 
 /atom/movable/screen/blob/blobbernaut/Click()
 	if(!isovermind(usr))
@@ -66,15 +66,15 @@
 
 /atom/movable/screen/blob/resource_blob
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Resource Blob (ERROR)"
-	desc = "Produces a resource blob for ERROR resources.<br>Resource blobs will give you resources every few seconds."
+	name = "生产资源黏液团（错误）"
+	desc = "消耗错误数量的资源，生成资源黏液团。<br>资源黏液团每隔几秒就会为你提供资源。"
 	icon_state = "ui_resource"
 	screen_loc = ui_back
 
 /atom/movable/screen/blob/resource_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Resource Blob ([BLOB_STRUCTURE_RESOURCE_COST])"
-	desc = "Produces a resource blob for [BLOB_STRUCTURE_RESOURCE_COST] resources.<br>Resource blobs will give you resources every few seconds."
+	name = "生产资源黏液团（[BLOB_STRUCTURE_RESOURCE_COST]）"
+	desc = "消耗[BLOB_STRUCTURE_RESOURCE_COST]资源，生成资源黏液团。<br>资源黏液团每隔几秒就会为你提供资源。"
 
 /atom/movable/screen/blob/resource_blob/Click()
 	if(!isovermind(usr))
@@ -84,14 +84,14 @@
 
 /atom/movable/screen/blob/node_blob
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Node Blob (ERROR)"
-	desc = "Produces a node blob for ERROR resources.<br>Node blobs will expand and activate nearby resource and factory blobs."
+	name = "生产黏液团节点（错误）"
+	desc = "消耗错误数量的资源，生成黏液团节点。<br>节点会向外扩张，并激活附近的资源黏液团和工厂。"
 	icon_state = "ui_node"
 
 /atom/movable/screen/blob/node_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Node Blob ([BLOB_STRUCTURE_NODE_COST])"
-	desc = "Produces a node blob for [BLOB_STRUCTURE_NODE_COST] resources.<br>Node blobs will expand and activate nearby resource and factory blobs."
+	name = "生产黏液团节点（[BLOB_STRUCTURE_NODE_COST]）"
+	desc = "消耗[BLOB_STRUCTURE_NODE_COST]资源，生成黏液团节点。<br>节点会向外扩张，并激活附近的资源黏液团和工厂。"
 
 /atom/movable/screen/blob/node_blob/Click()
 	if(!isovermind(usr))
@@ -101,14 +101,14 @@
 
 /atom/movable/screen/blob/factory_blob
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Factory Blob (ERROR)"
-	desc = "Produces a factory blob for ERROR resources.<br>Factory blobs will produce spores every few seconds."
+	name = "生产黏液团工厂（错误）"
+	desc = "消耗错误数量的资源，生成黏液团工厂。<br>工厂每隔几秒就会生产孢子。"
 	icon_state = "ui_factory"
 
 /atom/movable/screen/blob/factory_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Factory Blob ([BLOB_STRUCTURE_FACTORY_COST])"
-	desc = "Produces a factory blob for [BLOB_STRUCTURE_FACTORY_COST] resources.<br>Factory blobs will produce spores every few seconds."
+	name = "生产黏液团工厂（[BLOB_STRUCTURE_FACTORY_COST]）"
+	desc = "消耗[BLOB_STRUCTURE_FACTORY_COST]资源，生成黏液团工厂。<br>工厂每隔几秒就会生产孢子。"
 
 /atom/movable/screen/blob/factory_blob/Click()
 	if(!isovermind(usr))
@@ -118,8 +118,8 @@
 
 /atom/movable/screen/blob/readapt_strain
 	// Description gets given its proper values on Initialize()
-	name = "Readapt Strain"
-	desc = "Allows you to choose a new strain from ERROR random choices for ERROR resources."
+	name = "重新适应品系"
+	desc = "消耗错误数量的资源，从错误数量的随机选项中选择一个新品系。"
 	icon_state = "ui_chemswap"
 	screen_loc = ui_storage1
 
@@ -127,11 +127,11 @@
 	if(hud?.mymob && isovermind(hud.mymob))
 		var/mob/eye/blob/B = hud.mymob
 		if(B.free_strain_rerolls)
-			name = "[initial(name)] (FREE)"
-			desc = "Randomly rerolls your strain for free."
+			name = "[initial(name)]（免费）"
+			desc = "免费随机重选你的品系。"
 		else
 			name = "[initial(name)] ([BLOB_POWER_REROLL_COST])"
-			desc = "Allows you to choose a new strain from [BLOB_POWER_REROLL_CHOICES] random choices for [BLOB_POWER_REROLL_COST] resources."
+			desc = "消耗[BLOB_POWER_REROLL_COST]资源，从[BLOB_POWER_REROLL_CHOICES]个随机选项中选择一个新品系。"
 	return ..()
 
 /atom/movable/screen/blob/readapt_strain/Click()
@@ -141,15 +141,15 @@
 
 /atom/movable/screen/blob/relocate_core
 	// Name and description get given their proper values on Initialize()
-	name = "Relocate Core (ERROR)"
-	desc = "Swaps a node and your core for ERROR resources."
+	name = "转移核心（错误）"
+	desc = "消耗错误数量的资源，交换一个节点与你的核心的位置。"
 	icon_state = "ui_swap"
 	screen_loc = ui_storage2
 
 /atom/movable/screen/blob/relocate_core/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Relocate Core ([BLOB_POWER_RELOCATE_COST])"
-	desc = "Swaps a node and your core for [BLOB_POWER_RELOCATE_COST] resources."
+	name = "转移核心（[BLOB_POWER_RELOCATE_COST]）"
+	desc = "消耗[BLOB_POWER_RELOCATE_COST]资源，交换一个节点与你的核心的位置。"
 
 /atom/movable/screen/blob/relocate_core/Click()
 	if(isovermind(usr))
@@ -157,7 +157,7 @@
 		B.relocate_core()
 
 /atom/movable/screen/blob/blob_power
-	name = "blob power"
+	name = "黏液团能量"
 	icon_state = "block"
 	screen_loc = ui_health
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

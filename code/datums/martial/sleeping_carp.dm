@@ -4,9 +4,9 @@
 #define KNEE_STOMACH_COMBO "GH"
 
 /datum/martial_art/the_sleeping_carp
-	name = "The Sleeping Carp"
+	name = "睡鲤拳"
 	id = MARTIALART_SLEEPINGCARP
-	help_verb = "Recall Teachings"
+	help_verb = "回忆传授的招式"
 	display_combos = TRUE
 	grab_state_modifier = 1
 	/// List of traits applied to users of this martial art.
@@ -82,13 +82,13 @@
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)
 	defender.visible_message(
-		span_danger("[attacker] violently twists [defender]'s [affecting]!"),
-		span_userdanger("[attacker] violently twists your [affecting]!"),
-		span_hear("You hear a sickening sound of bone snapping!"),
+		span_danger("[attacker]猛烈扭转[defender]的[affecting]！"),
+		span_userdanger("[attacker]猛烈扭转你的[affecting]！"),
+		span_hear("你听到骇人的骨头断裂声！"),
 		null,
 		attacker,
 	)
-	to_chat(attacker, span_danger("You violently twist [defender]'s [affecting]!"))
+	to_chat(attacker, span_danger("你猛烈扭转[defender]的[affecting]！"))
 	playsound(defender, 'sound/items/weapons/punch1.ogg', 25, TRUE, -1)
 	log_combat(attacker, defender, "wrist wrenched (Sleeping Carp)")
 	defender.apply_damage(20, BRUTE, affecting, wound_bonus = 30)
@@ -99,9 +99,9 @@
 /datum/martial_art/the_sleeping_carp/proc/launch_kick(mob/living/attacker, mob/living/defender)
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_KICK)
 	defender.visible_message(
-		span_warning("[attacker] kicks [defender] square in the chest, sending them flying!"),
-		span_userdanger("You are kicked square in the chest by [attacker], sending you flying!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker]一脚正中[defender]的胸口，将其踢飞！"),
+		span_userdanger("[attacker]一脚正中你的胸口，将你踢飞！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
@@ -118,12 +118,12 @@
 	playsound(attacker, 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	if(defender.body_position == STANDING_UP)
 		defender.Knockdown(4 SECONDS)
-		defender.visible_message(span_warning("[attacker] kicks [defender] in the head, sending them face first into the floor!"), \
-					span_userdanger("You are kicked in the head by [attacker], sending you crashing to the floor!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)
+		defender.visible_message(span_warning("[attacker]踢中[defender]的头部，让其脸朝下摔在地上！"), \
+					span_userdanger("[attacker]踢中你的头部，让你重重摔在地上！"), span_hear("你听到肉体撞击的骇人闷响！"), COMBAT_MESSAGE_RANGE, attacker)
 	else
 		defender.drop_all_held_items()
-		defender.visible_message(span_warning("[attacker] kicks [defender] in the head!"), \
-					span_userdanger("You are kicked in the head by [attacker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)
+		defender.visible_message(span_warning("[attacker]踢中了[defender]的头部！"), \
+					span_userdanger("你的头部被[attacker]踢中了！"), span_hear("你听到肉体撞击的骇人闷响！"), COMBAT_MESSAGE_RANGE, attacker)
 	defender.apply_damage(40, STAMINA)
 	defender.adjust_dizzy_up_to(10 SECONDS, 10 SECONDS)
 	defender.adjust_temp_blindness_up_to(2 SECONDS, 10 SECONDS)
@@ -135,9 +135,9 @@
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_KICK)
 	playsound(attacker, 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	defender.visible_message(
-		span_warning("[attacker] violently slams [attacker.p_their()] knee into [defender]!"),
-		span_userdanger("You slam your knee straight into [defender]!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker]用膝盖狠狠撞向[defender]！"),
+		span_userdanger("你被[attacker]用膝盖狠狠撞中！"),
+		span_hear("你听到肉体撞击的骇人闷响！"),
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
@@ -153,7 +153,7 @@
 	if(!can_deflect(attacker)) //allows for deniability
 		return MARTIAL_ATTACK_INVALID
 
-	if(defender.check_block(attacker, 0, "[attacker]'s grab", UNARMED_ATTACK))
+	if(defender.check_block(attacker, 0, "[attacker]的抓取", UNARMED_ATTACK))
 		return MARTIAL_ATTACK_FAIL
 
 	add_to_streak("G", defender)
@@ -165,8 +165,8 @@
 	playsound(defender, 'sound/items/weapons/punch1.ogg', 25, TRUE, -1)
 	if(!IS_UNCONSCIOUS(defender) && defender.get_stamina_loss() >= 80) //We put our target to sleep.
 		defender.visible_message(
-			span_danger("[attacker] carefully pinch a nerve in [defender]'s neck, knocking them out cold!"),
-			span_userdanger("[attacker] pinches something in your neck, and you fall unconscious!"),
+			span_danger("[attacker]精准掐住[defender]颈部的一处神经，使其昏了过去！"),
+			span_userdanger("[attacker]掐住你颈部的某处，你随即失去了意识！"),
 		)
 		grab_log_description = "grabbed and nerve pinched"
 		defender.Unconscious(10 SECONDS)
@@ -184,12 +184,12 @@
 		if(!isnull(head))
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
 			defender.visible_message(
-				span_danger("[attacker] snaps the neck of [defender]!"),
-				span_userdanger("Your neck is snapped by [attacker]!"),
-				span_hear("You hear a sickening snap!"),
+				span_danger("[attacker]扭断了[defender]的脖子！"),
+				span_userdanger("你的脖子被[attacker]扭断了！"),
+				span_hear("你听到一声骇人的断裂声！"),
 				ignored_mobs = attacker
 			)
-			to_chat(attacker, span_danger("In a swift motion, you snap the neck of [defender]!"))
+			to_chat(attacker, span_danger("你动作利落地扭断了[defender]的脖子！"))
 			log_combat(attacker, defender, "snapped neck")
 			defender.apply_damage(100, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND)
 			if(!HAS_TRAIT(defender, TRAIT_NODEATH))
@@ -258,8 +258,8 @@
 
 
 	carp_user.visible_message(
-		span_danger("[carp_user] effortlessly swats [hitting_projectile] aside! [carp_user.p_They()] can block bullets with [carp_user.p_their()] bare hands!"),
-		span_userdanger("You deflect [hitting_projectile]!"),
+		span_danger("[carp_user]轻松将[hitting_projectile]拨到一旁，竟然能够徒手挡住子弹！"),
+		span_userdanger("你拨开了[hitting_projectile]！"),
 	)
 	playsound(carp_user, SFX_BULLET_MISS, 75, TRUE)
 	hitting_projectile.firer = carp_user
@@ -276,8 +276,8 @@
 		return
 	var/obj/item/melee/touch_attack/touch_weapon = attack_weapon
 	carp_user.visible_message(
-		span_danger("[carp_user] carefully dodges [attacker]'s [touch_weapon]!"),
-		span_userdanger("You take great care to remain untouched by [attacker]'s [touch_weapon]!"),
+		span_danger("[carp_user]小心避开了[attacker]的[touch_weapon]！"),
+		span_userdanger("你小心翼翼地避开[attacker]的[touch_weapon]，没有被碰到！"),
 	)
 	return COMPONENT_NO_AFTERATTACK
 
@@ -297,8 +297,8 @@
 		return NONE
 
 	carp_user.visible_message(
-		span_danger("[carp_user] cleanly avoids [attack_text] with incredible speed!"),
-		span_userdanger("You dodge [attack_text]"),
+		span_danger("[carp_user]以惊人的速度利落地避开了[attack_text]！"),
+		span_userdanger("你躲开了[attack_text]！"),
 	)
 	playsound(carp_user.loc, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)
 	return SUCCESSFUL_BLOCK
@@ -377,31 +377,31 @@
 /datum/martial_art/the_sleeping_carp/get_style_help()
 	. = list()
 
-	. += span_info("<b><i>You retreat inward and recall the teachings of the Sleeping Carp...</i></b>\n\
-		[span_notice("Gnashing Teeth")]: Punch Grab. Violently twists your opponent's arm, dislocating or even shattering bone and forcing them to drop their held items.\n\
-		[span_notice("Crashing Wave Kick")]: Punch Shove. Launch your opponent away from you with incredible force!\n\
-		[span_notice("Keelhaul")]: Shove Shove. Nonlethally kick an opponent to the floor, knocking them down, discombobulating them and dealing substantial stamina damage. If they're already prone, disarm them as well.\n\
-		[span_notice("Kraken Wrack")]: Grab Punch. Deliver a knee jab into the opponent, dealing high stamina damage, as well as briefly stunning them, winding them and making it difficult for them to speak.\n\
-		[span_notice("Grabs and Shoves")]: While in combat mode, your typical grab and shove do decent stamina damage, and your grabs harder to break. If you grab someone who has substantial amounts of stamina damage, you knock them out!\n\
-		<span class='notice'>While in combat mode (and not stunned, not a hulk, and not in a mech), you can reflect all projectiles that come your way, sending them back at the people who fired them! \n\
-		However, your ability to avoid projectiles is negatively affected when your are burdened by armor, or whenever you are carrying normal-sized or heavier objects in your hands. \n\
-		But if you commmit fully to the martial arts lifestyle by wearing martial arts or carp-related regalia, you will feel empowered enough to potentially avoid attacks even from melee weapons or other unarmed combatants. \n\
-		Some melee weapons, such as bo starves, spears, short blades, knives, toolboxes, baseball bats and non-blocking small objects are safe to carry without affecting your ability to defend yourself. Exploit this for a tactical advantage. \n\
-		Also, you are more resilient against suffering wounds in combat, and your limbs cannot be dismembered. This grants you extra staying power during extended combat, especially against slashing and other bleeding weapons. \n\
-		You are not invincible, however- while you may not suffer debilitating wounds often, you must still watch your health and should have appropriate medical supplies for use during downtime. \n\
-		In addition, your training has imbued you with a loathing of guns, and you can no longer use them.</span>")
+	. += span_info("<b><i>你收敛心神，回忆睡鲤拳的教诲……</i></b>\n\
+		[span_notice("咬牙断骨")]：出拳→抓取。猛烈扭转对手的手臂，造成脱臼甚至骨折，并迫使其丢下手持物品。\n\
+		[span_notice("惊涛踢")]：出拳→推搡。以惊人的力量将对手远远踢开！\n\
+		[span_notice("拖龙骨")]：推搡→推搡。以非致命的踢击使对手倒地、晕头转向，并造成大量体力伤害。如果对手已经倒地，还会使其丢下手持物品。\n\
+		[span_notice("海妖绞击")]：抓取→出拳。用膝盖撞击对手，造成较高的体力伤害，同时使其短暂失去行动能力、喘不过气并难以说话。\n\
+		[span_notice("抓取与推搡")]：战斗模式下，普通抓取与推搡也能造成可观的体力伤害，而且你的抓取更难挣脱。抓取体力损耗严重的对手时，还能使其昏迷！\n\
+		<span class='notice'>战斗模式下，只要未受眩晕等状态限制、不是浩克且不在机甲内，你就能拨开袭来的弹体，使其飞向随机方向；鱼叉及部分特殊弹药会限制这种能力。\n\
+		不过，护甲的负担以及手中持有普通大小或更重的物品，都会降低你避开弹体的能力。\n\
+		如果穿戴武术服饰或鲤鱼主题装备，充分投入武术之道，你甚至有机会避开近战武器和徒手攻击。\n\
+		部分近战武器，例如长棍、长矛、短刃、小刀、工具箱、棒球棒，以及不能格挡的小型物品，可以携带而不影响防御能力。善用这一点获取战术优势。\n\
+		此外，你在战斗中更不容易受创，四肢也不会被斩断。这让你在持久战中更有韧性，尤其是在面对劈砍和其他会造成出血的武器时。\n\
+		但你并非无敌：即使很少受到严重创伤，也仍需留意生命值，并备好医疗用品以便在战斗间隙使用。\n\
+		此外，这些训练让你厌恶枪械，再也无法使用它们。</span>")
 	return .
 
 /obj/item/staff/bostaff
-	name = "bo staff"
-	desc = "A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts. Can be wielded to both kill and incapacitate."
+	name = "长棍"
+	desc = "用打磨光滑的木材制成的长棍，传统上用于古老的地球武术。既能用于杀伤，也能用于制服对手。"
 	force = 10
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	throwforce = 20
 	throw_speed = 2
-	attack_verb_continuous = list("smashes", "slams", "whacks", "thwacks")
-	attack_verb_simple = list("smash", "slam", "whack", "thwack")
+	attack_verb_continuous = list("猛砸", "重击", "敲打", "狠敲")
+	attack_verb_simple = list("猛砸", "重击", "敲打", "狠敲")
 	icon = 'icons/obj/weapons/staff.dmi'
 	icon_state = "bostaff0"
 	base_icon_state = "bostaff"
@@ -424,7 +424,7 @@
 /obj/item/staff/bostaff/attack(mob/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	add_fingerprint(user)
 	if((HAS_TRAIT(user, TRAIT_CLUMSY)) && prob(50))
-		to_chat(user, span_warning("You club yourself over the head with [src]."))
+		to_chat(user, span_warning("你用[src]敲中了自己的头。"))
 		user.Paralyze(6 SECONDS)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -438,7 +438,7 @@
 		return ..()
 	var/mob/living/carbon/C = target
 	if(IS_UNCONSCIOUS_OR_CRIT(C))
-		to_chat(user, span_warning("It would be dishonorable to attack a foe while they cannot retaliate."))
+		to_chat(user, span_warning("攻击无力还手的敌人有违武德。"))
 		return
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(!HAS_TRAIT(src, TRAIT_WIELDED))
@@ -446,35 +446,35 @@
 		if(!ishuman(target))
 			return ..()
 		var/mob/living/carbon/human/H = target
-		var/list/fluffmessages = list("club", "smack", "broadside", "beat", "slam")
-		H.visible_message(span_warning("[user] [pick(fluffmessages)]s [H] with [src]!"), \
-						span_userdanger("[user] [pick(fluffmessages)]s you with [src]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, user)
-		to_chat(user, span_danger("You [pick(fluffmessages)] [H] with [src]!"))
+		var/list/fluffmessages = list("敲打", "抽打", "横扫", "痛打", "猛击")
+		H.visible_message(span_warning("[user]用[src][pick(fluffmessages)]了[H]！"), \
+						span_userdanger("[user]用[src][pick(fluffmessages)]了你！"), span_hear("你听到肉体撞击的骇人闷响！"), null, user)
+		to_chat(user, span_danger("你用[src][pick(fluffmessages)]了[H]！"))
 		playsound(get_turf(user), 'sound/effects/woodhit.ogg', 75, TRUE, -1)
 		H.adjust_stamina_loss(rand(13,20))
 		if(prob(10))
-			H.visible_message(span_warning("[H] collapses!"), \
-							span_userdanger("Your legs give out!"))
+			H.visible_message(span_warning("[H]瘫倒在地！"), \
+							span_userdanger("你的双腿支撑不住了！"))
 			H.Paralyze(8 SECONDS)
 		if(H.staminaloss && !H.IsSleeping())
 			var/total_health = (H.health - H.staminaloss)
 			if(total_health <= H.crit_threshold && !IS_UNCONSCIOUS_OR_CRIT(H))
-				H.visible_message(span_warning("[user] delivers a heavy hit to [H]'s head, knocking [H.p_them()] out cold!"), \
-								span_userdanger("You're knocked unconscious by [user]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, user)
-				to_chat(user, span_danger("You deliver a heavy hit to [H]'s head, knocking [H.p_them()] out cold!"))
+				H.visible_message(span_warning("[user]重击[H]的头部，将其打昏！"), \
+								span_userdanger("你被[user]打昏了！"), span_hear("你听到肉体撞击的骇人闷响！"), null, user)
+				to_chat(user, span_danger("你重击[H]的头部，将其打昏！"))
 				H.SetSleeping(60 SECONDS)
 				H.adjust_organ_loss(ORGAN_SLOT_BRAIN, 15, 150)
 	else
 		return ..()
 
-/obj/item/staff/bostaff/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+/obj/item/staff/bostaff/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "攻击", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		return ..()
 	return FALSE
 
 /obj/item/clothing/gloves/the_sleeping_carp
-	name = "carp gloves"
-	desc = "These gloves are capable of making people use The Sleeping Carp."
+	name = "睡鲤拳手套"
+	desc = "这副手套能让佩戴者使出睡鲤拳。"
 	icon_state = "black"
 	greyscale_colors = COLOR_BLACK
 	cold_protection = HANDS

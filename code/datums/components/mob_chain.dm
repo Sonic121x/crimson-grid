@@ -207,7 +207,7 @@
  */
 /datum/action/cooldown/worm_contract
 	name = "Force Contract"
-	desc = "Forces your body to contract onto a single tile."
+	desc = "强行将身体收缩到一格内。"
 	background_icon_state = "bg_heretic"
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'

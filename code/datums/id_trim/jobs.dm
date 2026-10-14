@@ -85,7 +85,7 @@
 /datum/id_trim/job/assistant
 	assignment = JOB_ASSISTANT
 	trim_state = "trim_assistant"
-	intern_alt_name = "Intern"
+	intern_alt_name = "实习生"
 	sechud_icon_state = SECHUD_ASSISTANT
 	minimal_access = list()
 	extra_access = list(
@@ -137,7 +137,7 @@
 		ACCESS_CE,
 		)
 	job = /datum/job/atmospheric_technician
-	honorifics = list("Technician")
+	honorifics = list("技师")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/bartender
@@ -186,7 +186,7 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/pun_pun
-	honorifics = list(", Almighty Scourge")
+	honorifics = list("，无上灾星")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/bitrunner
@@ -257,12 +257,12 @@
 		ACCESS_CHANGE_IDS,
 	)
 	job = /datum/job/bridge_assistant
-	honorifics = list("Underling", "Assistant", "Mate")
+	honorifics = list("部下", "助理", "伙计")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/captain
 	assignment = JOB_CAPTAIN
-	intern_alt_name = "Captain-in-Training"
+	intern_alt_name = "见习船长"
 	trim_state = "trim_captain"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_COMMAND_BLUE
@@ -275,7 +275,7 @@
 	job = /datum/job/captain
 	big_pointer = TRUE
 	pointer_color = COLOR_COMMAND_BLUE
-	honorifics = list("Captain", "Cpt.")
+	honorifics = list("船长", "Cpt.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /// Captain gets all station accesses hardcoded in because it's the Captain.
@@ -312,7 +312,7 @@
 		ACCESS_QM,
 		)
 	job = /datum/job/cargo_technician
-	honorifics = list("Courier")
+	honorifics = list("快递员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 
@@ -337,7 +337,7 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/chaplain
-	honorifics = list("Chaplain", "Reverend")
+	honorifics = list("牧师", "教长")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/chemist
@@ -368,7 +368,7 @@
 
 /datum/id_trim/job/chief_engineer
 	assignment = JOB_CHIEF_ENGINEER
-	intern_alt_name = "Chief Engineer-in-Training"
+	intern_alt_name = "见习总工程师"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE
@@ -409,12 +409,12 @@
 	job = /datum/job/chief_engineer
 	big_pointer = TRUE
 	pointer_color = COLOR_ENGINEERING_ORANGE
-	honorifics = list("Chief")
+	honorifics = list("总工")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/chief_medical_officer
 	assignment = JOB_CHIEF_MEDICAL_OFFICER
-	intern_alt_name = "Chief Medical Officer-in-Training"
+	intern_alt_name = "见习首席医疗官"
 	trim_state = "trim_medicaldoctor"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE
@@ -454,7 +454,7 @@
 	job = /datum/job/chief_medical_officer
 	big_pointer = TRUE
 	pointer_color = COLOR_MEDICAL_BLUE
-	honorifics = list(", PhD.", ", MD.")
+	honorifics = list("博士", "医学博士")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/clown
@@ -475,7 +475,7 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/clown
-	honorifics = list(" the Clown")
+	honorifics = list("小丑")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/cook
@@ -500,13 +500,13 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/cook
-	honorifics = list("Cook")
+	honorifics = list("厨师")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/cook/chef
 	assignment = JOB_CHEF
 	sechud_icon_state = SECHUD_CHEF
-	honorifics = list("Chef")
+	honorifics = list("主厨")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/coroner
@@ -585,7 +585,7 @@
 		ACCESS_HOS,
 	)
 	job = /datum/job/detective
-	honorifics = list("Detective", "Investigator")
+	honorifics = list("侦探", "调查员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/detective/refresh_trim_access()
@@ -628,7 +628,7 @@
 
 /datum/id_trim/job/head_of_personnel
 	assignment = JOB_HEAD_OF_PERSONNEL
-	intern_alt_name = "Head of Personnel-in-Training"
+	intern_alt_name = "见习人事主管"
 	trim_state = "trim_headofpersonnel"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SERVICE_LIME
@@ -684,7 +684,7 @@
 
 /datum/id_trim/job/head_of_security
 	assignment = JOB_HEAD_OF_SECURITY
-	intern_alt_name = "Head of Security-in-Training"
+	intern_alt_name = "见习安保主管"
 	trim_state = "trim_securityofficer"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SECURITY_RED
@@ -733,7 +733,7 @@
 	job = /datum/job/head_of_security
 	big_pointer = TRUE
 	pointer_color = COLOR_SECURITY_RED
-	honorifics = list("Chief Officer", "Chief", "Officer")
+	honorifics = list("安保长官", "主管", "警员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/head_of_security/refresh_trim_access()
@@ -765,7 +765,7 @@
 		ACCESS_CHANGE_IDS,
 		)
 	job = /datum/job/janitor
-	honorifics = list("Custodian")
+	honorifics = list("保洁员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/lawyer
@@ -788,7 +788,7 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/lawyer
-	honorifics = list(", Esq.")
+	honorifics = list("律师")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/medical_doctor
@@ -816,7 +816,7 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/doctor
-	honorifics = list("Doctor", "Dr.")
+	honorifics = list("医生", "Dr.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/mime
@@ -837,7 +837,7 @@
 		ACCESS_HOP,
 		)
 	job = /datum/job/mime
-	honorifics = list(" the Mime")
+	honorifics = list("默剧演员")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/paramedic
@@ -874,7 +874,7 @@
 		ACCESS_CMO,
 		)
 	job = /datum/job/paramedic
-	honorifics = list("EMT")
+	honorifics = list("急救技术员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/prisoner
@@ -891,7 +891,7 @@
 		)
 	job = /datum/job/prisoner
 	threat_modifier = 1 // I'm watching you
-	honorifics = list("Convict")
+	honorifics = list("囚犯")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/prisoner/one
@@ -945,12 +945,12 @@
 		ACCESS_HOP,
 	)
 	job = /datum/job/psychologist
-	honorifics = list(", PhD.")
+	honorifics = list("博士")
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/quartermaster
 	assignment = JOB_QUARTERMASTER
-	intern_alt_name = "Quartermaster-in-Training"
+	intern_alt_name = "见习军需官"
 	trim_state = "trim_cargotechnician"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_CARGO_BROWN
@@ -988,12 +988,12 @@
 	job = /datum/job/quartermaster
 	big_pointer = TRUE
 	pointer_color = COLOR_CARGO_BROWN
-	honorifics = list("Manager")
+	honorifics = list("经理")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/research_director
 	assignment = JOB_RESEARCH_DIRECTOR
-	intern_alt_name = "Research Director-in-Training"
+	intern_alt_name = "见习科研主管"
 	trim_state = "trim_scientist"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_SCIENCE_PINK
@@ -1041,7 +1041,7 @@
 	job = /datum/job/research_director
 	big_pointer = TRUE
 	pointer_color = COLOR_SCIENCE_PINK
-	honorifics = list("Director", "Dir.")
+	honorifics = list("主管", "Dir.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/roboticist
@@ -1100,7 +1100,7 @@
 		ACCESS_RD,
 		)
 	job = /datum/job/scientist
-	honorifics = list("Researcher")
+	honorifics = list("研究员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /// Sec officers have departmental variants. They each have their own trims with bonus departmental accesses.
@@ -1130,7 +1130,7 @@
 		ACCESS_HOS,
 		)
 	job = /datum/job/security_officer
-	honorifics = list("Officer")
+	honorifics = list("警员")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 	/// List of bonus departmental accesses that departmental sec officers get by default.
 	var/department_access = list()
@@ -1221,7 +1221,7 @@
 		ACCESS_VIROLOGY,
 		ACCESS_PARAMEDIC,
 	)
-	honorifics = list("Orderly", "Officer")
+	honorifics = list("护工", "警员")
 	patrol_type = /datum/bounty/patrol/medical
 
 /datum/id_trim/job/security_officer/science
@@ -1306,7 +1306,7 @@
 		ACCESS_CE,
 		)
 	job = /datum/job/station_engineer
-	honorifics = list("Engineer")
+	honorifics = list("工程师")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/veteran_advisor
@@ -1329,7 +1329,7 @@
 	template_access = list()
 	job = /datum/job/veteran_advisor
 	big_pointer = TRUE
-	honorifics = list("General", "Gen.")
+	honorifics = list("将军", "Gen.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/veteran_advisor/refresh_trim_access()
@@ -1370,7 +1370,7 @@
 		ACCESS_HOS,
 		)
 	job = /datum/job/warden
-	honorifics = list("Officer", "Watchman", "Lieutenant", "Lt.")
+	honorifics = list("警员", "看守", "中尉", "Lt.")
 	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/warden/refresh_trim_access()

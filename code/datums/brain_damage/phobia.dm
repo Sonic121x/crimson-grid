@@ -1,14 +1,14 @@
 /datum/brain_trauma/mild/phobia
-	name = "Phobia"
-	desc = "Patient is unreasonably afraid of something."
-	scan_desc = "phobia"
-	symptoms = "When exposed to a specific stimulus, experiences \
-		an immediate anxiety or fear response far greater than typically expected, \
-		leading to panic attacks or impaired social and occupational functioning. \
-		Physical contact such as hugging, or medication such as Psicodine may lessen the severity of the reaction."
-	gain_text = span_warning("You start finding default values very unnerving...")
-	lose_text = span_notice("You no longer feel afraid of default values.")
-	/// What do we fear exactly?
+	name = "恐惧症"
+	desc = "患者对某种事物抱有不合理的恐惧。"
+	scan_desc = "恐惧症"
+	symptoms = "接触特定刺激时，\
+		立即出现远超通常程度的焦虑或恐惧反应，\
+		导致惊恐发作，或损害社交和工作能力。\
+		拥抱等身体接触或安神定等药物可以减轻反应的严重程度。"
+	gain_text = span_warning("你开始觉得默认值让人心神不宁……")
+	lose_text = span_notice("你不再害怕默认值了。")
+	var/static/list/phobia_display_names = list("aliens" = "外星生物", "anime" = "日本文化", "authority" = "权威", "birds" = "鸟类", "blood" = "血液", "clowns" = "小丑", "conspiracies" = "阴谋", "doctors" = "医生", "falling" = "跌落", "fish" = "鱼类", "greytide" = "灰潮", "guns" = "枪械", "insects" = "昆虫", "lizards" = "爬行动物", "ocky icky" = "角色外事物", "robots" = "机器人", "security" = "安保", "skeletons" = "骨骼", "snakes" = "蛇类", "space" = "太空", "spiders" = "蜘蛛", "strangers" = "陌生人", "the supernatural" = "鬼怪", "religion" = "宗教")
 	var/phobia_type
 	/// Specific terror handler to apply, in case we want
 	var/terror_handler = /datum/terror_handler/phobia_source
@@ -22,9 +22,9 @@
 	if(!phobia_type)
 		phobia_type = pick(GLOB.phobia_types)
 
-	gain_text = span_warning("You start finding [phobia_type] very unnerving...")
-	lose_text = span_notice("You no longer feel afraid of [phobia_type].")
-	scan_desc += " of [phobia_type]"
+	gain_text = span_warning("你开始觉得[phobia_display_names[phobia_type] || phobia_type]让人心神不宁……")
+	lose_text = span_notice("你不再害怕[phobia_display_names[phobia_type] || phobia_type]了。")
+	scan_desc = GLOB.phobia_types[phobia_type] || "对[phobia_display_names[phobia_type] || phobia_type]的恐惧症"
 	return ..()
 
 /datum/brain_trauma/mild/phobia/on_gain()

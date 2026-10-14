@@ -253,8 +253,8 @@
 	var/mob/living/basic/bot/bot_pawn = controller.pawn
 	var/obj/item/our_hat = (locate(/obj/item/clothing/head) in bot_pawn)
 	if(our_hat)
-		salute_list += "tips [our_hat] at "
-	bot_pawn.manual_emote(pick(salute_list) + " [controller.blackboard[target_key]]!")
+		salute_list += "抬起[our_hat]致意"
+	bot_pawn.manual_emote("向[controller.blackboard[target_key]][pick(salute_list)]！")
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
 /datum/bt_node/ai_behavior/salute_authority/finish_action(datum/ai_controller/controller, succeeded)

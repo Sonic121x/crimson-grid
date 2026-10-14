@@ -185,7 +185,7 @@ SUBSYSTEM_DEF(economy)
 	else
 		fluff_string = ", and company countermeasures are failing to protect <b>YOU</b> from being affected. We're all doomed!"
 	*/
-	earning_report = "<b>[CITY_NAME] Economic Report</b><br><br> Expected inflation rates are measured at <b>[SSeconomy.inflation_value()*100]%</b>" // DARKPACK EDIT CHANGE
+	earning_report = "<b>[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME]经济报告</b><br><br>预计通货膨胀率为 <b>[SSeconomy.inflation_value()*100]%</b>" // DARKPACK EDIT CHANGE
 	var/update_alerts = FALSE
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_ECONOMY_ALERTS) && (living_player_count() > 1))
 		var/datum/bank_account/moneybags
@@ -197,11 +197,11 @@ SUBSYSTEM_DEF(economy)
 			if(!moneybags || moneybags.account_balance < current_acc.account_balance)
 				moneybags = current_acc
 		if (moneybags)
-			earning_report += "Our GMM Spotlight would like to alert you that <b>[moneybags.account_holder]</b> is your station's most affulent crewmate! They've hit it big with [moneybags.account_balance] [MONEY_NAME] saved. "
+			earning_report += "本期 GMM 焦点为你揭晓空间站最富有的船员：<b>[moneybags.account_holder]</b>！这位大富豪已积攒了 [moneybags.account_balance] [MONEY_NAME]。"
 			update_alerts = TRUE
 			inflict_moneybags(moneybags)
-	earning_report += "<br>That's all from the <i>[CITY_NAME] Economist Division</i>." // DARKPACK EDIT CHANGE
-	GLOB.news_network.submit_article(earning_report, "[CITY_NAME] Earnings Report", NEWSCASTER_STATION_ANNOUNCEMENTS, null, update_alert = update_alerts) // DARKPACK EDIT CHANGE
+	earning_report += "<br>以上为<i>[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME]经济事务部</i>的全部报道。" // DARKPACK EDIT CHANGE
+	GLOB.news_network.submit_article(earning_report, "[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME]收益报告", NEWSCASTER_STATION_ANNOUNCEMENTS, null, update_alert = update_alerts) // DARKPACK EDIT CHANGE
 	return TRUE
 
 /**

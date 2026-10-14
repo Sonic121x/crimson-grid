@@ -8,7 +8,7 @@
 */
 /datum/symptom/undead_adaptation
 	name = "Necrotic Metabolism"
-	desc = "The virus is able to thrive and act even within dead hosts. Has no effects on its own."
+	desc = "病毒即使在已死亡的宿主体内也能繁殖并发挥作用。该症状本身没有其他效果。"
 	stealth = 2
 	resistance = -2
 	stage_speed = 1
@@ -36,7 +36,7 @@
 */
 /datum/symptom/inorganic_adaptation
 	name = "Inorganic Biology"
-	desc = "The virus can survive and replicate even in an inorganic environment, increasing its resistance and infection rate. Has no effects on its own."
+	desc = "病毒即使在无机环境中也能存活和复制，抗性与传染能力均得到提升。该症状本身没有其他效果。"
 	stealth = -1
 	resistance = 4
 	stage_speed = -2

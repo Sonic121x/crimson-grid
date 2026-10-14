@@ -1,12 +1,12 @@
 /datum/brain_trauma/special/obsessed
-	name = "Psychotic Schizophrenia"
-	desc = "Patient has a subtype of delusional disorder, becoming irrationally attached to someone."
-	scan_desc = "psychotic schizophrenic delusions"
-	symptoms = "Exhibits obsessive behaviors towards a specific individual, \
-		including frequent staring, intrusive thoughts, and an overwhelming desire to be near them. \
-		This obsession can lead to social withdrawal, anxiety, and impaired daily functioning."
-	gain_text = "If you see this message, make a github issue report. The trauma initialized wrong."
-	lose_text = span_warning("The voices in your head fall silent.")
+	name = "精神病性精神分裂症"
+	desc = "患者患有一种妄想障碍，会对某个人产生不理性的依恋。"
+	scan_desc = "精神分裂性妄想"
+	symptoms = "对某个特定的人表现出执迷行为，\
+		包括频繁凝视、不由自主地想到对方，以及难以抑制的接近对方的欲望。\
+		这种执迷可能导致社交退缩、焦虑及日常生活能力受损。"
+	gain_text = "如果你看到这条消息，请在GitHub上提交问题报告。脑创伤初始化出错了。"
+	lose_text = span_warning("你脑海中的声音沉寂了。")
 	can_gain = TRUE
 	random_gain = FALSE
 	resilience = TRAUMA_RESILIENCE_LOBOTOMY
@@ -33,7 +33,7 @@
 			lose_text = ""
 			return FALSE
 
-	gain_text = span_warning("You hear a sickening, raspy voice in your head. It wants one small task of you...")
+	gain_text = span_warning("你脑海中响起一个令人作呕的沙哑声音。它要你完成一项小小的任务……")
 	antagonist = owner.mind.add_antag_datum(/datum/antagonist/obsessed)
 	antagonist.trauma = src
 	RegisterSignal(obsession, COMSIG_MOB_EYECONTACT, PROC_REF(stare))
@@ -176,17 +176,17 @@
 		if(1 to 4)
 			owner.adjust_jitter_up_to(10 SECONDS, 20 SECONDS)
 			owner.adjust_dizzy_up_to(10 SECONDS, 20 SECONDS)
-			to_chat(owner, span_warning("You feel a bit nervous."))
+			to_chat(owner, span_warning("你感觉有些紧张。"))
 		if(5 to 8)
 			INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "cough")
-			to_chat(owner, span_warning("You clear your throat."))
+			to_chat(owner, span_warning("你清了清嗓子。"))
 		if(9)
 			INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "laugh")
-			to_chat(owner, span_warning("You chuckle nervously."))
+			to_chat(owner, span_warning("你紧张地轻笑起来。"))
 		if(10)
 			INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "blink")
 			owner.adjust_eye_blur_up_to(10 SECONDS, 20 SECONDS)
-			to_chat(owner, span_warning("You forget to blink for a moment."))
+			to_chat(owner, span_warning("你一时忘了眨眼。"))
 
 // if the creep examines first, then the obsession examines them, have a 50% chance to possibly blow their cover. wearing a mask avoids this risk
 /datum/brain_trauma/special/obsessed/proc/stare(datum/source, mob/living/examining_mob, triggering_examiner)
@@ -195,7 +195,7 @@
 	if(examining_mob != owner || !triggering_examiner || prob(50))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), obsession, span_warning("You catch [examining_mob] staring at you..."), 3))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), obsession, span_warning("你发现[examining_mob]正盯着你看……"), 3))
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/brain_trauma/special/obsessed/proc/on_mind_lost(datum/source, mob/new_body, datum/mind/the_mind)

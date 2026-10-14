@@ -58,7 +58,7 @@ PROCESSING_SUBSYSTEM_DEF(fishing)
 		var/beauty_score = "???"
 		switch(fish.beauty)
 			if(-INFINITY to FISH_BEAUTY_DISGUSTING)
-				beauty_score = "OH HELL NAW!"
+				beauty_score = "丑得没眼看！"
 			if(FISH_BEAUTY_DISGUSTING to FISH_BEAUTY_UGLY)
 				beauty_score = "☆☆☆☆☆"
 			if(FISH_BEAUTY_UGLY to FISH_BEAUTY_BAD)

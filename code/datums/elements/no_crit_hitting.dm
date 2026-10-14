@@ -17,5 +17,5 @@
 
 	var/mob/living/liver = attacked
 	if(liver.stat == HARD_CRIT)
-		liver.balloon_alert(attacker, "they're in crit!")
+		liver.balloon_alert(attacker, "对方已陷入危急状态！")
 		return COMPONENT_CANCEL_ATTACK_CHAIN

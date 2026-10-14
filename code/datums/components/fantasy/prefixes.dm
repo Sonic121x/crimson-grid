@@ -8,36 +8,36 @@
 
 /datum/fantasy_affix/cosmetic_prefixes/New()
 	goodPrefixes = list(
-		"greater",
-		"major",
-		"blessed",
-		"superior",
-		"empowered",
-		"honed",
-		"true",
-		"glorious",
-		"robust",
+		"高等的",
+		"强大的",
+		"受祝福的",
+		"优质的",
+		"强化的",
+		"磨砺的",
+		"真粹的",
+		"荣耀的",
+		"强韧的",
 		)
 	badPrefixes = list(
-		"lesser",
-		"minor",
-		"blighted",
-		"inferior",
-		"enfeebled",
-		"rusted",
-		"unsteady",
-		"tragic",
-		"gimped",
-		"cursed",
+		"低等的",
+		"微弱的",
+		"枯败的",
+		"劣质的",
+		"衰弱的",
+		"锈蚀的",
+		"不稳的",
+		"悲惨的",
+		"残缺的",
+		"受诅咒的",
 		)
 
 	weight = (length(goodPrefixes) + length(badPrefixes)) * 10
 
 /datum/fantasy_affix/cosmetic_prefixes/apply(datum/component/fantasy/comp, newName)
 	if(comp.quality > 0 || (comp.quality == 0 && prob(50)))
-		return "[pick(goodPrefixes)] [newName]"
+		return "[pick(goodPrefixes)][newName]"
 	else
-		return "[pick(badPrefixes)] [newName]"
+		return "[pick(badPrefixes)][newName]"
 
 /datum/fantasy_affix/tactical
 	name = "tactical"
@@ -48,7 +48,7 @@
 /datum/fantasy_affix/tactical/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/tactical)
-	return "tactical [newName]"
+	return "战术[newName]"
 
 /datum/fantasy_affix/pyromantic
 	name = "pyromantic"
@@ -58,7 +58,7 @@
 /datum/fantasy_affix/pyromantic/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/igniter, clamp(comp.quality, 1, 10))
-	return "pyromantic [newName]"
+	return "御火的[newName]"
 
 /datum/fantasy_affix/vampiric
 	name = "vampiric"
@@ -72,7 +72,7 @@
 /datum/fantasy_affix/vampiric/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/lifesteal, comp.quality)
-	return "vampiric [newName]"
+	return "吸血的[newName]"
 
 /datum/fantasy_affix/vampiric/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -86,7 +86,7 @@
 /datum/fantasy_affix/beautiful/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/beauty, max(comp.quality, 1) * 250)
-	return "[pick("aesthetic", "beautiful", "gorgeous", "pretty")] [newName]"
+	return "[pick("雅致的", "美丽的", "华美的", "漂亮的")][newName]"
 
 /datum/fantasy_affix/beautiful/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -100,7 +100,7 @@
 /datum/fantasy_affix/ugly/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/beauty, min(comp.quality, -1) * 250)
-	return "[pick("fugly", "ugly", "grotesque", "hideous")] [newName]"
+	return "[pick("丑陋至极的", "难看的", "怪诞的", "狰狞的")][newName]"
 
 /datum/fantasy_affix/ugly/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -127,19 +127,19 @@
 		/datum/reagent/toxin/histamine
 	))
 	var/list/names = list(
-		/datum/reagent/toxin/plantbgone = "plantbane",
-		/datum/reagent/toxin/mutetoxin = "mimemind",
-		/datum/reagent/toxin/amanitin = "dormant death",
-		/datum/reagent/toxin/lipolicide = "famineblood",
-		/datum/reagent/toxin/spewium = "gulchergut",
-		/datum/reagent/toxin/heparin = "jabberwound",
-		/datum/reagent/toxin/rotatium = "spindown",
-		/datum/reagent/toxin/histamine = "creeping malaise"
+		/datum/reagent/toxin/plantbgone = "枯植之毒",
+		/datum/reagent/toxin/mutetoxin = "默剧之心",
+		/datum/reagent/toxin/amanitin = "潜伏之死",
+		/datum/reagent/toxin/lipolicide = "饥荒之血",
+		/datum/reagent/toxin/spewium = "翻肠之毒",
+		/datum/reagent/toxin/heparin = "不愈之伤",
+		/datum/reagent/toxin/rotatium = "天旋地转",
+		/datum/reagent/toxin/histamine = "渐侵之恙"
 	)
 	var/poisonname = names[picked_poison]
 	master.AddElement(/datum/element/venomous, picked_poison, comp.quality+1)
 	//seriously don't @ me about the correct use of venom vs poison. shut up.
-	return "[poisonname]-[pick("poisoned", "envenomed", "laced")] [newName]"
+	return "[pick("淬有", "浸有", "涂有")][poisonname]的[newName]"
 
 /datum/fantasy_affix/venomous/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -160,7 +160,7 @@
 /datum/fantasy_affix/soul_stealer/apply(datum/component/fantasy/comp, newName)
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/soul_stealer)
-	return "soul-[pick("stealing", "hungering", "devouring")] [newName]"
+	return "[pick("窃魂的", "嗜魂的", "噬魂的")][newName]"
 
 // On hitting a mob chain lightning will jump to another mob within 2 tiles of the original target
 /datum/fantasy_affix/thunderfury
@@ -171,7 +171,7 @@
 
 /datum/fantasy_affix/thunderfury/apply(datum/component/fantasy/comp, newName)
 	comp.parent.AddElement(/datum/element/chain_lightning_attack, get_damage(comp), get_range(comp), get_limit(comp))
-	return "Thunderfury, Blessed [newName]"
+	return "雷霆之怒，受祝福的[newName]"
 
 /datum/fantasy_affix/thunderfury/remove(datum/component/fantasy/comp)
 	comp.parent.RemoveElement(/datum/element/chain_lightning_attack, get_damage(comp), get_range(comp), get_limit(comp))

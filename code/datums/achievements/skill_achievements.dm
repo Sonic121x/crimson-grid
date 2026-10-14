@@ -2,13 +2,13 @@
 	category = "Skills"
 
 /datum/award/achievement/skill/legendary_miner
-	name = "Legendary miner"
-	desc = "No mere rock can stop me!"
+	name = "传奇矿工"
+	desc = "区区石头可拦不住我！"
 	database_id = MEDAL_LEGENDARY_MINER
 	icon_state = "mining"
 
 /datum/award/achievement/skill/legendary_fisher
-	name = "Legendary fisher"
-	desc = "Give a spaceman a fish and you feed him for a while; teach a spaceman to fish and you feed him until the shuttle arrives."
+	name = "传奇钓手"
+	desc = "授太空人以鱼，可饱腹一时；授太空人以渔，可饱腹直到穿梭机到站。"
 	database_id = MEDAL_LEGENDARY_FISHER
 	icon_state = "fishing_hat"

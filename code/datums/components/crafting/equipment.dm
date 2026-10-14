@@ -15,7 +15,7 @@
  */
 
 /datum/crafting_recipe/improvisedshield
-	name = "Improvised Shield"
+	name = "简易盾牌"
 	result = /obj/item/shield/improvised
 	reqs = list(
 		/obj/item/stack/sheet/iron = 10,
@@ -62,7 +62,7 @@
 */
 
 /datum/crafting_recipe/wheelchair
-	name = "Wheelchair"
+	name = "轮椅"
 	result = /obj/vehicle/ridden/wheelchair
 	reqs = list(
 		/obj/item/stack/sheet/iron = 4,
@@ -73,7 +73,7 @@
 	removed_mats = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/crafting_recipe/motorized_wheelchair
-	name = "Motorized Wheelchair"
+	name = "电动轮椅"
 	result = /obj/vehicle/ridden/wheelchair/motorized
 	reqs = list(
 		/obj/item/stack/sheet/iron = 10,
@@ -93,7 +93,7 @@
 	skill_dots_minimum = 3 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/secured_freezer_cabinet
-	name = "Secure Freezer Cabinet"
+	name = "带锁冷冻柜"
 	result = /obj/structure/closet/secure_closet/freezer/empty
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
@@ -104,7 +104,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/barbeque_grill
-	name = "Barbeque grill"
+	name = "烧烤炉"
 	result = /obj/machinery/grill
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
@@ -115,7 +115,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/secure_closet
-	name = "Secure Closet"
+	name = "带锁储物柜"
 	result = /obj/structure/closet/secure_closet
 	reqs = list(
 		/obj/item/stack/sheet/iron = 5,
@@ -125,7 +125,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/trapdoor_kit
-	name = "Trapdoor Construction Kit"
+	name = "活板门零件套件"
 	result = /obj/item/trapdoor_kit
 	reqs = list(
 		/obj/item/stack/sheet/iron = 4,
@@ -139,7 +139,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/trapdoor_remote
-	name = "Trapdoor Remote"
+	name = "活板门遥控器"
 	result = /obj/item/trapdoor_remote/preloaded // since its useless without its assembly just require an assembly to craft it
 	reqs = list(
 		/obj/item/compact_remote = 1,
@@ -151,7 +151,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mousetrap
-	name = "Mouse Trap"
+	name = "捕鼠夹"
 	result = /obj/item/assembly/mousetrap
 	time = 1 SECONDS
 	reqs = list(
@@ -261,7 +261,7 @@
 */
 
 /datum/crafting_recipe/rebar_quiver
-	name = "Rebar Storage Quiver"
+	name = "钢筋箭筒"
 	result = /obj/item/storage/bag/rebar_quiver
 	time = 1 SECONDS
 	reqs = list(
@@ -272,7 +272,7 @@
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER)
 
 /datum/crafting_recipe/arrow_quiver
-	name = "Archery Quiver"
+	name = "箭筒"
 	result = /obj/item/storage/bag/quiver/lesser
 	time = 1 SECONDS
 	reqs = list(

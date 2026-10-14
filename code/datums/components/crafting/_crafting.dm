@@ -240,10 +240,10 @@
 
 /datum/component/personal_crafting/proc/construct_item(atom/crafter, datum/crafting_recipe/recipe)
 	if(!crafter)
-		return ", unknown error!" // This should never happen, but in the event that it does...
+		return "，发生未知错误！" // This should never happen, but in the event that it does...
 
 	if(!recipe)
-		return ", invalid recipe!" // This can happen, I can't really explain why, but it can. Better safe than sorry.
+		return "，配方无效！" // This can happen, I can't really explain why, but it can. Better safe than sorry.
 
 	var/list/contents = get_surroundings(crafter, recipe.blacklist)
 	var/fail_message = perform_all_checks(crafter, recipe, contents, check_tools_last = ignored_flags & CRAFT_IGNORE_DO_AFTER)
@@ -284,12 +284,12 @@
 			var/level_required = recipe.skill_dots_minimum
 			if(recipe_skill)
 				if(!isnull(level_required) && human_crafter.st_get_stat(recipe_skill) < level_required)
-					return ", you dont know how to craft! You need at least [level_required] in [recipe_skill::name]!"
+					return "，你还不会制作！[recipe_skill::name]至少需要达到[level_required]级！"
 				recipe_time = recipe_time / max(human_crafter.st_get_stat(recipe_skill), 1)
 		// DARKPACK EDIT ADD END
 
 		if(!do_after(crafter, round(recipe_time, 0.1 SECONDS), target = crafter))
-			return "."
+			return "。"
 		contents = get_surroundings(crafter, recipe.blacklist)
 		fail_message = perform_all_checks(crafter, recipe, contents, check_tools_last = TRUE)
 		if(fail_message)
@@ -348,7 +348,7 @@
 ///This proc performs all the necessary conditional control statement to ensure that the object is allowed to be crafted by the crafter.
 /datum/component/personal_crafting/proc/perform_all_checks(atom/crafter, datum/crafting_recipe/recipe, list/contents, check_tools_last = FALSE)
 	if(!check_contents(crafter, recipe, contents))
-		return ", missing component."
+		return "，缺少材料。"
 
 	var/turf/dest_turf = get_turf(crafter)
 
@@ -360,52 +360,52 @@
 	// For any non-final perform_all_checks() call, just keep check_tools() here because it's
 	// the most imporant feedback after "missing component".
 	if(!check_tools_last && !check_tools(crafter, recipe, contents, FALSE))
-		return ", missing tool."
+		return "，缺少工具。"
 
 	var/considered_flags = recipe.crafting_flags & ~(ignored_flags)
 
 	if((considered_flags & CRAFT_ONE_PER_TURF) && (locate(recipe.result) in dest_turf))
-		return ", already one here!"
+		return "，这里已经有一个了！"
 
 	if(considered_flags & CRAFT_CHECK_DIRECTION)
 		if(!valid_build_direction(dest_turf, crafter.dir, is_fulltile = (considered_flags & CRAFT_IS_FULLTILE)))
-			return ", won't fit here!"
+			return "，这里放不下！"
 
 	if(considered_flags & CRAFT_ON_SOLID_GROUND)
 		if(isclosedturf(dest_turf))
-			return ", cannot be made on a wall!"
+			return "，不能建在墙上！"
 
 		if(is_type_in_typecache(dest_turf, GLOB.turfs_without_ground))
 			if(!locate(/obj/structure/thermoplastic) in dest_turf) // for tram construction
-				return ", must be made on solid ground!"
+				return "，必须建在坚实的地面上！"
 
 	if(considered_flags & CRAFT_CHECK_DENSITY)
 		for(var/obj/object in dest_turf)
 			if(object.density && !(object.obj_flags & IGNORE_DENSITY) || object.obj_flags & BLOCKS_CONSTRUCTION)
-				return ", something is in the way!"
+				return "，有东西挡住了！"
 
 	if(recipe.placement_checks & STACK_CHECK_CARDINALS)
 		var/turf/nearby_turf
 		for(var/direction in GLOB.cardinals)
 			nearby_turf = get_step(dest_turf, direction)
 			if(locate(recipe.result) in nearby_turf)
-				to_chat(crafter, span_warning("\The [recipe.name] must not be built directly adjacent to another!"))
-				return ", can't be adjacent to another!"
+				to_chat(crafter, span_warning("[recipe.name]不能紧挨着同类物体建造！"))
+				return "，不能紧挨着同类物体！"
 
 	if(recipe.placement_checks & STACK_CHECK_ADJACENT)
 		if(locate(recipe.result) in range(1, dest_turf))
-			return ", can't be near another!"
+			return "，不能建在同类物体附近！"
 
 	if(recipe.placement_checks & STACK_CHECK_TRAM_FORBIDDEN)
 		if(locate(/obj/structure/transport/linear/tram) in dest_turf || locate(/obj/structure/thermoplastic) in dest_turf)
-			return ", can't be on tram!"
+			return "，不能建在有轨电车上！"
 
 	if(recipe.placement_checks & STACK_CHECK_TRAM_EXCLUSIVE)
 		if(!locate(/obj/structure/transport/linear/tram) in dest_turf)
-			return ", must be made on a tram!"
+			return "，必须建在有轨电车上！"
 
 	if(check_tools_last && !check_tools(crafter, recipe, contents, TRUE))
-		return ", missing tool."
+		return "，缺少工具。"
 
 /**
  * get_used_reqs works like this:
@@ -521,7 +521,7 @@
 /datum/component/personal_crafting/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "PersonalCrafting", "Crafting")
+		ui = new(user, src, "PersonalCrafting", "制作")
 		ui.open()
 
 /datum/component/personal_crafting/ui_data(mob/user)
@@ -607,14 +607,14 @@
 /datum/component/personal_crafting/proc/make_action(datum/crafting_recipe/recipe, mob/user)
 	var/atom/result = construct_item(user, recipe)
 	if(istext(result)) //We failed to make an item and got a fail message
-		to_chat(user, span_warning("Construction failed[result]"))
+		to_chat(user, span_warning("制作失败[result]"))
 		return FALSE
 	if(ismob(user) && isitem(result)) //In case the user is actually possessing a non mob like a machine
 		user.put_in_hands(result)
 	else if(ismovable(result) && !istype(result, /obj/effect/spawner))
 		var/atom/movable/movable = result
 		movable.forceMove(user.drop_location())
-	to_chat(user, span_notice("[recipe.name] crafted."))
+	to_chat(user, span_notice("已制成[recipe.name]。"))
 	user.investigate_log("crafted [recipe]", INVESTIGATE_CRAFTING)
 	return TRUE
 
@@ -645,7 +645,7 @@
 				while(make_action(crafting_recipe, user))
 					crafted_items++
 				if(crafted_items)
-					to_chat(user, span_notice("You made [crafted_items] item\s."))
+					to_chat(user, span_notice("你制作了[crafted_items]件物品。"))
 			else
 				make_action(crafting_recipe, user)
 			busy = FALSE
@@ -691,7 +691,7 @@
 	if(ispath(recipe.result, /datum/reagent))
 		var/datum/reagent/reagent = recipe.result
 		if(recipe.result_amount > 1)
-			data["name"] = "[data["name"]] [recipe.result_amount]u"
+			data["name"] = "[data["name"]]（[recipe.result_amount]单位）"
 		data["desc"] = recipe.desc || initial(reagent.description)
 
 	else if(ispath(recipe.result, /obj/item/pipe))
@@ -701,7 +701,7 @@
 
 	else
 		if(ispath(recipe.result, /obj/item/stack) && recipe.result_amount > 1)
-			data["name"] = "[data["name"]] [recipe.result_amount]x"
+			data["name"] = "[data["name"]] ×[recipe.result_amount]"
 		data["desc"] = recipe.desc || initial(atom.desc)
 
 	if(ispath(recipe.result, /obj/item/food))
@@ -760,11 +760,11 @@
 			if(reaction.required_container)
 				var/id = atoms.Find(reaction.required_container)
 				data["reqs"]["[id]"] = 1
-				data["steps"] += "Add all ingredients into \a [initial(reaction.required_container.name)]"
+				data["steps"] += "将所有原料加入[initial(reaction.required_container.name)]"
 			else if(length(recipe.reqs) > 1 || length(reaction.required_catalysts))
-				data["steps"] += "Mix all ingredients together"
+				data["steps"] += "将所有原料混合在一起"
 			if(reaction.required_temp > T20C)
-				data["steps"] += "Heat up to [reaction.required_temp]K"
+				data["steps"] += "加热至[reaction.required_temp]K"
 		else
 			stack_trace("Invalid reaction found in recipe code! ([recipe.reaction])")
 	else if(!isnull(recipe.reaction))

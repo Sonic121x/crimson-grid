@@ -44,9 +44,9 @@
 
 	if(obeys_hardhats && target_head_armor >= 15) // 15 melee armor is enough that most head items dont have this, but anything above a hardhat should protect you
 		poor_target.visible_message(
-			span_warning("[source] falls on [poor_target], thankfully [poor_target.p_they()] had a helmet on!"),
-			span_userdanger("You are hit on the head by [source], good thing you had a helmet on!"),
-			span_hear("You hear a [crushes_people ? "crash" : "bonk"]!"),
+			span_warning("[source]落在[poor_target]身上，幸好有头盔保护！"),
+			span_userdanger("[source]砸中了你的头，幸好你戴着头盔！"),
+			span_hear("你听到[crushes_people ? "轰隆一声巨响" : "咚的一声"]！"),
 		)
 
 		if(crushes_people)
@@ -64,9 +64,9 @@
 		poor_target.apply_damage(fall_damage * levels, spread_damage = TRUE, wound_bonus = fall_wound_bonus)
 
 	poor_target.visible_message(
-		span_userdanger("[source] falls on [poor_target], [crushes_people ? "crushing [poor_target.p_them()]" : "hitting [poor_target.p_them()]"] [target_head ? "on the head!" : "!"]"),
-		span_userdanger("You are [crushes_people ? "crushed" : "hit"] by [source]!"),
-		span_hear("You hear a [crushes_people ? "crash" : "bonk"]!"),
+		span_userdanger("[source]落在[poor_target][target_head ? "的头上" : "身上"]，[crushes_people ? "将其压扁" : "狠狠地砸了一下"]！"),
+		span_userdanger("你被[source][crushes_people ? "压扁" : "砸中"]了！"),
+		span_hear("你听到[crushes_people ? "轰隆一声巨响" : "咚的一声"]！"),
 	)
 
 	playsound(poor_target, impact_sound, 50, TRUE)

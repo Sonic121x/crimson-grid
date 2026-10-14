@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	E.cut_overlays()
 	E.vis_contents.Cut()
 	E.alpha = 0
-	E.name = "None"
+	E.name = "无"
 	E.maptext = null
 	E.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	E.choice = null

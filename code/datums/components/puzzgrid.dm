@@ -145,14 +145,14 @@
 /datum/component/puzzgrid/proc/out_of_lives()
 	var/atom/movable/movable_parent = parent
 	if (istype(movable_parent))
-		movable_parent.say("Ran out of lives!", forced = "puzzgrid component")
+		movable_parent.say("尝试机会用完了！", forced = "puzzgrid component")
 
 	fail()
 
 /datum/component/puzzgrid/proc/out_of_time()
 	var/atom/movable/movable_parent = parent
 	if (istype(movable_parent))
-		movable_parent.say("Ran out of time!", forced = "puzzgrid component")
+		movable_parent.say("时间到了！", forced = "puzzgrid component")
 
 	fail()
 
@@ -168,7 +168,7 @@
 		for (var/answer in puzzgrid_group.answers)
 			answers_encoded += html_encode(answer)
 
-		answers += span_boldnotice("<p>[answers_encoded.Join(", ")]</p>") + span_notice("<p>[html_encode(puzzgrid_group.description)]</p>")
+		answers += span_boldnotice("<p>[answers_encoded.Join("、")]</p>") + span_notice("<p>[html_encode(puzzgrid_group.description)]</p>")
 
 	var/message = answers.Join("<p>-----</p>")
 

@@ -47,7 +47,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(check_if_lich_died))
 
 	var/obj/obj_parent = parent
-	obj_parent.name = "ensouled [obj_parent.name]"
+	obj_parent.name = "寄魂的[obj_parent.name]"
 	obj_parent.add_atom_colour(phylactery_color, ADMIN_COLOUR_PRIORITY)
 	obj_parent.AddComponent(/datum/component/stationloving, FALSE, TRUE)
 
@@ -81,16 +81,16 @@
 	if(IS_WIZARD(user) || isobserver(user))
 		if(user.mind == lich_mind)
 			var/time_to_revive = base_respawn_time + (num_resurrections * time_per_resurrection)
-			examine_list += span_green("Your phylactery. The next time you meet an untimely demise, \
-				you will revive at this object in <b>[time_to_revive / 10 / 60] minute\s</b>.")
+			examine_list += span_green("你的命匣。下次不幸身亡时，\
+				你将在<b>[time_to_revive / 10 / 60]分钟</b>后于此物品处复活。")
 		else
-			examine_list += span_green("A lich's phylactery. This one belongs to [lich_mind].")
+			examine_list += span_green("巫妖的命匣。它属于[lich_mind]。")
 
 		if(num_resurrections > 0)
-			examine_list += span_green("<i>There's [num_resurrections] notches in the side of it.</i>")
+			examine_list += span_green("<i>它的侧面有[num_resurrections]道刻痕。</i>")
 
 	else
-		examine_list += span_green("A terrible aura surrounds this item. Its very existence is offensive to life itself...")
+		examine_list += span_green("一股可怕的气息笼罩着这件物品。它的存在本身就是对生命的亵渎……")
 
 /**
  * Signal proc for [COMSIG_QDELETING] registered on the lich's mind.
@@ -133,8 +133,8 @@
 	// Start revival
 	var/time_to_revive = base_respawn_time + (num_resurrections * time_per_resurrection)
 	revive_timer = addtimer(CALLBACK(src, PROC_REF(revive_lich), died), time_to_revive, TIMER_UNIQUE|TIMER_STOPPABLE)
-	to_chat(died, span_green("You feel your soul being dragged back to this world... \
-		<b>you will revive at your phylactery in [time_to_revive / 10 / 60] minute\s.</b>"))
+	to_chat(died, span_green("你感到灵魂正被拖回这个世界……\
+		<b>你将在[time_to_revive / 10 / 60]分钟后于命匣处复活。</b>"))
 
 /**
  * Signal proc for [COMSIG_LIVING_REVIVE].
@@ -190,7 +190,7 @@
 	lich.set_species(/datum/species/skeleton)
 	lich.dna.generate_unique_enzymes()
 
-	to_chat(lich, span_green("Your bones clatter and shudder as you are pulled back into this world!"))
+	to_chat(lich, span_green("你被拉回了这个世界，浑身骨骼颤抖着咔咔作响！"))
 	num_resurrections++
 	lich.Paralyze(stun_per_resurrection * num_resurrections)
 
@@ -209,9 +209,9 @@
 				to_drop.forceMove(corpse.drop_location())
 
 		var/turf/body_turf = get_turf(corpse)
-		var/wheres_wizdo = dir2text(get_dir(body_turf, parent_turf))
+		var/wheres_wizdo = list("north" = "北方", "south" = "南方", "east" = "东方", "west" = "西方", "northeast" = "东北方", "southeast" = "东南方", "northwest" = "西北方", "southwest" = "西南方")[dir2text(get_dir(body_turf, parent_turf))]
 		if(wheres_wizdo)
-			corpse.visible_message(span_warning("Suddenly, [corpse.name]'s corpse falls to pieces! You see a strange energy rise from the remains, and speed off towards the [wheres_wizdo]!"))
+			corpse.visible_message(span_warning("[corpse.name]的尸体突然散架了！你看到一股奇异的能量从遗骸中升起，向[wheres_wizdo]疾驰而去！"))
 			body_turf.Beam(parent_turf, icon_state = "lichbeam", time = 1 SECONDS * (num_resurrections + 1))
 
 		corpse.dust(drop_items = TRUE)

@@ -8,8 +8,8 @@
 */
 /datum/symptom/viraladaptation
 	name = "Viral self-adaptation"
-	desc = "The virus mimics the function of normal body cells, becoming harder to spot and to eradicate, but reducing its speed. \
-	Does nothing by itself."
+	desc = "病毒模仿正常细胞的功能，变得更难发现和根除，但发展速度降低。\
+	该症状本身没有其他效果。"
 	stealth = 3
 	resistance = 5
 	stage_speed = -3
@@ -32,8 +32,8 @@
 */
 /datum/symptom/viralevolution
 	name = "Viral evolutionary acceleration"
-	desc = "The virus quickly adapts to spread as fast as possible both outside and inside a host. \
-	This, however, makes the virus easier to spot, and less able to fight off a cure. Does nothing by itself."
+	desc = "病毒迅速适应环境，尽可能加快在宿主体内外的传播速度。\
+	但这也使病毒更容易被发现，且更难抵抗治疗。该症状本身没有其他效果。"
 	stealth = -2
 	resistance = -3
 	stage_speed = 5

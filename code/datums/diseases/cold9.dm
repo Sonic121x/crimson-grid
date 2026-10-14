@@ -1,14 +1,14 @@
 /datum/disease/cold9
-	name = "The Cold"
+	name = "感冒"
 	max_stages = 3
-	spread_text = "Skin contact"
+	spread_text = "皮肤接触"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = /datum/reagent/medicine/spaceacillin::name + " or common Cold antibodies"
+	cure_text = "太空西林或普通感冒抗体"
 	cures = list(/datum/reagent/medicine/spaceacillin)
-	agent = "ICE9-rhinovirus"
+	agent = "ICE9型鼻病毒"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	desc = "An adaption of the common cold, slightly more dangerous in nature. \
-		If left untreated the subject will slow, as if partly frozen."
+	desc = "普通感冒的一种变体，危险性略高。\
+		若不治疗，患者的行动会变得迟缓，如同身体部分被冻结。"
 	severity = DISEASE_SEVERITY_HARMFUL
 	required_organ = ORGAN_SLOT_LUNGS
 
@@ -31,11 +31,11 @@
 			if(SPT_PROB(0.5, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(0.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your throat feels sore."))
+				to_chat(affected_mob, span_danger("你的喉咙隐隐作痛。"))
 			if(SPT_PROB(2.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel stiff."))
+				to_chat(affected_mob, span_danger("你感到身体僵硬。"))
 			if(SPT_PROB(0.05, seconds_per_tick))
-				to_chat(affected_mob, span_notice("You feel better."))
+				to_chat(affected_mob, span_notice("你感觉好些了。"))
 				cure()
 				return FALSE
 		if(3)
@@ -45,6 +45,6 @@
 			if(SPT_PROB(0.5, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(0.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("Your throat feels sore."))
+				to_chat(affected_mob, span_danger("你的喉咙隐隐作痛。"))
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel stiff."))
+				to_chat(affected_mob, span_danger("你感到身体僵硬。"))

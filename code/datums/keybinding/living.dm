@@ -8,8 +8,8 @@
 /datum/keybinding/living/resist
 	hotkey_keys = list("B")
 	name = "resist"
-	full_name = "Resist"
-	description = "Break free of your current state. Handcuffed? on fire? Resist!"
+	full_name = "挣脱"
+	description = "摆脱当前的困境。被铐住了？身上着火了？快挣脱！"
 	keybind_signal = COMSIG_KB_LIVING_RESIST_DOWN
 
 /datum/keybinding/living/resist/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -33,8 +33,8 @@
 /datum/keybinding/living/look_up
 	hotkey_keys = list("P") // DARKPACK EDIT CHANGE - ORIGINAL: hotkey_keys = list("L")
 	name = "look up"
-	full_name = "Look Up"
-	description = "Look up at the next z-level.  Only works if directly below open space."
+	full_name = "向上看"
+	description = "查看上一层。仅在正上方没有遮挡时可用。"
 	keybind_signal = COMSIG_KB_LIVING_LOOKUP_DOWN
 
 /datum/keybinding/living/look_up/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -54,8 +54,8 @@
 /datum/keybinding/living/look_down
 	hotkey_keys = list(";")
 	name = "look down"
-	full_name = "Look Down"
-	description = "Look down at the previous z-level.  Only works if directly above open space."
+	full_name = "向下看"
+	description = "查看下一层。仅在正下方没有遮挡时可用。"
 	keybind_signal = COMSIG_KB_LIVING_LOOKDOWN_DOWN
 
 /datum/keybinding/living/look_down/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -75,8 +75,8 @@
 /datum/keybinding/living/rest
 	hotkey_keys = list("U")
 	name = "rest"
-	full_name = "Rest"
-	description = "Lay down, or get up."
+	full_name = "休息"
+	description = "躺下或起身。"
 	keybind_signal = COMSIG_KB_LIVING_REST_DOWN
 
 /datum/keybinding/living/rest/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -90,8 +90,8 @@
 /datum/keybinding/living/toggle_combat_mode
 	hotkey_keys = list("F")
 	name = "toggle_combat_mode"
-	full_name = "Toggle Combat Mode"
-	description = "Toggles combat mode. Like Help/Harm but cooler."
+	full_name = "切换战斗模式"
+	description = "切换战斗模式。类似于切换帮助／伤害意图，但更酷。"
 	keybind_signal = COMSIG_KB_LIVING_TOGGLE_COMBAT_DOWN
 
 
@@ -105,8 +105,8 @@
 /datum/keybinding/living/enable_combat_mode
 	hotkey_keys = list("4")
 	name = "enable_combat_mode"
-	full_name = "Enable Combat Mode"
-	description = "Enable combat mode."
+	full_name = "开启战斗模式"
+	description = "开启战斗模式。"
 	keybind_signal = COMSIG_KB_LIVING_ENABLE_COMBAT_DOWN
 
 /datum/keybinding/living/enable_combat_mode/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -119,8 +119,8 @@
 /datum/keybinding/living/disable_combat_mode
 	hotkey_keys = list("1")
 	name = "disable_combat_mode"
-	full_name = "Disable Combat Mode"
-	description = "Disable combat mode."
+	full_name = "关闭战斗模式"
+	description = "关闭战斗模式。"
 	keybind_signal = COMSIG_KB_LIVING_DISABLE_COMBAT_DOWN
 
 /datum/keybinding/living/disable_combat_mode/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -133,8 +133,8 @@
 /datum/keybinding/living/toggle_move_intent
 	hotkey_keys = list("C")
 	name = "toggle_move_intent"
-	full_name = "Hold to toggle move intent"
-	description = "Held down to cycle to the other move intent, release to cycle back"
+	full_name = "按住切换移动模式"
+	description = "按住时切换到另一种移动模式，松开后切回原模式"
 	keybind_signal = COMSIG_KB_LIVING_TOGGLEMOVEINTENT_DOWN
 
 /datum/keybinding/living/toggle_move_intent/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -154,8 +154,8 @@
 /datum/keybinding/living/toggle_move_intent_alternative
 	hotkey_keys = list(UNBOUND_KEY)
 	name = "toggle_move_intent_alt"
-	full_name = "press to cycle move intent"
-	description = "Pressing this cycle to the opposite move intent, does not cycle back"
+	full_name = "按下切换移动模式"
+	description = "按下时切换到另一种移动模式，松开后保持该模式"
 	keybind_signal = COMSIG_KB_LIVING_TOGGLEMOVEINTENTALT_DOWN
 
 /datum/keybinding/living/toggle_move_intent_alternative/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -169,8 +169,8 @@
 /datum/keybinding/living/toggle_throw_mode
 	hotkey_keys = list("R", "Southwest") // END
 	name = "toggle_throw_mode"
-	full_name = "Toggle throw mode"
-	description = "Toggle throwing the current item or not."
+	full_name = "切换投掷模式"
+	description = "切换是否投掷当前物品。"
 	keybind_signal = COMSIG_KB_LIVING_TOGGLETHROWMODE_DOWN
 
 /datum/keybinding/living/toggle_throw_mode/down(client/user)
@@ -184,8 +184,8 @@
 /datum/keybinding/living/hold_throw_mode
 	hotkey_keys = list("Space")
 	name = "hold_throw_mode"
-	full_name = "Hold throw mode"
-	description = "Hold this to turn on throw mode, and release it to turn off throw mode"
+	full_name = "按住开启投掷模式"
+	description = "按住时开启投掷模式，松开后关闭"
 	keybind_signal = COMSIG_KB_LIVING_HOLDTHROWMODE_DOWN
 
 /datum/keybinding/living/hold_throw_mode/down(client/user, turf/target, mousepos_x, mousepos_y)
@@ -205,8 +205,8 @@
 /datum/keybinding/living/give
 	hotkey_keys = list("G")
 	name = "Give_Item"
-	full_name = "Give item"
-	description = "Give the item you're currently holding"
+	full_name = "递出物品"
+	description = "递出你当前手持的物品"
 	keybind_signal = COMSIG_KB_LIVING_GIVEITEM_DOWN
 
 /datum/keybinding/living/give/can_use(client/user)
@@ -239,15 +239,15 @@
 /datum/keybinding/living/view_pet_data
 	hotkey_keys = list("Shift")
 	name = "view_pet_commands"
-	full_name = "View Pet Commands"
-	description = "Hold down to see all the commands you can give your pets!"
+	full_name = "查看宠物指令"
+	description = "按住查看你能向宠物下达的所有指令！"
 	keybind_signal = COMSIG_KB_LIVING_VIEW_PET_COMMANDS
 
 /datum/keybinding/living/cancel_interactions
 	name = "stop_interactions"
-	full_name = "Cancel Interactions"
-	description = "Cancels any ongoing interactions (such as using a tool, performing surgery, or climbing). \
-		Note that some interactions cannot be interrupted, and you can't cancel other player's interaction with this hotkey."
+	full_name = "取消互动"
+	description = "取消正在进行的互动（例如使用工具、进行手术或攀爬）。\
+		注意：某些互动无法中断，而且此快捷键无法取消其他玩家的互动。"
 	keybind_signal = COMSIG_KB_LIVING_STOP_INTERACTIONS_DOWN
 
 /datum/keybinding/living/cancel_interactions/down(client/user, turf/target, mousepos_x, mousepos_y)

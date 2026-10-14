@@ -9,7 +9,7 @@
 
 /datum/symptom/bleeding
 	name = "Anticoagulant"
-	desc = "The virus prevents the body from clotting blood. Unnoticable unless the host is bleeding."
+	desc = "病毒会阻止血液凝固。除非宿主正在流血，否则难以察觉。"
 	stealth = 1
 	resistance = -1
 	stage_speed = -3
@@ -19,8 +19,8 @@
 	symptom_cure = /datum/reagent/acetaldehyde
 	cure_color = "orange"
 	threshold_descs = list(
-		"Stage Speed 9" = "The host becomes more vulnerable to bleeding wounds.",
-		"Stealth 3" = "The symptom remains hidden even while active."
+		"发展速度 9" = "宿主更容易受到出血伤口的影响。",
+		"隐蔽性 3" = "即使发作，症状仍难以察觉。"
 	)
 	var/easybleed = FALSE
 	var/hidden = FALSE
@@ -42,9 +42,9 @@
 	for(var/datum/wound/possible_bleeding_wound as anything in carbon_host.all_wounds)
 		if(possible_bleeding_wound.blood_flow && !hidden)
 			if(4 > A.stage >= 2)
-				to_chat(carbon_host, span_warning("Your bleeding wounds start to itch."))
+				to_chat(carbon_host, span_warning("你正在流血的伤口开始发痒。"))
 			if(A.stage >= 4)
-				to_chat(carbon_host, span_warning("Your bleeding wounds itch like crazy as more blood leaves your body."))
+				to_chat(carbon_host, span_warning("你的伤口流出更多鲜血，痒得让人发狂。"))
 			return
 
 /datum/symptom/bleeding/on_stage_change(datum/disease/advance/A)
@@ -71,7 +71,7 @@
 
 /datum/symptom/hypertension
 	name = "Hypertension"
-	desc = "Dramatically increases blood pressure, leading to blood vessels bursting open across the host's body."
+	desc = "大幅升高血压，导致宿主全身多处血管破裂。"
 	stealth = -2
 	resistance = -1
 	stage_speed = -1
@@ -89,11 +89,11 @@
 /datum/symptom/hypertension/New()
 	var/list_of_names = list()
 	for(var/datum/reagent/poison as anything in chems)
-		list_of_names += poison::name
+		list_of_names += list(/datum/reagent/toxin/histamine = "组胺", /datum/reagent/toxin/staminatoxin = "疲乏嗪")[poison] || poison::name
 	threshold_descs = list(
-		"Resistance 7" = "Additionally synthesizes [english_list(list_of_names)] inside the host.",
-		"Stage Speed 9" = "Increases the frequency of inflicted wounds.",
-		"Transmission 8" = "Randomly increases the severity of inflicted wounds and quantity of chems synthesized."
+		"抗性 7" = "额外在宿主体内合成[english_list(list_of_names, and_text = "和", comma_text = "、")]。",
+		"发展速度 9" = "更频繁地造成伤口。",
+		"传播力 8" = "随机提高所造成伤口的严重程度与合成药物的量。"
 	)
 
 /datum/symptom/hypertension/Start(datum/disease/advance/our_disease)
@@ -123,7 +123,7 @@
 		return // full borg or borg with organic stumps
 	var/obj/item/bodypart/victim_limb = pick(bleeding_bodyparts)
 	var/wound_severity = WOUND_SEVERITY_MODERATE
-	var/warning = "Your [victim_limb.name] tears itself open!"
+	var/warning = "你的[victim_limb.name]自行撕裂开来！"
 	if(our_disease.stage >= 4)
 		wound_severity = WOUND_SEVERITY_SEVERE
 		if(adding_chems)
@@ -134,7 +134,7 @@
 				chance = 66
 			if(prob(chance))
 				wound_severity = WOUND_SEVERITY_CRITICAL
-				warning = "The blood vessels in your [victim_limb.name] suddenly rip open!"
+				warning = "你[victim_limb.name]内的血管突然破裂！"
 				if(adding_chems)
 					add_reagents(carbon_host) // Crit slashes add twice as many chems
 	if (carbon_host.cause_wound_of_type_and_severity(WOUND_SLASH, victim_limb, wound_severity))

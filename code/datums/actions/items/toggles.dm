@@ -79,7 +79,7 @@
 
 /datum/action/item_action/organ_action/toggle_hud
 	name = "Toggle Implant HUD"
-	desc = "Disables your HUD implant's visuals. You can still access examine information."
+	desc = "关闭HUD植入物的视觉显示。你仍然可以查看检查信息。"
 
 /datum/action/item_action/organ_action/toggle_hud/do_effect(trigger_flags)
 	var/obj/item/organ/cyberimp/eyes/hud/hud_implant = target
@@ -88,19 +88,19 @@
 
 /datum/action/item_action/wheelys
 	name = "Toggle Wheels"
-	desc = "Pops out or in your shoes' wheels."
+	desc = "弹出或收回鞋上的滑轮。"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "wheelys"
 
 /datum/action/item_action/kindle_kicks
 	name = "Activate Kindle Kicks"
-	desc = "Kick you feet together, activating the lights in your Kindle Kicks."
+	desc = "双脚相碰，启动炫光鞋中的灯光。"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "kindleKicks"
 
 /datum/action/item_action/storage_gather_mode
 	name = "Switch gathering mode"
-	desc = "Switches the gathering mode of a storage object."
+	desc = "切换储物容器的收集模式。"
 	background_icon = 'icons/mob/actions/actions_items.dmi'
 	background_icon_state = "storage_gather_switch"
 	overlay_icon_state = "bg_tech_border"
@@ -113,7 +113,7 @@
 
 /datum/action/item_action/toggle_wearable_hud
 	name = "Toggle Wearable HUD"
-	desc = "Toggles your wearable HUD. You can still access examine information while it's off."
+	desc = "开关穿戴式HUD。关闭时仍可查看检查信息。"
 
 /datum/action/item_action/toggle_wearable_hud/do_effect(trigger_flags)
 	var/obj/item/clothing/glasses/hud/hud_display = target

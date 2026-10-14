@@ -98,7 +98,7 @@
 
 	add_effects(arglist(mood_args))
 	if(who.mind?.holy_role && GLOB.deity)
-		var/static/regex/god_regex = regex(@"\bgods?\b", "ig")
+		var/static/regex/god_regex = regex(@"\bgods?\b|神明", "ig")
 		description = god_regex.Replace(description, "[GLOB.deity]$2")
 
 	mood_change = floor(mood_change)

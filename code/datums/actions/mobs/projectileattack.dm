@@ -2,7 +2,7 @@
 	name = "Projectile Attack"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Fires a set of projectiles at a selected target."
+	desc = "向选定目标发射一组弹体。"
 	cooldown_time = 1.5 SECONDS
 	/// The type of the projectile to be fired
 	var/obj/projectile/projectile_type
@@ -66,7 +66,7 @@
 	name = "Rapid Fire"
 	button_icon = 'icons/obj/weapons/guns/energy.dmi'
 	button_icon_state = "kineticgun"
-	desc = "Fires projectiles repeatedly at a given target."
+	desc = "向指定目标连续发射弹体。"
 	cooldown_time = 1.5 SECONDS
 	projectile_type = /obj/projectile/colossus/snowball
 	default_projectile_spread = 45
@@ -88,7 +88,7 @@
 	name = "Shrapnel Fire"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Fires projectiles that will split into shrapnel after a period of time."
+	desc = "发射经过一段时间后会分裂成破片的弹体。"
 	cooldown_time = 6 SECONDS
 	projectile_type = /obj/projectile/colossus/frost_orb
 	has_homing = TRUE
@@ -123,7 +123,7 @@
 	name = "Spiral Shots"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Fires projectiles in a spiral pattern."
+	desc = "以螺旋形轨迹发射弹体。"
 	cooldown_time = 3 SECONDS
 	projectile_type = /obj/projectile/colossus
 	projectile_sound = 'sound/effects/magic/clockwork/invoke_general.ogg'
@@ -183,7 +183,7 @@
 	name = "All Directions"
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "at_shield2"
-	desc = "Fires projectiles in all directions."
+	desc = "向所有方向发射弹体。"
 	cooldown_time = 3 SECONDS
 	projectile_type = /obj/projectile/colossus
 	projectile_sound = 'sound/effects/magic/clockwork/invoke_general.ogg'
@@ -205,7 +205,7 @@
 	name = "Shotgun Fire"
 	button_icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	button_icon_state = "shotgun"
-	desc = "Fires projectiles in a shotgun pattern."
+	desc = "以霰弹散布方式发射弹体。"
 	cooldown_time = 2 SECONDS
 	projectile_type = /obj/projectile/colossus
 	projectile_sound = 'sound/effects/magic/clockwork/invoke_general.ogg'
@@ -236,7 +236,7 @@
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/shotgun_blast/pattern
 	name = "Alternating Shotgun Fire"
-	desc = "Fires projectiles in an alternating shotgun pattern."
+	desc = "交替使用不同的霰弹散布方式发射弹体。"
 	projectile_type = /obj/projectile/colossus/ice_blast
 	projectile_sound = null
 	shot_angles = list(list(-40, -20, 0, 20, 40), list(-30, -10, 10, 30))
@@ -260,7 +260,7 @@
 	name = "Directional Shots"
 	button_icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	button_icon_state = "pistol"
-	desc = "Fires projectiles in specific directions."
+	desc = "朝特定方向发射弹体。"
 	cooldown_time = 4 SECONDS
 	projectile_type = /obj/projectile/colossus
 	projectile_sound = 'sound/effects/magic/clockwork/invoke_general.ogg'
@@ -283,7 +283,7 @@
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/dir_shots/alternating
 	name = "Alternating Shots"
-	desc = "Fires projectiles in alternating directions."
+	desc = "朝交替变化的方向发射弹体。"
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/dir_shots/alternating/attack_sequence(mob/living/firer, atom/target)
 	fire_in_directions(firer, target, GLOB.diagonals)
@@ -305,7 +305,7 @@
 	name = "Fire Kinetic Accelerator"
 	button_icon = 'icons/obj/weapons/guns/energy.dmi'
 	button_icon_state = "kineticgun"
-	desc = "Fires a kinetic accelerator projectile at the target."
+	desc = "向目标发射一枚动能加速器弹体。"
 	cooldown_time = 1.5 SECONDS
 	projectile_type = /obj/projectile/kinetic/miner
 	projectile_sound = 'sound/items/weapons/kinetic_accel.ogg'
@@ -313,13 +313,13 @@
 /datum/action/cooldown/mob_cooldown/projectile_attack/kinetic_accelerator/Activate(atom/target_atom)
 	. = ..()
 	playsound(owner, projectile_sound, 200, TRUE, 2)
-	owner.visible_message(span_danger("[owner] fires the proto-kinetic accelerator!"))
+	owner.visible_message(span_danger("[owner]发射了原型动能加速器！"))
 	owner.face_atom(target_atom)
 	new /obj/effect/temp_visual/dir_setting/firing_effect(owner.loc, owner.dir)
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/colossus_final
 	name = "Titan's Finale"
-	desc = "A single-use ability that shoots a large amount of projectiles around you."
+	desc = "向周围发射大量弹体的一次性能力。"
 	cooldown_time = 2.5 SECONDS
 	projectile_type = /obj/projectile/colossus
 
@@ -331,7 +331,7 @@
 	var/mob/living/simple_animal/hostile/megafauna/colossus/colossus
 	if(istype(firer, /mob/living/simple_animal/hostile/megafauna/colossus))
 		colossus = firer
-		colossus.say("Perish.", spans = list(SPAN_COLOSSUS, SPAN_YELL))
+		colossus.say("灭亡吧。", spans = list(SPAN_COLOSSUS, SPAN_YELL))
 
 	SLEEP_CHECK_DEATH(1.5 SECONDS, firer) //gives dumbasses in melee range a slim chance to retreat
 	var/finale_counter = 10
@@ -367,7 +367,7 @@
 	name = "Alternating Shots"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Fires projectiles around you in an alternating fashion."
+	desc = "以交替变化的方式向周围发射弹体。"
 	cooldown_time = 10 SECONDS
 	projectile_type = /obj/projectile/colossus/wendigo_shockwave
 	can_move = FALSE
@@ -392,7 +392,7 @@
 	name = "Wave Shots"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Fires projectiles around you in a circular wave."
+	desc = "以环形波向周围发射弹体。"
 	cooldown_time = 10 SECONDS
 	projectile_type = /obj/projectile/colossus/wendigo_shockwave/wave
 	can_move = FALSE

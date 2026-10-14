@@ -2,7 +2,7 @@
 /// Warning, this will likely shit the bricks if you add this action to anything more sophisticated than a basic mob- this isn't built for anything carbon-wise.
 /datum/action/cooldown/mob_cooldown/assume_form
 	name = "Assume Form"
-	desc = "Choose something that you wish to blend into the environment as. Click on yourself to reset your appearance."
+	desc = "选择一个物体作为伪装，融入环境。点击自己以恢复原貌。"
 	button_icon_state = "sniper_zoom"
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"

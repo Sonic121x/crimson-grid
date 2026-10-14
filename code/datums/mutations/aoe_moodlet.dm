@@ -1,11 +1,11 @@
 /datum/mutation/aoe_moodlet
-	name = "Extremely Unsightly"
-	desc = "The subject's body - and especially their face - is unnaturally unsightly, causing a negative reaction from those around them. \
-		Wearing a mask will dampen the effect."
+	name = "奇丑无比"
+	desc = "受试者的身体，尤其是面容，丑陋得异乎寻常，让周围的人产生负面情绪。\
+		戴上面具可减弱此效果。"
 	quality = NEGATIVE
 	instability = NEGATIVE_STABILITY_MINI
-	text_gain_indication = span_warning("You feel pretty in your own way.")
-	text_lose_indication = span_notice("You feel less self-conscious.")
+	text_gain_indication = span_warning("你觉得自己也有独特的美。")
+	text_lose_indication = span_notice("你不再那么在意别人怎么看自己了。")
 	difficulty = 12
 
 /datum/mutation/aoe_moodlet/on_acquiring(mob/living/carbon/human/acquirer)
@@ -56,13 +56,13 @@
 	return (owner.obscured_slots & HIDEFACE) ? /datum/mood_event/seen_ugly_mutation/weak : /datum/mood_event/seen_ugly_mutation
 
 /datum/mutation/aoe_moodlet/positive
-	name = "Extremely Comely"
-	desc = "The subject's body - and especially their face - is unnaturally comely, causing a positive reaction from those around them. \
-		Wearing a mask will dampen the effect."
+	name = "美貌绝伦"
+	desc = "受试者的身体，尤其是面容，美丽得异乎寻常，让周围的人产生正面情绪。\
+		戴上面具可减弱此效果。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MINOR
-	text_gain_indication = span_notice("You feel pretty in your own way.")
-	text_lose_indication = span_notice("You feel less self-conscious.")
+	text_gain_indication = span_notice("你觉得自己也有独特的美。")
+	text_lose_indication = span_notice("你不再那么在意别人怎么看自己了。")
 	difficulty = 12
 
 /datum/mutation/aoe_moodlet/positive/apply_own_moodlet()
@@ -73,7 +73,7 @@
 
 // Negative version
 /datum/mood_event/seen_ugly_mutation
-	description = "Something is seriously wrong with that guy!"
+	description = "那家伙看起来太不对劲了！"
 	mood_change = -3
 	timeout = 2 MINUTES
 
@@ -84,23 +84,23 @@
 	return ..()
 
 /datum/mood_event/seen_ugly_mutation/add_effects(mob/mutant)
-	description = "Something is seriously wrong with [mutant || "that guy"]!"
+	description = "[mutant || "那家伙"]看起来太不对劲了！"
 
 /datum/mood_event/seen_ugly_mutation/weak
-	description = "Something looks wrong about that guy."
+	description = "那家伙看起来有点不对劲。"
 	mood_change = -1
 
 /datum/mood_event/seen_ugly_mutation/weak/add_effects(mob/mutant)
-	description = "Something looks wrong about [mutant || "that guy"]."
+	description = "[mutant || "那家伙"]看起来有点不对劲。"
 
 /datum/mood_event/seen_ugly_mutation/self
-	description = "...Is THAT what I look like?!"
+	description = "……我居然长这样？！"
 	mood_change = -2
 	timeout = 5 MINUTES
 
 // Positive version
 /datum/mood_event/seen_pretty_mutation
-	description = "That person looks pretty good - must be a new haircut or something."
+	description = "那个人看起来挺好看，肯定是换了发型什么的。"
 	mood_change = 3
 	timeout = 2 MINUTES
 
@@ -111,16 +111,16 @@
 	return ..()
 
 /datum/mood_event/seen_pretty_mutation/add_effects(mob/mutant)
-	description = "[mutant || "That person"] looks pretty good - must be a new haircut or something."
+	description = "[mutant || "那个人"]看起来挺好看，肯定是换了发型什么的。"
 
 /datum/mood_event/seen_pretty_mutation/weak
-	description = "That person looks alright - it must be the lighting in here."
+	description = "那个人看起来还不错，一定是这里的灯光衬得好。"
 	mood_change = 1
 
 /datum/mood_event/seen_pretty_mutation/weak/add_effects(mob/mutant)
-	description = "[mutant || "That person"] looks alright - it must be the lighting in here."
+	description = "[mutant || "那个人"]看起来还不错，一定是这里的灯光衬得好。"
 
 /datum/mood_event/seen_pretty_mutation/self
-	description = "I look pretty good!"
+	description = "我长得真不错！"
 	mood_change = 2
 	timeout = 5 MINUTES

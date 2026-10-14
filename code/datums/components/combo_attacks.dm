@@ -24,7 +24,7 @@
 	combo_list = combos
 	for(var/combo in combo_list)
 		var/list/combo_specifics = combo_list[combo]
-		var/step_string = english_list(combo_specifics[COMBO_STEPS])
+		var/step_string = replacetext(replacetext(english_list(combo_specifics[COMBO_STEPS], nothing_text = "无", and_text = "、", comma_text = "、"), LEFT_ATTACK, "左键攻击"), RIGHT_ATTACK, "右键攻击")
 		combo_strings += span_notice("<b>[combo]</b> - [step_string]")
 	src.examine_message = examine_message
 	src.reset_message = reset_message

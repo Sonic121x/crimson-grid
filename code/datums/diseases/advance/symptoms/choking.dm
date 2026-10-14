@@ -9,8 +9,8 @@
 
 /datum/symptom/choking
 	name = "Choking"
-	desc = "The virus causes inflammation of the host's air conduits, leading to intermittent choking."
-	illness = "Pneumatic Tubes"
+	desc = "病毒导致宿主气道发炎，引发间歇性的呼吸阻塞。"
+	illness = "气压管道"
 	stealth = -1
 	resistance = 0
 	stage_speed = -1
@@ -23,8 +23,8 @@
 	symptom_cure = /datum/reagent/medicine/c2/tirimol
 	cure_color = "orange"
 	threshold_descs = list(
-		"Stage Speed 8" = "Causes choking more frequently.",
-		"Stealth 4" = "The symptom remains hidden until active."
+		"发展速度 8" = "更频繁地引发呼吸阻塞。",
+		"隐蔽性 4" = "症状在发作前难以察觉。"
 	)
 	var/suppress_warning = FALSE
 
@@ -47,16 +47,16 @@
 	switch(advanced_disease.stage)
 		if(1, 2)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("You're having difficulty breathing.", "Your breathing becomes heavy.")]"))
+				to_chat(infected_mob, span_warning("[pick("你呼吸困难。", "你的呼吸变得沉重。")]"))
 		if(3, 4)
 			if(!suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("Your windpipe feels like a straw.", "Your breathing becomes tremendously difficult.")]"))
+				to_chat(infected_mob, span_warning("[pick("你的气管感觉细得像根吸管。", "你的呼吸变得极其困难。")]"))
 			else
-				to_chat(infected_mob, span_warning("You feel very [pick("dizzy","woozy","faint")].")) //fake bloodloss messages
+				to_chat(infected_mob, span_warning("你感到[pick("头晕目眩","昏昏沉沉","几乎要昏倒了")]。")) //fake bloodloss messages
 			Choke_stage_3_4(infected_mob, advanced_disease)
 			infected_mob.emote("gasp")
 		else
-			to_chat(infected_mob, span_userdanger("[pick("You're choking!", "You can't breathe!")]"))
+			to_chat(infected_mob, span_userdanger("[pick("你快窒息了！", "你无法呼吸！")]"))
 			Choke(infected_mob, advanced_disease)
 			infected_mob.emote("gasp")
 
@@ -86,8 +86,8 @@ Bonus
 
 /datum/symptom/asphyxiation
 	name = "Acute respiratory distress syndrome"
-	desc = "The virus causes shrinking of the host's lungs, causing severe asphyxiation."
-	illness = "Iron Lungs"
+	desc = "病毒导致宿主的肺部萎缩，引发严重窒息。"
+	illness = "铁肺症"
 	stealth = -2
 	resistance = 0
 	stage_speed = -1
@@ -100,8 +100,8 @@ Bonus
 	symptom_cure = /datum/reagent/toxin/bonehurtingjuice // It'll be funny I swear
 	cure_color = "orange" // The only level 7 symptom without a red color
 	threshold_descs = list(
-		"Stage Speed 8" = "Additionally synthesizes pancuronium and sodium thiopental inside the host.",
-		"Transmission 8" = "Doubles the damage caused by the symptom."
+		"发展速度 8" = "额外在宿主体内合成泮库溴铵和硫喷妥钠。",
+		"传播力 8" = "症状造成的伤害翻倍。"
 	)
 	var/paralysis = FALSE
 
@@ -122,15 +122,15 @@ Bonus
 	var/mob/living/M = A.affected_mob
 	switch(A.stage)
 		if(3, 4)
-			to_chat(M, span_warning("<b>[pick("Your windpipe feels thin.", "Your lungs feel small.")]"))
+			to_chat(M, span_warning("<b>[pick("你的气管感觉变细了。", "你的肺感觉变小了。")]"))
 			Asphyxiate_stage_3_4(M, A)
 			M.emote("gasp")
 		if(5)
-			to_chat(M, span_userdanger("[pick("Your lungs hurt!", "It hurts to breathe!")]"))
+			to_chat(M, span_userdanger("[pick("你的肺很疼！", "每次呼吸都很疼！")]"))
 			Asphyxiate(M, A)
 			M.emote("gasp")
 			if(M.get_oxy_loss() >= (M.maxHealth / (200/120)))
-				M.visible_message(span_warning("[M] stops breathing, as if their lungs have totally collapsed!"))
+				M.visible_message(span_warning("[M]停止了呼吸，仿佛肺部已经完全塌陷！"))
 				Asphyxiate_death(M, A)
 	return
 

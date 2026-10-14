@@ -129,7 +129,7 @@
 	var/cant_speak = (HAS_TRAIT(traitor_mob, TRAIT_MUTE) || is_mime_job(assigned_role))
 	if(uplink_spawn_location == UPLINK_RADIO && cant_speak)
 		if(!silent)
-			to_chat(current, span_warning("You have been deemed ineligible for a radio uplink. Supplying standard uplink instead."))
+			to_chat(current, span_warning("你无法使用无线电上行终端，将改为提供标准上行终端。"))
 		uplink_spawn_location = UPLINK_PDA
 
 	if(uplink_spawn_location != UPLINK_IMPLANT)
@@ -141,7 +141,7 @@
 		var/obj/item/implant/uplink/starting/new_implant = new(traitor_mob)
 		new_implant.implant(traitor_mob, null, silent = TRUE)
 		if(!silent)
-			to_chat(current, span_boldnotice("Your Syndicate Uplink has been cunningly implanted in you, for a small TC fee. Simply trigger the uplink to access it."))
+			to_chat(current, span_boldnotice("你的辛迪加上行终端已巧妙地植入体内，费用为少量传送水晶。激活上行终端即可使用。"))
 		add_memory(/datum/memory/key/traitor_uplink/implant, uplink_loc = "implant")
 		return new_implant
 
@@ -155,18 +155,18 @@
 	new_uplink.uplink_handler.assigned_role = traitor_mob.mind.assigned_role.title
 	new_uplink.uplink_handler.assigned_species = traitor_mob.dna.species.id
 
-	unlock_text = "Your Uplink is cunningly disguised as your [uplink_loc.name]. "
+	unlock_text = "你的上行终端巧妙地伪装成了[uplink_loc.name]。"
 	if(istype(uplink_loc, /obj/item/modular_computer/pda))
-		unlock_text += "Simply enter the code \"[new_uplink.unlock_code]\" into the ring tone selection to unlock its hidden features."
+		unlock_text += "在铃声设置中输入口令“[new_uplink.unlock_code]”，即可解锁隐藏功能。"
 		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = "PDA", uplink_code = new_uplink.unlock_code)
 
 	else if(istype(uplink_loc, /obj/item/radio))
-		unlock_text += "Simply speak \"[new_uplink.unlock_code]\" into frequency [RADIO_TOKEN_UPLINK] to unlock its hidden features."
+		unlock_text += "通过[RADIO_TOKEN_UPLINK]频道说出“[new_uplink.unlock_code]”，即可解锁隐藏功能。"
 		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = uplink_loc.name, uplink_code = new_uplink.unlock_code)
 
 	else if(istype(uplink_loc, /obj/item/pen))
-		var/instructions = english_list(new_uplink.unlock_code)
-		unlock_text += "Simply twist the top of the pen [instructions] from its starting position to unlock its hidden features."
+		var/instructions = english_list(new_uplink.unlock_code, comma_text = "、", and_text = "、", final_comma_text = "")
+		unlock_text += "从初始位置依次按以下角度旋转笔帽，即可解锁隐藏功能：[instructions]度。"
 		add_memory(/datum/memory/key/traitor_uplink, uplink_loc = uplink_loc.name, uplink_code = instructions)
 
 	new_uplink.unlock_text = unlock_text
@@ -205,7 +205,7 @@
 
 	if(creator.is_antag())
 		message_admins("[ADMIN_LOOKUPFLW(current)] has been created by [ADMIN_LOOKUPFLW(creator)], an antagonist.")
-		to_chat(current, span_userdanger("Despite your creator's current allegiances, your true master remains [creator.real_name]. If their loyalties change, so do yours. This will never change unless your creator's body is destroyed."))
+		to_chat(current, span_userdanger("无论你的创造者目前效忠谁，你真正的主人始终是[creator.real_name]。如果主人的立场改变，你也必须随之改变。除非创造者的身体被毁，否则这一关系永远不会改变。"))
 
 /datum/mind/proc/get_all_objectives()
 	var/list/all_objectives = list()
@@ -215,7 +215,7 @@
 
 /datum/mind/proc/announce_objectives()
 	var/obj_count = 1
-	to_chat(current, span_notice("Your current objectives:"))
+	to_chat(current, span_notice("你当前的目标："))
 	for(var/datum/objective/objective as anything in get_all_objectives())
 		to_chat(current, "<B>[objective.objective_name] #[obj_count]</B>: [objective.explanation_text]")
 		obj_count++

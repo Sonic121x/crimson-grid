@@ -2,13 +2,13 @@
 //chef
 
 /datum/award/score/chef_tourist_score
-	name = "Tourists Served as Chef Highscore"
-	desc = "Your highscore on serving tourist bots as chef."
+	name = "厨师游客接待最高纪录"
+	desc = "你作为厨师接待游客机器人的最高纪录。"
 	database_id = CHEF_TOURISTS_SERVED
 
 //bartender
 
 /datum/award/score/bartender_tourist_score
-	name = "Tourists Served as Bartender Highscore"
-	desc = "Your highscore on serving tourist bots as bartender."
+	name = "调酒师游客接待最高纪录"
+	desc = "你作为调酒师接待游客机器人的最高纪录。"
 	database_id = BARTENDER_TOURISTS_SERVED

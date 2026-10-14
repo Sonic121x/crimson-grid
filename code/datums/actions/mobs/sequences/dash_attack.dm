@@ -2,7 +2,7 @@
 	name = "Dashing And Attacking"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Allows you to dash and fire at a target simultaneously."
+	desc = "向目标冲刺的同时开火。"
 	cooldown_time = 3 SECONDS
 	shared_cooldown = MOB_SHARED_COOLDOWN_2
 	sequence_actions = list(

@@ -8,8 +8,8 @@
 */
 /datum/symptom/polyvitiligo
 	name = "Polyvitiligo"
-	desc = "The virus replaces the melanin in the skin with reactive pigment."
-	illness = "Chroma Imbalance"
+	desc = "病毒将皮肤中的黑色素替换为活性色素。"
+	illness = "色彩失衡"
 	stealth = -1
 	resistance = 3
 	stage_speed = 1
@@ -32,4 +32,4 @@
 				M.reagents.add_reagent(color, 5)
 		else
 			if (prob(50)) // spam
-				M.visible_message(span_warning("[M] looks rather vibrant..."), span_notice("The colors, man, the colors..."))
+				M.visible_message(span_warning("[M]看起来色彩斑斓……"), span_notice("这色彩，天啊，这色彩……"))

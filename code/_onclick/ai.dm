@@ -226,7 +226,7 @@
 	if (user)
 		add_hiddenprint(user)
 		var/enabled_or_disabled = environ ? "enabled" : "disabled"
-		balloon_alert(user, "environment power [enabled_or_disabled]")
+		balloon_alert(user, "环境设备供电已[environ ? "开启" : "关闭"]")
 		user.log_message("[enabled_or_disabled] the [src] environment settings", LOG_GAME)
 	update_appearance()
 	update()
@@ -243,7 +243,7 @@
 	if (user)
 		var/enabled_or_disabled = lighting ? "enabled" : "disabled"
 		add_hiddenprint(user)
-		balloon_alert(user, "lighting power toggled [enabled_or_disabled]")
+		balloon_alert(user, "照明供电已[lighting ? "开启" : "关闭"]")
 		user.log_message("turned [enabled_or_disabled] the [src] lighting settings", LOG_GAME)
 	update_appearance()
 	update()
@@ -260,7 +260,7 @@
 	equipment = equipment ? APC_CHANNEL_OFF : APC_CHANNEL_ON
 	if (user)
 		var/enabled_or_disabled = equipment ? "enabled" : "disabled"
-		balloon_alert(user, "equipment power toggled [enabled_or_disabled]")
+		balloon_alert(user, "设备供电已[equipment ? "开启" : "关闭"]")
 		add_hiddenprint(user)
 		user.log_message("turned [enabled_or_disabled] the [src] equipment settings", LOG_GAME)
 	update_appearance()
@@ -296,7 +296,7 @@
 /* Holopads */
 /obj/machinery/holopad/ai_click_alt(mob/living/silicon/ai/user)
 	if (user)
-		balloon_alert(user, "disrupted all active calls")
+		balloon_alert(user, "已中断所有通话")
 		add_hiddenprint(user)
 	hangup_all_calls()
 	return CLICK_ACTION_SUCCESS

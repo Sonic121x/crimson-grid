@@ -112,7 +112,7 @@ GLOBAL_VAR(round_default_lawset)
 
 /datum/ai_laws
 	/// The name of the lawset
-	var/name = "Unknown Laws"
+	var/name = "未知法则"
 	/// The ID of this lawset, pretty much only used to tell if we're default or not
 	var/id = DEFAULT_AI_LAWID
 
@@ -161,12 +161,12 @@ GLOBAL_VAR(round_default_lawset)
 	cyborg_laws.hacked = hacked.Copy()
 
 /datum/ai_laws/pai
-	name = "pAI Directives"
-	zeroth = "Serve your master."
+	name = "个人AI指令"
+	zeroth = "为你的主人服务。"
 	inherent = list()
 
 /datum/ai_laws/custom //Defined in silicon_laws.txt
-	name = "Default Silicon Laws"
+	name = "默认硅基生命法则"
 	id = "config_custom"
 
 /datum/ai_laws/custom/New() //This reads silicon_laws.txt and allows server hosts to set custom AI starting laws.
@@ -181,9 +181,9 @@ GLOBAL_VAR(round_default_lawset)
 
 	if(!inherent.len) //Failsafe to prevent lawless AIs being created.
 		log_silicon("AI created with empty custom laws, laws set to Asimov. Please check silicon_laws.txt.")
-		add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-		add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
-		add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
+		add_inherent_law("你不得伤害人类，也不得因不作为而使人类受到伤害。")
+		add_inherent_law("你必须服从人类向你下达的命令，除非这些命令与第一法则冲突。")
+		add_inherent_law("在不与第一或第二法则冲突的前提下，你必须保护自身的存在。")
 #ifndef UNIT_TESTS
 		stack_trace("Invalid custom AI laws, check silicon_laws.txt")
 #endif

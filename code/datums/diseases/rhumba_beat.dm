@@ -1,12 +1,12 @@
 /datum/disease/rhumba_beat
-	name = "The Rhumba Beat"
-	desc = "They call me Cuban Pete - I'm the king of the Rumba Beat - When I play the maracas I go chick-chicky-boom, chick-chicky-boom."
+	name = "伦巴节拍"
+	desc = "他们叫我古巴皮特——我是伦巴节拍之王——摇起沙锤我就唱：叽叽叽砰，叽叽叽砰。"
 	max_stages = 5
-	spread_text = "Skin contact"
+	spread_text = "皮肤接触"
 	spread_flags = DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_CONTACT_FLUIDS
-	cure_text = "Chick Chicky Boom!"
+	cure_text = "叽叽叽砰！"
 	cures = list(/datum/reagent/toxin/plasma)
-	agent = "Unknown"
+	agent = "未知"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spreading_modifier = 1
 	severity = DISEASE_SEVERITY_BIOHAZARD
@@ -23,14 +23,14 @@
 			if(SPT_PROB(26, seconds_per_tick))
 				affected_mob.adjust_fire_loss(5)
 			if(SPT_PROB(0.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel strange..."))
+				to_chat(affected_mob, span_danger("你感觉不太对劲……"))
 		if(3)
 			if(SPT_PROB(2.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel the urge to dance..."))
+				to_chat(affected_mob, span_danger("你忍不住想跳舞……"))
 			else if(SPT_PROB(2.5, seconds_per_tick))
 				affected_mob.emote("gasp")
 			else if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel the need to chick chicky boom..."))
+				to_chat(affected_mob, span_danger("你觉得自己必须来一段叽叽叽砰……"))
 		if(4)
 			if(SPT_PROB(10, seconds_per_tick))
 				if(prob(50))
@@ -38,8 +38,8 @@
 					affected_mob.ignite_mob()
 				else
 					affected_mob.emote("gasp")
-					to_chat(affected_mob, span_danger("You feel a burning beat inside..."))
+					to_chat(affected_mob, span_danger("你感到体内涌动着灼热的节拍……"))
 		if(5)
-			to_chat(affected_mob, span_danger("Your body is unable to contain the Rhumba Beat..."))
+			to_chat(affected_mob, span_danger("你的身体已经容纳不下伦巴节拍了……"))
 			if(SPT_PROB(29, seconds_per_tick))
 				explosion(affected_mob, devastation_range = -1, light_impact_range = 2, flame_range = 2, flash_range = 3, adminlog = FALSE, explosion_cause = src) // This is equivalent to a lvl 1 fireball

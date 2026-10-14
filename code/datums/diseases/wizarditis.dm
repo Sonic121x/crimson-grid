@@ -1,21 +1,21 @@
 /datum/disease/wizarditis
-	name = "Wizarditis"
+	name = "巫师症"
 	max_stages = 4
-	spread_text = "Airborne"
-	cure_text = /datum/reagent/consumable/ethanol/manly_dorf::name + ", abated by magical grounding"
+	spread_text = "空气传播"
+	cure_text = "硬汉矮人，魔法接地可缓解症状"
 	cures = list(/datum/reagent/consumable/ethanol/manly_dorf)
 	cure_chance = 100
-	agent = "Rincewindus Vulgaris"
+	agent = "林斯温德普通型病原体"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	disease_flags = CAN_CARRY|CAN_RESIST|CURABLE
 	spreading_modifier = 0.75
 	bypasses_immunity = TRUE
-	desc = "Some speculate that this virus is the cause of the Space Wizard Federation's existence. \
-		Subjects affected show the signs of brain damage, yelling obscure sentences or total gibberish. \
-		On late stages subjects sometime express the feelings of inner power, and cite \
-		'the ability to control the forces of cosmos themselves!' \
-		A gulp of strong, manly spirits usually reverts them to normal, humanlike, condition. \
-		A form of magical grounding can help, too, but will not cure it on its own."
+	desc = "有人猜测，这种病毒正是太空巫师联合会存在的原因。\
+		患者会出现脑损伤迹象，大喊晦涩的语句或彻底胡言乱语。\
+		晚期患者有时会声称感受到体内的力量，宣称自己拥有\
+		“掌控宇宙力量本身的能力！”\
+		喝上一大口硬汉烈酒，通常就能让他们恢复到正常、像个人类的状态。\
+		魔法接地也能有所帮助，但仅靠它无法治愈此病。"
 	severity = DISEASE_SEVERITY_HARMFUL
 
 	/// List of random non-targeted spells to pick from to cast
@@ -59,28 +59,28 @@
 	if(stage >= 3 && SPT_PROB(0.15 * stage, seconds_per_tick))
 		var/datum/action/cooldown/spell/picked = pick(random_spells)
 		if(!picked.try_invoke(affected_mob, feedback = FALSE))
-			to_chat(affected_mob, span_danger("You feel something building up inside... but the feeling passes."))
+			to_chat(affected_mob, span_danger("你感到体内有什么正在积蓄……但这种感觉很快消失了。"))
 			return
 
 		picked.spell_feedback(affected_mob)
 		return
 
 	if(stage <= 3 && SPT_PROB(0.33 * stage, seconds_per_tick))
-		affected_mob.manual_emote("sniffles.")
+		affected_mob.manual_emote("吸了吸鼻子。")
 
 	switch(stage)
 		if(2)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel [pick("that you don't have enough mana", "that the winds of magic are gone", "an urge to summon familiar")]."))
+				to_chat(affected_mob, span_danger("你觉得[pick("自己的法力不够用了", "魔法之风已经消散", "很想召唤一只魔宠")]。"))
 
 		if(3)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel [pick("the magic bubbling in your veins", "that this location gives you a +1 to INT", "an urge to summon familiar")]."))
+				to_chat(affected_mob, span_danger("你觉得[pick("魔力在血管中翻涌", "这个地方让你的智力+1", "很想召唤一只魔宠")]。"))
 				spawn_wizard_clothes(10)
 
 		if(4)
 			if(SPT_PROB(1, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You feel [pick("the tidal wave of raw power building inside", "that this location gives you a +2 to INT and +1 to WIS", "an urge to teleport")]."))
+				to_chat(affected_mob, span_danger("你觉得[pick("原始力量如潮水般在体内汇聚", "这个地方让你的智力+2、感知+1", "很想施展传送术")]。"))
 				spawn_wizard_clothes(50)
 
 			if(SPT_PROB(0.2, seconds_per_tick))

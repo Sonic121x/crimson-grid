@@ -98,7 +98,7 @@
 	var/list/potential_names = get_names()
 	if(!length(potential_names))
 		// Someone forgot to implement get_names - it will stack trace, so we just need to return
-		name = "Erroneous memory - This is a bug"
+		name = "异常记忆——这是程序错误"
 		story_value = STORY_VALUE_SHIT
 		memory_flags |= (MEMORY_FLAG_NOPERSISTENCE|MEMORY_NO_STORY)
 		return
@@ -183,14 +183,14 @@
  */
 /datum/memory/proc/get_happy_moods()
 	return list(
-		"chuckles",
-		"has a huge grin",
-		"has a twisted grin like a maniac",
-		"is silently working away like a pro",
-		"looks determined",
-		"seems cheerful about it all",
-		"seems confident",
-		"whistles to themselves",
+		"轻声笑着",
+		"咧嘴大笑",
+		"像疯子一样扭曲地咧嘴笑着",
+		"像行家一样默默忙碌着",
+		"神情坚定",
+		"似乎对这一切都很高兴",
+		"显得信心十足",
+		"自顾自地吹着口哨",
 	)
 
 /**
@@ -198,14 +198,14 @@
  */
 /datum/memory/proc/get_neutral_moods()
 	return list(
-		"appears clueless",
-		"is darting their eyes around",
-		"is impatient",
-		"is uninterested",
-		"looks around cautiously",
-		"seems a bit sleepy",
-		"seems okay",
-		"works diligently",
+		"显得不知所措",
+		"目光四处游移",
+		"显得不耐烦",
+		"提不起兴趣",
+		"谨慎地环顾四周",
+		"似乎有些困倦",
+		"看起来还好",
+		"勤恳地忙碌着",
 	)
 
 
@@ -214,13 +214,13 @@
  */
 /datum/memory/proc/get_sad_moods()
 	return list(
-		"appears crushed",
-		"has dried tears on their face",
-		"is complaining loudly",
-		"is having a temper tantrum",
-		"is whiney about it all",
-		"looks angry",
-		"seems sad",
+		"显得备受打击",
+		"脸上留着干涸的泪痕",
+		"大声抱怨着",
+		"正在大发脾气",
+		"对这一切怨声不断",
+		"看起来很生气",
+		"显得悲伤",
 	)
 
 /**
@@ -228,8 +228,8 @@
  */
 /datum/memory/proc/get_locations()
 	return list(
-		"in [where].",
-		"while in [where]."
+		"，地点是[where]。",
+		"，当时身处[where]。"
 	)
 
 /**
@@ -311,7 +311,7 @@
 			if(potential_crew_member.mind?.assigned_role.job_flags & JOB_CREW_MEMBER)
 				crew_members += potential_crew_member
 
-		crew_member = length(crew_members) ? pick(crew_members) : "an unknown crewmember"
+		crew_member = length(crew_members) ? pick(crew_members) : "一名身份不明的船员"
 
 	//storybuilding
 	var/list/story_pieces = list()
@@ -333,7 +333,7 @@
 		chosen_addition = replacetext(chosen_addition, "%PROTAGONIST", protagonist_name)
 		chosen_addition = replacetext(chosen_addition, "%SOMETHING", initial(something.name))
 		chosen_addition = replacetext(chosen_addition, "%CREWMEMBER", build_story_character(crew_member))
-		chosen_addition = replacetext(chosen_addition, "%STORY_TYPE", story_type)
+		chosen_addition = replacetext(chosen_addition, "%STORY_TYPE", list(STORY_ENGRAVING = "雕刻", STORY_CHANGELING_ABSORB = "吸收的记忆", STORY_TATTOO = "纹身")[story_type] || story_type)
 
 		story_pieces += chosen_addition
 	//Explains any unique styling the art has. e.g. (The engraving has a cubist style.)
@@ -358,9 +358,9 @@
 	//after replacement section for performance
 	if(story_flags & STORY_FLAG_DATED)
 		if(memory_flags & MEMORY_FLAG_NOSTATIONNAME)
-			parsed_story += "This took place in [time2text(world.realtime, "Month", NO_TIMEZONE)] of [CURRENT_STATION_YEAR]."
+			parsed_story += "这件事发生在[CURRENT_STATION_YEAR]年[text2num(time2text(world.realtime, "MM", NO_TIMEZONE))]月。"
 		else
-			parsed_story += "This took place in [time2text(world.realtime, "Month", NO_TIMEZONE)] of [CURRENT_STATION_YEAR] on [station_name()]."
+			parsed_story += "这件事发生在[CURRENT_STATION_YEAR]年[text2num(time2text(world.realtime, "MM", NO_TIMEZONE))]月的[station_name()]。"
 
 	parsed_story = trim_right(parsed_story)
 
@@ -388,14 +388,14 @@
 
 		else if(ishuman(character))
 			// This can slip into memories involving monkey humans.
-			return "the unfamiliar person"
+			return "那位陌生人"
 
 	if(istype(character, /datum/mind))
 		var/datum/mind/character_mind = character
-		return "\the [LOWER_TEXT(initial(character_mind.assigned_role.title))]"
+		return "[JOB_DISPLAY_NAME(initial(character_mind.assigned_role.title))]"
 
 	// Generic result - mobs get "the guy", objs / turfs get "a thing"
-	return ismob(character) ? "\the [character]" : "\a [character]"
+	return "[character]"
 
 /**
  * Creates a "quick copy" of the memory for another mind,

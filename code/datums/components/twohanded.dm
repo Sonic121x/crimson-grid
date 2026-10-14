@@ -257,7 +257,7 @@
 	parent_item.update_appearance()
 
 	if(iscyborg(user))
-		to_chat(user, span_notice("You dedicate your module to [parent]."))
+		to_chat(user, span_notice("你将模块专用于持握[parent]。"))
 	else
 		to_chat(user, span_notice("你用双手握住[parent]。"))
 
@@ -325,7 +325,7 @@
 		// Show message if requested
 		if(show_message)
 			if(iscyborg(user))
-				to_chat(user, span_notice("You free up your module."))
+				to_chat(user, span_notice("你腾出了模块。"))
 			else if(HAS_TRAIT(parent, TRAIT_NEEDS_TWO_HANDS))
 				to_chat(user, span_notice("你放下了[parent]。"))
 			else
@@ -453,7 +453,7 @@
  * The offhand dummy item for two handed items
  */
 /obj/item/offhand
-	name = "offhand"
+	name = "副手"
 	icon = 'icons/obj/weapons/hand.dmi'
 	icon_state = "offhand"
 	w_class = WEIGHT_CLASS_HUGE

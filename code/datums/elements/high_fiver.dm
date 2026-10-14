@@ -22,8 +22,8 @@
 	SIGNAL_HANDLER
 
 	offerer.visible_message(
-		span_notice("[offerer] raises [offerer.p_their()] arm, looking for a high-five!"),
-		span_notice("You post up, looking for a high-five!"),
+		span_notice("[offerer]举起手臂，想找人击掌！"),
+		span_notice("你举起手，等着有人来击掌！"),
 		vision_distance = 2,
 	)
 	offerer.apply_status_effect(/datum/status_effect/offering/no_item_received/high_five, source, /atom/movable/screen/alert/give/highfive)
@@ -50,7 +50,7 @@
 	var/descriptor = "high-[high_ten ? "ten" : "five"]"
 
 	if(open_hands_taker <= 0)
-		to_chat(taker, span_warning("You can't [descriptor] [offerer] with no open hands!"))
+		to_chat(taker, span_warning("你没有空着的手，无法与[offerer][high_ten ? "双手击掌" : "击掌"]！"))
 		taker.add_mood_event(descriptor, /datum/mood_event/high_five_full_hand) // not so successful now!
 		return COMPONENT_OFFER_INTERRUPT
 
@@ -59,22 +59,22 @@
 	taker.add_mob_memory(/datum/memory/high_five, deuteragonist = offerer, high_five_type = descriptor, high_ten = high_ten)
 
 	if(high_ten)
-		to_chat(taker, span_nicegreen("You give high-tenning [offerer] your all!"))
+		to_chat(taker, span_nicegreen("你使出全力，和[offerer]双手击掌！"))
 		offerer.visible_message(
-			span_notice("[taker] enthusiastically high-tens [offerer]!"),
-			span_nicegreen("Wow! You're high-tenned [taker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
+			span_notice("[taker]热情地与[offerer]双手击掌！"),
+			span_nicegreen("哇！[taker]和你双手击掌了！"),
+			span_hear("你听到令人不适的皮肉撞击声！"),
 			ignored_mobs = taker,
 		)
 
 		offerer.add_mood_event(descriptor, /datum/mood_event/high_ten)
 		taker.add_mood_event(descriptor, /datum/mood_event/high_ten)
 	else
-		to_chat(taker, span_nicegreen("You high-five [offerer]!"))
+		to_chat(taker, span_nicegreen("你和[offerer]击了个掌！"))
 		offerer.visible_message(
-			span_notice("[taker] high-fives [offerer]!"),
-			span_nicegreen("All right! You're high-fived by [taker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
+			span_notice("[taker]和[offerer]击了个掌！"),
+			span_nicegreen("好耶！[taker]和你击掌了！"),
+			span_hear("你听到令人不适的皮肉撞击声！"),
 			ignored_mobs = taker,
 		)
 

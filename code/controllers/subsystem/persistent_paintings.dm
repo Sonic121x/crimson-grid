@@ -113,7 +113,7 @@
 	canvas.generated_icon = icon
 	canvas.icon_generated = TRUE
 	canvas.finalized = TRUE
-	canvas.name = "painting - [title]"
+	canvas.name = "画作——[list("Illegibly Titled Artwork" = "标题无法辨认的画作", "Untitled Artwork" = "无题画作")[title] || title]"
 	///this is a copy of something that is already in the database- it should not be able to be saved.
 	canvas.no_save = TRUE
 	canvas.update_icon()
@@ -177,8 +177,8 @@ SUBSYSTEM_DEF(persistent_paintings)
 
 	for(var/datum/painting/painting as anything in paintings)
 		cached_painting_data += list(list(
-				"title" = painting.title,
-				"creator" = painting.creator_name,
+				"title" = list("Illegibly Titled Artwork" = "标题无法辨认的画作", "Untitled Artwork" = "无题画作")[painting.title] || painting.title,
+				"creator" = painting.creator_name == "Anonymous" ? "匿名" : painting.creator_name,
 				"md5" = painting.md5,
 				"ref" = REF(painting),
 				"width" = painting.width,

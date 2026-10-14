@@ -2,11 +2,11 @@
 
 //Epilepsy gives a very small chance to have a seizure every life tick, knocking you unconscious.
 /datum/mutation/epilepsy
-	name = "Epilepsy"
-	desc = "The subject sporadically suffers from seizures."
+	name = "癫痫"
+	desc = "受试者会不时癫痫发作。"
 	instability = NEGATIVE_STABILITY_MODERATE
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You get a headache.")
+	text_gain_indication = span_danger("你感到头痛。")
 	synchronizer_coeff = 1
 	power_coeff = 1
 
@@ -17,7 +17,7 @@
 /datum/mutation/epilepsy/proc/trigger_seizure()
 	if(IS_UNCONSCIOUS_OR_CRIT(owner))
 		return
-	owner.visible_message(span_danger("[owner] starts having a seizure!"), span_userdanger("You have a seizure!"))
+	owner.visible_message(span_danger("[owner]癫痫发作了！"), span_userdanger("你癫痫发作了！"))
 	owner.Unconscious(200 * GET_MUTATION_POWER(src))
 	owner.set_jitter(2000 SECONDS * GET_MUTATION_POWER(src)) //yes this number looks crazy but the jitter animations are amplified based on the duration.
 	owner.add_mood_event("epilepsy", /datum/mood_event/epilepsy)
@@ -50,11 +50,11 @@
 
 //Unstable DNA induces random mutations!
 /datum/mutation/bad_dna
-	name = "Unstable DNA"
-	desc = "The subject will randomly mutate other mutations or features."
+	name = "不稳定DNA"
+	desc = "受试者会随机产生其他突变或改变自身特征。"
 	instability = NEGATIVE_STABILITY_MAJOR
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You feel strange.")
+	text_gain_indication = span_danger("你感觉很奇怪。")
 	locked = TRUE
 
 /datum/mutation/bad_dna/on_acquiring(mob/living/carbon/human/owner)
@@ -81,11 +81,11 @@
 
 //Cough gives you a chronic cough that causes you to drop items.
 /datum/mutation/cough
-	name = "Cough"
-	desc = "The subject has a chronic cough."
+	name = "咳嗽"
+	desc = "受试者患有慢性咳嗽。"
 	instability = NEGATIVE_STABILITY_MODERATE
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_danger("You start coughing.")
+	text_gain_indication = span_danger("你开始咳嗽。")
 	synchronizer_coeff = 1
 	power_coeff = 1
 
@@ -99,12 +99,12 @@
 			owner.throw_at(target, cough_range, GET_MUTATION_POWER(src))
 
 /datum/mutation/paranoia
-	name = "Paranoia"
-	desc = "The subject is easily terrified, and may suffer from hallucinations."
+	name = "偏执症"
+	desc = "受试者容易受到惊吓，还可能出现幻觉。"
 	instability = NEGATIVE_STABILITY_MODERATE
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You feel screams echo through your mind...")
-	text_lose_indication = span_notice("The screaming in your mind fades.")
+	text_gain_indication = span_danger("你感觉尖叫声在脑海中回荡……")
+	text_lose_indication = span_notice("脑海中的尖叫声消散了。")
 
 /datum/mutation/paranoia/on_life(seconds_per_tick)
 	if(SPT_PROB(2.5, seconds_per_tick) && !IS_UNCONSCIOUS_OR_CRIT(owner))
@@ -114,8 +114,8 @@
 
 //Dwarfism shrinks your body and lets you pass tables.
 /datum/mutation/dwarfism
-	name = "Dwarfism"
-	desc = "The subject's cells are more compact, making the subject appear smaller."
+	name = "侏儒症"
+	desc = "受试者的细胞更加紧密，使其体型变小。"
 	quality = POSITIVE
 	difficulty = 16
 	instability = POSITIVE_INSTABILITY_MINOR
@@ -127,17 +127,17 @@
 	if(!.)
 		return
 	ADD_TRAIT(owner, TRAIT_DWARF, GENETIC_MUTATION)
-	owner.visible_message(span_danger("[owner] suddenly shrinks!"), span_notice("Everything around you seems to grow.."))
+	owner.visible_message(span_danger("[owner]突然缩小了！"), span_notice("你周围的一切似乎都变大了……"))
 
 /datum/mutation/dwarfism/on_losing(mob/living/carbon/human/owner)
 	if(..())
 		return
 	REMOVE_TRAIT(owner, TRAIT_DWARF, GENETIC_MUTATION)
-	owner.visible_message(span_danger("[owner] suddenly grows!"), span_notice("Everything around you seems to shrink.."))
+	owner.visible_message(span_danger("[owner]突然变大了！"), span_notice("你周围的一切似乎都变小了……"))
 
 /datum/mutation/acromegaly
-	name = "Acromegaly"
-	desc = "The subject's cells stack on top of one another, making the subject appear unusually tall."
+	name = "肢端肥大症"
+	desc = "受试者的细胞相互堆叠，使其身材异常高大。"
 	quality = MINOR_NEGATIVE
 	difficulty = 16
 	instability = NEGATIVE_STABILITY_MODERATE
@@ -149,7 +149,7 @@
 	if(!.)
 		return
 	ADD_TRAIT(owner, TRAIT_TOO_TALL, GENETIC_MUTATION)
-	owner.visible_message(span_danger("[owner] suddenly grows tall!"), span_notice("You feel a small strange urge to fight small men with slingshots. Or maybe play some basketball."))
+	owner.visible_message(span_danger("[owner]突然长高了！"), span_notice("你莫名有点想和拿着投石索的小个子打一架。或者去打打篮球。"))
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(head_bonk))
 	owner.regenerate_icons()
 
@@ -157,7 +157,7 @@
 	if(..())
 		return
 	REMOVE_TRAIT(owner, TRAIT_TOO_TALL, GENETIC_MUTATION)
-	owner.visible_message(span_danger("[owner] suddenly shrinks!"), span_notice("You return to your usual height."))
+	owner.visible_message(span_danger("[owner]突然缩小了！"), span_notice("你恢复了平常的身高。"))
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(head_bonk))
 	owner.regenerate_icons()
 
@@ -167,7 +167,7 @@
 	var/atom/movable/whacked_by = (locate(/obj/machinery/door/airlock) in parent.loc) || (locate(/obj/machinery/door/firedoor) in parent.loc) || (locate(/obj/structure/mineral_door) in parent.loc)
 	if(!whacked_by || prob(100 - (8 *  GET_MUTATION_SYNCHRONIZER(src))))
 		return
-	to_chat(parent, span_danger("You hit your head on \the [whacked_by]'s header!"))
+	to_chat(parent, span_danger("你的头撞上了[whacked_by]的门楣！"))
 	var/dmg = HAS_TRAIT(parent, TRAIT_HEAD_INJURY_BLOCKED) ? rand(1,4) : rand(2,9)
 	parent.apply_damage(dmg, BRUTE, BODY_ZONE_HEAD)
 	parent.do_attack_animation(whacked_by, ATTACK_EFFECT_PUNCH)
@@ -175,8 +175,8 @@
 	parent.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
 
 /datum/mutation/gigantism
-	name = "Gigantism" //negative version of dwarfism
-	desc = "The subject's cells are more spread out, making the subject appear larger."
+	name = "巨人症" //negative version of dwarfism
+	desc = "受试者的细胞排列更加疏松，使其体型变大。"
 	quality = MINOR_NEGATIVE
 	difficulty = 12
 	conflicts = list(/datum/mutation/dwarfism)
@@ -187,31 +187,31 @@
 		return
 	ADD_TRAIT(owner, TRAIT_GIANT, GENETIC_MUTATION)
 	owner.update_transform(1.25)
-	owner.visible_message(span_danger("[owner] suddenly grows!"), span_notice("Everything around you seems to shrink.."))
+	owner.visible_message(span_danger("[owner]突然变大了！"), span_notice("你周围的一切似乎都变小了……"))
 
 /datum/mutation/gigantism/on_losing(mob/living/carbon/human/owner)
 	if(..())
 		return
 	REMOVE_TRAIT(owner, TRAIT_GIANT, GENETIC_MUTATION)
 	owner.update_transform(0.8)
-	owner.visible_message(span_danger("[owner] suddenly shrinks!"), span_notice("Everything around you seems to grow.."))
+	owner.visible_message(span_danger("[owner]突然缩小了！"), span_notice("你周围的一切似乎都变大了……"))
 
 //Clumsiness has a very large amount of small drawbacks depending on item.
 /datum/mutation/clumsy
-	name = "Clumsiness"
-	desc = "The subject's brain functions are impaired, causing them to exhibit clown-like behavior."
+	name = "笨手笨脚"
+	desc = "受试者的脑功能受损，表现出如同小丑般的行为。"
 	instability = NEGATIVE_STABILITY_MAJOR
 	quality = MINOR_NEGATIVE
-	text_gain_indication = span_danger("You feel lightheaded.")
+	text_gain_indication = span_danger("你感到头晕。")
 	mutation_traits = list(TRAIT_CLUMSY)
 
 //Tourettes causes you to randomly stand in place and shout.
 /datum/mutation/tourettes
-	name = "Tourette's Syndrome"
-	desc = "The subject has a chronic twitching disorder, causing them to involuntarily shout or twitch."
+	name = "图雷特综合征"
+	desc = "受试者患有慢性抽动障碍，会不由自主地喊叫或抽搐。"
 	quality = NEGATIVE
 	instability = NEGATIVE_STABILITY_NONE
-	text_gain_indication = span_danger("You twitch.")
+	text_gain_indication = span_danger("你抽搐了一下。")
 	synchronizer_coeff = 1
 
 /datum/mutation/tourettes/on_life(seconds_per_tick)
@@ -220,7 +220,7 @@
 			if(1)
 				owner.emote("twitch")
 			if(2 to 3)
-				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
+				owner.say("[prob(50) ? ";" : ""][pick("屎", "尿", "操", "屄", "舔屌货", "狗娘养的", "奶子")]", forced="Tourette's Syndrome")
 		var/w_offset =  rand(-2, 2)
 		var/z_offset = rand(-1, 1)
 		animate(owner, pixel_w = w_offset, pixel_z = z_offset, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
@@ -229,19 +229,19 @@
 
 //Deafness makes you deaf.
 /datum/mutation/deaf
-	name = "Deafness"
-	desc = "The subject is completely deaf and cannot hear anything."
+	name = "耳聋"
+	desc = "受试者完全失聪，听不到任何声音。"
 	instability = NEGATIVE_STABILITY_MAJOR
 	quality = NEGATIVE
-	text_gain_indication = span_danger("You can't seem to hear anything.")
+	text_gain_indication = span_danger("你好像什么都听不见了。")
 	mutation_traits = list(TRAIT_DEAF)
 
 //Monified turns you into a monkey.
 /datum/mutation/race
-	name = "Monkified"
-	desc = "A strange genome, believing to be what differentiates monkeys from humans."
-	text_gain_indication = span_green("You feel unusually monkey-like.")
-	text_lose_indication = span_notice("You feel like your old self.")
+	name = "猴化"
+	desc = "一组奇特的基因，人们认为它是猴子与人类之间的区别所在。"
+	text_gain_indication = span_green("你感觉自己像猴子一样。")
+	text_lose_indication = span_notice("你感觉自己又恢复原样了。")
 	quality = NEGATIVE
 	instability = NEGATIVE_STABILITY_MAJOR // mmmonky
 	remove_on_aheal = FALSE
@@ -273,10 +273,10 @@
 	owner.humanize(original_species)
 
 /datum/mutation/glow
-	name = "Glowy"
-	desc = "The subject's skin emits a soft glow, illuminating the area around them."
+	name = "微光"
+	desc = "受试者的皮肤发出柔和的光芒，照亮周围区域。"
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your skin begins to glow softly.")
+	text_gain_indication = span_notice("你的皮肤开始发出柔和的光芒。")
 	instability = POSITIVE_INSTABILITY_MINI
 	power_coeff = 1
 	conflicts = list(/datum/mutation/glow/anti)
@@ -310,9 +310,9 @@
 	return pick(COLOR_RED, COLOR_BLUE, COLOR_YELLOW, COLOR_GREEN, COLOR_PURPLE, COLOR_ORANGE)
 
 /datum/mutation/glow/anti
-	name = "Anti-Glow"
-	desc = "The subject's skin absorbs light, making the area around them darker."
-	text_gain_indication = span_notice("The light around you seems to disappear.")
+	name = "吸光"
+	desc = "受试者的皮肤吸收光线，使周围区域变暗。"
+	text_gain_indication = span_notice("你周围的光线似乎消失了。")
 	conflicts = list(/datum/mutation/glow)
 	instability = POSITIVE_INSTABILITY_MINOR
 	locked = TRUE
@@ -322,39 +322,39 @@
 	return COLOR_BLACK
 
 /datum/mutation/strong
-	name = "Strength"
-	desc = "The subject's muscles slightly expand, improving general strength and workout efficiency."
+	name = "力量"
+	desc = "受试者的肌肉略微增大，提升整体力量和锻炼效率。"
 	quality = POSITIVE
-	text_gain_indication = span_notice("You feel strong.")
+	text_gain_indication = span_notice("你感到强壮有力。")
 	instability = POSITIVE_INSTABILITY_MINOR
 	difficulty = 16
 	mutation_traits = list(TRAIT_STRENGTH)
 
 /datum/mutation/stimmed
-	name = "Stimmed"
-	desc = "The subject's chemical balance is more robust, improving workout efficiency."
+	name = "亢奋"
+	desc = "受试者体内的化学平衡更加稳健，从而提高锻炼效率。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MINI
-	text_gain_indication = span_notice("You feel stimmed.")
+	text_gain_indication = span_notice("你感到精神亢奋。")
 	difficulty = 16
 	mutation_traits = list(TRAIT_STIMMED)
 
 /datum/mutation/insulated
-	name = "Insulated"
-	desc = "The subject does not conduct electricity."
+	name = "绝缘"
+	desc = "受试者的身体不导电。"
 	quality = POSITIVE
-	text_gain_indication = span_notice("Your fingertips go numb.")
-	text_lose_indication = span_notice("Your fingertips regain feeling.")
+	text_gain_indication = span_notice("你的指尖麻木了。")
+	text_lose_indication = span_notice("你的指尖恢复了知觉。")
 	difficulty = 16
 	instability = POSITIVE_INSTABILITY_MODERATE
 	mutation_traits = list(TRAIT_SHOCKIMMUNE)
 
 /datum/mutation/fire
-	name = "Fiery Sweat"
-	desc = "The subject's skin will randomly combust, though ultimately becomes more resilient to burning."
+	name = "烈焰汗液"
+	desc = "受试者的皮肤会随机自燃，但也会变得更耐烧伤。"
 	quality = NEGATIVE
-	text_gain_indication = span_warning("You feel hot.")
-	text_lose_indication = span_notice("You feel a lot cooler.")
+	text_gain_indication = span_warning("你感到燥热。")
+	text_lose_indication = span_notice("你感觉凉快多了。")
 	conflicts = list(/datum/mutation/adaptation/heat)
 	difficulty = 14
 	synchronizer_coeff = 1
@@ -377,11 +377,11 @@
 	MODIFY_PHYSIOLOGY(owner, BURN, 2)
 
 /datum/mutation/badblink
-	name = "Spatial Instability"
-	desc = "The subject has a very weak link to spatial reality, and may be displaced. Often causes extreme nausea."
+	name = "空间不稳定"
+	desc = "受试者与现实空间的联系极为脆弱，可能发生空间位移，常伴有强烈的恶心感。"
 	quality = NEGATIVE
-	text_gain_indication = span_warning("The space around you twists sickeningly.")
-	text_lose_indication = span_notice("The space around you settles back to normal.")
+	text_gain_indication = span_warning("你周围的空间扭曲得令人作呕。")
+	text_lose_indication = span_notice("你周围的空间恢复了正常。")
 	difficulty = 18//high so it's hard to unlock and abuse
 	instability = NEGATIVE_STABILITY_MODERATE
 	synchronizer_coeff = 1
@@ -392,27 +392,27 @@
 /datum/mutation/badblink/on_life(seconds_per_tick)
 	if(SPT_PROB(warpchance, seconds_per_tick))
 		var/warpmessage = pick(
-		span_warning("With a sickening 720-degree twist of [owner.p_their()] back, [owner] vanishes into thin air."),
-		span_warning("[owner] does some sort of strange backflip into another dimension. It looks pretty painful."),
-		span_warning("[owner] does a jump to the left, a step to the right, and warps out of reality."),
-		span_warning("[owner]'s torso starts folding inside out until it vanishes from reality, taking [owner] with it."),
-		span_warning("One moment, you see [owner]. The next, [owner] is gone."))
-		owner.visible_message(warpmessage, span_userdanger("You feel a wave of nausea as you fall through reality!"))
+		span_warning("[owner]的背部以令人作呕的姿态扭转了720度，随后整个人凭空消失了。"),
+		span_warning("[owner]做了个古怪的后空翻，翻进了另一个维度。看起来相当疼。"),
+		span_warning("[owner]向左一跳，向右一步，随即跃出了现实。"),
+		span_warning("[owner]的躯干开始由内向外翻折，最终连同[owner]一起从现实中消失了。"),
+		span_warning("前一刻，你还看得见[owner]。下一刻，[owner]就不见了。"))
+		owner.visible_message(warpmessage, span_userdanger("你跌穿了现实，一阵恶心感随之涌来！"))
 		var/warpdistance = rand(10, 15) * GET_MUTATION_POWER(src)
 		do_teleport(owner, get_turf(owner), warpdistance, channel = TELEPORT_CHANNEL_FREE)
 		owner.adjust_disgust(GET_MUTATION_SYNCHRONIZER(src) * (warpchance * warpdistance))
 		warpchance = 0
-		owner.visible_message(span_danger("[owner] appears out of nowhere!"))
+		owner.visible_message(span_danger("[owner]凭空出现了！"))
 	else
 		warpchance += 0.0625 * seconds_per_tick / GET_MUTATION_ENERGY(src)
 
 /datum/mutation/acidflesh
-	name = "Acidic Flesh"
-	desc = "The subject has acidic chemicals building up underneath the skin. This is often lethal."
+	name = "酸蚀血肉"
+	desc = "受试者的皮肤下不断积聚酸性化学物质，往往会危及生命。"
 	instability = NEGATIVE_STABILITY_MAJOR
 	quality = NEGATIVE
-	text_gain_indication = span_userdanger("A horrible burning sensation envelops you as your flesh turns to acid!")
-	text_lose_indication = span_notice("A feeling of relief fills you as your flesh goes back to normal.")
+	text_gain_indication = span_userdanger("你的血肉化为酸液，可怕的灼烧感席卷全身！")
+	text_lose_indication = span_notice("你的血肉恢复正常，全身都轻松了下来。")
 	difficulty = 18//high so it's hard to unlock and use on others
 	/// The cooldown for the warning message
 	COOLDOWN_DECLARE(msgcooldown)
@@ -420,20 +420,20 @@
 /datum/mutation/acidflesh/on_life(seconds_per_tick)
 	if(SPT_PROB(13, seconds_per_tick))
 		if(COOLDOWN_FINISHED(src, msgcooldown))
-			to_chat(owner, span_danger("Your acid flesh bubbles..."))
+			to_chat(owner, span_danger("你酸化的血肉冒起了泡……"))
 			COOLDOWN_START(src, msgcooldown, 20 SECONDS)
 		if(prob(15))
 			owner.acid_act(rand(30, 50), 10)
-			owner.visible_message(span_warning("[owner]'s skin bubbles and pops."), span_userdanger("Your bubbling flesh pops! It burns!"))
+			owner.visible_message(span_warning("[owner]的皮肤冒出气泡，接连破裂。"), span_userdanger("你血肉上的气泡炸开了！好烫！"))
 			playsound(owner,'sound/items/weapons/sear.ogg', 50, TRUE)
 
 /datum/mutation/spastic
-	name = "Spastic"
-	desc = "The subject suffers from muscle spasms."
+	name = "肌肉痉挛"
+	desc = "受试者会出现肌肉痉挛。"
 	instability = NEGATIVE_STABILITY_MODERATE
 	quality = NEGATIVE
-	text_gain_indication = span_warning("You flinch.")
-	text_lose_indication = span_notice("Your flinching subsides.")
+	text_gain_indication = span_warning("你的身体猛地一抽。")
+	text_lose_indication = span_notice("你的身体不再抽动了。")
 	difficulty = 16
 
 /datum/mutation/spastic/on_acquiring()
@@ -448,12 +448,12 @@
 	owner.remove_status_effect(/datum/status_effect/spasms)
 
 /datum/mutation/extrastun
-	name = "Two Left Feet"
-	desc = "The subject's right foot is replaced with another left foot. Symptoms include kissing the floor when taking a step."
+	name = "两只左脚"
+	desc = "受试者的右脚变成了另一只左脚，症状包括迈步时与地板亲密接触。"
 	instability = NEGATIVE_STABILITY_MODERATE
 	quality = NEGATIVE
-	text_gain_indication = span_warning("Your right foot feels... left.")
-	text_lose_indication = span_notice("Your right foot feels alright.")
+	text_gain_indication = span_warning("你的右脚感觉……变成左脚了。")
+	text_lose_indication = span_notice("你的右脚感觉正常了。")
 	difficulty = 16
 
 /datum/mutation/extrastun/on_acquiring()
@@ -476,18 +476,18 @@
 		return
 	if(owner.buckled || owner.body_position == LYING_DOWN || HAS_TRAIT(owner, TRAIT_IMMOBILIZED) || owner.throwing || owner.movement_type & (VENTCRAWLING | FLYING | FLOATING))
 		return //remove the 'edge' cases
-	to_chat(owner, span_danger("You trip over your own feet."))
+	to_chat(owner, span_danger("你被自己的脚绊倒了。"))
 	owner.Knockdown(30)
 
 /datum/mutation/martyrdom
-	name = "Internal Martyrdom"
-	desc = "The subject violently tears itself apart when near death. The process is irreversible. \
-		The effect is not known to damage anything nearby, but is very, VERY disorienting when observed."
+	name = "血肉殉爆"
+	desc = "受试者在濒死时会猛烈地撕裂自身，这一过程不可逆转。\
+		据称不会损坏周围物体，但目睹这一幕会让人极其、极其晕眩。"
 	instability = NEGATIVE_STABILITY_MAJOR // free stability >:)
 	locked = TRUE
 	quality = POSITIVE //not that cloning will be an option a lot but generally lets keep this around i guess?
-	text_gain_indication = span_warning("You get an intense feeling of heartburn.")
-	text_lose_indication = span_notice("Your internal organs feel at ease.")
+	text_gain_indication = span_warning("你感到强烈的烧心感。")
+	text_lose_indication = span_notice("你的内脏感觉舒适了。")
 
 /datum/mutation/martyrdom/on_acquiring()
 	. = ..()
@@ -515,27 +515,27 @@
 	for(var/mob/living/carbon/human/splashed in view(2, owner))
 		var/obj/item/organ/eyes/eyes = splashed.get_organ_slot(ORGAN_SLOT_EYES)
 		if(eyes)
-			to_chat(splashed, span_userdanger("You are blinded by a shower of blood!"))
+			to_chat(splashed, span_userdanger("一阵血雨让你眼前一黑！"))
 			eyes.apply_organ_damage(5)
 		else
-			to_chat(splashed, span_userdanger("You are knocked down by a wave of... blood?!"))
+			to_chat(splashed, span_userdanger("你被一阵……血浪击倒了？！"))
 		splashed.Stun(2 SECONDS)
 		splashed.set_eye_blur_if_lower(40 SECONDS)
 		splashed.adjust_confusion(3 SECONDS)
 	for(var/mob/living/silicon/borgo in view(2, owner))
-		to_chat(borgo, span_userdanger("Your sensors are disabled by a shower of blood!"))
+		to_chat(borgo, span_userdanger("一阵血雨让你的传感器失灵了！"))
 		borgo.Paralyze(6 SECONDS)
 	owner.investigate_log("has been gibbed by the martyrdom mutation.", INVESTIGATE_DEATHS)
 	owner.gib(DROP_ALL_REMAINS)
 
 /datum/mutation/headless
-	name = "H.A.R.S."
-	desc = "Short for \"Head Allergic Rejection Syndrome\", the subject's body rejects the head, causing its brain to recede into the chest. \
-		Reversing this mutation is very dangerous, though it will regenerate non-vital head organs."
+	name = "头部过敏排斥综合征"
+	desc = "简称H.A.R.S.，受试者的身体会排斥头部，导致大脑退入胸腔。\
+		逆转这种突变非常危险，不过会使头部的非关键器官再生。"
 	instability = NEGATIVE_STABILITY_MAJOR
 	difficulty = 12 //pretty good for traitors
 	quality = NEGATIVE //holy shit no eyes or tongue or ears
-	text_gain_indication = span_warning("Something feels off.")
+	text_gain_indication = span_warning("你感觉有些不对劲。")
 	warn_admins_on_inject = TRUE
 
 /datum/mutation/headless/on_acquiring()
@@ -551,7 +551,7 @@
 
 	var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
 	if(head)
-		owner.visible_message(span_warning("[owner]'s head splatters with a sickening crunch!"), ignored_mobs = list(owner))
+		owner.visible_message(span_warning("伴随着令人作呕的碎裂声，[owner]的头颅炸得血肉四溅！"), ignored_mobs = list(owner))
 		new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 		head.drop_organs()
 		head.dismember(dam_type = BRUTE, silent = TRUE)
@@ -577,7 +577,7 @@
 	var/list/excluded_zones = GLOB.all_body_zones - BODY_ZONE_HEAD
 	owner.dna.species.regenerate_organs(owner, replace_current = FALSE, excluded_zones = excluded_zones) //replace_current needs to be FALSE to prevent weird adding and removing mutation healing
 	owner.apply_damage(damage = 50, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD) //and this to DISCOURAGE organ farming, or at least not make it free.
-	owner.visible_message(span_warning("[owner]'s head returns with a sickening crunch!"), span_warning("Your head regrows with a sickening crack! Ouch."))
+	owner.visible_message(span_warning("伴随着令人作呕的碎裂声，[owner]的头颅重新长了出来！"), span_warning("伴随着令人作呕的爆裂声，你的头颅重新长了出来！好痛。"))
 	new /obj/effect/gibspawner/generic(get_turf(owner), owner)
 
 /datum/mutation/headless/proc/abort_attachment(datum/source, obj/item/bodypart/new_limb, special) //you aren't getting your head back
@@ -588,12 +588,12 @@
 
 // You bleed faster but regenerate blood faster
 /datum/mutation/bloodier
-	name = "Hypermetabolic Blood"
-	desc = "The subject's becomes hypermetabolic, causing it to produce blood at a much faster rate."
+	name = "血液代谢亢进"
+	desc = "受试者的代谢变得异常旺盛，造血速度大幅提高。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MINOR
-	text_gain_indication = span_notice("You can feel your heartbeat pick up.")
-	text_lose_indication = span_notice("You heartbeat slows back down.")
+	text_gain_indication = span_notice("你能感觉到心跳加快了。")
+	text_lose_indication = span_notice("你的心跳又慢了下来。")
 	difficulty = 16
 	synchronizer_coeff = 1
 	power_coeff = 1
@@ -640,36 +640,36 @@
 
 // You eat rocks
 /datum/mutation/rock_eater
-	name = "Rock Eater"
-	desc = "The subject's body is able to digest rocks and minerals."
+	name = "食岩"
+	desc = "受试者的身体能够消化岩石和矿物。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MINI
-	text_gain_indication = span_notice("You feel a craving for rocks.")
-	text_lose_indication = span_notice("You could go for a normal meal.")
+	text_gain_indication = span_notice("你很想吃些石头。")
+	text_lose_indication = span_notice("你想吃顿正常的饭了。")
 	difficulty = 12
 	mutation_traits = list(TRAIT_ROCK_EATER)
 	conflicts = list(/datum/mutation/rock_absorber)
 
 // You eat rock but also get buffs from them
 /datum/mutation/rock_absorber
-	name = "Rock Absorber"
-	desc = "The subject's body is able to digest rocks and minerals, taking on their properties."
+	name = "岩性吸收"
+	desc = "受试者的身体能够消化岩石和矿物，并获得它们的特性。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MAJOR
-	text_gain_indication = span_notice("You feel a supreme craving for rocks.")
-	text_lose_indication = span_notice("You could go for a normal meal.")
+	text_gain_indication = span_notice("你无比渴望吃些石头。")
+	text_lose_indication = span_notice("你想吃顿正常的饭了。")
 	mutation_traits = list(TRAIT_ROCK_EATER, TRAIT_ROCK_METAMORPHIC)
 	conflicts = list(/datum/mutation/rock_eater)
 	locked = TRUE
 
 // Soft crit is disabed
 /datum/mutation/inexorable
-	name = "Inexorable"
-	desc = "The subject's body can push on beyond the limits of normal human endurance, though the process causes internal damage to the body."
+	name = "势不可挡"
+	desc = "受试者的身体能够超越常人的耐受极限继续行动，但这一过程会造成内部损伤。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MODERATE
-	text_gain_indication = span_notice("You feel inexorable.")
-	text_lose_indication = span_notice("You suddenly feel more human.")
+	text_gain_indication = span_notice("你感到自己势不可挡。")
+	text_lose_indication = span_notice("你突然觉得自己更像个普通人了。")
 	difficulty = 24
 	synchronizer_coeff = 1
 	mutation_traits = list(TRAIT_NOSOFTCRIT, TRAIT_ANALGESIA)
@@ -710,12 +710,12 @@
 	owner.adjust_oxy_loss(-0.5 * seconds_per_tick)
 
 /datum/mutation/limb_regeneration
-	name = "Regeneration"
-	desc = "The subject's body is able to regenerate lost limbs or organs while sleeping, given ample rest and nutrients."
+	name = "再生"
+	desc = "只要休息与营养充足，受试者的身体就能在睡眠时再生失去的肢体或器官。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MODERATE
-	text_gain_indication = span_notice("You feel a strange tingling.")
-	text_lose_indication = span_notice("The strange tingling feeling fades.")
+	text_gain_indication = span_notice("你感到一阵奇怪的麻痒。")
+	text_lose_indication = span_notice("那阵奇怪的麻痒消退了。")
 	difficulty = 20
 	synchronizer_coeff = 1
 	power_coeff = 1
@@ -746,12 +746,12 @@
 
 	if(owner.nutrition <= nutrition_threshold)
 		if(IS_UNCONSCIOUS(owner) && !notified_of_ability)
-			to_chat(owner, span_green("You feel a strange tingling, as if your body is trying to do something - though you feel like you could use a meal first."))
+			to_chat(owner, span_green("你感到一阵奇怪的麻痒，仿佛身体正试图做些什么——不过你觉得应该先吃顿饭。"))
 			notified_of_ability = TRUE
 		return
 	if(!IS_UNCONSCIOUS(owner))
 		if(owner.nutrition > nutrition_threshold && !notified_of_ability)
-			to_chat(owner, span_green("You feel a strange tingling, as if your body is trying to do something - though you feel like you could use a nap first."))
+			to_chat(owner, span_green("你感到一阵奇怪的麻痒，仿佛身体正试图做些什么——不过你觉得应该先睡一觉。"))
 			notified_of_ability = TRUE
 		return
 
@@ -762,13 +762,13 @@
 			var/replacement_type = owner.dna.species.get_mutant_organ_type_for_slot(pick(missing_important_organs))
 			var/obj/item/organ/replacement = new replacement_type()
 			replacement.Insert(owner, special = TRUE)
-			to_chat(owner, span_green("The tingling feeling builds to a climax, until ultimately you feel [replacement.gender == PLURAL ? "some" : "a"] new [replacement.name] where your old one[replacement.gender == PLURAL ? "s were" : " was"]!"))
+			to_chat(owner, span_green("麻痒感越来越强烈，直到你终于感觉到全新的[replacement.name]在原来的位置长了出来！"))
 		else
 			var/replacing_zone = pick(missing_limbs)
 			owner.regenerate_limb(replacing_zone)
 			var/obj/item/bodypart/replacement = owner.get_bodypart(replacing_zone)
-			to_chat(owner, span_green("The tingling feeling builds to a climax, until ultimately you feel [replacement.gender == PLURAL ? "some" : "a"] new [replacement.plaintext_zone] where your old one[replacement.gender == PLURAL ? "s were" : " was"]!"))
-			owner.visible_message(span_warning("[owner]'s [replacement.plaintext_zone] reforms, making a loud, grotesque sound!"), ignored_mobs = list(owner))
+			to_chat(owner, span_green("麻痒感越来越强烈，直到你终于感觉到全新的[replacement.plaintext_zone]在原来的位置长了出来！"))
+			owner.visible_message(span_warning("[owner]的[replacement.plaintext_zone]重新长了出来，发出响亮而怪异的声音！"), ignored_mobs = list(owner))
 		owner.adjust_nutrition(-NUTRITION_LEVEL_FULL * 0.5 * GET_MUTATION_SYNCHRONIZER(src))
 		playsound(owner, 'sound/effects/magic/demon_consume.ogg', 33, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return
@@ -778,9 +778,9 @@
 		var/replacement_type = pick(missing_special_organs)
 		var/obj/item/organ/replacement = new replacement_type()
 		replacement.Insert(owner, special = TRUE)
-		to_chat(owner, span_green("The tingling feeling builds to a climax, until ultimately you feel [replacement.gender == PLURAL ? "some" : "a"] new [replacement.name] where your old one[replacement.gender == PLURAL ? "s were" : " was"]!"))
+		to_chat(owner, span_green("麻痒感越来越强烈，直到你终于感觉到全新的[replacement.name]在原来的位置长了出来！"))
 		if(replacement.organ_flags & ORGAN_EXTERNAL)
-			owner.visible_message(span_warning("[owner]'s [replacement.name] reforms, making a loud, grotesque sound!"), ignored_mobs = list(owner))
+			owner.visible_message(span_warning("[owner]的[replacement.name]重新长了出来，发出响亮而怪异的声音！"), ignored_mobs = list(owner))
 		owner.adjust_nutrition(-NUTRITION_LEVEL_FULL * 0.3 * GET_MUTATION_SYNCHRONIZER(src))
 		playsound(owner, 'sound/effects/magic/demon_consume.ogg', 33, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		return
@@ -788,12 +788,12 @@
 	stack_trace("Limb regeneration failed to find a missing limb or organ to regenerate for [owner] despite passing the checks")
 
 /datum/mutation/chemical_allergy
-	name = "Chemical Allergy"
-	desc = "The subject's body is allergic to almost all forms of medicine or drug - causing a temporary flux of genetic instability, among other side effects."
+	name = "化学过敏"
+	desc = "受试者的身体对几乎所有药品和毒品过敏，会暂时扰乱基因稳定性，并引起其他副作用。"
 	quality = NEGATIVE
 	instability = NEGATIVE_STABILITY_MAJOR
-	text_gain_indication = span_warning("You feel a strange irritation in your skin.")
-	text_lose_indication = span_notice("The irritation in your skin subsides.")
+	text_gain_indication = span_warning("你的皮肤感到一阵奇怪的刺痒。")
+	text_lose_indication = span_notice("你皮肤上的刺痒消退了。")
 	difficulty = 20
 
 	/// Typecache of reagents that trigger the allergy
@@ -830,8 +830,8 @@
 	SIGNAL_HANDLER
 
 	render_list += "<span class='alert ml-1'>"
-	render_list += conditional_tooltip("Subject has [name]", "Subject will react negatively to most forms of medicine - \
-		avoid administering chemicals as a part of treatment unless absolutely necessary.", tochat)
+	render_list += conditional_tooltip("受试者患有[name]", "受试者会对大多数药品产生不良反应——\
+		除非万不得已，治疗时应避免使用化学药剂。", tochat)
 	render_list += "</span><br>"
 
 /datum/mutation/chemical_allergy/on_life(seconds_per_tick)
@@ -872,27 +872,27 @@
 	return FALSE
 
 /datum/mutation/venomous_strikes
-	name = "Venomous"
-	desc = "The subject's body produces a minor toxin that can be injected into others through scratches or bites. \
-		They will also filter out the same variety of toxin from their own bloodstream should they be exposed to it themselves."
+	name = "带毒"
+	desc = "受试者的身体会产生弱效毒素，可通过抓伤或咬伤注入他人体内。\
+		若受试者自身接触到同类毒素，也能将其从血液中过滤掉。"
 	quality = POSITIVE
 	instability = POSITIVE_INSTABILITY_MODERATE
-	text_gain_indication = span_notice("You teeth and nails feel sharper.")
-	text_lose_indication = span_notice("You teeth and nails feel duller.")
+	text_gain_indication = span_notice("你的牙齿和指甲感觉更锋利了。")
+	text_lose_indication = span_notice("你的牙齿和指甲感觉更钝了。")
 	/// Type of chem to inject
 	var/venom_type = /datum/reagent/toxin
 	/// Amount of chem to inject per attack
 	var/venom_amount = 3
 
 /datum/mutation/venomous_strikes/on_acquiring(mob/living/carbon/human/owner)
-	text_gain_indication = (owner.get_active_hand()?.unarmed_attack_effect == ATTACK_EFFECT_CLAW) ? span_notice("You teeth and claws feel sharper.") : initial(text_gain_indication)
+	text_gain_indication = (owner.get_active_hand()?.unarmed_attack_effect == ATTACK_EFFECT_CLAW) ? span_notice("你的牙齿和爪子感觉更锋利了。") : initial(text_gain_indication)
 	. = ..()
 	if(!.)
 		return
 	apply_venom()
 
 /datum/mutation/venomous_strikes/on_losing(mob/living/carbon/human/owner)
-	text_lose_indication = (owner.get_active_hand()?.unarmed_attack_effect == ATTACK_EFFECT_CLAW) ? span_notice("You teeth and claws feel duller.") : initial(text_lose_indication)
+	text_lose_indication = (owner.get_active_hand()?.unarmed_attack_effect == ATTACK_EFFECT_CLAW) ? span_notice("你的牙齿和爪子感觉更钝了。") : initial(text_lose_indication)
 	. = ..()
 	if(.)
 		return

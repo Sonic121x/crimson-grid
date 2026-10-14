@@ -45,7 +45,7 @@
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 	var/mob/living/baby = controller.pawn
 	if(parent.stat == DEAD)
-		baby.manual_emote("cries for their parent!")
+		baby.manual_emote("为死去的亲长哭泣！")
 	else
-		baby.manual_emote("dances around their parent!")
+		baby.manual_emote("围着亲长欢快地跳舞！")
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED

@@ -105,7 +105,7 @@
 	last_color_index = (last_color_index % colors.len) + 1
 
 	var/message = "<span style='color: [colors[last_color_index]]; text-align: center; font-size: 24pt'>"
-	message += "HEY!<br>An admin is trying to talk to you!<br>Check your chat window,<br>and click their name to respond!"
+	message += "请注意！<br>管理员正在联系你！<br>请查看聊天窗口，<br>点击管理员的名字回复！"
 	message += "</span>"
 
 	maptext = MAPTEXT(message)

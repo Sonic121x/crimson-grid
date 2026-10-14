@@ -100,13 +100,13 @@
 		if(armless)
 			// DARKPACK EDIT CHANGE START - ECONOMY
 			if(!user.pulling || !iscash(user.pulling) && !istype(user.pulling, /obj/item/card/credit))
-				to_chat(user, span_notice("Try pulling a credit card, or cash while using \the [parent]!"))
+				to_chat(user, span_notice("使用[parent]时，试着拖着一张信用卡或一些现金！"))
 				return FALSE
 			// DARKPACK EDIT CHANGE END - ECONOMY
 		return FALSE
 
 	if(physical_cash_total < total_cost)
-		to_chat(user, span_warning("Insufficient funds. Aborting."))
+		to_chat(user, span_warning("资金不足。交易已中止。"))
 		return FALSE
 	for(var/obj/cash_object in counted_money)
 		qdel(cash_object)
@@ -125,7 +125,7 @@
 		else
 			user.pulling = dollars_left
 	log_econ("[total_cost] [MONEY_NAME] were spent on [parent] by [user].")
-	to_chat(user, span_notice("Purchase completed with held [MONEY_NAME]."))
+	to_chat(user, span_notice("已使用携带的[MONEY_NAME]完成购买。"))
 	// DARKPACK EDIT CHANGE END - ECONOMY
 	playsound(user, 'sound/effects/cashregister.ogg', 20, TRUE)
 	return TRUE
@@ -139,18 +139,18 @@
 
 	if(!credit_card)
 		if(transaction_style == PAYMENT_VENDING)
-			to_chat(user, span_warning("No card found."))
+			to_chat(user, span_warning("未找到卡片。"))
 		return FALSE
 	if(!credit_card?.registered_account)
 		switch(transaction_style)
 			if(PAYMENT_FRIENDLY)
-				to_chat(user, span_warning("There's no account detected on your ID, how mysterious!"))
+				to_chat(user, span_warning("你的身份证上竟然没有检测到账户，真奇怪！"))
 			if(PAYMENT_ANGRY)
-				to_chat(user, span_warning("ARE YOU JOKING. YOU DON'T HAVE A BANK ACCOUNT ON YOUR ID YOU IDIOT."))
+				to_chat(user, span_warning("你在开玩笑吗？你的身份证根本没关联银行账户，你这个白痴！"))
 			if(PAYMENT_CLINICAL)
-				to_chat(user, span_warning("Credit Card lacks a bank account. Advancing."))
+				to_chat(user, span_warning("信用卡未关联银行账户。尝试其他支付方式。"))
 			if(PAYMENT_VENDING)
-				to_chat(user, span_warning("No account found."))
+				to_chat(user, span_warning("未找到账户。"))
 
 		return FALSE
 
@@ -167,18 +167,18 @@
 	if(!(credit_card.registered_account.has_money(total_cost)))
 		switch(transaction_style)
 			if(PAYMENT_FRIENDLY)
-				to_chat(user, span_warning("I'm so sorry... You don't seem to have enough money."))
+				to_chat(user, span_warning("真抱歉……你的钱似乎不够。"))
 			if(PAYMENT_ANGRY)
-				to_chat(user, span_warning("YOU MORON. YOU ABSOLUTE BAFOON. YOU INSUFFERABLE TOOL. YOU ARE POOR."))
+				to_chat(user, span_warning("你这个蠢货！彻头彻尾的傻瓜！让人受不了的废物！你就是个穷鬼！"))
 			if(PAYMENT_CLINICAL)
-				to_chat(user, span_warning("Credit Card lacks funds. Aborting."))
+				to_chat(user, span_warning("信用卡余额不足。交易已中止。"))
 			if(PAYMENT_VENDING)
-				to_chat(user, span_warning("You do not possess the funds to purchase that."))
-		atom_parent.balloon_alert(user, "needs [total_cost] [MONEY_NAME_AUTOPURAL(total_cost)]!")
+				to_chat(user, span_warning("你没有足够的钱购买此物品。"))
+		atom_parent.balloon_alert(user, "需要[total_cost][MONEY_NAME_AUTOPURAL(total_cost)]！")
 		return FALSE
-	target_acc.transfer_money(credit_card.registered_account, total_cost, "Nanotrasen: Usage of Corporate Machinery")
+	target_acc.transfer_money(credit_card.registered_account, total_cost, "纳诺传讯：使用公司设备")
 	log_econ("[total_cost] [MONEY_NAME] were spent on [parent] by [user] via [credit_card.registered_account.account_holder]'s card.")
-	credit_card.registered_account.bank_card_talk("[total_cost] [MONEY_NAME] deducted from your account.")
+	credit_card.registered_account.bank_card_talk("已从你的账户中扣除[total_cost][MONEY_NAME]。")
 	playsound(src, 'sound/effects/cashregister.ogg', 20, TRUE)
 	SSeconomy.add_audit_entry(credit_card.registered_account, total_cost, parent)
 	return TRUE

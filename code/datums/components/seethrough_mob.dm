@@ -127,7 +127,7 @@
 
 /datum/action/cooldown/toggle_seethrough
 	name = "Toggle Seethrough"
-	desc = "Allows you to see behind your massive body and click through it."
+	desc = "让你看清庞大身躯挡住的事物，并能穿过身体点击它们。"
 	button_icon = 'icons/mob/actions/actions_xeno.dmi'
 	button_icon_state = "alien_sneak"
 	background_icon_state = "bg_alien"

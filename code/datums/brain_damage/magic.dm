@@ -7,14 +7,14 @@
 	resilience = TRAUMA_RESILIENCE_LOBOTOMY
 
 /datum/brain_trauma/magic/lumiphobia
-	name = "Lumiphobia"
-	desc = "Patient has an inexplicable adverse reaction to light."
-	scan_desc = "light hypersensitivity"
-	symptoms = "Exhibits extreme discomfort and adverse reactions when exposed to bright light sources, \
-		and will go to great lengths to avoid illuminated areas. \
-		This sensitivity can lead to skin irritation, similar to that of a severe sunburn."
-	gain_text = span_warning("You feel a craving for darkness.")
-	lose_text = span_notice("Light no longer bothers you.")
+	name = "惧光症"
+	desc = "患者对光照有难以解释的不良反应。"
+	scan_desc = "光照过度敏感"
+	symptoms = "暴露在强光下时出现极度不适和不良反应，\
+		并会竭尽所能避开有光照的区域。\
+		这种敏感可能引发皮肤刺激，类似严重晒伤。"
+	gain_text = span_warning("你开始渴望黑暗。")
+	lose_text = span_notice("光线不再令你不适。")
 	/// Cooldown to prevent warning spam
 	COOLDOWN_DECLARE(damage_warning_cooldown)
 	var/next_damage_warning = 0
@@ -29,18 +29,18 @@
 		return
 
 	if(COOLDOWN_FINISHED(src, damage_warning_cooldown))
-		to_chat(owner, span_warning("<b>The light burns you!</b>"))
+		to_chat(owner, span_warning("<b>光线灼烧着你！</b>"))
 		COOLDOWN_START(src, damage_warning_cooldown, 10 SECONDS)
 	owner.take_overall_damage(burn = 1.5 * seconds_per_tick)
 
 /datum/brain_trauma/magic/poltergeist
-	name = "Poltergeist"
-	desc = "Patient appears to be targeted by a violent invisible entity."
-	scan_desc = "paranormal activity"
-	symptoms = "Experiences frequent and unprovoked physical disturbances in their immediate vicinity, \
-		such as objects being thrown or moved without any apparent cause."
-	gain_text = span_warning("You feel a hateful presence close to you.")
-	lose_text = span_notice("You feel the hateful presence fade away.")
+	name = "骚灵"
+	desc = "患者似乎被一个暴力的无形存在盯上了。"
+	scan_desc = "超自然活动"
+	symptoms = "身边频繁发生毫无缘由的物理扰动，\
+		例如物品莫名其妙地被抛出或移动。"
+	gain_text = span_warning("你感觉身边有个充满恨意的存在。")
+	lose_text = span_notice("你感觉那个充满恨意的存在消失了。")
 
 /datum/brain_trauma/magic/poltergeist/on_life(seconds_per_tick)
 	..()
@@ -59,13 +59,13 @@
 		throwing.throw_at(owner, 8, 2)
 
 /datum/brain_trauma/magic/antimagic
-	name = "Athaumasia"
-	desc = "Patient is completely inert to magical forces."
-	scan_desc = "thaumic blank"
-	symptoms = "Exhibits a complete immunity to effects unexplainable by conventional science, \
-		such as the abilities demonstrated by members of the Wizard Federation."
-	gain_text = span_notice("You realize that magic cannot be real.")
-	lose_text = span_notice("You realize that magic might be real.")
+	name = "魔法绝缘症"
+	desc = "患者对魔法力量完全没有反应。"
+	scan_desc = "魔法感应空白"
+	symptoms = "对常规科学无法解释的效果完全免疫，\
+		例如太空巫师联合会成员展现的能力。"
+	gain_text = span_notice("你意识到魔法不可能是真的。")
+	lose_text = span_notice("你意识到魔法可能是真的。")
 
 /datum/brain_trauma/magic/antimagic/on_gain()
 	ADD_TRAIT(owner, TRAIT_ANTIMAGIC, TRAUMA_TRAIT)
@@ -76,14 +76,14 @@
 	..()
 
 /datum/brain_trauma/magic/stalker
-	name = "Stalking Phantom"
-	desc = "Patient is stalked by a phantom only they can see."
-	scan_desc = "extra-sensory paranoia"
-	symptoms = "Feels an unshakable sensation of being watched or pursued by an unseen entity, \
-		leading to heightened anxiety, paranoia, and occasional hallucinations of a ghostly figure in their vicinity. \
-		Extreme cases may even result in physical harm inflicted upon the patient by a seemingly invisible force."
-	gain_text = span_warning("You feel like something wants to kill you...")
-	lose_text = span_notice("You no longer feel eyes on your back.")
+	name = "尾随幽影"
+	desc = "患者被只有自己能看见的幽影尾随。"
+	scan_desc = "超感知被害妄想"
+	symptoms = "始终感觉自己正被一个看不见的存在监视或追逐，\
+		导致焦虑和疑惧加剧，偶尔还会幻见附近出现幽灵般的身影。\
+		极端情况下，患者甚至会遭到看似无形的力量伤害。"
+	gain_text = span_warning("你感觉有什么东西想杀了你……")
+	lose_text = span_notice("你不再觉得背后有目光盯着自己。")
 	/// Type of stalker that is chasing us
 	var/stalker_type = /obj/effect/client_image_holder/stalker_phantom
 	/// Reference to the stalker that is chasing us
@@ -119,7 +119,7 @@
 
 	if(get_dist(owner, stalker) <= 1)
 		playsound(owner, 'sound/effects/magic/demon_attack1.ogg', 50)
-		owner.visible_message(span_warning("[owner] is torn apart by invisible claws!"), span_userdanger("Ghostly claws tear your body apart!"))
+		owner.visible_message(span_warning("无形的利爪撕扯着[owner]的身体！"), span_userdanger("幽灵般的利爪撕扯着你的身体！"))
 		owner.take_bodypart_damage(rand(20, 45), wound_bonus=CANT_WOUND)
 	else if(SPT_PROB(30, seconds_per_tick))
 		stalker.forceMove(get_step_towards(stalker, owner))
@@ -136,7 +136,7 @@
 
 /obj/effect/client_image_holder/stalker_phantom
 	name = "???"
-	desc = "It's coming closer..."
+	desc = "它越来越近了……"
 	image_icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	image_state = "curseblob"
 

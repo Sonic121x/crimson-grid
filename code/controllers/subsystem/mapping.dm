@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(mapping)
 		var/datum/map_config/old_config = current_map
 		current_map = config.defaultmap
 		if(!current_map || current_map.defaulted)
-			to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting to [old_config.map_name]."))
+			to_chat(world, span_boldannounce("无法加载下一张地图或默认地图的配置，已回退至 [old_config.map_name]。"))
 			current_map = old_config
 	plane_offset_to_true = list()
 	true_to_offset_planes = list()
@@ -994,5 +994,5 @@ ADMIN_VERB(load_away_mission, R_FUN, "Load Away Mission", "Load a specific away 
 	else
 		text = map_name
 	if(webmap_included && !isnull(SSmapping.current_map.mapping_url))
-		text += " | <a href='byond://?action=openWebMap'>(Show Map)</a>"
+		text += " | <a href='byond://?action=openWebMap'>（查看地图）</a>"
 	return text

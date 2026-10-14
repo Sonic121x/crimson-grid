@@ -8,41 +8,41 @@
 
 /datum/fantasy_affix/cosmetic_suffixes/New()
 	goodSuffixes = list(
-		"dexterity",
-		"constitution",
-		"intelligence",
-		"wisdom",
-		"charisma",
-		"the forest",
-		"the hills",
-		"the plains",
-		"the sea",
-		"the sun",
-		"the moon",
-		"the void",
-		"the world",
-		"many secrets",
-		"many tales",
-		"many colors",
-		"rending",
-		"sundering",
-		"the night",
-		"the day",
+		"敏捷",
+		"体质",
+		"智力",
+		"智慧",
+		"魅力",
+		"森林",
+		"丘陵",
+		"平原",
+		"大海",
+		"太阳",
+		"月亮",
+		"虚空",
+		"世界",
+		"万千秘密",
+		"万千传说",
+		"缤纷色彩",
+		"撕裂",
+		"破碎",
+		"黑夜",
+		"白昼",
 		)
 	badSuffixes = list(
-		"draining",
-		"burden",
-		"discomfort",
-		"awkwardness",
-		"poor hygiene",
-		"timidity",
+		"衰竭",
+		"重负",
+		"不适",
+		"笨拙",
+		"污秽",
+		"胆怯",
 		)
 
 	weight = (length(goodSuffixes) + length(badSuffixes)) * 10
 
 /datum/fantasy_affix/cosmetic_suffixes/apply(datum/component/fantasy/comp, newName)
 	if(comp.quality > 0 || (comp.quality == 0 && prob(50)))
-		. = "[newName] of [pick(goodSuffixes)]"
+		. = "[newName]·[pick(goodSuffixes)]"
 		if(comp.quality >= 10)
 			START_PROCESSING(SSprocessing, src)
 			if(comp.quality >= 15)
@@ -50,7 +50,7 @@
 			else
 				comp.parent.AddComponent(/datum/component/unusual_effect, color = "#FFBF0030")
 	else
-		. = "[newName] of [pick(badSuffixes)]"
+		. = "[newName]·[pick(badSuffixes)]"
 	return .
 
 //////////// Good suffixes
@@ -83,7 +83,7 @@
 
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/bane, affected_biotypes = picked_mobtype, damage_multiplier = 2)
-	return "[newName] of [initial(picked_mobtype.name)] slaying"
+	return "[newName]·[initial(picked_mobtype.name)]杀手"
 
 /datum/fantasy_affix/summoning
 	name = "of <mobtype> summoning (dangerous, can pick all but megafauna tier stuff)"
@@ -125,7 +125,7 @@
 		max_mobs = max_mobs,\
 		spawn_delay = spawn_delay,\
 	)
-	return "[newName] of [initial(picked_mobtype.name)] summoning"
+	return "[newName]·[initial(picked_mobtype.name)]召唤"
 
 /datum/fantasy_affix/shrapnel
 	name = "shrapnel"
@@ -161,7 +161,7 @@
 
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/mirv, picked_projectiletype)
-	return "[newName] of [initial(picked_projectiletype.name)] shrapnel"
+	return "[newName]·[initial(picked_projectiletype.name)]破片"
 
 /datum/fantasy_affix/strength
 	name = "of strength (knockback)"
@@ -172,7 +172,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	master.AddElement(/datum/element/knockback, CEILING(comp.quality/2, 1), FLOOR(comp.quality/10, 1))
-	return "[newName] of strength"
+	return "[newName]·力量"
 
 /datum/fantasy_affix/strength/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -189,7 +189,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	comp.appliedComponents += master.AddComponent(/datum/component/squeak, list('sound/items/bikehorn.ogg' = 1), 50, falloff_exponent = 20)
-	return "[newName] of the fool"
+	return "[newName]·愚者"
 
 /datum/fantasy_affix/curse_of_hunger
 	name = "curse of hunger"
@@ -208,8 +208,8 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	var/filter_color = "#8a0c0ca1" //clarified args
-	var/new_name = pick(", eternally hungry", " of the glutton", " cursed with hunger", ", consumer of all", " of the feast")
-	master.AddElement(/datum/element/curse_announcement, "[master] is cursed with the curse of hunger!", filter_color, "", comp)
+	var/new_name = pick("·永恒饥饿", "·饕餮", "·饥饿诅咒", "·吞噬万物", "·盛宴")
+	master.AddElement(/datum/element/curse_announcement, "[master]被施加了饥饿诅咒！", filter_color, "", comp)
 	comp.appliedComponents += master.AddComponent(/datum/component/curse_of_hunger)
 	return "[newName][new_name]"
 
@@ -234,7 +234,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	var/filter_color = "#800080a1" //clarified args
-	var/new_name = pick(", transforming", " of the polymorph", " cursed with polymorphing", ", changer of all", " of changing")
+	var/new_name = pick("·变幻", "·变形", "·变形诅咒", "·万物变易", "·变化")
 	var/static/list/possible_results = list(
 		WABBAJACK_MONKEY,
 		WABBAJACK_ROBOT,
@@ -243,7 +243,7 @@
 		WABBAJACK_HUMAN,
 		WABBAJACK_ANIMAL,
 	)
-	master.AddElement(/datum/element/curse_announcement, "[master] is cursed with the curse of polymorph!", filter_color, "", comp)
+	master.AddElement(/datum/element/curse_announcement, "[master]被施加了变形诅咒！", filter_color, "", comp)
 	comp.appliedComponents += master.AddComponent(/datum/component/curse_of_polymorph, pick(possible_results))
 	return "[newName][new_name]"
 
@@ -265,7 +265,7 @@
 	. = ..()
 	var/obj/item/master = comp.parent
 	master.slowdown = min(-comp.quality / 5, master.slowdown)
-	return "[newName] of speed"
+	return "[newName]·迅捷"
 
 /datum/fantasy_affix/speed/remove(datum/component/fantasy/comp)
 	var/obj/item/master = comp.parent
@@ -280,7 +280,7 @@
 /datum/fantasy_affix/doot/apply(datum/component/fantasy/comp, newName)
 	. = ..()
 	comp.parent.AddElement(/datum/element/spooky, too_spooky = comp.quality > 17, stam_damage_mult = comp.quality * 0.15)
-	return "[newName] of [pick("dooting", "spooks", "rattling", "the bones")]"
+	return "[newName]·[pick("嘟嘟鸣响", "惊魂", "咔嗒作响", "白骨")]"
 
 /datum/fantasy_affix/doot/remove(datum/component/fantasy/comp)
 	comp.parent.RemoveElement(/datum/element/spooky, too_spooky = comp.quality > 17, stam_damage_mult = comp.quality * 0.15)
@@ -294,7 +294,7 @@
 
 /datum/fantasy_affix/windseeker/apply(datum/component/fantasy/comp, newName)
 	comp.parent.AddElement(/datum/element/slow_target_click_cd_attack, get_cd_penalty(comp))
-	return "[newName] of the Windseeker"
+	return "[newName]·逐风者"
 
 /datum/fantasy_affix/windseeker/remove(datum/component/fantasy/comp)
 	comp.parent.RemoveElement(/datum/element/slow_target_click_cd_attack, get_cd_penalty(comp))

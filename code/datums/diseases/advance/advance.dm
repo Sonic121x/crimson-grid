@@ -18,11 +18,11 @@
 
 /datum/disease/advance
 	name = "Unknown" // We will always let our creator name our disease.
-	desc = "An engineered disease which can contain a multitude of symptoms."
-	form = "Advanced Disease" // Will let med-scanners know that this disease was engineered.
-	agent = "advance microbes"
+	desc = "一种人工改造的疾病，可包含多种症状。"
+	form = "高级疾病" // Will let med-scanners know that this disease was engineered.
+	agent = "高级微生物"
 	max_stages = 5
-	spread_text = "Unknown"
+	spread_text = "未知"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	cures = null
 	visibility_flags = HIDDEN_BOOK // we have unique handling for advance diseases in the book
@@ -235,7 +235,7 @@
 		cure_chance = clamp(10 * (0.94 ** properties["resistance"]), 3.5, 12) // Capped at between -3 and 17 resistance
 		stage_prob = max(0.2 * properties["stage_rate"], 0) + 1.5
 		set_severity(round(properties["severity"]), 1)
-		cure_text = "If you can see this, something has gone wrong."
+		cure_text = "若能看到这段文字，说明发生了异常。"
 	else
 		CRASH("Our properties were empty or null!")
 
@@ -245,22 +245,22 @@
 	switch(spread_id)
 		if(DISEASE_SPREAD_NON_CONTAGIOUS)
 			update_spread_flags(DISEASE_SPREAD_NON_CONTAGIOUS)
-			spread_text = "None"
+			spread_text = "不传染"
 		if(DISEASE_SPREAD_SPECIAL)
 			update_spread_flags(DISEASE_SPREAD_SPECIAL)
-			spread_text = "None"
+			spread_text = "不传染"
 		if(DISEASE_SPREAD_BLOOD)
 			update_spread_flags(DISEASE_SPREAD_BLOOD)
-			spread_text = "Blood"
+			spread_text = "血液传播"
 		if(DISEASE_SPREAD_CONTACT_FLUIDS)
 			update_spread_flags(DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS)
-			spread_text = "Fluids"
+			spread_text = "体液传播"
 		if(DISEASE_SPREAD_CONTACT_SKIN)
 			update_spread_flags(DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN)
-			spread_text = "Skin contact"
+			spread_text = "皮肤接触"
 		if(DISEASE_SPREAD_AIRBORNE)
 			update_spread_flags(DISEASE_SPREAD_BLOOD | DISEASE_SPREAD_CONTACT_FLUIDS | DISEASE_SPREAD_CONTACT_SKIN | DISEASE_SPREAD_AIRBORNE)
-			spread_text = "Respiration"
+			spread_text = "呼吸传播"
 
 /datum/disease/advance/proc/set_severity(level_sev)
 
@@ -527,5 +527,5 @@
 			continue
 		var/datum/reagent/each_cure = each_symptom.symptom_cure
 		if(!each_symptom.neutered && !(each_cure::name in remedies))
-			remedies += each_cure::name
-	return english_list(remedies, nothing_text = "Nothing")
+			remedies[each_cure::name] = list(/datum/reagent/medicine/c2/tirimol = "眠氧宁", /datum/reagent/toxin/bonehurtingjuice = "骨痛汁", /datum/reagent/medicine/leporazine = "恒温嗪", /datum/reagent/medicine/mannitol = "甘露醇", /datum/reagent/acetaldehyde = "乙醛", /datum/reagent/inverse/penthrite = "再搏素", /datum/reagent/medicine/synaptizine = "突触嗪", /datum/reagent/medicine/psicodine = "安神定", /datum/reagent/consumable/frostoil = "冰霜油", /datum/reagent/medicine/haloperidol = "氟哌啶醇", /datum/reagent/consumable/milk = "牛奶", /datum/reagent/drug/space_drugs = "太空毒品", /datum/reagent/medicine/ondansetron = "昂丹司琼", /datum/reagent/medicine/omnizine = "全能嗪", /datum/reagent/medicine/earthsblood = "大地之血", /datum/reagent/barbers_aid = "生发助剂", /datum/reagent/water/salt = "盐水", /datum/reagent/medicine/spaceacillin = "太空西林", /datum/reagent/medicine/oculine = "明目灵", /datum/reagent/inverse/healing/convermol = "肺膜素", /datum/reagent/medicine/diphenhydramine = "苯海拉明")[each_cure] || each_cure::name
+	return english_list(assoc_to_values(remedies), nothing_text = "无", and_text = "和", comma_text = "、")

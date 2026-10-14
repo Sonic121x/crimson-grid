@@ -125,7 +125,7 @@
 				return FALSE
 			completed_waves++
 			var/atom/spawner_atom = parent
-			spawner_atom.balloon_alert_to_viewers("wave [completed_waves]/[max_waves]")
+			spawner_atom.balloon_alert_to_viewers("第[completed_waves]/[max_waves]波")
 	return TRUE
 
 /// Try to create a new mob
@@ -217,7 +217,7 @@
 	spawn_callback?.Invoke(spawned_mob)
 
 	if(spawn_text)
-		spawner.visible_message(span_danger("A creature [spawn_text] [spawner]."))
+		spawner.visible_message(span_danger(spawn_text == "emerges to assault" ? "一个生物现身袭击[spawner]。" : "一个生物从[spawner][list("emerges from" = "冒了出来", "warps in from" = "传送而来", "climbs out of" = "攀爬而出", "crawls out of" = "爬了出来", "crawls out from" = "爬了出来", "crawls through" = "钻了出来", "arises from" = "升起", "peels itself off from" = "剥离出来")[spawn_text] || spawn_text]。"))
 
 
 /// Remove weakrefs to atoms which have been killed or deleted without us picking it up somehow
