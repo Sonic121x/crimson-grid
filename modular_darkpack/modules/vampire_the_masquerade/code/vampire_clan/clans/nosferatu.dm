@@ -1,11 +1,11 @@
 /datum/subsplat/vampire_clan/nosferatu
 	name = "Nosferatu"
 	id = VAMPIRE_CLAN_NOSFERATU
-	desc = "The Nosferatu wear their curse on the outside. Their bodies horribly twisted and deformed through the Embrace, they lurk on the fringes of most cities, acting as spies and brokers of information. Using animals and their own supernatural capacity to hide, nothing escapes the eyes of the so-called Sewer Rats. The Nosferatu are hideously deformed by their embrace, and survive through secrecy and information trading. In many cities they remain closely associated with the Camarilla, though many may operate in other Sects, independently or maintain connections across sect lines. They are first and foremost loyal to their Clan, regardless of Sect. Their curse permanently twists them into monstrous forms incapable of passing as human."
+	desc = "诺斯费拉图的诅咒显露于外。他们的身体在初拥中可怕地扭曲变形，只能潜伏于城市边缘，充当间谍与情报掮客。借助动物和超自然隐匿能力，几乎没有什么能逃过这些“下水道老鼠”的眼睛。他们依靠隐秘行事与情报交易生存。在许多城市，诺斯费拉图仍与密党关系密切，但也有人效力其他派系、独立行动，或维持跨派系联系。无论所属派系为何，他们首先忠于氏族。诅咒使他们永远保持怪物般的形貌，无法冒充人类。"
 	icon = "nosferatu"
-	curse = "Masquerade-violating appearance."
+	curse = "外貌会暴露血族身份，违反避世戒律。"
 	roleplay_level = "Intermediate"
-	sense_the_sin_text = "is entranced by that which is unknown."
+	sense_the_sin_text = "沉迷于未知之物。"
 	alt_sprite = "nosferatu"
 	clan_disciplines = list(
 		/datum/discipline/animalism,

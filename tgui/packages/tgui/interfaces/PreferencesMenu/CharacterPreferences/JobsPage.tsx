@@ -219,7 +219,7 @@ function JobRow(props: JobRowProps) {
   const experienceNeeded = job_required_experience?.[name];
   const daysLeft = job_days_left ? job_days_left[name] : 0;
 
-  // DARKPACK EDIT ADD START -  ALTERNATIVE_JOB_TITLES
+  const jobNames = useServerPrefs()?.jobs.display_names ?? {};
   const alt_title_selected = data.job_alt_titles[name]
     ? data.job_alt_titles[name]
     : name;
@@ -234,7 +234,7 @@ function JobRow(props: JobRowProps) {
     rightSide = (
       <Stack pr={1}>
         <Stack.Item grow textAlign="right" height="stretch">
-          <b>{hoursNeeded} 小时</b>（{experience_type}）
+          <b>{hoursNeeded} 小时</b>（{({ Playtime: '游玩时长', 'Garou Nation': '狼人国度', Pentex: '潘特克斯', 'Camarilla Authorities': '密党当局', Supply: '物资供应', Chantry: '秘所', Anarchs: '自由派', Sabbat: '魔宴同盟', 'Police Force': '警察', 'City Services': '城市服务', Clinic: '诊所', 'Giovanni Family': '乔凡尼家族', 'Tzimisce Manor': '茨密希庄园', Church: '教会', 'Strip Club': '脱衣舞俱乐部', 'Society of Leopold': '圣利奥波德协会', 'Chinese Triad': '三合会' } as Record<string, string>)[experience_type] ?? experience_type}）
         </Stack.Item>
       </Stack>
     );
@@ -303,13 +303,13 @@ function JobRow(props: JobRowProps) {
                 {
                   // DARKPACK EDIT CHANGE START - ALTERNATIVE_JOB_TITLES - ORIGINAL: {name}
                   !job.alt_titles ? (
-                    name
+                    jobNames[name] ?? name
                   ) : (
                     <Box position="relative">
                       <Dropdown
                         width="100%"
-                        options={job.alt_titles}
-                        selected={alt_title_selected}
+                        options={job.alt_titles.map((value) => ({ value, displayText: jobNames[value] ?? value }))}
+                        selected={alt_title_selected} displayText={jobNames[alt_title_selected] ?? alt_title_selected}
                         menuWidth="25"
                         onSelected={(value) =>
                           act('set_job_title', {
@@ -427,7 +427,7 @@ function JoblessRoleDropdown(props) {
 
   const options = [
     {
-      displayText: `未获所选职业时，以${data.overflow_role}加入`,
+      displayText: `未获所选职业时，以${data.overflow_role === 'Citizen' ? '市民' : data.overflow_role}加入`,
       value: JoblessRole.BeOverflow,
     },
     {

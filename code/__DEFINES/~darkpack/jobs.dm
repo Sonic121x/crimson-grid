@@ -10,7 +10,7 @@
  * and it will hurt the entire time
  */
 
-//No department
+#define JOB_DISPLAY_NAME(JOB_TITLE) (GLOB.localized_job_titles[JOB_TITLE] ? GLOB.localized_job_titles[JOB_TITLE] : JOB_TITLE)
 #define JOB_CITIZEN "Citizen"
 #define JOB_ORDINARY_CITIZEN "Unassigned"
 #define JOB_STREET_JANITOR "Street Janitor"

@@ -1,11 +1,11 @@
 /datum/storyteller_roll/gift/jam_weapon
-	bumper_text = "Jam Weapon"
+	bumper_text = "武器失灵"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	numerical = TRUE
 
 /datum/action/cooldown/power/gift/jam_weapon
-	name = "Jam Weapon"
-	desc = "The Child may stop any Weaver-born weapons from working within the range of his voice."
+	name = "武器失灵"
+	desc = "盖亚之子可使声音所及范围内由织者力量造就的武器停止运作。"
 	button_icon_state = "jam_weapon"
 	rank = 1
 	gnosis_cost = 1

@@ -40,7 +40,7 @@
 
 
 /// Used when the `get_job_unavailable_error_message` proc can't make sense of a given code.
-#define GENERIC_JOB_UNAVAILABLE_ERROR "Error: Unknown job availability."
+#define GENERIC_JOB_UNAVAILABLE_ERROR "错误：无法确定职业是否可选。"
 
 // Human authority settings
 // If you want to add another setting, make sure to also add it to the if chain in /datum/job_config_type/human_authority/validate_value()

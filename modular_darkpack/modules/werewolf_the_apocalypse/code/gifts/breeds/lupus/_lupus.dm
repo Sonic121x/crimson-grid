@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/gift/hares_leap
-	name = "Hare's Leap"
-	desc = {"The player makes a reflexive Strength + Athletics roll (difficulty 7) to activate this Gift.
-	If successful, the character's leaping distances are doubled for a scene — or tripled for a single turn with the expenditure of a Willpower point"}
+	name = "野兔之跃"
+	desc = {"进行一次力量＋运动的反射检定（难度 7）来激活此天赋。
+	成功后，角色的跳跃距离在一个场景内翻倍；也可消耗一点意志力，在一轮内将跳跃距离提高至三倍。"}
 	button_icon_state = "hares_leap"
 	rank = 1
 
@@ -47,10 +47,10 @@
 
 
 /datum/action/cooldown/power/gift/predators_arsenal
-	name = "Predator's Arsenal"
-	desc = {"One of the most unnerving aspects of the Homid shape is its lack of proper weapons.
-	This Gift remedies that problem (while still retaining much of the Homid shape's ability to blend in with the human world),
-	granting the Garou battle-ready claws and teeth in Homid form."}
+	name = "掠食者武装"
+	desc = {"人形最令人不安的缺陷之一，就是缺少合适的武器。
+	此天赋弥补了这一缺陷，同时基本保留人形融入人类世界的能力，
+	让狼人在人形下也能拥有适合战斗的利爪与尖牙。"}
 	button_icon_state = "predators_arsenal"
 	rank = 1
 
@@ -108,7 +108,7 @@
 
 	var/roll_result = roll_datum.st_roll(user, source)
 	if(roll_result == ROLL_SUCCESS)
-		examine_list += span_warning("[source.p_They()] [source.p_have()] sharp, long claws for hands and [source.p_their()] voice has a strange distortion")
+		examine_list += span_warning("[source]的双手长着尖锐的长爪，声音也带着古怪的失真。")
 
 
 /atom/movable/screen/alert/status_effect/gift/predators_arsenal
@@ -118,7 +118,7 @@
 
 
 /datum/storyteller_roll/predators_arsenal_examine
-	bumper_text = "examine"
+	bumper_text = "观察"
 	difficulty = 9
 	applicable_stats = list(STAT_PERCEPTION, STAT_ALERTNESS)
 	roll_output_type = ROLL_FLAG_ROLLER

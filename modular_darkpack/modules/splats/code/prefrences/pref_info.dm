@@ -13,7 +13,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	stack_trace("Splat [name] ([type]) did not have a description set, and is a selectable roundstart race! Override get_splat_description.")
-	return "No splat description set, file a bug report!"
+	return "尚未设置族类说明，请提交错误报告！"
 
 /**
  * Gets the lore behind the type of species. Can be long.
@@ -27,7 +27,7 @@
 	RETURN_TYPE(/list)
 
 	stack_trace("Splat [name] ([type]) did not have lore set, and is a selectable roundstart race! Override get_splat_lore.")
-	return list("No splat lore set, file a bug report!")
+	return list("尚未设置族类背景，请提交错误报告！")
 
 
 /**
@@ -50,9 +50,9 @@
 		to_add += list(list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = FA_ICON_SKULL,
-			SPECIES_PERK_NAME = "Undead",
-			SPECIES_PERK_DESC = "Kindred are of the undead! The undead do not have the need to eat or breathe, and \
-				most viruses will not be able to infect a walking corpse. Their worries mostly stop at remaining in one piece, really.",
+			SPECIES_PERK_NAME = "不死生物",
+			SPECIES_PERK_DESC = "血族是不死生物！不死生物无需进食或呼吸，\
+				大多数病毒也无法感染一具行尸。说到底，他们主要只需担心身体是否完整。",
 		))
 
 	return to_add

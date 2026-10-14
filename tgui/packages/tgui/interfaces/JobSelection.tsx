@@ -24,7 +24,7 @@ type Job = {
   open_slots: number;
   used_slots: number;
   prioritized: BooleanLike;
-  description: string;
+  description: string; display_name: string;
   jobIcon: string;
 };
 
@@ -78,7 +78,7 @@ function JobEntry(props: JobEntryProps) {
         (job.prioritized ? (
           <>
             <p style={{ marginTop: '0px' }}>
-              <b>The HoP wants more people in this job!</b>
+              <b>人事主管希望更多人担任此职业！</b>
             </p>
             {job.description}
           </>
@@ -126,7 +126,7 @@ function DepartmentEntry(props: DepartmentEntryProps) {
       <StyleableSection
         title={
           <>
-            {name}
+            {({ Prince: '亲王', Camarilla: '密党', Clinic: '诊所', Church: '教会', 'Strip Club': '脱衣舞俱乐部', Anarch: '自由派', Giovanni: '乔凡尼', Chantry: '秘所', Manor: '庄园', Sabbat: '魔宴同盟', 'Garou Nation': '狼人国度', Pentex: '潘特克斯', Warehouse: '仓库', Police: '警局', 'Society of Leopold': '圣利奥波德协会', 'City Services': '城市服务', Citizen: '市民', 'Chinese Triad': '三合会' } as Record<string, string>)[name] ?? name}
             <span
               style={{
                 fontSize: '1rem',
@@ -137,8 +137,8 @@ function DepartmentEntry(props: DepartmentEntryProps) {
               }}
             >
               {department.open_slots +
-                (department.open_slots === 1 ? ' slot' : ' slots') +
-                ' available'}
+                (department.open_slots === 1 ? ' 个' : ' 个') +
+                '空缺'}
             </span>
           </>
         }
@@ -161,7 +161,7 @@ function DepartmentEntry(props: DepartmentEntryProps) {
             <Stack.Item key={name}>
               <JobEntry
                 key={name}
-                jobName={name}
+                jobName={job.display_name ?? name}
                 job={job}
                 jobIcon={job.jobIcon}
                 department={department}
@@ -199,15 +199,15 @@ export function JobSelection(props) {
             <>
               <Button
                 onClick={() => act('change_slot')}
-                tooltip="Quickly change your current character without opening the Character Setup menu."
+                tooltip="无需打开角色设置菜单，即可快速切换当前角色。"
               >
-                Change Character
+                切换角色
               </Button>
               <Button
                 onClick={() => act('select_job', { job: 'Random' })}
-                tooltip="Roll target random job. You can re-roll or cancel your random job if you don't like it."
+                tooltip="随机选择一个职业。如果不满意，可以重新随机或取消。"
               >
-                Random Job!
+                随机职业！
               </Button>
             </>
           }
@@ -222,10 +222,10 @@ export function JobSelection(props) {
               <Box as="span" color="label">
                 {!!data.selected_character && (
                   <span style={{ color: 'grey' }}>
-                    Joining as '{data.selected_character}' —{' '}
+                    将以“{data.selected_character}”加入 —{' '}
                   </span>
                 )}
-                It is currently {round_duration} into the night.
+                今夜已过去 {round_duration}。
                 {/* DARKPACK EDIT CHANGE - ORIGINAL: It is currently {round_duration} into the shift. */}
                 {/* CRIMSON EDIT CHANGE - CHANGE_CHARACTER_SLOT - Added "Joining as", I am not going to form an ORIGINAL, please git blame */}
               </Box>

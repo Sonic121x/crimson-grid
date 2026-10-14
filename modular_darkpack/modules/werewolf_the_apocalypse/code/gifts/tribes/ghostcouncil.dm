@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/gift/sense_magic
-	name = "Sense Magic"
-	desc = {"The werewolf can sense the pulse and flux of mystic energies, whether the righteous Gifts of the Garou,
-	the arrogant wizardry of mages, the debased powers of vampires, or even the black arts of the Wyrm's minions"}
+	name = "感知魔法"
+	desc = {"狼人能感知神秘能量的脉动与流转，无论是狼人正义的天赋、
+	法师傲慢的巫术、吸血鬼堕落的力量，甚至妖蛆爪牙的黑暗秘术。"}
 	button_icon_state = "sense_magic"
 	cooldown_time = DEFAULT_REROLL_COOLDOWN
 	rank = 1
@@ -57,13 +57,13 @@
 			for(var/datum/magic_information/magic_information in object_info)
 				if(roll_result >= 3)
 					if(magic_information.magic_type)
-						extra_info |= magic_information.magic_type
+						extra_info |= list(MAGIC_TYPE_BLOOD = "血魔法", MAGIC_TYPE_SPIRIT = "灵性魔法")[magic_information.magic_type] || magic_information.magic_type
 				if(roll_result >= 4)
 					if(magic_information.magic_subtype)
-						extra_info |= magic_information.magic_subtype
+						extra_info |= list(MAGIC_SUBTYPE_BLOOD_TIME = "时间扭曲")[magic_information.magic_subtype] || magic_information.magic_subtype
 
 	if(length(extra_info))
-		to_chat(owner, span_notice("You sense hints of [english_list(extra_info)]."))
+		to_chat(owner, span_notice("你感知到[jointext(extra_info, "、")]的痕迹。"))
 
 	/*
 	for(var/atom/magic_of_intrest in magic_sources)

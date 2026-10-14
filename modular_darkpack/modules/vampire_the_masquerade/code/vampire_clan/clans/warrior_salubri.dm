@@ -1,9 +1,9 @@
 /datum/subsplat/vampire_clan/salubri/warrior
 	name = "Warrior Salubri"
 	id = VAMPIRE_CLAN_WARRIOR_SALUBRI
-	desc = "The Salubri are one of the original 13 clans of the vampiric descendants of Caine. Salubri believe that vampiric existence is torment from which Golconda or death is the only escape. Wherein the Healer Caste of the Salubri would tend towards the sickly and dying out of mercy. The Warrior Caste are valorous defenders of the other castes and furiously slay those who cannot be saved: demon-worshipers, inhumane vampires, and those who seek to disturb the delicate symbiosis engendered by the children of Saulot."
+	desc = "萨鲁布里是该隐吸血鬼后裔最初的十三氏族之一。他们相信吸血鬼的存在是一种折磨，唯有达到超脱之境或死亡才能解脱。治疗者阶层怀着慈悲照料病弱与垂死之人；战士阶层则勇敢守护其他阶层，奋力诛杀无可救赎者：恶魔崇拜者、毫无人性的吸血鬼，以及妄图破坏索洛特子嗣所维系的脆弱共生关系之人。"
 	icon = "valeren"
-	curse = "They must feed upon those who have been bested within a fight."
+	curse = "只能从在战斗中被击败的人身上取食。"
 	clan_disciplines = list(
 		/datum/discipline/auspex,
 		/datum/discipline/fortitude,

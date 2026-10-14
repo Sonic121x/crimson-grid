@@ -11,8 +11,8 @@
  *
  */
 /datum/action/cooldown/power/gift/shed
-	name = "Shed"
-	desc = "The Garou knows the trick of shedding and growing fur at an alarming rate."
+	name = "蜕毛"
+	desc = "狼人掌握了以惊人速度脱落并重新长出毛皮的技巧。"
 	button_icon_state = "shed"
 	rank = 1
 	cooldown_time = 1 TURNS
@@ -32,7 +32,7 @@
 		return FALSE // eh
 
 	if(!carbon_owner.pulledby && !carbon_owner.handcuffed && !carbon_owner.legcuffed)
-		to_chat(carbon_owner, span_warning("No one is grappling or restraining you, all this would amount to is theatrics."))
+		to_chat(carbon_owner, span_warning("没有人在擒抱或束缚你，这么做只是在表演。"))
 		return FALSE
 
 	. = ..()
@@ -61,19 +61,19 @@
 	. = ..()
 
 	if(carbon_owner.pulledby)
-		to_chat(carbon_owner, span_notice("You shed your fur, and [carbon_owner.pulledby] loses [carbon_owner.pulledby.p_their()] grip on you!"))
+		to_chat(carbon_owner, span_notice("你蜕去毛皮，让[carbon_owner.pulledby]再也抓不住你！"))
 		carbon_owner.pulledby.stop_pulling()
 	if(carbon_owner.handcuffed || carbon_owner.legcuffed)
-		to_chat(carbon_owner, span_notice("You shed your fur, using the slick coating as lubrication to slip out of your restraints."))
+		to_chat(carbon_owner, span_notice("你蜕去毛皮，借助滑溜的外层脱离束缚。"))
 		carbon_owner.uncuff()
 
 /atom/movable/screen/alert/status_effect/gift/shed
 	name = /datum/action/cooldown/power/gift/shed::name
-	desc = "The shedding fur reduces the difficulty of slipping restraints by two."
+	desc = "蜕落的毛皮使挣脱束缚的难度降低两点。"
 	overlay_state = /datum/action/cooldown/power/gift/shed::button_icon_state
 
 
 /datum/storyteller_roll/gift/shed
-	bumper_text = "shedding fur"
+	bumper_text = "蜕毛"
 	difficulty = 7
 	applicable_stats = list(STAT_DEXTERITY)

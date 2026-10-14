@@ -3,11 +3,11 @@ GLOBAL_LIST_EMPTY(madness_network)
 /datum/subsplat/vampire_clan/malkavian
 	name = "Malkavian"
 	id = VAMPIRE_CLAN_MALKAVIAN
-	desc = "Derided as Lunatics by other vampires, the Blood of the Malkavians lets them perceive and foretell truths hidden from others. Like the wise madmen of poetry their fractured perspective stems from seeing too much of the world at once, from understanding too deeply, and feeling emotions that are just too strong to bear. The Malkavians are cursed with supernatural madness that grants disturbing insights, visions and premonitions. They are largely loyal to the Camarilla, equally serving as seers, manipulators, prophets, and fools. Since the undoing of the Great Prank, Dementation has returned to the clan, though some still mysteriously retain Dominate instead (See: Dominate Malkavian). Every Malkavian suffers from a unique derangement that shapes how they experience the world."
+	desc = "魔卡维被其他吸血鬼讥为疯子，但其血脉让他们能够感知、预言旁人无从知晓的真相。如同诗歌中睿智的狂人，他们破碎的视角源于同时看见太多、理解太深，以及感受过于强烈而难以承受。超自然疯狂的诅咒带给他们令人不安的洞见、幻象与预感。他们大多忠于密党，既是先知、操纵者与预言家，也可能扮演愚者。大恶作剧被解除后，惑狂术重回氏族，但仍有些成员不知为何保留了支配术，见“支配派魔卡维”。每名魔卡维都承受着独特的精神失常，由此形成各自感受世界的方式。"
 	icon = "malkavian"
-	curse = "Insanity."
+	curse = "精神失常。"
 	roleplay_level = "Advanced"
-	sense_the_sin_text = "frightens people near them."
+	sense_the_sin_text = "令周围的人感到恐惧。"
 	clan_disciplines = list(
 		/datum/discipline/auspex,
 		/datum/discipline/dementation,
@@ -76,8 +76,8 @@ GLOBAL_LIST_EMPTY(madness_network)
 		to_chat(malkavian, span_ghostalert(message))
 
 /datum/action/cooldown/malk_hivemind
-	name = "Hivemind"
-	desc = "Talk"
+	name = "集体心智"
+	desc = "交谈"
 	button_icon = 'modular_darkpack/master_files/icons/hud/actions.dmi'
 	button_icon_state = "hivemind"
 	check_flags = AB_CHECK_CONSCIOUS
@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(madness_network)
 	if (!malk.is_clan(/datum/subsplat/vampire_clan/malkavian))
 		return
 	var/datum/subsplat/vampire_clan/malkavian/clan_malkavian = malk.get_clan()
-	var/new_thought = tgui_input_text(clicker, "Malkavian Hivemind")
+	var/new_thought = tgui_input_text(clicker, "魔卡维集体心智")
 	if(!new_thought)
 		return
 	StartCooldown()
@@ -99,8 +99,8 @@ GLOBAL_LIST_EMPTY(madness_network)
 	log_game("[key_name(usr)] said \"[new_thought]\" through the Madness Network.")
 
 /datum/action/cooldown/malk_speech
-	name = "Madness Speech"
-	desc = "Unleash your innermost thoughts"
+	name = "疯狂低语"
+	desc = "释放内心深处的思绪"
 	button_icon = 'modular_darkpack/master_files/icons/hud/actions.dmi'
 	button_icon_state = "malk_speech"
 	check_flags = AB_CHECK_CONSCIOUS
@@ -110,11 +110,11 @@ GLOBAL_LIST_EMPTY(madness_network)
 /datum/action/cooldown/malk_speech/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
 	var/malkavian_spans = list("singing", "bold")
-	var/mad_speak = tgui_input_text(clicker, "Malkavian Speech", encode = FALSE)
+	var/mad_speak = tgui_input_text(clicker, "魔卡维疯狂低语", encode = FALSE)
 	if(CAN_BYPASS_FILTER(clicker) ? null : is_ic_filtered(mad_speak))
 		//before we inadvertently obfuscate the message to pass filters, filter it first.
 		//as funny as malkavians saying "amogus" would be, the filter also includes slurs... how unfortunate.
-		to_chat(clicker, span_warning("That message contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[mad_speak]\"</span>"))
+		to_chat(clicker, span_warning("该消息包含角色内聊天禁用的词语！请查阅服务器规则。\n<span replaceRegex='show_filtered_ic_chat'>\"[mad_speak]\"</span>"))
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, LOWER_TEXT(config.ic_filter_regex.match))
 		return
 	if(!mad_speak)
@@ -129,6 +129,6 @@ GLOBAL_LIST_EMPTY(madness_network)
 	target.Paralyze(6 SECONDS)
 	target.visible_message(span_warning("[target] repeatedly bashes their head against the ground"), span_cult("THE WHISPERS ARE OVERTAKING ME"))
 	target.apply_damage(50, BRUTE, BODY_ZONE_HEAD) */
-	to_chat(target, span_cult("THE BEAST SCREAMS IN MY MIND TO RUN"))
+	to_chat(target, span_cult("心兽在我脑海中尖叫，催促我逃跑！"))
 	new /obj/effect/client_image_holder/baali_demon(get_turf(target), list(target))
 	// CRIMSON GRID ADD END: DARK THAUMATURGY

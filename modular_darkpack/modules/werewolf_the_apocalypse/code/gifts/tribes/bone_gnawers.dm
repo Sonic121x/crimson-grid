@@ -1,14 +1,14 @@
-/* • Desperate Strength - W20 p.174
- *
- * The werewolf calls on desperate reserves for a sudden surge of strength. A badger-spirit teaches this Gift.
- *
- * Select a number 1-5 on a radial menu and add that much strength to the next strength roll. Take 10 brute damage per level of strength.
- *
- * TODO: audio. Include a badger sound.
-*/
+/proc/localized_radial_choice(choice_image, display_name)
+	var/datum/radial_menu_choice/choice = new()
+	choice.image = choice_image
+	choice.name = display_name
+	return choice
+
+
+
 /datum/action/cooldown/power/gift/desperate_strength
-	name = "Desperate Strength"
-	desc = "Call on desperate reserves for a sudden surge of strength."
+	name = "绝境之力"
+	desc = "唤起绝境中的潜能，让力量骤然爆发。"
 	button_icon_state = "desperate_strength"
 	rank = 1
 
@@ -16,7 +16,7 @@
 	. = ..()
 	if(owner.has_status_effect(/datum/status_effect/desperate_strength))
 		if(feedback)
-			to_chat(owner, span_warning("[name] cannot be used again right now."))
+			to_chat(owner, span_warning("现在无法再次使用[name]。"))
 		return FALSE
 
 /datum/action/cooldown/power/gift/desperate_strength/Activate(atom/target)
@@ -26,11 +26,11 @@
 		return
 
 	var/static/list/radial_menu_options = list(
-			"One" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_one"),
-			"Two" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_two"),
-			"Three" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_three"),
-			"Four" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_four"),
-			"Five" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_five"),
+			"One" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_one"), "一点"),
+			"Two" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_two"), "两点"),
+			"Three" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_three"), "三点"),
+			"Four" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_four"), "四点"),
+			"Five" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_five"), "五点"),
 		)
 
 	var/pick = show_radial_menu(owner, owner, radial_menu_options)
@@ -58,7 +58,7 @@
 
 /datum/status_effect/desperate_strength/on_apply()
 	owner.st_add_stat_mod(STAT_STRENGTH, value, type)
-	to_chat(owner, span_userdanger("You feel stronger... at a cost."))
+	to_chat(owner, span_userdanger("你感到力量增强了……但这需要付出代价。"))
 	RegisterSignal(owner, COMSIG_LIVING_DICE_ROLLED, PROC_REF(on_dice_rolled))
 	playsound(owner, 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/gifts/desperate_strength_activate.ogg', 75, FALSE)
 	return TRUE
@@ -73,12 +73,12 @@
 	owner.adjust_brute_loss(value TTRPG_DAMAGE)
 	owner.st_remove_stat_mod(STAT_STRENGTH, type)
 	playsound(owner, 'sound/effects/magic/disintegrate.ogg', 50, FALSE)
-	to_chat(owner, span_warning("Your strength subsides, the pain of your wounds creeping back in..."))
+	to_chat(owner, span_warning("力量渐渐消退，伤口的疼痛再次涌来……"))
 	UnregisterSignal(owner, COMSIG_LIVING_DICE_ROLLED)
 
 /atom/movable/screen/alert/status_effect/desperate_strength
-	name = "Desperate Strength"
-	desc = "Your next roll will be made with bonus strength, at the penalty of bashing damage!"
+	name = "绝境之力"
+	desc = "下一次检定获得额外力量，但你会承受钝击伤害作为代价！"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "riddle" // TODO: get an icon for this
 

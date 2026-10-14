@@ -1,45 +1,45 @@
 /datum/action/cooldown/power/gift/howling
-	name = "Howl"
-	desc = "The werewolf may send her howl far beyond the normal range of hearing and communicate a single word or concept to all other Garou across the city."
+	name = "呼嚎"
+	desc = "狼人可将呼嚎传至远超正常听觉的范围，向全城其他狼人传递一个词语或概念。"
 	button_icon_state = "call_of_the_wyld"
 	rage_cost = 1
 	check_flags = null
 	innate_ability = TRUE
 	var/static/list/howls = list(
 		"attack" = list(
-			"menu" = "Attack",
-			SPLAT_GAROU = "A wolf howls a fierce call to attack",
-			SPLAT_CORAX = "A raven hisses a fierce call to attack"
+			"menu" = "进攻",
+			SPLAT_GAROU = "一匹狼以激烈的嚎叫号召进攻",
+			SPLAT_CORAX = "一只渡鸦以尖厉的嘶鸣号召进攻"
 		),
 		"retreat" = list(
-			"menu" = "Retreat",
-			SPLAT_GAROU = "A wolf howls a warning to retreat",
-			SPLAT_CORAX = "A raven squawks a warning to retreat"
+			"menu" = "撤退",
+			SPLAT_GAROU = "一匹狼以嚎叫发出撤退警告",
+			SPLAT_CORAX = "一只渡鸦以啼叫发出撤退警告"
 		),
 		"help" = list(
-			"menu" = "Help",
-			SPLAT_GAROU = "A wolf howls a desperate plea for help",
-			SPLAT_CORAX = "A raven shrieks a a desperate plea for help"
+			"menu" = "求救",
+			SPLAT_GAROU = "一匹狼以绝望的嚎叫求救",
+			SPLAT_CORAX = "一只渡鸦以绝望的尖叫求救"
 		),
 		"gather" = list(
-			"menu" = "Gather",
-			SPLAT_GAROU = "A wolf howls to gather the pack",
-			SPLAT_CORAX = "A raven beckons the conspiracy"
+			"menu" = "集合",
+			SPLAT_GAROU = "一匹狼以嚎叫召集狼群",
+			SPLAT_CORAX = "一只渡鸦正在召集鸦群"
 		),
 		"victory" = list(
-			"menu" = "Victory",
-			SPLAT_GAROU = "A wolf howls in celebration of victory",
-			SPLAT_CORAX = "A raven croaks in celebration of victory"
+			"menu" = "胜利",
+			SPLAT_GAROU = "一匹狼以嚎叫欢庆胜利",
+			SPLAT_CORAX = "一只渡鸦以鸣叫欢庆胜利"
 		),
 		"dying" = list(
-			"menu" = "Dying",
-			SPLAT_GAROU = "A wolf howls in pain and despair",
-			SPLAT_CORAX = "A raven shrieks in pain and despair"
+			"menu" = "濒死",
+			SPLAT_GAROU = "一匹狼在痛苦与绝望中哀嚎",
+			SPLAT_CORAX = "一只渡鸦在痛苦与绝望中尖叫"
 		),
 		"mourning" = list(
-			"menu" = "Mourning",
-			SPLAT_GAROU = "A wolf howls in deep mourning for the fallen",
-			SPLAT_CORAX = "A raven mourns the loss of the fallen"
+			"menu" = "哀悼",
+			SPLAT_GAROU = "一匹狼以哀嚎深切悼念逝者",
+			SPLAT_CORAX = "一只渡鸦正在哀悼逝者"
 		)
 	)
 
@@ -47,7 +47,7 @@
 	. = ..()
 	if(istype(get_area(owner), /area/vtm/interior/penumbra))
 		if(feedback)
-			to_chat(owner, span_warning("Your howl echoes and dissipates into the Umbra, it's sound blanketed by the spiritual energy of the Velvet Shadow."))
+			to_chat(owner, span_warning("你的呼嚎在影界中回荡、消散，声音被绒幕暗影的灵性能量吞没。"))
 		return FALSE
 
 /datum/action/cooldown/power/gift/howling/Activate(atom/target)
@@ -59,7 +59,7 @@
 	for(var/howl_key in howls)
 		menu_options += howls[howl_key]["menu"]
 
-	var/choice = tgui_input_list(owner, "Select a howl to use!", "Howl Selection", menu_options)
+	var/choice = tgui_input_list(owner, "选择要发出的呼嚎！", "选择呼嚎", menu_options)
 	if(!choice)
 		return
 
@@ -91,29 +91,29 @@
 
 /datum/action/cooldown/power/gift/howling/proc/get_message(mob/living/howled_at, turf/origin_turf)
 	var/distance = get_dist(howled_at, origin_turf)
-	var/dirtext = " to the "
+	var/dirtext = "方向为"
 	var/direction = get_dir(howled_at, origin_turf)
 
 	if(dir2text(direction))
-		dirtext += dir2text(direction)
+		dirtext += list("north" = "北方", "south" = "南方", "east" = "东方", "west" = "西方", "northeast" = "东北方", "southeast" = "东南方", "northwest" = "西北方", "southwest" = "西南方")[dir2text(direction)]
 	else
-		dirtext = " although I cannot make out an exact direction"
+		dirtext = "但你无法辨明具体方向"
 
 	var/disttext
 	switch(distance)
 		if(0 to 20)
-			disttext = " within 20 feet"
+			disttext = "距离在 20 英尺以内"
 		if(20 to 40)
-			disttext = " 20 to 40 feet away"
+			disttext = "距离为 20 至 40 英尺"
 		if(40 to 80)
-			disttext = " 40 to 80 feet away"
+			disttext = "距离为 40 至 80 英尺"
 		if(80 to 160)
-			disttext = " far"
+			disttext = "距离较远"
 		else
-			disttext = " very far"
+			disttext = "距离很远"
 
 	var/place = get_area_name(origin_turf)
 
-	var/returntext = "[disttext],[dirtext], at [place]."
+	var/returntext = "；[disttext]，[dirtext]，地点是[place]。"
 
 	return returntext

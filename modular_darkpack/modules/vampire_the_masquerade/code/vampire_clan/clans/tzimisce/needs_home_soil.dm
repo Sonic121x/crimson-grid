@@ -42,7 +42,7 @@
 	var/mob/living/lacking_soil = parent
 	lacking_soil.adjust_blood_pool(-1)
 
-	to_chat(lacking_soil, span_warning("You are missing your home soil. Being without it weakens you..."))
+	to_chat(lacking_soil, span_warning("你的故土不在身边。离开它使你日渐虚弱……"))
 
 /datum/component/needs_home_soil/proc/handle_soil_destroyed(obj/item/ground_heir/source, force)
 	SIGNAL_HANDLER
@@ -52,6 +52,6 @@
 	lacking_soil.apply_damage(0.25 * lacking_soil.getMaxHealth(), AGGRAVATED)
 	lacking_soil.adjust_blood_pool(-3)
 
-	to_chat(lacking_soil, span_danger("Your home soil has been destroyed! Its loss debilitates you."))
+	to_chat(lacking_soil, span_danger("你的故土已被毁掉！失去它令你衰弱不堪。"))
 
 	qdel(src)

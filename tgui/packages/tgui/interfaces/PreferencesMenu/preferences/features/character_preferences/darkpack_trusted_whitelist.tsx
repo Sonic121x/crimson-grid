@@ -9,7 +9,7 @@ import type { FeatureChoiced, FeatureValueProps } from '../base';
 type ClanServerData = {
   choices: string[];
   icons: Record<string, string>;
-  name?: string;
+  name?: string; display_names?: Record<string, string>;
 };
 
 export const vampire_clan: FeatureChoiced = {
@@ -32,7 +32,7 @@ export const vampire_clan: FeatureChoiced = {
       const isLocked =
         !!whitelistId && !isTrusted && !whitelistSet.has(whitelistId);
 
-      let displayText: ReactNode = capitalizeFirst(choice);
+      let displayText: ReactNode = serverData.display_names?.[choice] ?? capitalizeFirst(choice);
 
       if (icons?.[choice]) {
         displayText = (
@@ -44,7 +44,7 @@ export const vampire_clan: FeatureChoiced = {
               />
             </Stack.Item>
             <Stack.Item grow style={{ opacity: isLocked ? 0.4 : 1 }}>
-              {capitalizeFirst(choice)}
+              {serverData.display_names?.[choice] ?? capitalizeFirst(choice)}
             </Stack.Item>
             {isLocked && (
               <Stack.Item>
@@ -57,7 +57,7 @@ export const vampire_clan: FeatureChoiced = {
         displayText = (
           <Stack align="center">
             <Stack.Item grow style={{ opacity: 0.4 }}>
-              {capitalizeFirst(choice)}
+              {serverData.display_names?.[choice] ?? capitalizeFirst(choice)}
             </Stack.Item>
             <Stack.Item>
               <Icon name="lock" color="label" />
@@ -80,8 +80,8 @@ export const vampire_clan: FeatureChoiced = {
         buttons
         displayText={
           selectedIsLocked
-            ? `${capitalizeFirst(value)} ${<Icon name="lock" color="label" />}`
-            : capitalizeFirst(value) || ''
+            ? <>{serverData.display_names?.[value] ?? capitalizeFirst(value)} <Icon name="lock" color="label" /></>
+            : serverData.display_names?.[value] ?? (capitalizeFirst(value) || '')
         }
         onSelected={handleSetValue}
         options={options}

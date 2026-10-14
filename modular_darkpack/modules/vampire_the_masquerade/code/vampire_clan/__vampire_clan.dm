@@ -36,7 +36,7 @@
 	var/whitelisted = FALSE
 
 	/// daimonion 1 text
-	var/sense_the_sin_text = "has been abandoned by the cold ocean of the night with nobody to keep them afloat."
+	var/sense_the_sin_text = "被遗弃在黑夜的冰冷汪洋中，无人伸出援手。"
 
 /**
  * Applies Clan-specific effects to the mob
@@ -107,7 +107,7 @@
 
 /// effect from daimonion psychomania
 /datum/subsplat/vampire_clan/proc/psychomania_effect(mob/living/target, mob/living/owner)
-	to_chat(target, span_cult("THE BEAST SCREAMS IN MY MIND TO RUN"))
+	to_chat(target, span_cult("心兽在我脑海中尖叫，催促我逃跑！"))
 	new /obj/effect/client_image_holder/baali_demon(get_turf(target), list(target))
 
 
@@ -166,5 +166,5 @@
 /datum/subsplat/vampire_clan/show_lore(mob/user)
 	. = ..()
 	if(curse)
-		to_chat(user, span_danger("<br>CURSE: [curse]"))
+		to_chat(user, span_danger("<br>诅咒：[curse]"))
 

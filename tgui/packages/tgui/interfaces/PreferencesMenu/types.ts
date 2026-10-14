@@ -285,7 +285,7 @@ export type PreferencesMenuData = {
 };
 
 export type ServerData = {
-  jobs: {
+  jobs: { display_names: Record<string, string>;
     departments: Record<string, Department>;
     jobs: Record<string, Job>;
     jobs_sorted: string[];

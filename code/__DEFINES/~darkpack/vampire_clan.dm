@@ -1,4 +1,4 @@
-// VtM Clan and bloodline IDs for use with sprites and whatnot
+#define CLAN_DISPLAY_NAME(CLAN_NAME) (GLOB.localized_clan_names[CLAN_NAME] ? GLOB.localized_clan_names[CLAN_NAME] : CLAN_NAME)
 #define VAMPIRE_CLAN_BAALI "baali"
 #define VAMPIRE_CLAN_BANU_HAQIM "banu_haqim"
 #define VAMPIRE_CLAN_BANU_HAQIM_VIZIER "banu_haqim_vizier"

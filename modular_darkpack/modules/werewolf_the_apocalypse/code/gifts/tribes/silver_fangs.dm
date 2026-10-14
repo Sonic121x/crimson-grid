@@ -9,8 +9,8 @@
  * This extra Strength does not apply to damage rolls.
  **/
 /datum/action/cooldown/power/gift/falcons_grasp
-	name = "Falcon's Grasp"
-	desc = "The Garou's hands or jaws tighten in a mighty death-grip, making it nearly impossible to escape."
+	name = "猎隼之握"
+	desc = "狼人的双手或颚部以惊人的力量死死钳住目标，使其几乎无法逃脱。"
 	button_icon_state = "falcons_grasp"
 	cooldown_time = 1 SCENES
 	rank = 1
@@ -53,8 +53,8 @@
 		target.drop_all_held_items()
 		source.setGrabState(GRAB_NECK) //Instant aggressive grab if on grab intent
 		playsound(source.loc, 'sound/items/weapons/thudswoosh.ogg', 50, TRUE, -1)
-		target.visible_message(span_warning("[source] clamp-grabs [target] by [target.p_their()] neck!"), span_warning("[source] clamp-grabs you by your neck!"), null, null, src)
-		to_chat(src, span_notice("You clamp-grab [target] by [target.p_their()] neck!"))
+		target.visible_message(span_warning("[source]死死钳住[target]的脖子！"), span_warning("[source]死死钳住了你的脖子！"), null, null, src)
+		to_chat(src, span_notice("你死死钳住[target]的脖子！"))
 		return COMPONENT_SKIP_ATTACK
 	return NONE // meh
 
@@ -67,5 +67,5 @@
 
 /atom/movable/screen/alert/status_effect/gift/falcons_grasp
 	name = /datum/action/cooldown/power/gift/falcons_grasp::name
-	desc = "For the rest of the scene, you gain a +3 bonus to grappling rolls, and your grabs instantly escalate to neck grabs."
+	desc = "在本场景剩余时间内，擒抱检定获得 +3 加成，且抓取会立即升级为掐颈。"
 	overlay_state = /datum/action/cooldown/power/gift/falcons_grasp::button_icon_state

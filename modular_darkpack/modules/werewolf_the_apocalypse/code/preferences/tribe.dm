@@ -1,6 +1,6 @@
 /datum/preference/choiced/subsplat/fera_tribe
 	abstract_type = /datum/preference/choiced/subsplat/fera_tribe
-	main_feature_name = "Tribe"
+	main_feature_name = "部族"
 	must_be_accessible = TRUE
 	var/splat_id
 

@@ -11,8 +11,8 @@
 */
 
 /obj/effect/faerie_light // TODO: add an animate or something to make this gently bob up and down
-	name = "orb of light"
-	desc = "Happy to light your way."
+	name = "光球"
+	desc = "欣然为你照亮前路。"
 	icon = 'icons/obj/lighting.dmi' // TODO: or maybe a new icon that has that baked in?
 	icon_state = "orb"
 	light_system = OVERLAY_LIGHT
@@ -31,34 +31,34 @@
 /obj/effect/faerie_light/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	if(user == summoner)
-		context[SCREENTIP_CONTEXT_LMB] =  "[orbit_target ? "Dismiss" : "Beckon"]"
+		context[SCREENTIP_CONTEXT_LMB] =  "[orbit_target ? "停止跟随" : "招来"]"
 	else
-		context[SCREENTIP_CONTEXT_LMB] =  "Dispel"
+		context[SCREENTIP_CONTEXT_LMB] =  "驱散"
 
-	context[SCREENTIP_CONTEXT_RMB] =  "Dispel"
+	context[SCREENTIP_CONTEXT_RMB] =  "驱散"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/effect/faerie_light/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(user != summoner)
-		to_chat(user, span_purple("You [ishuman(user) ? "wave your hand at" : "paw at"] [src], causing it to float away and disappear."))
+		to_chat(user, span_purple("你朝[src][ishuman(user) ? "挥了挥手" : "挥了挥爪子"]，它随即飘走，消失不见。"))
 		animate(src, 1 SECONDS, alpha = 0)
 		QDEL_IN(src, 1.1 SECONDS)
 		return TRUE
 	else if(orbit_target)
-		to_chat(user, span_purple("You [ishuman(user) ? "wave your hand at" : "paw at"] [src], causing it to float away and remain still."))
+		to_chat(user, span_purple("你朝[src][ishuman(user) ? "挥了挥手" : "挥了挥爪子"]，它随即飘开，悬停不动。"))
 		orbit_target.orbiters.end_orbit(src)
 		animate(src, flags = ANIMATION_END_NOW)
 		return TRUE
 	else
-		to_chat(user, span_purple("You [ishuman(user) ? "wave your hand at" : "paw at"] [src], causing it to float over to you happily."))
+		to_chat(user, span_purple("你朝[src][ishuman(user) ? "挥了挥手" : "挥了挥爪子"]，它随即欢快地飘到你身边。"))
 		orbit(user, 20)
 		return TRUE
 
 /obj/effect/faerie_light/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
-	to_chat(user, span_purple("You [ishuman(user) ? "wave your hand at" : "paw at"] [src], causing it to float away and disappear.")) // Don't have paws? Too bad.
+	to_chat(user, span_purple("你朝[src][ishuman(user) ? "挥了挥手" : "挥了挥爪子"]，它随即飘走，消失不见。")) // Don't have paws? Too bad.
 	animate(src, 1 SECONDS, alpha = 0)
 	QDEL_IN(src, 1.1 SECONDS)
 	return TRUE
@@ -72,8 +72,8 @@
 		orbit_target.orbiters.end_orbit(src)
 
 /datum/action/cooldown/power/gift/faerie_light
-	name = "Faerie Light"
-	desc = "Create a bobbing mote of light to light your way or attract targets for an ambush."
+	name = "妖精之光"
+	desc = "创造一团浮动的微光，为你照路，或将目标引入埋伏。"
 	button_icon_state = "faerie_light"
 	click_to_activate = TRUE
 

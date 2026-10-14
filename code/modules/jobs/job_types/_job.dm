@@ -340,13 +340,13 @@
 /datum/job/proc/get_spawn_message_information(alt_title = title) // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: /datum/job/proc/get_spawn_message_information()
 	SHOULD_CALL_PARENT(TRUE)
 	var/list/info = list()
-	info += "<b>你的职业是[alt_title]。</b>\n" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
+	info += "<b>你的职业是[JOB_DISPLAY_NAME(alt_title)]。</b>\n" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "<b>You are the [title].</b>\n"
 	var/related_policy = get_policy(policy_override || title)
 	var/radio_info = get_radio_information()
 	if(related_policy)
 		info += related_policy
 	if(supervisors)
-		info += "作为[alt_title == title ? alt_title : "[alt_title]（[title]）"]，你的直属上级或遵从对象为：[supervisors]。特殊情况下可能有所变动。" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
+		info += "作为[alt_title == title ? JOB_DISPLAY_NAME(alt_title) : "[JOB_DISPLAY_NAME(alt_title)]（[JOB_DISPLAY_NAME(title)]）"]，你的直属上级或遵从对象为：[supervisors]。特殊情况下可能有所变动。" // DARKPACK EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: info += "As the [title] you answer directly to [supervisors]. Special circumstances may change this."
 	if(radio_info)
 		info += radio_info
 	if(req_admin_notify)

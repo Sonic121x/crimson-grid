@@ -193,7 +193,7 @@
 	if(new_stat < SOFT_CRIT)
 		return
 
-	to_chat(source, span_warning("You can feel yourself slipping into Torpor. You can use succumb to immediately sleep..."))
+	to_chat(source, span_warning("你感觉自己正陷入长眠。可以使用“放弃抵抗”（succumb）立即沉睡……"))
 	addtimer(CALLBACK(src, PROC_REF(slip_into_torpor), source), 2 MINUTES)
 
 /datum/splat/vampire/kindred/proc/slip_into_torpor(mob/living/carbon/human/kindred)
