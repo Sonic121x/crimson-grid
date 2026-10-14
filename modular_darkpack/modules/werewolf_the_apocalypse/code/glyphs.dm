@@ -1,4 +1,4 @@
-/// Inits GLOB.glyph_list
+GLOBAL_LIST_INIT(localized_glyph_names, list("basic glyph" = "基础符文", "wyrm glyph" = "妖蛆符文", "vampire glyph" = "吸血鬼符文", "kinfolk glyph" = "眷属符文", "dancing glyph" = "舞蹈符文", "caern glyph" = "圣地符文", "danger glyph" = "危险符文", "garou glyph" = "狼人符文", "conceal glyph" = "隐匿符文", "hive glyph" = "巢穴符文", "howling glyph" = "长嚎符文", "remembrance glyph" = "追思符文", "watch glyph" = "监视符文", "toxic glyph" = "毒害符文", "\improper Black Spiral Dancer glyph" = "黑螺旋舞者符文", "\improper Glasswalkers glyph" = "玻璃行者符文", "\improper Younger Brother glyph" = "幼弟符文", "war against wyrm glyph" = "对抗妖蛆之战符文", "black furies glyph" = "黑怒之女符文", "bonegnawer glyph" = "啃骨者符文", "children of gaia glyph" = "盖亚之子符文", "fianna glyph" = "芬尼安符文", "get of fenris glyph" = "芬里斯之裔符文", "red talon glyph" = "赤爪符文", "shadow lord glyph" = "暗影领主符文", "silent striders glyph" = "寂静行者符文", "silver fang glyph" = "银牙符文", "stargazers glyph" = "观星者符文", "ghost council glyph" = "幽灵议会符文", "ronin glyph" = "浪人符文", "ratkin glyph" = "鼠人符文", "corax glyph" = "渡鸦变形者符文", "sept of western eye glyph" = "西境之眼社群符文", "bastet glyph" = "猫人符文", "gurahl glyph" = "熊人符文", "rokea glyph" = "鲨人符文", "corax safety glyph" = "鸦族安全符文", "corax danger glyph" = "鸦族危险符文", "corax wyrm spirit glyph" = "鸦族妖蛆灵体符文", "corax weaver spirit glyph" = "鸦族织者灵体符文", "corax food glyph" = "鸦族食物符文", "corax party glyph" = "鸦族聚会符文", "moon lodge glyph" = "月之会所符文", "sun lodge glyph" = "日之会所符文", "house austere glyph" = "肃穆家族符文", "house blood-red crest glyph" = "血红冠家族符文", "house crescent moon glyph" = "眉月家族符文", "house gleaming eye glyph" = "灿目家族符文", "house unbreakable hearth glyph" = "不灭炉火家族符文", "house wise heart glyph" = "慧心家族符文", "house wyrmfoe glyph" = "妖蛆之敌家族符文", "siberakh glyph" = "西伯拉克符文", "impergium glyph" = "猎杀人类时代符文", "litany glyph" = "律诫符文", "pack glyph" = "狼群符文", "moot glyph" = "大集会符文", "weaver glyph" = "织者符文", "defiler wyrm glyph" = "污秽之蛆符文", "beast of war glyph" = "战争巨兽符文", "eater of souls glyph" = "噬魂者符文", "wyld glyph" = "荒野符文", "umbra glyph" = "影界符文", "luna glyph" = "露娜符文", "helios glyph" = "赫利俄斯符文", "fish glyph" = "鱼符文", "forest glyph" = "森林符文", "ally glyph" = "盟友符文", "rite glyph" = "仪式符文", "moon bridge glyph" = "月桥符文", "chimera glyph" = "奇美拉符文", "cockroach glyph" = "蟑螂符文", "falcon glyph" = "猎隼符文", "fenris glyph" = "芬里斯符文", "griffin glyph" = "狮鹫符文", "owl glyph" = "猫头鹰符文", "grandfather thunder glyph" = "雷霆祖父符文", "pegasus glyph" = "飞马符文", "rat glyph" = "鼠符文", "stag glyph" = "雄鹿符文", "horned serpent glyph" = "有角之蛇符文", "unicorn glyph" = "独角兽符文", "north wind glyph" = "北风符文", "gun glyph" = "枪械符文", "path glyph" = "路径符文", "urge wyrm glyph" = "欲念妖蛆符文", "radiation glyph" = "辐射符文", "spirit glyph" = "灵体符文", "mend glyph" = "修复符文", "safety glyph" = "安全符文", "suffering glyph" = "苦难符文", "regeneration glyph" = "再生符文", "storm glyph" = "风暴符文", "story glyph" = "故事符文", "totem glyph" = "图腾符文", "cyberrealm glyph" = "网络灵域符文", "wolfhome glyph" = "狼乡符文", "malfeas glyph" = "秽恶界符文", "aetherial glyph" = "以太界符文", "arcadia gateway glyph" = "阿卡迪亚之门符文", "atrocity realm glyph" = "暴虐界符文", "battleground glyph" = "战场界符文", "erebus glyph" = "幽冥炼狱符文", "flux glyph" = "流变界符文", "legendary realm glyph" = "传奇界符文", "pangaea glyph" = "盘古大陆符文", "scar glyph" = "创痕界符文", "summer country glyph" = "长夏之国符文", "pollution glyph" = "污染符文", "ananasi glyph" = "蛛人符文", "nagah glyph" = "蛇人符文", "fire glyph" = "火焰符文", "bane glyph" = "灾灵符文", "fomori glyph" = "妖蛆附身者符文", "therapy glyph" = "疗愈符文"))
 /proc/init_glyphs()
 	var/glyph_list = list()
 	for(var/path in valid_subtypesof(/obj/effect/decal/garou_glyph))
@@ -15,37 +15,37 @@
 		return NONE
 
 	if(!GLOB.glyph_list.len)
-		to_chat(user, span_notice("There are no glyphs available."))
+		to_chat(user, span_notice("没有可用的符文。"))
 		return NONE
 
 	var/list/glyph_names = list()
 
 	for(var/glyph in GLOB.glyph_list)
-		glyph_names += glyph
+		glyph_names[GLOB.localized_glyph_names[glyph] || glyph] = glyph
 
-	var/choice = tgui_input_list(user, "Select a glyph to draw.", "Glyph Selection", glyph_names)
+	var/choice = tgui_input_list(user, "选择要绘制的符文。", "选择符文", assoc_to_keys(glyph_names))
 	if(!choice)
 		return ITEM_INTERACT_BLOCKING
 
-	var/obj/effect/decal/garou_glyph/drawn_glyph = GLOB.glyph_list[choice]
+	var/obj/effect/decal/garou_glyph/drawn_glyph = GLOB.glyph_list[glyph_names[choice]]
 	if(drawn_glyph)
-		user.visible_message(span_notice("[user] starts to scrape a glyph into the ground..."), \
-		span_notice("You begin to etch the spirals and lines of your chosen glyph..."))
+		user.visible_message(span_notice("[user]开始在地面上刻画符文……"), \
+		span_notice("你开始刻画所选符文的螺旋与线条……"))
 
 		if(do_after(user, 5 SECONDS, target))
 			new drawn_glyph.type(target)
-			user.visible_message(span_notice("[user] finishes up their rune."), \
-			span_notice("You put the finishing touches on your rune, as it marks the ground before you."))
+			user.visible_message(span_notice("[user]画完了符文。"), \
+			span_notice("你为符文添上最后几笔，将它留在面前的地面上。"))
 			return ITEM_INTERACT_SUCCESS
 		else
-			user.visible_message(span_notice("[user] slips, smduges and ruins their glyph."), \
-			span_notice("You mess it up, the glyph turning into nothing more than a smear upon the ground."))
+			user.visible_message(span_notice("[user]手一滑，把符文抹花了。"), \
+			span_notice("你画砸了，符文变成了地上的一团污迹。"))
 			return ITEM_INTERACT_FAILURE
 
 /obj/effect/decal/garou_glyph
 	abstract_type = /obj/effect/decal/garou_glyph
-	name = "odd glyph"
-	desc = "An odd collection of symbols drawn in what seems to be charcoal."
+	name = "古怪符文"
+	desc = "一组古怪的符号，似乎是用木炭画成的。"
 	anchored = TRUE
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/glyphs.dmi'
 	icon_state = "garou"
@@ -53,688 +53,688 @@
 	// Very likely not needed
 	// layer = SIGIL_LAYER
 	var/garou_name = "basic glyph"
-	var/garou_desc = "a basic glyph with no meaning." // This is shown to werewolves who examine the glyph in order to determine its true meaning.
+	var/garou_desc = "没有特殊含义的基础符文。" // This is shown to werewolves who examine the glyph in order to determine its true meaning.
 
 /obj/effect/decal/garou_glyph/examine(mob/user)
 	. = ..()
 	if(user.has_language(/datum/language/garou_tongue, UNDERSTOOD_LANGUAGE))
-		. += "<b>Name:</b> [garou_name]\n"
-		. += "<b>Description:</b> [garou_desc]\n"
+		. += "<b>名称：</b>[GLOB.localized_glyph_names[garou_name] || garou_name]\n"
+		. += "<b>说明：</b>[garou_desc]\n"
 
 /obj/effect/decal/garou_glyph/wyrm
-	name = "creepy glyph"
+	name = "阴森符文"
 	garou_name = "wyrm glyph"
-	garou_desc = "A glyph that represents the Wyrm, a force of corruption and destruction."
+	garou_desc = "代表妖蛆的符文，象征腐化与毁灭的力量。"
 	icon_state = "wyrm"
 
 /obj/effect/decal/garou_glyph/vampire
-	name = "weird glyph"
+	name = "怪异符文"
 	garou_name = "vampire glyph"
-	garou_desc = "A glyph that represents the Kindred, leeches of the Weaver and Wyrm."
+	garou_desc = "代表血族的符文，他们是织者与妖蛆的水蛭。"
 	icon_state = "vampire"
 
 /obj/effect/decal/garou_glyph/kinfolk
-	name = "uncanny glyph"
+	name = "诡异符文"
 	garou_name = "kinfolk glyph"
-	garou_desc = "A glyph that represents the Kinfolk, the human relatives of the Garou."
+	garou_desc = "代表眷属的符文，他们是狼人的人类亲族。"
 	icon_state = "kinfolk"
 
 /obj/effect/decal/garou_glyph/dance
-	name = "funky glyph"
+	name = "奇趣符文"
 	garou_name = "dancing glyph"
-	garou_desc = "A glyph that represents the spiritual dancing of the Garou."
+	garou_desc = "代表狼人灵性舞蹈的符文。"
 	icon_state = "dance"
 
 /obj/effect/decal/garou_glyph/caern
-	name = "eerie glyph"
+	name = "幽异符文"
 	garou_name = "caern glyph"
-	garou_desc = "A glyph that represents the Caern, a sacred location that naturally flows with spiritual energy."
+	garou_desc = "代表圣地的符文，这种神圣之地天然流淌着灵性能量。"
 	icon_state = "caern"
 
 /obj/effect/decal/garou_glyph/danger
-	name = "peculiar glyph"
+	name = "奇特符文"
 	garou_name = "danger glyph"
-	garou_desc = "A glyph that represents danger! Proceed with caution."
+	garou_desc = "代表危险的符文！请谨慎前行。"
 	icon_state = "danger"
 
 /obj/effect/decal/garou_glyph/garou
-	name = "freakish glyph"
+	name = "离奇符文"
 	garou_name = "garou glyph"
-	garou_desc = "A glyph that represents the Garou, the warriors of Gaia."
+	garou_desc = "代表狼人的符文，他们是盖亚的战士。"
 	icon_state = "garou"
 
 /obj/effect/decal/garou_glyph/conceal
-	name = "mysterious glyph"
+	name = "神秘符文"
 	garou_name = "conceal glyph"
-	garou_desc = "A glyph that represents the obfuscation of something. What may be hidden from you?"
+	garou_desc = "代表某种隐匿的符文。有什么东西瞒过了你的眼睛？"
 	icon_state = "conceal"
 
 /obj/effect/decal/garou_glyph/hive
-	name = "outlandish glyph"
+	name = "诡谲符文"
 	garou_name = "hive glyph"
-	garou_desc = "A glyph that represents a Hive, the foul home of a Black Spiral Dancer pack."
+	garou_desc = "代表巢穴的符文，那是黑螺旋舞者狼群的污秽居所。"
 	icon_state = "hive"
 
 /obj/effect/decal/garou_glyph/howl
-	name = "unusual glyph"
+	name = "异样符文"
 	garou_name = "howling glyph"
-	garou_desc = "A glyph that represents the natural song of the Garou, the howl."
+	garou_desc = "代表长嚎的符文，这是狼人天生的歌声。"
 	icon_state = "howl"
 
 /obj/effect/decal/garou_glyph/remembrance
-	name = "morose glyph"
+	name = "哀伤符文"
 	garou_name = "remembrance glyph"
-	garou_desc = "A glyph that represents the mourning and remembrance of the fallen."
+	garou_desc = "代表哀悼与追思逝者的符文。"
 	icon_state = "remembrance"
 
 /obj/effect/decal/garou_glyph/watch
-	name = "odd glyph"
+	name = "古怪符文"
 	garou_name = "watch glyph"
-	garou_desc = "A glyph that marks something as in need of monitoring"
+	garou_desc = "标记某事物需要监视的符文。"
 	icon_state = "watch"
 
 /obj/effect/decal/garou_glyph/toxic
-	name = "foul glyph"
+	name = "污秽符文"
 	garou_name = "toxic glyph"
-	garou_desc = "A glyph that represents toxicity, the material corruption of the Wyrm on the Earth."
+	garou_desc = "代表毒害的符文，象征妖蛆对大地的物质污染。"
 	icon_state = "toxic"
 
 /obj/effect/decal/garou_glyph/dancers
-	name = "alien glyph"
+	name = "异质符文"
 	garou_name = "\improper Black Spiral Dancer glyph"
-	garou_desc = "A glyph that represents the tribe of the Black Spiral Dancers."
+	garou_desc = "代表黑螺旋舞者部族的符文。"
 	icon_state = "black_spiral_dancers"
 
 /obj/effect/decal/garou_glyph/glasswalkers
-	name = "quirky glyph"
+	name = "别致符文"
 	garou_name = "\improper Glasswalkers glyph"
-	garou_desc = "A glyph that represents the Glasswalkers tribe."
+	garou_desc = "代表玻璃行者部族的符文。"
 	icon_state = "glasswalkers"
 
 /obj/effect/decal/garou_glyph/galestalkers
-	name = "abnormal glyph"
+	name = "异常符文"
 	garou_name = "\improper Younger Brother glyph"
-	garou_desc = "A glyph that represents the Galestalkers tribe."
+	garou_desc = "代表逐风者部族的符文。"
 	icon_state = "younger_brother"
 
 /obj/effect/decal/garou_glyph/war_against_wyrm
-	name = "terrifying glyph"
+	name = "骇人符文"
 	garou_name = "war against wyrm glyph"
-	garou_desc = "A glyph that represents the apocalyptic war of the Garou against the Wyrm."
+	garou_desc = "代表狼人与妖蛆之间末日之战的符文。"
 	icon_state = "war_against_wyrm"
 
 /obj/effect/decal/garou_glyph/black_furies
-	name = "rooted glyph"
+	name = "根状符文"
 	garou_name = "black furies glyph"
-	garou_desc = "A glyph that represents the Black Furies, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一黑怒之女的符文。"
 	icon_state = "black_furies"
 
 /obj/effect/decal/garou_glyph/bonegnawers
-	name = "smudged glyph"
+	name = "模糊符文"
 	garou_name = "bonegnawer glyph"
-	garou_desc = "A glyph that represents the Bonegnawers, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一啃骨者的符文。"
 	icon_state = "bonegnawers"
 
 /obj/effect/decal/garou_glyph/children_of_gaia
-	name = "relaxing glyph"
+	name = "舒心符文"
 	garou_name = "children of gaia glyph"
-	garou_desc = "A glyph that represents the Children of Gaia, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一盖亚之子的符文。"
 	icon_state = "children_of_gaia"
 
 /obj/effect/decal/garou_glyph/fianna
-	name = "musical glyph"
+	name = "韵律符文"
 	garou_name = "fianna glyph"
-	garou_desc = "A glyph that represents the Fianna, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一芬尼安的符文。"
 	icon_state = "fianna"
 
 /obj/effect/decal/garou_glyph/get_of_fenris
-	name = "jagged glyph"
+	name = "锯齿符文"
 	garou_name = "get of fenris glyph"
-	garou_desc = "A glyph that represents the Get of Fenris, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一芬里斯之裔的符文。"
 	icon_state = "get_of_fenris"
 
 /obj/effect/decal/garou_glyph/red_talons
-	name = "clawed glyph"
+	name = "爪状符文"
 	garou_name = "red talon glyph"
-	garou_desc = "A glyph that represents the Red Talons, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一赤爪的符文。"
 	icon_state = "red_talons"
 
 /obj/effect/decal/garou_glyph/shadow_lords
-	name = "veiled glyph"
+	name = "朦胧符文"
 	garou_name = "shadow lord glyph"
-	garou_desc = "A glyph that represents the Shadow Lords, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一暗影领主的符文。"
 	icon_state = "shadow_lords"
 
 /obj/effect/decal/garou_glyph/silent_striders
-	name = "wavy glyph"
+	name = "波纹符文"
 	garou_name = "silent striders glyph"
-	garou_desc = "A glyph that represents the Silent Striders, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一寂静行者的符文。"
 	icon_state = "silent_striders"
 
 /obj/effect/decal/garou_glyph/silver_fangs
-	name = "illustrious glyph"
+	name = "华贵符文"
 	garou_name = "silver fang glyph"
-	garou_desc = "A glyph that represents the Silver Fangs, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一银牙的符文。"
 	icon_state = "silver_fangs"
 
 /obj/effect/decal/garou_glyph/stargazers
-	name = "auspicious glyph"
+	name = "祥瑞符文"
 	garou_name = "stargazers glyph"
-	garou_desc = "A glyph that represents the Stargazers, a Garou tribe which has since left the nation."
+	garou_desc = "代表观星者的符文，这个狼人部族如今已退出狼人国度。"
 	icon_state = "stargazers"
 
 /obj/effect/decal/garou_glyph/ghost_council
-	name = "watchful glyph"
+	name = "警觉符文"
 	garou_name = "ghost council glyph"
-	garou_desc = "A glyph that represents the Ghost Council, one of the Garou Tribes."
+	garou_desc = "代表狼人部族之一幽灵议会的符文。"
 	icon_state = "ghost_council"
 
 /obj/effect/decal/garou_glyph/ronin
-	name = "messy glyph"
+	name = "凌乱符文"
 	garou_name = "ronin glyph"
-	garou_desc = "A glyph that represents the Ronin, loners who exist out of a tribe and can rarely be trusted."
+	garou_desc = "代表浪人的符文，他们游离于部族之外，独来独往，鲜少值得信任。"
 	icon_state = "ronin"
 
 /obj/effect/decal/garou_glyph/ratkin
-	name = "ominous glyph"
+	name = "不祥符文"
 	garou_name = "ratkin glyph"
-	garou_desc = "A glyph that represents the Ratkin, the Fera with the power to shift between man and rat."
+	garou_desc = "代表鼠人的符文，他们是能够在人与鼠之间变换形态的变形者。"
 	icon_state = "ratkin"
 
 /obj/effect/decal/garou_glyph/corax
-	name = "flashy glyph"
+	name = "醒目符文"
 	garou_name = "corax glyph"
-	garou_desc = "A glyph that represents the Corax, the Fera with the power to shift between man and raven."
+	garou_desc = "代表渡鸦变形者的符文，他们能够在人与渡鸦之间变换形态。"
 	icon_state = "corax"
 
 /obj/effect/decal/garou_glyph/sept_of_western_eye
-	name = "elaborate glyph"
+	name = "繁复符文"
 	garou_name = "sept of western eye glyph"
-	garou_desc = "A glyph that represents the Sept of Western Eye, who watch over Gaia's sacred places hidden around San Francisco and its outskirts."
+	garou_desc = "代表西境之眼社群的符文，他们守护着隐藏在旧金山市内及郊区的盖亚圣地。"
 	icon_state = "sept_of_western_eye"
 
 /obj/effect/decal/garou_glyph/bastet
-	name = "fanged glyph"
+	name = "獠牙符文"
 	garou_name = "bastet glyph"
-	garou_desc = "A glyph that represents the Bastet, the Fera with the power to shift between man and feline."
+	garou_desc = "代表猫人的符文，他们是能够在人与猫科动物之间变换形态的变形者。"
 	icon_state = "bastet"
 
 /obj/effect/decal/garou_glyph/gurahl
-	name = "large glyph"
+	name = "硕大符文"
 	garou_name = "gurahl glyph"
-	garou_desc = "A glyph that represents the Gurahl, the Fera with the power to shift between man and bear."
+	garou_desc = "代表熊人的符文，他们是能够在人与熊之间变换形态的变形者。"
 	icon_state = "gurahl"
 
 /obj/effect/decal/garou_glyph/rokea
-	name = "watery glyph"
+	name = "水波符文"
 	garou_name = "rokea glyph"
-	garou_desc = "A glyph that represents the Rokea, the Fera with the power to shift between man and shark."
+	garou_desc = "代表鲨人的符文，他们是能够在人与鲨鱼之间变换形态的变形者。"
 	icon_state = "rokea"
 
 /obj/effect/decal/garou_glyph/corax_safe
-	name = "crude marking"
+	name = "粗糙标记"
 	garou_name = "corax safety glyph"
-	garou_desc = "A Corax glyph that marks a space as safe."
+	garou_desc = "标记安全区域的渡鸦变形者符文。"
 	icon_state = "corax_safe"
 
 /obj/effect/decal/garou_glyph/corax_danger
-	name = "strange lines"
+	name = "奇怪线条"
 	garou_name = "corax danger glyph"
-	garou_desc = "A Corax glyph that marks a space as dangerous."
+	garou_desc = "标记危险区域的渡鸦变形者符文。"
 	icon_state = "corax_danger"
 
 /obj/effect/decal/garou_glyph/corax_wyrm_spirits
-	name = "crude symbols"
+	name = "粗糙符号"
 	garou_name = "corax wyrm spirit glyph"
-	garou_desc = "A Corax glyph that warns of the presence of Wyrm spirits."
+	garou_desc = "警告附近有妖蛆灵体的渡鸦变形者符文。"
 	icon_state = "corax_wyrm_spirits"
 
 /obj/effect/decal/garou_glyph/corax_weaver_spirits
-	name = "scratch marks"
+	name = "抓痕"
 	garou_name = "corax weaver spirit glyph"
-	garou_desc = "A Corax glyph that warns of the presence of Weaver spirits."
+	garou_desc = "警告附近有织者灵体的渡鸦变形者符文。"
 	icon_state = "corax_weaver_spirits"
 
 /obj/effect/decal/garou_glyph/corax_food
-	name = "oddly arranged dots"
+	name = "排列古怪的圆点"
 	garou_name = "corax food glyph"
-	garou_desc = "A Corax glyph that highlights the presence of food or a slaughter."
+	garou_desc = "标示食物或屠杀现场的渡鸦变形者符文。"
 	icon_state = "corax_food"
 
 /obj/effect/decal/garou_glyph/corax_party
-	name = "crude etching"
+	name = "粗糙刻痕"
 	garou_name = "corax party glyph"
-	garou_desc = "A Corax glyph showcasing the locale of a party or celebration of sorts."
+	garou_desc = "标示聚会或庆典地点的渡鸦变形者符文。"
 	icon_state = "corax_party"
 
 /obj/effect/decal/garou_glyph/lodge_of_the_moon
-	name = "roof glyph"
+	name = "屋顶符文"
 	garou_name = "moon lodge glyph"
-	garou_desc = "A glyph that represents the Moon Lodge, one of the two lodges of the Silver Fang, focused on spiritual matters."
+	garou_desc = "代表月之会所的符文，它是银牙部族两大会所之一，专注于灵性事务。"
 	icon_state = "lodge_of_the_moon"
 
 /obj/effect/decal/garou_glyph/lodge_of_the_sun
-	name = "shiny glyph"
+	name = "闪亮符文"
 	garou_name = "sun lodge glyph"
-	garou_desc = "A glyph that represents the Sun Lodge, one of the two lodges of the Silver Fang, focused on worldly matters."
+	garou_desc = "代表日之会所的符文，它是银牙部族两大会所之一，专注于世俗事务。"
 	icon_state = "lodge_of_the_sun"
 
 /obj/effect/decal/garou_glyph/house_austere_howl
-	name = "smoke glyph"
+	name = "烟雾符文"
 	garou_name = "house austere glyph"
-	garou_desc = "A glyph that represents House Austere, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表肃穆家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_austere_howl"
 
 /obj/effect/decal/garou_glyph/house_blood_red_crest
-	name = "crying glyph"
+	name = "哭泣符文"
 	garou_name = "house blood-red crest glyph"
-	garou_desc = "A glyph that represents House Blood-Red Crest, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表血红冠家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_blood_red_crest"
 
 /obj/effect/decal/garou_glyph/house_crescent_moon
-	name = "curved glyph"
+	name = "弯曲符文"
 	garou_name = "house crescent moon glyph"
-	garou_desc = "A glyph that represents House Crescent Moon, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表眉月家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_crescent_moon"
 
 /obj/effect/decal/garou_glyph/house_gleaming_eye
-	name = "gazing glyph"
+	name = "凝视符文"
 	garou_name = "house gleaming eye glyph"
-	garou_desc = "A glyph that represents House Gleaming Eye, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表灿目家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_gleaming_eye"
 
 /obj/effect/decal/garou_glyph/house_unbreakable_hearth
-	name = "sturdy glyph"
+	name = "坚实符文"
 	garou_name = "house unbreakable hearth glyph"
-	garou_desc = "A glyph that represents House Unbreakable Hearth, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表不灭炉火家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_unbreakable_hearth"
 
 /obj/effect/decal/garou_glyph/house_wise_heart
-	name = "knowing glyph"
+	name = "睿智符文"
 	garou_name = "house wise heart glyph"
-	garou_desc = "A glyph that represents House Wise Heart, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表慧心家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_wise_heart"
 
 /obj/effect/decal/garou_glyph/house_wyrmfoe
-	name = "shredded glyph"
+	name = "破碎符文"
 	garou_name = "house wyrmfoe glyph"
-	garou_desc = "A glyph that represents House Wyrmfoe, one of the seven houses of the Silver Fang tribe."
+	garou_desc = "代表妖蛆之敌家族的符文，它是银牙部族七大家族之一。"
 	icon_state = "house_wyrmfoe"
 
 /obj/effect/decal/garou_glyph/siberakh
-	name = "unusual glyph"
+	name = "异样符文"
 	garou_name = "siberakh glyph"
-	garou_desc = "A glyph that represents the Siberakh, a secretive tribe known only to the Silver Fangs and Galestalkers."
+	garou_desc = "代表西伯拉克的符文，这个隐秘部族只有银牙和逐风者知晓。"
 	icon_state = "siberakh"
 
 /obj/effect/decal/garou_glyph/impergium
-	name = "fear-inducing glyph"
+	name = "慑人符文"
 	garou_name = "impergium glyph"
-	garou_desc = "A glyph that represents the Impergium, the time when Garou hunted man also known as the First War."
+	garou_desc = "代表猎杀人类时代的符文，那是狼人猎杀人类的岁月，又称第一次战争。"
 	icon_state = "impergium"
 
 /obj/effect/decal/garou_glyph/litany
-	name = "pointed glyph"
+	name = "尖角符文"
 	garou_name = "litany glyph"
-	garou_desc = "A glyph that represents the Litany, the sacred laws of which all of the Garou Nation are bound to follow."
+	garou_desc = "代表律诫的符文，这是狼人国度全体成员都必须遵守的神圣律法。"
 	icon_state = "litany"
 
 /obj/effect/decal/garou_glyph/pack
-	name = "square glyph"
+	name = "方形符文"
 	garou_name = "pack glyph"
-	garou_desc = "A glyph that represents the pack, the closest-knit unit of the Garou."
+	garou_desc = "代表狼群的符文，这是狼人最紧密的群体。"
 	icon_state = "pack"
 
 /obj/effect/decal/garou_glyph/moot
-	name = "bowl glyph"
+	name = "碗形符文"
 	garou_name = "moot glyph"
-	garou_desc = "A glyph that represents a moot, a great gathering of Garou."
+	garou_desc = "代表大集会的符文，这是狼人的盛大聚会。"
 	icon_state = "moot"
 
 /obj/effect/decal/garou_glyph/weaver
-	name = "grid glyph"
+	name = "网格符文"
 	garou_name = "weaver glyph"
-	garou_desc = "A glyph that represents the Weaver, primal spirit of stasis and immutability."
+	garou_desc = "代表织者的符文，祂是静止与恒定的原初之灵。"
 	icon_state = "weaver"
 
 /obj/effect/decal/garou_glyph/defiler_wyrm
-	name = "tempting glyph"
+	name = "诱人符文"
 	garou_name = "defiler wyrm glyph"
-	garou_desc = "A glyph that represents the Defiler Wyrm, the corrupting aspect of the Triatic Wyrm."
+	garou_desc = "代表污秽之蛆的符文，祂是妖蛆三相中象征腐化的一面。"
 	icon_state = "defiler_wyrm"
 
 /obj/effect/decal/garou_glyph/beast_of_war
-	name = "dangerous glyph"
+	name = "凶险符文"
 	garou_name = "beast of war glyph"
-	garou_desc = "A glyph that represents the Beast of War, the violent aspect of the Triatic Wyrm."
+	garou_desc = "代表战争巨兽的符文，祂是妖蛆三相中象征暴力的一面。"
 	icon_state = "beast_of_war"
 
 /obj/effect/decal/garou_glyph/eater_of_souls
-	name = "empty glyph"
+	name = "空洞符文"
 	garou_name = "eater of souls glyph"
-	garou_desc = "A glyph that represents the Eater of Souls, the creation-hungry aspect of the Triatic Wyrm."
+	garou_desc = "代表噬魂者的符文，祂是妖蛆三相中渴望吞噬造物的一面。"
 	icon_state = "eater_of_souls"
 
 /obj/effect/decal/garou_glyph/wyld
-	name = "chaotic glyph"
+	name = "混沌符文"
 	garou_name = "wyld glyph"
-	garou_desc = "A glyph that represents the Wyld, the primal spirit of life and creation."
+	garou_desc = "代表荒野的符文，祂是生命与创造的原初之灵。"
 	icon_state = "wyld"
 
 /obj/effect/decal/garou_glyph/umbra
-	name = "inconspicuous glyph"
+	name = "隐晦符文"
 	garou_name = "umbra glyph"
-	garou_desc = "A glyph that represents the Umbra, the realm of spirits that exists sideways of the physical plane."
+	garou_desc = "代表影界的符文，这是与物质世界并存的灵性领域。"
 	icon_state = "umbra"
 
 /obj/effect/decal/garou_glyph/luna
-	name = "circle glyph"
+	name = "圆形符文"
 	garou_name = "luna glyph"
-	garou_desc = "A glyph that represents Luna, the moon spirit which granted the Garou their rage."
+	garou_desc = "代表露娜的符文，这位月亮之灵将怒火赐予狼人。"
 	icon_state = "luna"
 
 /obj/effect/decal/garou_glyph/helios
-	name = "compass glyph"
+	name = "罗盘符文"
 	garou_name = "helios glyph"
-	garou_desc = "A glyph that represents Helios, the sun spirit which granted the Corax their light."
+	garou_desc = "代表赫利俄斯的符文，这位太阳之灵将光明赐予渡鸦变形者。"
 	icon_state = "helios"
 
 /obj/effect/decal/garou_glyph/fish
-	name = "fishy glyph"
+	name = "鱼形符文"
 	garou_name = "fish glyph"
-	garou_desc = "A glyph that represents fish."
+	garou_desc = "代表鱼的符文。"
 	icon_state = "fish"
 
 /obj/effect/decal/garou_glyph/forest
-	name = "small glyph"
+	name = "小巧符文"
 	garou_name = "forest glyph"
-	garou_desc = "A glyph that represents the forest."
+	garou_desc = "代表森林的符文。"
 	icon_state = "forest"
 
 /obj/effect/decal/garou_glyph/ally
-	name = "reassuring glyph"
+	name = "安心符文"
 	garou_name = "ally glyph"
-	garou_desc = "A glyph that represents an alliance."
+	garou_desc = "代表联盟的符文。"
 	icon_state = "ally"
 
 /obj/effect/decal/garou_glyph/rite
-	name = "subtle glyph"
+	name = "含蓄符文"
 	garou_name = "rite glyph"
-	garou_desc = "A glyph that represents a rite, the sacred rituals of the Fera."
+	garou_desc = "代表仪式的符文，这是变形者举行的神圣仪式。"
 	icon_state = "rite"
 
 /obj/effect/decal/garou_glyph/moon_bridge
-	name = "crossed glyph"
+	name = "交叉符文"
 	garou_name = "moon bridge glyph"
-	garou_desc = "A glyph that represents a moon bridge, that which allows for travel between the physical plane and the Umbra."
+	garou_desc = "代表月桥的符文，它让人能够往返于物质世界与影界之间。"
 	icon_state = "moon_bridge"
 
 /obj/effect/decal/garou_glyph/chimera
-	name = "imposing glyph"
+	name = "威严符文"
 	garou_name = "chimera glyph"
-	garou_desc = "A glyph that represents Chimera, the totem spirit of the Stargazers."
+	garou_desc = "代表奇美拉的符文，祂是观星者的图腾之灵。"
 	icon_state = "chimera"
 
 /obj/effect/decal/garou_glyph/cockroach
-	name = "gross glyph"
+	name = "恶心符文"
 	garou_name = "cockroach glyph"
-	garou_desc = "A glyph that represents Cockroach, the totem spirit of the Glasswalkers."
+	garou_desc = "代表蟑螂的符文，祂是玻璃行者的图腾之灵。"
 	icon_state = "cockroach"
 
 /obj/effect/decal/garou_glyph/falcon
-	name = "gazing glyph"
+	name = "凝视符文"
 	garou_name = "falcon glyph"
-	garou_desc = "A glyph that represents Falcon, the totem spirit of the Silver Fangs."
+	garou_desc = "代表猎隼的符文，祂是银牙的图腾之灵。"
 	icon_state = "falcon"
 
 /obj/effect/decal/garou_glyph/fenris
-	name = "carved glyph"
+	name = "雕刻符文"
 	garou_name = "fenris glyph"
-	garou_desc = "A glyph that represents Fenris, the totem spirit of the Get of Fenris."
+	garou_desc = "代表芬里斯的符文，祂是芬里斯之裔的图腾之灵。"
 	icon_state = "fenris"
 
 /obj/effect/decal/garou_glyph/griffin
-	name = "unsettling glyph"
+	name = "不安符文"
 	garou_name = "griffin glyph"
-	garou_desc = "A glyph that represents Griffin, the totem spirit of the Red Talons."
+	garou_desc = "代表狮鹫的符文，祂是赤爪的图腾之灵。"
 	icon_state = "griffin"
 
 /obj/effect/decal/garou_glyph/owl
-	name = "perched glyph"
+	name = "栖鸟符文"
 	garou_name = "owl glyph"
-	garou_desc = "A glyph that represents Owl, the totem spirit of the Silent Striders."
+	garou_desc = "代表猫头鹰的符文，祂是寂静行者的图腾之灵。"
 	icon_state = "owl"
 
 /obj/effect/decal/garou_glyph/grandfather_thunder
-	name = "weathered glyph"
+	name = "风蚀符文"
 	garou_name = "grandfather thunder glyph"
-	garou_desc = "A glyph that represents Grandfather Thunder, the totem spirit of the Shadow Lords."
+	garou_desc = "代表雷霆祖父的符文，祂是暗影领主的图腾之灵。"
 	icon_state = "grandfather_thunder"
 
 /obj/effect/decal/garou_glyph/pegasus
-	name = "swift glyph"
+	name = "迅疾符文"
 	garou_name = "pegasus glyph"
-	garou_desc = "A glyph that represents Pegasus, the totem spirit of the Black Furies."
+	garou_desc = "代表飞马的符文，祂是黑怒之女的图腾之灵。"
 	icon_state = "pegasus"
 
 /obj/effect/decal/garou_glyph/rat
-	name = "nasty glyph"
+	name = "讨厌符文"
 	garou_name = "rat glyph"
-	garou_desc = "A glyph that represents Rat, the totem spirit of the Bonegnawers."
+	garou_desc = "代表鼠的符文，祂是啃骨者的图腾之灵。"
 	icon_state = "rat"
 
 /obj/effect/decal/garou_glyph/stag
-	name = "horned glyph"
+	name = "角状符文"
 	garou_name = "stag glyph"
-	garou_desc = "A glyph that represents Stag, the totem spirit of the Fianna."
+	garou_desc = "代表雄鹿的符文，祂是芬尼安的图腾之灵。"
 	icon_state = "stag"
 
 /obj/effect/decal/garou_glyph/horned_serpent
-	name = "slithery glyph"
+	name = "蜿蜒符文"
 	garou_name = "horned serpent glyph"
-	garou_desc = "A glyph that represents Horned Serpent, the totem spirit of the Galestalkers."
+	garou_desc = "代表有角之蛇的符文，祂是逐风者的图腾之灵。"
 	icon_state = "horned_serpent"
 
 /obj/effect/decal/garou_glyph/unicorn
-	name = "noble glyph"
+	name = "高贵符文"
 	garou_name = "unicorn glyph"
-	garou_desc = "A glyph that represents Unicorn, the totem spirit of the Children of Gaia."
+	garou_desc = "代表独角兽的符文，祂是盖亚之子的图腾之灵。"
 	icon_state = "unicorn"
 
 /obj/effect/decal/garou_glyph/north_wind
-	name = "simple glyph"
+	name = "简朴符文"
 	garou_name = "north wind glyph"
-	garou_desc = "A glyph that represents North Wind, the totem spirit of the Ghost Council."
+	garou_desc = "代表北风的符文，祂是幽灵议会的图腾之灵。"
 	icon_state = "north_wind"
 
 /obj/effect/decal/garou_glyph/gun
-	name = "smoking glyph"
+	name = "冒烟符文"
 	garou_name = "gun glyph"
-	garou_desc = "A glyph that represents a gun."
+	garou_desc = "代表枪械的符文。"
 	icon_state = "gun"
 
 /obj/effect/decal/garou_glyph/path
-	name = "meandering glyph"
+	name = "曲折符文"
 	garou_name = "path glyph"
-	garou_desc = "A glyph that represents a pathway."
+	garou_desc = "代表路径的符文。"
 	icon_state = "path"
 
 /obj/effect/decal/garou_glyph/urge_wyrm
-	name = "alluring glyph"
+	name = "惑人符文"
 	garou_name = "urge wyrm glyph"
-	garou_desc = "A glyph that represents the Urge Wyrms, spiritual entities that can corrupt the mind."
+	garou_desc = "代表欲念妖蛆的符文，这些灵性实体能够腐蚀心灵。"
 	icon_state = "urge_wyrm"
 
 /obj/effect/decal/garou_glyph/radiation
-	name = "glowing glyph"
+	name = "发光符文"
 	garou_name = "radiation glyph"
-	garou_desc = "A glyph that represents radiation, that which can defile life like little else can."
+	garou_desc = "代表辐射的符文，鲜有事物能像辐射那样玷污生命。"
 	icon_state = "radiation"
 
 /obj/effect/decal/garou_glyph/spirit
-	name = "abstract glyph"
+	name = "抽象符文"
 	garou_name = "spirit glyph"
-	garou_desc = "A glyph that represents a spiritual presence."
+	garou_desc = "标示灵体存在的符文。"
 	icon_state = "spirit"
 
 /obj/effect/decal/garou_glyph/mend
-	name = "cross glyph"
+	name = "十字符文"
 	garou_name = "mend glyph"
-	garou_desc = "A glyph that represents a call to mend or repair a place, thing, or person."
+	garou_desc = "呼吁修复某处、某物或救治某人的符文。"
 	icon_state = "mend"
 
 /obj/effect/decal/garou_glyph/safety
-	name = "reassuring glyph"
+	name = "安心符文"
 	garou_name = "safety glyph"
-	garou_desc = "A glyph that represents a place of safety."
+	garou_desc = "代表安全之地的符文。"
 	icon_state = "safety"
 
 /obj/effect/decal/garou_glyph/suffering
-	name = "upsetting glyph"
+	name = "揪心符文"
 	garou_name = "suffering glyph"
-	garou_desc = "A glyph that represents a state or place of suffering."
+	garou_desc = "代表苦难状态或受苦之地的符文。"
 	icon_state = "suffering"
 
 /obj/effect/decal/garou_glyph/regeneration
-	name = "calming glyph"
+	name = "宁神符文"
 	garou_name = "regeneration glyph"
-	garou_desc = "A glyph that represents a state or place of regeneration and healing."
+	garou_desc = "代表再生与愈合的状态或场所的符文。"
 	icon_state = "regeneration"
 
 /obj/effect/decal/garou_glyph/storm
-	name = "lightning glyph"
+	name = "闪电符文"
 	garou_name = "storm glyph"
-	garou_desc = "A glyph that represents a storm, in all its might."
+	garou_desc = "代表风暴及其全部威力的符文。"
 	icon_state = "storm"
 
 /obj/effect/decal/garou_glyph/story
-	name = "weird glyph"
+	name = "怪异符文"
 	garou_name = "story glyph"
-	garou_desc = "A glyph that represents a place of storytelling, or is used to tell a story in glyphs."
+	garou_desc = "标记讲述故事之地的符文，也可用于以符文叙事。"
 	icon_state = "story"
 
 /obj/effect/decal/garou_glyph/totem
-	name = "involved glyph"
+	name = "复杂符文"
 	garou_name = "totem glyph"
-	garou_desc = "A glyph that represents a totem, a spirit which watches over a tribe of Garou."
+	garou_desc = "代表图腾的符文，图腾是守护狼人部族的灵体。"
 	icon_state = "totem"
 
 /obj/effect/decal/garou_glyph/cyberrealm
-	name = "messy glyph"
+	name = "凌乱符文"
 	garou_name = "cyberrealm glyph"
-	garou_desc = "A glyph that represents CyberRealm, the spiritual realm of the internet."
+	garou_desc = "代表网络灵域的符文，这是互联网的灵性领域。"
 	icon_state = "cyberspace"
 
 /obj/effect/decal/garou_glyph/wolfhome
-	name = "feral glyph"
+	name = "野性符文"
 	garou_name = "wolfhome glyph"
-	garou_desc = "A glyph that represents Wolfhome, a a primeval spirit realm of endless forest in which dwell the spirits of wolf packs and their prey."
+	garou_desc = "代表狼乡的符文，这是遍布无尽森林的原始灵性领域，狼群及其猎物的灵魂栖居于此。"
 	icon_state = "wolfhome"
 
 /obj/effect/decal/garou_glyph/malfeas
-	name = "bone-chilling glyph"
+	name = "寒彻骨髓的符文"
 	garou_name = "malfeas glyph"
-	garou_desc = "A glyph that represents Malfeas, a dark realm of the Umbra that lies within the Maw of the Wyrm."
+	garou_desc = "代表秽恶界的符文，这是位于妖蛆之口内的黑暗影界领域。"
 	icon_state = "malfeas"
 
 /obj/effect/decal/garou_glyph/aetherial
-	name = "dazzling glyph"
+	name = "耀眼符文"
 	garou_name = "aetherial glyph"
-	garou_desc = "A glyph that represents the Aetherial, an umbral realm housing the Spirit Wilds."
+	garou_desc = "代表以太界的符文，这是容纳着灵性荒野的影界领域。"
 	icon_state = "aetherial"
 
 /obj/effect/decal/garou_glyph/arcadia_gateway
-	name = "loopy glyph"
+	name = "环绕符文"
 	garou_name = "arcadia gateway glyph"
-	garou_desc = "A glyph that represents the Arcadia Gateway, a land resembling the mythical home of the Fae deep in the Middle Umbra."
+	garou_desc = "代表阿卡迪亚之门的符文，这片土地位于中层影界深处，宛如传说中的妖精故乡。"
 	icon_state = "arcadia_gateway"
 
 /obj/effect/decal/garou_glyph/atrocity_realm
-	name = "fetid glyph"
+	name = "腐臭符文"
 	garou_name = "atrocity realm glyph"
-	garou_desc = "A glyph that represents the Atrocity Realm, the breeding ground of Banes."
+	garou_desc = "代表暴虐界的符文，这是灾灵滋生之地。"
 	icon_state = "atrocity_realm"
 
 /obj/effect/decal/garou_glyph/battleground
-	name = "tattered glyph"
+	name = "残破符文"
 	garou_name = "battleground glyph"
-	garou_desc = "A glyph that represents Battleground, the Near Realm which contains all battles and conflict ever fought."
+	garou_desc = "代表战场界的符文，这片近域包含了有史以来发生过的一切战斗与冲突。"
 	icon_state = "battleground"
 
 /obj/effect/decal/garou_glyph/erebus
-	name = "pointed glyph"
+	name = "尖角符文"
 	garou_name = "erebus glyph"
-	garou_desc = "A glyph that represents Erebus, a realm of spiritual cleansing often compared to hell."
+	garou_desc = "代表幽冥炼狱的符文，这是净化灵性的领域，常被比作地狱。"
 	icon_state = "erebus"
 
 /obj/effect/decal/garou_glyph/flux
-	name = "wild glyph"
+	name = "狂野符文"
 	garou_name = "flux glyph"
-	garou_desc = "A glyph that represents the Flux, a Near Realm of pure, undiluted Wyld energy untouched by the Weaver."
+	garou_desc = "代表流变界的符文，这片近域充满纯粹的荒野能量，未曾受到织者的染指。"
 	icon_state = "flux"
 
 /obj/effect/decal/garou_glyph/legendary_realm
-	name = "powerful glyph"
+	name = "强劲符文"
 	garou_name = "legendary realm glyph"
-	garou_desc = "A glyph that represents the Legendary Realm, the place Garou can walk to live the lives of their ancestors."
+	garou_desc = "代表传奇界的符文，狼人可以进入这里，亲历祖先的人生。"
 	icon_state = "legendary_realm"
 
 /obj/effect/decal/garou_glyph/pangaea
-	name = "primal glyph"
+	name = "原始符文"
 	garou_name = "pangaea glyph"
-	garou_desc = "A glyph that represents Pangaea, a Middle Realm reflecting the Earth as it was before civilization, history, and the end of the Impergium."
+	garou_desc = "代表盘古大陆的符文，这片中层领域映照着文明与历史诞生之前、猎杀人类时代结束之前的大地。"
 	icon_state = "pangaea"
 
 /obj/effect/decal/garou_glyph/the_scar
-	name = "ugly glyph"
+	name = "丑陋符文"
 	garou_name = "scar glyph"
-	garou_desc = "A glyph that represents the Scar, the Near Realm which reflects the industrial revolution, its oppression and pollution."
+	garou_desc = "代表创痕界的符文，这片近域映照着工业革命及其带来的压迫与污染。"
 	icon_state = "the_scar"
 
 /obj/effect/decal/garou_glyph/summer_country
-	name = "impressive glyph"
+	name = "壮丽符文"
 	garou_name = "summer country glyph"
-	garou_desc = "A glyph that represents the Summer Country, a quickly fading Middle Realm that is said to embody Gaia's pure love for her children."
+	garou_desc = "代表长夏之国的符文，这片中层领域正在迅速消逝，据说它体现了盖亚对子女纯粹的爱。"
 	icon_state = "summer_country"
 
 /obj/effect/decal/garou_glyph/pollution
-	name = "arched glyph"
+	name = "拱形符文"
 	garou_name = "pollution glyph"
-	garou_desc = "A glyph that represents pollution, the industrial spread of the Wyrm's taint."
+	garou_desc = "代表污染的符文，象征妖蛆污秽借助工业蔓延。"
 	icon_state = "pollution"
 
 /obj/effect/decal/garou_glyph/ananasi
-	name = "spindly glyph"
+	name = "纤长符文"
 	garou_name = "ananasi glyph"
-	garou_desc = "A glyph that represents the Ananasi, the Fera blessed with the power to shift between man and spider."
+	garou_desc = "代表蛛人的符文，他们是获赐在人与蜘蛛之间变换形态之力的变形者。"
 	icon_state = "ananasi"
 
 /obj/effect/decal/garou_glyph/nagah
-	name = "fanged glyph"
+	name = "獠牙符文"
 	garou_name = "nagah glyph"
-	garou_desc = "A glyph that represents the Nagah, the Fera blessed with the power to shift between man and snake."
+	garou_desc = "代表蛇人的符文，他们是获赐在人与蛇之间变换形态之力的变形者。"
 	icon_state = "nagah"
 
 /obj/effect/decal/garou_glyph/fire
-	name = "smokey glyph"
+	name = "烟霭符文"
 	garou_name = "fire glyph"
-	garou_desc = "A glyph that represents fire, a primeval force of destruction."
+	garou_desc = "代表火焰的符文，象征原始的毁灭之力。"
 	icon_state = "fire"
 
 /obj/effect/decal/garou_glyph/bane
-	name = "concerning glyph"
+	name = "令人担忧的符文"
 	garou_name = "bane glyph"
-	garou_desc = "A glyph that represents the presence of Banes, spirits corrupted by the Wyrm."
+	garou_desc = "标示灾灵存在的符文，灾灵是被妖蛆腐化的灵体。"
 	icon_state = "bane"
 
 /obj/effect/decal/garou_glyph/fomori
-	name = "boxed glyph"
+	name = "方框符文"
 	garou_name = "fomori glyph"
-	garou_desc = "A glyph that represents the Fomori, a diverse group of bane-possessed mortals mutated by the Wyrm's servants."
+	garou_desc = "代表妖蛆附身者的符文，他们是被灾灵附身的凡人，在妖蛆仆从的影响下变异成各种模样。"
 	icon_state = "fomori"
 
 /obj/effect/decal/garou_glyph/therapy
-	name = "relaxing glyph"
+	name = "舒心符文"
 	garou_name = "therapy glyph"
-	garou_desc = "A glyph that represents a state or place of therapy."
+	garou_desc = "代表疗愈状态或场所的符文。"
 	icon_state = "therapy"

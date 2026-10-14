@@ -1,6 +1,6 @@
 /turf/open/umbra
 	gender = PLURAL
-	name = "nothing"
+	name = "虚无"
 	icon_state = "black"
 	footstep = FOOTSTEP_SNOW
 	barefootstep = FOOTSTEP_SNOW
@@ -20,8 +20,8 @@
 
 // This thing is only used in totem creation. Consider just replacing with transfer points as it does not provide any intresting behavoir.
 /obj/umbra_portal
-	name = "gateway"
-	desc = "Step to the other side."
+	name = "传送门"
+	desc = "迈向另一侧。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
 	icon_state = "portal"
 	density = TRUE

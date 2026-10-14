@@ -5,16 +5,16 @@
 	alert_type = /atom/movable/screen/alert/status_effect/delirium
 	COOLDOWN_DECLARE(message_cooldown)
 	var/static/list/willpower_levels = list(
-		"catatonic fear",
-		"panic",
-		"disbelief",
-		"berserk rage",
-		"terror",
-		"an urge to beg",
-		"controlled fear",
-		"curiosity",
-		"bloodlust",
-		"no reaction"
+		"吓到僵直",
+		"惊慌失措",
+		"难以置信",
+		"狂暴怒意",
+		"极度恐惧",
+		"求饶的冲动",
+		"压抑着恐惧",
+		"好奇",
+		"嗜血欲望",
+		"毫无反应"
 	)
 	var/willpower_dots = 1
 	var/datum/weakref/scary_wolf_ref
@@ -23,7 +23,7 @@
 /datum/status_effect/delirium/on_creation(mob/living/new_owner, mob/big_wolf)
 	scary_wolf_ref = WEAKREF(big_wolf)
 	. = ..()
-	linked_alert.desc += " You are filled with <b>[willpower_levels[willpower_dots]]</b>."
+	linked_alert.desc += " 你此刻的状态是<b>[willpower_levels[willpower_dots]]</b>。"
 
 /datum/status_effect/delirium/on_apply()
 	. = ..()
@@ -41,14 +41,14 @@
 		effective_dots += 2
 	willpower_dots = clamp(effective_dots, 1, 10)
 
-	to_chat(owner, span_cult_large("Something DEEP inside you fill you with <b>[willpower_levels[willpower_dots]]</b> at the sight of [wolf]"))
+	to_chat(owner, span_cult_large("看到[wolf]，你内心深处的某种本能使你陷入<b>[willpower_levels[willpower_dots]]</b>的状态。"))
 
 	if(owner.client)
 		// dir SOUTH is admitting i compeletly lost the fight against this stupid bullshit and cant get the image to properly mimmic the direction of the mob.
 		var/image/overlay_image = image(loc = wolf, dir = SOUTH)
 		overlay_image.appearance = wolf.appearance
 		overlay_image.override = TRUE
-		overlay_image.name = "Unknown"
+		overlay_image.name = "未知存在"
 		overlay_image.pixel_y = 0
 		overlay_image.pixel_x = 0
 		overlay_image.pixel_w = 0
@@ -68,7 +68,7 @@
 
 /datum/status_effect/delirium/on_remove()
 	. = ..()
-	to_chat(owner, span_notice("Your heightened emotions subside and you begin to calm."))
+	to_chat(owner, span_notice("你激荡的情绪逐渐消退，开始平静下来。"))
 	owner.client?.images -= scary_static
 	QDEL_NULL(scary_static)
 
@@ -90,39 +90,39 @@
 	switch(willpower_dots)
 		// Catatonic Fear
 		if(1)
-			return pick("FEAR", "FAINT", "COLLAPSE")
+			return pick("恐惧", "晕厥", "瘫倒")
 		// Panic
 		if(2)
-			return pick("RUN", "RUN NOW", "GET DISTANCE")
+			return pick("快跑", "马上跑", "离远点")
 		// Disbelief
 		if(3)
-			return pick("HIDE", "COWER")
+			return pick("躲起来", "蜷缩起来")
 		// Beserk
 		if(4)
-			return pick("FIGHT", "KICK", "PUNCH", "BITE", "SWING")
+			return pick("战斗", "踢", "打", "咬", "挥击")
 		// Terror
 		if(5)
-			return pick("RUN", "RUN NOW", "GET DISTANCE", "THINK")
+			return pick("快跑", "马上跑", "离远点", "想办法")
 		// Conciliatory
 		if(6)
-			return pick("PLEAD", "BARGIN", "WHIMPER")
+			return pick("求饶", "讨价还价", "呜咽")
 		// Controlled Fear
 		if(7)
-			return "fear"
+			return "恐惧"
 		// Curiosity
 		if(8)
-			return pick("learn", "discover")
+			return pick("了解", "探索")
 		// Bloodlust
 		if(9)
-			return "anger"
+			return "愤怒"
 		// No reaction
 		if(10)
 			return
 
 
 /atom/movable/screen/alert/status_effect/delirium
-	name = "The Delirium"
-	desc = "A supernatural fear."
+	name = "谵妄"
+	desc = "一种超自然的恐惧。"
 	icon_state = "fear"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 

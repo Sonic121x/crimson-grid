@@ -1,7 +1,7 @@
 /obj/structure/werewolf_totem
 	abstract_type = /obj/structure/werewolf_totem
-	name = "tribe totem"
-	desc = "Gives power to all Garou of that tribe."
+	name = "部族图腾"
+	desc = "赋予该部族的所有狼人力量。"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/totems.dmi'
 	icon_state = "wendigo"
 	base_icon_state = "wendigo"
@@ -111,15 +111,15 @@
 
 		if(damage_change < 0)
 			if(broken)
-				to_chat(human, span_userdanger("<b>A TOTEM'S SPIRIT WEEPS IN PAIN AS IT'S TOTEM SHATTERS.</b>"))
+				to_chat(human, span_userdanger("<b>图腾破碎，寄宿其中的灵体痛苦地哀嚎。</b>"))
 				SEND_SOUND(human, sound('sound/effects/tendril_destroyed.ogg', volume = 50))
 				shifter_splat.adjust_rage(3, FALSE)
 			else
-				to_chat(human, span_userdanger("<b>A TOTEM's CRY CAN BE HEARD ACROSS THE CITY.</b>"))
+				to_chat(human, span_userdanger("<b>图腾的悲鸣响彻全城。</b>"))
 				SEND_SOUND(human, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/bumps.ogg', volume = 50))
 				shifter_splat.adjust_rage(1, FALSE)
 		else
-			to_chat(human, span_boldnotice("<b>A TOTEM'S SPIRIT THANKS ITS ALLIES.</b>"))
+			to_chat(human, span_boldnotice("<b>图腾之灵向盟友表达感谢。</b>"))
 			SEND_SOUND(human, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/gifts/inspire.ogg', volume = 50))
 			shifter_splat.adjust_gnosis(1, FALSE)
 
@@ -146,7 +146,7 @@
 		if(!istype(shifter_splat))
 			return .
 		if(broken)
-			to_chat(user, span_warning("[src] is broken!"))
+			to_chat(user, span_warning("[src]已经损坏！"))
 			return
 		var/obj/umbra_portal/prev = locate() in get_step(src, SOUTH)
 		if(!prev)
@@ -157,7 +157,7 @@
 						spawn_portal()
 					opening = FALSE
 			else
-				to_chat(user, span_warning("You need someone who can open the Moon Gates!"))
+				to_chat(user, span_warning("你需要一位能开启月门的人！"))
 		else
 			if(HAS_TRAIT(user, TRAIT_OPENS_MOONGATES))
 				collapse_portal(prev)
@@ -187,7 +187,7 @@
 
 	stinky_guy.set_confusion_if_lower(10 SECONDS)
 	stinky_guy.set_eye_blur_if_lower(30 SECONDS)
-	to_chat(stinky_guy, span_boldwarning("You get turned around and mixed up in a strange fog."))
+	to_chat(stinky_guy, span_boldwarning("你在诡异的迷雾中迷失了方向，晕头转向。"))
 	for(var/obj/effect/landmark/bawn_entrance/landmark in GLOB.landmarks_list)
 		if(!istype(src, landmark.linked_totem_path))
 			continue
@@ -196,29 +196,29 @@
 		break
 
 /obj/structure/werewolf_totem/wendigo
-	name = "\improper " + TRIBE_GALESTALKERS + " totem"
+	name = "逐风者图腾"
 	friendly_tribes = list(TRIBE_GALESTALKERS)
 	light_color = "#81ff4f"
 
 /obj/structure/werewolf_totem/children_of_gaia
-	name = "\improper " + TRIBE_CHILDREN_OF_GAIA + " totem"
+	name = "盖亚之子图腾"
 	friendly_tribes = list(TRIBE_CHILDREN_OF_GAIA)
 	light_color = "#00CEC8"
 
 /obj/structure/werewolf_totem/bone_gnawer
-	name = "\improper " + TRIBE_BONE_GNAWERS + " totem"
+	name = "啃骨者图腾"
 	light_color = "#FFA500"
 	friendly_tribes = list(TRIBE_BONE_GNAWERS)
 
 /obj/structure/werewolf_totem/glasswalker
-	name = "\improper " + TRIBE_GLASS_WALKERS + " totem"
+	name = "玻璃行者图腾"
 	icon_state = "glassw"
 	base_icon_state = "glassw"
 	light_color = "#35b0ff"
 	friendly_tribes = list(TRIBE_GLASS_WALKERS)
 
 /obj/structure/werewolf_totem/spiral
-	name = "spiral totem"
+	name = "螺旋图腾"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/spiral_totem.dmi'
 	icon_state = "spiral"
 	base_icon_state = "spiral"

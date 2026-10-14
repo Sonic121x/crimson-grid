@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/werewolf/klaive
-	name = "klaive"
-	desc = "A ritual weapon crafted by the Garou out of silver. This blade has a blue tint, due to the way it was crafted."
+	name = "仪式银刃"
+	desc = "狼人用白银打造的仪式武器。特殊的锻造工艺使这把刀泛着蓝光。"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/weapons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/weapons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/weapons/righthand.dmi'
@@ -12,8 +12,8 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("攻击", "劈砍", "切割", "撕裂", "划伤", "扯裂", "剁砍", "割伤")
+	attack_verb_simple = list("攻击", "劈砍", "切割", "撕裂", "划伤", "扯裂", "剁砍", "割伤")
 	sharpness = SHARP_EDGED
 	armor_type = /datum/armor/item_claymore
 	resistance_flags = FIRE_PROOF
@@ -31,7 +31,7 @@
 
 /obj/item/occult_artifact/werewolf/klaive/identify()
 	. = ..()
-	say("I am [spirit_name]... Wield me against your foes...")
+	say("我是[spirit_name]……挥舞我，迎战你的敌人……")
 
 /obj/item/occult_artifact/werewolf/klaive/afterattack(atom/target, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
@@ -44,43 +44,43 @@
 	var/datum/splat/werewolf/werewolf_splat = get_werewolf_splat(user)
 	if(owner)
 		if(stirred_spirit)
-			to_chat(user, span_warning("[src]'s spirit is already awake!"))
+			to_chat(user, span_warning("[src]中的灵体已经苏醒！"))
 			return
 		if(werewolf_splat)
 			awaken(user, werewolf_splat)
 	else
-		to_chat(user, span_notice("[src] is just a dead piece of silver."))
+		to_chat(user, span_notice("[src]只是一块毫无生气的白银。"))
 
 /obj/item/occult_artifact/werewolf/klaive/proc/awaken(mob/living/carbon/human/user, datum/splat/werewolf/werewolf_splat)
 	if(werewolf_splat.adjust_gnosis(-1))
-		to_chat(user, span_notice("You beckon [src]'s spirit, you can feel it answer your call."))
+		to_chat(user, span_notice("你呼唤[src]中的灵体，感受到它回应了你的召唤。"))
 		stirred_spirit = TRUE
 		force = awakened_force
 		silver_damage += awakened_bonus_silver_damage
 		addtimer(CALLBACK(src, PROC_REF(slumber), user), 1 TURNS)
 	else
-		to_chat(user, span_notice("You beckon [src]'s spirit, but all that answers is silence and indifference."))
+		to_chat(user, span_notice("你呼唤[src]中的灵体，却只得到沉默与冷漠。"))
 
 /obj/item/occult_artifact/werewolf/klaive/proc/slumber(mob/user)
 	stirred_spirit = FALSE
 	force = initial(force)
 	silver_damage = initial(silver_damage)
-	to_chat(user, span_notice("[src]'s spirit slumbers once more."))
+	to_chat(user, span_notice("[src]中的灵体再次沉睡。"))
 
 
 /obj/item/occult_artifact/werewolf/klaive/karambit
-	name = "curved klaive"
-	desc = "A ritual weapon crafted by the Garou out of silver. This one has a handle made of bone, and is curved."
+	name = "弯曲仪式银刃"
+	desc = "狼人用白银打造的仪式武器。这把刀的刀柄由骨头制成，刀身弯曲。"
 	icon_state = "klaive_karambit"
 
 /obj/item/occult_artifact/werewolf/klaive/bane
-	name = "bane klaive"
-	desc = "A ritual weapon crafted by the Garou out of silver. This one seems rusty, yet still quite sharp"
+	name = "灾灵银刃"
+	desc = "狼人用白银打造的仪式武器。这把刀看似锈迹斑斑，却依然锋利。"
 	icon_state = "klaive_bane"
 
 /obj/item/occult_artifact/werewolf/klaive/grand
-	name = "grand klaive"
-	desc = "A ritual weapon crafted by the Garou out of silver. This one is HUGE!."
+	name = "巨型仪式银刃"
+	desc = "狼人用白银打造的仪式武器。这把刀大得惊人！"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/weapons/48x32weapons.dmi'
 	icon_state = "klaive_grand"
 	force = 5 LETHAL_TTRPG_DAMAGE

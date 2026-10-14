@@ -1,7 +1,7 @@
 /datum/emote/living/growl
 	key = "growl"
 	key_third_person = "growls"
-	message = "growls!"
+	message = "发出了低吼！"
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
 /datum/emote/living/growl/get_sound(mob/living/carbon/human/user)
@@ -33,8 +33,8 @@
 /datum/emote/living/warcry/howl
 	key = "howl"
 	key_third_person = "howls"
-	message = "howls!"
-	message_param = "howls for %t!"
+	message = "长嚎了起来！"
+	message_param = "为%t发出长嚎！"
 
 /datum/emote/living/warcry/howl/get_sound(mob/living/user)
 	var/static/list/howl_sounds = list(
@@ -66,7 +66,7 @@
 /datum/emote/living/warcry/caw
 	key = "caw"
 	key_third_person = "caws"
-	message = "caws!"
+	message = "嘎嘎叫了起来！"
 
 /datum/emote/living/warcry/caw/get_sound(mob/living/carbon/human/user)
 	if(!istype(user))

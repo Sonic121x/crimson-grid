@@ -67,7 +67,7 @@
 
 // Specificly to restrict use of tools... because that was moved to the brain..
 /obj/item/organ/brain/fera
-	name = "exotic brain"
+	name = "异种大脑"
 	organ_traits = list(TRAIT_LITERATE, TRAIT_CAN_STRIP)
 
 /obj/item/organ/brain/fera/get_attacking_limb(mob/living/carbon/human/target)
@@ -76,7 +76,7 @@
 	return ..()
 
 /obj/item/organ/tongue/fera
-	name = "exotic tongue"
+	name = "异种舌头"
 	languages_native = list(/datum/language/garou_tongue, /datum/language/primal_tongue)
 	disliked_foodtypes = GROSS | CLOTH | BUGS
 	toxic_foodtypes = TOXIC | CHOCOLATE

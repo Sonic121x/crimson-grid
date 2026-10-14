@@ -1,6 +1,6 @@
 // A bawn is the border around a caern.
 /obj/effect/realistic_fog/bawn
-	name = "dizzying fog"
+	name = "令人晕眩的迷雾"
 	alpha_lower = 20
 	alpha_upper = 80
 	var/linked_totem_path
