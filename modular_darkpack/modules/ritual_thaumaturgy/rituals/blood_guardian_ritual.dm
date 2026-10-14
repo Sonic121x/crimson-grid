@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/blood_guardian
-	name = "blood imp"
-	desc = "thaumaturgists sometimes have need of a laboratory assistant or two to help them in their work or defenses of the Chantry. This ritual animates a humanoid made from the blood of the creator."
+	name = "鲜血小鬼"
+	desc = "血魔法师有时需要一两个实验室助手，协助工作或保卫秘所。此仪式赋予一个由施术者自身鲜血构成的人形造物以生命。"
 	icon_state = "rune1"
 	word = "UR'JOLA"
 	level = 3

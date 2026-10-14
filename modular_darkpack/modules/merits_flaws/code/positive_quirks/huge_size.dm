@@ -1,11 +1,11 @@
 /datum/quirk/darkpack/huge_size
 	name = "Huge size"
-	desc = {"You are abnormally large in size, at least 6'10" and
-300 pounds in weight (well over two meters tall and
-over 130 kgs). Aside from making you extremely no
-ticeable in public, this extra mass bestows an additional
-20 health. Characters with this Merit may also gain bonuses to
-bash down doors."}
+	desc = {"你的体型异常庞大，身高至少 6 英尺 10 英寸，
+体重至少 300 磅（身高远超两米，
+体重超过 130 千克）。这不仅使你在人群中
+格外显眼，也让你额外获得
+20 点生命值。拥有此优势的角色在
+撞破门扉时也可能获得加成。"}
 /* Characters with this Merit may
 also gain bonuses to push objects, open barred doors,
 avoid being knocked down, etc*/
@@ -14,9 +14,9 @@ avoid being knocked down, etc*/
 	icon = FA_ICON_ARROW_UP
 	value = 4
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
-	gain_text = span_notice("You feel larger than average.")
-	lose_text = span_notice("You don't feel so big now.")
-	failure_message = span_notice("You don't feel so big now.")
+	gain_text = span_notice("你觉得自己的体型比常人更大。")
+	lose_text = span_notice("你觉得自己没那么高大了。")
+	failure_message = span_notice("你觉得自己没那么高大了。")
 
 
 /datum/quirk/darkpack/huge_size/add(client/client_source)

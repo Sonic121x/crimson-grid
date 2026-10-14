@@ -1,61 +1,61 @@
 {
 	"do_something": [
-		"CLEAN YOUR ROOM THIS INSTANT!",
-		"DON'T SIT THAT CLOSE TO THE TV!",
-		"FOR GOD'S SAKE, GO TAKE A SHOWER!!",
-		"IT'S TIME TO WAKE UP FOR SCHOOL!!",
-		"PAUSE THAT ONLINE GAME! NOW!",
-		"PUT SOME CLOTHES ON! YOU'LL CATCH A COLD!",
-		"STOP ASKING FOR MONEY, I'M NOT AN ATM!",
-		"WATCH YOUR MOUTH, CHILD!!",
-		"WHY DON'T YOU ANSWER MY PHONE CALLS?!",
-		"YOU SHOULD @pick(verb) YOUR @pick(relative) ONCE IN A WHILE!"
+		"马上把你的房间收拾干净！",
+		"别坐得离电视那么近！",
+		"求求你，快去洗个澡吧！！",
+		"该起床上学了！！",
+		"把那破网游暂停！马上！",
+		"把衣服穿上！你会着凉的！",
+		"别再要钱了，我又不是取款机！",
+		"说话注意点，孩子！！",
+		"你怎么不接我的电话？！",
+		"你也该偶尔@pick(verb)你的@pick(relative)！"
 	],
 	"do_something_old": [
-		"GO TO THE MARKET!!",
-		"TEND TO THE PLANTS!!",
-		"TEND TO THE HORSES!!",
-		"IT'S TIME TO WAKE UP!!",
-		"GET UP!!",
-		"PUT SOME CLOTHES ON! YOU'LL CATCH FEVER!!",
-		"TAKE THE CHAMBERPOT OUT!!",
-		"WATCH YOUR MOUTH, CHILD!!",
-		"WHY DON'T YOU @pick(verb_old) YOUR MOTHER?!!",
-		"YOU SHOULD @pick(verb_old) YOUR @pick(relative) ONCE IN A WHILE!!"
+		"去集市！！",
+		"去照料花草！！",
+		"去照料马匹！！",
+		"该醒醒了！！",
+		"起床！！",
+		"把衣服穿上！你会着凉发烧的！！",
+		"把夜壶拿出去倒了！！",
+		"说话注意点，孩子！！",
+		"你怎么就不@pick(verb_old)你的母亲呢？！！",
+		"你也该偶尔@pick(verb_old)你的@pick(relative)！！"
 	],
 
 	"be_upset": [
-		"BECAUSE I SAID SO!",
-		"I DON'T CARE WHAT YOU SAY!",
-		"I'M NOT ASKING; I'M TELLING!!",
-		"I WASN'T BORN YESTERDAY!",
-		"I CAN'T BELIEVE YOU ARE A SERIAL KILLER!!",
-		"WHAT DID I DO TO DESERVE A KID LIKE THIS...",
-		"USELESS!",
-		"YOU INSULT YOUR GRANDPARENTS!"
+		"因为我说了算！",
+		"我不管你怎么说！",
+		"我不是在问你，我是在命令你！！",
+		"别以为我什么都不懂！",
+		"我真不敢相信你竟然是个连环杀人犯！！",
+		"我造了什么孽，摊上你这么个孩子……",
+		"没用的东西！",
+		"你让祖父母蒙羞！"
 	],
 
 	"get_reprimanded": [
-		"I BROUGHT YOU INTO THIS WORLD, I CAN TAKE YOU OUT!!!",
-		"I'M GOING TO THROW A FLIP-FLOP AT YOU!!",
-		"NO VIDEOGAMES FOR THE REST OF THE DAY!",
-		"WAIT UNTIL YOUR FATHER GETS HOME!",
-		"YOU'LL THANK ME ONE DAY!",
-		"YOU'RE DISOWNED!!!",
-		"YOU'RE GROUNDED!!"
+		"我能把你带到这世上，也能把你送走！！！",
+		"看我拿拖鞋砸你！！",
+		"今天剩下的时间不许玩电子游戏！",
+		"等你父亲回家，看他怎么收拾你！",
+		"总有一天你会感谢我的！",
+		"我没你这个孩子！！！",
+		"你被禁足了！！"
 	],
 	"get_reprimanded_old": [
-		"I BROUGHT YOU INTO THIS WORLD, I CAN TAKE YOU OUT!!!",
-		"I'M GOING TO THROW A FLIP-FLOP AT YOU!!",
-		"NO READING FOR THE REST OF THE DAY!",
-		"WAIT UNTIL YOUR FATHER GETS BACK FROM THE MARKET!",
-		"YOU'LL THANK ME ONE DAY!",
-		"YOU'RE DISOWNED!!!",
-		"YOU'RE A KILLER!! HOW COULD YOU?!!"
+		"我能把你带到这世上，也能把你送走！！！",
+		"看我拿拖鞋砸你！！",
+		"今天剩下的时间不许看书！",
+		"等你父亲从集市回来，看他怎么收拾你！",
+		"总有一天你会感谢我的！",
+		"我没你这个孩子！！！",
+		"你竟然杀人了！！你怎么能这样？！！"
 	],
 
-	"verb": ["CALL", "HELP", "VISIT"],
-	"verb_old": ["WRITE", "HELP", "VISIT"],
+	"verb": ["打电话问候", "帮帮", "探望"],
+	"verb_old": ["写信问候", "帮帮", "探望"],
 
-	"relative": ["FAMILY", "DAD", "GRANDPARENTS", "MOM"]
+	"relative": ["家人", "父亲", "祖父母", "母亲"]
 }

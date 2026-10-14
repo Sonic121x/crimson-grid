@@ -1,6 +1,6 @@
 /// Head Slot Items (Deletes overrided items)
 /datum/loadout_category/head
-	category_name = "Head"
+	category_name = "头部"
 	category_ui_icon = FA_ICON_HAT_COWBOY
 	type_to_generate = /datum/loadout_item/head
 	tab_order = 1
@@ -11,7 +11,7 @@
 /datum/loadout_item/head/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(equipper.dna?.species?.outfit_important_for_life)
 		if(!visuals_only)
-			to_chat(equipper, "Your loadout helmet was not equipped directly due to your species outfit.")
+			to_chat(equipper, "由于你穿戴着物种专用服装，初始装备中的头盔未直接戴上。")
 			LAZYADD(outfit.backpack_contents, item_path)
 	else
 		outfit.head = item_path
@@ -159,6 +159,6 @@
 */ // DARKPACK EDIT REMOVAL END - Loadout categories
 
 /datum/loadout_item/head/santa
-	name = "Santa Hat"
+	name = "圣诞帽"
 	item_path = /obj/item/clothing/head/costume/santa/gags
 	required_holiday = FESTIVE_SEASON

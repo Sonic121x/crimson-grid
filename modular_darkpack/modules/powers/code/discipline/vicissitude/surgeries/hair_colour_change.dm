@@ -1,6 +1,6 @@
 /datum/surgery_operation/limb/modify_hair
-	name = "hair pigmentation surgery"
-	desc = "Change the patient's hair color."
+	name = "毛发着色手术"
+	desc = "改变患者的头发颜色。"
 	implements = list(
 		TOOL_HEMOSTAT = 1.15,
 		TOOL_SCREWDRIVER = 2.85,
@@ -23,16 +23,16 @@
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You begin to alter [patient]'s hair..."),
-		span_notice("[surgeon] begins to alter [patient]'s hair."),
-		span_notice("[surgeon] begins to make an incision in [patient]'s head."),
+		span_notice("你开始改造[patient]的头发……"),
+		span_notice("[surgeon]开始改造[patient]的头发。"),
+		span_notice("[surgeon]开始在[patient]头部切开一道口子。"),
 	)
-	display_pain(patient, "You feel a slicing pain across your head!")
+	display_pain(patient, "你感到头部传来切割般的疼痛！")
 
 /datum/surgery_operation/limb/modify_hair/on_success(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
 	var/mob/living/carbon/human/patient = get_patient(operating_on)
 
-	var/new_style = tgui_input_list(surgeon, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
+	var/new_style = localized_accessory_input(surgeon, "选择发型", "仪容修整", SSaccessories.hairstyles_list)
 	if(!new_style)
 		return FALSE
 	if(!IN_GIVEN_RANGE(surgeon, patient, 1))
@@ -40,18 +40,18 @@
 	patient.set_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(surgeon, COMSIG_MASQUERADE_VIOLATION)
 	playsound(patient, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(surgeon, span_notice("You finish altering the hair style of [patient]."))
+	to_chat(surgeon, span_notice("你完成了对[patient]发型的改变。"))
 
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You alter [patient]'s hair style."),
-		span_notice("[surgeon] alters [patient]'s hair style."),
-		span_notice("[surgeon] finishes the operation on [patient]'s hair."),
+		span_notice("你改变了[patient]的发型。"),
+		span_notice("[surgeon]改变了[patient]的发型。"),
+		span_notice("[surgeon]完成了对[patient]头发的手术。"),
 	)
-	display_pain(patient, "The pain fades!")
+	display_pain(patient, "疼痛消退了！")
 
-	var/new_hair_color = tgui_color_picker(surgeon, "Choose a hair color", "Hair Color", patient.hair_color)
+	var/new_hair_color = tgui_color_picker(surgeon, "选择发色", "头发颜色", patient.hair_color)
 	if(!new_hair_color)
 		return FALSE
 	if(!IN_GIVEN_RANGE(surgeon, patient, 1))
@@ -64,20 +64,20 @@
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You alter [patient]'s hair color."),
-		span_notice("[surgeon] alters [patient]'s hair color."),
-		span_notice("[surgeon] finishes the operation on [patient]'s hair."),
+		span_notice("你改变了[patient]的发色。"),
+		span_notice("[surgeon]改变了[patient]的发色。"),
+		span_notice("[surgeon]完成了对[patient]头发的手术。"),
 	)
-	display_pain(patient, "The pain fades again!")
+	display_pain(patient, "疼痛再次消退了！")
 
 /datum/surgery_operation/limb/modify_hair/on_failure(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	var/mob/living/carbon/human/patient = get_patient(limb.owner)
 	display_results(
 		surgeon,
 		patient,
-		span_warning("Your screw up, leaving [patient]'s head bruised!"),
-		span_warning("[surgeon] screws up, bruising [patient]'s head!"),
-		span_notice("[surgeon] finishes the operation on [patient]'s head."),
+		span_warning("你操作失误，挫伤了[patient]的头部！"),
+		span_warning("[surgeon]操作失误，挫伤了[patient]的头部！"),
+		span_notice("[surgeon]完成了对[patient]头部的手术。"),
 	)
-	display_pain(patient, "Your head feels torn!")
+	display_pain(patient, "你的头部仿佛被撕裂了！")
 	limb.receive_damage(rand(4, 8), wound_bonus = 10, sharpness = SHARP_EDGED, damage_source = tool)

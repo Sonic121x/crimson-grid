@@ -22,16 +22,16 @@
 		var/quirk_path = SSquirks.quirks[quirk_name]
 		var/datum/quirk/quirk_prototype = SSquirks.quirk_prototypes[quirk_path]
 		if(!quirk_prototype.is_species_appropriate(selected_species_type))
-			LAZYADD(incompatible_quirks, quirk_name)
+			LAZYADD(incompatible_quirks, GLOB.localized_quirk_names[quirk_name] || quirk_name)
 	if(!LAZYLEN(incompatible_quirks))
 		return
-	var/list/message = list("The following quirks are incompatible with your selected species and will be removed: [incompatible_quirks.Join(", ")].")
+	var/list/message = list("以下特质与你选择的物种不兼容，将被移除：[incompatible_quirks.Join("、")]。")
 	if(!SSquirks.points_enabled)
-		message += "Would you like to continue?"
+		message += "要继续吗？"
 	else
-		message += "If you do not have enough points to cover the removed quirks, your quirks will be reset. Would you like to continue?"
-	var/response = tgui_alert(user, message.Join(" "), "Quirks Incompatible", list("Yes", "No"))
-	if(response != "Yes")
+		message += "如果你的点数不足以抵消移除特质带来的变化，所有特质将被重置。要继续吗？"
+	var/response = tgui_alert(user, message.Join(" "), "特质不兼容", list("是", "否"))
+	if(response != "是")
 		return TRUE
 
 /datum/preference_middleware/quirks/post_set_preference(mob/user, preference, value)
@@ -108,7 +108,7 @@
 		quirk_info[sanitize_css_class_name(quirk_name)] = list(
 			"description" = initial(quirk.desc),
 			"icon" = initial(quirk.icon),
-			"name" = quirk_name,
+			"name" = quirk_name, "display_name" = GLOB.localized_quirk_names[quirk_name] || quirk_name,
 			"value" = initial(quirk.value),
 			"customizable" = constant_data?.is_customizable(),
 			"customization_options" = customization_options,

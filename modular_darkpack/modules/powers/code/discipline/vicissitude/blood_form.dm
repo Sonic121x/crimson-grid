@@ -2,8 +2,8 @@
 
 /datum/species/tzimisce_blood_form
 	// A living puddle of Vitae, immune to Bashing and Lethal damage.
-	name = "\improper Bloodform"
-	plural_form = "Bloodforms"
+	name = "\improper 血液形态"
+	plural_form = "血液形态"
 	id = SPECIES_BLOODFORM
 	examine_limb_id = SPECIES_BLOODFORM
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_SLIME
@@ -61,7 +61,7 @@
 	return ..()
 
 /datum/action/innate/regenerate_blood_limbs
-	name = "Regenerate Limbs"
+	name = "肢体再生"
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "slimeheal"
 	button_icon = 'icons/mob/actions/actions_slime.dmi'
@@ -84,13 +84,13 @@
 	var/mob/living/carbon/human/H = owner
 	var/list/limbs_to_heal = H.get_missing_limbs()
 	if(!length(limbs_to_heal))
-		to_chat(H, span_notice("You feel intact enough as it is."))
+		to_chat(H, span_notice("你觉得自己的身体已经足够完整了。"))
 		return
-	to_chat(H, span_notice("You focus intently on your missing [length(limbs_to_heal) >= 2 ? "limbs" : "limb"]..."))
+	to_chat(H, span_notice("你将全部注意力集中在缺失的肢体上……"))
 	if(H.bloodpool >= blood_per_limb * length(limbs_to_heal))
 		H.regenerate_limbs()
 		H.adjust_blood_pool(-blood_per_limb * length(limbs_to_heal))
-		to_chat(H, span_notice("...and after a moment you finish reforming!"))
+		to_chat(H, span_notice("……片刻之后，你完成了重塑！"))
 		return
 	else if(H.bloodpool >= blood_per_limb) //We can partially heal some limbs
 		while(H.bloodpool >= blood_per_limb)
@@ -98,9 +98,9 @@
 			H.regenerate_limb(healed_limb)
 			limbs_to_heal -= healed_limb
 			H.adjust_blood_pool(-blood_per_limb)
-		to_chat(H, span_warning("...but there is not enough of you to fix everything! You must attain more vitae to heal completely!"))
+		to_chat(H, span_warning("……但你剩余的躯体不足以修复所有部位！你必须获得更多血粹才能完全恢复！"))
 		return
-	to_chat(H, span_warning("...but there is not enough of you to go around! You must attain more vitae to heal!"))
+	to_chat(H, span_warning("……但你剩余的躯体不足以进行修复！你必须获得更多血粹才能恢复！"))
 
 /// Bodyparts
 /obj/item/bodypart/head/blood_form

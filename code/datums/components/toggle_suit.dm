@@ -17,7 +17,7 @@
 	var/atom/atom_parent = parent
 	atom_parent.flags_1 |= HAS_CONTEXTUAL_SCREENTIPS_1
 
-	src.toggle_noun = toggle_noun
+	src.toggle_noun = list("buttons" = "纽扣", "zip" = "拉链", "sleeves" = "袖子", "straps" = "绑带", "wings" = "翅膀")[toggle_noun] || toggle_noun
 	src.inferred_base_icon_state = atom_parent.post_init_icon_state || atom_parent.icon_state
 
 /datum/component/toggle_icon/RegisterWithParent()
@@ -43,7 +43,7 @@
 		return
 
 	if(living_user.usable_hands <= 0)
-		source.balloon_alert(living_user, "you don't have hands!")
+		source.balloon_alert(living_user, "你没有可用的手！")
 		return
 
 	do_icon_toggle(source, living_user)
@@ -60,7 +60,7 @@
 /datum/component/toggle_icon/proc/on_examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("Alt-click on [source] to toggle the [toggle_noun].")
+	examine_list += span_notice("按住 Alt 点击[source]，可以调整[toggle_noun]。")
 
 /*
  * Signal proc for COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM.
@@ -74,7 +74,7 @@
 /datum/component/toggle_icon/proc/on_adding_context(atom/source, list/context, obj/item/held_item, mob/user)
 	SIGNAL_HANDLER
 
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Toggle [toggle_noun]"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "调整[toggle_noun]"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /*
@@ -85,7 +85,7 @@
  * user - the mob doing the toggling
  */
 /datum/component/toggle_icon/proc/do_icon_toggle(atom/source, mob/living/user)
-	source.balloon_alert(user, "toggled [toggle_noun]")
+	source.balloon_alert(user, "已调整[toggle_noun]")
 
 	toggled = !toggled
 

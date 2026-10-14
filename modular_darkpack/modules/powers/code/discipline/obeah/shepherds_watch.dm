@@ -1,5 +1,5 @@
 /datum/storyteller_roll/shepherds_watch
-	bumper_text = "shepherd's watch"
+	bumper_text = "牧者守望"
 	applicable_stats = list(STAT_PERMANENT_WILLPOWER)
 	roll_output_type = ROLL_FLAG_ROLLER
 	numerical = TRUE
@@ -7,7 +7,7 @@
 	difficulty = 1 // This changes for both.
 
 /datum/storyteller_roll/shepherds_watch/contested
-	bumper_text = "shepherds watch"
+	bumper_text = "牧者守望"
 
 /datum/proximity_monitor/advanced/shepherds_watch
 	edge_is_a_field = TRUE

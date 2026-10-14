@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/hidden_diablerie
 	name = "Hidden Diablerie"
-	desc = "The tell-tale black streaks of diablerie do not manifest in your aura."
+	desc = "你施行血噬后，灵光中不会显现出暴露罪行的黑色条纹。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 493)
 	value = 3
 	mob_trait = TRAIT_HIDDEN_DIABLERIE

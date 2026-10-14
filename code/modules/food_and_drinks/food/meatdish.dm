@@ -804,8 +804,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CARP, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/nugget
-	name = "chicken nugget"
-	desc = "A \"chicken\" nugget vaguely shaped like something."
+	name = "鸡块"
+	desc = "一块隐约捏出了某种形状的“鸡肉”块。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/protein = 2,
@@ -821,21 +821,21 @@
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_1
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
-	var/meat_source = "\"chicken\""
+	var/meat_source = "“鸡肉”"
 
 /obj/item/food/nugget/Initialize(mapload)
 	. = ..()
 	var/shape = pick("lump", "star", "lizard", "corgi")
-	desc = "A [meat_source] nugget vaguely shaped like a [shape]."
+	desc = "一块隐约呈[list("lump" = "团块", "star" = "星星", "lizard" = "蜥蜴", "corgi" = "柯基")[shape]]形状的[meat_source]块。"
 	icon_state = "nugget_[shape]"
 
 ///subtype harvested from fish caught from, you guess it, the deepfryer
 /obj/item/food/nugget/fish
-	name = "fish nugget"
+	name = "鱼肉块"
 	tastes = list("fried fish" = 1)
 	foodtypes = MEAT|SEAFOOD|FRIED
 	venue_value = FOOD_PRICE_NORMAL
-	meat_source = "fish"
+	meat_source = "鱼肉"
 
 /obj/item/food/pigblanket
 	name = "pig in a blanket"
@@ -1017,8 +1017,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/fried_chicken
-	name = "fried chicken"
-	desc = "A juicy hunk of chicken meat, fried to perfection."
+	name = "炸鸡"
+	desc = "一大块多汁鸡肉，炸得恰到好处。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "fried_chicken1"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)

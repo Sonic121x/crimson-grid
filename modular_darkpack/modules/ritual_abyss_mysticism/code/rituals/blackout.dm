@@ -1,6 +1,6 @@
 /obj/ritual_rune/abyss/blackout //not canon wod material, seemed a cool idea.
-	name = "blackout"
-	desc = "Destroys every wall light in range of the rune."
+	name = "熄灯"
+	desc = "摧毁符文范围内的所有壁灯。"
 	icon_state = "rune7"
 	word = "FYU'SES BLO'OUN"
 	level = 2

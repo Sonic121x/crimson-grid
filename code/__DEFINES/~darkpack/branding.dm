@@ -1,15 +1,15 @@
 #define CITY_NAME "San Francisco"
 #define CITY_POLICE_DEPARTMENT CITY_NAME + " Police Department"
-
+#define EVIL_OIL_COMPANY_DISPLAY_NAME "安德隆国际"
 #define NEWSPAPER_COMPANY "Angel Times"
 #define PRIMARY_NIGHTCLUB_COMPANY "多拉"
 
 #define SEPT_NAME "西境之眼社群"
 
 #define EVIL_COMPANY "Pentex Group"
-
+#define EVIL_COMPANY_DISPLAY_NAME "潘特克斯集团"
 #define MAIN_EVIL_COMPANY EVIL_OIL_COMPANY // Only effects Pentex job slots
-
+#define MAIN_EVIL_COMPANY_DISPLAY_NAME EVIL_OIL_COMPANY_DISPLAY_NAME
 // Treated as subsidary of EVIL_COMPANY
 /* MAJOR COMPANIES - Currently or at one time held the Top 21 Company title */
 #define EVIL_TRASH_COMPANY "Ardus Enterprises"

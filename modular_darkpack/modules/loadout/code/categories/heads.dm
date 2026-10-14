@@ -1,109 +1,109 @@
 /datum/loadout_item/head/brown_bandana
-	name = "Bandana (Brown)"
+	name = "头巾（棕色）"
 	item_path = /obj/item/clothing/head/vampire/bandana
 
 /datum/loadout_item/head/red_bandana
-	name = "Bandana (Red)"
+	name = "头巾（红色）"
 	item_path = /obj/item/clothing/head/vampire/bandana/red
 
 /datum/loadout_item/head/black_bandana
-	name = "Bandana (Black)"
+	name = "头巾（黑色）"
 	item_path = /obj/item/clothing/head/vampire/bandana/black
 
 /datum/loadout_item/head/baseball_cap
-	name = "Baseball Cap"
+	name = "棒球帽"
 	item_path = /obj/item/clothing/head/vampire/baseballcap
 
 /datum/loadout_item/head/ushanka
-	name = "Ushanka"
+	name = "俄式护耳帽"
 	item_path = /obj/item/clothing/head/vampire/ushanka
 
 /datum/loadout_item/head/beanie
-	name = "Beanie"
+	name = "针织帽"
 	item_path = /obj/item/clothing/head/vampire/beanie
 
 /datum/loadout_item/head/black_beanie
-	name = "Beanie (Black)"
+	name = "针织帽（黑色）"
 	item_path = /obj/item/clothing/head/vampire/beanie/black
 
 /datum/loadout_item/head/raggedy_beanie
-	name = "Beanie (Raggedy)"
+	name = "针织帽（破旧）"
 	item_path = /obj/item/clothing/head/vampire/beanie/homeless
 
 /datum/loadout_item/head/blue_wizard_hat
-	name = "Wizard Hat (Blue)"
+	name = "巫师帽（蓝色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/blue
 
 /datum/loadout_item/head/black_wizard_hat
-	name = "Wizard Hat (Black)"
+	name = "巫师帽（黑色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/black
 
 /datum/loadout_item/head/darkred_wizard_hat
-	name = "Wizard Hat (Dark Red)"
+	name = "巫师帽（暗红色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/darkred
 
 /datum/loadout_item/head/green_wizard_hat
-	name = "Wizard Hat (Green)"
+	name = "巫师帽（绿色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/green
 
 /datum/loadout_item/head/grey_wizard_hat
-	name = "Wizard Hat (Grey)"
+	name = "巫师帽（灰色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/grey
 
 /datum/loadout_item/head/purple_wizard_hat
-	name = "Wizard Hat (Purple)"
+	name = "巫师帽（紫色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/purple
 
 /datum/loadout_item/head/red_wizard_hat
-	name = "Wizard Hat (Red)"
+	name = "巫师帽（红色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/red
 
 /datum/loadout_item/head/wizard_hat
-	name = "Wizard Hat"
+	name = "巫师帽"
 	item_path = /obj/item/clothing/head/vampire/wizard/white
 
 /datum/loadout_item/head/yellow_wizard_hat
-	name = "Wizard Hat (Yellow)"
+	name = "巫师帽（黄色）"
 	item_path = /obj/item/clothing/head/vampire/wizard/yellow
 
 /datum/loadout_item/head/cowboy_hat
-	name = "Cowboy Hat"
+	name = "牛仔帽"
 	item_path = /obj/item/clothing/head/vampire/cowboy/armorless
 
 /datum/loadout_item/head/top_hat
-	name = "Top Hat"
+	name = "高顶礼帽"
 	item_path = /obj/item/clothing/head/vampire/top
 
 /datum/loadout_item/head/hard_hat
-	name = "Hard Hat"
+	name = "安全帽"
 	item_path = /obj/item/clothing/head/vampire/hardhat
 
 /datum/loadout_item/head/bahari_mask
-	name = "Dark Mother's Mask"
+	name = "黑暗之母面具"
 	item_path = /obj/item/clothing/head/vampire/bahari_mask
 
 /datum/loadout_item/head/straw_hat
-	name = "Straw Hat"
+	name = "草帽"
 	item_path = /obj/item/clothing/head/vampire/straw_hat
 
 /datum/loadout_item/head/hijab
-	name = "Hijab"
+	name = "希贾布头巾"
 	item_path = /obj/item/clothing/head/vampire/hijab
 
 /datum/loadout_item/head/taqiyah
-	name = "Taqiyah"
+	name = "穆斯林礼拜帽"
 	item_path = /obj/item/clothing/head/vampire/taqiyah
 
 /datum/loadout_item/head/noddist_mask
-	name = "Noddist Mask"
+	name = "挪得信徒面具"
 	item_path = /obj/item/clothing/head/vampire/noddist_mask
 
 /datum/loadout_item/head/kalimavkion
-	name = "Kalimavkion"
+	name = "东正教教士帽"
 	item_path = /obj/item/clothing/head/vampire/kalimavkion
 
 /datum/loadout_item/head/prayer_veil
-	name = "Prayer Veil"
+	name = "祈祷面纱"
 	item_path = /obj/item/clothing/head/vampire/prayer_veil
 
 /datum/loadout_item/head/beret

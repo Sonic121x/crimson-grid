@@ -1,15 +1,15 @@
 /obj/structure/retail/music
-	desc = "A music store. If you play Stairway to Heaven..."
+	desc = "一家乐器店。你要是敢弹《天堂阶梯》……"
 	products_list = list(
-		new /datum/data/vending_product("accordian", /obj/item/instrument/accordion),
-		new /datum/data/vending_product("electric guitar", /obj/item/instrument/eguitar),
-		new /datum/data/vending_product("accoustic guitar", /obj/item/instrument/guitar),
-		new /datum/data/vending_product("hands free harmonica", /obj/item/instrument/harmonica),
-		new /datum/data/vending_product("saxophone", /obj/item/instrument/saxophone),
-		new /datum/data/vending_product("trombone", /obj/item/instrument/trombone),
-		new /datum/data/vending_product("violin", /obj/item/instrument/violin),
-		new /datum/data/vending_product("banjo", /obj/item/instrument/banjo),
-		new /datum/data/vending_product("electronic synth", /obj/item/instrument/piano_synth),
-		new /datum/data/vending_product("recorder", /obj/item/instrument/recorder),
-		new /datum/data/vending_product("glockeenspiel", /obj/item/instrument/glockenspiel)
+		new /datum/data/vending_product("手风琴", /obj/item/instrument/accordion),
+		new /datum/data/vending_product("电吉他", /obj/item/instrument/eguitar),
+		new /datum/data/vending_product("原声吉他", /obj/item/instrument/guitar),
+		new /datum/data/vending_product("免手持口琴", /obj/item/instrument/harmonica),
+		new /datum/data/vending_product("萨克斯管", /obj/item/instrument/saxophone),
+		new /datum/data/vending_product("长号", /obj/item/instrument/trombone),
+		new /datum/data/vending_product("小提琴", /obj/item/instrument/violin),
+		new /datum/data/vending_product("班卓琴", /obj/item/instrument/banjo),
+		new /datum/data/vending_product("电子合成器", /obj/item/instrument/piano_synth),
+		new /datum/data/vending_product("竖笛", /obj/item/instrument/recorder),
+		new /datum/data/vending_product("钟琴", /obj/item/instrument/glockenspiel)
 	)

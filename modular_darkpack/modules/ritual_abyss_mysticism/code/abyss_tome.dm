@@ -1,6 +1,6 @@
 /obj/item/ritual_tome/abyss
-	name = "mystic tome"
-	desc = "The secrets of Abyss Mysticism..."
+	name = "秘术典籍"
+	desc = "深渊秘术的奥秘……"
 	icon_state = "mystic"
 	icon = 'modular_darkpack/modules/ritual_abyss_mysticism/icons/abyss_mysticism_tome.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ritual_abyss_mysticism/icons/abyss_mysticism_onfloor.dmi')
@@ -13,12 +13,12 @@
 	if(!living_user)
 		return
 	if(!living_user.get_discipline(/datum/discipline/obtenebration))
-		to_chat(user, span_cult("A very dark book in color whose appearance swallows up your vision. You find it impossible to decipher without proper guidance."))
+		to_chat(user, span_cult("一本颜色极深的书，仿佛能吞没你的视线。没有合适的指引，你根本无法解读。"))
 		return
 	. = ..()
 
 /datum/crafting_recipe/mystome
-	name = "Abyss Mysticism Tome"
+	name = "深渊秘术典籍"
 	time = 10 SECONDS
 	reqs = list(/obj/item/paper = 3, /obj/item/reagent_containers/blood = 1)
 	result = /obj/item/ritual_tome/abyss

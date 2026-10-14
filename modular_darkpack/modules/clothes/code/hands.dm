@@ -15,8 +15,8 @@
 	AddComponent(/datum/component/selling, 4, "gloves", FALSE)
 
 /obj/item/clothing/gloves/vampire/leather
-	name = "leather gloves"
-	desc = "Looks dangerous. Provides some kind of protection."
+	name = "皮革手套"
+	desc = "看起来很不好惹。能提供一定的防护。"
 	icon_state = "leather"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -27,8 +27,8 @@
 	acid = 30
 
 /obj/item/clothing/gloves/vampire/work
-	name = "work gloves"
-	desc = "Provides fire protection for working in extreme environments."
+	name = "劳保手套"
+	desc = "为极端环境中的工作提供防火保护。"
 	icon_state = "work"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -42,8 +42,8 @@
 	acid = 30
 
 /obj/item/clothing/gloves/vampire/investigator
-	name = "investigator gloves"
-	desc = "Standard issue FBI workgloves tailored for investigators. Made out of latex outer lining and padded for acid and fire protection."
+	name = "调查员手套"
+	desc = "为调查员定制的联邦调查局制式工作手套。乳胶外层搭配衬垫，可防酸、防火。"
 	icon_state = "work"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -57,8 +57,8 @@
 	acid = 70
 
 /obj/item/clothing/gloves/vampire/cleaning
-	name = "cleaning gloves"
-	desc = "Provides acid protection."
+	name = "清洁手套"
+	desc = "可防护酸液。"
 	icon_state = "cleaning"
 	armor_type = /datum/armor/anti_acid_gloves
 
@@ -66,8 +66,8 @@
 	acid = 70
 
 /obj/item/clothing/gloves/vampire/latex
-	name = "latex gloves"
-	desc = "Provides acid protection."
+	name = "乳胶手套"
+	desc = "可防护酸液。"
 	icon_state = "latex"
 	armor_type = /datum/armor/anti_acid_gloves
 	siemens_coefficient = /obj/item/clothing/gloves/latex::siemens_coefficient
@@ -76,8 +76,8 @@
 	equip_sound = /obj/item/clothing/gloves/latex::equip_sound
 
 /obj/item/clothing/gloves/vampire/white
-	name = "white gloves"
-	desc = "A pair of fine, white gloves, a symbol of of cleanliness and quality, and not much else. Getting them dirty shows how unprofessional you are."
+	name = "白手套"
+	desc = "一副精致的白手套，象征整洁与品位，除此之外没什么用。弄脏它们只会显得你很不专业。"
 	icon_state = "white_gloves"
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -86,8 +86,8 @@
 	resistance_flags = NONE
 
 /obj/item/clothing/gloves/vampire/brassknuckles
-	name = "brass knuckles"
-	desc = "A set of tarnished brass rings fused together to create a cruel weapon for back-alley brawls. Illegal in most places."
+	name = "黄铜指虎"
+	desc = "将一组失去光泽的黄铜指环连成一体，便成了暗巷斗殴的凶器。在大多数地方都属违禁品。"
 	icon_state = "brassknuckles"
 	resistance_flags = FIRE_PROOF
 	armor_type = /datum/armor/brassknuckles
@@ -98,8 +98,8 @@
 
 
 /obj/item/clothing/gloves/vampire/brassknuckles/spiked
-	name = "spiked steel knuckles"
-	desc = "A set of tarnished steel rings fused together and topped with piercing metal spikes. Illegal in most places."
+	name = "尖刺钢指虎"
+	desc = "一组失去光泽的钢制指环连成一体，上面装着尖锐的金属刺。在大多数地方都属违禁品。"
 	icon_state = "spikedknuckles"
 
 /obj/item/clothing/gloves/vampire/brassknuckles/spiked/equipped(mob/living/carbon/human/user, slot)

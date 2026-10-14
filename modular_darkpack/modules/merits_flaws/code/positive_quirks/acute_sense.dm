@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/acute_sense
 	name = "Acute Sense"
-	desc = "One of your senses is exceptionally sharp, be it sight, hearing, smell, touch, or taste."
+	desc = "你的一种感官格外敏锐，可以是视觉、听觉、嗅觉、触觉或味觉。"
 	value = 1
 	icon = FA_ICON_EYE
 	ttrpg_sources = list(

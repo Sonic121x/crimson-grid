@@ -1,14 +1,14 @@
 /obj/item/ritual_tome/necromancy
-	name = "necromancy tome"
-	desc = "An old tome bound in peculiar leather."
+	name = "死灵术典籍"
+	desc = "一本用奇特皮革装订的古旧典籍。"
 	icon_state = "necronomicon"
 	icon = 'modular_darkpack/modules/ritual_necromancy/icons/necromancy_tome.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ritual_necromancy/icons/necromancy_tome_onfloor.dmi')
 	rune_type = /obj/ritual_rune/necromancy
 	var/list/products_list = list(
 		// placeholder, idea is that its similar to thaumaturgy archives
-		new /datum/data/vending_product("graveyard keys", /obj/item/vamp/keys/graveyard, 1),
-		new /datum/data/vending_product("obolus", /obj/item/coin/iron/obolus, 2)
+		new /datum/data/vending_product("墓园钥匙", /obj/item/vamp/keys/graveyard, 1),
+		new /datum/data/vending_product("冥币", /obj/item/coin/iron/obolus, 2)
 	)
 	discipline_type = /datum/discipline/necromancy
 
@@ -21,7 +21,7 @@
 /obj/item/ritual_tome/necromancy/attack_self(mob/user)
 	var/mob/living/living_user = astype(user)
 	if(!living_user || !living_user.get_discipline(/datum/discipline/necromancy))
-		to_chat(user, span_cult("A Grimoire that contains etchings of many rituals and procedures. Sadly, you don't understand much of it."))
+		to_chat(user, span_cult("一本刻绘着众多仪式及其步骤的魔法书。可惜，你大多看不懂。"))
 		return
 	ui_interact(user)
 	. = ..()
@@ -40,18 +40,18 @@
 		var/mob/living/carbon/human/H = user
 		.["user"]["souls"] = H.collected_souls
 		.["user"]["name"] = "[H.name]"
-		.["user"]["job"] = "[H.mind?.assigned_role?.title]"
+		.["user"]["job"] = "[JOB_DISPLAY_NAME(H.mind?.assigned_role?.title)]"
 		.["user"]["has_necromancy"] = !!H.get_discipline(/datum/discipline/necromancy)
 	else if(isliving(user))
 		var/mob/living/L = user
 		.["user"]["souls"] = L.collected_souls
 		.["user"]["name"] = "[L.name]"
-		.["user"]["job"] = "Unknown"
+		.["user"]["job"] = "未知"
 		.["user"]["has_necromancy"] = FALSE
 	else
 		.["user"]["souls"] = 0
-		.["user"]["name"] = "Unknown"
-		.["user"]["job"] = "Unknown"
+		.["user"]["name"] = "未知"
+		.["user"]["job"] = "未知"
 		.["user"]["has_necromancy"] = FALSE
 
 	.["product_records"] = list()
@@ -84,20 +84,20 @@
 		return FALSE
 
 	if(prize.amount <= 0)
-		to_chat(user, span_alert("Error: [prize.name] is out of stock!"))
+		to_chat(user, span_alert("错误：[prize.name]已售罄！"))
 		return FALSE
 	if(prize.price > user.collected_souls)
-		to_chat(user, span_alert("Error: Insufficient souls for [prize.name]! You need [prize.price] souls."))
+		to_chat(user, span_alert("错误：兑换[prize.name]的灵魂不足！你需要[prize.price]个灵魂。"))
 		return FALSE
 
 	user.collected_souls -= prize.price
 	prize.amount -= 1
-	to_chat(user, span_notice("The necromancy tome resonates with dark energy as it dispenses [prize.name]!"))
+	to_chat(user, span_notice("死灵术典籍与黑暗能量共鸣，吐出了[prize.name]！"))
 	new prize.product_path(get_turf(user))
 	return TRUE
 
 /datum/crafting_recipe/necrotome
-	name = "Necromantic Ritualism Tome"
+	name = "死灵仪式典籍"
 	time = 10 SECONDS
 	reqs = list(/obj/item/paper = 3, /obj/item/ectoplasm = 1)
 	result = /obj/item/ritual_tome/necromancy

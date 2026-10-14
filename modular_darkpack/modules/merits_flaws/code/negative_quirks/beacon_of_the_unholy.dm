@@ -1,8 +1,8 @@
 /datum/quirk/darkpack/beacon_of_the_unholy
 	name = "Beacon of the Unholy"
-	desc = {"You radiate palpable evil. Clergy and devout mortals
-	know instinctively that there is something horribly
-	wrong with you, and react accordingly."}
+	desc = {"你散发着令人切实感受到的邪恶。神职人员和虔诚的凡人
+	会本能地察觉你身上存在某种可怕的
+	异常，并作出相应反应。"}
 	ttrpg_sources = list(/datum/source_book/vtm20 = 494)
 	value = -2
 	mob_trait = TRAIT_BEACON_OF_THE_UNHOLY

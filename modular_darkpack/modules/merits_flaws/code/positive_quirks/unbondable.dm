@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/unbondable
 	name = "Unbondable"
-	desc = "You are immune to being blood bound. Tremere cannot take this Merit."
+	desc = "你免疫血缚。睿魔尔不能选择此优势。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 494)
 	value = 5
 	mob_trait = TRAIT_UNBONDABLE
@@ -11,6 +11,6 @@
 
 /datum/quirk/darkpack/unbondable/ghoul
 	name = "Unbondable (Ghoul)"
-	desc = "You are immune to being blood bound.."
+	desc = "你免疫血缚。"
 	value = 6
 	allowed_splats = list(SPLAT_GHOUL)

@@ -27,8 +27,8 @@
 			qdel(src)
 
 /atom/movable/screen/alert/status_effect/blood_debt
-	name = "Blood Debt"
-	desc = "You cannot gain blood points until your debt is paid."
+	name = "鲜血债"
+	desc = "偿清债务之前，你无法获得血点。"
 	icon = 'modular_darkpack/modules/ritual_abyss_mysticism/icons/blood_debt_icon.dmi'
 	icon_state = "bhole3"
 

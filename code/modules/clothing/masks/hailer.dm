@@ -43,8 +43,8 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 ))
 
 /obj/item/clothing/mask/gas/sechailer
-	name = "security gas mask"
-	desc = "A standard issue Security gas mask with integrated 'Compli-o-nator 3000' device. Plays over a dozen pre-recorded compliance phrases designed to get scumbags to stand still whilst you tase them. Do not tamper with the device."
+	name = "安保防毒面具"
+	desc = "标准配发的安保防毒面具，内置‘服从号令器3000’。它能播放十多条预录警告，让那些混蛋在你电击他们时乖乖站好。请勿擅自改装。"
 	actions_types = list(/datum/action/item_action/halt, /datum/action/item_action/adjust)
 	icon_state = "sechailer"
 	inhand_icon_state = "sechailer"
@@ -79,8 +79,8 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	starting_filter_type = /obj/item/gas_filter/plasmaman
 
 /obj/item/clothing/mask/gas/sechailer/swat
-	name = "\improper SWAT mask"
-	desc = "A close-fitting tactical mask with an especially aggressive Compli-o-nator 3000."
+	name = "\improper 特警面具"
+	desc = "一副贴合面部的战术面具，内置语气格外凶狠的服从号令器3000。"
 	actions_types = list(/datum/action/item_action/halt)
 	icon_state = "swat"
 	inhand_icon_state = "swat"
@@ -93,16 +93,16 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	pepper_tint = FALSE
 
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol
-	name = "spacepol mask"
-	desc = "A close-fitting tactical mask created in cooperation with a certain megacorporation, comes with an especially aggressive Compli-o-nator 3000."
+	name = "太空警察面具"
+	desc = "与某家巨型企业合作研发的贴面战术面具，内置语气格外凶狠的服从号令器3000。"
 	icon_state = "spacepol"
 	inhand_icon_state = "spacepol_mask"
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 
 /obj/item/clothing/mask/gas/sechailer/cyborg
-	name = "security hailer"
-	desc = "A set of recognizable pre-recorded messages for cyborgs to use when apprehending criminals."
+	name = "安保喊话器"
+	desc = "一套容易辨认的预录喊话，供半机械人在逮捕罪犯时使用。"
 	icon = 'icons/obj/devices/voice.dmi'
 	icon_state = "taperecorder_idle"
 	slot_flags = null
@@ -113,16 +113,16 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 /obj/item/clothing/mask/gas/sechailer/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(aggressiveness == AGGR_BROKEN)
-		to_chat(user, span_danger("You adjust the restrictor but nothing happens, probably because it's broken."))
+		to_chat(user, span_danger("你调整了限制器，但毫无反应，大概已经坏了。"))
 		return
-	var/position = aggressiveness == AGGR_GOOD_COP ? "middle" : aggressiveness == AGGR_BAD_COP ? "last" : "first"
-	to_chat(user, span_notice("You set the restrictor to the [position] position."))
+	var/position = aggressiveness == AGGR_GOOD_COP ? "中间" : aggressiveness == AGGR_BAD_COP ? "最后一档" : "第一档"
+	to_chat(user, span_notice("你把限制器调到了[position]。"))
 	aggressiveness = aggressiveness % 3 + 1 // loop AGGR_GOOD_COP -> AGGR_SHIT_COP
 
 /obj/item/clothing/mask/gas/sechailer/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(aggressiveness != AGGR_BROKEN)
-		to_chat(user, span_danger("You broke the restrictor!"))
+		to_chat(user, span_danger("你弄坏了限制器！"))
 		aggressiveness = AGGR_BROKEN
 		return
 
@@ -132,16 +132,16 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 /obj/item/clothing/mask/gas/sechailer/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(safety)
 		safety = FALSE
-		balloon_alert(user, "vocal circuit fried")
+		balloon_alert(user, "发声电路已烧毁")
 		return TRUE
 	return FALSE
 
-GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
+GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "站住", null)
 
 	if(!isliving(usr) || !can_use(usr) || !COOLDOWN_FINISHED(src, hailer_cooldown))
 		return
 	if(broken_hailer)
-		to_chat(usr, span_warning("\The [src]'s hailing system is broken."))
+		to_chat(usr, span_warning("[src]的喊话系统坏了。"))
 		return
 
 	// handle recent uses for overuse
@@ -153,12 +153,12 @@ GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
 
 	switch(recent_uses)
 		if(3)
-			to_chat(usr, span_warning("\The [src] is starting to heat up."))
+			to_chat(usr, span_warning("[src]开始发热。"))
 		if(4)
-			to_chat(usr, span_userdanger("\The [src] is heating up dangerously from overuse!"))
+			to_chat(usr, span_userdanger("[src]因过度使用而严重发热，十分危险！"))
 		if(5) // overload
 			broken_hailer = TRUE
-			to_chat(usr, span_userdanger("\The [src]'s power modulator overloads and breaks."))
+			to_chat(usr, span_userdanger("[src]的功率调节器过载损坏了。"))
 			return
 
 	// select phrase to play
@@ -182,7 +182,7 @@ GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
 	if(!COOLDOWN_FINISHED(src, hailer_cooldown))
 		return
 	COOLDOWN_START(src, hailer_cooldown, PHRASE_COOLDOWN)
-	user.audible_message("[user]'s Compli-o-Nator: <font color='red' size='4'><b>[initial(phrase.phrase_text)]</b></font>")
+	user.audible_message("[user]的服从号令器：<font color='red' size='4'><b>[initial(phrase.phrase_text)]</b></font>")
 	playsound(src, "sound/runtime/complionator/[initial(phrase.phrase_sound)].ogg", 100, FALSE, 4)
 	return TRUE
 
@@ -190,8 +190,8 @@ GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
 	overuse_cooldown = FALSE
 
 /obj/item/clothing/mask/whistle
-	name = "police whistle"
-	desc = "A police whistle for when you need to make sure the criminals hear you."
+	name = "警哨"
+	desc = "当你需要确保罪犯听到你的警告时，就吹响这只警哨。"
 	icon_state = "whistle"
 	inhand_icon_state = null
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_NECK
@@ -205,15 +205,15 @@ GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
 	if(!COOLDOWN_FINISHED(src, whistle_cooldown))
 		return
 	COOLDOWN_START(src, whistle_cooldown, 10 SECONDS)
-	user.audible_message("<font color='red' size='5'><b>HALT!</b></font>")
+	user.audible_message("<font color='red' size='5'><b>站住！</b></font>")
 	playsound(src, 'sound/items/whistle/whistle.ogg', 50, FALSE, 4)
 
 /datum/action/item_action/halt
-	name = "HALT!"
+	name = "站住！"
 
 /obj/item/clothing/mask/party_horn
-	name = "party horn"
-	desc = "A paper tube used at parties that makes a noise when blown into."
+	name = "派对喇叭"
+	desc = "派对上使用的纸管，吹气时会发出声响。"
 	icon_state = "party_horn"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
@@ -228,7 +228,7 @@ GAME_VERB_SRC(/obj/item/clothing/mask/gas/sechailer, halt, usr, "HALT", null)
 	flick("party_horn_animated", src)
 
 /datum/action/item_action/toot
-	name = "TOOT!"
+	name = "吹响！"
 
 #undef PHRASE_COOLDOWN
 #undef OVERUSE_COOLDOWN

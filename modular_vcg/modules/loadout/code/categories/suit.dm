@@ -1,43 +1,43 @@
 /datum/loadout_item/suit/bomber_jacket
-	name = "Bomber Jacket"
+	name = "飞行夹克"
 	item_path = /obj/item/clothing/suit/vampire/toggled/bomber_jacket
 
 /datum/loadout_item/suit/bomber_jacket_inverted
-	name = "Bomber Jacket (brown)"
+	name = "飞行夹克（棕色）"
 	item_path = /obj/item/clothing/suit/vampire/toggled/bomber_jacket/inverted
 
 /datum/loadout_item/suit/plain_jacket
-	name = "Plain Jacket"
+	name = "朴素夹克"
 	item_path = /obj/item/clothing/suit/vampire/toggled/plain_jacket
 
 /datum/loadout_item/suit/plain_jacket_black
-	name = "Plain Jacket (Black)"
+	name = "朴素夹克（黑色）"
 	item_path = /obj/item/clothing/suit/vampire/toggled/plain_jacket/black
 
 /datum/loadout_item/suit/military_jacket
-	name = "Military Jacket"
+	name = "军用夹克"
 	item_path = /obj/item/clothing/suit/vampire/toggled/military_jacket
 
 /datum/loadout_item/suit/jacket/racingjacket
-	name = "Black and Yellow Racing Jacket"
+	name = "黑黄赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket
 
 /datum/loadout_item/suit/jacket/racingjacket/blackblue
-	name = "Black and Blue Racing Jacket"
+	name = "黑蓝赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket/blackblue
 
 /datum/loadout_item/suit/jacket/racingjacket/whitered
-	name = "White and Red Racing Jacket"
+	name = "白红赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket/whitered
 
 /datum/loadout_item/suit/jacket/racingjacket/whiteyellow
-	name = "White and Yellow Racing Jacket"
+	name = "白黄赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket/whiteyellow
 
 /datum/loadout_item/suit/jacket/racingjacket/bluewhite
-	name = "Blue and White Racing Jacket"
+	name = "蓝白赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket/bluewhite
 
 /datum/loadout_item/suit/jacket/racingjacket/redwhite
-	name = "Red and White Racing Jacket"
+	name = "红白赛车夹克"
 	item_path = /obj/item/clothing/suit/vampire/racing_jacket/redwhite

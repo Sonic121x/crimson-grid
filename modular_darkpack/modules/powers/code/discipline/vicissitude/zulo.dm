@@ -19,8 +19,8 @@ GLOBAL_LIST_INIT(zulo_z_offset, list(
 
 /datum/species/tzimisce_zulo_form
 	abstract_type = /datum/species/tzimisce_zulo_form
-	name = "Zulo"
-	plural_form = "Zulo"
+	name = "祖洛"
+	plural_form = "祖洛"
 	id = SPECIES_ZULO_FORM
 	examine_limb_id = SPECIES_ZULO_FORM
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID

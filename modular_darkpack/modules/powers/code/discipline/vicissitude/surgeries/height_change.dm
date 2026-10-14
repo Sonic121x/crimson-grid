@@ -1,6 +1,6 @@
 /datum/surgery_operation/limb/height_change
-	name = "height surgery"
-	desc = "Change the patient's height."
+	name = "身高调整手术"
+	desc = "改变患者的身高。"
 	implements = list(
 		TOOL_HEMOSTAT = 1.15,
 		TOOL_SCREWDRIVER = 2.85,
@@ -23,24 +23,24 @@
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You begin to alter [patient]'s height..."),
-		span_notice("[surgeon] begins to alter [patient]'s height."),
-		span_notice("[surgeon] begins to make an incision in [patient]'s back."),
+		span_notice("你开始改变[patient]的身高……"),
+		span_notice("[surgeon]开始改变[patient]的身高。"),
+		span_notice("[surgeon]开始在[patient]背部切开一道口子。"),
 	)
-	display_pain(patient, "You feel a slicing pain across your back!")
+	display_pain(patient, "你感到背部传来切割般的疼痛！")
 
 /datum/surgery_operation/limb/height_change/on_success(atom/movable/operating_on, mob/living/surgeon, tool, list/operation_args)
 	var/mob/living/carbon/human/patient = get_patient(operating_on)
 
 	var/list/heights = list(
-		"Taller" = HUMAN_HEIGHT_TALLER,
-		"Tall" = HUMAN_HEIGHT_TALL,
-		"Average" = HUMAN_HEIGHT_MEDIUM,
-		"Short" = HUMAN_HEIGHT_SHORT,
-		"Shorter" = HUMAN_HEIGHT_SHORTEST,
+		"很高" = HUMAN_HEIGHT_TALLER,
+		"高" = HUMAN_HEIGHT_TALL,
+		"中等" = HUMAN_HEIGHT_MEDIUM,
+		"矮" = HUMAN_HEIGHT_SHORT,
+		"很矮" = HUMAN_HEIGHT_SHORTEST,
 		)
 
-	var/new_height = tgui_input_list(surgeon, "Choose a height", "Height change", heights)
+	var/new_height = tgui_input_list(surgeon, "选择身高", "更改身高", heights)
 	new_height = heights[new_height]
 	if(!new_height)
 		return FALSE
@@ -53,20 +53,20 @@
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You alter [patient]'s spine completely."),
-		span_notice("[surgeon] alters [patient]'s spine completely."),
-		span_notice("[surgeon] finishes the operation on [patient]'s spine."),
+		span_notice("你彻底改变了[patient]的脊柱。"),
+		span_notice("[surgeon]彻底改变了[patient]的脊柱。"),
+		span_notice("[surgeon]完成了对[patient]脊柱的手术。"),
 	)
-	display_pain(patient, "The pain fades, the world seems different!")
+	display_pain(patient, "疼痛消退了，世界似乎变得不同了！")
 
 /datum/surgery_operation/limb/height_change/on_failure(obj/item/bodypart/limb, mob/living/surgeon, tool, list/operation_args)
 	var/mob/living/carbon/human/patient = get_patient(limb.owner)
 	display_results(
 		surgeon,
 		patient,
-		span_warning("Your screw up, leaving [patient]'s spine bruised!"),
-		span_warning("[surgeon] screws up, bruising [patient]'s spine!"),
-		span_notice("[surgeon] finishes the operation on [patient]'s spine."),
+		span_warning("你操作失误，挫伤了[patient]的脊柱！"),
+		span_warning("[surgeon]操作失误，挫伤了[patient]的脊柱！"),
+		span_notice("[surgeon]完成了对[patient]脊柱的手术。"),
 	)
-	display_pain(patient, "Your back feels torn!")
+	display_pain(patient, "你的背部仿佛被撕裂了！")
 	limb.receive_damage(rand(4, 8), wound_bonus = 10, sharpness = SHARP_EDGED, damage_source = tool)

@@ -24,8 +24,8 @@
 	new_icon_state = "pleading"
 
 /obj/item/clothing/mask/joy
-	name = "emotion mask"
-	desc = "Express your happiness or hide your sorrows with this cultured cutout."
+	name = "表情面具"
+	desc = "用这张颇有文化气息的剪纸面具表达快乐，或掩藏悲伤。"
 	icon_state = "joy"
 	base_icon_state = "joy"
 	clothing_flags = MASKINTERNALS
@@ -35,22 +35,22 @@
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/joy_mask, infinite = TRUE)
 
 /obj/item/clothing/mask/mummy
-	name = "mummy mask"
-	desc = "Ancient bandages."
+	name = "木乃伊面具"
+	desc = "古老的绷带。"
 	icon_state = "mummy_mask"
 	inhand_icon_state = null
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/scarecrow
-	name = "sack mask"
-	desc = "A burlap sack with eyeholes."
+	name = "麻袋面具"
+	desc = "一个挖了眼孔的粗麻布袋。"
 	icon_state = "scarecrow_sack"
 	inhand_icon_state = null
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/kitsune
-	name = "kitsune mask"
-	desc = "Porcelain mask made in the style of the Sol-3 region. It is painted to look like a kitsune."
+	name = "狐妖面具"
+	desc = "按太阳系第三行星地区风格制作的瓷面具，彩绘成狐妖的模样。"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
 	adjusted_flags = ITEM_SLOT_HEAD
@@ -67,10 +67,10 @@
 /obj/item/clothing/mask/kitsune/examine(mob/user)
 	. = ..()
 	if(up)
-		. += "Use in-hand to wear as a mask!"
+		. += "在手中使用可将它戴在脸上！"
 		return
 	else
-		. += "Use in-hand to wear as a hat!"
+		. += "在手中使用可将它戴在头顶！"
 
 /obj/item/clothing/mask/kitsune/attack_self(mob/user)
 	adjust_visor(user)
@@ -78,8 +78,8 @@
 	flags_inv = up ? NONE : (HIDEFACE|HIDEFACIALHAIR)
 
 /obj/item/clothing/mask/rebellion
-	name = "rebellion mask"
-	desc = "Mask that is usually used during rebellions by insurgents. It covers the entire face and makes you unrecognizable."
+	name = "反抗者面具"
+	desc = "反抗者在起义中常用的面具。它遮住整张脸，让人无法辨认你的身份。"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT

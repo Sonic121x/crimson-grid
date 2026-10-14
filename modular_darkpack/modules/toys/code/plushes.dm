@@ -79,11 +79,11 @@
 
 
 /obj/item/toy/plush/tzi
-	name = "wretched creature"
-	desc = "A horrid flesh-thing with a still functioning brain. Perfect for working intricate meat contraptions!"
+	name = "悲惨造物"
+	desc = "一团骇人的血肉造物，大脑仍能运作。用来操纵复杂的血肉机关再合适不过！"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	icon_state = "plushtzi"
-	attack_verb_continuous = list("tortures", "scourges")
-	attack_verb_simple = list("torture", "scourge")
+	attack_verb_continuous = list("折磨", "鞭打")
+	attack_verb_simple = list("折磨", "鞭打")
 	squeak_override = list('modular_darkpack/modules/toys/sounds/femurbreaker.ogg'=1)
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 10)

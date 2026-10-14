@@ -132,7 +132,7 @@ export type Job = {
 export type Quirk = {
   description: string;
   icon: string;
-  name: string;
+  name: string; display_name?: string;
   value: number;
   customizable: boolean;
   customization_options?: string[];

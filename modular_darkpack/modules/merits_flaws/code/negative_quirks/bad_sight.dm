@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/nearsighted
 	name = "Bad Sight"
-	desc = "Your sight is defective, but can be corrected with glasses or contacts."
+	desc = "你的视力有缺陷，但可以用眼镜或隐形眼镜矫正。"
 	value = -1
 	darkpack_allowed = TRUE
 	ttrpg_sources = list(

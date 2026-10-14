@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/mage_blood
 	name = "Mage Blood"
-	desc = "Your blood is so tied to magic that you find you are unable to use any Discipline apart from Thaumaturgy and it's associated Paths. Any discipline that isn't Thaumaturgy will be removed when joining the game."
+	desc = "你的血液与魔法联系过于紧密，使你无法使用血魔法及其相关道途以外的律能。进入游戏时，所有非血魔法律能都会被移除。"
 	value = -5
 	icon = FA_ICON_MAGIC_WAND_SPARKLES
 	allowed_splats = list(SPLAT_KINDRED)

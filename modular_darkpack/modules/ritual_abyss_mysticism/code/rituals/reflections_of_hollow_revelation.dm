@@ -3,8 +3,8 @@
 	applicable_stats = list(STAT_PERCEPTION, STAT_OCCULT)
 
 /obj/ritual_rune/abyss/reflections_of_hollow_revelation
-	name = "reflections of hollow revelation"
-	desc = "Use a conjured Nocturne to spy on a target through nearby shadows"
+	name = "空寂启示之映"
+	desc = "借助召出的夜幕之窗，从目标附近的暗影中窥视目标。"
 	icon_state = "teleport"
 	word = ""
 	level = 4
@@ -22,13 +22,13 @@
 		return
 
 	if(isactive)
-		to_chat(user, span_warning("This Nocturne is already in use!"))
+		to_chat(user, span_warning("这扇夜幕之窗已在使用中！"))
 		return
 
 	// Target input
-	var/target_name = tgui_input_text(user, "Choose target name:", "Reflections of Hollow Revelation")
+	var/target_name = tgui_input_text(user, "输入目标姓名：", "空寂启示之映")
 	if(!target_name || !user.Adjacent(src))
-		to_chat(user, span_warning("You must specify a target and remain close to the rune!"))
+		to_chat(user, span_warning("你必须指定一个目标，并留在符文附近！"))
 		return
 
 	user.say("VISTA'DE'SOMBRA")
@@ -40,7 +40,7 @@
 			break
 
 	if(!window_target)
-		to_chat(user, span_warning("[target_name] not found."))
+		to_chat(user, span_warning("未找到[target_name]。"))
 		return
 
 	var/roll_result = SSroll.storyteller_roll_datum(user, roll_datum = /datum/storyteller_roll/reflections_of_hollow)
@@ -51,10 +51,10 @@
 			isactive = TRUE
 		if(ROLL_FAILURE)
 			qdel(src)
-			to_chat(user, span_warning("The Nocturne collapses!"))
+			to_chat(user, span_warning("夜幕之窗崩塌了！"))
 		if(ROLL_BOTCH)
 			qdel(src)
-			to_chat(user, span_warning("You feel drained..."))
+			to_chat(user, span_warning("你感觉精力被抽空了……"))
 			for(var/datum/st_stat/stat as anything in subtypesof(/datum/st_stat))
 				user.st_add_stat_mod(stat, -2, "reflections_of_hollow_revelation")
 			addtimer(CALLBACK(src, PROC_REF(restore_stats), user), 1 SCENES)
@@ -69,10 +69,10 @@
 		var/datum/splat/vampire/vampire = get_splat_with_discipline(target)
 		if(vampire?.get_discipline(/datum/discipline/obtenebration) || vampire?.get_discipline(/datum/discipline/auspex))
 			if(SSroll.storyteller_roll_datum(target, roll_datum = /datum/storyteller_roll/reflections_of_hollow, difficulty = 8) == ROLL_SUCCESS)
-				to_chat(target, span_warning("You notice the nearby shadows flicker... something is watching you."))
+				to_chat(target, span_warning("你注意到附近的暗影闪烁不定……有什么东西正在窥视你。"))
 
 	shadowview(target, user)
-	to_chat(user, span_notice("You peer through the shadows near [target.name]..."))
+	to_chat(user, span_notice("你透过[target.name]附近的暗影窥视……"))
 
 	addtimer(CALLBACK(src, PROC_REF(on_end),user), 1 SCENES) // 3 minute timer, AKA 1 Scene
 
@@ -91,7 +91,7 @@
 	RegisterSignal(user, COMSIG_MOB_RESET_PERSPECTIVE, PROC_REF(on_end))
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(check_target_distance))
 
-	to_chat(user, span_notice("You are now viewing through the shadows. Use the 'End Scrying' action to stop."))
+	to_chat(user, span_notice("你正在透过暗影视物。使用“结束窥视”动作即可停止。"))
 
 /obj/ritual_rune/abyss/reflections_of_hollow_revelation/proc/check_target_distance()
 	SIGNAL_HANDLER
@@ -101,7 +101,7 @@
 	// Window closes when target leaves range
 	if(get_dist(window_target, shadow_window) > 7)
 		if(nocturne_user)
-			to_chat(nocturne_user, span_warning("The window closes as [window_target.name] moves away from the shadows."))
+			to_chat(nocturne_user, span_warning("随着[window_target.name]远离暗影，夜幕之窗关闭了。"))
 		on_end(nocturne_user)
 
 /obj/ritual_rune/abyss/reflections_of_hollow_revelation/proc/on_end(mob/user)
@@ -130,7 +130,7 @@
 	UnregisterSignal(user, COMSIG_MOB_RESET_PERSPECTIVE)
 
 	nocturne_user = null
-	to_chat(user, span_notice("You stop viewing through your summoned Nocturne."))
+	to_chat(user, span_notice("你停止透过召出的夜幕之窗观察。"))
 	playsound(user, 'sound/effects/magic/ethereal_exit.ogg', 50, FALSE)
 
 // Camera object
@@ -155,8 +155,8 @@
 
 // Action button
 /datum/action/close_window
-	name = "End Scrying"
-	desc = "Stop viewing through the shadows"
+	name = "结束窥视"
+	desc = "停止透过暗影观察。"
 	button_icon = 'icons/mob/actions/actions_silicon.dmi'
 	button_icon_state = "camera_off"
 	var/obj/ritual_rune/abyss/reflections_of_hollow_revelation/parent_rune

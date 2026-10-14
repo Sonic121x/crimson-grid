@@ -1,6 +1,6 @@
 /obj/ritual_rune/necromancy/death
-	name = "death"
-	desc = "Instantly transport yourself to the Shadowlands."
+	name = "死亡"
+	desc = "立即将自己送往冥土。"
 	icon_state = "rune2"
 	word = "Y'HO 'LLOH"
 

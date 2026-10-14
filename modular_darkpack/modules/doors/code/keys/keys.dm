@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	)
 
 /obj/item/vamp/keys/graveyard
-	name = "graveyard keys"
+	name = "墓园钥匙"
 	accesslocks = list(
 		LOCKACCESS_GRAVEYARD
 	)

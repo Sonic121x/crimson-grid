@@ -1,11 +1,11 @@
 /datum/quirk/darkpack/banned_transformation
 	name = "Banned Transformation"
 	//For the sake of actually being able to implement, only the 3-point version from the book.
-	desc = {"Some circumstance, event, or situation inhibits your
-	ability to change forms, except to return to your breed
-	form. To transform without spending a rage point requires the
-	expenditure of a Willpower point and a successful
-	Willpower roll (difficulty 8)."}
+	desc = {"某种条件、事件或情境会阻碍你
+	改变形态，恢复出身形态则不受
+	影响。若要在不消耗怒火点数的情况下变形，
+	你必须消耗一点意志力，并成功通过
+	意志力检定（难度 8）。"}
 	ttrpg_sources = list(/datum/source_book/wta20 = 483)
 	value = -3
 	mob_trait = TRAIT_BANNED_TRANSFORMATION

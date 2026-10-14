@@ -64,7 +64,7 @@
 		return "[greyscale_item_path]"
 
 	return "[greyscale_item_path]--[new_icon_state]" // A GAGs reskin of the item icon
-
+GLOBAL_LIST_INIT(localized_reskin_names, list("Rainbow Pride" = "彩虹骄傲", "Bisexual Pride" = "双性恋骄傲", "Pansexual Pride" = "泛性恋骄傲", "Asexual Pride" = "无性恋骄傲", "Non-binary Pride" = "非二元性别骄傲", "Transgender Pride" = "跨性别骄傲", "Intersex Pride" = "间性人骄傲", "Lesbian Pride" = "女同性恋骄傲", "Gay Pride" = "男同性恋骄傲", "Rabies Pride" = "狂犬病骄傲", "Joy" = "喜悦", "Flushed" = "脸红", "Pensive" = "忧思", "Angry" = "愤怒", "Pleading" = "恳求"))
 /**
  * Applies all relevant skin changes to the given atom
  * Can be overridden to add additional behavior, such as registering signals or altering other vars.
@@ -227,13 +227,13 @@
 /datum/component/reskinable_item/proc/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	SIGNAL_HANDLER
 
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Reskin"
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "更换外观"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /datum/component/reskinable_item/proc/add_tags(atom/source, mob/user, list/tags)
 	SIGNAL_HANDLER
 
-	tags["reskinnable"] = "This item is able to be reskinned! Alt-Click to do so!"
+	tags["reskinnable"] = "这件物品可以更换外观！按住Alt点击即可！"
 
 /// Called when alt clicked and the item has unique reskin options
 /datum/component/reskinable_item/proc/on_click_alt_reskin(datum/source, mob/user)
@@ -258,7 +258,7 @@
 	var/list/atom_skins = get_atom_skins()
 	for(var/reskin_name, reskin_typepath in get_skins_by_name())
 		var/datum/atom_skin/reskin = atom_skins[reskin_typepath]
-		items[reskin_name] = reskin.get_preview_icon(atom_parent)
+		items[reskin_name] = localized_radial_choice(reskin.get_preview_icon(atom_parent), GLOB.localized_reskin_names[reskin_name] || reskin_name)
 
 	sort_list(items)
 
@@ -267,7 +267,7 @@
 		return
 
 	set_skin_by_name(pick, user)
-	to_chat(user, span_info("[parent] is now skinned as '[pick].'"))
+	to_chat(user, span_info("[parent]的外观已改为‘[GLOB.localized_reskin_names[pick] || pick]’。"))
 
 	if(!infinite_reskin)
 		qdel(src)

@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/blood_trap
-	name = "ward"
-	desc = "Creates the Blood Trap to protect tremere or his domain."
+	name = "守护符印"
+	desc = "创造一个鲜血陷阱，保护睿魔尔或其领地。"
 	icon_state = "rune2"
 	word = "DUH'K-A'U"
 

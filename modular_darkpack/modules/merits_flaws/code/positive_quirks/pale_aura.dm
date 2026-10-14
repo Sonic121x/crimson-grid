@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/pale_aura
 	name = "Pale Aura"
-	desc = {"Any color your character's aura takes has a pale cast to it, as though he was a vampire."}
+	desc = {"无论你的灵光呈现何种颜色，都蒙着一层苍白，仿佛你是吸血鬼。"}
 		/*{"Any color your character's aura takes has a pale cast to it, as though he was a vampire.
 		Unless her player gains five chapter two or more successes on an Aura Perception roll,
 		any vampire discerns your character's aura as one belonging to the Kindred"}

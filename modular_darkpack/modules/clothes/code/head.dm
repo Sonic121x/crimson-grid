@@ -23,8 +23,8 @@
 	AddComponent(/datum/component/selling, 5, "headwear", FALSE)
 
 /obj/item/clothing/head/vampire/malkav
-	name = "weirdo hat"
-	desc = "Can look dangerous or sexy despite the circumstances. Provides some kind of protection."
+	name = "怪人帽"
+	desc = "无论身处何种场合，都能显得危险或性感。提供一定防护。"
 	icon_state = "malkav_hat"
 	armor_type = /datum/armor/malkavian_hat
 
@@ -38,89 +38,89 @@
 	wound = 10
 
 /obj/item/clothing/head/vampire/bandana
-	name = "brown bandana"
-	desc = "A stylish bandana."
+	name = "棕色头巾"
+	desc = "一条时髦的头巾。"
 	icon_state = "bandana"
 
 /obj/item/clothing/head/vampire/bandana/red
-	name = "red bandana"
+	name = "红色头巾"
 	icon_state = "bandana_red"
 
 /obj/item/clothing/head/vampire/bandana/black
-	name = "black bandana"
+	name = "黑色头巾"
 	icon_state = "bandana_black"
 
 /obj/item/clothing/head/vampire/baseballcap
-	name = "baseball cap"
-	desc = "A soft hat with a rounded crown and a stiff bill projecting in front. Giants baseball, there's nothing like it!"
+	name = "棒球帽"
+	desc = "一顶圆顶软帽，前方伸出硬质帽檐。巨人队的棒球，精彩无可比拟！"
 	icon_state = "baseballcap"
 
 /obj/item/clothing/head/vampire/ushanka
-	name = "ushanka"
-	desc = "A heavy fur cap with ear-covering flaps."
+	name = "俄式护耳帽"
+	desc = "一顶厚实的毛皮帽，两侧有遮住耳朵的护耳。"
 	icon_state = "ushanka"
 
 /obj/item/clothing/head/vampire/beanie
-	name = "beanie"
-	desc = "A stylish beanie."
+	name = "针织帽"
+	desc = "一顶时髦的针织帽。"
 	icon_state = "hat"
 
 /obj/item/clothing/head/vampire/beanie/black
-	name = "black beanie"
+	name = "黑色针织帽"
 	icon_state = "hat_black"
 
 /obj/item/clothing/head/vampire/beanie/homeless
-	name = "raggedy beanie"
+	name = "破旧针织帽"
 	icon_state = "hat_homeless"
 
 /obj/item/clothing/head/vampire/wizard/blue
-	name = "blue wizard hat"
-	desc = "A watery-looking wizard hat."
+	name = "蓝色巫师帽"
+	desc = "一顶泛着水色的巫师帽。"
 	icon_state = "wizardhat_blue"
 
 /obj/item/clothing/head/vampire/wizard/black
-	name = "black wizard hat"
-	desc = "A sinister-looking wizard hat."
+	name = "黑色巫师帽"
+	desc = "一顶透着邪气的巫师帽。"
 	icon_state = "wizardhat_black"
 
 /obj/item/clothing/head/vampire/wizard/darkred
-	name = "dark red wizard hat"
-	desc = "A zealous-looking wizard hat."
+	name = "暗红色巫师帽"
+	desc = "一顶透着狂热气息的巫师帽。"
 	icon_state = "wizardhat_darkred"
 
 /obj/item/clothing/head/vampire/wizard/green
-	name = "green wizard hat"
-	desc = "An earthy looking wizard hat."
+	name = "绿色巫师帽"
+	desc = "一顶透着大地气息的巫师帽。"
 	icon_state = "wizardhat_green"
 
 /obj/item/clothing/head/vampire/wizard/grey
-	name = "grey wizard hat"
-	desc = "A somber-looking wizard hat."
+	name = "灰色巫师帽"
+	desc = "一顶显得沉郁的巫师帽。"
 	icon_state = "wizardhat_grey"
 
 /obj/item/clothing/head/vampire/wizard/purple
-	name = "purple wizard hat"
-	desc = "An elegant-looking wizard hat."
+	name = "紫色巫师帽"
+	desc = "一顶优雅的巫师帽。"
 	icon_state = "wizardhat_purple"
 
 /obj/item/clothing/head/vampire/wizard/red
-	name = "red wizard hat"
-	desc = "A furious-looking wizard hat."
+	name = "红色巫师帽"
+	desc = "一顶透着怒意的巫师帽。"
 	icon_state = "wizardhat_red"
 
 /obj/item/clothing/head/vampire/wizard/white
-	name = "white wizard hat"
-	desc = "An angelic-looking wizard hat."
+	name = "白色巫师帽"
+	desc = "一顶如天使般圣洁的巫师帽。"
 	icon_state = "wizardhat_white"
 
 /obj/item/clothing/head/vampire/wizard/yellow
-	name = "yellow wizard hat"
-	desc = "A happy-looking wizard hat."
+	name = "黄色巫师帽"
+	desc = "一顶洋溢着欢快气息的巫师帽。"
 	icon_state = "wizardhat_yellow"
 
 /obj/item/clothing/head/vampire/police
-	name = "police hat"
-	desc = "Can look dangerous or sexy despite the circumstances. Provides some kind of protection."
+	name = "警帽"
+	desc = "无论身处何种场合，都能显得危险或性感。提供一定防护。"
 	icon_state = "law"
 	armor_type = /datum/armor/armored_hat
 	custom_price = 20
@@ -135,43 +135,43 @@
 	wound = 10
 
 /obj/item/clothing/head/vampire/cowboy
-	name = "cowboy hat"
-	desc = "Looks cool anyway. Provides some kind of protection."
+	name = "牛仔帽"
+	desc = "怎么看都很酷。提供一定防护。"
 	icon_state = "cowboy"
 	armor_type = /datum/armor/armored_hat
 
 /obj/item/clothing/head/vampire/cowboy/armorless
-	name = "cowboy hat"
-	desc = "Yee, and I do not often say this, haw."
+	name = "牛仔帽"
+	desc = "咿——我可不常这么喊——哈！"
 	armor_type = /datum/armor/none
 
 /obj/item/clothing/head/vampire/british
-	name = "british police hat"
-	desc = "Want some tea? Provides some kind of protection."
+	name = "英式警帽"
+	desc = "来杯茶吗？提供一定防护。"
 	icon_state = "briish"
 	armor_type = /datum/armor/armored_hat
 
 /obj/item/clothing/head/vampire/napoleon
-	name = "french admiral hat"
-	desc = "Dans mon esprit tout divague, je me perds dans tes yeux... Je me noie dans la vague de ton regard amoureux..."
+	name = "法国海军上将帽"
+	desc = "思绪纷飞，我迷失在你的双眸中……沉溺于你含情目光的波浪里……"
 	icon_state = "french"
 	armor_type = /datum/armor/none
 
 /obj/item/clothing/head/vampire/top
-	name = "top hat"
-	desc = "Want some tea? Provides some kind of protection."
+	name = "高顶礼帽"
+	desc = "来杯茶吗？提供一定防护。"
 	icon_state = "top"
 	armor_type = /datum/armor/none
 
 /obj/item/clothing/head/vampire/skull
-	name = "skull helmet"
-	desc = "Damn... Provides some kind of protection."
+	name = "骷髅头盔"
+	desc = "见鬼……提供一定防护。"
 	icon_state = "skull"
 	armor_type = /datum/armor/armored_hat
 
 /obj/item/clothing/head/vampire/helmet
-	name = "police helmet"
-	desc = "Looks dangerous. Provides good protection."
+	name = "警用头盔"
+	desc = "看起来很危险。提供良好的防护。"
 	icon_state = "helmet"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
 	armor_type = /datum/armor/police_helmet
@@ -190,8 +190,8 @@
 	wound = 25
 
 /obj/item/clothing/head/vampire/helmet/egorium
-	name = "strange mask"
-	desc = "Looks mysterious. Provides good protection."
+	name = "奇异面具"
+	desc = "看起来很神秘。提供良好的防护。"
 	icon_state = "masque"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
@@ -200,16 +200,16 @@
 	masquerade_violating = FALSE
 
 /obj/item/clothing/head/vampire/helmet/spain
-	name = "spain helmet"
-	desc = "Concistador! Provides good protection."
+	name = "西班牙头盔"
+	desc = "征服者！提供良好的防护。"
 	icon_state = "spain"
 	flags_inv = HIDEEARS
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	masquerade_violating = FALSE
 
 /obj/item/clothing/head/vampire/army
-	name = "army helmet"
-	desc = "Looks dangerous. Provides great protection against blunt force."
+	name = "军用头盔"
+	desc = "看起来很危险。对钝击提供出色的防护。"
 	icon_state = "viet"
 	flags_inv = HIDEEARS|HIDEHAIR
 	armor_type = /datum/armor/army_helmet
@@ -226,8 +226,8 @@
 	wound = 25
 
 /obj/item/clothing/head/vampire/hardhat
-	name = "construction helmet"
-	desc = "A thermoplastic hard helmet used to protect the head from injury."
+	name = "施工安全帽"
+	desc = "一顶用于保护头部免受伤害的热塑性塑料硬帽。"
 	icon_state = "hardhat"
 	armor_type = /datum/armor/construction_helmet
 	hair_mask = /datum/hair_mask/standard_hat_middle
@@ -241,8 +241,8 @@
 	wound = 15
 
 /obj/item/clothing/head/vampire/eod
-	name = "EOD helmet"
-	desc = "Looks dangerous. Provides best protection against nearly everything."
+	name = "排爆头盔"
+	desc = "看起来很危险。对几乎所有威胁都能提供顶级防护。"
 	icon_state = "bomb"
 	armor_type = /datum/armor/eod_helmet
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
@@ -263,8 +263,8 @@
 	wound = 40
 
 /obj/item/clothing/head/vampire/bogatyr
-	name = "bone helmet"
-	desc = "A regal helmet made of unknown materials."
+	name = "骨盔"
+	desc = "由不明材料制成的威严头盔。"
 	icon_state = "bogatyr_helmet_light"
 	armor_type = /datum/armor/police_helmet
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
@@ -274,17 +274,17 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/head/vampire/bogatyr/captain
-	name = "golden bone helmet"
+	name = "金色骨盔"
 	icon_state = "bogatyr_captain_helmet"
 	armor_type = /datum/armor/bogatyr_helmet
 
 /obj/item/clothing/head/vampire/bogatyr/captain/heavy // ! Craftable only.
-	name = "reinforced golden bone helmet"
+	name = "强化金色骨盔"
 	armor_type = /datum/armor/eod_helmet
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/clothing/head/vampire/bogatyr/heavy
-	name = "heavy bone greathelm"
+	name = "重型骨盔"
 	icon_state = "bogatyr_helmet"
 	armor_type = /datum/armor/eod_helmet
 	w_class = WEIGHT_CLASS_BULKY
@@ -300,65 +300,65 @@
 	wound = 30
 
 /obj/item/clothing/head/vampire/bahari_mask
-	name = "Dark mother's mask"
-	desc = "When I first tasted the fruit of the Trees, \
-			felt the seeds of Life and Knowledge burn within me, \
-			I swore that day I would not turn back..."
+	name = "黑暗之母面具"
+	desc = "当我初次品尝那两棵树的果实，\
+			感受生命与知识的种子在体内燃烧时，\
+			我便在那天立誓，绝不回头……"
 	icon_state = "bahari_mask"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/vampire/straw_hat
-	name = "straw hat"
-	desc = "A straw hat."
+	name = "草帽"
+	desc = "一顶草帽。"
 	icon_state = "strawhat"
 
 /obj/item/clothing/head/vampire/hijab
-	name = "hijab"
-	desc = "A traditional headscarf worn by Muslim women."
+	name = "希贾布头巾"
+	desc = "穆斯林女性佩戴的传统头巾。"
 	icon_state = "hijab"
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/vampire/taqiyah
-	name = "taqiyah"
-	desc = "A traditional hat worn by Muslim men."
+	name = "穆斯林礼拜帽"
+	desc = "穆斯林男性佩戴的传统帽子。"
 	icon_state = "taqiyah"
 
 /obj/item/clothing/head/vampire/noddist_mask
-	name = "Noddist mask"
-	desc = "Shine black the sun! Shine blood the moon! Gehenna is coming soon."
+	name = "挪得信徒面具"
+	desc = "太阳闪耀黑光！月亮映照血色！末日审判即将到来。"
 	icon_state = "noddist_mask"
 
 /obj/item/clothing/head/vampire/kalimavkion
-	name = "Kalimavkion"
-	desc = "A traditional hat worn by Orthodox priests."
+	name = "东正教教士帽"
+	desc = "东正教教士佩戴的传统帽子。"
 	icon_state = "kalimavkion"
 
 /obj/item/clothing/head/vampire/prayer_veil
-	name = "Prayer veil"
-	desc = "A traditional veil."
+	name = "祈祷面纱"
+	desc = "一条传统面纱。"
 	icon_state = "prayer_veil"
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/vampire/hardhat/pentex_yellow
-	name = "\improper " + MAIN_EVIL_COMPANY + " hardhat"
-	desc = "A yellow hardhat. This one has an " + MAIN_EVIL_COMPANY + "  logo on it!"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "安全帽"
+	desc = "一顶黄色安全帽，上面印有" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "的标志！"
 	icon_state = "pentex_hardhat_yellow"
 
 /obj/item/clothing/head/vampire/hardhat/pentex_white
-	name = "\improper " + MAIN_EVIL_COMPANY + " hardhat"
-	desc = "A white hardhat. This one has an " + MAIN_EVIL_COMPANY + " logo on it!"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "安全帽"
+	desc = "一顶白色安全帽，上面印有" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "的标志！"
 	icon_state = "pentex_hardhat_white"
 
 /obj/item/clothing/head/vampire/pentex_beret
-	name = "First Team beret"
-	desc = "A black beret with a mysterious golden insigna bearing a spiral."
+	name = "第一小队贝雷帽"
+	desc = "一顶黑色贝雷帽，带有一枚神秘的金色螺旋徽章。"
 	icon_state = "pentex_beret"
 	armor_type = /datum/armor/armored_hat
 	hair_mask = /datum/hair_mask/standard_hat_middle
 
 /obj/item/clothing/head/vampire/blackbag
-	name = "black bag"
-	desc = "Used by kidnappers, sadists, and three letter agencies. Easily fits over the head to obscure vision."
+	name = "黑色头袋"
+	desc = "绑匪、虐待狂和那些名字只有三个字母的机构都爱用。可以轻松套住头部，遮挡视线。"
 	icon_state = "black_bag"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR
 
@@ -377,11 +377,11 @@
 /obj/item/clothing/head/vampire/blackbag/attack(mob/living/target, mob/living/user)
 	var/obj/item/clothing/head/H = target.get_item_by_slot(ITEM_SLOT_HEAD)
 	if(H?.clothing_flags & SNUG_FIT)
-		to_chat(user, span_warning("You can't fit the blackbag over [target.p_their()] headgear!"))
+		to_chat(user, span_warning("对方的头饰挡住了黑色头袋，套不上去！"))
 		return
 	if(do_after(user, 0.5 SECONDS, target)) //Mainly to prevent black_bagging mid combat.
-		target.visible_message(span_warning("[user] forces [src] onto [target]'s head!"))
-		to_chat(target, span_bolddanger("[target] forces [src] onto your head!"))
+		target.visible_message(span_warning("[user]把[src]强行套到了[target]头上！"))
+		to_chat(target, span_bolddanger("[src]被强行套到了你的头上！"))
 		target.emote("scream")
 		target.Stun(0.5 SECONDS)
 
@@ -390,6 +390,6 @@
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD)
 
 /obj/item/clothing/head/beret/black
-	name = "black beret"
-	desc = "A black beret, perfect for war veterans and dark, brooding, anti-hero mimes."
+	name = "黑色贝雷帽"
+	desc = "一顶黑色贝雷帽，特别适合老兵，以及阴郁深沉、走反英雄路线的默剧演员。"
 	greyscale_colors = "#3f3c40"

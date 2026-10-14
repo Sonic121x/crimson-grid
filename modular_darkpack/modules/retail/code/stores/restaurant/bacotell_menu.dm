@@ -13,9 +13,9 @@
 	)
 // CRIMSON EDIT ADD START - Shop Inventories Additions
 	products_list = list( //Added for prices
-		new /datum/data/vending_product("burrito", /obj/item/food/burrito, 3),
-		new /datum/data/vending_product("cheesy burrito", /obj/item/food/cheesyburrito, 3),
-		new /datum/data/vending_product("carne burrito", /obj/item/food/carneburrito, 4),
-		new /datum/data/vending_product("fuego burrito", /obj/item/food/fuegoburrito, 4),
+		new /datum/data/vending_product("墨西哥卷饼", /obj/item/food/burrito, 3),
+		new /datum/data/vending_product("奶酪卷饼", /obj/item/food/cheesyburrito, 3),
+		new /datum/data/vending_product("烤肉卷饼", /obj/item/food/carneburrito, 4),
+		new /datum/data/vending_product("烈焰卷饼", /obj/item/food/fuegoburrito, 4),
 	)
 // CRIMSON EDIT ADD END - Shop Inventories Additions

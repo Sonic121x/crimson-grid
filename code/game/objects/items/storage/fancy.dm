@@ -47,9 +47,9 @@
 	if(!open_status)
 		return
 	if(length(contents) == 1)
-		. += "There is one [contents_tag] left."
+		. += "还剩1份[contents_tag]。"
 	else
-		. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [contents_tag]s left."
+		. += "还剩[contents.len <= 0 ? "0" : "[contents.len]"]份[contents_tag]。"
 
 /obj/item/storage/fancy/attack_self(mob/user)
 	if(open_status == FANCY_CONTAINER_CLOSED)
@@ -64,7 +64,7 @@
 	if(!foldable_result || (flags_1 & HOLOGRAM_1))
 		return
 	var/obj/item/result = new foldable_result(user.drop_location())
-	balloon_alert(user, "folded")
+	balloon_alert(user, "已折叠")
 	// Gotta delete first, so then the cardboard appears in the same hand
 	qdel(src)
 	user.put_in_hands(result)
@@ -88,8 +88,8 @@
  */
 
 /obj/item/storage/fancy/donut_box
-	name = "donut box"
-	desc = "Mmm. Donuts."
+	name = "甜甜圈盒"
+	desc = "嗯，甜甜圈。"
 	icon = 'modular_darkpack/master_files/icons/obj/food/donuts.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "donutbox_open" //composite image used for mapping
 	base_icon_state = "donutbox"
@@ -98,7 +98,7 @@
 	open_status = TRUE
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 	custom_premium_price = PAYCHECK_COMMAND * 1.75
-	contents_tag = "donut"
+	contents_tag = "甜甜圈"
 	storage_type = /datum/storage/donut_box
 
 /obj/item/storage/fancy/donut_box/PopulateContents()
@@ -140,11 +140,11 @@
 	base_icon_state = "eggbox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	name = "egg box"
-	desc = "A carton for containing eggs."
+	name = "鸡蛋盒"
+	desc = "用来装鸡蛋的纸盒。"
 	spawn_type = /obj/item/food/egg
 	spawn_count = 12
-	contents_tag = "egg"
+	contents_tag = "鸡蛋"
 	storage_type = /datum/storage/egg_box
 
 /*
@@ -152,8 +152,8 @@
  */
 
 /obj/item/storage/fancy/egg_box/fertile
-	name = "fertile egg box"
-	desc = "Only one thing here is fertile, and it's not the eggs."
+	name = "受精蛋盒"
+	desc = "这里有生育能力的只有一样东西，而且不是鸡蛋。"
 	spawn_type = /obj/item/food/egg/fertile
 	spawn_count = 6
 
@@ -162,8 +162,8 @@
  */
 
 /obj/item/storage/fancy/candle_box
-	name = "candle pack"
-	desc = "A pack of red candles."
+	name = "蜡烛盒"
+	desc = "一盒红蜡烛。"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candlebox5"
 	base_icon_state = "candlebox"
@@ -174,7 +174,7 @@
 	spawn_type = /obj/item/flashlight/flare/candle
 	spawn_count = 5
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
-	contents_tag = "candle"
+	contents_tag = "蜡烛"
 	storage_type = /datum/storage/candle_box
 
 ////////////
@@ -195,7 +195,7 @@
 	spawn_count = 6
 	custom_price = PAYCHECK_CREW
 	age_restricted = TRUE
-	contents_tag = "cigarette"
+	contents_tag = "香烟"
 	storage_type = /datum/storage/cigarette_box
 	drop_sound = SFX_CIG_PACK_DROP
 	pickup_sound = SFX_CIG_PACK_PICKUP
@@ -257,7 +257,7 @@
 	. = ..()
 	if(locate(/obj/item/lighter) in contents)
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove lighter"
-	context[SCREENTIP_CONTEXT_RMB] = "Remove [contents_tag]"
+	context[SCREENTIP_CONTEXT_RMB] = "取出[contents_tag]"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/storage/fancy/cigarettes/examine(mob/user)
@@ -406,7 +406,7 @@
 	desc = "Unsure about smoking? Want to bring your children safely into the family tradition? Look no more with this special packet! Includes 100%* Nicotine-Free candy cigarettes."
 	icon_state = "candy"
 	base_icon_state = "candy"
-	contents_tag = "candy cigarette"
+	contents_tag = "香烟糖"
 	spawn_type = /obj/item/cigarette/candy
 	candy = TRUE
 	age_restricted = FALSE
@@ -479,7 +479,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper_pack"
 	base_icon_state = "cig_paper_pack"
-	contents_tag = "rolling paper"
+	contents_tag = "卷烟纸"
 	spawn_type = /obj/item/rollingpaper
 	spawn_count = 10
 	custom_price = PAYCHECK_LOWER
@@ -511,7 +511,7 @@
 	icon_state = "cigarcase"
 	base_icon_state = "cigarcase"
 	w_class = WEIGHT_CLASS_NORMAL
-	contents_tag = "premium cigar"
+	contents_tag = "高级雪茄"
 	storage_type = /datum/storage/cigar_box
 	spawn_type = /obj/item/cigarette/cigar/premium
 	spawn_count = 5
@@ -568,15 +568,15 @@
  */
 
 /obj/item/storage/fancy/heart_box
-	name = "heart-shaped box"
-	desc = "A heart-shaped box for holding tiny chocolates."
+	name = "心形盒"
+	desc = "用来装小块巧克力的心形盒子。"
 	icon = 'icons/obj/food/containers.dmi'
 	inhand_icon_state = "chocolatebox"
 	icon_state = "chocolatebox"
 	base_icon_state = "chocolatebox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	contents_tag = "chocolate"
+	contents_tag = "巧克力"
 	spawn_type = list(
 		/obj/item/food/bonbon,
 		/obj/item/food/bonbon/chocolate_truffle,
@@ -588,15 +588,15 @@
 	storage_type = /datum/storage/heart_box
 
 /obj/item/storage/fancy/nugget_box
-	name = "nugget box"
-	desc = "A cardboard box used for holding chicken nuggies."
+	name = "鸡块盒"
+	desc = "用来装小鸡块的纸盒。"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "nuggetbox"
 	base_icon_state = "nuggetbox"
 	inhand_icon_state = "nuggetbox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	contents_tag = "nugget"
+	contents_tag = "鸡块"
 	w_class = WEIGHT_CLASS_SMALL
 	spawn_type = /obj/item/food/nugget
 	spawn_count = 7
@@ -609,21 +609,21 @@
 	AddElement(/datum/element/fish_safe_storage)
 
 /obj/item/storage/fancy/nugget_box/red
-	name = "red nugget box"
+	name = "红色鸡块盒"
 	icon_state = "rednuggetbox"
 	base_icon_state = "rednuggetbox"
 	inhand_icon_state = "rednuggetbox"
 
 /obj/item/storage/fancy/wing_box
-	name = "red wing box"
-	desc = "A cardboard box used for holding chicken wangs."
+	name = "红色鸡翅盒"
+	desc = "用来装鸡翅的纸盒。"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "redwingbox5"
 	base_icon_state = "redwingbox"
 	inhand_icon_state = "redwingbox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	contents_tag = "wings"
+	contents_tag = "鸡翅"
 	w_class = WEIGHT_CLASS_SMALL
 	spawn_type = /obj/item/food/fried_chicken
 	spawn_count = 5
@@ -631,15 +631,15 @@
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 
 /obj/item/storage/fancy/fry_box
-	name = "red fry box"
-	desc = "A cardboard box used for holding fries."
+	name = "红色薯条盒"
+	desc = "用来装薯条的纸盒。"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "redfrybox2"
 	base_icon_state = "redfrybox"
 	inhand_icon_state = "redfrybox"
 	lefthand_file = 'icons/mob/inhands/items/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/food_righthand.dmi'
-	contents_tag = "fries"
+	contents_tag = "薯条"
 	w_class = WEIGHT_CLASS_SMALL
 	spawn_type = /obj/item/food/fries
 	spawn_count = 2
@@ -654,11 +654,11 @@
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "pickles"
 	base_icon_state = "pickles"
-	name = "pickles"
-	desc = "A jar for containing pickles."
+	name = "腌黄瓜"
+	desc = "用来装腌黄瓜的罐子。"
 	spawn_type = /obj/item/food/pickle
 	spawn_count = 10
-	contents_tag = "pickle"
+	contents_tag = "腌黄瓜"
 	foldable_result = /obj/item/reagent_containers/cup/beaker/large
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.25)
 	open_status = FANCY_CONTAINER_ALWAYS_OPEN
@@ -683,9 +683,9 @@
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "coffee_condi_display"
 	base_icon_state = "coffee_condi_display"
-	name = "coffee condiments display"
-	desc = "A neat small wooden box, holding all your favorite coffee condiments."
-	contents_tag = "coffee condiment"
+	name = "咖啡调味料展示盒"
+	desc = "一个整洁的小木盒，装着你喜欢的各种咖啡调味料。"
+	contents_tag = "咖啡调味料"
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT/2)
 	resistance_flags = FLAMMABLE
 	foldable_result = /obj/item/stack/sheet/mineral/wood

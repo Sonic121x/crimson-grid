@@ -1,6 +1,6 @@
 /obj/item/coin/iron/obolus
-	name = "obolus"
-	desc = "A grayish and pale blue coin which emits a soft dusk-like light. When you touch it, it appears to groan and wail in sorrow quietly..."
+	name = "冥币"
+	desc = "一枚灰白泛淡蓝的硬币，散发着暮色般柔和的光。触碰它时，似乎能听见低低的痛苦呻吟与悲切哀号……"
 	pickup_sound = 'modular_darkpack/modules/toys/sounds/femurbreaker.ogg'
 
 /obj/item/coin/iron/obolus/Initialize(mapload)

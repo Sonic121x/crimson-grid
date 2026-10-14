@@ -17,13 +17,13 @@
 	))
 
 /obj/item/storage/belt/holster/detective/darkpack // TODO: Get unique sprites for these
-	name = "holster"
-	desc = "a holster for your gun."
+	name = "枪套"
+	desc = "用来收纳枪支的枪套。"
 	storage_type = /datum/storage/holster/darkpack
 	custom_price = 50
 
 /obj/item/storage/belt/holster/detective/darkpack/police
-	desc = "standard issue holster for standard issue sidearms."
+	desc = "用于制式配枪的标准枪套。"
 
 /obj/item/storage/belt/holster/detective/darkpack/police/PopulateContents()
 	new /obj/item/ammo_box/darkpack/c9mm/moonclip(src)
@@ -51,8 +51,8 @@
 	new /obj/item/ammo_box/magazine/glock9mm(src)
 
 /obj/item/storage/belt/security/police
-	name = "duty belt"
-	desc = "A black leather belt for holding patrol gear."
+	name = "执勤腰带"
+	desc = "一条用于携带巡逻装备的黑色皮带。"
 	storage_type = /datum/storage/security_belt/darkpack
 	custom_price = 50
 

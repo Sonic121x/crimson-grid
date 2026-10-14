@@ -6,10 +6,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	"The Rainbow Color" = "rainbow",
 	"The Dealer" = "cards"
 ))
-
+GLOBAL_LIST_INIT(localized_mask_style_names, list("True Form" = "真实形态", "The Coquette" = "娇媚者", "The Madman" = "疯子", "The Rainbow Color" = "彩虹色", "The Dealer" = "发牌者", "Blanc" = "空白", "Excité" = "兴奋", "Triste" = "悲伤", "Effrayé" = "惊恐", "Original Tiki" = "原始提基", "Happy Tiki" = "快乐提基", "Confused Tiki" = "困惑提基", "Angry Tiki" = "愤怒提基"))
 /obj/item/clothing/mask/gas
-	name = "gas mask"
-	desc = "A face-covering mask that can be connected to an air supply. Good for concealing your identity and with a filter slot to help remove those toxins." //More accurate
+	name = "防毒面具"
+	desc = "一副可连接供气设备的覆面面具。适合隐藏身份，并设有滤芯插槽以帮助滤除毒物。" //More accurate
 	icon_state = "gas_alt"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT | MASKINTERNALS
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
@@ -73,19 +73,19 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 
 /obj/item/clothing/mask/gas/adjust_visor(mob/living/user)
 	if(!isnull(cig))
-		balloon_alert(user, "cig in the way!")
+		balloon_alert(user, "香烟挡住了！")
 		return FALSE
 	return ..()
 
 /obj/item/clothing/mask/gas/examine(mob/user)
 	. = ..()
 	if(cig)
-		. += span_notice("There is a [cig.name] jammed into the filter slot.")
+		. += span_notice("滤芯插槽里塞着[cig.name]。")
 	if(max_filters > 0 && !cig)
-		. += span_notice("[src] has [max_filters] slot\s for filters.")
+		. += span_notice("[src]有[max_filters]个滤芯插槽。")
 	if(LAZYLEN(gas_filters) > 0)
-		. += span_notice("Currently there [LAZYLEN(gas_filters) == 1 ? "is" : "are"] [LAZYLEN(gas_filters)] filter\s with [get_filter_durability()]% durability.")
-		. += span_notice("The filters can be removed by right-clicking with an empty hand on [src].")
+		. += span_notice("目前装有[LAZYLEN(gas_filters)]个滤芯，耐久度为[get_filter_durability()]%。")
+		. += span_notice("空手右键点击[src]可取出滤芯。")
 
 /obj/item/clothing/mask/gas/Exited(atom/movable/gone)
 	. = ..()
@@ -100,11 +100,11 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	var/mob/wearer = loc
 	if(istype(tool, /obj/item/cigarette))
 		if(max_filters <= 0 || cig)
-			balloon_alert(user, "can't hold that!")
+			balloon_alert(user, "装不下！")
 			return ..()
 
 		if(has_filter)
-			balloon_alert(user, "filters in the mask!")
+			balloon_alert(user, "面具里已有滤芯！")
 			return ..()
 
 		cig = tool
@@ -180,8 +180,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	return durability
 
 /obj/item/clothing/mask/gas/atmos
-	name = "atmospheric gas mask"
-	desc = "Improved gas mask utilized by atmospheric technicians. It's flameproof!"
+	name = "大气技术员防毒面具"
+	desc = "大气技术员使用的改良防毒面具。它能防火！"
 	icon_state = "gas_atmos"
 	inhand_icon_state = "gas_atmos"
 	armor_type = /datum/armor/gas_atmos
@@ -197,15 +197,15 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	starting_filter_type = /obj/item/gas_filter/plasmaman
 
 /obj/item/clothing/mask/gas/atmos/captain
-	name = "captain's gas mask"
-	desc = "Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone."
+	name = "站长防毒面具"
+	desc = "纳诺传讯为了省钱，把一副备用的大气技术员防毒面具重新刷了漆。可别告诉别人。"
 	icon_state = "gas_cap"
 	inhand_icon_state = "gasmask_captain"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/mask/gas/atmos/centcom
-	name = "\improper CentCom gas mask"
-	desc = "Oooh, gold and green. Fancy! This should help as you sit in your office."
+	name = "\improper 中央指挥部防毒面具"
+	desc = "哦，金绿配色，真气派！你坐办公室时应该能用得上。"
 	icon = 'icons/obj/clothing/masks.dmi'
 	worn_icon = 'icons/mob/clothing/mask.dmi'
 	worn_icon_state = "gas_centcom"
@@ -216,14 +216,14 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 // **** Welding gas mask ****
 
 /obj/item/clothing/mask/gas/welding
-	name = "welding mask"
-	desc = "A gas mask with built-in welding goggles and a face shield. Looks like a skull - clearly designed by a nerd."
+	name = "焊接面具"
+	desc = "内置焊接护目镜和面罩的防毒面具。外形像个骷髅，显然出自某个宅男之手。"
 	icon_state = "weldingmask"
 	flash_protect = FLASH_PROTECTION_WELDER
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.4, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	tint = 2
-	toggle_message = "You pull the visor down."
-	alt_toggle_message = "You push the visor up."
+	toggle_message = "你放下了面罩。"
+	alt_toggle_message = "你抬起了面罩。"
 	armor_type = /datum/armor/gas_welding
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDESNOUT
@@ -268,8 +268,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
-	name = "plague doctor mask"
-	desc = "A modernised version of the classic design, this mask will not only protect you from exposure to the Pestilence but it can also be connected to an air supply."
+	name = "瘟疫医生面具"
+	desc = "经典设计的现代化版本，不仅能保护你免受瘟疫侵袭，还能连接供气设备。"
 	icon_state = "plaguedoctor"
 	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	inhand_icon_state = "gas_mask"
@@ -277,8 +277,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	dirt_state = "plague_dirt"
 
 /obj/item/clothing/mask/gas/syndicate
-	name = "syndicate mask"
-	desc = "A close-fitting tactical mask that can be connected to an air supply."
+	name = "辛迪加面具"
+	desc = "一副贴合面部的战术面具，可连接供气设备。"
 	icon_state = "syndicate"
 	inhand_icon_state = "syndicate_gasmask"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -291,8 +291,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	starting_filter_type = /obj/item/gas_filter/plasmaman
 
 /obj/item/clothing/mask/gas/syndicate/cybersun
-	name = "\improper Cybersun mask"
-	desc = "It's really more about making a statement than protecting you from environmental hazards."
+	name = "\improper 赛博太阳面具"
+	desc = "比起抵御环境危害，它更注重彰显态度。"
 	icon_state = "cybersun"
 	flags_cover = MASKCOVERSMOUTH
 	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
@@ -301,8 +301,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	alternate_worn_layer = BENEATH_HAIR_LAYER
 
 /obj/item/clothing/mask/gas/clown_hat
-	name = "clown wig and mask"
-	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask."
+	name = "小丑假发与面具"
+	desc = "真正恶作剧大师的面部行头。没有假发和面具的小丑是不完整的。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "clown"
 	inhand_icon_state = "clown_hat"
@@ -325,11 +325,11 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
 	.=..()
 	clownmask_designs = list(
-		"True Form" = image(icon = src.icon, icon_state = "clown"),
-		"The Coquette" = image(icon = src.icon, icon_state = "sexyclown"),
-		"The Madman" = image(icon = src.icon, icon_state = "joker"),
-		"The Rainbow Color" = image(icon = src.icon, icon_state = "rainbow"),
-		"The Dealer" = image(icon = src.icon, icon_state = "cards"),
+		"True Form" = localized_radial_choice(image(icon = src.icon, icon_state = "clown"), GLOB.localized_mask_style_names["True Form"]),
+		"The Coquette" = localized_radial_choice(image(icon = src.icon, icon_state = "sexyclown"), GLOB.localized_mask_style_names["The Coquette"]),
+		"The Madman" = localized_radial_choice(image(icon = src.icon, icon_state = "joker"), GLOB.localized_mask_style_names["The Madman"]),
+		"The Rainbow Color" = localized_radial_choice(image(icon = src.icon, icon_state = "rainbow"), GLOB.localized_mask_style_names["The Rainbow Color"]),
+		"The Dealer" = localized_radial_choice(image(icon = src.icon, icon_state = "cards"), GLOB.localized_mask_style_names["The Dealer"]),
 		)
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0)
 
@@ -346,19 +346,19 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		icon_state = options[choice]
 		user.update_worn_mask()
 		update_item_action_buttons()
-		to_chat(user, span_notice("Your Clown Mask has now morphed into [choice], all praise the Honkmother!"))
+		to_chat(user, span_notice("你的小丑面具已变成‘[GLOB.localized_mask_style_names[choice] || choice]’款式，赞美滑稽之母！"))
 		return TRUE
 
 /obj/item/clothing/mask/gas/clown_hat/clownops
-	name = "tactical clown wig and mask"
-	desc = "A tactical twist on a troubadour's tradition."
+	name = "战术小丑假发与面具"
+	desc = "为游吟艺人的传统行头增添战术风格。"
 	flash_protect = FLASH_PROTECTION_FLASH
 	resistance_flags = FIRE_PROOF
 	flags_cover = MASKCOVERSEYES | PEPPERPROOF
 
 /obj/item/clothing/mask/gas/sexyclown
-	name = "sexy-clown wig and mask"
-	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
+	name = "性感小丑假发与面具"
+	desc = "一副女式小丑面具，供尝试异装的人或女性艺人使用。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "sexyclown"
 	inhand_icon_state = "sexyclown_hat"
@@ -369,8 +369,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = 0
 
 /obj/item/clothing/mask/gas/jonkler
-	name = "gamer's wig and mask"
-	desc = "But I am a gamer, and no man; A reproach of men, and despised by the people."
+	name = "玩家假发与面具"
+	desc = "但我是个玩家，不算是人；受世人羞辱，被众人鄙弃。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "jonkler"
 	inhand_icon_state = null
@@ -378,8 +378,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/mask/gas/mime
-	name = "mime mask"
-	desc = "The traditional mime's mask. It has an eerie facial posture."
+	name = "默剧面具"
+	desc = "传统的默剧面具，表情诡异。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "mime"
 	inhand_icon_state = null
@@ -397,10 +397,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
 	.=..()
 	mimemask_designs = list(
-		"Blanc" = image(icon = src.icon, icon_state = "mime"),
-		"Excité" = image(icon = src.icon, icon_state = "sexymime"),
-		"Triste" = image(icon = src.icon, icon_state = "sadmime"),
-		"Effrayé" = image(icon = src.icon, icon_state = "scaredmime")
+		"Blanc" = localized_radial_choice(image(icon = src.icon, icon_state = "mime"), GLOB.localized_mask_style_names["Blanc"]),
+		"Excité" = localized_radial_choice(image(icon = src.icon, icon_state = "sexymime"), GLOB.localized_mask_style_names["Excité"]),
+		"Triste" = localized_radial_choice(image(icon = src.icon, icon_state = "sadmime"), GLOB.localized_mask_style_names["Triste"]),
+		"Effrayé" = localized_radial_choice(image(icon = src.icon, icon_state = "scaredmime"), GLOB.localized_mask_style_names["Effrayé"])
 		)
 
 /obj/item/clothing/mask/gas/mime/ui_action_click(mob/user)
@@ -421,12 +421,12 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		icon_state = options[choice]
 		user.update_worn_mask()
 		update_item_action_buttons()
-		to_chat(user, span_notice("Your Mime Mask has now morphed into [choice]!"))
+		to_chat(user, span_notice("你的默剧面具已变成‘[GLOB.localized_mask_style_names[choice] || choice]’款式！"))
 		return TRUE
 
 /obj/item/clothing/mask/gas/monkeymask
-	name = "monkey mask"
-	desc = "A mask used when acting as a monkey."
+	name = "猴子面具"
+	desc = "扮演猴子时使用的面具。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "monkeymask"
 	inhand_icon_state = "owl_mask"
@@ -438,8 +438,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	)
 
 /obj/item/clothing/mask/gas/sexymime
-	name = "sexy mime mask"
-	desc = "A traditional female mime's mask."
+	name = "性感默剧面具"
+	desc = "传统的女式默剧面具。"
 	clothing_flags = MASKINTERNALS
 	icon_state = "sexymime"
 	inhand_icon_state = null
@@ -449,16 +449,16 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = 0
 
 /obj/item/clothing/mask/gas/cyborg
-	name = "cyborg visor"
-	desc = "Beep boop."
+	name = "半机械人面罩"
+	desc = "哔啵。"
 	icon_state = "death"
 	resistance_flags = FLAMMABLE
 	flags_cover = MASKCOVERSEYES
 	fishing_modifier = 0
 
 /obj/item/clothing/mask/gas/owl_mask
-	name = "owl mask"
-	desc = "Twoooo!"
+	name = "猫头鹰面具"
+	desc = "咕呜——！"
 	icon_state = "owl"
 	inhand_icon_state = "owl_mask"
 	clothing_flags = MASKINTERNALS
@@ -467,8 +467,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = -2
 
 /obj/item/clothing/mask/gas/carp
-	name = "carp mask"
-	desc = "Gnash gnash."
+	name = "鲤鱼面具"
+	desc = "咔嚓咔嚓。"
 	icon_state = "carp_mask"
 	inhand_icon_state = null
 	flags_cover = MASKCOVERSEYES
@@ -476,8 +476,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = -4
 
 /obj/item/clothing/mask/gas/tiki_mask
-	name = "tiki mask"
-	desc = "A creepy wooden mask. Surprisingly expressive for a poorly carved bit of wood."
+	name = "提基面具"
+	desc = "一个阴森的木制面具。虽然只是块粗糙的木雕，表情却出奇地生动。"
 	icon_state = "tiki_eyebrow"
 	inhand_icon_state = null
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
@@ -492,10 +492,10 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 /obj/item/clothing/mask/gas/tiki_mask/Initialize(mapload)
 	.=..()
 	tikimask_designs = list(
-		"Original Tiki" = image(icon = src.icon, icon_state = "tiki_eyebrow"),
-		"Happy Tiki" = image(icon = src.icon, icon_state = "tiki_happy"),
-		"Confused Tiki" = image(icon = src.icon, icon_state = "tiki_confused"),
-		"Angry Tiki" = image(icon = src.icon, icon_state = "tiki_angry")
+		"Original Tiki" = localized_radial_choice(image(icon = src.icon, icon_state = "tiki_eyebrow"), GLOB.localized_mask_style_names["Original Tiki"]),
+		"Happy Tiki" = localized_radial_choice(image(icon = src.icon, icon_state = "tiki_happy"), GLOB.localized_mask_style_names["Happy Tiki"]),
+		"Confused Tiki" = localized_radial_choice(image(icon = src.icon, icon_state = "tiki_confused"), GLOB.localized_mask_style_names["Confused Tiki"]),
+		"Angry Tiki" = localized_radial_choice(image(icon = src.icon, icon_state = "tiki_angry"), GLOB.localized_mask_style_names["Angry Tiki"])
 		)
 
 /obj/item/clothing/mask/gas/tiki_mask/ui_action_click(mob/user)
@@ -514,7 +514,7 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 		icon_state = options[choice]
 		user.update_worn_mask()
 		update_item_action_buttons()
-		to_chat(M, span_notice("The Tiki Mask has now changed into the [choice] Mask!"))
+		to_chat(M, span_notice("提基面具已变成‘[GLOB.localized_mask_style_names[choice] || choice]’款式！"))
 		return 1
 
 /obj/item/clothing/mask/gas/tiki_mask/yalp_elor
@@ -522,8 +522,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	actions_types = list()
 
 /obj/item/clothing/mask/gas/hunter
-	name = "bounty hunting mask"
-	desc = "A custom tactical mask with decals added."
+	name = "赏金猎人面具"
+	desc = "一副贴有装饰贴花的定制战术面具。"
 	icon_state = "hunter"
 	inhand_icon_state = "gas_atmos"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -532,8 +532,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	dirt_state = null
 
 /obj/item/clothing/mask/gas/prop
-	name = "prop gas mask"
-	desc = "A prop gas mask designed for appearance. Unlike a normal gas mask this does not filter gasses or protect against pepper spray."
+	name = "道具防毒面具"
+	desc = "一副只作装饰用的道具防毒面具。它无法像普通防毒面具那样过滤气体或抵御辣椒喷雾。"
 	icon_state = "gas_prop"
 	inhand_icon_state = "gas_prop"
 	clothing_flags = NONE
@@ -542,8 +542,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = 0
 
 /obj/item/clothing/mask/gas/atmosprop
-	name = "prop atmospheric gas mask"
-	desc = "A prop atmospheric gas mask designed for appearance. Unlike a normal atmospheric gas mask this does not filter gasses or protect against pepper spray."
+	name = "道具大气技术员防毒面具"
+	desc = "一副只作装饰用的大气技术员防毒面具。它无法像普通版本那样过滤气体或抵御辣椒喷雾。"
 	worn_icon_state = "gas_prop_atmos"
 	icon_state = "gas_atmos"
 	inhand_icon_state = "gas_atmos"
@@ -553,8 +553,8 @@ GLOBAL_LIST_INIT(clown_mask_options, list(
 	fishing_modifier = 0
 
 /obj/item/clothing/mask/gas/driscoll
-	name = "driscoll mask"
-	desc = "Great for train hijackings. Works like a normal full face gas mask, but won't conceal your identity."
+	name = "德里斯科尔面具"
+	desc = "劫持火车的好帮手。功能与普通全面罩式防毒面具相同，但无法隐藏你的身份。"
 	icon_state = "driscoll_mask"
 	flags_inv = HIDEFACIALHAIR
 	flags_cover = MASKCOVERSMOUTH

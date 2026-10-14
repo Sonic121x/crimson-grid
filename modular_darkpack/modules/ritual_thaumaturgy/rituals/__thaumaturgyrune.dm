@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy
-	name = "tremere rune"
-	desc = "Learn the secrets of blood, neonate..."
+	name = "睿魔尔符文"
+	desc = "领悟鲜血的奥秘吧，新血……"
 	color = rgb(128, 0, 0)
 	word = "IDI NAH"
 	required_discipline = /datum/discipline/thaumaturgy

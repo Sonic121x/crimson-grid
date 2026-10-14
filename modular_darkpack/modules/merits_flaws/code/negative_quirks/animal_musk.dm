@@ -2,7 +2,7 @@
 /datum/quirk/darkpack/animal_musk
 	name = "Animal Musk"
 	// A little unsure who to do the logic on the social roll rn.
-	desc = {"You have the odor of an animal, even in Homid form."}
+	desc = {"即使处于人类形态，你身上也带着兽类的气味。"}
 	/*
 	desc = {"You have the odor of an animal, even in Homid form.
 		Whenever you are indoors or in a crowd of people, you make all Social rolls at a +2 difficulty.

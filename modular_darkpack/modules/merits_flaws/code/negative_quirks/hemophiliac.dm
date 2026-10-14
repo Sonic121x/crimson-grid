@@ -1,13 +1,13 @@
 // VTM Ghouls and Revenants pg. 136
 /datum/quirk/darkpack/hemophiliac
 	name = "Hemophiliac"
-	desc = {"Your character suffers from hemophilia.
-If your skin is cut, you will not stop bleeding without medical assistance."}
+	desc = {"你患有血友病。
+皮肤一旦被割破，没有医疗救助就无法止血。"}
 	icon = FA_ICON_DROPLET
 	value = -3
-	gain_text = span_notice("You feel like bleeding is a lot more dangerous.")
-	lose_text = span_notice("You feel like bleeding's a lot safer now. Whew!")
-	failure_message = span_notice("You feel like bleeding's a lot safer now. Whew!")
+	gain_text = span_notice("你觉得流血变得危险多了。")
+	lose_text = span_notice("你觉得流血没那么危险了。呼！")
+	failure_message = span_notice("你觉得流血没那么危险了。呼！")
 	forbidden_splats = list(SPLAT_KINDRED, SPLAT_SHIFTERS) // Kinfolk, humans, and ghouls can take this. Debate adding Garou/Corax to it?
 
 /*Your character suffers from hemophilia. If your ghoul’s

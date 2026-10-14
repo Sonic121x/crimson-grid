@@ -1,8 +1,8 @@
 //parent rune type for thaumaturgy, necromancy, obtenebration
 /obj/ritual_rune
 	abstract_type = /obj/ritual_rune
-	name = "ritual rune"
-	desc = "A mystical rune."
+	name = "仪式符文"
+	desc = "一道神秘的符文。"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "rune1"
 	anchored = TRUE
@@ -25,14 +25,14 @@
 	var/last_sucess_amount = 0
 
 /datum/storyteller_roll/ritual_roll
-	bumper_text = "ritual"
+	bumper_text = "仪式"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_OCCULT)
 	numerical = TRUE
 
 /obj/ritual_rune/Initialize(mapload)
 	. = ..()
 	ritual_name = name
-	name = "[name] rune"
+	name = "[name]符文"
 
 /obj/ritual_rune/click_alt(mob/user)
 	qdel(src)
@@ -117,5 +117,5 @@
 			qdel(I)
 		return TRUE
 	else
-		to_chat(user, span_warning("You lack the necessary sacrifices to complete the ritual. Found [found_items.len], required [sacrifices.len]."))
+		to_chat(user, span_warning("你缺少完成仪式所需的祭品。已找到[found_items.len]份，需要[sacrifices.len]份。"))
 		return FALSE

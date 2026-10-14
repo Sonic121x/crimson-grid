@@ -17,9 +17,9 @@
 	limb_id = ZULO_DEFAULT_LIMB_ID
 	icon_greyscale = 'modular_darkpack/modules/powers/icons/zulo_bodyparts.dmi'
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("slash", "tear","gash","cut")
-	unarmed_attack_verbs_continuous = list("slashes", "tears","gashes","cuts")
-	appendage_noun = "claw"
+	unarmed_attack_verbs = list("挥砍", "撕扯","撕裂","割伤")
+	unarmed_attack_verbs_continuous = list("挥砍", "撕扯","撕裂","割伤")
+	appendage_noun = "利爪"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/items/weapons/slash.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -30,9 +30,9 @@
 	limb_id = ZULO_DEFAULT_LIMB_ID
 	icon_greyscale = 'modular_darkpack/modules/powers/icons/zulo_bodyparts.dmi'
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("slash", "tear","gash","cut")
-	unarmed_attack_verbs_continuous = list("slashes", "tears","gashes","cuts")
-	appendage_noun = "claw"
+	unarmed_attack_verbs = list("挥砍", "撕扯","撕裂","割伤")
+	unarmed_attack_verbs_continuous = list("挥砍", "撕扯","撕裂","割伤")
+	appendage_noun = "利爪"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/items/weapons/slash.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'

@@ -103,8 +103,8 @@
 
 // Fries
 /obj/item/food/fries
-	name = "french fries" // DARKPACK EDIT CHANGE
-	desc = "AKA: Freedom Fries, etc." // DARKPACK EDIT CHANGE
+	name = "薯条" // DARKPACK EDIT CHANGE
+	desc = "又名：自由薯条，等等。" // DARKPACK EDIT CHANGE
 	icon_state = "fries"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("fries" = 3, "salt" = 1)
@@ -119,8 +119,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/cheesyfries
-	name = "cheesy fries"
-	desc = "Fries. Covered in cheese. Duh."
+	name = "奶酪薯条"
+	desc = "薯条，上面盖着奶酪。还用问吗。"
 	icon_state = "cheesyfries"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -138,8 +138,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/carrotfries
-	name = "carrot fries"
-	desc = "Tasty fries from fresh carrots."
+	name = "炸胡萝卜条"
+	desc = "用新鲜胡萝卜炸成的美味脆条。"
 	icon_state = "carrotfries"
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)

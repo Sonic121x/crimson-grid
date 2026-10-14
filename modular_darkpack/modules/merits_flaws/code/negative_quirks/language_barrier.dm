@@ -1,8 +1,8 @@
 /datum/quirk/csl/language_barrier
 	name = "Language Barrier"
-	desc = {"Your character cannot speak English.
-In order to communicate with locals, your character must
-find a translator or rely on written word."}
+	desc = {"你不会说英语。
+若要与当地人交流，你必须
+寻找翻译，或依靠文字沟通。"}
 	value = -2
 	darkpack_allowed = TRUE
 	ttrpg_sources = list(/datum/source_book/htr3/pg = 121)

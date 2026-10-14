@@ -1,8 +1,8 @@
 /datum/quirk/darkpack/wolf_sight
 	name = "Wolf Sight"
-	desc = {"In all your forms, you see colors and intensities of light as a wolf does.
-		Your color vision is slightly less distinct than that of humans, though you embrace the full spectrum of colors.
-		Your night vision, however, far surpasses human nocturnal vision."}
+	desc = {"无论身处何种形态，你都像狼一样感知色彩和光线强弱。
+		虽然你能看见完整的色谱，分辨颜色的能力却略逊于人类。
+		不过，你的夜视能力远远超出人类。"}
 		// Perception is not real yet.
 		// You also notice movement more readily. You gain an extra die to all visually-based Perception rolls that involve movement or take place at night."}
 	ttrpg_sources = list(/datum/source_book/wta20 = 472)

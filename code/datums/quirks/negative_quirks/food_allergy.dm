@@ -41,8 +41,8 @@ GLOBAL_LIST_INIT(possible_food_allergies, list(
 	target_foodtypes = pick(assoc_to_values(GLOB.possible_food_allergies))
 
 /datum/quirk/item_quirk/food_allergic/add_unique(client/client_source)
-	var/what_are_we_actually_killed_by = english_list(bitfield_to_list(target_foodtypes, FOOD_FLAGS_IC)) // This should never be more than one thing but just in case we can support it
-	to_chat(client_source.mob, span_info("You are allergic to [what_are_we_actually_killed_by]. Watch what you eat!"))
+	var/what_are_we_actually_killed_by = english_list(bitfield_to_list(target_foodtypes, FOOD_FLAGS_IC), "无", "和", "、") // This should never be more than one thing but just in case we can support it
+	to_chat(client_source.mob, span_info("你对[what_are_we_actually_killed_by]过敏。注意饮食！"))
 
 	var/obj/item/clothing/accessory/dogtag/allergy/dogtag = new(quirk_holder, what_are_we_actually_killed_by)
-	give_item_to_holder(dogtag, list(LOCATION_BACKPACK, LOCATION_HANDS), flavour_text = "Keep it close around the kitchen.", notify_player = TRUE)
+	give_item_to_holder(dogtag, list(LOCATION_BACKPACK, LOCATION_HANDS), flavour_text = "进厨房时记得随身带着它。", notify_player = TRUE)

@@ -1,5 +1,5 @@
 /datum/loadout_category/suits
-	category_name = "Suits"
+	category_name = "外套"
 	category_ui_icon = FA_ICON_USER_SECRET
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 3
@@ -28,7 +28,7 @@
 	outfit.suit = item_path
 
 /datum/loadout_item/suit/overall
-	name = "Overall"
+	name = "工装背带裤"
 	item_path = /obj/item/clothing/suit/apron/overalls
 	loadout_flags = LOADOUT_FLAG_JOB_GREYSCALING
 	job_greyscale_palettes = list(
@@ -42,15 +42,15 @@
 	)
 
 /datum/loadout_item/suit/hoodie_pullover
-	name = "Pullover"
+	name = "套头衫"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/pullover
 
 /datum/loadout_item/suit/hoodie_zipup
-	name = "Zipup"
+	name = "拉链衫"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/zipup
 
 /datum/loadout_item/suit/wintercoat
-	name = "Winter Coat (Departmental)"
+	name = "冬季大衣（部门款）"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat
 
 /datum/loadout_item/suit/wintercoat/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)

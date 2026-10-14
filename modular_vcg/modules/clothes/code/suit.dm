@@ -6,42 +6,42 @@
 	AddComponent(/datum/component/toggle_icon, toggle_noun)
 
 /obj/item/clothing/suit/vampire/toggled/bomber_jacket
-	name = "bomber jacket"
-	desc = "A bomber jacket."
+	name = "飞行夹克"
+	desc = "一件飞行夹克。"
 	icon = 'modular_vcg/modules/clothes/icons/clothing.dmi'
 	worn_icon = 'modular_vcg/modules/clothes/icons/worn.dmi'
 	icon_state = "fur1"
 	ONFLOOR_ICON_HELPER('modular_vcg/modules/clothes/icons/clothing_onfloor.dmi')
 
 /obj/item/clothing/suit/vampire/toggled/bomber_jacket/inverted
-	name = "bomber jacket"
-	desc = "A fancy bomber jacket."
+	name = "飞行夹克"
+	desc = "一件华丽的飞行夹克。"
 	icon_state = "fur2"
 
 /obj/item/clothing/suit/vampire/toggled/plain_jacket
-	name = "plain brown jacket"
-	desc = "A plain brown jacket."
+	name = "朴素棕色夹克"
+	desc = "一件朴素的棕色夹克。"
 	icon = 'modular_vcg/modules/clothes/icons/clothing.dmi'
 	worn_icon = 'modular_vcg/modules/clothes/icons/worn.dmi'
 	icon_state = "plain1"
 	ONFLOOR_ICON_HELPER('modular_vcg/modules/clothes/icons/clothing_onfloor.dmi')
 
 /obj/item/clothing/suit/vampire/toggled/plain_jacket/black
-	name = "plain black jacket"
-	desc = "A plain black jacket."
+	name = "朴素黑色夹克"
+	desc = "一件朴素的黑色夹克。"
 	icon_state = "plain2"
 
 /obj/item/clothing/suit/vampire/toggled/military_jacket
-	name = "military jacket"
-	desc = "A military jacket."
+	name = "军用夹克"
+	desc = "一件军用夹克。"
 	icon = 'modular_vcg/modules/clothes/icons/clothing.dmi'
 	worn_icon = 'modular_vcg/modules/clothes/icons/worn.dmi'
 	icon_state = "m65"
 	ONFLOOR_ICON_HELPER('modular_vcg/modules/clothes/icons/clothing_onfloor.dmi')
 
 /obj/item/clothing/suit/vampire/racing_jacket
-	name = "Black and Yellow racing jacket"
-	desc = "A black and yellow japanese racing jacket."
+	name = "黑黄赛车夹克"
+	desc = "一件黑黄双色的日式赛车夹克。"
 	icon = 'modular_vcg/modules/clothes/icons/clothing.dmi'
 	worn_icon = 'modular_vcg/modules/clothes/icons/worn.dmi'
 	icon_state = "blackyellow_racejacket"
@@ -59,26 +59,26 @@
 	wound = 35
 
 /obj/item/clothing/suit/vampire/racing_jacket/blackblue
-	name = "Black and Blue racing jacket"
-	desc = "A black and blue japanese racing jacket."
+	name = "黑蓝赛车夹克"
+	desc = "一件黑蓝双色的日式赛车夹克。"
 	icon_state = "blackblue_racejacket"
 
 /obj/item/clothing/suit/vampire/racing_jacket/whitered
-	name = "White and Red racing jacket"
-	desc = "A white and red japanese racing jacket."
+	name = "白红赛车夹克"
+	desc = "一件白红双色的日式赛车夹克。"
 	icon_state = "whitered_racejacket"
 
 /obj/item/clothing/suit/vampire/racing_jacket/whiteyellow
-	name = "White and Yellow racing jacket"
-	desc = "A white and yellow japanese racing jacket."
+	name = "白黄赛车夹克"
+	desc = "一件白黄双色的日式赛车夹克。"
 	icon_state = "whiteyellow_racejacket"
 
 /obj/item/clothing/suit/vampire/racing_jacket/bluewhite
-	name = "Blue and White racing jacket"
-	desc = "A blue and white japanese racing jacket."
+	name = "蓝白赛车夹克"
+	desc = "一件蓝白双色的日式赛车夹克。"
 	icon_state = "bluewhite_racejacket"
 
 /obj/item/clothing/suit/vampire/racing_jacket/redwhite
-	name = "Red and White racing jacket"
-	desc = "A red and white japanese racing jacket."
+	name = "红白赛车夹克"
+	desc = "一件红白双色的日式赛车夹克。"
 	icon_state = "redwhite_racejacket"

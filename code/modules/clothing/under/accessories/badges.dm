@@ -161,15 +161,15 @@
 		examine_list += "A dogtag is attached to [source]: [display]"
 
 /obj/item/clothing/accessory/dogtag/allergy
-	name = "Allergy dogtag"
-	desc = "A dogtag with a listing of allergies."
+	name = "过敏信息牌"
+	desc = "一块列明过敏原的身份牌。"
 
 /obj/item/clothing/accessory/dogtag/allergy/Initialize(mapload, allergy_string)
 	. = ..()
 	if(allergy_string)
-		display = span_notice("The dogtag has a listing of allergies: [allergy_string]")
+		display = span_notice("身份牌上列出的过敏原：[allergy_string]")
 	else
-		display = span_notice("The dogtag is all scratched up.")
+		display = span_notice("身份牌上满是划痕。")
 
 /obj/item/clothing/accessory/dogtag/borg_ready
 	name = "Pre-Approved Cyborg Candidate dogtag"

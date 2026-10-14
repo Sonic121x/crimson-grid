@@ -1,6 +1,6 @@
 /obj/ritual_rune/abyss
-	name = "abyss rune"
-	desc = "Learn the secrets of the Abyss, neonate..."
+	name = "深渊符文"
+	desc = "领悟深渊的奥秘吧，新血……"
 	color = rgb(0, 0, 0)
 	word = "IDI NAH"
 	required_discipline = /datum/discipline/obtenebration

@@ -161,7 +161,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
                 }}
               >
                 <Stack.Item grow basis="content">
-                  <b>{name}</b>
+                  <b>{quirk.display_name || name}</b>
                 </Stack.Item>
 
                 <Stack.Item>
@@ -269,7 +269,7 @@ function QuirkPopper(props: QuirkPopperProps) {
           <Button
             selected={customizationExpanded}
             icon="cog"
-            tooltip="Customize"
+            tooltip="自定义"
             style={{
               float: 'right',
             }}
@@ -327,7 +327,7 @@ function QuirkPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const server_data = useServerPrefs();
   if (!server_data) return;
-  const quirkSearch = createSearch(searchQuery, (quirk: Quirk) => quirk.name);
+  const quirkSearch = createSearch(searchQuery, (quirk: Quirk) => `${quirk.display_name || quirk.name} ${quirk.name}`);
   const {
     max_positive_quirks: maxPositiveQuirks,
     quirk_blacklist: quirkBlacklist,
@@ -390,7 +390,7 @@ function QuirkPage() {
           incompatibleQuirk !== quirk.name &&
           selectedQuirkNames.indexOf(incompatibleQuirk) !== -1
         ) {
-          return `这与${incompatibleQuirk}不兼容！`;
+          return `这与${Object.values(quirkInfo).find((entry) => entry.name === incompatibleQuirk)?.display_name || incompatibleQuirk}不兼容！`;
         }
       }
     }

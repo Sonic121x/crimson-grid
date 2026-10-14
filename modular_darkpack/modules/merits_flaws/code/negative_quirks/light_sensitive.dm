@@ -1,8 +1,8 @@
 // VTM pg. 495
 /datum/quirk/darkpack/light_sensitive
 	name = "Light Sensitive"
-	desc = {"You're more sensitive to the sun than others.
-Sunlight deals double damage to you."}
+	desc = {"你比其他人更惧怕阳光。
+阳光会对你造成双倍伤害。"}
 	icon = FA_ICON_SUN
 	value = -1 // A lot less awful than in the ttrpg
 	mob_trait = TRAIT_LIGHT_WEAKNESS

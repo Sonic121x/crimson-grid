@@ -1,5 +1,5 @@
 /datum/loadout_category/uniform
-	category_name = "Uniform"
+	category_name = "内搭"
 	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/uniform
 	tab_order = /datum/loadout_category/head::tab_order + 9
@@ -17,63 +17,63 @@
 	abstract_type = /datum/loadout_item/uniform/suit
 
 /datum/loadout_item/uniform/suit/fancy_gray
-	name = "Suit (Luxury, Red)"
+	name = "西装（奢华，红色）"
 	item_path = /obj/item/clothing/under/vampire/fancy_gray
 
 /datum/loadout_item/uniform/suit/fancy_red
-	name = "Suit (Luxury, Gray)"
+	name = "西装（奢华，灰色）"
 	item_path = /obj/item/clothing/under/vampire/fancy_red
 
 /datum/loadout_item/uniform/suit/fancy_black
-	name = "Suit (Luxury, Black)"
+	name = "西装（奢华，黑色）"
 	item_path = /obj/item/clothing/under/vampire/ventrue
 
 /datum/loadout_item/uniform/suit/fancy_black_skirt
-	name = "Dress (Luxury, Black)"
+	name = "连衣裙（奢华，黑色）"
 	item_path = /obj/item/clothing/under/vampire/ventrue/female
 
 /datum/loadout_item/uniform/suit/formal_white
-	name = "Suit (White)"
+	name = "西装（白色）"
 	item_path = /obj/item/clothing/under/vampire/office
 
 /datum/loadout_item/uniform/suit/plain_black
-	name = "Suit (Plain, Black)"
+	name = "西装（朴素，黑色）"
 	item_path = /obj/item/clothing/under/vampire/suit
 
 /datum/loadout_item/uniform/suit/plain_black_skirt
-	name = "Suit (Plain, Skirt, Black)"
+	name = "西装（朴素，裙装，黑色）"
 	item_path = /obj/item/clothing/under/vampire/suit/female
 
 /datum/loadout_item/uniform/suit/plain_red
-	name = "Suit (Plain, Red)"
+	name = "西装（朴素，红色）"
 	item_path = /obj/item/clothing/under/vampire/sheriff
 
 /datum/loadout_item/uniform/suit/plain_red_skirt
-	name = "Suit (Plain, Skirt, Red)"
+	name = "西装（朴素，裙装，红色）"
 	item_path = /obj/item/clothing/under/vampire/sheriff/female
 
 /datum/loadout_item/uniform/suit/plain_blue
-	name = "Suit (Blue)"
+	name = "西装（蓝色）"
 	item_path = /obj/item/clothing/under/vampire/clerk
 
 /datum/loadout_item/uniform/suit/plain_blue_skirt
-	name = "Suit (Skirt, Blue)"
+	name = "西装（裙装，蓝色）"
 	item_path = /obj/item/clothing/under/vampire/clerk/female
 
 /datum/loadout_item/uniform/suit/plain_brown
-	name = "Suit (Brown)"
+	name = "西装（棕色）"
 	item_path = /obj/item/clothing/under/vampire/archivist
 
 /datum/loadout_item/uniform/suit/plain_brown_skirt
-	name = "Suit (Skirt, Brown)"
+	name = "西装（裙装，棕色）"
 	item_path = /obj/item/clothing/under/vampire/archivist/female
 
 /datum/loadout_item/uniform/suit/prince
-	name = "Suit (Princely)"
+	name = "西装（亲王款）"
 	item_path = /obj/item/clothing/under/vampire/prince
 
 /datum/loadout_item/uniform/suit/prince_skirt
-	name = "Suit (Princely, Skirt)"
+	name = "西装（亲王款，裙装）"
 	item_path = /obj/item/clothing/under/vampire/prince/female
 
 // Skirts
@@ -81,7 +81,7 @@
 	abstract_type = /datum/loadout_item/uniform/skirt
 
 /datum/loadout_item/uniform/skirt/pentagram
-	name = "Pentagram Shirt (Skirt)"
+	name = "五芒星衬衫（配裙）"
 	item_path = /obj/item/clothing/under/vampire/baali/female
 
 // Turtleneck
@@ -89,19 +89,19 @@
 	abstract_type = /datum/loadout_item/uniform/turtleneck
 
 /datum/loadout_item/uniform/turtleneck/black
-	name = "Turtleneck (Black)"
+	name = "高领衫（黑色）"
 	item_path = /obj/item/clothing/under/vampire/turtleneck_black
 
 /datum/loadout_item/uniform/turtleneck/navy
-	name = "Turtleneck (Navy)"
+	name = "高领衫（藏蓝色）"
 	item_path = /obj/item/clothing/under/vampire/turtleneck_navy
 
 /datum/loadout_item/uniform/turtleneck/red
-	name = "Turtleneck (Red)"
+	name = "高领衫（红色）"
 	item_path = /obj/item/clothing/under/vampire/turtleneck_red
 
 /datum/loadout_item/uniform/turtleneck/white
-	name = "Turtleneck (White)"
+	name = "高领衫（白色）"
 	item_path = /obj/item/clothing/under/vampire/turtleneck_white
 
 // Pants
@@ -109,83 +109,83 @@
 	abstract_type = /datum/loadout_item/uniform/pants
 
 /datum/loadout_item/uniform/pants/leather
-	name = "Pants (Leather)"
+	name = "皮裤"
 	item_path = /obj/item/clothing/under/vampire/leatherpants
 
 // Bloodlines clan outfits
 /datum/loadout_item/uniform/flamboyant
-	name = "Dress Shirt (Red)"
+	name = "正装衬衫（红色）"
 	item_path = /obj/item/clothing/under/vampire/toreador
 
 /datum/loadout_item/uniform/flamboyant_female
-	name = "Crop Top (Purple)"
+	name = "露脐上衣（紫色）"
 	item_path = /obj/item/clothing/under/vampire/toreador/female
 
 /datum/loadout_item/uniform/punk
-	name = "Dress Shirt (Gray)"
+	name = "正装衬衫（灰色）"
 	item_path = /obj/item/clothing/under/vampire/brujah
 
 /datum/loadout_item/uniform/punk_female
-	name = "Crop Top (White)"
+	name = "露脐上衣（白色）"
 	item_path = /obj/item/clothing/under/vampire/brujah/female
 
 /datum/loadout_item/uniform/gimp
-	name = "Gimp Outfit"
+	name = "束缚服"
 	item_path = /obj/item/clothing/under/vampire/nosferatu
 
 /datum/loadout_item/uniform/gimp_female
-	name = "Gimp Outfit (Bra)"
+	name = "束缚服（胸衣款）"
 	item_path = /obj/item/clothing/under/vampire/nosferatu/female
 
 /datum/loadout_item/uniform/gangrel
-	name = "Rugged Clothes (Red)"
+	name = "粗犷服装（红色）"
 	item_path = /obj/item/clothing/under/vampire/gangrel
 
 /datum/loadout_item/uniform/gangrel_female
-	name = "Rugged Clothes (Blue)"
+	name = "粗犷服装（蓝色）"
 	item_path = /obj/item/clothing/under/vampire/gangrel/female
 
 /datum/loadout_item/uniform/pants/grimey
-	name = "Pants (Grimey)"
+	name = "裤子（脏污）"
 	item_path = /obj/item/clothing/under/vampire/malkavian
 
 /datum/loadout_item/uniform/schoolgirl
-	name = "Goth Schoolgirl Outfit"
+	name = "哥特女学生制服"
 	item_path = /obj/item/clothing/under/vampire/malkavian/female
 
 /datum/loadout_item/uniform/suit/formal_burgundy
-	name = "Suit (Burgundy)"
+	name = "西装（酒红色）"
 	item_path = /obj/item/clothing/under/vampire/tremere
 
 /datum/loadout_item/uniform/suit/formal_burgundy_skirt
-	name = "Suit (Skirt, Burgundy)"
+	name = "西装（裙装，酒红色）"
 	item_path = /obj/item/clothing/under/vampire/tremere/female
 
 
 //Dresses
 /datum/loadout_item/uniform/dress
-	name = "Dress (Black)"
+	name = "连衣裙（黑色）"
 	item_path = /obj/item/clothing/under/vampire/business
 
 /datum/loadout_item/uniform/dress_red
-	name = "Dress (Red)"
+	name = "连衣裙（红色）"
 	item_path = /obj/item/clothing/under/vampire/primogen_toreador/female
 
 /datum/loadout_item/uniform/maid
-	name = "Maid Outfit"
+	name = "女仆装"
 	item_path = /obj/item/clothing/under/costume/maid
 
 //Dress Shirts
 /datum/loadout_item/uniform/emo
-	name = "Dress Shirt (Black)"
+	name = "正装衬衫（黑色）"
 	item_path = /obj/item/clothing/under/vampire/emo
 
 /datum/loadout_item/uniform/messy
-	name = "Dress Shirt (White)"
+	name = "正装衬衫（白色）"
 	item_path = /obj/item/clothing/under/vampire/bouncer
 
 /datum/loadout_item/uniform/biker
-	name = "Dress Shirt (Brown)"
+	name = "正装衬衫（棕色）"
 	item_path = /obj/item/clothing/under/vampire/biker
 
 //Scene
@@ -203,56 +203,56 @@
 
 //Other
 /datum/loadout_item/uniform/baron
-	name = "Bartender Outfit"
+	name = "酒保服装"
 	item_path = /obj/item/clothing/under/vampire/bar
 
 /datum/loadout_item/uniform/baron_female
-	name = "Bartender Outfit (Skirt)"
+	name = "酒保服装（裙装）"
 	item_path = /obj/item/clothing/under/vampire/bar/female
 
 /datum/loadout_item/uniform/sleeveless_yellow
-	name = "Tank Top (Yellow)"
+	name = "背心（黄色）"
 	item_path = /obj/item/clothing/under/vampire/larry
 
 /datum/loadout_item/uniform/sleeveless_white
-	name = "Tank Top (White)"
+	name = "背心（白色）"
 	item_path = /obj/item/clothing/under/vampire/bandit
 
 /datum/loadout_item/uniform/hipster
-	name = "Crop Top (Red)"
+	name = "露脐上衣（红色）"
 	item_path = /obj/item/clothing/under/vampire/red
 
 /datum/loadout_item/uniform/black_grunge
-	name = "Crop Top (Black)"
+	name = "露脐上衣（黑色）"
 	item_path = /obj/item/clothing/under/vampire/black
 
 
 /datum/loadout_item/uniform/burlesque
-	name = "Burlesque Outfit"
+	name = "艳舞演出服"
 	item_path = /obj/item/clothing/under/vampire/burlesque
 
 /datum/loadout_item/uniform/daisyd
-	name = "Daisy Dukes"
+	name = "超短牛仔裤"
 	item_path = /obj/item/clothing/under/vampire/burlesque/daisyd
 
 /datum/loadout_item/uniform/overalls
-	name = "Overalls"
+	name = "工装背带裤"
 	item_path = /obj/item/clothing/under/vampire/mechanic
 
 //CRIMSON GRID ADDITION START: BLACK OVERALLS TO LOADOUT
 /datum/loadout_item/uniform/black_overalls
-	name = "Black Overalls"
+	name = "黑色工装背带裤"
 	item_path = /obj/item/clothing/under/vampire/graveyard
 //CRIMSON GRID ADDITION END
 
 /datum/loadout_item/uniform/black_overcoat
-	name = "Overcoat (Black)"
+	name = "大衣（黑色）"
 	item_path = /obj/item/clothing/under/vampire/rich
 
 /datum/loadout_item/uniform/gown_black
-	name = "black gown"
+	name = "黑色礼服长裙"
 	item_path = /obj/item/clothing/under/vampire/gown_black
 
 /datum/loadout_item/uniform/gown_white
-	name = "white gown"
+	name = "白色礼服长裙"
 	item_path = /obj/item/clothing/under/vampire/gown_white

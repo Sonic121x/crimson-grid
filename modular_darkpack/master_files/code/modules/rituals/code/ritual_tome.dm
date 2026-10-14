@@ -31,7 +31,7 @@
 
 	if(!get_splat_with_discipline(user))
 		if(reader.st_get_stat(STAT_OCCULT) < 3)
-			to_chat(reader, span_cult("A strange book that looks like it belongs in a dusty Library or a garage sale. You find yourself not caring, or understanding, too much about it."))
+			to_chat(reader, span_cult("一本古怪的书，看起来该待在尘封的图书馆或旧货摊上。你对它既没什么兴趣，也看不太懂。"))
 			return
 	display_rituals(reader)
 
@@ -46,7 +46,7 @@
 		if(R.level > user_level)
 			continue
 		var/requirements = get_ritual_requirements(R)
-		to_chat(user, span_cult("[get_ritual_level(R)] <b>[R.ritual_name]</b> - [R.desc][requirements ? " Requirements: [requirements]." : ""]"))
+		to_chat(user, span_cult("[get_ritual_level(R)] <b>[R.ritual_name]</b> - [R.desc][requirements ? " 所需祭品：[requirements]。" : ""]"))
 
 /obj/item/ritual_tome/proc/get_ritual_requirements(obj/ritual_rune/rune)
 	if(!islist(rune.sacrifices) || !length(rune.sacrifices))

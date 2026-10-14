@@ -1,6 +1,6 @@
 /obj/structure/food_cart
-	name = "food cart"
-	desc = "Ding-aling ding dong. Get your cholesterine!"
+	name = "餐车"
+	desc = "叮铃叮咚，来领你的胆固醇！"
 	icon = 'modular_darkpack/modules/food/icons/food_cart.dmi'
 	icon_state = "vat1"
 	density = TRUE
@@ -12,5 +12,5 @@
 	icon_state = "vat[rand(1, 3)]"
 
 /obj/machinery/reagentgrinder/kitchen
-	name = "kitchen mixer"
+	name = "厨房搅拌机"
 	//beaker_type = /obj/item/reagent_containers/glass/mixing_bowl

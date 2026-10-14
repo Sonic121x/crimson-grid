@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/question
-	name = "question to the ancestors"
-	desc = "Summon souls from the dead. Ask a question and get answers. Requires a bloodpack."
+	name = "问询祖灵"
+	desc = "召来亡者的灵魂，提出问题并获取回答。需要一袋血。"
 	icon_state = "rune5"
 	word = "VOCA-ANI'MA"
 	level = 3
@@ -18,21 +18,21 @@
 
 /obj/ritual_rune/thaumaturgy/question/complete()
 	. = ..()
-	var/text_question = tgui_input_text(usr, "Enter your question to the Ancestors:", "Question to Ancestors")
+	var/text_question = tgui_input_text(usr, "输入你要向祖灵提出的问题：", "问询祖灵")
 	if(!text_question)
 		return
 
-	visible_message(span_notice("A call rings out to the dead from the [src.name] rune..."))
+	visible_message(span_notice("[src.name]中响起了对亡者的呼唤……"))
 
 	var/mob/living/basic/ghost/tremere/TR = new(loc)
 
 	TR.AddComponent(\
 		/datum/component/ghost_direct_control,\
 		poll_candidates = TRUE,\
-		role_name = "an Ancestor Spirit",\
+		role_name = "祖灵",\
 		poll_length = 30 SECONDS,\
-		poll_question = "Do you wish to answer a question?\nThe question is: [text_question]",\
-		assumed_control_message = "You are an Ancestor Spirit summoned to answer: [text_question]",\
+		poll_question = "你愿意回答一个问题吗？\n问题是：[text_question]",\
+		assumed_control_message = "你是一名受召前来回答问题的祖灵：[text_question]",\
 		after_assumed_control = CALLBACK(src, PROC_REF(ghost_name_prompt), TR)\
 	)
 
@@ -41,9 +41,9 @@
 /obj/ritual_rune/thaumaturgy/question/proc/ghost_name_prompt(mob/living/basic/ghost/tremere/ghost_mob)
 	message_admins("[key_name_admin(ghost_mob)] has become a Tremere Ghost.")
 
-	var/choice = tgui_alert(ghost_mob, "Do you want to pick a new name as a Ghost?", "Ghost Choose Name", list("Yes", "No"), 10 SECONDS)
-	if(choice == "Yes")
-		var/chosen_ghost_name = tgui_input_text(ghost_mob, "What is your new name as a Ghost?", "Ghost Name Input")
+	var/choice = tgui_alert(ghost_mob, "你想为幽灵身份取一个新名字吗？", "选择幽灵姓名", list("是", "否"), 10 SECONDS)
+	if(choice == "是")
+		var/chosen_ghost_name = tgui_input_text(ghost_mob, "你的幽灵新名字是什么？", "输入幽灵姓名")
 		if(chosen_ghost_name)
 			ghost_mob.real_name = chosen_ghost_name
 			ghost_mob.name = chosen_ghost_name

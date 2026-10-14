@@ -1,7 +1,7 @@
 /obj/item/lipstick
 	gender = PLURAL
-	name = "red lipstick"
-	desc = "A generic brand of lipstick."
+	name = "红色口红"
+	desc = "一支普通品牌的口红。"
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "lipstick"
 	base_icon_state = "lipstick"
@@ -30,7 +30,7 @@
 
 /obj/item/lipstick/examine(mob/user)
 	. = ..()
-	. += "Alt-click to change the style."
+	. += "按住 Alt 点击可改变涂抹样式。"
 
 /obj/item/lipstick/update_icon_state()
 	icon_state = "[base_icon_state][open ? "_uncap" : null]"
@@ -51,9 +51,9 @@
 
 /obj/item/lipstick/proc/display_radial_menu(mob/living/carbon/human/user)
 	var/style_options = list(
-		UPPER_LIP = icon('icons/hud/radial.dmi', UPPER_LIP),
-		MIDDLE_LIP = icon('icons/hud/radial.dmi', MIDDLE_LIP),
-		LOWER_LIP = icon('icons/hud/radial.dmi', LOWER_LIP),
+		UPPER_LIP = localized_radial_choice(icon('icons/hud/radial.dmi', UPPER_LIP), "上唇"),
+		MIDDLE_LIP = localized_radial_choice(icon('icons/hud/radial.dmi', MIDDLE_LIP), "唇中部"),
+		LOWER_LIP = localized_radial_choice(icon('icons/hud/radial.dmi', LOWER_LIP), "下唇"),
 	)
 	var/pick = show_radial_menu(user, src, style_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)
 	if(!pick)
@@ -76,38 +76,38 @@
 	return TRUE
 
 /obj/item/lipstick/purple
-	name = "purple lipstick"
+	name = "紫色口红"
 	lipstick_color = COLOR_PURPLE
 
 /obj/item/lipstick/jade
-	name = "jade lipstick"
+	name = "翡翠色口红"
 	lipstick_color = COLOR_JADE
 
 /obj/item/lipstick/blue
-	name = "blue lipstick"
+	name = "蓝色口红"
 	lipstick_color = COLOR_BLUE
 
 /obj/item/lipstick/green
-	name = "green lipstick"
+	name = "绿色口红"
 	lipstick_color = COLOR_GREEN
 
 /obj/item/lipstick/white
-	name = "white lipstick"
+	name = "白色口红"
 	lipstick_color = COLOR_WHITE
 
 /obj/item/lipstick/black
-	name = "black lipstick"
+	name = "黑色口红"
 	lipstick_color = COLOR_BLACK
 
 /obj/item/lipstick/black/death
-	name = "\improper Kiss of Death"
-	desc = "An incredibly potent tube of lipstick made from the venom of the dreaded Yellow Spotted Space Lizard, as deadly as it is chic. Try not to smear it!"
+	name = "\improper 死亡之吻"
+	desc = "一支用可怕的黄斑太空蜥蜴毒液制成的剧毒口红，既时髦又致命。千万别涂到别处！"
 	lipstick_trait = TRAIT_KISS_OF_DEATH
 	random_spawn = FALSE
 
 /obj/item/lipstick/syndie
-	name = "syndie lipstick"
-	desc = "Syndicate branded lipstick with a killer dose of kisses. Observe safety regulations!"
+	name = "辛迪加口红"
+	desc = "辛迪加品牌口红，让你的吻带上致命剂量。请遵守安全规定！"
 	icon_state = "slipstick"
 	base_icon_state = "slipstick"
 	lipstick_color = COLOR_SYNDIE_RED
@@ -115,7 +115,7 @@
 	random_spawn = FALSE
 
 /obj/item/lipstick/random
-	name = "lipstick"
+	name = "口红"
 	icon_state = "random_lipstick"
 
 /obj/item/lipstick/random/Initialize(mapload)
@@ -133,7 +133,7 @@
 	update_appearance()
 
 /obj/item/lipstick/attack_self(mob/user)
-	to_chat(user, span_notice("You twist [src] [open ? "closed" : "open"]."))
+	to_chat(user, span_notice("你将[src]旋[open ? "回管内" : "出管外"]。"))
 	open = !open
 	update_appearance(UPDATE_ICON)
 
@@ -142,29 +142,29 @@
 		return
 
 	if(!ishuman(M))
-		to_chat(user, span_warning("Where are the lips on that?"))
+		to_chat(user, span_warning("这家伙的嘴唇在哪儿？"))
 		return
 
 	var/mob/living/carbon/human/target = M
 	if(target.is_mouth_covered())
-		to_chat(user, span_warning("Remove [ target == user ? "your" : "[target.p_their()]" ] mask!"))
+		to_chat(user, span_warning("先摘下[ target == user ? "你的" : "对方的" ]面罩！"))
 		return
 	if(target.lip_style) //if they already have lipstick on
-		to_chat(user, span_warning("You need to wipe off the old lipstick first!"))
+		to_chat(user, span_warning("你得先擦掉原来的口红！"))
 		return
 
 	if(target == user)
-		user.visible_message(span_notice("[user] does [user.p_their()] lips with \the [src]."), \
-			span_notice("You take a moment to apply \the [src]. Perfect!"))
+		user.visible_message(span_notice("[user]用[src]给自己涂了口红。"), \
+			span_notice("你花了点时间涂好[src]。完美！"))
 		target.update_lips(style, lipstick_color, lipstick_trait)
 		return
 
-	user.visible_message(span_warning("[user] begins to do [target]'s lips with \the [src]."), \
-		span_notice("You begin to apply \the [src] on [target]'s lips..."))
+	user.visible_message(span_warning("[user]开始用[src]给[target]涂口红。"), \
+		span_notice("你开始将[src]涂在[target]的嘴唇上……"))
 	if(!do_after(user, 2 SECONDS, target = target))
 		return
-	user.visible_message(span_notice("[user] does [target]'s lips with \the [src]."), \
-		span_notice("You apply \the [src] on [target]'s lips."))
+	user.visible_message(span_notice("[user]用[src]给[target]涂好了口红。"), \
+		span_notice("你将[src]涂在了[target]的嘴唇上。"))
 	target.update_lips(style, lipstick_color, lipstick_trait)
 
 //you can wipe off lipstick with paper!
@@ -174,21 +174,21 @@
 
 	var/mob/living/carbon/human/target = M
 	if(target == user)
-		to_chat(user, span_notice("You wipe off the lipstick with [src]."))
+		to_chat(user, span_notice("你用[src]擦掉了口红。"))
 		target.update_lips(null)
 		return
 
-	user.visible_message(span_warning("[user] begins to wipe [target]'s lipstick off with \the [src]."), \
-		span_notice("You begin to wipe off [target]'s lipstick..."))
+	user.visible_message(span_warning("[user]开始用[src]擦掉[target]的口红。"), \
+		span_notice("你开始擦掉[target]的口红……"))
 	if(!do_after(user, 1 SECONDS, target = target))
 		return
-	user.visible_message(span_notice("[user] wipes [target]'s lipstick off with \the [src]."), \
-		span_notice("You wipe off [target]'s lipstick."))
+	user.visible_message(span_notice("[user]用[src]擦掉了[target]的口红。"), \
+		span_notice("你擦掉了[target]的口红。"))
 	target.update_lips(null)
 
 /obj/item/razor
-	name = "electric razor"
-	desc = "The latest and greatest power razor born from the science of shaving."
+	name = "电动剃须刀"
+	desc = "剃须科技打造的最新、最出色的电动剃须刀。"
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "razor"
 	inhand_icon_state = "razor"
@@ -201,7 +201,7 @@
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.7)
 
 /obj/item/razor/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins shaving [user.p_them()]self without the razor guard! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]开始用没装防护罩的剃须刀刮自己！看起来是想自杀！"))
 	if (ishuman(user))
 		shave(user, BODY_ZONE_PRECISE_MOUTH)
 		shave(user, BODY_ZONE_HEAD) //doesn't need to be BODY_ZONE_HEAD specifically, but whatever
@@ -222,33 +222,33 @@
 	var/location = user.zone_selected
 	var/static/list/head_zones = list(BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_HEAD)
 	if(!noggin && (location in head_zones))
-		to_chat(user, span_warning("[human_target] doesn't have a head!"))
+		to_chat(user, span_warning("[human_target]没有头！"))
 		return
 	if(location == BODY_ZONE_PRECISE_MOUTH)
 		if(!user.combat_mode)
 			if(human_target.gender == MALE)
 				if(human_target == user)
-					to_chat(user, span_warning("You need a mirror to properly style your own facial hair!"))
+					to_chat(user, span_warning("你需要镜子才能修整好自己的胡须！"))
 					return
 				if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 					return
-				var/new_style = tgui_input_list(user, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
+				var/new_style = localized_accessory_input(user, "选择胡须样式", "仪容修整", SSaccessories.facial_hairstyles_list)
 				if(isnull(new_style))
 					return
 				var/covering = human_target.is_mouth_covered()
 				if(covering)
-					to_chat(user, span_warning("[covering] is in the way!"))
+					to_chat(user, span_warning("[covering]挡住了！"))
 					return
 				if(!(noggin.head_flags & HEAD_FACIAL_HAIR))
-					to_chat(user, span_warning("There is no facial hair to style!"))
+					to_chat(user, span_warning("没有可供修整的胡须！"))
 					return
 				if(HAS_TRAIT(human_target, TRAIT_SHAVED))
-					to_chat(user, span_warning("[human_target] is just way too shaved. Like, really really shaved."))
+					to_chat(user, span_warning("[human_target]的胡须剃得实在太干净了。真的，一根都不剩。"))
 					return
-				user.visible_message(span_notice("[user] tries to change [human_target]'s facial hairstyle using [src]."), span_notice("You try to change [human_target]'s facial hairstyle using [src]."))
+				user.visible_message(span_notice("[user]试着用[src]为[human_target]修整胡须。"), span_notice("你试着用[src]为[human_target]修整胡须。"))
 				playsound(src, 'sound/items/hair-clippers.ogg', 50)
 				if(new_style && do_after(user, 6 SECONDS, target = human_target))
-					user.visible_message(span_notice("[user] successfully changes [human_target]'s facial hairstyle using [src]."), span_notice("You successfully change [human_target]'s facial hairstyle using [src]."))
+					user.visible_message(span_notice("[user]用[src]为[human_target]修整好了胡须。"), span_notice("你用[src]为[human_target]修整好了胡须。"))
 					human_target.set_facial_hairstyle(new_style, update = TRUE)
 					return
 			else
@@ -256,92 +256,92 @@
 		else
 			var/covering = human_target.is_mouth_covered()
 			if(covering)
-				to_chat(user, span_warning("[covering] is in the way!"))
+				to_chat(user, span_warning("[covering]挡住了！"))
 				return
 			if(!(noggin.head_flags & HEAD_FACIAL_HAIR))
-				to_chat(user, span_warning("There is no facial hair to shave!"))
+				to_chat(user, span_warning("没有可剃的胡须！"))
 				return
 			if(human_target.facial_hairstyle == "Shaved")
-				to_chat(user, span_warning("Already clean-shaven!"))
+				to_chat(user, span_warning("已经剃干净了！"))
 				return
 
 			if(human_target == user) //shaving yourself
-				user.visible_message(span_notice("[user] starts to shave [user.p_their()] facial hair with [src]."), \
-					span_notice("You take a moment to shave your facial hair with [src]..."))
+				user.visible_message(span_notice("[user]开始用[src]给自己剃胡须。"), \
+					span_notice("你开始用[src]剃自己的胡须……"))
 				playsound(src, 'sound/items/hair-clippers.ogg', 50)
 				if(do_after(user, 5 SECONDS, target = user))
-					user.visible_message(span_notice("[user] shaves [user.p_their()] facial hair clean with [src]."), \
-						span_notice("You finish shaving with [src]. Fast and clean!"))
+					user.visible_message(span_notice("[user]用[src]剃光了自己的胡须。"), \
+						span_notice("你用[src]剃完了胡须。又快又干净！"))
 					shave(user, location)
 				return
 			else
-				user.visible_message(span_warning("[user] tries to shave [human_target]'s facial hair with [src]."), \
-					span_notice("You start shaving [human_target]'s facial hair..."))
+				user.visible_message(span_warning("[user]试着用[src]剃掉[human_target]的胡须。"), \
+					span_notice("你开始剃[human_target]的胡须……"))
 				playsound(src, 'sound/items/hair-clippers.ogg', 50)
 				if(do_after(user, 5 SECONDS, target = human_target))
-					user.visible_message(span_warning("[user] shaves off [human_target]'s facial hair with [src]."), \
-						span_notice("You shave [human_target]'s facial hair clean off."))
+					user.visible_message(span_warning("[user]用[src]剃掉了[human_target]的胡须。"), \
+						span_notice("你把[human_target]的胡须剃得干干净净。"))
 					shave(human_target, location)
 				return
 	else if(location == BODY_ZONE_HEAD)
 		if(!user.combat_mode)
 			if(human_target == user)
-				to_chat(user, span_warning("You need a mirror to properly style your own hair!"))
+				to_chat(user, span_warning("你需要镜子才能修整好自己的发型！"))
 				return
 			if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 				return
-			var/new_style = tgui_input_list(user, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
+			var/new_style = localized_accessory_input(user, "选择发型", "仪容修整", SSaccessories.hairstyles_list)
 			if(isnull(new_style))
 				return
 			if(!human_target.is_location_accessible(location))
-				to_chat(user, span_warning("The headgear is in the way!"))
+				to_chat(user, span_warning("头上戴的东西挡住了！"))
 				return
 			if(!(noggin.head_flags & HEAD_HAIR))
-				to_chat(user, span_warning("There is no hair to style!"))
+				to_chat(user, span_warning("没有可供修整的头发！"))
 				return
 			if(HAS_TRAIT(human_target, TRAIT_BALD))
-				to_chat(user, span_warning("[human_target] is just way too bald. Like, really really bald."))
+				to_chat(user, span_warning("[human_target]秃得实在太彻底了。真的，一根头发都不剩。"))
 				return
-			user.visible_message(span_notice("[user] tries to change [human_target]'s hairstyle using [src]."), span_notice("You try to change [human_target]'s hairstyle using [src]."))
+			user.visible_message(span_notice("[user]试着用[src]为[human_target]修整发型。"), span_notice("你试着用[src]为[human_target]修整发型。"))
 			playsound(src, 'sound/items/hair-clippers.ogg', 50)
 			if(new_style && do_after(user, 6 SECONDS, target = human_target))
-				user.visible_message(span_notice("[user] successfully changes [human_target]'s hairstyle using [src]."), span_notice("You successfully change [human_target]'s hairstyle using [src]."))
+				user.visible_message(span_notice("[user]用[src]为[human_target]修整好了发型。"), span_notice("你用[src]为[human_target]修整好了发型。"))
 				human_target.set_hairstyle(new_style, update = TRUE)
 				return
 		else
 			if(!human_target.is_location_accessible(location))
-				to_chat(user, span_warning("The headgear is in the way!"))
+				to_chat(user, span_warning("头上戴的东西挡住了！"))
 				return
 			if(!(noggin.head_flags & HEAD_HAIR))
-				to_chat(user, span_warning("There is no hair to shave!"))
+				to_chat(user, span_warning("没有可剃的头发！"))
 				return
 			if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Balding Hair" || human_target.hairstyle == "Skinhead")
-				to_chat(user, span_warning("There is not enough hair left to shave!"))
+				to_chat(user, span_warning("剩下的头发已经没法再剃了！"))
 				return
 
 			if(human_target == user) //shaving yourself
-				user.visible_message(span_notice("[user] starts to shave [user.p_their()] head with [src]."), \
-					span_notice("You start to shave your head with [src]..."))
+				user.visible_message(span_notice("[user]开始用[src]给自己剃头。"), \
+					span_notice("你开始用[src]给自己剃头……"))
 				playsound(src, 'sound/items/hair-clippers.ogg', 50)
 				if(do_after(user, 5 SECONDS, target = user))
-					user.visible_message(span_notice("[user] shaves [user.p_their()] head with [src]."), \
-						span_notice("You finish shaving with [src]."))
+					user.visible_message(span_notice("[user]用[src]剃光了自己的头发。"), \
+						span_notice("你用[src]剃完了头。"))
 					shave(user, location)
 				return
 			else
-				user.visible_message(span_warning("[user] tries to shave [human_target]'s head with [src]!"), \
-					span_notice("You start shaving [human_target]'s head..."))
+				user.visible_message(span_warning("[user]试着用[src]剃掉[human_target]的头发！"), \
+					span_notice("你开始给[human_target]剃头……"))
 				playsound(src, 'sound/items/hair-clippers.ogg', 50)
 				if(do_after(user, 5 SECONDS, target = human_target))
-					user.visible_message(span_warning("[user] shaves [human_target]'s head bald with [src]!"), \
-						span_notice("You shave [human_target]'s head bald."))
+					user.visible_message(span_warning("[user]用[src]剃光了[human_target]的头发！"), \
+						span_notice("你剃光了[human_target]的头发。"))
 					shave(human_target, location)
 				return
 	return ..()
 
 /obj/item/razor/surgery
-	name = "surgical razor"
-	desc = "A medical grade razor. Its precision blades provide a clean shave for surgical preparation."
+	name = "手术剃毛刀"
+	desc = "一把医用级剃毛刀，精密刀片能干净地剃除毛发，便于术前准备。"
 	icon = 'icons/obj/cosmetic.dmi'
 	icon_state = "medrazor"
 
