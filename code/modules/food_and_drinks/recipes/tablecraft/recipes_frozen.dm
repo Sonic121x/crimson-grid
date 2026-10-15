@@ -4,7 +4,7 @@
 /////////////////
 
 /datum/crafting_recipe/food/icecreamsandwich
-	name = "Icecream sandwich"
+	name = "冰淇淋三明治"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/datum/reagent/consumable/ice = 5,
@@ -15,7 +15,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/strawberryicecreamsandwich
-	name = "Strawberry ice cream sandwich"
+	name = "草莓冰淇淋三明治"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/datum/reagent/consumable/ice = 5,
@@ -27,7 +27,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/spacefreezy
-	name ="Space freezy"
+	name ="太空冰爽"
 	reqs = list(
 		/datum/reagent/consumable/bluecherryjelly = 5,
 		/datum/reagent/consumable/spacemountainwind = 15,
@@ -39,7 +39,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/sundae
-	name ="Sundae"
+	name ="圣代"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/obj/item/food/grown/cherries = 1,
@@ -66,7 +66,7 @@
 */
 
 /datum/crafting_recipe/food/cornuto
-	name = "Cornuto"
+	name = "双味脆筒"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/cream = 4,
@@ -82,7 +82,7 @@
 //////////////////////////SNOW CONES///////////////////////
 
 /datum/crafting_recipe/food/snowcone
-	name = "Flavorless snowcone"
+	name = "无味刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15
@@ -92,7 +92,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/snowcone/pineapple
-	name = "Pineapple snowcone"
+	name = "菠萝刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -101,7 +101,7 @@
 	result = /obj/item/food/snowcones/pineapple
 
 /datum/crafting_recipe/food/snowcone/lime
-	name = "Lime snowcone"
+	name = "青柠刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -110,7 +110,7 @@
 	result = /obj/item/food/snowcones/lime
 
 /datum/crafting_recipe/food/snowcone/lemon
-	name = "Lemon snowcone"
+	name = "柠檬刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -119,7 +119,7 @@
 	result = /obj/item/food/snowcones/lemon
 
 /datum/crafting_recipe/food/snowcone/apple
-	name = "Apple snowcone"
+	name = "苹果刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -128,7 +128,7 @@
 	result = /obj/item/food/snowcones/apple
 
 /datum/crafting_recipe/food/snowcone/grape
-	name = "Grape snowcone"
+	name = "葡萄刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -137,7 +137,7 @@
 	result = /obj/item/food/snowcones/grape
 
 /datum/crafting_recipe/food/snowcone/orange
-	name = "Orange snowcone"
+	name = "橙子刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -146,7 +146,7 @@
 	result = /obj/item/food/snowcones/orange
 
 /datum/crafting_recipe/food/snowcone/blue
-	name = "Bluecherry snowcone"
+	name = "蓝樱桃刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -155,7 +155,7 @@
 	result = /obj/item/food/snowcones/blue
 
 /datum/crafting_recipe/food/snowcone/red
-	name = "Cherry snowcone"
+	name = "樱桃刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -164,7 +164,7 @@
 	result = /obj/item/food/snowcones/red
 
 /datum/crafting_recipe/food/snowcone/berry
-	name = "Berry snowcone"
+	name = "浆果刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -173,7 +173,7 @@
 	result = /obj/item/food/snowcones/berry
 
 /datum/crafting_recipe/food/snowcone/fruitsalad
-	name = "Fruit Salad snowcone"
+	name = "水果沙拉刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/water = 5,
@@ -185,7 +185,7 @@
 	result = /obj/item/food/snowcones/fruitsalad
 
 /datum/crafting_recipe/food/snowcone/mime
-	name = "Mime snowcone"
+	name = "默剧刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -194,7 +194,7 @@
 	result = /obj/item/food/snowcones/mime
 
 /datum/crafting_recipe/food/snowcone/clown
-	name = "Clown snowcone"
+	name = "小丑刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -203,7 +203,7 @@
 	result = /obj/item/food/snowcones/clown
 
 /datum/crafting_recipe/food/snowcone/soda
-	name = "Space Cola snowcone"
+	name = "太空可乐刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -212,7 +212,7 @@
 	result = /obj/item/food/snowcones/soda
 
 /datum/crafting_recipe/food/snowcone/spacemountainwind
-	name = "Space Mountain Wind snowcone"
+	name = "太空山风刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -221,7 +221,7 @@
 	result = /obj/item/food/snowcones/spacemountainwind
 
 /datum/crafting_recipe/food/snowcone/pwrgame
-	name = "Pwrgame snowcone"
+	name = "劲玩刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -230,7 +230,7 @@
 	result = /obj/item/food/snowcones/pwrgame
 
 /datum/crafting_recipe/food/snowcone/honey
-	name = "Honey snowcone"
+	name = "蜂蜜刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -239,7 +239,7 @@
 	result = /obj/item/food/snowcones/honey
 
 /datum/crafting_recipe/food/snowcone/rainbow
-	name = "Rainbow snowcone"
+	name = "彩虹刨冰"
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -253,7 +253,7 @@
 ////////////////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/orange_popsicle
-	name = "Orange popsicle"
+	name = "橙子冰棍"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/orangejuice = 4,
@@ -267,7 +267,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/berry_popsicle
-	name = "Berry popsicle"
+	name = "浆果冰棍"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/berryjuice = 4,
@@ -281,7 +281,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/jumbo
-	name = "Jumbo icecream"
+	name = "巨型冰淇淋"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -297,7 +297,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/licorice_creamsicle
-	name = "Licorice popsicle"
+	name = "甘草冰棍"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/blumpkinjuice = 4, //natural source of ammonium chloride
@@ -312,7 +312,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/meatsicle
-	name = "Meatsicle"
+	name = "肉冰棍"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/obj/item/food/meat/slab = 1,

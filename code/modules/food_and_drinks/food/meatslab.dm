@@ -29,8 +29,8 @@
 	)
 
 /obj/item/food/meat/slab
-	name = "meat"
-	desc = "A slab of meat."
+	name = "肉"
+	desc = "一块肉。"
 	icon_state = "meat"
 	bite_consumption = 3
 	food_reagents = list(
@@ -51,12 +51,12 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe?
 
 /obj/item/food/meat/slab/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain, MEATSLAB_PROCESSED_AMOUNT, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain, MEATSLAB_PROCESSED_AMOUNT, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 ///////////////////////////////////// HUMAN MEATS //////////////////////////////////////////////////////
 
 /obj/item/food/meat/slab/human
-	name = "meat"
+	name = "肉"
 	tastes = list("tender meat" = 1)
 	foodtypes = MEAT | RAW | GORE
 	venue_value = FOOD_MEAT_HUMAN
@@ -65,14 +65,14 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain/human, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe?
 
 /obj/item/food/meat/slab/human/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/human, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/human, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/human/mutant
 	abstract_type = /obj/item/food/meat/slab/human/mutant
 
 /obj/item/food/meat/slab/human/mutant/slime
 	icon_state = "slimemeat"
-	desc = "Because jello wasn't offensive enough to vegans."
+	desc = "因为普通果冻还不够冒犯纯素主义者。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/toxin/slimejelly = 3,
@@ -84,7 +84,7 @@
 
 /obj/item/food/meat/slab/human/mutant/golem
 	icon_state = "golemmeat"
-	desc = "Edible rocks, welcome to the future."
+	desc = "可食用的石头，欢迎来到未来。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/iron = 3,
@@ -96,12 +96,12 @@
 
 /obj/item/food/meat/slab/human/mutant/golem/adamantine
 	icon_state = "agolemmeat"
-	desc = "From the slime pen to the shell to the kitchen, science."
+	desc = "从史莱姆围栏到魔像躯壳，再到厨房，这就是科学。"
 	foodtypes = MEAT | RAW | STONE
 
 /obj/item/food/meat/slab/human/mutant/lizard
 	icon_state = "lizardmeat"
-	desc = "Delicious dino damage."
+	desc = "恐龙受的伤，成了美味佳肴。"
 	tastes = list("meat" = 4, "scales" = 1)
 	foodtypes = MEAT | RAW | GORE
 	venue_value = FOOD_MEAT_MUTANT
@@ -112,7 +112,7 @@
 
 /obj/item/food/meat/slab/human/mutant/plant
 	icon_state = "plantmeat"
-	desc = "All the joys of healthy eating with all the fun of cannibalism."
+	desc = "既享健康饮食之乐，又得同类相食之趣。"
 	tastes = list("salad" = 1, "wood" = 1)
 	foodtypes = VEGETABLES
 	custom_materials = null
@@ -121,14 +121,14 @@
 
 /obj/item/food/meat/slab/human/mutant/shadow
 	icon_state = "shadowmeat"
-	desc = "Ow, the edge."
+	desc = "哎哟，这股阴暗中二劲。"
 	tastes = list("darkness" = 1, "meat" = 1)
 	foodtypes = MEAT | RAW | GORE
 	venue_value = FOOD_MEAT_MUTANT_RARE
 
 /obj/item/food/meat/slab/human/mutant/fly
 	icon_state = "flymeat"
-	desc = "Nothing says tasty like maggot filled radioactive mutant flesh."
+	desc = "没什么比爬满蛆的放射性变异血肉更能诠释“美味”了。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/uranium = 3,
@@ -140,15 +140,15 @@
 
 /obj/item/food/meat/slab/human/mutant/moth
 	icon_state = "mothmeat"
-	desc = "Unpleasantly powdery and dry. Kind of pretty, though."
+	desc = "干巴巴、粉扑扑的，口感令人不快。不过倒挺好看。"
 	tastes = list("dust" = 1, "powder" = 1, "meat" = 2)
 	foodtypes = MEAT | RAW | BUGS | GORE
 	venue_value = FOOD_MEAT_MUTANT
 
 /obj/item/food/meat/slab/human/mutant/skeleton
-	name = "bone"
+	name = "骨头"
 	icon_state = "skeletonmeat"
-	desc = "There's a point where this needs to stop, and clearly we have passed it."
+	desc = "凡事总该有个限度，而我们显然已经越过了。"
 	tastes = list("bone" = 1)
 	foodtypes = GROSS | GORE
 	venue_value = FOOD_MEAT_MUTANT_RARE
@@ -161,15 +161,15 @@
 	return
 
 /obj/item/food/meat/slab/human/mutant/zombie
-	name = "meat (rotten)"
+	name = "肉（腐烂）"
 	icon_state = "rottenmeat"
-	desc = "Halfway to becoming fertilizer for your garden."
+	desc = "已经快变成花园肥料了。"
 	tastes = list("brains" = 1, "meat" = 1)
 	foodtypes = RAW | MEAT | TOXIC | GORE | GROSS
 
 /obj/item/food/meat/slab/human/mutant/ethereal
 	icon_state = "etherealmeat"
-	desc = "So shiny you feel like ingesting it might make you shine too"
+	desc = "闪亮得让你觉得吃下去之后自己也会发光。"
 	food_reagents = list(/datum/reagent/consumable/liquidelectricity = 10)
 	tastes = list("pure electricity" = 2, "meat" = 1)
 	foodtypes = RAW | MEAT | TOXIC | GORE
@@ -179,9 +179,9 @@
 ////////////////////////////////////// OTHER MEATS ////////////////////////////////////////////////////////
 
 /obj/item/food/meat/slab/synthmeat
-	name = "synthmeat"
+	name = "合成肉"
 	icon_state = "meat_old"
-	desc = "A synthetic slab of meat."
+	desc = "一块合成肉。"
 	foodtypes = RAW | MEAT //hurr durr chemicals were harmed in the production of this meat thus its non-vegan.
 	venue_value = FOOD_PRICE_WORTHLESS
 	starting_reagent_purity = 0.3
@@ -190,9 +190,9 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain/synth, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/meatproduct
-	name = "meat product"
+	name = "肉制品"
 	icon_state = "meatproduct"
-	desc = "A slab of station reclaimed and chemically processed meat product."
+	desc = "一块空间站回收并经化学处理的肉制品。"
 	tastes = list("meat flavoring" = 2, "modified starches" = 2, "natural & artificial dyes" = 1, "butyric acid" = 1)
 	foodtypes = RAW | MEAT
 	starting_reagent_purity = 0.3
@@ -201,12 +201,12 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/meatproduct, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/monkey
-	name = "monkey meat"
+	name = "猴肉"
 	foodtypes = RAW | MEAT
 	starting_reagent_purity = 0.3 // Monkeys are considered synthetic life
 
 /obj/item/food/meat/slab/bugmeat
-	name = "bug meat"
+	name = "虫肉"
 	icon_state = "spidermeat"
 	foodtypes = RAW | MEAT | BUGS
 	blood_decal_type = /obj/effect/decal/cleanable/insectguts
@@ -216,8 +216,8 @@
 	AddElement(/datum/element/raptor_food, health_modifier = 2, color_chances = string_list(list(/datum/raptor_color/green = 2)))
 
 /obj/item/food/meat/slab/mouse
-	name = "mouse meat"
-	desc = "A slab of mouse meat. Best not eat it raw."
+	name = "鼠肉"
+	desc = "一块鼠肉，最好别生吃。"
 	foodtypes = RAW | MEAT | GORE
 
 /obj/item/food/meat/slab/mouse/Initialize(mapload)
@@ -225,8 +225,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOUSE, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/corgi
-	name = "corgi meat"
-	desc = "Tastes like... well you know..."
+	name = "柯基肉"
+	desc = "味道像……嗯，你懂的……"
 	tastes = list("meat" = 4, "a fondness for wearing hats" = 1)
 	foodtypes = RAW | MEAT | GORE
 
@@ -235,8 +235,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CORGI, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/mothroach
-	name = "mothroach meat"
-	desc = "A light slab of meat."
+	name = "蛾蟑肉"
+	desc = "一块轻飘飘的肉。"
 	foodtypes = RAW | MEAT | GROSS
 
 /obj/item/food/meat/slab/mothroach/Initialize(mapload)
@@ -244,8 +244,8 @@
 	AddElement(/datum/element/swabable, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/pug
-	name = "pug meat"
-	desc = "Tastes like... well you know..."
+	name = "巴哥犬肉"
+	desc = "味道像……嗯，你懂的……"
 	foodtypes = RAW | MEAT | GORE
 
 /obj/item/food/meat/slab/pug/Initialize(mapload)
@@ -253,8 +253,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PUG, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/killertomato
-	name = "killer tomato meat"
-	desc = "A slice from a huge tomato."
+	name = "杀人番茄肉"
+	desc = "从巨型番茄上切下来的一片。"
 	icon_state = "tomatomeat"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	custom_materials = null
@@ -266,11 +266,11 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/killertomato, rand(70 SECONDS, 85 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/killertomato/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/killertomato, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/killertomato, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/bear
-	name = "bear meat"
-	desc = "A very manly slab of meat."
+	name = "熊肉"
+	desc = "一块很有男子气概的肉。"
 	icon_state = "bearmeat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 16,
@@ -282,7 +282,7 @@
 	foodtypes = RAW | MEAT
 
 /obj/item/food/meat/slab/bear/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/bear, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/bear, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/bear/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/bear, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE)
@@ -292,8 +292,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_BEAR, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/xeno
-	name = "xeno meat"
-	desc = "A slab of meat."
+	name = "异形肉"
+	desc = "一块肉。"
 	icon_state = "xenomeat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 8,
@@ -305,14 +305,14 @@
 	blood_decal_type = /obj/effect/decal/cleanable/blood/xeno
 
 /obj/item/food/meat/slab/xeno/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/xeno, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/xeno, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/xeno/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/xeno, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/spider
-	name = "spider meat"
-	desc = "A slab of spider meat. That is so Kafkaesque."
+	name = "蜘蛛肉"
+	desc = "一块蜘蛛肉，真是卡夫卡式的荒诞。"
 	icon_state = "spidermeat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 5,
@@ -324,14 +324,14 @@
 	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/slab/spider/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/spider, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/spider, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/spider/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/spider, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/goliath
-	name = "goliath meat"
-	desc = "A slab of goliath meat. It's not very edible now, but it cooks great in lava."
+	name = "歌利亚巨兽肉"
+	desc = "一块歌利亚巨兽肉。现在不太能吃，但放进熔岩里能烹出好滋味。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 5,
 		/datum/reagent/toxin = 5,
@@ -347,21 +347,21 @@
 	AddElement(/datum/element/raptor_food, attack_modifier = 0.5, speed_modifier = -0.05, color_chances = string_list(list(/datum/raptor_color/red = 5)))
 
 /obj/item/food/meat/slab/goliath/burn()
-	visible_message(span_notice("[src] finishes cooking!"))
+	visible_message(span_notice("[src]熟了！"))
 	new /obj/item/food/meat/steak/goliath(loc)
 	qdel(src)
 
 /obj/item/food/meat/slab/meatwheat
-	name = "meatwheat clump"
-	desc = "This doesn't look like meat, but your standards aren't <i>that</i> high to begin with."
+	name = "肉麦团"
+	desc = "看着不像肉，但你的标准本来也没<i>那么</i>高。"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/blood = 5, /datum/reagent/consumable/nutriment/fat = 1)
 	icon_state = "meatwheat_clump"
 	bite_consumption = 4
 	tastes = list("meat" = 1, "wheat" = 1)
 
 /obj/item/food/meat/slab/gorilla
-	name = "gorilla meat"
-	desc = "Much meatier than monkey meat."
+	name = "大猩猩肉"
+	desc = "比猴肉有肉多了。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 7,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
@@ -369,8 +369,8 @@
 	)
 
 /obj/item/food/meat/rawbacon
-	name = "raw piece of bacon"
-	desc = "A raw piece of bacon."
+	name = "生培根片"
+	desc = "一片生培根。"
 	icon_state = "bacon"
 	bite_consumption = 2
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
@@ -387,8 +387,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/bacon, rand(25 SECONDS, 45 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/bacon
-	name = "piece of bacon"
-	desc = "A delicious piece of bacon."
+	name = "培根片"
+	desc = "一片美味的培根。"
 	icon_state = "baconcooked"
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(
@@ -402,8 +402,8 @@
 	blood_decal_type = null
 
 /obj/item/food/meat/slab/gondola
-	name = "gondola meat"
-	desc = "According to legends of old, consuming raw gondola flesh grants one inner peace."
+	name = "冈多拉肉"
+	desc = "古老传说称，生吃冈多拉的肉能获得内心平静。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/gondola_mutation_toxin = 5,
@@ -413,15 +413,15 @@
 	foodtypes = RAW | MEAT | GORE
 
 /obj/item/food/meat/slab/gondola/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/gondola, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/gondola, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/gondola/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/gondola, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe?
 
 /obj/item/food/meat/slab/penguin
-	name = "penguin meat"
+	name = "企鹅肉"
 	icon_state = "birdmeat"
-	desc = "A slab of penguin meat."
+	desc = "一块企鹅肉。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 4,
 		/datum/reagent/consumable/nutriment/fat = 3,
@@ -430,14 +430,14 @@
 
 /obj/item/food/meat/slab/penguin/make_processable()
 	. = ..()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/penguin, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/penguin, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/penguin/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/penguin, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe?
 
 /obj/item/food/meat/slab/rawcrab
-	name = "raw crab meat"
-	desc = "A pile of raw crab meat."
+	name = "生蟹肉"
+	desc = "一堆生蟹肉。"
 	icon_state = "crabmeatraw"
 	bite_consumption = 3
 	food_reagents = list(
@@ -451,8 +451,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/crab, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe?
 
 /obj/item/food/meat/crab
-	name = "crab meat"
-	desc = "Some deliciously cooked crab meat."
+	name = "蟹肉"
+	desc = "一些烹调得很美味的蟹肉。"
 	icon_state = "crabmeat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -465,15 +465,15 @@
 	blood_decal_type = null
 
 /obj/item/food/meat/slab/chicken
-	name = "chicken meat"
+	name = "鸡肉"
 	icon_state = "birdmeat"
-	desc = "A slab of raw chicken. Remember to wash your hands!"
+	desc = "一块生鸡肉。记得洗手！"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6) //low fat
 	tastes = list("chicken" = 1)
 	starting_reagent_purity = 1
 
 /obj/item/food/meat/slab/chicken/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/chicken, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/chicken, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切开", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/meat/slab/chicken/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/chicken, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE) //Add medium rare later maybe? (no this is chicken)
@@ -483,8 +483,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CHICKEN, CELL_VIRUS_TABLE_GENERIC_MOB)
 
 /obj/item/food/meat/slab/pig
-	name = "raw pork"
-	desc = "A slab of raw pork. This little piggy went to the butcher's."
+	name = "生猪肉"
+	desc = "一块生猪肉。这只小猪去了屠夫家。"
 	icon_state = "pig_meat"
 	tastes = list("pig" = 1)
 	foodtypes = RAW | MEAT | GORE
@@ -500,8 +500,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain/pig, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/slab/grassfed
-	name = "eco meat"
-	desc = "A slab of 100% grass fed award-winning farm meat."
+	name = "生态肉"
+	desc = "一块来自获奖农场、百分之百草饲的肉。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 3,
 		/datum/reagent/consumable/nutriment/fat = 4,
@@ -510,8 +510,8 @@
 	starting_reagent_purity = 1
 
 /obj/item/food/meat/slab/blood_worm
-	name = "blood worm meat"
-	desc = "Who thought eating this would be a good idea? At least it's juicy..."
+	name = "血蠕虫肉"
+	desc = "谁会觉得吃这东西是个好主意？至少很多汁……"
 	foodtypes = RAW | MEAT | BUGS | GORE
 	foodtypes_removed_when_cooked = RAW | GORE
 	food_reagents = list(
@@ -528,8 +528,8 @@
 
 ////////////////////////////////////// MEAT STEAKS ///////////////////////////////////////////////////////////
 /obj/item/food/meat/steak
-	name = "steak"
-	desc = "A piece of hot spicy meat."
+	name = "肉排"
+	desc = "一块热辣的肉排。"
 	icon_state = "meatsteak"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/protein = 5,
@@ -548,7 +548,7 @@
 /obj/item/food/meat/steak/proc/on_microwave_cooked(datum/source, atom/source_item, cooking_efficiency = 1)
 	SIGNAL_HANDLER
 
-	name = "[source_item.name] steak"
+	name = "[source_item.name]排"
 
 /obj/item/food/meat/steak/plain
 
@@ -566,32 +566,32 @@
 	subjectname = origin_meat.subjectname
 	subjectjob = origin_meat.subjectjob
 	if(subjectname)
-		name = "[origin_meat.subjectname] meatsteak"
+		name = "[origin_meat.subjectname]的肉排"
 	else if(subjectjob)
-		name = "[origin_meat.subjectjob] meatsteak"
+		name = "[origin_meat.subjectjob]的肉排"
 
 
 /obj/item/food/meat/steak/killertomato
-	name = "killer tomato steak"
+	name = "杀人番茄排"
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
 
 /obj/item/food/meat/steak/bear
-	name = "bear steak"
+	name = "熊肉排"
 	tastes = list("meat" = 1, "salmon" = 1)
 
 /obj/item/food/meat/steak/xeno
-	name = "xeno steak"
+	name = "异形肉排"
 	tastes = list("meat" = 1, "acid" = 1)
 
 /obj/item/food/meat/steak/spider
-	name = "spider steak"
+	name = "蜘蛛肉排"
 	tastes = list("cobwebs" = 1)
 	foodtypes = parent_type::foodtypes | TOXIC
 
 /obj/item/food/meat/steak/goliath
-	name = "goliath steak"
-	desc = "A delicious, lava cooked steak."
+	name = "歌利亚巨兽肉排"
+	desc = "用熔岩烹制的美味肉排。"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF
 	icon_state = "goliathsteak"
 	trash_type = null
@@ -602,46 +602,46 @@
 	AddElement(/datum/element/raptor_food, attack_modifier = 1, speed_modifier = -0.075, color_chances = string_list(list(/datum/raptor_color/red = 7)))
 
 /obj/item/food/meat/steak/gondola
-	name = "gondola steak"
+	name = "冈多拉肉排"
 	tastes = list("meat" = 1, "tranquility" = 1)
 
 /obj/item/food/meat/steak/penguin
-	name = "penguin steak"
+	name = "企鹅肉排"
 	icon_state = "birdsteak"
 	tastes = list("beef" = 1, "cod fish" = 1)
 
 /obj/item/food/meat/steak/chicken
-	name = "chicken steak" //Can you have chicken steaks? Maybe this should be renamed once it gets new sprites.
+	name = "鸡排" //Can you have chicken steaks? Maybe this should be renamed once it gets new sprites.
 	icon_state = "birdsteak"
 	tastes = list("chicken" = 1)
 
 /obj/item/food/meat/steak/plain/human/lizard
-	name = "lizard steak"
+	name = "蜥蜴肉排"
 	icon_state = "birdsteak"
 	tastes = list("juicy chicken" = 3, "scales" = 1)
 	foodtypes = MEAT | GORE
 
 /obj/item/food/meat/steak/meatproduct
-	name = "thermally processed meat product"
+	name = "热加工肉制品"
 	icon_state = "meatproductsteak"
 	tastes = list("enhanced char" = 2, "suspicious tenderness" = 2, "natural & artificial dyes" = 2, "emulsifying agents" = 1)
 
 /obj/item/food/meat/steak/plain/synth
-	name = "synthsteak"
-	desc = "A synthetic meat steak. It doesn't look quite right, now does it?"
+	name = "合成肉排"
+	desc = "一块合成肉排。看起来有点不对劲，是吧？"
 	icon_state = "meatsteak_old"
 	tastes = list("meat" = 4, "cryoxandone" = 1)
 
 /obj/item/food/meat/steak/plain/pig
-	name = "pork chops"
-	desc = "A pork chop. Quit bustin' my chops!"
+	name = "猪排"
+	desc = "一块猪排。别再找茬，排好队！"
 	icon_state = "pigsteak"
 	tastes = list("pig" = 1)
 	foodtypes = MEAT
 
 /obj/item/food/meat/steak/blood_worm
-	name = "blood worm steak"
-	desc = "Now that's a bloody good steak!"
+	name = "血蠕虫肉排"
+	desc = "这才叫好吃到飙血的肉排！"
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | BUGS
 
@@ -650,15 +650,15 @@
 //Raw cutlets
 
 /obj/item/food/meat/rawcutlet
-	name = "raw cutlet"
-	desc = "A raw meat cutlet."
+	name = "生肉片"
+	desc = "一片生肉。"
 	icon_state = "rawcutlet"
 	bite_consumption = 2
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | RAW
-	var/meat_type = "meat"
+	var/meat_type = "肉"
 
 /obj/item/food/meat/rawcutlet/Initialize(mapload)
 	. = ..()
@@ -675,7 +675,7 @@
 	var/mutable_appearance/filling = mutable_appearance(icon, "rawcutlet_coloration")
 	filling.color = original_slab.slab_color
 	add_overlay(filling)
-	name = "raw [original_atom.name] cutlet"
+	name = "生[original_atom.name]片"
 	meat_type = original_atom.name
 
 /obj/item/food/meat/rawcutlet/plain
@@ -696,12 +696,12 @@
 	subjectname = origin_meat.subjectname
 	subjectjob = origin_meat.subjectjob
 	if(subjectname)
-		name = "raw [origin_meat.subjectname] cutlet"
+		name = "[origin_meat.subjectname]的生肉片"
 	else if(subjectjob)
-		name = "raw [origin_meat.subjectjob] cutlet"
+		name = "[origin_meat.subjectjob]的生肉片"
 
 /obj/item/food/meat/rawcutlet/killertomato
-	name = "raw killer tomato cutlet"
+	name = "生杀人番茄片"
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
 	blood_decal_type = /obj/effect/decal/cleanable/food/tomato_smudge
@@ -710,7 +710,7 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/killertomato, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/bear
-	name = "raw bear cutlet"
+	name = "生熊肉片"
 	tastes = list("meat" = 1, "salmon" = 1)
 
 /obj/item/food/meat/rawcutlet/bear/Initialize(mapload)
@@ -721,7 +721,7 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/bear, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/xeno
-	name = "raw xeno cutlet"
+	name = "生异形肉片"
 	tastes = list("meat" = 1, "acid" = 1)
 	blood_decal_type = /obj/effect/decal/cleanable/blood/xeno
 
@@ -729,7 +729,7 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/xeno, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/spider
-	name = "raw spider cutlet"
+	name = "生蜘蛛肉片"
 	tastes = list("cobwebs" = 1)
 	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 	foodtypes = parent_type::foodtypes | TOXIC
@@ -738,21 +738,21 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/spider, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/gondola
-	name = "raw gondola cutlet"
+	name = "生冈多拉肉片"
 	tastes = list("meat" = 1, "tranquility" = 1)
 
 /obj/item/food/meat/rawcutlet/gondola/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/gondola, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/penguin
-	name = "raw penguin cutlet"
+	name = "生企鹅肉片"
 	tastes = list("beef" = 1, "cod fish" = 1)
 
 /obj/item/food/meat/rawcutlet/penguin/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/penguin, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/chicken
-	name = "raw chicken cutlet"
+	name = "生鸡肉片"
 	tastes = list("chicken" = 1)
 
 /obj/item/food/meat/rawcutlet/chicken/make_grillable()
@@ -765,8 +765,8 @@
 //Cooked cutlets
 
 /obj/item/food/meat/cutlet
-	name = "cutlet"
-	desc = "A cooked meat cutlet."
+	name = "肉片"
+	desc = "一片熟肉。"
 	icon_state = "cutlet"
 	bite_consumption = 2
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
@@ -792,7 +792,7 @@
 		return
 
 	var/obj/item/food/meat/rawcutlet/original_cutlet = source_item
-	name = "[original_cutlet.meat_type] cutlet"
+	name = "[original_cutlet.meat_type]片"
 
 /obj/item/food/meat/cutlet/plain
 
@@ -807,36 +807,36 @@
 
 	var/obj/item/food/meat/origin_meat = source_item
 	if(subjectname)
-		name = "[origin_meat.subjectname] [initial(name)]"
+		name = "[origin_meat.subjectname]的[initial(name)]"
 	else if(subjectjob)
-		name = "[origin_meat.subjectjob] [initial(name)]"
+		name = "[origin_meat.subjectjob]的[initial(name)]"
 
 /obj/item/food/meat/cutlet/killertomato
-	name = "killer tomato cutlet"
+	name = "杀人番茄片"
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
 
 /obj/item/food/meat/cutlet/bear
-	name = "bear cutlet"
+	name = "熊肉片"
 	tastes = list("meat" = 1, "salmon" = 1)
 
 /obj/item/food/meat/cutlet/xeno
-	name = "xeno cutlet"
+	name = "异形肉片"
 	tastes = list("meat" = 1, "acid" = 1)
 
 /obj/item/food/meat/cutlet/spider
-	name = "spider cutlet"
+	name = "蜘蛛肉片"
 	tastes = list("cobwebs" = 1)
 	foodtypes = parent_type::foodtypes | TOXIC
 
 /obj/item/food/meat/cutlet/gondola
-	name = "gondola cutlet"
+	name = "冈多拉肉片"
 	tastes = list("meat" = 1, "tranquility" = 1)
 
 /obj/item/food/meat/cutlet/penguin
-	name = "penguin cutlet"
+	name = "企鹅肉片"
 	tastes = list("beef" = 1, "cod fish" = 1)
 
 /obj/item/food/meat/cutlet/chicken
-	name = "chicken cutlet"
+	name = "鸡肉片"
 	tastes = list("chicken" = 1)

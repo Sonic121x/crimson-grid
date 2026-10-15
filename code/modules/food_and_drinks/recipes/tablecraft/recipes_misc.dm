@@ -4,7 +4,7 @@
 // MISC
 
 /datum/crafting_recipe/food/candiedapple
-	name = "Candied apple"
+	name = "糖苹果"
 	reqs = list(
 		/datum/reagent/consumable/caramel = 5,
 		/obj/item/food/grown/apple = 1
@@ -30,7 +30,7 @@
 */
 
 /datum/crafting_recipe/food/chococoin
-	name = "Choco coin"
+	name = "巧克力硬币"
 	reqs = list(/obj/item/food/chocolatebar = 1)
 	tool_paths = list(/obj/item/coin)
 	result = /obj/item/food/chococoin
@@ -38,7 +38,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/fudgedice
-	name = "Fudge dice"
+	name = "软糖骰子"
 	reqs = list(
 		/obj/item/dice = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -48,7 +48,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/chocoorange
-	name = "Choco orange"
+	name = "巧克力橙"
 	reqs = list(
 		/obj/item/food/grown/citrus/orange = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -58,7 +58,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/cheesyfries
-	name = "Cheesy fries"
+	name = "奶酪薯条"
 	reqs = list(
 		/obj/item/food/fries = 1,
 		/obj/item/food/cheese/wedge = 1
@@ -67,7 +67,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/poutine
-	name = "Poutine"
+	name = "肉汁奶酪薯条"
 	reqs = list(
 		/obj/item/food/fries = 1,
 		/obj/item/food/cheese/wedge = 1,
@@ -78,7 +78,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/beans
-	name = "Beans"
+	name = "豆子"
 	time = 4 SECONDS
 	reqs = list(/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/grown/soybeans = 2
@@ -87,7 +87,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/eggplantparm
-	name ="Eggplant parmigiana"
+	name ="意式奶酪焗茄子"
 	reqs = list(
 		/obj/item/food/cheese/wedge = 2,
 		/obj/item/food/grown/eggplant = 1
@@ -97,7 +97,7 @@
 	cuisine_category = CUISINE_ITALIAN
 
 /datum/crafting_recipe/food/melonkeg
-	name ="Melon keg"
+	name ="西瓜酒桶"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 25,
 		/obj/item/food/grown/melonlike/holymelon = 1,
@@ -108,7 +108,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/honeybar
-	name = "Honey nut bar"
+	name = "蜂蜜坚果棒"
 	reqs = list(
 		/obj/item/food/grown/oat = 1,
 		/datum/reagent/consumable/honey = 5
@@ -134,7 +134,7 @@
 */
 
 /datum/crafting_recipe/food/branrequests
-	name = "Bran Requests Cereal"
+	name = "求麸麦片"
 	reqs = list(
 		/obj/item/food/grown/wheat = 1,
 		/obj/item/food/no_raisin = 1,
@@ -144,7 +144,7 @@
 	added_foodtypes = BREAKFAST
 
 /datum/crafting_recipe/food/ricepudding
-	name = "Rice pudding"
+	name = "米布丁"
 	reqs = list(
 		/obj/item/reagent_containers/cup/bowl = 1,
 		/datum/reagent/consumable/milk = 5,
@@ -157,7 +157,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/risotto
-	name = "Risotto"
+	name = "意式烩饭"
 	reqs = list(
 		/obj/item/reagent_containers/cup/bowl = 1,
 		/obj/item/food/cheese/wedge = 1,
@@ -190,7 +190,7 @@
 */
 
 /datum/crafting_recipe/food/crab_rangoon
-	name = "Crab Rangoon"
+	name = "蟹肉奶酪炸馄饨"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/datum/reagent/consumable/cream = 5,
@@ -215,7 +215,7 @@
 */
 
 /datum/crafting_recipe/food/ant_candy
-	name = "Ant Candy"
+	name = "蚂蚁糖"
 	reqs = list(/obj/item/stack/rods = 1,
 		/datum/reagent/consumable/sugar = 5,
 		/datum/reagent/water = 5,
@@ -226,7 +226,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/pesto
-	name = "Pesto"
+	name = "罗勒青酱"
 	reqs = list(
 		/obj/item/food/cheese/firm_cheese_slice = 1,
 		/datum/reagent/consumable/salt = 5,
@@ -240,7 +240,7 @@
 	meal_category = MEAL_COMPONENT
 
 /datum/crafting_recipe/food/tomato_sauce
-	name = "Tomato sauce"
+	name = "番茄酱汁"
 	reqs = list(
 		/obj/item/food/canned/tomatoes = 1,
 		/datum/reagent/consumable/salt = 2,
@@ -252,7 +252,7 @@
 	meal_category = MEAL_COMPONENT
 
 /datum/crafting_recipe/food/bechamel_sauce
-	name = "Bechamel sauce"
+	name = "白酱"
 	reqs = list(
 		/datum/reagent/consumable/milk = 10,
 		/datum/reagent/consumable/flour = 5,
@@ -264,7 +264,7 @@
 	meal_category = MEAL_COMPONENT
 
 /datum/crafting_recipe/food/pierogi
-	name = "Pierogi"
+	name = "波兰饺子"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/potato = 1,
@@ -274,7 +274,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/stuffed_cabbage
-	name = "Stuffed cabbage"
+	name = "酿卷心菜"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 2,
 		/obj/item/food/boiledrice = 1,
@@ -286,7 +286,7 @@
 	dish_category = DISH_SALAD
 
 /datum/crafting_recipe/food/granola_bar
-	name = "Granola bar"
+	name = "燕麦坚果棒"
 	reqs = list(
 		/obj/item/food/grown/oat = 1,
 		/obj/item/food/grown/peanut = 1,
@@ -298,7 +298,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/onigiri
-	name = "Onigiri"
+	name = "饭团"
 	reqs = list(
 		/obj/item/food/boiledrice = 1,
 		/obj/item/food/seaweedsheet = 1,
@@ -308,7 +308,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/mashed_potatoes
-	name = "Mashed potatoes"
+	name = "土豆泥"
 	reqs = list(
 		/obj/item/food/grown/potato = 2,
 		/obj/item/food/grown/garlic = 1,
@@ -318,7 +318,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/pacoca
-	name = "Paçoca"
+	name = "巴西花生酥"
 	reqs = list(
 		/obj/item/food/grown/peanut = 2,
 		/datum/reagent/consumable/sugar = 5,
@@ -329,7 +329,7 @@
 	dish_category = DISH_CANDY
 
 /datum/crafting_recipe/food/springroll
-	name = "Spring roll"
+	name = "春卷"
 	reqs = list(
 		/obj/item/food/grown/carrotlike/carrot = 1,
 		/obj/item/food/grown/cucumber = 1,
@@ -343,7 +343,7 @@
 	// cuisine_category = CUISINE_CHINESE
 
 /datum/crafting_recipe/food/caramel_popcorn
-	name = "Caramel popcorn"
+	name = "焦糖爆米花"
 	reqs = list(
 		/obj/item/food/popcorn = 1,
 		/datum/reagent/consumable/caramel = 3,
@@ -354,7 +354,7 @@
 	meal_category = MEAL_SNACK
 
 /datum/crafting_recipe/food/salty_popcorn
-	name = "Salty popcorn"
+	name = "咸味爆米花"
 	reqs = list(
 		/obj/item/food/popcorn = 1,
 		/datum/reagent/consumable/salt = 3,
@@ -363,7 +363,7 @@
 	meal_category = MEAL_SNACK
 
 /datum/crafting_recipe/food/spacylibertyduff
-	name = "Spacy liberty duff"
+	name = "太空自由布丁"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 5,
 		/obj/item/reagent_containers/cup/bowl = 1,
@@ -373,7 +373,7 @@
 	meal_category = MEAL_DESSERT // jello
 
 /datum/crafting_recipe/food/amanitajelly
-	name = "Amanita jelly"
+	name = "毒蝇伞果冻"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 5,
 		/obj/item/reagent_containers/cup/bowl = 1,
@@ -384,7 +384,7 @@
 	meal_category = MEAL_DESSERT // jello
 
 /datum/crafting_recipe/food/buttered_baked_potato
-	name = "Buttered baked potato"
+	name = "黄油烤土豆"
 	reqs = list(
 		/obj/item/food/baked_potato = 1,
 		/obj/item/food/butterslice = 1,
@@ -393,7 +393,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/loaded_baked_potato
-	name = "Loaded baked potato"
+	name = "豪华烤土豆"
 	reqs = list(
 		/obj/item/food/baked_potato = 1,
 		/obj/item/food/cheese/wedge = 1,
@@ -405,7 +405,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/cheese_pierogi
-	name = "Cheese pierogi"
+	name = "奶酪波兰饺子"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/potato = 1,
@@ -415,7 +415,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/meat_pierogi
-	name = "Meat pierogi"
+	name = "肉馅波兰饺子"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/potato = 1,
@@ -425,7 +425,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/bonbon/caramel_truffle
-	name = "Caramel truffle"
+	name = "焦糖松露巧克力"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/caramel = 2,
@@ -434,7 +434,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/bonbon/chocolate_truffle
-	name = "Chocolate truffle"
+	name = "松露巧克力"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/sugar = 2,
@@ -443,7 +443,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/bonbon/peanut_truffle
-	name = "Peanut truffle"
+	name = "花生松露巧克力"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/obj/item/food/grown/peanut = 1,
@@ -452,7 +452,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/bonbon/peanut_butter_cup
-	name = "Peanut butter cup"
+	name = "花生酱巧克力杯"
 	reqs = list(
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/peanut_butter = 2,
@@ -462,7 +462,7 @@
 	dish_category = DISH_CANDY
 
 /datum/crafting_recipe/pickles_jar
-	name = "Jar of pickles"
+	name = "腌黄瓜罐"
 	reqs = list(
 		/obj/item/reagent_containers/cup/beaker/large = 1,
 		/obj/item/food/grown/cucumber = 10,
@@ -473,7 +473,7 @@
 	delete_contents = FALSE
 
 /datum/crafting_recipe/food/sauteed_eggplant
-	name = "Sauteed eggplant"
+	name = "香煎茄子"
 	reqs = list(
 		/obj/item/food/grown/eggplant = 1,
 		/obj/item/food/grown/garlic = 1,
@@ -483,7 +483,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/stuffed_eggplant
-	name = "Stuffed eggplant"
+	name = "酿茄子"
 	reqs = list(
 		/obj/item/food/grown/eggplant = 1,
 		/obj/item/food/grown/garlic = 1,
@@ -495,7 +495,7 @@
 	dish_category = DISH_SALAD
 
 /datum/crafting_recipe/food/baba_ghanoush
-	name = "Baba ghanoush"
+	name = "中东茄泥"
 	reqs = list(
 		/obj/item/reagent_containers/cup/bowl = 1,
 		/obj/item/food/pita_bread = 1,
@@ -508,7 +508,7 @@
 	dish_category = DISH_CONDIMENT
 
 /datum/crafting_recipe/food/moussaka
-	name = "Moussaka"
+	name = "地中海茄子肉末千层焗"
 	reqs = list(
 		/obj/item/food/grown/eggplant = 2,
 		/obj/item/food/grown/garlic = 1,
@@ -520,7 +520,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/falafel
-	name = "Falafel"
+	name = "香草炸豆丸"
 	reqs = list(
 		/obj/item/food/grown/soybeans = 1,
 		/obj/item/food/grown/garlic = 1,
@@ -531,7 +531,7 @@
 	dish_category = DISH_UNCATEGORIZED
 
 /datum/crafting_recipe/food/candied_pineapple
-	name = "Candied pineapple"
+	name = "糖渍菠萝"
 	reqs = list(
 		/obj/item/food/pineappleslice = 1,
 		/datum/reagent/consumable/sugar = 2,
@@ -542,7 +542,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/tzatziki_sauce
-	name = "Tzatziki sauce"
+	name = "希腊蒜香酸奶酱"
 	reqs = list(
 		/obj/item/food/grown/cucumber = 1,
 		/datum/reagent/consumable/nutriment/fat/oil/olive = 2,
@@ -553,7 +553,7 @@
 	meal_category = MEAL_COMPONENT
 
 /datum/crafting_recipe/food/tzatziki_and_pita_bread
-	name = "Tzatziki and pita bread"
+	name = "希腊蒜香酸奶酱配皮塔饼"
 	reqs = list(
 		/obj/item/food/tzatziki_sauce = 1,
 		/obj/item/food/pita_bread = 1,
@@ -562,7 +562,7 @@
 	dish_category = DISH_BREAD
 
 /datum/crafting_recipe/food/grilled_beef_gyro
-	name = "Grilled beef gyro"
+	name = "烤牛肉希腊卷饼"
 	reqs = list(
 		/obj/item/food/tzatziki_sauce = 1,
 		/obj/item/food/pita_bread = 1,
@@ -575,7 +575,7 @@
 	dish_category = DISH_BURRITO
 
 /datum/crafting_recipe/food/vegetarian_gyro
-	name = "Vegetarian gyro"
+	name = "素食希腊卷饼"
 	reqs = list(
 		/obj/item/food/tzatziki_sauce = 1,
 		/obj/item/food/pita_bread = 1,
@@ -588,7 +588,7 @@
 	dish_category = DISH_BURRITO
 
 /datum/crafting_recipe/food/raw_pita_bread
-	name = "Raw pita bread"
+	name = "生皮塔饼"
 	reqs = list(
 		/datum/reagent/consumable/flour = 10,
 		/datum/reagent/water = 5,
@@ -599,7 +599,7 @@
 	dish_category = DISH_BREAD
 
 /datum/crafting_recipe/food/nutrient_bar
-	name = "Nutrient Bar"
+	name = "营养棒"
 	reqs = list(
 		/obj/item/food/grown/ash_flora/inozhakust = 2,
 		/datum/reagent/consumable/sugar = 3,

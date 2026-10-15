@@ -5,7 +5,7 @@
 
 
 /datum/crafting_recipe/food/humanburger
-	name = "Human burger"
+	name = "人肉汉堡"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/patty/human = 1
@@ -14,7 +14,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/burger
-	name = "Plain Burger"
+	name = "原味汉堡"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/bun = 1
@@ -24,7 +24,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/corgiburger
-	name = "Corgi burger"
+	name = "柯基汉堡"
 	reqs = list(
 			/obj/item/food/patty/corgi = 1,
 			/obj/item/food/bun = 1
@@ -65,7 +65,7 @@
 */
 
 /datum/crafting_recipe/food/bearger
-	name = "Bearger"
+	name = "熊肉汉堡"
 	reqs = list(
 		/obj/item/food/patty/bear = 1,
 		/obj/item/food/bun = 1
@@ -74,7 +74,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/fishburger
-	name = "Fish burger"
+	name = "鱼肉汉堡"
 	reqs = list(
 		/obj/item/food/fishmeat = 1,
 		/obj/item/food/bun = 1,
@@ -84,7 +84,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/tofuburger
-	name = "Tofu burger"
+	name = "豆腐汉堡"
 	reqs = list(
 		/obj/item/food/tofu = 1,
 		/obj/item/food/bun = 1
@@ -212,7 +212,7 @@
 */
 
 /datum/crafting_recipe/food/bigbiteburger
-	name = "Big bite burger"
+	name = "大口汉堡"
 	reqs = list(
 		/obj/item/food/patty/plain = 3,
 		/obj/item/food/bun = 1,
@@ -222,7 +222,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/superbiteburger
-	name = "Super bite burger"
+	name = "超大口汉堡"
 	reqs = list(
 		/datum/reagent/consumable/salt = 5,
 		/datum/reagent/consumable/blackpepper = 5,
@@ -262,7 +262,7 @@
 */
 
 /datum/crafting_recipe/food/fivealarmburger
-	name = "Five alarm burger"
+	name = "五级火警汉堡"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/grown/ghost_chili = 2,
@@ -272,7 +272,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/ratburger
-	name = "Rat burger"
+	name = "鼠肉汉堡"
 	reqs = list(
 			/obj/item/food/deadmouse = 1,
 			/obj/item/food/bun = 1
@@ -293,7 +293,7 @@
 */
 
 /datum/crafting_recipe/food/baconburger
-	name = "Bacon Burger"
+	name = "培根汉堡"
 	reqs = list(
 			/obj/item/food/meat/bacon = 3,
 			/obj/item/food/bun = 1
@@ -329,7 +329,7 @@
 */
 
 /datum/crafting_recipe/food/crabburger
-	name = "Crab Burger"
+	name = "蟹肉汉堡"
 	reqs = list(
 			/obj/item/food/meat/crab = 2,
 			/obj/item/food/bun = 1
@@ -339,7 +339,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/cheeseburger
-	name = "Cheese Burger"
+	name = "奶酪汉堡"
 	reqs = list(
 			/obj/item/food/patty/plain = 1,
 			/obj/item/food/bun = 1,
@@ -361,7 +361,7 @@
 */
 
 /datum/crafting_recipe/food/ribburger
-	name = "McRib"
+	name = "麦香肋排堡"
 	reqs = list(
 			/obj/item/food/bbqribs = 1,     //The sauce is already included in the ribs
 			/obj/item/food/onion_slice = 1, //feel free to remove if too burdensome.
@@ -371,7 +371,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/mcguffin
-	name = "McGuffin"
+	name = "麦高芬汉堡"
 	reqs = list(
 			/obj/item/food/friedegg = 1,
 			/obj/item/food/meat/bacon = 2,
@@ -381,7 +381,7 @@
 	dish_category = DISH_BURGER
 
 /datum/crafting_recipe/food/chickenburger
-	name = "Chicken Sandwich"
+	name = "鸡肉三明治"
 	reqs = list(
 			/obj/item/food/patty/chicken = 1,
 			/datum/reagent/consumable/mayonnaise = 5,
@@ -408,7 +408,7 @@
 */
 
 /datum/crafting_recipe/food/sloppy_moe
-	name = "Sloppy moe"
+	name = "邋遢莫汉堡"
 	reqs = list(
 			/obj/item/food/bun = 1,
 			/obj/item/food/meat/cutlet = 2,

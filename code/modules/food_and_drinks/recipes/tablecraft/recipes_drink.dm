@@ -14,7 +14,7 @@
 	category = CAT_DRINK
  */
 /datum/crafting_recipe/moonshinejug
-	name = "Moonshine Jug"
+	name = "私酿酒壶"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -24,7 +24,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/hoochbottle
-	name = "Hooch Bottle"
+	name = "瓶装劣质私酿酒"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -36,7 +36,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/blazaambottle
-	name = "Blazaam Bottle"
+	name = "瓶装闪现佳酿"
 	time = 2 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -46,7 +46,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/champagnebottle
-	name = "Champagne Bottle"
+	name = "瓶装香槟"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -56,7 +56,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/trappistbottle
-	name = "Trappist Bottle"
+	name = "瓶装特拉普修道院啤酒"
 	time = 1.5 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle/small = 1,
@@ -66,7 +66,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/goldschlagerbottle
-	name = "Goldschlager Bottle"
+	name = "瓶装金箔肉桂酒"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -76,7 +76,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/patronbottle
-	name = "Patron Bottle"
+	name = "瓶装培恩龙舌兰酒"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -88,7 +88,7 @@
 ////////////////////// Non-alcoholic recipes ///////////////////
 
 /datum/crafting_recipe/holybottle
-	name = "Holy Water Flask"
+	name = "圣水瓶"
 	time = 3 SECONDS
 	reqs = list(
 		/obj/item/reagent_containers/cup/glass/bottle = 1,
@@ -112,14 +112,14 @@
 */
 
 /datum/crafting_recipe/smallcarton
-	name = "Small Carton"
+	name = "小纸盒"
 	result = /obj/item/reagent_containers/cup/glass/bottle/juice/smallcarton
 	time = 1 SECONDS
 	reqs = list(/obj/item/stack/sheet/cardboard = 1)
 	category = CAT_CONTAINERS
 
 /datum/crafting_recipe/candycornliquor
-	name = "candy corn liquor"
+	name = "玉米糖利口酒"
 	result = /obj/item/reagent_containers/cup/glass/bottle/candycornliquor
 	time = 3 SECONDS
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
@@ -128,7 +128,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/kong
-	name = "Kong"
+	name = "金刚酒"
 	result = /obj/item/reagent_containers/cup/glass/bottle/kong
 	time = 3 SECONDS
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
@@ -137,7 +137,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/pruno
-	name = "pruno mix"
+	name = "狱酿果酒原料"
 	result = /obj/item/reagent_containers/cup/glass/bottle/pruno
 	time = 3 SECONDS
 	reqs = list(/obj/item/storage/bag/trash = 1,
@@ -151,7 +151,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/lean
-	name = "lean"
+	name = "紫饮"
 	result = /obj/item/reagent_containers/cup/glass/colocup/lean
 	time = 1 SECONDS
 	reqs = list(/obj/item/reagent_containers/cup/glass/colocup = 1,

@@ -1,6 +1,6 @@
 /obj/item/food/eggplantparm
-	name = "eggplant parmigiana"
-	desc = "The only good recipe for eggplant."
+	name = "意式奶酪焗茄子"
+	desc = "茄子唯一好吃的做法。"
 	icon_state = "eggplantparm"
 
 	food_reagents = list(
@@ -15,8 +15,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/yakiimo
-	name = "yaki imo"
-	desc = "Made with roasted sweet potatoes!"
+	name = "日式烤红薯"
+	desc = "用烤红薯做成！"
 	icon_state = "yakiimo"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
@@ -28,8 +28,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/roastparsnip
-	name = "roast parsnip"
-	desc = "Sweet and crunchy."
+	name = "烤欧防风根"
+	desc = "香甜酥脆。"
 	icon_state = "roastparsnip"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -42,8 +42,8 @@
 
 // Potatoes
 /obj/item/food/tatortot
-	name = "tator tot"
-	desc = "A large fried potato nugget that may or may not try to valid you."
+	name = "炸薯球"
+	desc = "一个大炸薯球，也许会试着把你当成正当击杀目标，也许不会。"
 	icon_state = "tatortot"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("potato" = 3, "valids" = 1)
@@ -57,8 +57,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/mashed_potatoes
-	name = "mashed potatoes"
-	desc = "A creamy serving of mashed potatoes, a staple of many Thanksgiving dinners."
+	name = "土豆泥"
+	desc = "一份绵密的土豆泥，是许多感恩节晚餐中的常客。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "mashed_potatoes"
 	food_reagents = list(
@@ -71,8 +71,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/baked_potato
-	name = "baked potato"
-	desc = "A piping hot potato baked in an oven. A bit bland by itself."
+	name = "烤土豆"
+	desc = "刚从烤箱里取出的滚烫土豆。单吃有点寡淡。"
 	icon_state = "baked_potato"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("baked potato" = 1)
@@ -81,8 +81,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/buttered_baked_potato
-	name = "buttered baked potato"
-	desc = "A piping hot baked potato, now with a slice of butter mixed in. Perfection."
+	name = "黄油烤土豆"
+	desc = "滚烫的烤土豆，拌入一片黄油。完美。"
 	icon_state = "buttered_baked_potato"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("baked potato" = 1)
@@ -91,8 +91,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/loaded_baked_potato
-	name = "loaded baked potato"
-	desc = "A piping hot baked potato, with the insides scooped out and mixed with bacon bits, cheese, and cabbage."
+	name = "豪华烤土豆"
+	desc = "滚烫的烤土豆，内瓤挖出后拌入培根碎、奶酪和卷心菜。"
 	icon_state = "loaded_baked_potato"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/nutriment/protein = 4)
 	tastes = list("baked potato" = 1, "bacon" = 1, "cheese" = 1, "cabbage" = 1)
@@ -154,8 +154,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/poutine
-	name = "poutine"
-	desc = "Fries covered in cheese curds and gravy."
+	name = "肉汁奶酪薯条"
+	desc = "盖着奶酪凝乳、浇着肉汁的薯条。"
 	icon_state = "poutine"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7)
 	tastes = list("potato" = 3, "gravy" = 1, "squeaky cheese" = 1)
@@ -170,8 +170,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/sauteed_eggplant
-	name = "sauteed eggplant"
-	desc = "Thick-cut slices of eggplant sauteed in oil and minced garlic, creating a soft, crispy, healthy snack."
+	name = "香煎茄子"
+	desc = "厚切茄子片用油和蒜末煎熟，外酥里软，是一道健康的小食。"
 	icon_state = "sauteed_eggplant"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -183,8 +183,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/baba_ghanoush
-	name = "baba ghanoush"
-	desc = "A thick dip made from mashed eggplant, olive oil, garlic, and lemon juice with some pita bread for dipping. You'll either love it or hate it."
+	name = "中东茄泥"
+	desc = "用茄泥、橄榄油、大蒜和柠檬汁调成的浓稠蘸酱，配上皮塔饼蘸着吃。你要么爱上它，要么讨厌它。"
 	icon_state = "baba_ghanoush"
 	trash_type = /obj/item/reagent_containers/cup/bowl
 	food_reagents = list(
@@ -197,8 +197,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/falafel
-	name = "falafel"
-	desc = "Beans, herbs, onions, and garlic mashed together and formed into a ball, then deep-fried. The herbs give the interior a unique green color."
+	name = "香草炸豆丸"
+	desc = "将豆子、香草、洋葱和大蒜捣碎成团，再下锅油炸。香草让内里呈现出独特的绿色。"
 	icon_state = "falafel"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,

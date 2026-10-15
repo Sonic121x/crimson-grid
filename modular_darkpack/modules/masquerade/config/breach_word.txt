@@ -1,223 +1,223 @@
-cainite
-cainites
-baali
-diablerie
-sabbat
-camarilla
-ventrue
-brujah
-trujah
-malkavian
-gangrel
-gangrels
-tremere
-lasombra
-assamite
-assamites
-caitiff
-caitiffs
-kiasyd
-kiasyds
-settite
-settites
-tzimisce
-cappadocian
-cappadocians
-nagaraja
-banu haqim
-antitribu
-antediluvian
-antediluvians
-vitae
-blood bond
-bloodbond
-bloodhunt
-blood hunt
-animalism
-auspex
-celerity
-obtenebration
-protean
-quietus
-serpentis
-thanatosis
-valeren
-vicissitude
-dementation
-melpominee
-mytherceria
-chimerstry
-sanguinus
-temporis
-thaumaturgy
-garou
-caern
-wyrm
-wyld
-theurge
-galliard
-philodox
-ahroun
-ragabash
-umbra
-homid
-homids
-crinos
-wyrmspawn
-moon bridge
-first change
-kuei jin
-wan xian
-wan kuei
-kine
-yomi king
-yama king
-yomi kings
-yama kings
-jade august
-august personage
-zao-lat
-kin-jinn
-ki chuan
-dragon line
-ebon dragon
-koldunic sorcery
-voivode
-bogatyr
-zadruga
-umbral realms
-incarna
-na kua
-hellweaving
-schlatza
-dracul
-autarkis
-primogen
-primogens
-black spiral dancer
-domitor
-strike force zero
-second inquisition
-shovelhead
-praesidium
-archon
-archons
-gerousia
-golconda
-arhat xue
-new promise mandarinate
-new mandarinate
-methesulah
-rotschreck
-kinfolk
-wassail
-coterie
-ch'iuh muh
-diablerie
-dignitas
-antitribu
-ancillae
-vinculum
-lextalionis
-tal'mahe'ra
-fledgling vampires
-vampire fledglings
-fledgling kindreds
-kindred fledglings
-neonate vampires
-vampire neonates
-neonate kindreds
-kindred neonates
-ancilla vampires
-vampire ancillas
-ancilla kindreds
-kindred ancillas
-elder vampires
-vampire elders
-elder kindreds
-kindred elders
-methuselah vampires
-vampire methuselahs
-methuselah kindreds
-kindred methuselahs
-fledgling vampire
-vampire fledgling
-fledgling kindred
-kindred fledgling
-neonate vampire
-vampire neonate
-neonate kindred
-kindred neonate
-ancilla vampire
-vampire ancilla
-ancilla kindred
-kindred ancilla
-elder vampire
-vampire elder
-elder kindred
-kindred elder
-methuselah vampire
-vampire methuselah
-methuselah kindred
-kindred methuselah
-black furies
-bone gnawers
-children of gaia
-get of fenris
-glass walkers
-red talons
-shadow lords
-silent striders
-silver fangs
-black fury
-bone gnawer
-child of gaia
-get of fenris
-glass walker
-red talon
-shadow lord
-silent strider
-silver fang
-nossie
-noddist
-noddism
-jyhad
-vaulderie
-ritae
-bamboo princes
-chiminage
-cliath
-fomor
-fomori
-gaffling
-glabro
-harano
-hispo
-impergium
-klaive
-triat
-wyrmhole
-fostern
-gallain
-kinain
-true black hand
-dur-an-ki
-aralu
-del'roh
-ghemalish
-molochim
-nergali
-follower of set
-followers of set
-malkavians
-ravnos
-daughters of cacophony
-daughter of cacophony
-harbingers of skulls
-harbinger of skulls
-salubri
-salubris
-cappadocius
-malkav
-saulot
-visceratika
+该隐后裔
+该隐后裔
+巴力
+血噬
+魔宴同盟
+密党
+梵卓
+布鲁赫
+真布鲁赫
+魔卡维
+冈格罗
+冈格罗
+睿魔尔
+勒森布拉
+阿萨迈
+阿萨迈
+无氏族者
+无氏族者
+奇亚希德
+奇亚希德
+瑟泰信徒
+瑟泰信徒
+茨密希
+卡帕多西亚
+卡帕多西亚
+纳迦拉贾
+哈基姆之裔
+逆族
+上古者
+上古者
+血粹
+血缚
+血缚
+血猎
+血猎
+兽性术
+灵视术
+迅捷术
+暗影术
+变形术
+静谧术
+蛇形术
+尸化术
+勇战术
+塑形术
+惑狂术
+悲歌术
+妖灵术
+幻象术
+血脉术
+时流术
+血魔法
+狼人
+圣地
+妖蛆
+荒野
+弦月祭司
+盈月诗人
+半月仲裁者
+满月战士
+新月诡术者
+影界
+人裔
+人裔
+战斗形态
+妖蛆孽裔
+月桥
+初变
+鬼人
+万仙
+万鬼
+凡人
+阎魔王
+阎魔王
+阎魔王
+阎魔王
+玉皇
+玉皇上帝
+索洛特
+金人
+意传书
+龙脉
+玄龙
+古巫术
+领主
+亲族勇士
+世袭家仆
+影界诸域
+神灵化身
+女娲
+织狱术
+血肉战仆
+德拉库尔
+独行血族
+元老
+元老
+黑螺旋舞者
+血主
+零号突击队
+第二次宗教裁判
+铲头法
+金字塔复兴会
+执政官
+执政官
+梵卓长老议会
+超脱之境
+血罗汉
+新约官府
+新官府
+玛士撒拉
+恐惧狂乱
+眷属
+兽性永堕
+血族小群
+龙泪术
+血噬
+氏族威望
+逆族
+资深者
+共血纽带
+同态复仇律
+塔尔玛赫拉
+雏血吸血鬼
+吸血鬼雏血
+雏血血族
+血族雏血
+新血吸血鬼
+吸血鬼新血
+新血血族
+血族新血
+资深吸血鬼
+吸血鬼资深者
+资深血族
+血族资深者
+长老吸血鬼
+吸血鬼长老
+长老血族
+血族长老
+玛士撒拉吸血鬼
+吸血鬼玛士撒拉
+玛士撒拉血族
+血族玛士撒拉
+雏血吸血鬼
+吸血鬼雏血
+雏血血族
+血族雏血
+新血吸血鬼
+吸血鬼新血
+新血血族
+血族新血
+资深吸血鬼
+吸血鬼资深者
+资深血族
+血族资深者
+长老吸血鬼
+吸血鬼长老
+长老血族
+血族长老
+玛士撒拉吸血鬼
+吸血鬼玛士撒拉
+玛士撒拉血族
+血族玛士撒拉
+黑怒之女
+啃骨者
+盖亚之子
+芬里斯之裔
+玻璃行者
+赤爪
+暗影领主
+寂静行者
+银牙
+黑怒之女
+啃骨者
+盖亚之子
+芬里斯之裔
+玻璃行者
+赤爪
+暗影领主
+寂静行者
+银牙
+诺斯费拉图
+挪得信徒
+挪得信仰
+永恒圣战
+共血仪式
+仪式
+竹林王侯
+灵契贡礼
+幼徒
+妖蛆附身者
+妖蛆附身者
+微灵
+兽化形态
+绝望之恸
+巨兽形态
+猎杀人类时代
+仪式银刃
+三相神
+妖蛆之穴
+同伴
+眷属
+妖精眷属
+真黑手
+天地纽带术
+阿拉鲁
+德尔罗
+盖玛利什
+摩洛克派
+奈尔伽派
+瑟泰信徒
+瑟泰信徒
+魔卡维
+雷伏诺
+喧嚣之女
+喧嚣之女
+死骸先驱
+死骸先驱
+萨鲁布里
+萨鲁布里
+卡帕多西乌斯
+玛卡夫
+索洛特
+岩肤术

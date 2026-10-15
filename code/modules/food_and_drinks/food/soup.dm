@@ -5,15 +5,15 @@
 	bite_consumption = 5
 	max_volume = 80
 	foodtypes = NONE
-	eatverbs = list("slurp", "sip", "inhale", "drink")
+	eatverbs = list("吸溜", "小口喝下", "猛吸", "喝下")
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/bowled/make_germ_sensitive(mapload)
 	return // It's in a bowl
 
 /obj/item/food/bowled/wish
-	name = "wish soup"
-	desc = "I wish this was soup."
+	name = "许愿汤"
+	desc = "真希望这能算是汤。"
 	icon_state = "wishsoup"
 	food_reagents = list(/datum/reagent/water = 10)
 	tastes = list("wishes" = 1)
@@ -22,13 +22,13 @@
 /obj/item/food/bowled/wish/Initialize(mapload)
 	. = ..()
 	if(prob(25))
-		desc = "A wish come true!"
+		desc = "愿望成真了！"
 		reagents.add_reagent(/datum/reagent/consumable/nutriment, 9)
 		reagents.add_reagent(/datum/reagent/consumable/nutriment/vitamin, 1)
 
 /obj/item/food/bowled/mammi
-	name = "mammi"
-	desc = "A bowl of mushy bread and milk. It reminds you, not too fondly, of a bowel movement."
+	name = "芬兰黑麦布丁"
+	desc = "一碗糊状的面包和牛奶。这模样让你不太愉快地想起排泄物。"
 	icon_state = "mammi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -38,8 +38,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bowled/spacylibertyduff
-	name = "spacy liberty duff"
-	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
+	name = "太空自由布丁"
+	desc = "照着阿尔弗雷德·哈伯德的食谱做出的果冻。"
 	icon_state = "spacylibertyduff"
 	bite_consumption = 3
 	food_reagents = list(
@@ -54,8 +54,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bowled/amanitajelly
-	name = "amanita jelly"
-	desc = "Looks curiously toxic."
+	name = "毒蝇伞果冻"
+	desc = "怎么看都像有毒。"
 	icon_state = "amanitajelly"
 	bite_consumption = 3
 	food_reagents = list(

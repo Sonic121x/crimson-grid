@@ -4,9 +4,9 @@
 
 //Base ingredients and miscellany, generally not served on their own
 /obj/item/food/herby_cheese
-	name = "herby cheese"
-	desc = "As a staple of mothic cuisine, cheese is often augmented with various flavours to keep variety in their diet. \
-		Herbs are one such addition, and are particularly beloved."
+	name = "香草奶酪"
+	desc = "奶酪是蛾人饮食的主食，常加入各种调味，让餐桌保持变化。\
+		香草就是其中一种，而且格外受欢迎。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "herby_cheese"
 	trash_type = /obj/item/reagent_containers/cup/bowl
@@ -17,9 +17,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/grilled_cheese
-	name = "grilled cheese"
-	desc = "As prescribed by Lord Alton, blessed be his name, 99.997% of the world's recipes for grilled cheese flat out lie: \
-		never once is the cheese grilled, it is merely a griddled sandwich containing melted cheese. This, on the other hand, is truly grilled cheese, grillmarks and all."
+	name = "烤奶酪"
+	desc = "正如奥尔顿大人所言——愿其名受赞颂——世上99.997%的烤奶酪食谱都在公然撒谎：\
+		奶酪根本没上烤架，只是夹在铁板煎三明治里融化了。而这个才是真正的烤奶酪，连烤痕都有。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "grilled_cheese"
 	food_reagents = list(
@@ -32,8 +32,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/mothic_salad
-	name = "mothic salad"
-	desc = "A basic salad of cabbage, red onion and tomato. Can serve as a perfect base for a million different salads."
+	name = "蛾式沙拉"
+	desc = "用卷心菜、红洋葱和番茄做成的基础沙拉，可作为无数种沙拉的完美底料。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothic_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6)
@@ -43,9 +43,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/toasted_seeds
-	name = "toasted seeds"
-	desc = "While they're far from filling, toasted seeds are a popular snack amongst the moths. \
-		Salt, sugar, or even some more exotic flavours may be added for some extra pep."
+	name = "烤籽仁"
+	desc = "烤籽仁虽说远不够顶饱，却是蛾人喜爱的零食。\
+		撒上盐、糖，甚至更奇特的调味，就能增添风味。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "toasted_seeds"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 5)
@@ -55,9 +55,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/engine_fodder
-	name = "engine fodder"
-	desc = "A common snack for engineers on the mothic fleet, made of seeds, nuts, chocolate, popcorn, and potato chips- \
-		designed to be dense with calories and easy to snack on when an extra boost is needed."
+	name = "引擎口粮"
+	desc = "蛾人船队工程师常吃的零食，由籽仁、坚果、巧克力、爆米花和薯片混合而成——\
+		热量密集，随手就能吃，专为需要加把劲的时候准备。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "engine_fodder"
 	food_reagents = list(
@@ -72,8 +72,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/mothic_pizza_dough
-	name = "mothic pizza dough"
-	desc = "A strong, glutenous dough, made with cornmeal and flour, designed to hold up to cheese and sauce."
+	name = "蛾式披萨面团"
+	desc = "用玉米粉和面粉做成的高筋面团，足够有韧性，能承托奶酪和酱汁。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothic_pizza_dough"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6)
@@ -84,9 +84,9 @@
 
 //Entrees: categorising food that is 90% cheese and salad is not easy
 /obj/item/food/squeaking_stir_fry
-	name = "skeklitmischtpoppl" //skeklit = squeaking, mischt = stir, poppl = fry
-	desc = "A mothic classic made with cheese curds and tofu (amongst other things). \
-		Translated literally the name means 'squeaking stir fry', a name given due to the distinctive squeak of the proteins."
+	name = "吱吱小炒" //skeklit = squeaking, mischt = stir, poppl = fry
+	desc = "用奶酪凝块、豆腐等食材做成的蛾人经典菜。\
+		名字直译为“吱吱小炒”，源于这些蛋白质食材咀嚼时独特的吱吱声。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "squeaking_stir_fry"
 	food_reagents = list(
@@ -99,8 +99,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/sweet_chili_cabbage_wrap
-	name = "sweet chili cabbage wrap"
-	desc = "Grilled cheese and salad in a cabbage wrap, topped with delicious sweet chili sauce."
+	name = "甜辣卷心菜卷"
+	desc = "卷心菜叶包着烤奶酪和沙拉，淋上美味甜辣酱。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "sweet_chili_cabbage_wrap"
 	food_reagents = list(
@@ -114,9 +114,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/loaded_curds
-	name = "ozlsettitæloskekllön ede pommes" //ozlsettit = overflowing (ozl = over, sett = flow, it = ing), ælo = cheese, skekllön = curds (skeklit = squeaking, llön = pieces/bits), ede = and, pommes = fries (hey, France!)
-	desc = "What's better than cheese curds? Deep fried cheese curds! What's better than deep fried cheese curds? \
-		Deep fried cheese curds with chili (and more cheese) on top! And what's better than that? Putting it on fries!"
+	name = "满溢奶酪凝块薯条" //ozlsettit = overflowing (ozl = over, sett = flow, it = ing), ælo = cheese, skekllön = curds (skeklit = squeaking, llön = pieces/bits), ede = and, pommes = fries (hey, France!)
+	desc = "什么比奶酪凝块更好？炸奶酪凝块！什么比炸奶酪凝块更好？\
+		上面浇辣椒酱，再加更多奶酪！还能更好吗？把它铺在薯条上！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "loaded_curds"
 	food_reagents = list(
@@ -131,8 +131,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/baked_cheese
-	name = "baked cheese wheel"
-	desc = "A baked cheese wheel, melty and delicious."
+	name = "焗奶酪轮"
+	desc = "烤得融化的奶酪轮，十分美味。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "baked_cheese"
 	food_reagents = list(
@@ -146,9 +146,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/baked_cheese_platter
-	name = "stanntkraktælo" //stannt = oven, krakt = baked, ælo = cheese
-	desc = "A baked cheese wheel: a mothic favourite for sharing. Usually served with crispy bread slices for dipping, \
-		because the only thing better than good cheese is good cheese on bread."
+	name = "炉烤奶酪拼盘" //stannt = oven, krakt = baked, ælo = cheese
+	desc = "烤奶酪轮是蛾人最爱分享的食品之一，通常搭配酥脆面包片蘸着吃，\
+		因为唯一胜过好奶酪的，就是面包上的好奶酪。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "baked_cheese_platter"
 	food_reagents = list(
@@ -163,8 +163,8 @@
 
 //Baked Green Lasagna at the Whistlestop Cafe
 /obj/item/food/raw_green_lasagne
-	name = "raw green lasagne al forno"
-	desc = "A fine lasagne made with pesto and a herby white sauce, ready to bake. Good for multiple servings."
+	name = "生青酱千层面"
+	desc = "用罗勒青酱与香草白酱制作的精美千层面，只待入炉，可供多人分享。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_green_lasagne"
 	food_reagents = list(
@@ -180,8 +180,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/green_lasagne, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/green_lasagne
-	name = "green lasagne al forno"
-	desc = "A fine lasagne made with pesto and a herby white sauce. Good for multiple servings."
+	name = "青酱千层面"
+	desc = "用罗勒青酱与香草白酱制作的精美千层面，可供多人分享。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "green_lasagne"
 	food_reagents = list(
@@ -194,11 +194,11 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/green_lasagne/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/green_lasagne_slice, 6, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/green_lasagne_slice, 6, 3 SECONDS, table_required = TRUE,  screentip_verb = "切片", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/green_lasagne_slice
-	name = "green lasagne al forno slice"
-	desc = "A slice of herby, pesto-y lasagne."
+	name = "青酱千层面片"
+	desc = "一片香草与罗勒青酱风味的千层面。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "green_lasagne_slice"
 	food_reagents = list(
@@ -211,8 +211,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_baked_rice
-	name = "big rice pan"
-	desc = "A big pan of layered potatoes topped with rice and vegetable stock, ready to be baked into a delicious sharing meal."
+	name = "大盘生焗饭"
+	desc = "一大盘土豆层上铺着米饭、浇着蔬菜高汤，烤熟后就是可供分享的美味大餐。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_baked_rice"
 	food_reagents = list(
@@ -228,9 +228,9 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/big_baked_rice, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/big_baked_rice
-	name = "big baked rice"
-	desc = "An iconic favourite, baked rice can be filled with a variety of vegetable fillings to make a delicious meal to share. \
-		Potatoes are also often layered on the bottom of the cooking vessel to create a flavourful crust which is hotly contested amongst diners." // DARKPACK EDIT CHANGE
+	name = "大盘焗饭"
+	desc = "焗饭是备受喜爱的招牌料理，加入各式蔬菜，就能做成适合分享的美味大餐。\
+		锅底也常铺一层土豆，烤出香脆底壳，让食客争抢不休。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "big_baked_rice"
 	food_reagents = list(
@@ -243,11 +243,11 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/big_baked_rice/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/lil_baked_rice, 6, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/lil_baked_rice, 6, 3 SECONDS, table_required = TRUE, screentip_verb = "切开")
 
 /obj/item/food/lil_baked_rice
-	name = "lil baked rice"
-	desc = "A single portion of baked rice, perfect as a side dish, or even as a full meal."
+	name = "小份焗饭"
+	desc = "一人份焗饭，既适合作为配菜，也能当作一顿正餐。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "lil_baked_rice"
 	food_reagents = list(
@@ -260,9 +260,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/oven_baked_corn
-	name = "oven-baked corn"
-	desc = "A cob of corn, baked in the roasting heat of an oven until it blisters and blackens. \
-		Beloved as a quick yet flavourful and filling component for dishes on the Fleet."
+	name = "炉烤玉米"
+	desc = "一根在烤箱高温中烤至表皮起泡焦黑的玉米。\
+		制作快捷、味美又顶饱，深受船队食客喜爱。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "oven_baked_corn"
 	food_reagents = list(
@@ -275,8 +275,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/buttered_baked_corn
-	name = "buttered baked corn"
-	desc = "What's better than baked corn? Baked corn with butter!"
+	name = "黄油烤玉米"
+	desc = "什么比烤玉米更好？抹了黄油的烤玉米！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "buttered_baked_corn"
 	food_reagents = list(
@@ -290,8 +290,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/fiesta_corn_skillet
-	name = "fiesta corn skillet"
-	desc = "Sweet, spicy, saucy, and all kinds of corny."
+	name = "嘉年华铁锅玉米"
+	desc = "又甜又辣，酱汁浓郁，满满玉米，满满趣味。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fiesta_corn_skillet"
 	food_reagents = list(
@@ -305,8 +305,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/raw_ratatouille
-	name = "raw ratatouille" //rawtatouille?
-	desc = "Sliced vegetables with a roasted pepper sauce. Delicious, for a peasant food."
+	name = "生普罗旺斯炖菜" //rawtatouille?
+	desc = "蔬菜切片配烤甜椒酱。作为乡间饭菜，味道很不错。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_ratatouille"
 	food_reagents = list(
@@ -323,8 +323,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/ratatouille, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/ratatouille
-	name = "ratatouille"
-	desc = "The perfect dish to save your restaurant from a vindictive food critic. Bonus points if you've got a rat in your hat."
+	name = "普罗旺斯炖菜"
+	desc = "拯救餐厅、征服刻薄美食评论家的完美菜肴。帽子里有老鼠还能加分。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "ratatouille"
 	food_reagents = list(
@@ -338,8 +338,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/mozzarella_sticks
-	name = "mozzarella sticks"
-	desc = "Little sticks of mozzarella, breaded and fried."
+	name = "马苏里拉奶酪条"
+	desc = "裹上面包糠油炸的小条马苏里拉奶酪。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mozzarella_sticks"
 	food_reagents = list(
@@ -352,8 +352,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/raw_stuffed_peppers
-	name = "raw voltölpaprik" //voltöl = stuffed (vol = full, töl = push), paprik (from German paprika) = bell pepper
-	desc = "A pepper with the top removed and a herby cheese and onion mix stuffed inside. Probably shouldn't be eaten raw."
+	name = "生酿甜椒" //voltöl = stuffed (vol = full, töl = push), paprik (from German paprika) = bell pepper
+	desc = "去顶的甜椒里塞满香草奶酪与洋葱混合馅，最好别生吃。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_stuffed_pepper"
 	food_reagents = list(
@@ -369,8 +369,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/stuffed_peppers, rand(10 SECONDS, 20 SECONDS), TRUE, TRUE)
 
 /obj/item/food/stuffed_peppers
-	name = "voltölpaprik"
-	desc = "A soft yet still crisp bell pepper, with a wonderful melty cheesy interior."
+	name = "酿甜椒"
+	desc = "柔软却仍带脆感的甜椒，内馅是美味融化的奶酪。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "stuffed_pepper"
 	food_reagents = list(
@@ -383,10 +383,10 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/fueljacks_lunch
-	name = "\improper Fueljack's lunch"
-	desc = "A dish made from fried vegetables, popular amongst fueljacks- the brave moths who operate the fuel skimmers to keep the fleet running. \
-		Given the constant need for fuel, and the limited windows in which the stars align for harvesting (literally), \
-		they'll often take packed meals to save on trips to the mess, which they heat using the fresh canisters."
+	name = "\improper 采燃工午餐"
+	desc = "一份炒蔬菜，是采燃工喜爱的饭菜。这些勇敢的蛾人驾驶燃料采集艇，维持船队运转。\
+		燃料需求从不停歇，而恒星位置适合采集的时机又十分有限，\
+		所以他们常带盒饭，省去往返食堂的时间，并用刚灌满的燃料罐加热。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fueljacks_lunch"
 	food_reagents = list(
@@ -399,9 +399,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/mac_balls
-	name = "macheronirölen"
-	desc = "Fried balls of macaroni cheese dipped in corn batter, served with tomato sauce. \
-		A popular snack across the galaxy, and especially on the Mothic Fleet- where they tend to use Ready-Donk as the base."
+	name = "通心粉奶酪球"
+	desc = "奶酪通心粉捏成球，裹玉米糊油炸，配番茄酱食用。\
+		风靡银河的零食，在蛾人船队尤其流行；那里常用即食当克作底料。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mac_balls"
 	food_reagents = list(
@@ -414,10 +414,10 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/sustenance_bar
-	name = "surplus fleet PSB"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over \
-		during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, \
-		they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is, like most artificially-flavoured moth food, mixed-herb flavoured."
+	name = "船队剩余预包装维生棒"
+	desc = "预包装维生棒是一种压制紧实、营养丰富的食品，旨在帮助民众度过\
+		粮食短缺时期。它以大豆和豌豆蛋白制成，合理配给时每根可供三天食用。虽然保质期很长，\
+		终究还是会变质，因此船队会将多余存货出售。这根和大多数人工调味的蛾人食品一样，是混合香草味。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "sustenance_bar"
 	trash_type = /obj/item/trash/fleet_ration
@@ -427,38 +427,38 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/sustenance_bar/neapolitan
-	name = "surplus fleet PSB- neapolitan flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over \
-		during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, \
-		they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is neapolitan flavoured- strawberry, vanilla, and chocolate."
+	name = "船队剩余预包装维生棒——那不勒斯三色味"
+	desc = "预包装维生棒是一种压制紧实、营养丰富的食品，旨在帮助民众度过\
+		粮食短缺时期。它以大豆和豌豆蛋白制成，合理配给时每根可供三天食用。虽然保质期很长，\
+		终究还是会变质，因此船队会将多余存货出售。这根是那不勒斯三色味：草莓、香草和巧克力。"
 	tastes = list("strawberry" = 1, "vanilla" = 1, "chocolate" = 1)
 
 /obj/item/food/sustenance_bar/cheese
-	name = "surplus fleet PSB- three-cheese flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over \
-		during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, \
-		they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is three-cheese flavoured- parmesan, mozzarella, and cheddar."
+	name = "船队剩余预包装维生棒——三重奶酪味"
+	desc = "预包装维生棒是一种压制紧实、营养丰富的食品，旨在帮助民众度过\
+		粮食短缺时期。它以大豆和豌豆蛋白制成，合理配给时每根可供三天食用。虽然保质期很长，\
+		终究还是会变质，因此船队会将多余存货出售。这根是三重奶酪味：帕尔马、马苏里拉和切达奶酪。"
 	tastes = list("parmesan" = 1, "mozzarella" = 1, "cheddar" = 1)
 
 /obj/item/food/sustenance_bar/mint
-	name = "surplus fleet PSB- mint choc chip flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over \
-		during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, \
-		they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is mint choc chip flavoured- peppermint, \
-		dark chocolate, and potato chips, showing that mothkind has no idea what mint choc chip is."
+	name = "船队剩余预包装维生棒——薄荷巧克力脆片味"
+	desc = "预包装维生棒是一种压制紧实、营养丰富的食品，旨在帮助民众度过\
+		粮食短缺时期。它以大豆和豌豆蛋白制成，合理配给时每根可供三天食用。虽然保质期很长，\
+		终究还是会变质，因此船队会将多余存货出售。这根是薄荷巧克力脆片味：薄荷、\
+		黑巧克力和薯片。看来蛾人根本不知道薄荷巧克力脆片是什么。"
 	tastes = list("peppermint" = 1, "potato chips(?)" = 1, "dark chocolate" = 1)
 
 /obj/item/food/sustenance_bar/wonka
-	name = "surplus fleet PSB- three course dinner"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over \
-		during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, \
-		they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is split into three flavours, \
-		making up a typical meal- tomato soup, roast pumpkin, and blueberry pie." //Thankfully not made by Willy Wonka
+	name = "船队剩余预包装维生棒——三道式晚餐"
+	desc = "预包装维生棒是一种压制紧实、营养丰富的食品，旨在帮助民众度过\
+		粮食短缺时期。它以大豆和豌豆蛋白制成，合理配给时每根可供三天食用。虽然保质期很长，\
+		终究还是会变质，因此船队会将多余存货出售。这根分成三种口味，\
+		凑成一顿典型餐食：番茄汤、烤南瓜和蓝莓派。" //Thankfully not made by Willy Wonka
 	tastes = list("tomato soup" = 1, "roast pumpkin" = 1, "blueberry pie" = 1)
 
 /obj/item/food/bowled/fried_eggplant_polenta
-	name = "fried eggplant and polenta"
-	desc = "Polenta loaded with cheese, served with a few discs of fried eggplant and some tomato sauce. Lække!"
+	name = "炸茄子配玉米糊"
+	desc = "拌满奶酪的玉米糊，配上几片炸茄子和番茄酱。美味！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fried_eggplant_polenta"
 	trash_type = /obj/item/reagent_containers/cup/bowl
@@ -474,10 +474,10 @@
 
 //Salads: the bread and butter of mothic cuisine
 /obj/item/food/caprese_salad
-	name = "caprese salad"
-	desc = "While it's far from an original creation of the moths, caprese salad has become a favourite aboard the Fleet \
-		due to how simple it is to prepare yet how tasty it is. To the moths it's known as zaileskenknusksolt: \
-		two tone salad, in GalCom." //zail = two, esken = colour/tone, knuskolt = salad
+	name = "卡普雷塞沙拉"
+	desc = "卡普雷塞沙拉虽非蛾人原创，却凭借做法简单、味道出众，\
+		成为船队最受欢迎的菜式之一。蛾人给它起了个名字，\
+		用银河通用语说，就是双色沙拉。" //zail = two, esken = colour/tone, knuskolt = salad
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "caprese_salad"
 	food_reagents = list(
@@ -490,9 +490,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/fleet_salad
-	name = "lörtonknusksolt" //lörton = fleet, knusksolt = salad (knusk = crisp, solt = bowl)
-	desc = "Lörtonknusksolt, or Fleet Salad in GalCom, is commonly seen at the snack bars and canteens aboard the Fleet. \
-		The grilled cheese makes it particularly filling, while the croutons provide a crunchy kick."
+	name = "船队沙拉" //lörton = fleet, knusksolt = salad (knusk = crisp, solt = bowl)
+	desc = "这道菜的蛾语名字译成银河通用语就是船队沙拉，常见于船队的小吃吧和食堂。\
+		烤奶酪让它格外顶饱，面包丁则增添了酥脆口感。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fleet_salad"
 	food_reagents = list(
@@ -505,8 +505,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/salad/cotton_salad
-	name = "flöfrölenknusksolt"
-	desc = "A salad with added cotton and a basic dressing. Presumably either moths are around, or the South's risen again."
+	name = "棉花沙拉"
+	desc = "加了棉花和简单调味汁的沙拉。大概附近有蛾人，或者南方又崛起了。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cotton_salad"
 	food_reagents = list(
@@ -519,9 +519,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/salad/moth_kachumbari
-	name = "\improper Kæniatknusksolt" //Kæniat = Kenyan, knusksolt = salad
-	desc = "Originally a Kenyan recipe, kachumbari is yet another cross-cultural favourite from humanity that has been adopted by the moths- \
-		though some ingredients have been necessarily changed."
+	name = "\improper 肯尼亚沙拉" //Kæniat = Kenyan, knusksolt = salad
+	desc = "原本来自肯尼亚的番茄洋葱沙拉，是又一道被蛾人接纳的人类跨文化美食——\
+		不过为适应饮食，部分原料做了必要调整。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_kachumbari"
 	food_reagents = list(
@@ -535,9 +535,9 @@
 
 //Pizza
 /obj/item/food/raw_mothic_margherita
-	name = "raw mothic margherita pizza"
-	desc = "Another human classic adopted by the moths, mothic pizza is characterised by the use of fresh ingredients, \
-		particularly fresh mozzarella, and the use of strong flour to produce a glutenous dough."
+	name = "生蛾式玛格丽特披萨"
+	desc = "又一道被蛾人接纳的人类经典料理。蛾式披萨以新鲜食材为特色，\
+		尤其讲究新鲜马苏里拉奶酪，并用高筋面粉做出筋道的饼底。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_margherita_pizza"
 	food_reagents = list(
@@ -554,8 +554,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_margherita, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_margherita
-	name = "mothic margherita pizza"
-	desc = "A key characteristic of mothic pizza is that it's sold by weight- single slices are available for discretionary credits, while a meal ticket can buy a whole pie."
+	name = "蛾式玛格丽特披萨"
+	desc = "蛾式披萨的重要特点是按重量出售：零用信用点可以买单片，一张餐券则能换一整张。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "margherita_pizza"
 	food_reagents = list(
@@ -567,12 +567,12 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mothic_margherita
-	boxtag = "Margherita alla Moffuchi"
+	boxtag = "蛾式玛格丽特"
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pizzaslice/mothic_margherita
-	name = "mothic margherita slice"
-	desc = "A slice of mothic margherita pizza, the most humble of pizzas."
+	name = "蛾式玛格丽特披萨片"
+	desc = "一片蛾式玛格丽特披萨，最朴素的披萨。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "margherita_slice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
@@ -580,8 +580,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_mothic_firecracker
-	name = "raw mothic firecracker pizza"
-	desc = "A favourite amongst the more adventurous moths, firecracker pizza is HOT HOT HOT!"
+	name = "生蛾式爆竹披萨"
+	desc = "喜欢冒险的蛾人的最爱。爆竹披萨，辣！辣！辣！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_firecracker_pizza"
 	food_reagents = list(
@@ -599,8 +599,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_firecracker, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_firecracker
-	name = "mothic firecracker pizza"
-	desc = "They're not kidding when they call this a hot pizza pie."
+	name = "蛾式爆竹披萨"
+	desc = "叫它火辣披萨，真不是开玩笑。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "firecracker_pizza"
 	food_reagents = list(
@@ -613,12 +613,12 @@
 	tastes = list("crust" = 1, "chili" = 1, "corn" = 1, "cheese" = 1, "bbq sauce" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mothic_firecracker
-	boxtag = "Vesuvian Firecracker"
+	boxtag = "维苏威爆竹"
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pizzaslice/mothic_firecracker
-	name = "mothic firecracker slice"
-	desc = "A spicy slice of something quite nice."
+	name = "蛾式爆竹披萨片"
+	desc = "一片香辣又可口的好东西。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "firecracker_slice"
 	tastes = list("crust" = 1, "chili" = 1, "corn" = 1, "cheese" = 1, "bbq sauce" = 1)
@@ -626,8 +626,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_mothic_five_cheese
-	name = "raw mothic five-cheese pizza"
-	desc = "For centuries, scholars have asked: how much cheese is too much cheese?"
+	name = "生蛾式五重奶酪披萨"
+	desc = "几个世纪以来，学者们一直在问：到底放多少奶酪才算太多？"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_five_cheese_pizza"
 	food_reagents = list(
@@ -644,8 +644,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_five_cheese, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_five_cheese
-	name = "mothic five-cheese pizza"
-	desc = "A favourite amongst mice, rats, and English inventors."
+	name = "蛾式五重奶酪披萨"
+	desc = "小鼠、大鼠和英国发明家的最爱。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "five_cheese_pizza"
 	food_reagents = list(
@@ -657,12 +657,12 @@
 	tastes = list("crust" = 1, "cheese" = 1, "more cheese" = 1, "excessive amounts of cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mothic_five_cheese
-	boxtag = "Cheeseplosion"
+	boxtag = "奶酪大爆炸"
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pizzaslice/mothic_five_cheese
-	name = "mothic five-cheese slice"
-	desc = "It's the cheesiest slice in the galaxy!"
+	name = "蛾式五重奶酪披萨片"
+	desc = "银河里奶酪最浓的一片！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "five_cheese_slice"
 	tastes = list("crust" = 1, "cheese" = 1, "more cheese" = 1, "excessive amounts of cheese" = 1)
@@ -670,8 +670,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_mothic_white_pie
-	name = "raw mothic white-pie pizza"
-	desc = "A pizza made for the tomato haters."
+	name = "生蛾式白披萨"
+	desc = "专为讨厌番茄的人准备的披萨。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_white_pie_pizza"
 	food_reagents = list(
@@ -688,8 +688,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_white_pie, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_white_pie
-	name = "mothic white-pie pizza"
-	desc = "You say to-may-to, I say to-mah-to, and we put neither on this pizza."
+	name = "蛾式白披萨"
+	desc = "你叫它西红柿，我叫它番茄，反正这披萨两样都不放。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "white_pie_pizza"
 	food_reagents = list(
@@ -701,12 +701,12 @@
 	tastes = list("crust" = 1, "cheese" = 1, "herbs" = 1, "garlic" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mothic_white_pie
-	boxtag = "Pane Bianco"
+	boxtag = "白面包"
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pizzaslice/mothic_white_pie
-	name = "mothic white-pie slice"
-	desc = "Cheesy, garlicky, herby, delicious!"
+	name = "蛾式白披萨片"
+	desc = "奶酪香、蒜香、香草香，美味！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "white_pie_slice"
 	tastes = list("crust" = 1, "cheese" = 1, "more cheese" = 1, "excessive amounts of cheese" = 1)
@@ -714,8 +714,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_mothic_pesto
-	name = "raw mothic pesto pizza"
-	desc = "Pesto is a popular pizza topping for moths, quite possibly because it exemplifies their favourite flavours: cheese, herbs, and veggies."
+	name = "生蛾式青酱披萨"
+	desc = "罗勒青酱是蛾人喜爱的披萨配料，很可能因为它汇集了他们最爱的味道：奶酪、香草和蔬菜。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_pesto_pizza"
 	food_reagents = list(
@@ -732,8 +732,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_pesto, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_pesto
-	name = "mothic pesto pizza"
-	desc = "Green as the grass in the garden. Not that there's many of those on mothic ships."
+	name = "蛾式青酱披萨"
+	desc = "绿得像花园里的草。虽然蛾人的船上也没多少花园。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "pesto_pizza"
 	food_reagents = list(
@@ -745,12 +745,12 @@
 	tastes = list("crust" = 1, "pesto" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | NUTS
 	slice_type = /obj/item/food/pizzaslice/mothic_pesto
-	boxtag = "Presto Pesto"
+	boxtag = "快手青酱"
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/pizzaslice/mothic_pesto
-	name = "mothic pesto slice"
-	desc = "A slice of presto pesto pizza."
+	name = "蛾式青酱披萨片"
+	desc = "一片快手青酱披萨。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "pesto_slice"
 	tastes = list("crust" = 1, "pesto" = 1, "cheese" = 1)
@@ -758,8 +758,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_5
 
 /obj/item/food/raw_mothic_garlic
-	name = "raw mothic garlic pizzabread"
-	desc = "Ahh, garlic. A universally loved ingredient, except possibly by vampires."
+	name = "生蛾式蒜香披萨面包"
+	desc = "啊，大蒜。人人喜爱的食材，或许吸血鬼除外。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_garlic_pizza"
 	food_reagents = list(
@@ -776,8 +776,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_garlic, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_garlic
-	name = "mothic garlic pizzabread"
-	desc = "The best food in the galaxy, hands down."
+	name = "蛾式蒜香披萨面包"
+	desc = "银河系最棒的食物，毫无争议。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "garlic_pizza"
 	food_reagents = list(
@@ -789,12 +789,12 @@
 	tastes = list("crust" = 1, "garlic" = 1, "butter" = 1)
 	foodtypes = GRAIN|VEGETABLES|DAIRY
 	slice_type = /obj/item/food/pizzaslice/mothic_garlic
-	boxtag = "Garlic Bread alla Moffuchi"
+	boxtag = "蛾式蒜香面包"
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/pizzaslice/mothic_garlic
-	name = "mothic garlic pizzabread slice"
-	desc = "The best combination of oily, garlicky, and crusty known to mothkind."
+	name = "蛾式蒜香披萨面包片"
+	desc = "蛾人所知的油香、蒜香与酥脆口感的最佳组合。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "garlic_slice"
 	tastes = list("dough" = 1, "garlic" = 1, "butter" = 1)
@@ -803,8 +803,8 @@
 
 //Bread
 /obj/item/food/bread/corn
-	name = "cornbread"
-	desc = "Some good down-home country-style, rootin'-tootin', revolver-shootin', dad-gum yeehaw cornbread."
+	name = "玉米面包"
+	desc = "地道乡村风味，吆喝着、放着左轮枪，嚯呀一声的牛仔玉米面包。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cornbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 18)
@@ -816,8 +816,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/breadslice/corn
-	name = "cornbread slice"
-	desc = "A chunk of crispy, cowboy-style cornbread. Consume contentedly."
+	name = "玉米面包片"
+	desc = "一块酥脆的牛仔风味玉米面包。心满意足地吃吧。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cornbread_slice"
 	foodtypes = GRAIN
@@ -826,8 +826,8 @@
 
 //Sweets
 /obj/item/food/moth_cheese_cakes
-	name = "\improper ælorölen" //ælo = cheese, rölen = balls
-	desc = "Ælorölen (cheese balls) are a traditional mothic dessert, made of soft cheese, powdered sugar and flour, rolled into balls, battered and then deep fried. They're often served with either chocolate sauce or honey, or sometimes both!"
+	name = "\improper 奶酪球" //ælo = cheese, rölen = balls
+	desc = "奶酪球是蛾人的传统甜点，用软奶酪、糖粉和面粉揉成球，裹糊后油炸。常配巧克力酱或蜂蜜，有时两样都加！"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_cheese_cakes"
 	food_reagents = list(
@@ -840,8 +840,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/cake/mothmallow
-	name = "mothmallow tray"
-	desc = "A light and fluffy vegan marshmallow flavoured with vanilla and rum and topped with soft chocolate. These are known to the moths as höllflöfstarkken: cloud squares." //höllflöf = cloud (höll = wind, flöf = cotton), starkken = squares
+	name = "蛾式棉花糖盘"
+	desc = "轻盈蓬松的纯素棉花糖，带香草与朗姆酒风味，顶上覆盖柔软的巧克力。蛾人称它为云朵方糖。" //höllflöf = cloud (höll = wind, flöf = cotton), starkken = squares
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothmallow_tray"
 	food_reagents = list(
@@ -855,8 +855,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/cakeslice/mothmallow
-	name = "mothmallow"
-	desc = "Fluffy little clouds of joy- in a strangely moth-like colour."
+	name = "蛾式棉花糖"
+	desc = "蓬松的快乐小云朵——颜色莫名很像蛾人。"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothmallow_slice"
 	food_reagents = list(
@@ -869,8 +869,8 @@
 
 //misc food
 /obj/item/food/bubblegum/wake_up
-	name = "wake-up gum"
-	desc = "A rubbery strip of gum. It's stamped with the emblem of the Mothic Nomad Fleet."
+	name = "提神口香糖"
+	desc = "一条弹韧的口香糖，上面印着蛾人游牧船队的徽记。"
 	food_reagents = list(
 		/datum/reagent/consumable/sugar = 13,
 		/datum/reagent/drug/methamphetamine = 2,
@@ -879,8 +879,8 @@
 	color = "#567D46"
 
 /obj/item/food/spacers_sidekick
-	name = "\improper Spacer's Sidekick mints"
-	desc = "Spacer's Sidekick: Breathe easy with a friend at your side!"
+	name = "\improper 太空旅伴薄荷糖"
+	desc = "太空旅伴：好友相伴，呼吸畅快！"
 	icon_state = "spacers_sidekick"
 	trash_type = /obj/item/trash/spacers_sidekick
 	food_reagents = list(

@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////CAKE////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/carrotcake
-	name = "Carrot cake"
+	name = "胡萝卜蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/carrotlike/carrot = 2
@@ -14,7 +14,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/cheesecake
-	name = "Cheese cake"
+	name = "奶酪蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/cheese/wedge = 2
@@ -24,7 +24,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/applecake
-	name = "Apple cake"
+	name = "苹果蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/apple = 2
@@ -34,7 +34,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/orangecake
-	name = "Orange cake"
+	name = "橙子蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/orange = 2
@@ -44,7 +44,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/limecake
-	name = "Lime cake"
+	name = "青柠蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/lime = 2
@@ -54,7 +54,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/lemoncake
-	name = "Lemon cake"
+	name = "柠檬蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/citrus/lemon = 2
@@ -64,7 +64,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/chocolatecake
-	name = "Chocolate cake"
+	name = "巧克力蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/chocolatebar = 2
@@ -74,7 +74,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/birthdaycake
-	name = "Birthday cake"
+	name = "生日蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/flashlight/flare/candle = 1,
@@ -121,7 +121,7 @@
 */
 
 /datum/crafting_recipe/food/pumpkinspicecake
-	name = "Pumpkin spice cake"
+	name = "南瓜香料蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/pumpkin = 2
@@ -143,7 +143,7 @@
 */
 
 /datum/crafting_recipe/food/poundcake
-	name = "Pound cake"
+	name = "磅蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 4
 	)
@@ -168,7 +168,7 @@
 */
 
 /datum/crafting_recipe/food/berry_chocolate_cake
-	name = "strawberry chocolate cake"
+	name = "草莓巧克力蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/chocolatebar = 2,
@@ -180,7 +180,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/pavlovacream
-	name = "Pavlova with cream"
+	name = "奶油帕芙洛娃蛋糕"
 	reqs = list(
 		/datum/reagent/consumable/eggwhite = 12,
 		/datum/reagent/consumable/sugar = 15,
@@ -193,7 +193,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/pavlovakorta
-	name = "Pavlova with korta cream"
+	name = "科塔奶油帕芙洛娃蛋糕"
 	reqs = list(
 		/datum/reagent/consumable/eggwhite = 12,
 		/datum/reagent/consumable/sugar = 15,
@@ -206,7 +206,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/berry_vanilla_cake
-	name = "blackberry and strawberry vanilla cake"
+	name = "黑莓草莓香草蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/berries = 5
@@ -216,7 +216,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/clowncake
-	name = "clown cake"
+	name = "小丑蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/sundae = 2,
@@ -228,7 +228,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/vanillacake
-	name = "vanilla cake"
+	name = "香草蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/vanillapod = 2
@@ -239,7 +239,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/trumpetcake
-	name = "Spaceman's Cake"
+	name = "太空人蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/flower/trumpet = 2,
@@ -273,7 +273,7 @@
 */
 
 /datum/crafting_recipe/food/fruitcake
-	name = "English Fruitcake"
+	name = "英式水果蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/no_raisin = 1,
@@ -286,7 +286,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/plumcake
-	name = "Plum cake"
+	name = "李子蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/plum = 2
@@ -296,7 +296,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/weddingcake
-	name = "Wedding cake"
+	name = "婚礼蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 4,
 		/datum/reagent/consumable/sugar = 120,
@@ -306,7 +306,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/pineapple_cream_cake
-	name = "Pineapple cream cake"
+	name = "菠萝奶油蛋糕"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/obj/item/food/grown/pineapple = 1,

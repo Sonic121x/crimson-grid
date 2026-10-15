@@ -1,6 +1,6 @@
 /obj/structure/window
-	name = "window"
-	desc = "A directional window."
+	name = "窗户"
+	desc = "一扇单面窗户。"
 	icon_state = "window"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER //Just above doors
@@ -92,14 +92,14 @@
 
 	switch(state)
 		if(WINDOW_SCREWED_TO_FRAME)
-			. += span_notice("The window is <b>screwed</b> to the frame.")
+			. += span_notice("窗户已用<b>螺丝固定</b>在窗框上。")
 		if(WINDOW_IN_FRAME)
-			. += span_notice("The window is <i>unscrewed</i> but <b>pried</b> into the frame.")
+			. += span_notice("窗户的螺丝已<i>拧松</i>，但仍<b>嵌</b>在窗框中。")
 		if(WINDOW_OUT_OF_FRAME)
 			if (anchored)
-				. += span_notice("The window is <b>screwed</b> to the floor. It can be <b>pried</b> into a more secure position.")
+				. += span_notice("窗户已用<b>螺丝固定</b>在地板上。可以用<b>撬棍</b>将其装得更牢固。")
 			else
-				. += span_notice("The window is <i>unscrewed</i> from the floor, and could be deconstructed by <b>wrenching</b>.")
+				. += span_notice("窗户与地板之间的螺丝已<i>拧松</i>，可以用<b>扳手</b>拆解。")
 
 /obj/structure/window/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_DECONSTRUCT)
@@ -171,7 +171,7 @@
 
 /obj/structure/window/attack_tk(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message(span_notice("Something knocks on [src]."))
+	user.visible_message(span_notice("有什么东西敲了敲[src]。"))
 	add_fingerprint(user)
 	playsound(src, knock_sound, 50, TRUE)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -191,12 +191,12 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(!user.combat_mode)
-		user.visible_message(span_notice("[user] knocks on [src]."), \
-			span_notice("You knock on [src]."))
+		user.visible_message(span_notice("[user]敲了敲[src]。"), \
+			span_notice("你敲了敲[src]。"))
 		playsound(src, knock_sound, 50, TRUE)
 	else
-		user.visible_message(span_warning("[user] bashes [src]!"), \
-			span_warning("You bash [src]!"))
+		user.visible_message(span_warning("[user]猛砸[src]！"), \
+			span_warning("你猛砸[src]！"))
 		playsound(src, bash_sound, 100, TRUE)
 
 /obj/structure/window/attack_paw(mob/user, list/modifiers)
@@ -215,40 +215,40 @@
 
 /obj/structure/window/welder_act(mob/living/user, obj/item/tool)
 	if(atom_integrity >= max_integrity)
-		to_chat(user, span_warning("[src] is already in good condition!"))
+		to_chat(user, span_warning("[src]已经完好无损！"))
 		return ITEM_INTERACT_SUCCESS
 	if(!tool.tool_start_check(user, amount = 0))
 		return FALSE
-	to_chat(user, span_notice("You begin repairing [src]..."))
+	to_chat(user, span_notice("你开始修理[src]……"))
 	if(tool.use_tool(src, user, 4 SECONDS, volume = 50))
 		repair_damage(max_integrity)
-		to_chat(user, span_notice("You repair [src]."))
+		to_chat(user, span_notice("你修好了[src]。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/screwdriver_act(mob/living/user, obj/item/tool)
 
 	switch(state)
 		if(WINDOW_SCREWED_TO_FRAME)
-			to_chat(user, span_notice("You begin to unscrew the window from the frame..."))
+			to_chat(user, span_notice("你开始拧松窗户与窗框之间的螺丝……"))
 			if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_IN_FRAME
-				to_chat(user, span_notice("You unfasten the window from the frame."))
+				to_chat(user, span_notice("你拧松了窗户与窗框之间的螺丝。"))
 		if(WINDOW_IN_FRAME)
-			to_chat(user, span_notice("You begin to screw the window to the frame..."))
+			to_chat(user, span_notice("你开始拧紧螺丝，将窗户固定在窗框上……"))
 			if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_SCREWED_TO_FRAME
-				to_chat(user, span_notice("You fasten the window to the frame."))
+				to_chat(user, span_notice("你将窗户固定在了窗框上。"))
 		if(WINDOW_OUT_OF_FRAME)
 			if(anchored)
-				to_chat(user, span_notice("You begin to unscrew the frame from the floor..."))
+				to_chat(user, span_notice("你开始拧松窗框与地板之间的螺丝……"))
 				if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 					set_anchored(FALSE)
-					to_chat(user, span_notice("You unfasten the frame from the floor."))
+					to_chat(user, span_notice("你拧松了窗框与地板之间的螺丝。"))
 			else
-				to_chat(user, span_notice("You begin to screw the frame to the floor..."))
+				to_chat(user, span_notice("你开始拧紧螺丝，将窗框固定在地板上……"))
 				if(tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 					set_anchored(TRUE)
-					to_chat(user, span_notice("You fasten the frame to the floor."))
+					to_chat(user, span_notice("你将窗框固定在了地板上。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/wrench_act(mob/living/user, obj/item/tool)
@@ -257,14 +257,14 @@
 	if(reinf && state >= RWINDOW_FRAME_BOLTED)
 		return FALSE
 
-	to_chat(user, span_notice("You begin to disassemble [src]..."))
+	to_chat(user, span_notice("你开始拆解[src]……"))
 	if(!tool.use_tool(src, user, decon_speed, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 		return ITEM_INTERACT_SUCCESS
 	var/obj/item/stack/sheet/G = new glass_type(user.loc, glass_amount)
 	if (!QDELETED(G))
 		G.add_fingerprint(user)
 	playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
-	to_chat(user, span_notice("You successfully disassemble [src]."))
+	to_chat(user, span_notice("你成功拆解了[src]。"))
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
@@ -274,15 +274,15 @@
 
 	switch(state)
 		if(WINDOW_IN_FRAME)
-			to_chat(user, span_notice("You begin to lever the window out of the frame..."))
+			to_chat(user, span_notice("你开始将窗户从窗框中撬出……"))
 			if(tool.use_tool(src, user, 10 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_OUT_OF_FRAME
-				to_chat(user, span_notice("You pry the window out of the frame."))
+				to_chat(user, span_notice("你将窗户从窗框中撬了出来。"))
 		if(WINDOW_OUT_OF_FRAME)
-			to_chat(user, span_notice("You begin to lever the window back into the frame..."))
+			to_chat(user, span_notice("你开始将窗户撬回窗框中……"))
 			if(tool.use_tool(src, user, 5 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 				state = WINDOW_SCREWED_TO_FRAME
-				to_chat(user, span_notice("You pry the window back into the frame."))
+				to_chat(user, span_notice("你将窗户撬回了窗框中。"))
 		else
 			return FALSE
 
@@ -492,8 +492,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/spawner, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 
 /obj/structure/window/reinforced
-	name = "reinforced window"
-	desc = "A window that is reinforced with metal rods."
+	name = "强化窗户"
+	desc = "一扇用金属杆加固的窗户。"
 	icon_state = "rwindow"
 	reinf = TRUE
 	heat_resistance = 1600
@@ -528,7 +528,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 
 /obj/structure/window/reinforced/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
 	if(resistance_flags & INDESTRUCTIBLE)
-		balloon_alert(user, "too resilient!")
+		balloon_alert(user, "太坚固了！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(!tool.tool_behaviour)
@@ -536,19 +536,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 	// to have gotten to this point, any tool must be innapropriate for its step
 	switch(state)
 		if(RWINDOW_SECURE)
-			to_chat(user, span_warning("The security screws need to be heated first!"))
+			to_chat(user, span_warning("需要先加热防拆螺丝！"))
 
 		if(RWINDOW_BOLTS_HEATED)
-			to_chat(user, span_warning("The security screws need to be removed first!"))
+			to_chat(user, span_warning("需要先拆下防拆螺丝！"))
 
 		if(RWINDOW_BOLTS_OUT)
-			to_chat(user, span_warning("The gap needs to be pried first!"))
+			to_chat(user, span_warning("需要先撬开缝隙！"))
 
 		if(RWINDOW_POPPED)
-			to_chat(user, span_warning("The bars need to be cut first!"))
+			to_chat(user, span_warning("需要先剪断金属杆！"))
 
 		if(RWINDOW_BARS_CUT)
-			to_chat(user, span_warning("The bolts need to be loosened first!"))
+			to_chat(user, span_warning("需要先拧松螺栓！"))
 
 	return ITEM_INTERACT_BLOCKING
 
@@ -557,12 +557,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 		return NONE
 	if(state != WINDOW_OUT_OF_FRAME)
 		return NONE
-	to_chat(user, span_notice("You begin to lever the window back into the frame..."))
+	to_chat(user, span_notice("你开始将窗户撬回窗框中……"))
 	if(!tool.use_tool(src, user, 10 SECONDS, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_state_and_anchored), state, anchored)))
 		return ITEM_INTERACT_BLOCKING
 
 	state = RWINDOW_SECURE
-	to_chat(user, span_notice("You pry the window back into the frame."))
+	to_chat(user, span_notice("你将窗户撬回了窗框中。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/reinforced/welder_act_secondary(mob/living/user, obj/item/tool)
@@ -572,12 +572,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 	if(!tool.tool_start_check(user, heat_required = HIGH_TEMPERATURE_REQUIRED))
 		return ITEM_INTERACT_BLOCKING
 
-	user.visible_message(span_notice("[user] holds \the [tool] to the security screws on \the [src]..."),
-						span_notice("You begin heating the security screws on \the [src]..."))
+	user.visible_message(span_notice("[user]将[tool]对准[src]上的防拆螺丝……"),
+						span_notice("你开始加热[src]上的防拆螺丝……"))
 	if(!tool.use_tool(src, user, 15 SECONDS, volume = 100))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("The security screws are glowing white hot and look ready to be removed."))
+	to_chat(user, span_notice("防拆螺丝已经烧得发白，看起来可以拆下了。"))
 	state = RWINDOW_BOLTS_HEATED
 	addtimer(CALLBACK(src, PROC_REF(cool_bolts)), 30 SECONDS)
 	return ITEM_INTERACT_SUCCESS
@@ -586,51 +586,51 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 	if(state != RWINDOW_BOLTS_HEATED)
 		return NONE
 
-	user.visible_message(span_notice("[user] digs into the heated security screws and starts removing them..."),
-						span_notice("You dig into the heated screws hard and they start turning..."))
+	user.visible_message(span_notice("[user]用力顶住烧热的防拆螺丝，开始将其拧出……"),
+						span_notice("你用力顶住烧热的螺丝，它们开始转动了……"))
 	if(!tool.use_tool(src, user, 5 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	state = RWINDOW_BOLTS_OUT
-	to_chat(user, span_notice("The screws come out, and a gap forms around the edge of the pane."))
+	to_chat(user, span_notice("螺丝被拧了出来，窗板边缘露出了一圈缝隙。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/reinforced/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(state != RWINDOW_BOLTS_OUT)
 		return NONE
 
-	user.visible_message(span_notice("[user] wedges \the [tool] into the gap in the frame and starts prying..."),
-						span_notice("You wedge \the [tool] into the gap in the frame and start prying..."))
+	user.visible_message(span_notice("[user]将[tool]插入窗框的缝隙，开始撬动……"),
+						span_notice("你将[tool]插入窗框的缝隙，开始撬动……"))
 	if(!tool.use_tool(src, user, 4 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	state = RWINDOW_POPPED
-	to_chat(user, span_notice("The panel pops out of the frame, exposing some thin metal bars that looks like they can be cut."))
+	to_chat(user, span_notice("窗板从窗框中弹出，露出几根看起来可以剪断的细金属杆。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/reinforced/wirecutter_act_secondary(mob/living/user, obj/item/tool)
 	if(state != RWINDOW_POPPED)
 		return NONE
 
-	user.visible_message(span_notice("[user] starts cutting the exposed bars on \the [src]..."),
-						span_notice("You start cutting the exposed bars on \the [src]"))
+	user.visible_message(span_notice("[user]开始剪断[src]上露出的金属杆……"),
+						span_notice("你开始剪断[src]上露出的金属杆。"))
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	state = RWINDOW_BARS_CUT
-	to_chat(user, span_notice("The panels falls out of the way exposing the frame bolts."))
+	to_chat(user, span_notice("窗板落到一旁，露出了窗框螺栓。"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/reinforced/wrench_act_secondary(mob/living/user, obj/item/tool)
 	if(state != RWINDOW_BARS_CUT)
 		return NONE
 
-	user.visible_message(span_notice("[user] starts unfastening \the [src] from the frame..."),
-						span_notice("You start unfastening the bolts from the frame..."))
+	user.visible_message(span_notice("[user]开始松开[src]与窗框之间的固定螺栓……"),
+						span_notice("你开始拧松窗框上的螺栓……"))
 	if(!tool.use_tool(src, user, 4 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You unscrew the bolts from the frame and the window pops loose."))
+	to_chat(user, span_notice("你拧下了窗框螺栓，窗户随之松脱。"))
 	state = WINDOW_OUT_OF_FRAME
 	set_anchored(FALSE)
 	return ITEM_INTERACT_SUCCESS
@@ -638,7 +638,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 /obj/structure/window/proc/cool_bolts()
 	if(state == RWINDOW_BOLTS_HEATED)
 		state = RWINDOW_SECURE
-		visible_message(span_notice("The bolts on \the [src] look like they've cooled off..."))
+		visible_message(span_notice("[src]上的螺栓看起来已经冷却了……"))
 
 /obj/structure/window/reinforced/examine(mob/user)
 	. = ..()
@@ -646,15 +646,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/unanchored/spawner, 0)
 		return
 	switch(state)
 		if(RWINDOW_SECURE)
-			. += span_notice("It's been screwed in with one way screws, you'd need to <b>heat them</b> to have any chance of backing them out.")
+			. += span_notice("它用单向螺丝固定，必须先<b>加热螺丝</b>才有可能将其拧出。")
 		if(RWINDOW_BOLTS_HEATED)
-			. += span_notice("The screws are glowing white hot, and you'll likely be able to <b>unscrew them</b> now.")
+			. += span_notice("螺丝已经烧得发白，现在应该可以<b>拧出</b>了。")
 		if(RWINDOW_BOLTS_OUT)
-			. += span_notice("The screws have been removed, revealing a small gap you could fit a <b>prying tool</b> in.")
+			. += span_notice("螺丝已被拆下，露出一道能插入<b>撬动工具</b>的细缝。")
 		if(RWINDOW_POPPED)
-			. += span_notice("The main plate of the window has popped out of the frame, exposing some bars that look like they can be <b>cut</b>.")
+			. += span_notice("窗户的主板已从窗框中弹出，露出几根看起来可以<b>剪断</b>的金属杆。")
 		if(RWINDOW_BARS_CUT)
-			. += span_notice("The main pane can be easily moved out of the way to reveal some <b>bolts</b> holding the frame in.")
+			. += span_notice("主窗板可以轻松移到一旁，露出固定窗框的<b>螺栓</b>。")
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/spawner, 0)
 
@@ -665,8 +665,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/spawner, 0)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/unanchored/spawner, 0)
 
 /obj/structure/window/plasma
-	name = "plasma window"
-	desc = "A window made out of a plasma-silicate alloy. It looks insanely tough to break and burn through."
+	name = "等离子玻璃窗"
+	desc = "一扇由等离子体与硅酸盐合金制成的窗户，看起来极难打破或烧穿。"
 	icon_state = "plasmawindow"
 	reinf = FALSE
 	heat_resistance = 25000
@@ -695,8 +695,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/plasma/spawner, 0)
 	anchored = FALSE
 
 /obj/structure/window/reinforced/plasma
-	name = "reinforced plasma window"
-	desc = "A window made out of a plasma-silicate alloy and a rod matrix. It looks hopelessly tough to break and is most likely nigh fireproof."
+	name = "强化等离子玻璃窗"
+	desc = "一扇由等离子体与硅酸盐合金制成、辅以金属杆骨架的窗户。它坚固得让人无从下手，而且大概几乎完全防火。"
 	icon_state = "plasmarwindow"
 	reinf = TRUE
 	heat_resistance = 50000
@@ -726,13 +726,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/plasma/spawner, 0)
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/tinted
-	name = "tinted window"
+	name = "深色玻璃窗"
 	icon_state = "twindow"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/spawner, 0)
 
 /obj/structure/window/reinforced/tinted/frosted
-	name = "frosted window"
+	name = "磨砂玻璃窗"
 	icon_state = "fwindow"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spawner, 0)
@@ -740,8 +740,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 /* Full Tile Windows (more atom_integrity) */
 
 /obj/structure/window/fulltile
-	name = "full tile window"
-	desc = "A full tile window."
+	name = "整格窗户"
+	desc = "一扇占据整格空间的窗户。"
 	icon = 'icons/obj/smooth_structures/window.dmi'
 	icon_state = "window-0"
 	base_icon_state = "window"
@@ -800,8 +800,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	name = "full tile reinforced window"
-	desc = "A full tile window that is reinforced with metal rods."
+	name = "整格强化窗户"
+	desc = "一扇占据整格空间、用金属杆加固的窗户。"
 	icon = 'icons/obj/smooth_structures/reinforced_window.dmi'
 	icon_state = "reinforced_window-0"
 	base_icon_state = "reinforced_window"
@@ -848,8 +848,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 
 //there is a sub shuttle window in survival_pod.dm for mining pods
 /obj/structure/window/reinforced/shuttle//this is called reinforced because it is reinforced w/titanium
-	name = "shuttle window"
-	desc = "A reinforced, air-locked pod window."
+	name = "穿梭机舷窗"
+	desc = "一扇经过加固的气密舱窗。"
 	icon = 'icons/obj/smooth_structures/shuttle_window.dmi'
 	icon_state = "shuttle_window-0"
 	base_icon_state = "shuttle_window"
@@ -889,7 +889,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/shuttle/indestructible
-	name = "hardened shuttle window"
+	name = "超强穿梭机舷窗"
 	flags_1 = PREVENT_CLICK_UNDER_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
@@ -901,8 +901,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/tinted/frosted/spaw
 	AddElement(/datum/element/tool_blocker, TOOL_CROWBAR, TOOL_ACT_PRIMARY)
 
 /obj/structure/window/reinforced/titanium
-	name = "shuttle window"
-	desc = "A reinforced, air-locked pod window."
+	name = "穿梭机舷窗"
+	desc = "一扇经过加固的气密舱窗。"
 	icon_state = "titanium_window"
 	armor_type = /datum/armor/reinforced_shuttle
 	receive_ricochet_chance_mod = 1.2
@@ -919,7 +919,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/titanium/spawner, 0
 	anchored = FALSE
 
 /obj/structure/window/reinforced/shuttle/survival_pod
-	name = "pod window"
+	name = "生存舱舷窗"
 	icon = 'icons/obj/smooth_structures/pod_window.dmi'
 	icon_state = "pod_window-0"
 	base_icon_state = "pod_window"
@@ -935,7 +935,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/titanium/spawner, 0
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/survival_pod
-	name = "pod window"
+	name = "生存舱舷窗"
 	icon_state = "plastitanium_window"
 	glass_type = /obj/item/stack/sheet/plastitaniumglass
 	glass_material_datum = /datum/material/alloy/plastitaniumglass
@@ -947,8 +947,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/titanium/spawner, 0
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawner, 0)
 
 /obj/structure/window/reinforced/plasma/plastitanium
-	name = "plastitanium window"
-	desc = "A durable looking window made of an alloy of plasma and titanium."
+	name = "等离子钛玻璃窗"
+	desc = "一扇由等离子体与钛合金制成的窗户，看起来很耐用。"
 	icon = 'icons/obj/smooth_structures/plastitanium_window.dmi'
 	icon_state = "plastitanium_window-0"
 	base_icon_state = "plastitanium_window"
@@ -974,8 +974,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 	glass_amount = 1
 
 /obj/structure/window/reinforced/plasma/plastitanium/indestructible
-	name = "plastitanium window"
-	desc = "A durable looking window made of an alloy of plasma and titanium."
+	name = "等离子钛玻璃窗"
+	desc = "一扇由等离子体与钛合金制成的窗户，看起来很耐用。"
 	icon = 'icons/obj/smooth_structures/plastitanium_window.dmi'
 	icon_state = "plastitanium_window-0"
 	base_icon_state = "plastitanium_window"
@@ -995,7 +995,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 	glass_amount = 2
 	rad_insulation = RAD_EXTREME_INSULATION
 	glass_material_datum = /datum/material/alloy/plastitaniumglass
-	name = "hardened shuttle window"
+	name = "超强穿梭机舷窗"
 	flags_1 = PREVENT_CLICK_UNDER_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
@@ -1010,8 +1010,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/paperframe
-	name = "paper frame"
-	desc = "A fragile separator made of thin wood and paper."
+	name = "纸隔墙"
+	desc = "用薄木条和纸制成的脆弱隔断。"
 	icon = 'icons/obj/smooth_structures/paperframes.dmi'
 	icon_state = "paperframes-0"
 	base_icon_state = "paperframes"
@@ -1044,7 +1044,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 /obj/structure/window/paperframe/examine(mob/user)
 	. = ..()
 	if(atom_integrity < max_integrity)
-		. += span_info("It looks a bit damaged, you may be able to fix it with some <b>paper</b>.")
+		. += span_info("它看起来有些破损，也许可以用<b>纸</b>修补。")
 
 /obj/structure/window/paperframe/spawn_debris(location)
 	. = list(new /obj/item/stack/sheet/mineral/wood(location))
@@ -1084,20 +1084,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/reinforced/survival_pod/spawne
 	if(!istype(tool, /obj/item/paper) || atom_integrity == max_integrity)
 		return NONE
 
-	user.visible_message(span_notice("[user] starts to patch the holes in \the [src]."))
+	user.visible_message(span_notice("[user]开始修补[src]上的破洞。"))
 	if(!do_after(user, 2 SECONDS, target = src))
 		return ITEM_INTERACT_BLOCKING
 
 	atom_integrity = min(atom_integrity+4,max_integrity)
 	qdel(tool)
-	user.visible_message(span_notice("[user] patches some of the holes in \the [src]."))
+	user.visible_message(span_notice("[user]补好了[src]上的一些破洞。"))
 	if(atom_integrity == max_integrity)
 		update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/window/bronze
-	name = "brass window"
-	desc = "A paper-thin pane of translucent yet reinforced brass. Nevermind, this is just weak bronze!"
+	name = "黄铜窗"
+	desc = "一片薄如纸张、半透明却经过强化的黄铜窗板。等等，这不过是脆弱的青铜！"
 	icon_state = "clockworkwindow"
 	glass_type = /obj/item/stack/sheet/bronze
 	custom_materials = list(/datum/material/bronze = SHEET_MATERIAL_AMOUNT * 1)
@@ -1125,8 +1125,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/window/bronze/spawner, 0)
 	anchored = FALSE
 
 /obj/structure/window/cult
-	name = "runed window"
-	desc = "A frame of runed metal projecting an arcane blood-red force field, that looks sort of like a window. Peculiar."
+	name = "符文窗"
+	desc = "符文金属框架投射出神秘的血红色力场，看起来有点像窗户。真奇特。"
 	icon_state = "runedwindow"
 	glass_type = /obj/item/stack/sheet/runed_metal
 	custom_materials = list(/datum/material/runedmetal = SHEET_MATERIAL_AMOUNT * 1)

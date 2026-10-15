@@ -1,8 +1,8 @@
-/////////////////////
-// Tile reskinning //
-/////////////////////
-// Q: What is this?
-// A: A simple function to allow you to change what tiles you place with a stack of tiles.
+/obj/item/stack/tile/proc/localized_tile_rotate_options()
+	var/list/options = list()
+	for(var/direction in tile_rotate_dirs)
+		options[list("north" = "北", "south" = "南", "east" = "东", "west" = "西", "northeast" = "东北", "southeast" = "东南", "northwest" = "西北", "southwest" = "西南")[direction] || direction] = tile_rotate_dirs[direction]
+	return options
 // Q: Why do it this way?
 // A: This allows players more freedom to do beautiful-looking builds.
 // Q: Great! Can I use this for all floors?
@@ -38,13 +38,13 @@ GLOBAL_LIST_EMPTY(tile_dir_lists)
 /obj/item/stack/tile/attack_self(mob/user)
 	var/list/radial_options = list()
 	if(tile_reskin_types && tile_rotate_dirs)
-		radial_options["Reskin"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_reskin")
-		radial_options["Rotate"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate")
+		radial_options["更换款式"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_reskin")
+		radial_options["旋转"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate")
 		var/radial_result = show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)
 		switch(radial_result)
-			if("Reskin")
+			if("更换款式")
 				return tile_reskin(user)
-			if("Rotate")
+			if("旋转")
 				return tile_rotate(user)
 		return
 	if(tile_reskin_types)
@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(tile_dir_lists)
 	qdel(src)
 
 /obj/item/stack/tile/proc/tile_rotate(mob/user)
-	var/choice = show_radial_menu(user, src, tile_rotate_dirs, radius = 56, require_near = TRUE)
+	var/choice = show_radial_menu(user, src, localized_tile_rotate_options(), radius = 56, require_near = TRUE)
 	if(!choice)
 		return
-	turf_dir = text2dir(choice)
+	turf_dir = list("北" = NORTH, "南" = SOUTH, "东" = EAST, "西" = WEST, "东北" = NORTHEAST, "东南" = SOUTHEAST, "西北" = NORTHWEST, "西南" = SOUTHWEST)[choice] || text2dir(choice)

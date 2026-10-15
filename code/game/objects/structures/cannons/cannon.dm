@@ -4,8 +4,8 @@
 #define BAD_FUEL_EXPLODE_PROBABILTY 10
 
 /obj/structure/cannon
-	name = "cannon"
-	desc = "Holemaker Deluxe: A sporty model with a good stop power. Any cannon enthusiast should be expected to start here."
+	name = "火炮"
+	desc = "豪华开洞者：一款威力不俗的运动型火炮。每位火炮爱好者都该从它入门。"
 	density = TRUE
 	anchored = TRUE
 	icon = 'icons/obj/weapons/cannons.dmi'
@@ -26,8 +26,8 @@
 
 /obj/structure/cannon/examine(mob/user)
 	. = ..()
-	. += span_notice("[src] accepts gunpowder or welding fuel.")
-	. += span_warning("Using welding fuel will weaken the force of the projectile fired.")
+	. += span_notice("[src]可使用火药或焊接燃料。")
+	. += span_warning("使用焊接燃料会降低炮弹的威力。")
 
 /obj/structure/cannon/proc/fire()
 	for(var/mob/shaken_mob in urange(10, src))
@@ -56,18 +56,18 @@
 
 /obj/structure/cannon/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(charge_ignited)
-		balloon_alert(user, "it's gonna fire!")
+		balloon_alert(user, "马上要开炮了！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(tool, /obj/item/stack/cannonball))
 		if(loaded_cannonball)
-			balloon_alert(user, "already loaded!")
+			balloon_alert(user, "已经装填了！")
 			return ITEM_INTERACT_BLOCKING
 
 		var/obj/item/stack/cannonball/cannoneers_balls = tool
 		loaded_cannonball = new cannoneers_balls.type(src, 1)
 		loaded_cannonball.copy_evidences(cannoneers_balls)
-		balloon_alert(user, "loaded a [cannoneers_balls.singular_name]")
+		balloon_alert(user, "已装入一枚[cannoneers_balls.singular_name]")
 		cannoneers_balls.use(1, transfer = TRUE)
 		return ITEM_INTERACT_SUCCESS
 
@@ -75,7 +75,7 @@
 
 	if(ignition_message)
 		if(!reagents.has_reagent(/datum/reagent/gunpowder,charge_size) && !reagents.has_reagent(/datum/reagent/fuel,charge_size))
-			balloon_alert(user, "needs [reagents.maximum_volume]u of charge!")
+			balloon_alert(user, "需要[reagents.maximum_volume]单位的发射装药！")
 			return ITEM_INTERACT_BLOCKING
 
 		visible_message(ignition_message)
@@ -94,34 +94,34 @@
 			return NONE
 
 		if(!powder_keg.reagents.total_volume)
-			balloon_alert(user, "[powder_keg] is empty!")
+			balloon_alert(user, "[powder_keg]是空的！")
 			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.total_volume == reagents.maximum_volume)
-			balloon_alert(user, "[src] is full!")
+			balloon_alert(user, "[src]已装满！")
 			return ITEM_INTERACT_BLOCKING
 
 		var/has_enough_gunpowder = powder_keg.reagents.has_reagent(/datum/reagent/gunpowder, charge_size)
 		var/has_enough_alt_fuel = powder_keg.reagents.has_reagent(/datum/reagent/fuel, charge_size)
 		if(!has_enough_gunpowder && !has_enough_alt_fuel)
-			balloon_alert(user, "[powder_keg] needs 15u of charge to load!")
-			to_chat(user, span_warning("[powder_keg] doesn't have at least 15u of gunpowder to fill [src]!"))
+			balloon_alert(user, "[powder_keg]需要15单位的发射装药才能装填！")
+			to_chat(user, span_warning("[powder_keg]中的火药不足15单位，无法装填[src]！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(has_enough_gunpowder)
 			powder_keg.reagents.trans_to(src, charge_size, target_id = /datum/reagent/gunpowder)
-			balloon_alert(user, "[src] loaded with gunpowder")
+			balloon_alert(user, "[src]已装入火药")
 			return ITEM_INTERACT_SUCCESS
 
 		//if(has_enough_alt_fuel) but we already know it does if we're here
 		powder_keg.reagents.trans_to(src, charge_size, target_id = /datum/reagent/fuel)
-		balloon_alert(user, "[src] loaded with welding fuel")
+		balloon_alert(user, "[src]已装入焊接燃料")
 		return ITEM_INTERACT_SUCCESS
 	return NONE
 
 /obj/structure/cannon/trash
-	name = "trash cannon"
-	desc = "Okay, sure, you could call it a toolbox welded to an opened oxygen tank cabled to a skateboard, but it's a TRASH CANNON to us."
+	name = "垃圾炮"
+	desc = "好吧，你可以说这不过是个焊在开口氧气罐上、再用电线绑到滑板上的工具箱，但在我们眼里，它就是垃圾炮！"
 	icon_state = "garbagegun"
 	anchored = FALSE
 	anchorable_cannon = FALSE
@@ -138,11 +138,11 @@
 	if(used_alt_fuel)
 		fires_before_deconstruction--
 	if(prob(explode_chance))
-		visible_message(span_userdanger("[src] explodes!"))
+		visible_message(span_userdanger("[src]爆炸了！"))
 		explosion(src, heavy_impact_range = 1, light_impact_range = 5, flame_range = 5)
 		return
 	if(fires_before_deconstruction <= 0)
-		visible_message(span_warning("[src] falls apart from operation!"))
+		visible_message(span_warning("[src]因开火而散架了！"))
 		qdel(src)
 
 /obj/structure/cannon/trash/Destroy()

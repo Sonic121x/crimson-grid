@@ -1,6 +1,6 @@
 /obj/item/organ/cyberimp/arm/toolkit/tzimisce
-	name = "armblade implant"
-	desc = "A concealed serrated bone blade."
+	name = "臂刃植入物"
+	desc = "一把隐藏在体内的锯齿骨刃。"
 	icon_state = "armblade"
 	icon = 'modular_vcg/modules/powers/code/discipline/vicissitude/icons/weapons.dmi'
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 30)

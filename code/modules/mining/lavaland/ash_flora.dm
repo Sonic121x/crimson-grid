@@ -2,8 +2,8 @@
 //This includes: The structures, their produce, their seeds and the crafting recipe for the mushroom bowl
 
 /obj/structure/flora/ash
-	name = "large mushrooms"
-	desc = "A number of large mushrooms, covered in a faint layer of ash and what can only be spores."
+	name = "大型蘑菇"
+	desc = "一群大型蘑菇，表面覆着薄薄一层灰烬，还有一些想必是孢子的东西。"
 	icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	icon_state = "l_mushroom1"
 	base_icon_state = "l_mushroom"
@@ -11,13 +11,13 @@
 	gender = PLURAL
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER //sporangiums up don't shoot
 	harvest_with_hands = TRUE
-	harvested_name = "shortened mushrooms"
-	harvested_desc = "Some quickly regrowing mushrooms, formerly known to be quite large."
-	harvest_message_low = "You pick a mushroom, but fail to collect many shavings from its cap."
-	harvest_message_med = "You pick a mushroom, carefully collecting the shavings from its cap."
-	harvest_message_high = "You harvest and collect shavings from several mushroom caps."
+	harvested_name = "变矮的蘑菇"
+	harvested_desc = "一些正在迅速再生的蘑菇，它们原本长得相当大。"
+	harvest_message_low = "你摘下一朵蘑菇，但没能从菌盖上收集到多少削片。"
+	harvest_message_med = "你摘下一朵蘑菇，小心地收集菌盖上的削片。"
+	harvest_message_high = "你采下几朵蘑菇，从它们的菌盖上收集了削片。"
 	harvest_message_true_thresholds = TRUE
-	harvest_verb = "pluck"
+	harvest_verb = "采摘"
 	flora_flags = FLORA_HERBAL //not really accurate but what sound do hit mushrooms make anyway
 	var/number_of_variants = 4
 
@@ -43,16 +43,16 @@
 	regrowth_time_low = 7 MINUTES
 
 /obj/structure/flora/ash/leaf_shroom
-	name = "leafy mushrooms"
-	desc = "A number of mushrooms, each of which surrounds a greenish sporangium with a number of leaf-like structures."
+	name = "叶状蘑菇"
+	desc = "一群蘑菇，每朵都有若干叶片状结构围着淡绿色的孢子囊。"
 	icon_state = "s_mushroom1"
 	base_icon_state = "s_mushroom"
-	harvested_name = "leafless mushrooms"
-	harvested_desc = "A bunch of formerly-leafed mushrooms, with their sporangiums exposed. Scandalous?"
+	harvested_name = "无叶蘑菇"
+	harvested_desc = "一群曾长着叶片的蘑菇，如今孢子囊暴露在外。是不是有伤风化？"
 	harvest_amount_high = 4
-	harvest_message_low = "You pluck a single, suitable leaf."
-	harvest_message_med = "You pluck a number of leaves, leaving a few unsuitable ones."
-	harvest_message_high = "You pluck quite a lot of suitable leaves."
+	harvest_message_low = "你摘下了一片合适的叶子。"
+	harvest_message_med = "你摘下了一些叶子，留下了几片不合适的。"
+	harvest_message_high = "你摘下了很多合适的叶子。"
 	harvest_time = 20
 	regrowth_time_low = 4 MINUTES
 	regrowth_time_high = 10 MINUTES
@@ -61,16 +61,16 @@
 	return list(/obj/item/food/grown/ash_flora/mushroom_leaf = 1)
 
 /obj/structure/flora/ash/cap_shroom
-	name = "tall mushrooms"
-	desc = "Several mushrooms, the larger of which have a ring of conks at the midpoint of their stems."
+	name = "高大蘑菇"
+	desc = "几朵蘑菇，其中较大的菌柄中部生着一圈架状菌体。"
 	icon_state = "r_mushroom1"
 	base_icon_state = "r_mushroom"
-	harvested_name = "small mushrooms"
-	harvested_desc = "Several small mushrooms near the stumps of what likely were larger mushrooms."
+	harvested_name = "小蘑菇"
+	harvested_desc = "几朵小蘑菇，旁边的残柄看起来曾属于更大的蘑菇。"
 	harvest_amount_high = 4
-	harvest_message_low = "You slice the cap off a mushroom."
-	harvest_message_med = "You slice off a few conks from the larger mushrooms."
-	harvest_message_high = "You slice off a number of caps and conks from these mushrooms."
+	harvest_message_low = "你切下了一朵蘑菇的菌盖。"
+	harvest_message_med = "你从较大的蘑菇上切下了几块架状菌体。"
+	harvest_message_high = "你从这些蘑菇上切下了许多菌盖和架状菌体。"
 	harvest_time = 50
 	regrowth_time_low = 5 MINUTES
 	regrowth_time_high = 9 MINUTES
@@ -79,18 +79,18 @@
 	return list(/obj/item/food/grown/ash_flora/mushroom_cap = 1)
 
 /obj/structure/flora/ash/stem_shroom
-	name = "numerous mushrooms"
-	desc = "A large number of mushrooms, some of which have long, fleshy stems. They're radiating light!"
+	name = "密集蘑菇群"
+	desc = "一大群蘑菇，其中一些有着长长的肉质菌柄。它们正在发光！"
 	icon_state = "t_mushroom1"
 	base_icon_state = "t_mushroom"
 	light_range = 1.5
 	light_power = 2.1
-	harvested_name = "tiny mushrooms"
-	harvested_desc = "A few tiny mushrooms around larger stumps. You can already see them growing back."
+	harvested_name = "微小蘑菇"
+	harvested_desc = "几朵微小的蘑菇围在粗大的残柄周围。你已经能看到它们在重新生长。"
 	harvest_amount_high = 4
-	harvest_message_low = "You pick and slice the cap off a mushroom, leaving the stem."
-	harvest_message_med = "You pick and decapitate several mushrooms for their stems."
-	harvest_message_high = "You acquire a number of stems from these mushrooms."
+	harvest_message_low = "你摘下一朵蘑菇，切去菌盖，留下菌柄。"
+	harvest_message_med = "你摘下几朵蘑菇，切去菌盖以获取菌柄。"
+	harvest_message_high = "你从这些蘑菇上取得了许多菌柄。"
 	harvest_time = 40
 	regrowth_time_low = 5 MINUTES
 	regrowth_time_high = 10 MINUTES
@@ -99,16 +99,16 @@
 	return list(/obj/item/food/grown/ash_flora/mushroom_stem = 1)
 
 /obj/structure/flora/ash/cacti
-	name = "fruiting cacti"
-	desc = "Several prickly cacti, brimming with ripe fruit and covered in a thin layer of ash."
+	name = "结果仙人掌"
+	desc = "几株多刺的仙人掌，挂满成熟的果实，表面覆着薄薄一层灰烬。"
 	icon_state = "cactus1"
 	base_icon_state = "cactus"
-	harvested_name = "cacti"
-	harvested_desc = "A bunch of prickly cacti. You can see fruits slowly growing beneath the covering of ash."
+	harvested_name = "仙人掌"
+	harvested_desc = "一丛多刺的仙人掌。你能看到果实在灰烬的覆盖下缓缓生长。"
 	harvest_amount_high = 2
-	harvest_message_low = "You pick a cactus fruit."
-	harvest_message_med = "You pick several cactus fruit." //shouldn't show up, because you can't get more than two
-	harvest_message_high = "You pick a pair of cactus fruit."
+	harvest_message_low = "你摘下了一个仙人掌果。"
+	harvest_message_med = "你摘下了几个仙人掌果。" //shouldn't show up, because you can't get more than two
+	harvest_message_high = "你摘下了两个仙人掌果。"
 	harvest_time = 10
 	regrowth_time_low = 8 MINUTES
 	regrowth_time_high = 12 MINUTES
@@ -122,16 +122,16 @@
 	return list(/obj/item/food/grown/ash_flora/cactus_fruit = 20, /obj/item/seeds/lavaland/cactus = 1)
 
 /obj/structure/flora/ash/seraka
-	name = "seraka mushrooms"
-	desc = "A small cluster of seraka mushrooms. These must have come with the ashlizards."
+	name = "塞拉卡菇"
+	desc = "一小簇塞拉卡菇。它们一定是随灰烬蜥蜴人一同来到这里的。"
 	icon_state = "seraka_mushroom1"
 	base_icon_state = "seraka_mushroom"
-	harvested_name = "harvested seraka mushrooms"
-	harvested_desc = "A couple of small seraka mushrooms, with the larger ones clearly having been recently removed. They'll grow back... eventually."
+	harvested_name = "采摘过的塞拉卡菇"
+	harvested_desc = "几朵小塞拉卡菇，较大的显然刚被摘走。它们会重新长出来的……迟早会。"
 	harvest_amount_high = 6
-	harvest_message_low = "You pluck a few choice tasty mushrooms."
-	harvest_message_med = "You grab a good haul of mushrooms."
-	harvest_message_high = "You hit the mushroom motherlode and make off with a bunch of tasty mushrooms."
+	harvest_message_low = "你精选了几朵美味的蘑菇摘下。"
+	harvest_message_med = "你采到了一批不错的蘑菇。"
+	harvest_message_high = "你找到了蘑菇宝藏，满载美味的蘑菇而归。"
 	harvest_time = 25
 	regrowth_time_low = 5 MINUTES
 	regrowth_time_high = 9 MINUTES
@@ -142,19 +142,19 @@
 	return list(/obj/item/food/grown/ash_flora/seraka = 1)
 
 /obj/structure/flora/ash/fireblossom
-	name = "fire blossom"
-	desc = "An odd flower that grows commonly near bodies of lava."
+	name = "火焰花"
+	desc = "一种常见于熔岩附近的奇异花朵。"
 	icon_state = "fireblossom1"
 	base_icon_state = "fireblossom"
 	light_range = LIGHT_FIRE_BLOSSOM
 	light_power = LIGHT_FIRE_BLOSSOM
 	light_color = COLOR_BIOLUMINESCENCE_YELLOW
-	harvested_name = "fire blossom stems"
-	harvested_desc = "A few fire blossom stems, missing their flowers."
+	harvested_name = "火焰花茎"
+	harvested_desc = "几根失去了花朵的火焰花茎。"
 	harvest_amount_high = 3
-	harvest_message_low = "You pluck a single, suitable flower."
-	harvest_message_med = "You pluck a number of flowers, leaving a few unsuitable ones."
-	harvest_message_high = "You pluck quite a lot of suitable flowers."
+	harvest_message_low = "你摘下了一朵合适的花。"
+	harvest_message_med = "你摘下了一些花，留下了几朵不合适的。"
+	harvest_message_high = "你摘下了很多合适的花。"
 	regrowth_time_low = 4 MINUTES
 	regrowth_time_high = 7 MINUTES
 	number_of_variants = 2
@@ -175,21 +175,21 @@
 	return ..()
 
 /obj/structure/flora/ash/glowgrowth
-	name = "glowgrowth colony"
-	desc = "A colony of bioluminescent fungi growing on a hot air vent, feeding off mineral particulate blowing through it."
+	name = "荧光菌群"
+	desc = "一群生长在热气喷口上的发光真菌，以喷出的矿物微粒为食。"
 	icon_state = "glowgrowth1"
 	base_icon_state = "glowgrowth"
 	density = TRUE // Large rock formations with plants ontop
 	light_range = 1.7
 	light_power = 1.2
 	light_color = "#67b6a5"
-	harvested_name = "hot air vent"
-	harvested_desc = "A ridged porous rock formation exuming hot air from the depths of the planet."
+	harvested_name = "热气喷口"
+	harvested_desc = "一个带有棱脊的多孔岩体，正从星球深处喷出热气。"
 	harvest_amount_high = 4
-	harvest_verb = "scrape"
-	harvest_message_low = "You scrape off a thin layer of glowing fungi."
-	harvest_message_med = "You pick a sizeable patch of glowing fungi."
-	harvest_message_high = "You grab a large fistful of glowing fungi."
+	harvest_verb = "刮取"
+	harvest_message_low = "你刮下了薄薄一层发光真菌。"
+	harvest_message_med = "你采下了相当大的一片发光真菌。"
+	harvest_message_high = "你抓起了一大把发光真菌。"
 	regrowth_time_low = 8 MINUTES
 	regrowth_time_high = 16 MINUTES
 	number_of_variants = 3
@@ -220,16 +220,16 @@
 
 ///Snow flora to exist on icebox.
 /obj/structure/flora/ash/chilly
-	name = "springy grassy fruit"
-	desc = "A number of bright, springy blue fruiting plants. They seem to be unconcerned with the hardy, cold environment."
+	name = "弹韧结果草"
+	desc = "一群鲜艳而富有弹性的蓝色结果植物。它们似乎完全不在乎恶劣寒冷的环境。"
 	icon_state = "chilly_pepper1"
 	base_icon_state = "chilly_pepper"
-	harvested_name = "springy grass"
-	harvested_desc = "A bunch of springy, bouncy fruiting grass, all picked. Or maybe they were never fruiting at all?"
+	harvested_name = "弹韧草"
+	harvested_desc = "一丛富有弹性、摇晃回弹的结果草，果实已被摘光。也许它们根本就没结过果？"
 	harvest_amount_high = 3
-	harvest_message_low = "You pluck a single, curved fruit."
-	harvest_message_med = "You pluck a number of curved fruit."
-	harvest_message_high = "You pluck quite a lot of curved fruit."
+	harvest_message_low = "你摘下了一个弯曲的果实。"
+	harvest_message_med = "你摘下了一些弯曲的果实。"
+	harvest_message_high = "你摘下了很多弯曲的果实。"
 	harvest_time = 15
 	regrowth_time_low = 2400
 	regrowth_time_high = 5500
@@ -239,18 +239,18 @@
 	return list(/obj/item/food/grown/icepepper = 1)
 
 /obj/structure/flora/ash/fonarstolbe
-	name = "fonarstolbe fruit"
-	desc = "A chemotrophic, insignificantly bioluminescent plant dubbed fonarstolbe by spinward scientists. They can survive for weeks in environments and presures lethal to most other plants, as long as they are well rooted.."
+	name = "灯柱果"
+	desc = "一种具有微弱生物荧光的化能营养植物，被旋臂星区的科学家称为灯柱果。只要扎根稳固，它们就能在足以杀死大多数植物的环境和压力下存活数周。"
 	icon_state = "lamppostfruit1"
 	base_icon_state = "lamppostfruit"
 	light_range = 1.5
 	light_power = 2.1
-	harvested_name = "fonarstolbe"
-	harvested_desc = "Stem of a fonarstolbe. It should grow back up, sooner or later. And once it does, you can pluck its sweet and sour fruit."
+	harvested_name = "灯柱果植株"
+	harvested_desc = "灯柱果的茎。它迟早会重新长好，到时候你就能摘下酸甜的果实。"
 	harvest_amount_high = 3
-	harvest_message_low = "You pluck a single fonarstolbe fruit."
-	harvest_message_med = "You pluck a number of fonarstolbe fruits."
-	harvest_message_high = "You pluck quite a lot of fonarstolbe fruits."
+	harvest_message_low = "你摘下了一个灯柱果。"
+	harvest_message_med = "你摘下了一些灯柱果。"
+	harvest_message_high = "你摘下了很多灯柱果。"
 	harvest_time = 40
 	number_of_variants = 4
 
@@ -258,16 +258,16 @@
 	return list(/obj/item/food/grown/ash_flora/fonarstolbe = 1)
 
 /obj/structure/flora/ash/vahrezjia
-	name = "vahrezjia flowers"
-	desc = "Bright blue stalks emerging from purple flowery pods. Apparently they can drive animals aggresive. They definetly sped up huskies and bears shipped in here by Spinward colonizers going feral. Quite unlikely they were the direct reason, though."
+	name = "狂性荚花"
+	desc = "鲜蓝色花茎从紫色花荚中伸出。据说它们能让动物变得好斗。旋臂殖民者带来的哈士奇和熊确实因它们而加快了野化，不过它们大概不是直接原因。"
 	icon_state = "flowerpod1"
 	base_icon_state = "flowerpod"
-	harvested_name = "vahrezjia pods"
-	harvested_desc = "A bunch of vahrezjia pods. Despite repeated attempts to burn or uproot them away, they somehow still spread around and perservere."
+	harvested_name = "狂性荚花荚"
+	harvested_desc = "一丛狂性荚花荚。尽管人们多次尝试焚烧或连根拔除，它们仍不知为何顽强地四处蔓延。"
 	harvest_amount_high = 3
-	harvest_message_low = "You pluck a single vahrezjia stalk."
-	harvest_message_med = "You pluck a number of vahrezjia stalks."
-	harvest_message_high = "You pluck quite a lot of vahrezjia stalks."
+	harvest_message_low = "你摘下了一根狂性荚花茎。"
+	harvest_message_med = "你摘下了一些狂性荚花茎。"
+	harvest_message_high = "你摘下了很多狂性荚花茎。"
 	harvest_time = 25
 	number_of_variants = 4
 
@@ -275,16 +275,16 @@
 	return list(/obj/item/food/grown/ash_flora/vahrezjia = 1)
 
 /obj/structure/flora/ash/podsneyzka
-	name = "podsneyzka flower"
-	desc = "A bunch of flowering podsneyzkas. These flowers are known to taste quite like meat, and have quite similiar chemical composition to it. Better not to think about it, perhaps."
+	name = "腐肉花"
+	desc = "一丛盛开的腐肉花。它们吃起来很像肉，化学成分也与肉十分相似。也许还是别细想为好。"
 	icon_state = "flower1"
 	base_icon_state = "flower"
-	harvested_name = "podsneyzka stems"
-	harvested_desc = "A bunch of podsneyzka stems. Most of the plants is actually underground, and their roots are extremely long, ever searching for decomposing corpses to sap off of."
+	harvested_name = "腐肉花茎"
+	harvested_desc = "一丛腐肉花茎。植株的大部分其实藏在地下，极长的根系不断寻找腐烂尸体，从中吸取养分。"
 	harvest_amount_high = 5
-	harvest_message_low = "You menage to pluck a single bunch of podzneyzkas."
-	harvest_message_med = "You carefully pluck a whole bunch of podzneyzkas."
-	harvest_message_high = "You very carefully pluck quite a lot of podzneyzkas."
+	harvest_message_low = "你成功摘下了一小束腐肉花。"
+	harvest_message_med = "你小心地摘下了一整束腐肉花。"
+	harvest_message_high = "你十分小心地摘下了很多腐肉花。"
 	harvest_time = 30
 	number_of_variants = 4
 
@@ -292,16 +292,16 @@
 	return list(/obj/item/food/grown/ash_flora/podsneyzka = 1)
 
 /obj/structure/flora/ash/inozhakust
-	name = "inozhakust"
-	desc = "A plant looking like roots growing into the sky, covered in mushy, wet, oily vines. They squelch and break apart when touched. You'll have to gather them as a paste."
+	name = "油蔓灌木"
+	desc = "一种看起来像是树根朝天生长的植物，覆满湿软油腻的藤蔓。藤蔓一碰就会噗叽一声碎开，只能收集成糊状。"
 	icon_state = "shrub1"
 	base_icon_state = "shrub"
-	harvested_name = "inozhakust"
-	harvested_desc = "A plant looking like roots growing into the sky - inozhakust. Filters chemical compounds in both earth and dirt, and spits out disgusting vines which you should be able to harvest soon."
+	harvested_name = "油蔓灌木"
+	harvested_desc = "油蔓灌木，一种看起来像是树根朝天生长的植物。它过滤土壤中的化合物，吐出恶心的藤蔓，应该很快就能采集了。"
 	harvest_amount_high = 5
-	harvest_message_low = "You menage to scoop just a bit of inozhakust's vines into paste."
-	harvest_message_med = "You menage to scoop some inozhakust's vines into paste."
-	harvest_message_high = "You menage to scoop quite a lot of inozhakust's vines into paste."
+	harvest_message_low = "你成功舀下了一点油蔓灌木的藤蔓糊。"
+	harvest_message_med = "你成功舀下了一些油蔓灌木的藤蔓糊。"
+	harvest_message_high = "你成功舀下了很多油蔓灌木的藤蔓糊。"
 	harvest_time = 30
 	number_of_variants = 4
 
@@ -309,19 +309,19 @@
 	return list(/obj/item/food/grown/ash_flora/inozhakust = 1)
 
 /obj/structure/flora/ash/plasma_flower
-	name = "plasma flower"
-	desc = "A bunch of vines surrounding a clustered bunch of plasma flowers. Researches still are trying to wrap their heads around these ones."
+	name = "等离子花"
+	desc = "一丛藤蔓围绕着簇生的等离子花。研究人员还在绞尽脑汁理解它们。"
 	icon_state = "plasma_flower1"
 	base_icon_state = "plasma_flower"
 	light_range = LIGHT_FIRE_BLOSSOM
 	light_power = LIGHT_FIRE_BLOSSOM
 	light_color = COLOR_BIOLUMINESCENCE_PURPLE
-	harvested_name = "fire blossom vines"
-	harvested_desc = "A few plasma flower vines, missing their flowers."
+	harvested_name = "火焰花藤"
+	harvested_desc = "几根失去了花朵的等离子花藤。"
 	harvest_amount_high = 3
-	harvest_message_low = "You pluck a single, suitable flower."
-	harvest_message_med = "You pluck a number of flowers, leaving a few unsuitable ones."
-	harvest_message_high = "You pluck quite a lot of suitable flowers."
+	harvest_message_low = "你摘下了一朵合适的花。"
+	harvest_message_med = "你摘下了一些花，留下了几朵不合适的。"
+	harvest_message_high = "你摘下了很多合适的花。"
 	regrowth_time_low = 4 MINUTES
 	regrowth_time_high = 7 MINUTES
 	number_of_variants = 2
@@ -342,16 +342,16 @@
 	return ..()
 
 /obj/structure/flora/ash/drake_beet
-	name = "drake beet"
-	desc = "An mutated beet. It seems to have adapted to local ecosystems by vaguely mimicking the appearance of a drake. Unsure how that helps, but its probably still tasty."
+	name = "飞龙甜菜"
+	desc = "一种变异甜菜。它似乎通过粗略模仿飞龙外形来适应当地生态。不知道这有什么用，不过它应该还是很好吃。"
 	icon_state = "drakebeet1"
 	base_icon_state = "drakebeet"
-	harvested_name = "young drake beet"
-	harvested_desc = "An mutated beet. These ones are yet to grow up. Brought here by spinwarders in order to make borstch then went wild and mutated like everything else."
+	harvested_name = "飞龙甜菜幼苗"
+	harvested_desc = "一种变异甜菜，这些还没长大。旋臂居民原本把它带来做罗宋汤，后来它和这里的其他生物一样野化并发生了变异。"
 	harvest_amount_high = 4
-	harvest_message_low = "You pull a single suitable beet from the ground."
-	harvest_message_med = "You pull a number of suitable beets from the ground."
-	harvest_message_high = "You pull quite a lot of suitable beets from the ground."
+	harvest_message_low = "你从地里拔出了一颗合适的甜菜。"
+	harvest_message_med = "你从地里拔出了一些合适的甜菜。"
+	harvest_message_high = "你从地里拔出了很多合适的甜菜。"
 	regrowth_time_low = 3 MINUTES
 	regrowth_time_high = 6 MINUTES
 	harvest_time = 25
@@ -363,8 +363,8 @@
 //SNACKS
 
 /obj/item/food/grown/ash_flora
-	name = "unidentified bits of a wierd plant"
-	desc = "What's this? An intruder, is what it is. Tell somebody about this."
+	name = "不明怪异植物碎片"
+	desc = "这是什么？这是个不该出现的东西。把这事告诉别人吧。"
 	icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	icon_state = "mushroom_shavings"
 	abstract_type = /obj/item/food/grown/ash_flora
@@ -379,8 +379,8 @@
 	pixel_y = base_pixel_y + rand(-4, 4)
 
 /obj/item/food/grown/ash_flora/shavings
-	name = "mushroom shavings"
-	desc = "Some shavings from a tall mushroom. With enough, might serve as a bowl."
+	name = "蘑菇削片"
+	desc = "从高大蘑菇上削下的薄片。数量足够的话，也许能做成一个碗。"
 	seed = /obj/item/seeds/lavaland/polypore
 	wine_power = 20
 
@@ -388,29 +388,29 @@
 	return list(/datum/reagent/toxin/mushroom_powder = 5)
 
 /obj/item/food/grown/ash_flora/mushroom_leaf
-	name = "mushroom leaf"
-	desc = "A leaf, from a mushroom."
+	name = "蘑菇叶"
+	desc = "一片长在蘑菇上的叶子。"
 	icon_state = "mushroom_leaf"
 	seed = /obj/item/seeds/lavaland/porcini
 	wine_power = 40
 
 /obj/item/food/grown/ash_flora/mushroom_cap
-	name = "mushroom cap"
-	desc = "The cap of a large mushroom."
+	name = "蘑菇菌盖"
+	desc = "一朵大型蘑菇的菌盖。"
 	icon_state = "mushroom_cap"
 	seed = /obj/item/seeds/lavaland/inocybe
 	wine_power = 70
 
 /obj/item/food/grown/ash_flora/mushroom_stem
-	name = "mushroom stem"
-	desc = "A long mushroom stem. It's slightly glowing."
+	name = "蘑菇菌柄"
+	desc = "一根长长的蘑菇菌柄，微微发着光。"
 	icon_state = "mushroom_stem"
 	seed = /obj/item/seeds/lavaland/ember
 	wine_power = 60
 
 /obj/item/food/grown/ash_flora/cactus_fruit
-	name = "cactus fruit"
-	desc = "A cactus fruit covered in a thick, reddish skin. And some ash."
+	name = "仙人掌果"
+	desc = "一个包着厚实红皮的仙人掌果。上面还沾着些灰烬。"
 	icon_state = "cactus_fruit"
 	seed = /obj/item/seeds/lavaland/cactus
 	wine_power = 50
@@ -421,8 +421,8 @@
 	AddElement(/datum/element/raptor_food, growth_modifier = 0.1, ability_modifier = -0.05)
 
 /obj/item/food/grown/ash_flora/seraka
-	name = "seraka cap"
-	desc = "Small, deeply flavourful mushrooms originally native to Tizira."
+	name = "塞拉卡菌盖"
+	desc = "原产于提兹拉的小蘑菇，滋味浓郁。"
 	icon_state = "seraka_cap"
 	seed = /obj/item/seeds/lavaland/seraka
 	wine_power = 40
@@ -432,8 +432,8 @@
 	AddElement(/datum/element/raptor_food, ability_modifier = 0.1)
 
 /obj/item/food/grown/ash_flora/fireblossom
-	name = "fire blossom"
-	desc = "A flower from a fire blossom."
+	name = "火焰花"
+	desc = "一朵从火焰花植株上摘下的花。"
 	icon_state = "fireblossom"
 	slot_flags = ITEM_SLOT_HEAD
 	seed = /obj/item/seeds/lavaland/fireblossom
@@ -445,8 +445,8 @@
 	AddElement(/datum/element/raptor_food, color_chances = string_list(list(/datum/raptor_color/blue = 5)))
 
 /obj/item/food/grown/ash_flora/glowgrowth
-	name = "glowgrowth sheet"
-	desc = "A thick sheet of glowing fungi."
+	name = "荧光菌片"
+	desc = "一片厚厚的发光真菌。"
 	icon_state = "glowgrowth"
 	seed = /obj/item/seeds/lavaland/glowgrowth // Cannot be grown in hydroponics as it feeds off mineral air
 	wine_power = 50
@@ -454,40 +454,40 @@
 //SNACKS - icebox
 
 /obj/item/food/grown/ash_flora/fonarstolbe
-	name = "fonarstolbe fruit"
-	desc = "A fonarstolbe fruit. It's glowing blue, faintly."
+	name = "灯柱果"
+	desc = "一个灯柱果，散发着微弱的蓝光。"
 	icon_state = "fonarstolbe"
 	seed = /obj/item/seeds/lavaland/fonarstolbe
 	wine_power = 50
 	foodtypes = FRUIT
 
 /obj/item/food/grown/ash_flora/vahrezjia
-	name = "vahrezjia stalks"
-	desc = "Bunched together vahrezjia stalks. Suprisingly coarse in texture."
+	name = "狂性荚花茎"
+	desc = "一束狂性荚花茎，质地粗糙得出乎意料。"
 	icon_state = "vahrezjia"
 	seed = /obj/item/seeds/lavaland/vahrezjia
 	wine_power = 50
 	foodtypes = FRUIT
 
 /obj/item/food/grown/ash_flora/podsneyzka
-	name = "podsneyzka bunch"
-	desc = "A bunch of spotted podsneyzka flowers, folded onto themselves. They smell bit like rotten meat."
+	name = "腐肉花束"
+	desc = "一束带斑点、向内折叠的腐肉花，闻起来有点像腐烂的肉。"
 	icon_state = "podsneyzka"
 	seed = /obj/item/seeds/lavaland/podsneyzka
 	wine_power = 50
 	foodtypes = MEAT|VEGETABLES
 
 /obj/item/food/grown/ash_flora/inozhakust
-	name = "inozhakust mash"
-	desc = "The mashed up vines of an inozhakust scooped into whatever you had on hand."
+	name = "油蔓糊"
+	desc = "捣碎的油蔓灌木藤蔓，被舀进了你随手找到的容器里。"
 	icon_state = "inozhakust"
 	seed = /obj/item/seeds/lavaland/inozhakust
 	distill_reagent = /datum/reagent/consumable/ethanol/mouthwash
 	foodtypes = VEGETABLES|GROSS
 
 /obj/item/food/grown/ash_flora/plasma_flower
-	name = "plasma flower"
-	desc = "A bit of vine conected a crystalized plasma flower."
+	name = "等离子花"
+	desc = "一小段连着等离子结晶花朵的藤蔓。"
 	icon_state = "plasmaflower"
 	slot_flags = ITEM_SLOT_HEAD
 	seed = /obj/item/seeds/lavaland/plasma_flower
@@ -502,8 +502,8 @@
 // SEEDS
 
 /obj/item/seeds/lavaland
-	name = "lavaland seeds"
-	desc = "You should never see this."
+	name = "熔岩星球种子"
+	desc = "你不应该看到这个。"
 	lifespan = 50
 	endurance = 25
 	maturation = 7
@@ -518,11 +518,11 @@
 	graft_gene = /datum/plant_gene/trait/fire_resistance
 
 /obj/item/seeds/lavaland/cactus
-	name = "fruiting cactus seed pack"
-	desc = "These seeds grow into fruiting cacti."
+	name = "结果仙人掌种子包"
+	desc = "这些种子能长成结果仙人掌。"
 	icon_state = "seed-cactus"
 	species = "cactus"
-	plantname = "Fruiting Cactus"
+	plantname = "结果仙人掌"
 	product = /obj/item/food/grown/ash_flora/cactus_fruit
 	mutatelist = list(/obj/item/seeds/star_cactus)
 	genes = list(/datum/plant_gene/trait/fire_resistance)
@@ -532,11 +532,11 @@
 
 ///Star Cactus seeds, mutation of lavaland cactus.
 /obj/item/seeds/star_cactus
-	name = "star cacti seed pack"
-	desc = "These seeds grow into star cacti."
+	name = "星形仙人掌种子包"
+	desc = "这些种子能长成星形仙人掌。"
 	icon_state = "seed-starcactus"
 	species = "starcactus"
-	plantname = "Star Cactus Cluster"
+	plantname = "星形仙人掌丛"
 	product = /obj/item/food/grown/star_cactus
 	lifespan = 60
 	endurance = 30
@@ -552,72 +552,72 @@
 ///Star Cactus Plants.
 /obj/item/food/grown/star_cactus
 	seed = /obj/item/seeds/star_cactus
-	name = "star cacti"
-	desc = "A spikey, round cluster of prickly star cacti. And no, it's not called a star cactus because it's in space."
+	name = "星形仙人掌"
+	desc = "一簇浑身尖刺、圆滚滚的星形仙人掌。没错，它叫星形仙人掌可不是因为长在太空里。"
 	icon_state = "starcactus"
 	filling_color = "#1c801c"
 	foodtypes = VEGETABLES
 	distill_reagent = /datum/reagent/consumable/ethanol/tequila
 
 /obj/item/seeds/lavaland/polypore
-	name = "polypore mycelium pack"
-	desc = "This mycelium grows into bracket mushrooms, also known as polypores. Woody and firm, shaft miners often use them for makeshift crafts."
+	name = "多孔菌菌丝包"
+	desc = "这些菌丝能长成架状蘑菇，也称多孔菌。其质地坚硬如木，矿工常用它们制作简易用品。"
 	icon_state = "mycelium-polypore"
 	species = "polypore"
-	plantname = "Polypore Mushrooms"
+	plantname = "多孔菌"
 	product = /obj/item/food/grown/ash_flora/shavings
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.04, /datum/reagent/consumable/ethanol = 0.04, /datum/reagent/stabilizing_agent = 0.06, /datum/reagent/consumable/mintextract = 0.02)
 
 /obj/item/seeds/lavaland/porcini
-	name = "porcini mycelium pack"
-	desc = "This mycelium grows into Boletus edulus, also known as porcini. Native to the late Earth, but discovered on Lavaland. Has culinary, medicinal and relaxant effects."
+	name = "牛肝菌菌丝包"
+	desc = "这些菌丝能长成美味牛肝菌，通常简称牛肝菌。原产于已不复存在的地球，后来在熔岩星球上被发现。可供烹饪、药用，也有放松作用。"
 	icon_state = "mycelium-porcini"
 	species = "porcini"
-	plantname = "Porcini Mushrooms"
+	plantname = "牛肝菌"
 	product = /obj/item/food/grown/ash_flora/mushroom_leaf
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.06,  /datum/reagent/consumable/sugar = 0.06, /datum/reagent/consumable/vitfro = 0.04, /datum/reagent/drug/nicotine = 0.04)
 
 /obj/item/seeds/lavaland/inocybe
-	name = "inocybe mycelium pack"
-	desc = "This mycelium grows into an inocybe mushroom, a species of Lavaland origin with hallucinatory and toxic effects."
+	name = "丝盖菇菌丝包"
+	desc = "这些菌丝能长成丝盖菇，一种原产于熔岩星球、具有致幻性和毒性的蘑菇。"
 	icon_state = "mycelium-inocybe"
 	species = "inocybe"
-	plantname = "Inocybe Mushrooms"
+	plantname = "丝盖菇"
 	product = /obj/item/food/grown/ash_flora/mushroom_cap
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/toxin/mindbreaker = 0.04, /datum/reagent/consumable/entpoly = 0.08, /datum/reagent/drug/mushroomhallucinogen = 0.04)
 
 /obj/item/seeds/lavaland/ember
-	name = "embershroom mycelium pack"
-	desc = "This mycelium grows into embershrooms, a species of bioluminescent mushrooms native to Lavaland."
+	name = "余烬菇菌丝包"
+	desc = "这些菌丝能长成余烬菇，一种原产于熔岩星球的发光蘑菇。"
 	icon_state = "mycelium-ember"
 	species = "ember"
-	plantname = "Embershroom Mushrooms"
+	plantname = "余烬菇"
 	product = /obj/item/food/grown/ash_flora/mushroom_stem
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/tinlux = 0.04, /datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/drug/space_drugs = 0.02)
 
 /obj/item/seeds/lavaland/seraka
-	name = "seraka mycelium pack"
-	desc = "This mycelium grows into seraka mushrooms, a species of savoury mushrooms originally native to Tizira used in food and traditional medicine."
+	name = "塞拉卡菇菌丝包"
+	desc = "这些菌丝能长成塞拉卡菇，一种原产于提兹拉的鲜美蘑菇，可用于烹饪和传统医药。"
 	icon_state = "mycelium-seraka"
 	species = "seraka"
-	plantname = "Seraka Mushrooms"
+	plantname = "塞拉卡菇"
 	product = /obj/item/food/grown/ash_flora/seraka
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/fire_resistance)
 	growing_icon = 'icons/obj/service/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/toxin/mushroom_powder = 0.1, /datum/reagent/medicine/coagulant/seraka_extract = 0.02)
 
 /obj/item/seeds/lavaland/fireblossom
-	name = "fire blossom seed pack"
-	desc = "These seeds grow into fire blossoms."
-	plantname = "Fire Blossom"
+	name = "火焰花种子包"
+	desc = "这些种子能长成火焰花。"
+	plantname = "火焰花"
 	icon_state = "seed-fireblossom"
 	species = "fireblossom"
 	growthstages = 3
@@ -627,9 +627,9 @@
 	reagents_add = list(/datum/reagent/consumable/tinlux = 0.04, /datum/reagent/consumable/nutriment = 0.03, /datum/reagent/carbon = 0.05)
 
 /obj/item/seeds/lavaland/glowgrowth
-	name = "glowgrowth mycelium pack"
-	desc = "This mycelium grows into glowgrowth fungi."
-	plantname = "Glowgrowth Fungi"
+	name = "荧光菌菌丝包"
+	desc = "这些菌丝能长成荧光菌。"
+	plantname = "荧光菌"
 	icon_state = "mycelium-glowgrowth"
 	species = "glowgrowth"
 	product = /obj/item/food/grown/ash_flora/glowgrowth
@@ -640,11 +640,11 @@
 /// SEEDS - icebox
 
 /obj/item/seeds/lavaland/fonarstolbe
-	name = "fonarstolbe seed pack"
-	desc = "These seeds grow into fonarstolbe."
+	name = "灯柱果种子包"
+	desc = "这些种子能长成灯柱果。"
 	icon_state = "seed-fonarstolbe"
 	species = "fonarstolbe"
-	plantname = "Fonarstolbe"
+	plantname = "灯柱果"
 	lifespan = 40
 	production = 5
 	yield = 3
@@ -656,11 +656,11 @@
 	graft_gene = /datum/plant_gene/trait/glow/blue
 
 /obj/item/seeds/lavaland/vahrezjia
-	name = "vahrezjia seed pack"
-	desc = "These seeds grow into vahrezjia."
+	name = "狂性荚花种子包"
+	desc = "这些种子能长成狂性荚花。"
 	icon_state = "seed-vahrezjia"
 	species = "vahrezjia"
-	plantname = "Vahrezjia"
+	plantname = "狂性荚花"
 	growthstages = 3
 	product = /obj/item/food/grown/ash_flora/vahrezjia
 	genes = list(/datum/plant_gene/trait/tox_resistance, /datum/plant_gene/trait/repeated_harvest)
@@ -668,11 +668,11 @@
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.02, /datum/reagent/toxin/berserker = 0.06, /datum/reagent/consumable/nutriment/fat/oil = 0.03)
 
 /obj/item/seeds/lavaland/podsneyzka
-	name = "podsneyzka seed pack"
-	desc = "These seeds grow into podsneyzkas."
+	name = "腐肉花种子包"
+	desc = "这些种子能长成腐肉花。"
 	icon_state = "seed-podsneyzka"
 	species = "podsneyzka"
-	plantname = "Podsneyzka"
+	plantname = "腐肉花"
 	lifespan = 30
 	endurance = 15
 	production = 4
@@ -685,11 +685,11 @@
 	graft_gene = /datum/plant_gene/trait/chem_cooling
 
 /obj/item/seeds/lavaland/inozhakust
-	name = "inozhakust seed pack"
-	desc = "These seeds grow into a inozhakust."
+	name = "油蔓灌木种子包"
+	desc = "这些种子能长成油蔓灌木。"
 	icon_state = "seed-inozhakust"
 	species = "inozhakust"
-	plantname = "Inozhakust"
+	plantname = "油蔓灌木"
 	lifespan = 40
 	endurance = 30
 	yield = 3
@@ -701,11 +701,11 @@
 	graft_gene = /datum/plant_gene/trait/plant_type/toxin_adaptation
 
 /obj/item/seeds/lavaland/plasma_flower
-	name = "plasma flower seed pack"
-	desc = "These seeds grow into plasma flowers."
+	name = "等离子花种子包"
+	desc = "这些种子能长成等离子花。"
 	icon_state = "seed-plasmaflower"
 	species = "plasmaflower"
-	plantname = "Plasma flower"
+	plantname = "等离子花"
 	lifespan = 40
 	endurance = 15
 	production = 5
@@ -720,15 +720,15 @@
 //CRAFTING
 
 /datum/crafting_recipe/mushroom_bowl
-	name = "Mushroom Bowl"
+	name = "蘑菇碗"
 	result = /obj/item/reagent_containers/cup/bowl/mushroom_bowl
 	reqs = list(/obj/item/food/grown/ash_flora/shavings = 5)
 	time = 3 SECONDS
 	category = CAT_CONTAINERS
 
 /obj/item/reagent_containers/cup/bowl/mushroom_bowl
-	name = "mushroom bowl"
-	desc = "A bowl made out of mushrooms. Not food, though it might have contained some at some point."
+	name = "蘑菇碗"
+	desc = "用蘑菇做成的碗。它不是食物，不过以前也许盛过食物。"
 	icon = 'icons/obj/mining_zones/ash_flora.dmi'
 	base_icon_state = "mushroom_bowl"
 	icon_state = "mushroom_bowl"

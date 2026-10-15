@@ -10,9 +10,9 @@
 
 /obj/structure/chess/wrench_act(mob/user, obj/item/tool)
 	if(flags_1 & HOLOGRAM_1)
-		balloon_alert(user, "it goes right through!")
+		balloon_alert(user, "直接穿过去了！")
 		return TRUE
-	to_chat(user, span_notice("You start to take apart the chess piece."))
+	to_chat(user, span_notice("你开始拆解棋子。"))
 	if(!do_after(user, 0.5 SECONDS, target = src))
 		return TRUE
 	var/obj/item/stack/sheet/iron/metal_sheets = new (drop_location(), 2)
@@ -23,63 +23,63 @@
 	return TRUE
 
 /obj/structure/chess/whitepawn
-	name = "\improper white pawn"
-	desc = "A white pawn chess piece. Get accused of cheating when executing a sick En Passant."
+	name = "\improper 白兵"
+	desc = "国际象棋的白兵。漂亮地吃掉过路兵时，小心被人指责作弊。"
 	icon_state = "white_pawn"
 
 /obj/structure/chess/whiterook
-	name = "\improper white rook"
-	desc = "A white rook chess piece. Also known as a castle. Can move any number of tiles in a straight line. It has a special move called castling."
+	name = "\improper 白车"
+	desc = "国际象棋的白车，又称城堡。能沿直线走任意格数，还有一种叫王车易位的特殊走法。"
 	icon_state = "white_rook"
 
 /obj/structure/chess/whiteknight
-	name = "\improper white knight"
-	desc = "A white knight chess piece. It can hop over other pieces, moving in L shapes. A white kni- oh. Hah!"
+	name = "\improper 白马"
+	desc = "国际象棋的白马，可以越过其他棋子，沿L形移动。白马骑——哦，哈！"
 	icon_state = "white_knight"
 
 /obj/structure/chess/whitebishop
-	name = "\improper white bishop"
-	desc = "A white bishop chess piece. It can move any number of tiles in a diagonal line."
+	name = "\improper 白象"
+	desc = "国际象棋的白象，可以沿斜线走任意格数。"
 	icon_state = "white_bishop"
 
 /obj/structure/chess/whitequeen
-	name = "\improper white queen"
-	desc = "A white queen chess piece. It can move any number of tiles in diagonal and straight lines."
+	name = "\improper 白后"
+	desc = "国际象棋的白后，可以沿斜线或直线走任意格数。"
 	icon_state = "white_queen"
 
 /obj/structure/chess/whiteking
-	name = "\improper white king"
-	desc = "A white king chess piece. It can move one tile in any direction."
+	name = "\improper 白王"
+	desc = "国际象棋的白王，可以向任意方向走一格。"
 	icon_state = "white_king"
 
 /obj/structure/chess/blackpawn
-	name = "\improper black pawn"
-	desc = "A black pawn chess piece. Get accused of cheating when executing a sick En Passant."
+	name = "\improper 黑兵"
+	desc = "国际象棋的黑兵。漂亮地吃掉过路兵时，小心被人指责作弊。"
 	icon_state = "black_pawn"
 
 /obj/structure/chess/blackrook
-	name = "\improper black rook"
-	desc = "A black rook chess piece. Also known as a castle. Can move any number of tiles in a straight line. It has a special move called castling."
+	name = "\improper 黑车"
+	desc = "国际象棋的黑车，又称城堡。能沿直线走任意格数，还有一种叫王车易位的特殊走法。"
 	icon_state = "black_rook"
 
 /obj/structure/chess/blackknight
-	name = "\improper black knight"
-	desc = "A black knight chess piece. It can hop over other pieces, moving in L shapes."
+	name = "\improper 黑马"
+	desc = "国际象棋的黑马，可以越过其他棋子，沿L形移动。"
 	icon_state = "black_knight"
 
 /obj/structure/chess/blackbishop
-	name = "\improper black bishop"
-	desc = "A black bishop chess piece. It can move any number of tiles in a diagonal line."
+	name = "\improper 黑象"
+	desc = "国际象棋的黑象，可以沿斜线走任意格数。"
 	icon_state = "black_bishop"
 
 /obj/structure/chess/blackqueen
-	name = "\improper black queen"
-	desc = "A black queen chess piece. It can move any number of tiles in diagonal and straight lines."
+	name = "\improper 黑后"
+	desc = "国际象棋的黑后，可以沿斜线或直线走任意格数。"
 	icon_state = "black_queen"
 
 /obj/structure/chess/blackking
-	name = "\improper black king"
-	desc = "A black king chess piece. It can move one tile in any direction."
+	name = "\improper 黑王"
+	desc = "国际象棋的黑王，可以向任意方向走一格。"
 	icon_state = "black_king"
 
 /obj/structure/chess/checker
@@ -88,21 +88,21 @@
 	desc = "This is weird. Please inform administration on how you managed to get the parent checker piece. Thanks!"
 
 /obj/structure/chess/checker/whiteman
-	name = "\improper White Checker Man"
-	desc = "A white checker piece. Looks suspiciously like a flattened chess pawn."
+	name = "\improper 白色跳棋棋子"
+	desc = "一枚白色西洋跳棋棋子，看起来可疑地像被压扁的国际象棋兵。"
 	icon_state = "white_checker_man"
 
 /obj/structure/chess/checker/whiteking
-	name = "\improper White Checker Man"
-	desc = "A white checker piece. It's stacked!"
+	name = "\improper 白色跳棋王棋"
+	desc = "一枚白色西洋跳棋棋子。叠起来成王了！"
 	icon_state = "white_checker_king"
 
 /obj/structure/chess/checker/blackman
-	name = "\improper Black Checker Man"
-	desc = "A black checker piece. Looks suspiciously like a flattened chess pawn."
+	name = "\improper 黑色跳棋棋子"
+	desc = "一枚黑色西洋跳棋棋子，看起来可疑地像被压扁的国际象棋兵。"
 	icon_state = "black_checker_man"
 
 /obj/structure/chess/checker/blackking
-	name = "\improper Black Checker King"
-	desc = "A black checker piece. It's stacked!"
+	name = "\improper 黑色跳棋王棋"
+	desc = "一枚黑色西洋跳棋棋子。叠起来成王了！"
 	icon_state = "black_checker_king"

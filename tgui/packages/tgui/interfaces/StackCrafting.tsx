@@ -122,10 +122,10 @@ export const StackCrafting = (_props) => {
         <Section
           fill
           scrollable
-          title={`Amount: ${amount}`}
+          title={`数量：${amount}`}
           buttons={
             <SearchBar
-              expensive
+              expensive placeholder="搜索配方……"
               style={{ width: '15em' }}
               query={searchText}
               onSearch={(value) => setSearchText(value)}
@@ -135,7 +135,7 @@ export const StackCrafting = (_props) => {
           {filteredRecipes ? (
             <RecipeListBox recipes={filteredRecipes} />
           ) : (
-            <NoticeBox>No recipes found.</NoticeBox>
+            <NoticeBox>未找到配方。</NoticeBox>
           )}
         </Section>
       </Window.Content>
@@ -255,9 +255,9 @@ const RecipeBox = (props: RecipeBoxProps) => {
   } = recipe;
 
   const resAmountLabel = res_amount > 1 ? `${res_amount}x ` : '';
-  const sheetSuffix = req_amount > 1 ? 's' : '';
+  const sheetSuffix = '份材料';
   const buttonName = `${resAmountLabel}${title}`;
-  const reqSheets = `${req_amount} sheet${sheetSuffix}`;
+  const reqSheets = `${req_amount}${sheetSuffix}`;
 
   const maxMultiplier = buildMultiplier(recipe, amount);
 
