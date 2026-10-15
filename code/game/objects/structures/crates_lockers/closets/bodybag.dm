@@ -120,8 +120,8 @@
 	undeploy_bodybag(loc)
 
 /obj/structure/closet/body_bag/bluespace
-	name = "bluespace body bag"
-	desc = "A bluespace body bag designed for the storage and transportation of cadavers."
+	name = "蓝空间尸袋"
+	desc = "用于存放和运送尸体的蓝空间尸袋。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "bluebodybag"
 	foldedbag_path = /obj/item/bodybag/bluespace
@@ -134,31 +134,31 @@
 	if(!istype(the_folder))
 		return
 	if(opened)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while unzipped."))
+		to_chat(the_folder, span_warning("你费力地折叠[src]，但拉链没拉上，怎么也折不好。"))
 		return
 	//end copypaste zone
 	if(contents.len >= mob_storage_capacity / 2)
-		to_chat(the_folder, span_warning("There are too many things inside of [src] to fold it up!"))
+		to_chat(the_folder, span_warning("[src]里装的东西太多，无法折叠！"))
 		return
 
 	if(the_folder.in_contents_of(src))
-		to_chat(the_folder, span_warning("You can't fold [src] while you're inside of it!"))
+		to_chat(the_folder, span_warning("你待在[src]里面时，无法将它折叠！"))
 		return
 
 	for(var/obj/item/bodybag/bluespace/B in src)
-		to_chat(the_folder, span_warning("You can't recursively fold bluespace body bags!") )
+		to_chat(the_folder, span_warning("你不能把装着蓝空间尸袋的蓝空间尸袋再折起来！") )
 		return
 	return TRUE
 
 /obj/structure/closet/body_bag/bluespace/perform_fold(mob/living/carbon/human/the_folder)
-	visible_message(span_notice("[the_folder] folds up [src]."))
+	visible_message(span_notice("[the_folder]把[src]折叠起来。"))
 	var/obj/item/bodybag/folding_bodybag = undeploy_bodybag(the_folder.loc)
 	var/max_weight_of_contents = initial(folding_bodybag.w_class)
 	for(var/am in contents)
 		var/atom/movable/content = am
 		content.forceMove(folding_bodybag)
 		if(isliving(content))
-			to_chat(content, span_userdanger("You're suddenly forced into a tiny, compressed space!"))
+			to_chat(content, span_userdanger("你突然被挤进了一个狭小的压缩空间！"))
 		if(HAS_TRAIT(content, TRAIT_DWARF))
 			max_weight_of_contents = max(WEIGHT_CLASS_NORMAL, max_weight_of_contents)
 			continue
@@ -184,7 +184,7 @@
 		context[SCREENTIP_CONTEXT_LMB] = "别上纸张"
 		. = CONTEXTUAL_SCREENTIP_SET
 	else if(can_scan_through && istype(held_item, /obj/item/healthanalyzer) && !opened)
-		context[SCREENTIP_CONTEXT_LMB] = "Scan Contents"
+		context[SCREENTIP_CONTEXT_LMB] = "扫描袋内人员"
 		. = CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/closet/body_bag/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -208,7 +208,7 @@
 		else
 			. += span_smallnoticeital("袋子上别着一张纸，但你看不清上面写了什么。")
 	if(can_scan_through)
-		. += span_notice("The walls of the bag are thin enough to scan through via a <b>health analyzer</b>.")
+		. += span_notice("袋壁足够薄，可以用<b>健康分析仪</b>隔着袋子进行扫描。")
 
 /obj/structure/closet/body_bag/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(tag_name && tool.tool_behaviour == TOOL_WIRECUTTER || tool.get_sharpness())
@@ -249,8 +249,8 @@
 /// Environmental bags. They protect against bad weather.
 
 /obj/structure/closet/body_bag/environmental
-	name = "environmental protection bag"
-	desc = "An insulated, reinforced bag designed to protect against exoplanetary storms and other environmental factors."
+	name = "环境防护袋"
+	desc = "经过隔热与加固的袋子，用于抵御系外行星风暴及其他环境危害。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "envirobag"
 	mob_storage_capacity = 1
@@ -287,7 +287,7 @@
 /obj/structure/closet/body_bag/environmental/togglelock(mob/living/user, silent)
 	. = ..()
 	for(var/mob/living/target in contents)
-		to_chat(target, span_warning("You hear a faint hiss, and a white mist fills your vision..."))
+		to_chat(target, span_warning("你听到轻微的嘶嘶声，眼前弥漫起白雾……"))
 
 /obj/structure/closet/body_bag/environmental/proc/refresh_air()
 	air_contents = null
@@ -299,8 +299,8 @@
 	air_contents.adjust_gas(/datum/gas/nitrogen, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
 /obj/structure/closet/body_bag/environmental/nanotrasen
-	name = "elite environmental protection bag"
-	desc = "A heavily reinforced and insulated bag, capable of fully isolating its contents from external factors."
+	name = "高级环境防护袋"
+	desc = "经过重度加固和隔热处理的袋子，能将袋内物体与外界环境完全隔离。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "ntenvirobag"
 	contents_pressure_protection = 1
@@ -311,8 +311,8 @@
 /// Securable enviro. bags
 
 /obj/structure/closet/body_bag/environmental/prisoner
-	name = "prisoner transport bag"
-	desc = "Intended for transport of prisoners through hazardous environments, this environmental protection bag comes with straps to keep an occupant secure."
+	name = "囚犯转运袋"
+	desc = "用于在危险环境中转运囚犯的环境防护袋，配有束带来约束袋内人员。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "prisonerenvirobag"
 	foldedbag_path = /obj/item/bodybag/environmental/prisoner
@@ -326,7 +326,7 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/attempt_fold(mob/living/carbon/human/the_folder)
 	if(cinched)
-		to_chat(the_folder, span_warning("You wrestle with [src], but it won't fold while its straps are fastened."))
+		to_chat(the_folder, span_warning("你费力地折叠[src]，但束带还扣着，怎么也折不好。"))
 		return FALSE
 	return ..()
 
@@ -336,7 +336,7 @@
 		return FALSE
 
 	if(cinched && !force)
-		to_chat(user, span_danger("The buckles on [src] are cinched down, preventing it from opening."))
+		to_chat(user, span_danger("[src]的带扣已收紧，无法打开。"))
 		return FALSE
 
 	cinched = FALSE //in case it was forced open uncinch it
@@ -355,21 +355,21 @@
 		return ..()
 
 	user.change_next_special_move(CLICK_CD_BREAKOUT)
-	user.visible_message(span_warning("Someone in [src] begins to wriggle!"), \
-		span_notice("You start wriggling, attempting to loosen [src]'s buckles... (this will take about [DisplayTimeText(breakout_time)].)"), \
-		span_hear("You hear straining cloth from [src]."))
+	user.visible_message(span_warning("[src]里有人开始扭动！"), \
+		span_notice("你开始扭动身体，试图松开[src]的带扣……（大约需要[round(breakout_time / (1 SECONDS), 0.1)]秒。）"), \
+		span_hear("你听到了[src]传来的布料拉扯声。"))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || IS_UNCONSCIOUS_OR_CRIT(user) || user.loc != src || opened || !cinched )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
-		user.visible_message(span_danger("[user] successfully broke out of [src]!"),
-							span_notice("You successfully break out of [src]!"))
+		user.visible_message(span_danger("[user]成功从[src]里挣脱了出来！"),
+							span_notice("你成功从[src]里挣脱了出来！"))
 		if(istype(loc, /obj/machinery/disposal))
 			return ..()
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("You fail to break out of [src]!"))
+			to_chat(user, span_warning("你没能从[src]里挣脱出来！"))
 
 
 /obj/structure/closet/body_bag/environmental/prisoner/bust_open()
@@ -385,31 +385,31 @@
 
 /obj/structure/closet/body_bag/environmental/prisoner/togglelock(mob/living/user, silent)
 	if(opened)
-		to_chat(user, span_warning("You can't close the buckles while [src] is unzipped!"))
+		to_chat(user, span_warning("[src]的拉链没拉上，无法扣紧带扣！"))
 		return
 	if(user in contents)
-		to_chat(user, span_warning("You can't reach the buckles from here!"))
+		to_chat(user, span_warning("你在这里够不到带扣！"))
 		return
 	if(iscarbon(user))
 		add_fingerprint(user)
 	if(!cinched)
 		for(var/mob/living/target in contents)
-			to_chat(target, span_userdanger("You feel the lining of [src] tighten around you! Soon, you won't be able to escape!"))
-		user.visible_message(span_notice("[user] begins cinching down the buckles on [src]."))
+			to_chat(target, span_userdanger("你感到[src]的内衬正在身边收紧！很快你就逃不出去了！"))
+		user.visible_message(span_notice("[user]开始收紧[src]的带扣。"))
 		if(!(do_after(user,(cinch_time),target = src)))
 			return
 	cinched = !cinched
 	if(cinched)
 		playsound(loc, cinch_sound, 15, TRUE, -2)
-	user.visible_message(span_notice("[user] [cinched ? null : "un"]cinches [src]."),
-							span_notice("You [cinched ? null : "un"]cinch [src]."),
-							span_hear("You hear stretching followed by metal clicking from [src]."))
+	user.visible_message(span_notice("[user][cinched ? "收紧" : "松开"]了[src]的束带。"),
+							span_notice("你[cinched ? "收紧" : "松开"]了[src]的束带。"),
+							span_hear("你听到[src]传来拉扯声，接着是金属扣合的咔嗒声。"))
 	user.log_message("[cinched ? "cinched":"uncinched"] secure environmental bag [src]", LOG_GAME)
 	update_appearance()
 
 /obj/structure/closet/body_bag/environmental/prisoner/syndicate
-	name = "syndicate prisoner transport bag"
-	desc = "An alteration of Nanotrasen's environmental protection bag which has been used in several high-profile kidnappings. Designed to keep a victim unconscious, alive, and secured during transport."
+	name = "辛迪加囚犯转运袋"
+	desc = "改装自纳诺传讯环境防护袋，曾用于多起轰动一时的绑架案。它能让受害者在转运途中保持昏迷、存活并受到牢固约束。"
 	icon = 'icons/obj/medical/bodybag.dmi'
 	icon_state = "syndieenvirobag"
 	contents_pressure_protection = 1
@@ -429,8 +429,8 @@
 	air_contents.adjust_gas(/datum/gas/nitrous_oxide, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
 /obj/structure/closet/body_bag/environmental/hardlight
-	name = "hardlight body bag"
-	desc = "A hardlight bag for storing bodies. Resistant to space."
+	name = "硬光尸袋"
+	desc = "用于存放躯体的硬光袋，能抵御太空环境。"
 	icon_state = "holobag_med"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	foldedbag_path = null
@@ -442,8 +442,8 @@
 		playsound(src, 'sound/items/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/closet/body_bag/environmental/prisoner/hardlight
-	name = "hardlight prisoner body bag"
-	desc = "A hardlight bag for storing bodies. Resistant to space, can be cinched to prevent escape."
+	name = "硬光囚犯尸袋"
+	desc = "用于存放躯体的硬光袋，能抵御太空环境，还能收紧束带防止逃脱。"
 	icon_state = "holobag_sec"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	foldedbag_path = null
@@ -455,9 +455,9 @@
 		playsound(src, 'sound/items/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/closet/body_bag/environmental/stasis
-	name = "stasis body bag"
-	desc = "A disposable bodybag designed to keep its contents in stasis, preventing decay and further injury. \
-		The bag itself cannot maintain stasis for long, and will eventually fall apart."
+	name = "停滞尸袋"
+	desc = "一次性尸袋，可使袋内躯体进入停滞状态，防止腐烂和伤势恶化。\
+		袋子本身无法长期维持停滞，最终会解体。"
 	max_integrity = 300
 	icon_state = "holobag_med"
 	breakout_time = 5 SECONDS
@@ -514,11 +514,11 @@
 /obj/structure/closet/body_bag/environmental/stasis/examine_status(mob/user)
 	switch(100 * get_integrity_percentage())
 		if(50 to 75)
-			return span_warning("It looks worn.")
+			return span_warning("看起来有些磨损。")
 		if(25 to 50)
-			return span_warning("It appears moderately worn.")
+			return span_warning("看起来磨损得颇为明显。")
 		if(0 to 25)
-			return span_boldwarning("It's falling apart!")
+			return span_boldwarning("它快散架了！")
 
 /obj/structure/closet/body_bag/environmental/stasis/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
@@ -585,7 +585,7 @@
 /obj/structure/closet/body_bag/environmental/stasis/proc/apply_stasis(mob/living/target)
 	target.apply_status_effect(/datum/status_effect/grouped/stasis, REF(src))
 	if(!INCAPACITATED_IGNORING(target, INCAPABLE_STASIS))
-		to_chat(target, span_notice("You feel a cold, numbing sensation..."))
+		to_chat(target, span_notice("你感到一阵冰冷的麻木……"))
 	RegisterSignal(target, COMSIG_LIVING_EARLY_UNARMED_ATTACK, PROC_REF(skip_to_attack_hand))
 
 /obj/structure/closet/body_bag/environmental/stasis/after_close(mob/living/user)
@@ -597,7 +597,7 @@
 /obj/structure/closet/body_bag/environmental/stasis/proc/remove_stasis(mob/living/target)
 	target.remove_status_effect(/datum/status_effect/grouped/stasis, REF(src))
 	if(!INCAPACITATED_IGNORING(target, INCAPABLE_STASIS))
-		to_chat(target, span_notice("You can feel your fingers and toes again."))
+		to_chat(target, span_notice("你的手指和脚趾恢复了知觉。"))
 	UnregisterSignal(target, COMSIG_LIVING_EARLY_UNARMED_ATTACK)
 
 /obj/structure/closet/body_bag/environmental/stasis/undeploy_bodybag(atom/fold_loc)
@@ -623,19 +623,19 @@
 
 	user.change_next_special_move(6 SECONDS)
 	user.visible_message(
-		span_warning("Something in [src] begins to wriggle!"),
-		span_notice("You start wriggling, attempting to climb out of [src]... (This will take about [DisplayTimeText(breakout_time)].)"),
-		span_hear("You hear straining cloth from [src]."),
+		span_warning("[src]里有什么东西开始扭动！"),
+		span_notice("你开始扭动身体，试图爬出[src]……（大约需要[round(breakout_time / (1 SECONDS), 0.1)]秒。）"),
+		span_hear("你听到了[src]传来的布料拉扯声。"),
 	)
 	if(do_after(user, breakout_time, src, timed_action_flags = IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(breakout_checks), user)))
 		user.visible_message(
-			span_danger("[user] climbs out of [src]!"),
-			span_notice("You successfully climb out of [src]!"),
+			span_danger("[user]从[src]里爬了出来！"),
+			span_notice("你成功从[src]里爬了出来！"),
 		)
 		open(user, force = TRUE, special_effects = FALSE)
 
 	else if(!QDELETED(user) && user.loc == src)
-		user.show_message("You fail to break out of [src]!", MSG_VISUAL)
+		user.show_message("你没能从[src]里挣脱出来！", MSG_VISUAL)
 
 /obj/structure/closet/body_bag/environmental/stasis/proc/breakout_checks(mob/living/user)
 	if(QDELETED(user) || IS_UNCONSCIOUS_OR_CRIT(user) || user.loc != src || opened)
@@ -646,7 +646,7 @@
 	if(!(obj_flags & NO_DEBRIS_AFTER_DECONSTRUCTION))
 		new /obj/effect/decal/cleanable/shreds(loc, name)
 		new /obj/item/stack/sheet/cloth(loc, 4)
-	loc.visible_message(span_warning("[src] unwinds into threads!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	loc.visible_message(span_warning("[src]散成了一缕缕丝线！"), vision_distance = COMBAT_MESSAGE_RANGE)
 	playsound(loc, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE, frequency = 0.5)
 	for(var/mob/living/left_behind in src)
 		left_behind.Knockdown(3 SECONDS)

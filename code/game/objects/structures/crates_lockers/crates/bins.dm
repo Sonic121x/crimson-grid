@@ -1,6 +1,6 @@
 /obj/structure/closet/crate/bin
-	desc = "A trash bin, place your trash here for the janitor to collect."
-	name = "trash bin"
+	desc = "垃圾桶，把垃圾放在这里，供清洁工收走。"
+	name = "垃圾桶"
 	icon_state = "trashcan"
 	base_icon_state = "trashcan"
 	icon = 'modular_darkpack/master_files/icons/obj/storage/crates32x32.dmi' // DARKPACK EDIT CHANGE
@@ -40,7 +40,7 @@
 	if(!istype(tool, /obj/item/storage/bag/trash) || !opened)
 		return ..()
 	var/obj/item/storage/bag/trash/garbage_bag = tool
-	to_chat(user, span_notice("You fill the bag."))
+	to_chat(user, span_notice("你把垃圾装进了袋子。"))
 	for(var/obj/item/garbage in src)
 		garbage_bag.atom_storage?.attempt_insert(garbage, user, TRUE)
 	do_animate()
@@ -67,7 +67,7 @@
 
 	items_to_sweep.Cut()
 
-	to_chat(user, span_notice("You sweep the pile of garbage into [src]."))
+	to_chat(user, span_notice("你把这堆垃圾扫进了[src]。"))
 	playsound(broom.loc, 'sound/items/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /obj/structure/closet/crate/bin/undense // DARKPACK EDIT ADD START

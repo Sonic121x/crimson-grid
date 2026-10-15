@@ -21,14 +21,14 @@
 #define SHOWER_MODE_COUNT 3
 
 GLOBAL_LIST_INIT(shower_mode_descriptions, list(
-	"[SHOWER_MODE_UNTIL_EMPTY]" = "run until empty",
-	"[SHOWER_MODE_TIMED]" = "run for 15 seconds or until empty",
-	"[SHOWER_MODE_FOREVER]" = "keep running forever and auto turn back on",
+	"[SHOWER_MODE_UNTIL_EMPTY]" = "运行至液体耗尽",
+	"[SHOWER_MODE_TIMED]" = "运行15秒或至液体耗尽",
+	"[SHOWER_MODE_FOREVER]" = "持续运行，补水后自动恢复",
 ))
 
 /obj/machinery/shower
-	name = "shower"
-	desc = "The HS-452. Installed in the 2550s by the Nanotrasen Hygiene Division, now with 2560 lead compliance! Passively replenishes itself with water when not in use."
+	name = "淋浴器"
+	desc = "HS-452型，由纳诺传讯卫生部门于2550年代安装，如今已符合2560年含铅标准！闲置时会自动补充水。"
 	icon = 'modular_darkpack/master_files/icons/obj/watercloset.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "shower"
 	density = FALSE
@@ -96,11 +96,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 /obj/machinery/shower/examine(mob/user)
 	. = ..()
-	. += span_notice("It looks like the thermostat has an adjustment screw.")
+	. += span_notice("温控器上似乎有一颗调节螺丝。")
 	if(has_water_reclaimer)
-		. += span_notice("A water recycler is installed. It looks like you could pry it out.")
-	. += span_notice("The auto shut-off is programmed to [GLOB.shower_mode_descriptions["[mode]"]].")
-	. += span_notice("[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.")
+		. += span_notice("装有水回收器，似乎可以将其撬出来。")
+	. += span_notice("自动关闭模式设为：[GLOB.shower_mode_descriptions["[mode]"]]。")
+	. += span_notice("剩余液体：[reagents.total_volume]/[reagents.maximum_volume]。")
 
 /obj/machinery/shower/Destroy()
 	QDEL_NULL(soundloop)
@@ -114,10 +114,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 	intended_on = !intended_on
 	if(!update_actually_on(intended_on))
-		balloon_alert(user, "[src] is dry!")
+		balloon_alert(user, "[src]没水了！")
 		return FALSE
 
-	balloon_alert(user, "turned [intended_on ? "on" : "off"]")
+	balloon_alert(user, "已[intended_on ? "开启" : "关闭"]")
 
 	return TRUE
 
@@ -125,14 +125,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	. = ..()
 
 	tool.play_tool_sound(src)
-	to_chat(user, span_notice("The water temperature seems to be [current_temperature]."))
+	to_chat(user, span_notice("水温似乎是[current_temperature == SHOWER_FREEZING ? "冰冷" : current_temperature == SHOWER_BOILING ? "滚烫" : "常温"]。"))
 	return TRUE
 
 /obj/machinery/shower/plunger_act(obj/item/plunger/attacking_plunger, mob/living/user, reinforced)
-	user.balloon_alert_to_viewers("furiously plunging...", "plunging shower...")
+	user.balloon_alert_to_viewers("正在奋力疏通……", "正在疏通淋浴器……")
 	if(!do_after(user, 3 SECONDS, target = src))
 		return TRUE
-	user.balloon_alert_to_viewers("finished plunging")
+	user.balloon_alert_to_viewers("疏通完毕")
 	reagents.expose(get_turf(src), TOUCH) //splash on the floor
 	reagents.clear_reagents()
 	begin_processing()
@@ -143,7 +143,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 		return NONE
 
 	if(has_water_reclaimer)
-		to_chat(user, span_warning("There is already has a water recycler installed."))
+		to_chat(user, span_warning("已经装有水回收器了。"))
 		return ITEM_INTERACT_BLOCKING
 
 	playsound(src, 'sound/machines/click.ogg', 20, TRUE)
@@ -160,7 +160,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	tool.play_tool_sound(src)
 	mode = (mode + 1) % SHOWER_MODE_COUNT
 	begin_processing()
-	to_chat(user, span_notice("You change the shower's auto shut-off mode to [GLOB.shower_mode_descriptions["[mode]"]]."))
+	to_chat(user, span_notice("你将淋浴器的自动关闭模式改为：[GLOB.shower_mode_descriptions["[mode]"]]。"))
 	return TRUE
 
 /obj/machinery/shower/crowbar_act(mob/living/user, obj/item/tool)
@@ -168,18 +168,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	if(.)
 		return
 	if(!has_water_reclaimer)
-		to_chat(user, span_warning("There isn't a water recycler to remove."))
+		to_chat(user, span_warning("没有可拆除的水回收器。"))
 		return
 
 	tool.play_tool_sound(src)
 	has_water_reclaimer = FALSE
 	new/obj/item/stock_parts/water_recycler(get_turf(loc))
-	to_chat(user, span_notice("You remove the water reclaimer from [src]"))
+	to_chat(user, span_notice("你从[src]上拆下了水回收器。"))
 	return TRUE
 
 /obj/machinery/shower/screwdriver_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, span_notice("You begin to adjust the temperature valve with \the [I]..."))
+	to_chat(user, span_notice("你开始用[I]调节温控阀……"))
 	if(I.use_tool(src, user, 50))
 		switch(current_temperature)
 			if(SHOWER_NORMAL)
@@ -188,7 +188,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 				current_temperature = SHOWER_BOILING
 			if(SHOWER_BOILING)
 				current_temperature = SHOWER_NORMAL
-		user.visible_message(span_notice("[user] adjusts the shower with \the [I]."), span_notice("You adjust the shower with \the [I] to [current_temperature] temperature."))
+		user.visible_message(span_notice("[user]用[I]调节了淋浴器。"), span_notice("你用[I]将淋浴器的水温调至[current_temperature == SHOWER_FREEZING ? "冰冷" : current_temperature == SHOWER_BOILING ? "滚烫" : "常温"]。"))
 		user.log_message("has wrenched a shower to [current_temperature].", LOG_ATTACK)
 		add_hiddenprint(user)
 	handle_mist()
@@ -372,18 +372,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 	if(current_temperature == SHOWER_FREEZING)
 		living.adjust_bodytemperature(-80, 80)
-		to_chat(living, span_warning("[src] is freezing!"))
+		to_chat(living, span_warning("[src]的水冰冷刺骨！"))
 	else if(current_temperature == SHOWER_BOILING)
 		living.adjust_bodytemperature(35, 0, 500)
 		living.adjust_fire_loss(5)
-		to_chat(living, span_danger("[src] is searing!"))
+		to_chat(living, span_danger("[src]的水滚烫灼人！"))
 
 
 /obj/structure/showerframe
-	name = "shower frame"
+	name = "淋浴器框架"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "shower_frame"
-	desc = "A shower frame, that needs a water recycler to finish construction."
+	desc = "淋浴器框架，还需安装水回收器才能完成组装。"
 	anchored = FALSE
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
@@ -411,7 +411,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	return TRUE
 
 /obj/effect/mist
-	name = "mist"
+	name = "水雾"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "mist"
 	layer = FLY_LAYER

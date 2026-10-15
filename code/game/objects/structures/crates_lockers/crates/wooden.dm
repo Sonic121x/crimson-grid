@@ -1,6 +1,6 @@
 /obj/structure/closet/crate/wooden
-	name = "wooden crate"
-	desc = "Works just as well as a metal one."
+	name = "木箱"
+	desc = "和金属箱一样好用。"
 	icon = 'modular_darkpack/master_files/icons/obj/storage/crates32x32.dmi' // DARKPACK EDIT CHANGE
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
 	material_drop = /obj/item/stack/sheet/mineral/wood
@@ -16,8 +16,8 @@
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6)
 
 /obj/structure/closet/crate/wooden/toy
-	name = "toy box"
-	desc = "It has the words \"Clown + Mime\" written underneath of it with marker."
+	name = "玩具箱"
+	desc = "箱底用记号笔写着\"小丑 + 默剧演员\"。"
 
 /obj/structure/closet/crate/wooden/toy/PopulateContents()
 	. = ..()

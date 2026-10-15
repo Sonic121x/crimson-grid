@@ -1,7 +1,7 @@
 ///?
 /obj/structure/tank_holder
-	name = "tank holder"
-	desc = "A metallic frame that can hold tanks and extinguishers."
+	name = "气瓶支架"
+	desc = "可放置气瓶和灭火器的金属支架。"
 	icon = 'icons/obj/canisters.dmi'
 	icon_state = "holder"
 
@@ -36,21 +36,21 @@
 /obj/structure/tank_holder/examine(mob/user)
 	. = ..()
 	if(anchored)
-		. += span_notice("It is <b>bolted</b> to the floor.")
+		. += span_notice("已用<b>螺栓</b>固定在地板上。")
 	else
-		. += span_notice("The <i>bolts</i> on the bottom are unsecured.")
+		. += span_notice("底部的<i>螺栓</i>尚未固定。")
 	if(tank)
-		. += span_notice("It is holding \a [tank].")
+		. += span_notice("上面放着[tank]。")
 	else
-		. += span_notice("It is empty.")
-	. += span_notice("It is held together by some <b>screws</b>.")
+		. += span_notice("上面空空如也。")
+	. += span_notice("各部件由<b>螺丝</b>连接。")
 
 /obj/structure/tank_holder/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.combat_mode)
 		return NONE
 
 	if(!SEND_SIGNAL(tool, COMSIG_CONTAINER_TRY_ATTACH, src, user))
-		to_chat(user, span_warning("[tool] does not fit in [src]."))
+		to_chat(user, span_warning("[tool]放不进[src]。"))
 		return ITEM_INTERACT_BLOCKING
 
 	return ITEM_INTERACT_SUCCESS
@@ -59,11 +59,11 @@
 	if(user.combat_mode)
 		return NONE
 
-	to_chat(user, span_notice("You begin to [anchored ? "unwrench" : "wrench"] [src]."))
+	to_chat(user, span_notice("你开始[anchored ? "松开" : "拧紧"][src]的固定螺栓。"))
 	if(!tool.use_tool(src, user, 20, volume=50))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You successfully [anchored ? "unwrench" : "wrench"] [src]."))
+	to_chat(user, span_notice("你成功[anchored ? "松开" : "拧紧"]了[src]的固定螺栓。"))
 	set_anchored(!anchored)
 	return ITEM_INTERACT_SUCCESS
 
@@ -90,7 +90,7 @@
 		return ..()
 	if(!Adjacent(user) || issilicon(user))
 		return ..()
-	to_chat(user, span_notice("You take [tank] from [src]."))
+	to_chat(user, span_notice("你从[src]上取下了[tank]。"))
 	add_fingerprint(user)
 	tank.add_fingerprint(user)
 	user.put_in_hands(tank)

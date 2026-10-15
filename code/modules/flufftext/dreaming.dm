@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 	var/fragment = ""
 
 	. = list()
-	. += "you see"
+	. += "你看见"
 
 	//Subject
 	if(custom_dream_nouns.len && prob(90))
@@ -123,11 +123,11 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 		fragment += pick(GLOB.dream_strings)
 
 	if(prob(50)) //Replace the adjective space with an adjective, or just get rid of it
-		fragment = replacetext(fragment, "%ADJECTIVE%", pick(GLOB.adjectives))
+		fragment = replacetext(fragment, "%ADJECTIVE% ", "[pick(GLOB.adjectives)]的")
 	else
 		fragment = replacetext(fragment, "%ADJECTIVE% ", "")
 	if(findtext(fragment, "%A% "))
-		fragment = "\a [replacetext(fragment, "%A% ", "")]"
+		fragment = "[replacetext(fragment, "%A% ", "")]"
 	. += fragment
 
 	//Verb
@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 			fragment += "[pick(GLOB.adverbs)] "
 		fragment += pick(GLOB.ing_verbs)
 	else
-		fragment += "will "
+		fragment += "将要"
 		fragment += pick(GLOB.verbs)
 	. += fragment
 
@@ -148,11 +148,11 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 	fragment = ""
 	fragment += pick(GLOB.dream_strings)
 	if(prob(50))
-		fragment = replacetext(fragment, "%ADJECTIVE%", pick(GLOB.adjectives))
+		fragment = replacetext(fragment, "%ADJECTIVE% ", "[pick(GLOB.adjectives)]的")
 	else
 		fragment = replacetext(fragment, "%ADJECTIVE% ", "")
 	if(findtext(fragment, "%A% "))
-		fragment = "\a [replacetext(fragment, "%A% ", "")]"
+		fragment = "[replacetext(fragment, "%A% ", "")]"
 	. += fragment
 
 /datum/dream/random/proc/get_dream_nouns(mob/living/carbon/dreamer)
@@ -173,9 +173,9 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 
 /datum/dream/hear_something/GenerateDream(mob/living/carbon/dreamer)
 	. = ..()
-	. += pick("you wind up a toy", "you hear something strange", "you pick out a record to play", "you hit shuffle on your music player")
+	. += pick("你给一个玩具上了发条", "你听见奇怪的声音", "你挑了一张唱片来播放", "你按下音乐播放器的随机播放键")
 	. += CALLBACK(src, PROC_REF(PlayRandomSound))
-	. += "it reminds you of something"
+	. += "这让你想起了什么"
 
 /datum/dream/hear_something/OnDreamEnd(mob/living/carbon/dreamer)
 	. = ..()
@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 	var/sound/random_sound = sound(pick(SSsounds.all_sounds), channel=reserved_sound_channel)
 	random_sound.status = SOUND_STREAM
 	SEND_SOUND(dreamer, random_sound)
-	return "you hear something you weren't expecting!"
+	return "你听见了意想不到的声音！"
 
 /datum/dream/hear_something/proc/StopSound(mob/living/carbon/dreamer)
 	SEND_SOUND(dreamer, sound(channel=reserved_sound_channel))

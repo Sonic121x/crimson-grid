@@ -7,8 +7,8 @@
 #define EVIDENCE_TYPE_PAPER "paper"
 
 /obj/structure/detectiveboard
-	name = "detective notice board"
-	desc = "A board for linking evidence to crimes."
+	name = "侦探线索板"
+	desc = "用于梳理证据与案件之间关联的板子。"
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "noticeboard"
 	density = FALSE
@@ -18,7 +18,7 @@
 	/// When player attaching evidence to board this will become TRUE
 	var/attaching_evidence = FALSE
 	/// Colors for case color
-	var/list/case_colors = list("red", "orange", "yellow", "green", "blue", "violet")
+	var/list/case_colors = list("红色" = "red", "橙色" = "orange", "黄色" = "yellow", "绿色" = "green", "蓝色" = "blue", "紫色" = "violet")
 	/// List of board cases
 	var/list/datum/case/cases = list()
 	/// Index of viewing case in cases array
@@ -44,18 +44,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 	if(!istype(tool, /obj/item/paper) && !istype(tool, /obj/item/photo))
 		return NONE
 	if(!cases.len)
-		to_chat(user, "There are no cases!")
+		to_chat(user, "还没有案件！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(attaching_evidence)
-		to_chat(user, "You already attaching evidence!")
+		to_chat(user, "你已经在添加证据了！")
 		return ITEM_INTERACT_BLOCKING
 
 	attaching_evidence = TRUE
-	var/name = tgui_input_text(user, "Please enter the evidence name", "Detective's Board", max_length = MAX_NAME_LEN)
+	var/name = tgui_input_text(user, "请输入证据名称", "侦探线索板", max_length = MAX_NAME_LEN)
 	if(!name)
 		name = tool.name
-	var/desc = tgui_input_text(user, "Please enter the evidence description", "Detective's Board", max_length = MAX_DESC_LEN)
+	var/desc = tgui_input_text(user, "请输入证据描述", "侦探线索板", max_length = MAX_DESC_LEN)
 	if(!desc)
 		desc = tool.desc
 
@@ -66,18 +66,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 	cases[current_case].notices++
 	var/datum/evidence/evidence = new (name, desc, tool)
 	cases[current_case].evidences += evidence
-	to_chat(user, span_notice("You pin the [tool] to the detective board."))
+	to_chat(user, span_notice("你把[tool]钉在了侦探线索板上。"))
 	attaching_evidence = FALSE
 	update_appearance(UPDATE_ICON)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/detectiveboard/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
-	balloon_alert(user, "[anchored ? "un" : ""]securing...")
+	balloon_alert(user, "正在[anchored ? "松开固定" : "固定"]……")
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 6 SECONDS))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		balloon_alert(user, "[anchored ? "un" : ""]secured")
+		balloon_alert(user, "已[anchored ? "松开固定" : "固定"]")
 		deconstruct()
 		return TRUE
 
@@ -146,14 +146,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 		if("add_case")
 			if(cases.len == MAX_CASES)
 				return FALSE
-			var/new_case = tgui_input_text(user, "Please enter the case name", "Detective's Board", max_length = MAX_NAME_LEN)
+			var/new_case = tgui_input_text(user, "请输入案件名称", "侦探线索板", max_length = MAX_NAME_LEN)
 			if(!new_case)
 				return FALSE
-			var/case_color = tgui_input_list(user, "Please choose case color", "Detective's Board", case_colors)
+			var/case_color = tgui_input_list(user, "请选择案件标签颜色", "侦探线索板", case_colors)
 			if(!case_color)
 				return FALSE
 
-			var/datum/case/case = new (new_case, case_color)
+			var/datum/case/case = new (new_case, case_colors[case_color])
 			cases += case
 			current_case = clamp(cases.len, 1, MAX_CASES)
 			update_appearance(UPDATE_ICON)
@@ -173,7 +173,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 				update_appearance(UPDATE_ICON)
 				return TRUE
 		if("rename_case")
-			var/new_name = tgui_input_text(user, "Please enter the new name for the case",  "Detective's Board", max_length = MAX_NAME_LEN)
+			var/new_name = tgui_input_text(user, "请输入案件的新名称",  "侦探线索板", max_length = MAX_NAME_LEN)
 			if(new_name)
 				var/datum/case/case = locate(params["case_ref"]) in cases
 				case.name = new_name
@@ -246,7 +246,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 	item.forceMove(drop_location())
 	if(user)
 		user.put_in_hands(item)
-		balloon_alert(user, "removed from board")
+		balloon_alert(user, "已从板上取下")
 	cases[current_case].notices--
 	update_appearance(UPDATE_ICON)
 
@@ -259,8 +259,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 		remove_item(content)
 
 /obj/item/wallframe/detectiveboard
-	name = "detective notice board"
-	desc = "A board for linking evidence to crimes."
+	name = "侦探线索板"
+	desc = "用于梳理证据与案件之间关联的板子。"
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "noticeboard"
 	custom_materials = list(
@@ -271,8 +271,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/detectiveboard, 32)
 	pixel_shift = 32
 
 /datum/evidence
-	var/name = "None"
-	var/description = "No description"
+	var/name = "无"
+	var/description = "暂无描述"
 	var/evidence_type = "none"
 	var/x = 0
 	var/y = 0
