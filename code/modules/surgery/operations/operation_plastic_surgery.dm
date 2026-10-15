@@ -1,8 +1,8 @@
 #define OPERATION_NEW_NAME "chosen_name"
 
 /datum/surgery_operation/limb/plastic_surgery
-	name = "plastic surgery"
-	desc = "Reshape or reconstruct a patient's face for cosmetic or functional purposes."
+	name = "整形手术"
+	desc = "重塑或重建患者的面部，以改善外观或恢复功能。"
 	implements = list(
 		TOOL_SCALPEL = 1,
 		/obj/item/knife = 2,
@@ -16,7 +16,7 @@
 	all_surgery_states_required = SURGERY_SKIN_OPEN
 
 /datum/surgery_operation/limb/plastic_surgery/all_required_strings()
-	return list("operate on head (target head)") + ..()
+	return list("在头部进行手术（瞄准头部）") + ..()
 
 /datum/surgery_operation/limb/plastic_surgery/get_default_radial_image()
 	return image(/obj/item/scalpel)
@@ -46,7 +46,7 @@
 				names += namelist
 		else
 			if(advanced)
-				to_chat(surgeon, span_warning("You have no picture to base the appearance on!"))
+				to_chat(surgeon, span_warning("你没有可供参照外貌的照片！"))
 
 			for(var/i in 1 to 10)
 				if(limb.owner)
@@ -54,18 +54,18 @@
 				else
 					names += generate_random_name_species_based(pick(MALE, FEMALE), TRUE, GLOB.species_list[limb.limb_id] || /datum/species/human)
 
-	operation_args[OPERATION_NEW_NAME] = tgui_input_list(surgeon, "New name to assign", "Plastic Surgery", names)
+	operation_args[OPERATION_NEW_NAME] = tgui_input_list(surgeon, "选择要使用的新名字", "整形手术", names)
 	return !!operation_args[OPERATION_NEW_NAME]
 
 /datum/surgery_operation/limb/plastic_surgery/on_preop(obj/item/bodypart/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	display_results(
 		surgeon,
 		limb.owner,
-		span_notice("You begin to alter [limb.owner || limb]'s appearance..."),
-		span_notice("[surgeon] begins to alter [limb.owner || limb]'s appearance."),
-		span_notice("[surgeon] begins to make an incision in [FORMAT_LIMB_OWNER(limb)]."),
+		span_notice("你开始改变[limb.owner || limb]的外貌……"),
+		span_notice("[surgeon]开始改变[limb.owner || limb]的外貌。"),
+		span_notice("[surgeon]开始在[FORMAT_LIMB_OWNER(limb)]上切开一道口子。"),
 	)
-	display_pain(limb.owner, "You feel a slicing pain across your face!")
+	display_pain(limb.owner, "你感到脸上传来切割般的疼痛！")
 
 /datum/surgery_operation/limb/plastic_surgery/on_success(obj/item/bodypart/head/limb, mob/living/surgeon, obj/item/tool, list/operation_args)
 	if(!istype(limb))
@@ -118,8 +118,8 @@
 #undef OPERATION_NEW_NAME
 
 /datum/surgery_operation/limb/add_plastic
-	name = "apply plastic"
-	desc = "Apply plastic to a patient's face to to allow for greater customization in following plastic surgery."
+	name = "敷上塑料"
+	desc = "在患者面部敷上塑料，以便在后续整形手术中进行更多定制。"
 	implements = list(
 		/obj/item/stack/sheet/plastic = 1,
 		/obj/item/stack/sheet/meat = 1, // DARKPACK EDIT ADD

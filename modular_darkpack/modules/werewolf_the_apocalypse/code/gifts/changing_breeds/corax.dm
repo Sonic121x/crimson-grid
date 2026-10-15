@@ -4,8 +4,8 @@
 	numerical = TRUE // More successes can give more information but i didnt have any good ideas for rn.
 
 /datum/action/cooldown/power/gift/enemy_ways
-	name = "Enemy Ways"
-	desc = "The Corax gains an acute and accurate danger sense"
+	name = "洞察敌意"
+	desc = "渡鸦变形者获得敏锐而准确的危险感知。"
 	button_icon_state = "enemy_ways"
 	cooldown_time = 1 SCENES // TTRPG accurate is 1 TURNS but no cost or prevention of spamming
 	rank = 1
@@ -49,13 +49,13 @@
 		else if(guy.client)
 			waiting_clients++
 			ASYNC
-				var/choice = tgui_alert(
+				var/choice = list("是" = "Yes", "否" = "No", "不确定" = "Unsure")[tgui_alert(
 					guy,
-					"Answer truthfully wether or not your character would consider [GET_GUESTBOOK_NAME(guy, owner)][(GET_GUESTBOOK_NAME(guy, owner) != owner.real_name) ? " ([owner.real_name])" : ""] an enemy.",
-					"Is [GET_GUESTBOOK_NAME(guy, owner)] an Enemy?",
-					list("Yes", "No", "Unsure"),
+					"请如实回答：你的角色是否将[GET_GUESTBOOK_NAME(guy, owner)][(GET_GUESTBOOK_NAME(guy, owner) != owner.real_name) ? "（[owner.real_name]）" : ""]视为敌人？",
+					"[GET_GUESTBOOK_NAME(guy, owner)]是敌人吗？",
+					list("是", "否", "不确定"),
 					10 SECONDS
-				)
+				)]
 
 				// Cache diffenitive answers so that we dont spam them upon recasting
 				switch(choice)
@@ -84,8 +84,8 @@
 				time_waited += TIME_FOR_SLEEPS
 				sleep(TIME_FOR_SLEEPS)
 			#undef TIME_FOR_SLEEPS
-			to_chat(owner, span_notice("The Grandfather Thunder's Stormcrow returns you its information. There are [hostiles] within [range] tiles."))
+			to_chat(owner, span_notice("雷霆祖父的风暴渡鸦带回消息：[range] 格范围内有 [hostiles] 个敌对目标。"))
 	else
-		to_chat(owner, span_notice("The Grandfather Thunder's Stormcrow returns you its information. There are [hostiles] within [range] tiles."))
+		to_chat(owner, span_notice("雷霆祖父的风暴渡鸦带回消息：[range] 格范围内有 [hostiles] 个敌对目标。"))
 
 	return TRUE

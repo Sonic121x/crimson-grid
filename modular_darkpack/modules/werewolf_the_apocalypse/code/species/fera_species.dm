@@ -19,7 +19,7 @@
 /datum/species/human/shifter
 	abstract_type = /datum/species/human/shifter
 	name = "Fera"
-	plural_form = "Fera"
+	plural_form = "变形者"
 	id = SPECIES_FERA
 	species_language_holder = /datum/language_holder/garou
 	var/mob_pixel_w
@@ -209,12 +209,12 @@
 	return TRUE
 
 /datum/species/human/shifter/homid
-	name = "homid form"
+	name = "人类形态"
 	id = SPECIES_FERA_HOMID
 
 
 /datum/species/human/shifter/bestial
-	name = "bestial form"
+	name = "兽化形态"
 	id = SPECIES_FERA_BESTIAL
 	shift_difficulty = 7
 	species_language_holder = /datum/language_holder/garou
@@ -267,7 +267,7 @@
 
 
 /datum/species/human/shifter/war
-	name = "war form"
+	name = "战斗形态"
 	id = SPECIES_FERA_WAR
 	inherent_traits = list(
 		TRAIT_NO_UNDERWEAR,
@@ -305,7 +305,7 @@
 
 
 /datum/species/human/shifter/dire
-	name = "dire form"
+	name = "巨兽形态"
 	id = SPECIES_FERA_DIRE
 	inherent_traits = list(
 		TRAIT_NO_UNDERWEAR,
@@ -347,7 +347,7 @@
 
 
 /datum/species/human/shifter/feral
-	name = "feral form"
+	name = "野兽形态"
 	id = SPECIES_FERA_FERAL
 	inherent_traits = list(
 		TRAIT_NO_UNDERWEAR,

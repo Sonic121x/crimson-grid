@@ -1,10 +1,10 @@
 /obj/structure/sign/fallout_shelter
-	name = "fallout shelter sign"
-	desc = "Good thing the Cold War is over. Right?"
+	name = "防核辐射避难所标牌"
+	desc = "幸好冷战已经结束了。对吧？"
 	icon = 'modular_darkpack/modules/decor/icons/fallout_shelter_sign.dmi'
 
 /obj/structure/sign/fallout_shelter/round
-	name = "fallout shelter sign"
+	name = "防核辐射避难所标牌"
 	icon_state = "round"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/fallout_shelter, 32)

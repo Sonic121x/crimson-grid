@@ -23,30 +23,30 @@
 
 	var/find_index = findtext(value, "https://")
 	if(find_index != 1)
-		to_chat(usr, span_warning("Your link must be https!"))
+		to_chat(usr, span_warning("链接必须使用 https！"))
 		return
 
 	if(!findtext(value, "."))
-		to_chat(usr, span_warning("Invalid link!"))
+		to_chat(usr, span_warning("无效的链接！"))
 		return
 	var/list/value_split = splittext(value, ".")
 
 	// extension will always be the last entry
 	var/extension = value_split[length(value_split)]
 	if(!(LOWER_TEXT(extension) in valid_extensions))
-		to_chat(usr, span_warning("The image must be one of the following extensions: '[english_list(valid_extensions)]'"))
+		to_chat(usr, span_warning("图片必须使用以下扩展名之一：'[english_list(valid_extensions, and_text = "或", comma_text = "、")]'"))
 		return
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Catbox (catbox.moe), Imgbox (images2.imgbox.com), Postimages (i.postimg.cc), toyhou.se, file.garden, file.house'"))// CRIMSON EDIT - added more hosts
+		to_chat(usr, span_warning("图片必须托管在以下网站之一：'Gyazo (i.gyazo.com), Catbox (catbox.moe), Imgbox (images2.imgbox.com), Postimages (i.postimg.cc), toyhou.se, file.garden, file.house'"))// CRIMSON EDIT - added more hosts
 		return
 
 	if(stored_links[usr.ckey] && stored_links[usr.ckey][type] != value && COOLDOWN_FINISHED(src, headshot_cooldown))
 		COOLDOWN_START(src, headshot_cooldown, cooldown_duration)
-		to_chat(usr, span_notice("Please use a SFW image of the head and shoulder area to maintain immersion level. Think of it as a headshot for your ID. Lastly, [span_bold("do not use a real life photo or use any image that is less than serious.")]"))
-		to_chat(usr, span_notice("If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser."))
-		to_chat(usr, span_notice("Keep in mind that the photo will be downsized to 250x250 pixels, so the more square the photo, the better it will look."))
+		to_chat(usr, span_notice("请使用不含成人内容的头肩肖像，以保持代入感，就像角色的证件照一样。另请注意：[span_bold("不要使用真人照片或不严肃的图片。")]"))
+		to_chat(usr, span_notice("如果图片未在游戏中正常显示，请确认链接直接指向图片，且能在浏览器中正常打开。"))
+		to_chat(usr, span_notice("图片会缩放至 250x250 像素，因此越接近正方形，显示效果越好。"))
 		log_game("[usr] has set their Headshot image to '[value]'.")
 
 	apply_headshot(value)

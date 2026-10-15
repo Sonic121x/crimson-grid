@@ -1,7 +1,7 @@
 // "Ownership" of an object is impossible to determine so fingerpints were used instead
 /datum/action/cooldown/power/gift/beat_of_the_heartdrum
-	name = "Beat of the Heart-Drum"
-	desc = {"The werewolf becomes an inescapable hunter, drawn ever onward by the beat of his prey's heart until that heart grows still."}
+	name = "心鼓之律"
+	desc = {"狼人化为无法摆脱的猎手，循着猎物的心跳不断追踪，直至那颗心脏停止跳动。"}
 	button_icon_state = "beat_of_the_heartdrum"
 	rank = 1
 	gnosis_cost = 1
@@ -45,7 +45,7 @@
 		valid_targets[GET_GUESTBOOK_NAME(living_owner, guy)] = guy
 
 	if(!length(valid_targets))
-		to_chat(owner, span_notice("You cant think of any targets you could track at this current moment. Try holding a sample of a target or something they have touched."))
+		to_chat(owner, span_notice("你目前想不到可以追踪的目标。试着拿起目标的身体样本，或目标碰过的物品。"))
 		return FALSE
 
 
@@ -70,7 +70,7 @@
 	if(roll_successes <= 0)
 		return TRUE
 
-	to_chat(owner, span_notice("Tracking [tracking_name]"))
+	to_chat(owner, span_notice("正在追踪[tracking_name]。"))
 	// Would normally be days but thats commical and 1 day is already the entire round.
 	living_owner.apply_status_effect(/datum/status_effect/beat_of_the_heartdrum, valid_targets[tracking_name], roll_successes HOURS)
 
@@ -118,11 +118,11 @@
 
 /atom/movable/screen/alert/status_effect/gift/beat_of_the_heartdrum/Click(location, control, params)
 	. = ..()
-	to_chat(owner, span_notice("You dispel [name]."))
+	to_chat(owner, span_notice("你解除了[name]。"))
 	qdel(attached_effect)
 
 /datum/storyteller_roll/gift/beat_of_the_heartdrum
-	bumper_text = "Beat of the Heart-Drum"
+	bumper_text = "心鼓之律"
 	applicable_stats = list(STAT_PERCEPTION, STAT_SURVIVAL)
 	difficulty = 7
 	numerical = TRUE

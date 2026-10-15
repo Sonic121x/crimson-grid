@@ -636,9 +636,9 @@
 		adjust_stamina_loss(shock_damage)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
 		visible_message(
-			span_danger("[src] was shocked by \the [source]!"), \
-			span_userdanger("You feel a powerful shock coursing through your body!"), \
-			span_hear("You hear a heavy electrical crack.") \
+			span_danger("[src]遭到了[source]的电击！"), \
+			span_userdanger("你感到强烈的电流贯穿全身！"), \
+			span_hear("你听见一声响亮的电流爆裂声。") \
 		)
 	return shock_damage
 

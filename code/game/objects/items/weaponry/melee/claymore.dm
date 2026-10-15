@@ -13,16 +13,16 @@
 	force = 40
 	throwforce = 10
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯裂", "剁砍", "切割")
+	attack_verb_simple = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯裂", "剁砍", "切割")
 	block_chance = 50
 	block_sound = 'sound/items/weapons/parry.ogg'
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	armor_type = /datum/armor/item_claymore
 	resistance_flags = FIRE_PROOF
-	var/list/alt_continuous = list("stabs", "pierces", "impales")
-	var/list/alt_simple = list("stab", "pierce", "impale")
+	var/list/alt_continuous = list("刺击", "穿刺", "贯穿")
+	var/list/alt_simple = list("刺击", "穿刺", "贯穿")
 
 /datum/armor/item_claymore
 	fire = 100
@@ -43,7 +43,7 @@
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -15)
 
 /obj/item/claymore/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is falling on [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]往[src]的剑刃上倒去！看起来是在自杀！"))
 	return BRUTELOSS
 
 /obj/item/claymore/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
@@ -78,8 +78,8 @@
 	block_chance = 30
 
 /obj/item/claymore/carrot
-	name = "carrot sword"
-	desc = "A full-sized carrot sword. Definitely <b>not</b> good for the eyes, not anymore."
+	name = "胡萝卜剑"
+	desc = "一把足尺的胡萝卜剑。现在对眼睛绝对<b>没好处</b>了。"
 	icon_state = "carrot_sword"
 	inhand_icon_state = "carrot_sword"
 	worn_icon_state = "carrot_sword"

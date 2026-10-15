@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/hypospray
-	name = "hypospray"
-	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	name = "气压注射器"
+	desc = "迪福瑞斯医疗公司的无菌气压自动注射器，用于迅速为患者给药。"
 	icon = 'icons/obj/medical/syringe.dmi'
 	inhand_icon_state = "hypo"
 	worn_icon_state = "hypo"
@@ -33,30 +33,30 @@
 		return NONE
 
 	if(isliving(target))
-		to_chat(user, span_warning("[src] can't be used to draw blood!"))
+		to_chat(user, span_warning("[src]不能用来抽血！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(reagents.holder_full())
-		to_chat(user, span_notice("[src] is full."))
+		to_chat(user, span_notice("[src]已满。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!target.reagents.total_volume)
-		to_chat(user, span_warning("[target] is empty!"))
+		to_chat(user, span_warning("[target]是空的！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!target.is_drawable(user))
-		to_chat(user, span_warning("You cannot directly remove reagents from [target]!"))
+		to_chat(user, span_warning("你无法直接从[target]中抽取试剂！"))
 		return ITEM_INTERACT_BLOCKING
 
 	var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transferred_by = user)
 	if(trans)
-		to_chat(user, span_notice("You fill [src] with [trans] units of the solution. It now contains [reagents.total_volume] units."))
+		to_chat(user, span_notice("你向[src]中抽入了[trans]单位溶液。里面现有[reagents.total_volume]单位。"))
 	return ITEM_INTERACT_SUCCESS
 
 ///Handles all injection checks, injection and logging.
 /obj/item/reagent_containers/hypospray/proc/inject(mob/living/affected_mob, mob/user)
 	if(used_up)
-		to_chat(user, span_warning("[src] tip is broken and is now unusable!"))
+		to_chat(user, span_warning("[src]的喷头坏了，无法再使用！"))
 		return FALSE
 	if(!iscarbon(affected_mob))
 		return FALSE
@@ -70,8 +70,8 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(!used_up && (ignore_flags || affected_mob.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))) // Ignore flag should be checked first or there will be an error message.
-		to_chat(affected_mob, span_warning("You feel a tiny prick!"))
-		to_chat(user, span_notice("You inject [affected_mob] with [src]."))
+		to_chat(affected_mob, span_warning("你感到一阵轻微的刺痛！"))
+		to_chat(user, span_notice("你用[src]给[affected_mob]注射。"))
 		if(!stealthy)
 			playsound(affected_mob, 'sound/items/hypospray.ogg', 50, TRUE)
 		var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
@@ -84,7 +84,7 @@
 			else
 				reagents.expose(affected_mob, INJECT, fraction)
 				trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, methods = INJECT, copy_only = TRUE)
-			to_chat(user, span_notice("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in [src]."))
+			to_chat(user, span_notice("已注射[trans]单位，[src]内还剩[reagents.total_volume]单位。"))
 			log_combat(user, affected_mob, "injected", src, "([contained])")
 		return TRUE
 	return FALSE
@@ -99,8 +99,8 @@
 //combat
 
 /obj/item/reagent_containers/hypospray/combat
-	name = "combat stimulant injector"
-	desc = "A modified air-needle autoinjector, used by support operatives to quickly heal injuries in combat."
+	name = "战斗兴奋剂注射器"
+	desc = "改装的气压自动注射器，供支援人员在战斗中快速治疗伤势。"
 	amount_per_transfer_from_this = 10
 	inhand_icon_state = "combat_hypo"
 	icon_state = "combat_hypo"
@@ -138,8 +138,8 @@
 //MediPens
 
 /obj/item/reagent_containers/hypospray/medipen
-	name = "epinephrine medipen"
-	desc = "A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge. Contains a powerful preservative that can delay decomposition when applied to a dead body, and stop the production of histamine during an allergic reaction."
+	name = "肾上腺素急救注射笔"
+	desc = "让缺乏专业医学知识的人员也能快速、安全地稳定危重患者的状况。内含强效防腐成分，用于尸体可延缓腐败，也能在过敏反应中阻止组胺产生。"
 	icon_state = "medipen"
 	inhand_icon_state = "medipen"
 	worn_icon_state = "medipen"
@@ -159,7 +159,7 @@
 	var/label_text
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins to choke on \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]把[src]塞进喉咙，开始窒息！看起来是想自杀！"))
 	return OXYLOSS//ironic. he could save others from oxyloss, but not himself.
 
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/affected_mob, mob/user)
@@ -179,16 +179,16 @@
 
 /obj/item/reagent_containers/hypospray/medipen/Initialize(mapload)
 	. = ..()
-	label_text = span_notice("There is a sticker pasted onto the side which reads, 'WARNING: This medipen contains [pretty_string_from_reagent_list(reagents.reagent_list, names_only = TRUE, join_text = ", ", final_and = TRUE, capitalize_names = TRUE)], do not use if allergic to any listed chemicals.")
+	label_text = span_notice("侧面的贴纸写着：“警告：此急救注射笔含有[pretty_string_from_reagent_list(reagents.reagent_list, names_only = TRUE, join_text = ", ", final_and = TRUE, capitalize_names = TRUE)]，如对所列任何成分过敏，请勿使用。”")
 
 /obj/item/reagent_containers/hypospray/medipen/examine()
 	. = ..()
 	if (label_examine)
 		. += label_text
 	if(length(reagents?.reagent_list))
-		. += span_notice("It is loaded.")
+		. += span_notice("里面还有药剂。")
 	else
-		. += span_notice("It is spent.")
+		. += span_notice("已经用完了。")
 
 /obj/item/reagent_containers/hypospray/medipen/stimpack //goliath kiting
 	name = "stimpack medipen"
@@ -232,8 +232,8 @@
 	volume = 10
 
 /obj/item/reagent_containers/hypospray/medipen/oxandrolone
-	name = "oxandrolone medipen"
-	desc = "An autoinjector containing oxandrolone, used to treat severe burns."
+	name = "奥沙雄龙急救注射笔"
+	desc = "含有奥沙雄龙的自动注射器，用于治疗严重烧伤。"
 	icon_state = "oxapen"
 	inhand_icon_state = "oxapen"
 	base_icon_state = "oxapen"
@@ -241,8 +241,8 @@
 	volume = 10
 
 /obj/item/reagent_containers/hypospray/medipen/penacid
-	name = "pentetic acid medipen"
-	desc = "An autoinjector containing pentetic acid, used to reduce high levels of radiations and moderate toxins."
+	name = "喷替酸急救注射笔"
+	desc = "含有喷替酸的自动注射器，用于清除大量体内辐射并缓解中度中毒。"
 	icon_state = "penacid"
 	inhand_icon_state = "penacid"
 	base_icon_state = "penacid"
@@ -250,8 +250,8 @@
 	volume = 10
 
 /obj/item/reagent_containers/hypospray/medipen/salacid
-	name = "salicylic acid medipen"
-	desc = "An autoinjector containing salicylic acid, used to treat severe brute damage."
+	name = "水杨酸急救注射笔"
+	desc = "含有水杨酸的自动注射器，用于治疗严重外伤。"
 	icon_state = "salacid"
 	inhand_icon_state = "salacid"
 	base_icon_state = "salacid"
@@ -259,8 +259,8 @@
 	volume = 10
 
 /obj/item/reagent_containers/hypospray/medipen/salbutamol
-	name = "salbutamol medipen"
-	desc = "An autoinjector containing salbutamol, used to heal oxygen damage quickly."
+	name = "沙丁胺醇急救注射笔"
+	desc = "含有沙丁胺醇的自动注射器，用于快速治疗缺氧损伤。"
 	icon_state = "salpen"
 	inhand_icon_state = "salpen"
 	base_icon_state = "salpen"
@@ -269,8 +269,8 @@
 
 // DARKPACK EDIT ADD START
 /obj/item/reagent_containers/hypospray/medipen/ifak
-	name = "ifak stabilization medipen"
-	desc = "A single use autoinjector used for general healing and stabilization. DO NOT INJECT TWICE. Contains salicylic acid, salbutamol, oxandrolone, blood-coagulant and epinephrine."
+	name = "个人急救包稳伤注射笔"
+	desc = "用于一般治疗和稳定伤情的一次性自动注射器。切勿重复注射。内含水杨酸、沙丁胺醇、奥沙雄龙、促凝血剂和肾上腺素。"
 	icon_state = "salpen"
 	inhand_icon_state = "salpen"
 	volume = 45
@@ -346,8 +346,8 @@
 		desc = replacetext(desc, "purple", "ourple") // i do not feel like copy-pasting the entire desc for a one-word change
 
 /obj/item/reagent_containers/hypospray/medipen/atropine
-	name = "atropine autoinjector"
-	desc = "A rapid way to save a person from a critical injury state! Additionally contains a powerful coagulant to prevent blood loss."
+	name = "阿托品自动注射器"
+	desc = "迅速挽救危重伤员！另含强效促凝血剂，可防止失血。"
 	icon_state = "atropen"
 	inhand_icon_state = "atropen"
 	base_icon_state = "atropen"

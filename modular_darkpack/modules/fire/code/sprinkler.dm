@@ -9,7 +9,7 @@
 	volume = 50
 
 /obj/machinery/sprinkler
-	name = "fire sprinkler"
+	name = "消防喷淋器"
 	icon = 'modular_darkpack/modules/fire/icons/sprinkler.dmi'
 	icon_state = "sprinkler"
 	layer = ABOVE_ALL_MOB_LAYER

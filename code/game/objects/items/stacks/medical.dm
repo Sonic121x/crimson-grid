@@ -79,10 +79,10 @@
 	if(!isliving(target))
 		return NONE
 	if(iscarbon(target))
-		context[SCREENTIP_CONTEXT_LMB] = "Auto Heal"
-		context[SCREENTIP_CONTEXT_RMB] = "Manual Heal"
+		context[SCREENTIP_CONTEXT_LMB] = "自动选择治疗部位"
+		context[SCREENTIP_CONTEXT_RMB] = "手动选择治疗部位"
 	else
-		context[SCREENTIP_CONTEXT_LMB] = "Heal"
+		context[SCREENTIP_CONTEXT_LMB] = "治疗"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/stack/medical/apply_fantasy_bonuses(bonus)
@@ -115,7 +115,7 @@
 	if(!try_heal_checks(patient, user, heal_zone))
 		return FALSE
 	SSblackbox.record_feedback("nested tally", "medical_item_used", 1, list("[auto_change_zone ? "auto" : "manual"]", "[type]"))
-	patient.balloon_alert(user, "[apply_verb] [parse_zone(heal_zone)]...")
+	patient.balloon_alert(user, "正在[list("applying" = "敷用", "applying to" = "敷用", "wrapping" = "包扎", "suturing" = "缝合")[apply_verb] || apply_verb]：[parse_zone(heal_zone)]……")
 	INVOKE_ASYNC(src, PROC_REF(try_heal), patient, user, heal_zone, FALSE, iscarbon(patient) && auto_change_zone) // auto change is useless for non-carbons
 	return TRUE
 
@@ -142,8 +142,8 @@
 	if(patient == user)
 		if(!silent)
 			user.visible_message(
-				span_notice("[user] starts to apply [src] on [user.p_them()]self..."),
-				span_notice("You begin applying [src] on yourself..."),
+				span_notice("[user]开始给自己使用[src]……"),
+				span_notice("你开始给自己使用[src]……"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		if(!do_after(
@@ -161,8 +161,8 @@
 	else if(other_delay)
 		if(!silent)
 			user.visible_message(
-				span_notice("[user] starts to apply [src] on [patient]."),
-				span_notice("You begin applying [src] on [patient]..."),
+				span_notice("[user]开始给[patient]使用[src]。"),
+				span_notice("你开始给[patient]使用[src]……"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		if(!do_after(
@@ -180,8 +180,8 @@
 	else
 		if(!silent)
 			user.visible_message(
-				span_notice("[user] applies [src] on [patient]."),
-				span_notice("You apply [src] on [patient]."),
+				span_notice("[user]给[patient]使用了[src]。"),
+				span_notice("你给[patient]使用了[src]。"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 
@@ -195,7 +195,7 @@
 		CRASH("Stack medical item healing a non-carbon, non-animal mob [patient] ([patient.type])")
 	if(!use(1) || !repeating || amount <= 0)
 		var/atom/alert_loc = QDELETED(src) ? user : src
-		alert_loc.balloon_alert(user, repeating ? "all used up!" : "treated [parse_zone(healed_zone)]")
+		alert_loc.balloon_alert(user, repeating ? "已经用完！" : "已处理[parse_zone(healed_zone)]")
 		if(heal_end_sound)
 			playsound(patient, heal_end_sound, 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		return
@@ -209,14 +209,14 @@
 	var/preferred_target = check_zone(user.zone_selected)
 	if(try_heal_checks(patient, user, preferred_target, silent = TRUE))
 		if(preferred_target != healed_zone)
-			patient.balloon_alert(user, "[apply_verb] [parse_zone(preferred_target)]...")
+			patient.balloon_alert(user, "正在[list("applying" = "敷用", "applying to" = "敷用", "wrapping" = "包扎", "suturing" = "缝合")[apply_verb] || apply_verb]：[parse_zone(preferred_target)]……")
 		try_heal(patient, user, preferred_target, TRUE, auto_change_zone, TRUE)
 		return
 
 	// second, handle what happens otherwise
 	if(!iscarbon(patient))
 		// behavior 0: non-carbons have no limbs so we can assume they are fully healed
-		patient.balloon_alert(user, "fully treated")
+		patient.balloon_alert(user, "处理完毕")
 	else if(auto_change_zone)
 		// behavior 1: automatically pick another zone to heal
 		try_heal_auto_change_zone(patient, user, preferred_target, healed_zone)
@@ -236,24 +236,24 @@
 		other_affected_limbs += limb.body_zone
 
 	if(!length(other_affected_limbs))
-		patient.balloon_alert(user, "fully treated")
+		patient.balloon_alert(user, "处理完毕")
 		return
 
 	var/next_picked = (preferred_target in other_affected_limbs) ? preferred_target : other_affected_limbs[1]
 	if(next_picked != last_zone)
-		patient.balloon_alert(user, "[apply_verb] [parse_zone(next_picked)]...")
+		patient.balloon_alert(user, "正在[list("applying" = "敷用", "applying to" = "敷用", "wrapping" = "包扎", "suturing" = "缝合")[apply_verb] || apply_verb]：[parse_zone(next_picked)]……")
 	try_heal(patient, user, next_picked, silent = TRUE, auto_change_zone = TRUE, continuous = TRUE)
 
 /obj/item/stack/medical/proc/try_heal_manual_target(mob/living/carbon/patient, mob/living/user)
 	PRIVATE_PROC(TRUE)
 
-	patient.balloon_alert(user, "assessing injury...")
+	patient.balloon_alert(user, "正在评估伤势……")
 	if(!do_after(user, 1 SECONDS, patient))
 		return
 	var/new_zone = check_zone(user.zone_selected)
 	if(!try_heal_checks(patient, user, new_zone))
 		return
-	patient.balloon_alert(user, "[apply_verb] [parse_zone(new_zone)]...")
+	patient.balloon_alert(user, "正在[list("applying" = "敷用", "applying to" = "敷用", "wrapping" = "包扎", "suturing" = "缝合")[apply_verb] || apply_verb]：[parse_zone(new_zone)]……")
 	try_heal(patient, user, new_zone, silent = TRUE, auto_change_zone = FALSE, continuous = TRUE)
 
 /// Checks if the passed patient can be healed by the passed user
@@ -265,7 +265,7 @@
 /obj/item/stack/medical/proc/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	// DARKPACK EDIT ADD START - STORYTELLER_STATS
 	if(CONFIG_GET(flag/punishing_zero_dots) && user.st_get_stat(STAT_MEDICINE) < 1)
-		to_chat(user, span_warning("How do I do this...?"))
+		to_chat(user, span_warning("这该怎么用……？"))
 		return FALSE
 	// DARKPACK EDIT ADD END
 	if(!(healed_zone in patient.get_all_limbs()))
@@ -276,7 +276,7 @@
 		return FALSE
 	if(!works_on_dead && patient.stat == DEAD)
 		if(!silent)
-			patient.balloon_alert(user, "[patient.p_theyre()] dead!")
+			patient.balloon_alert(user, "患者已经死了！")
 		return FALSE
 
 	if(iscarbon(patient))
@@ -284,11 +284,11 @@
 		var/obj/item/bodypart/affecting = carbon_patient.get_bodypart(healed_zone)
 		if(!affecting) //Missing limb?
 			if(!silent)
-				carbon_patient.balloon_alert(user, "no [parse_zone(healed_zone)]!")
+				carbon_patient.balloon_alert(user, "没有[parse_zone(healed_zone)]！")
 			return FALSE
 		if(!IS_ORGANIC_LIMB(affecting)) //Limb must be organic to be healed - RR
 			if(!silent)
-				carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is not organic!")
+				carbon_patient.balloon_alert(user, "[affecting.plaintext_zone]不是有机组织！")
 			return FALSE
 
 		var/datum/wound/burn/flesh/any_burn_wound = locate() in affecting.wounds
@@ -300,28 +300,28 @@
 		if(!brute_to_heal && !burn_to_heal && !can_heal_burn_wounds && !can_suture_bleeding)
 			if(!silent)
 				if(!brute_to_heal && stop_bleeding) // no brute, no bleeding
-					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is not bleeding or bruised!")
+					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone]没有出血或瘀伤！")
 				else if(!burn_to_heal && (flesh_regeneration || sanitization) && any_burn_wound) // no burns, existing burn wounds are treated
-					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is fully treated, give it time!")
+					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone]已处理完毕，等待恢复！")
 				else if(!affecting.brute_dam && !affecting.burn_dam) // not hurt at all
-					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone] is not hurt!")
+					carbon_patient.balloon_alert(user, "[affecting.plaintext_zone]没有受伤！")
 				else // probably hurt in some way but we are not the right item for this
-					carbon_patient.balloon_alert(user, "can't heal [affecting.plaintext_zone] with [name]!")
+					carbon_patient.balloon_alert(user, "无法用[name]治疗[affecting.plaintext_zone]！")
 			return FALSE
 		return TRUE
 
 	if(isanimal_or_basicmob(patient))
 		if(!heal_brute) // only brute can heal
 			if(!silent)
-				patient.balloon_alert(user, "can't heal with [name]!")
+				patient.balloon_alert(user, "无法用[name]治疗！")
 			return FALSE
 		if(!(patient.mob_biotypes & MOB_ORGANIC))
 			if(!silent)
-				patient.balloon_alert(user, "no organic tissue!")
+				patient.balloon_alert(user, "没有有机组织！")
 			return FALSE
 		if(patient.health == patient.maxHealth)
 			if(!silent)
-				patient.balloon_alert(user, "not hurt!")
+				patient.balloon_alert(user, "没有受伤！")
 			return FALSE
 		return TRUE
 
@@ -333,8 +333,8 @@
 /obj/item/stack/medical/proc/heal_carbon(mob/living/carbon/patient, mob/living/user, healed_zone)
 	var/obj/item/bodypart/affecting = patient.get_bodypart(healed_zone)
 	user.visible_message(
-		span_green("[user] applies [src] on [patient]'s [affecting.plaintext_zone]."),
-		span_green("You apply [src] on [patient]'s [affecting.plaintext_zone]."),
+		span_green("[user]给[patient]的[affecting.plaintext_zone]使用了[src]。"),
+		span_green("你给[patient]的[affecting.plaintext_zone]使用了[src]。"),
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
 	var/previous_damage = affecting.get_damage()
@@ -359,8 +359,8 @@
 /obj/item/stack/medical/proc/heal_simplemob(mob/living/patient, mob/living/user)
 	patient.adjust_brute_loss(-1 * (heal_brute * patient.maxHealth / 100))
 	user.visible_message(
-		span_green("[user] applies [src] on [patient]."),
-		span_green("You apply [src] on [patient]."),
+		span_green("[user]给[patient]使用了[src]。"),
+		span_green("你给[patient]使用了[src]。"),
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
 	return TRUE
@@ -370,9 +370,9 @@
 	return
 
 /obj/item/stack/medical/bruise_pack
-	name = "bruise pack"
-	singular_name = "bruise pack"
-	desc = "A therapeutic gel pack and bandages designed to treat blunt-force trauma."
+	name = "创伤敷料"
+	singular_name = "创伤敷料"
+	desc = "用于治疗钝器创伤的治疗凝胶包和绷带。"
 	icon_state = "brutepack"
 	inhand_icon_state = "brutepack"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -456,20 +456,20 @@
 		treatment_delay *= 0.5
 		if(user == patient)
 			user.visible_message(
-				span_warning("[user] begins expertly wrapping the wounds on [p_their()]'s [limb.plaintext_zone] with [src]..."),
-				span_warning("You begin quickly wrapping the wounds on your [limb.plaintext_zone] with [src], keeping the holo-image indications in mind..."),
+				span_warning("[user]开始熟练地用[src]包扎自己[limb.plaintext_zone]上的伤口……"),
+				span_warning("你参照全息图像的指引，开始迅速用[src]包扎自己[limb.plaintext_zone]上的伤口……"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		else
 			user.visible_message(
-				span_warning("[user] begins expertly wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src]..."),
-				span_warning("You begin quickly wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src], keeping the holo-image indications in mind..."),
+				span_warning("[user]开始熟练地用[src]包扎[patient]的[limb.plaintext_zone]上的伤口……"),
+				span_warning("你参照全息图像的指引，开始迅速用[src]包扎[patient]的[limb.plaintext_zone]上的伤口……"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 	else
 		user.visible_message(
-			span_warning("[user] begins wrapping the wounds on [patient]'s [limb.plaintext_zone] with [src]..."),
-			span_warning("You begin wrapping the wounds on [user == patient ? "your" : "[patient]'s"] [limb.plaintext_zone] with [src]..."),
+			span_warning("[user]开始用[src]包扎[patient]的[limb.plaintext_zone]上的伤口……"),
+			span_warning("你开始用[src]包扎[user == patient ? "自己" : "[patient]"]的[limb.plaintext_zone]上的伤口……"),
 			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		)
 	if(heal_begin_sound)
@@ -484,7 +484,7 @@
 
 /// Callback for limb applicability component
 /obj/item/stack/medical/wrap/proc/on_gauze_limb(mob/user, mob/living/patient, obj/item/bodypart/limb)
-	patient.balloon_alert(user, "wrapped [limb.plaintext_zone]")
+	patient.balloon_alert(user, "已包扎[limb.plaintext_zone]")
 	user.visible_message(
 		span_green("[user] applies [src] to [patient]'s [limb.plaintext_zone]."),
 		span_green("You bandage the wounds on [user == patient ? "your" : "[patient]'s"] [limb.plaintext_zone]."),
@@ -505,9 +505,9 @@
 		gauzed.update_inefficiencies()
 
 /obj/item/stack/medical/wrap/gauze
-	name = "medical gauze"
-	desc = "A roll of elastic cloth, perfect for stabilizing all kinds of wounds, from cuts and burns, to broken bones."
-	singular_name = "medical gauze"
+	name = "医用纱布"
+	desc = "一卷弹性布料，适合稳定各种伤势，从割伤、烧伤到骨折都能派上用场。"
+	singular_name = "医用纱布"
 	self_delay = 5 SECONDS
 	other_delay = 2 SECONDS
 	max_amount = 12
@@ -542,7 +542,7 @@
 /obj/item/stack/medical/wrap/gauze/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(tool.tool_behaviour == TOOL_WIRECUTTER || tool.get_sharpness())
 		if(get_amount() < 2)
-			balloon_alert(user, "not enough gauze!")
+			balloon_alert(user, "纱布不足！")
 			return ITEM_INTERACT_BLOCKING
 		new /obj/item/stack/sheet/cloth(tool.drop_location())
 		if(IsReachableBy(user))
@@ -563,9 +563,9 @@
 	return OXYLOSS
 
 /obj/item/stack/medical/wrap/gauze/improvised
-	name = "improvised gauze"
-	singular_name = "improvised gauze"
-	desc = "A roll of cloth roughly cut from something that does a decent job of stabilizing wounds, but less efficiently so than real medical gauze."
+	name = "简易纱布"
+	singular_name = "简易纱布"
+	desc = "从某种布料上粗略裁下的一卷布，能较好地稳定伤势，但不如真正的医用纱布有效。"
 	icon_state = "gauze_imp"
 	self_delay = 6 SECONDS
 	other_delay = 3 SECONDS
@@ -586,10 +586,10 @@
 	 */
 
 /obj/item/stack/medical/suture
-	name = "suture"
-	desc = "Basic sterile sutures used to seal up cuts and lacerations and stop bleeding."
+	name = "缝合线"
+	desc = "用于缝合割伤、裂伤并止血的基础无菌缝合线。"
 	gender = PLURAL
-	singular_name = "suture"
+	singular_name = "缝合线"
 	icon_state = "suture"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -622,10 +622,10 @@
 	return list(/datum/reagent/medicine/polypyr = 1)
 
 /obj/item/stack/medical/ointment
-	name = "ointment"
-	desc = "Basic burn ointment, rated effective for second degree burns with proper bandaging, though it's still an effective stabilizer for worse burns. Not terribly good at outright healing burns though."
+	name = "烧伤药膏"
+	desc = "基础烧伤药膏，配合适当包扎可有效处理二度烧伤，也能稳定更严重的烧伤。不过直接愈合烧伤的效果并不好。"
 	gender = PLURAL
-	singular_name = "ointment"
+	singular_name = "烧伤药膏"
 	icon_state = "ointment"
 	inhand_icon_state = "ointment"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
@@ -649,10 +649,10 @@
 	return TOXLOSS
 
 /obj/item/stack/medical/mesh
-	name = "regenerative mesh"
-	desc = "A bacteriostatic mesh bandage used to dress burns." // DARKPACK EDIT CHANGE
+	name = "再生网片"
+	desc = "用于包扎烧伤的抑菌网状敷料。" // DARKPACK EDIT CHANGE
 	gender = PLURAL
-	singular_name = "mesh piece"
+	singular_name = "网片"
 	icon_state = "regen_mesh"
 	self_delay = 3 SECONDS
 	other_delay = 1 SECONDS
@@ -690,26 +690,26 @@
 /obj/item/stack/medical/mesh/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	if(!is_open)
 		if(!silent)
-			balloon_alert(user, "open it first!")
+			balloon_alert(user, "请先打开包装！")
 		return FALSE
 	return ..()
 
 /obj/item/stack/medical/mesh/click_alt(mob/living/user)
 	if(!is_open)
-		balloon_alert(user, "open it first!")
+		balloon_alert(user, "请先打开包装！")
 		return CLICK_ACTION_BLOCKING
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/stack/medical/mesh/attack_hand(mob/user, list/modifiers)
 	if(!is_open && user.get_inactive_held_item() == src)
-		balloon_alert(user, "open it first!")
+		balloon_alert(user, "请先打开包装！")
 		return
 	return ..()
 
 /obj/item/stack/medical/mesh/attack_self(mob/user)
 	if(!is_open)
 		is_open = TRUE
-		balloon_alert(user, "opened")
+		balloon_alert(user, "已打开包装")
 		update_appearance()
 		playsound(src, 'sound/items/poster/poster_ripped.ogg', 20, TRUE)
 		return
@@ -734,10 +734,10 @@
 	icon_state = "aloe_mesh_closed"
 
 /obj/item/stack/medical/aloe
-	name = "aloe cream"
-	desc = "A healing paste for minor cuts and burns."
+	name = "芦荟膏"
+	desc = "用于治疗轻微割伤和烧伤的药膏。"
 	gender = PLURAL
-	singular_name = "aloe cream"
+	singular_name = "芦荟膏"
 	icon_state = "aloe_paste"
 	self_delay = 2 SECONDS
 	other_delay = 1 SECONDS
@@ -761,9 +761,9 @@
 	amount = 2
 
 /obj/item/stack/medical/bone_gel
-	name = "bone gel"
-	singular_name = "bone gel"
-	desc = "A potent medical gel that, when applied to a damaged bone in a proper surgical setting, triggers an intense melding reaction to repair the wound. Can be directly applied alongside surgical sticky tape to a broken bone in dire circumstances, though this is very harmful to the patient and not recommended."
+	name = "接骨凝胶"
+	singular_name = "接骨凝胶"
+	desc = "一种强效医用凝胶，在规范手术中涂于受损骨骼上，可触发强烈的融合反应以修复损伤。紧急情况下可配合医用胶带直接用于断骨，但这会严重伤害患者，不建议这样做。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bone-gel"
 	inhand_icon_state = "bone-gel"
@@ -782,7 +782,7 @@
 	return "gel" + (tray_extended ? "" : "_out")
 
 /obj/item/stack/medical/bone_gel/attack(mob/living/patient, mob/user)
-	patient.balloon_alert(user, "no fractures!")
+	patient.balloon_alert(user, "没有骨折！")
 	return
 
 /obj/item/stack/medical/bone_gel/suicide_act(mob/living/user)

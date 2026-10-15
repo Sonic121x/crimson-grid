@@ -19,7 +19,7 @@
 	if(new_player.ready == PLAYER_NOT_READY)
 		var/splat_name = new_player.get_restricted_splat_name()
 		if(splat_name)
-			to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
+			to_chat(new_player, span_warning("扮演[list("Human" = "普通人类", "Kindred" = "血族", "Ghoul" = "血仆", "Kinfolk" = "眷属", "Garou" = "狼人", "Corax" = "渡鸦变形者")[splat_name] || splat_name]需要通过专门的白名单审核。欢迎前往 Discord 申请！"))
 			return
 	return ..()
 
@@ -27,7 +27,7 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	var/splat_name = new_player.get_restricted_splat_name()
 	if(splat_name)
-		to_chat(new_player, span_warning("[splat_name] requires a special whitelisting process. Feel free to apply for it on Discord!"))
+		to_chat(new_player, span_warning("扮演[list("Human" = "普通人类", "Kindred" = "血族", "Ghoul" = "血仆", "Kinfolk" = "眷属", "Garou" = "狼人", "Corax" = "渡鸦变形者")[splat_name] || splat_name]需要通过专门的白名单审核。欢迎前往 Discord 申请！"))
 		return
 	return ..()
 

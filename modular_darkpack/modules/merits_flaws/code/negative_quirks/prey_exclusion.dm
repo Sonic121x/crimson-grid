@@ -10,16 +10,16 @@ GLOBAL_LIST_INIT(prey_exclusion_choice, list(
 
 /datum/quirk/darkpack/prey_exclusion
 	name = "Prey Exclusion"
-	desc = "You refuse to hunt a certain kind of prey. When joining the game, you'll have to select what type of NPC you cant feed from. Ventrue cannot take this flaw."
+	desc = "你拒绝捕食某类猎物。进入游戏时，你需要选择一种不能从其身上进食的 NPC 类型。梵卓不能选择此缺陷。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 485)
 	value = -1
 	mob_trait = TRAIT_PREY_EXCLUSION
-	gain_text = span_notice("You feel very picky about what type of person you feed from.")
-	lose_text = span_notice("You don't care about who you feed from anymore.")
+	gain_text = span_notice("你对进食对象的类型变得十分挑剔。")
+	lose_text = span_notice("你不再在乎从谁身上进食。")
 	allowed_splats = list(SPLAT_KINDRED)
 	excluded_clans = list(VAMPIRE_CLAN_VENTRUE)
 	icon = FA_ICON_FACE_FROWN
-	failure_message = "You don't care about who you feed from anymore."
+	failure_message = "你不再在乎从谁身上进食。"
 	/// which type of prey the user selected
 	var/prey_exclusion
 	quirk_flags = QUIRK_HIDE_FROM_SCAN //CRIMSON GRID EDIT ADD | PR: MAKE MEDICAL RECORDS NOT MASQ BREACHY | CHANGE: ADDED THIS TO PREVENT IT FROM BEING SEEN IN COMS

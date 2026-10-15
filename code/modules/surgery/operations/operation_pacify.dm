@@ -1,7 +1,7 @@
 /datum/surgery_operation/organ/pacify
-	name = "pacification"
-	rnd_name = "Paxopsy (Pacification)"
-	desc = "Remove aggressive tendencies from a patient's brain."
+	name = "消除攻击性"
+	rnd_name = "平和改造术（消除攻击性）"
+	desc = "消除患者大脑中的攻击倾向。"
 	rnd_desc = "A surgical procedure which permanently inhibits the aggression center of the brain, making the patient unwilling to cause direct harm."
 	operation_flags = OPERATION_MORBID | OPERATION_LOCKED | OPERATION_NOTABLE | OPERATION_NO_PATIENT_REQUIRED
 	implements = list(

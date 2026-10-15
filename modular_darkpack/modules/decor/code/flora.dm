@@ -1,6 +1,6 @@
 /obj/structure/flora/tree/vamp
-	name = "tree"
-	desc = "Cute and tall flora."
+	name = "树木"
+	desc = "高大而可爱的植物。"
 	icon = 'modular_darkpack/modules/decor/icons/trees.dmi'
 	icon_state = "tree1"
 	SET_BASE_PIXEL(-32,0)
@@ -27,8 +27,8 @@
 		animate(src, transform = null, time = 1 SECONDS, loop = 1)
 
 /obj/structure/flora/tree/vamp/pine
-	name = "pine"
-	desc = "Cute and tall flora."
+	name = "松树"
+	desc = "高大而可爱的植物。"
 	icon = 'modular_darkpack/modules/decor/icons/pines.dmi'
 	icon_state = "pine1"
 
@@ -227,7 +227,7 @@
 
 /obj/structure/flora/darkpack_flower
 	icon = 'modular_darkpack/modules/decor/icons/flowers.dmi'
-	desc = "A common wildflower."
+	desc = "常见的野花。"
 	abstract_type = /obj/structure/flora/darkpack_flower
 	flora_flags = FLORA_HERBAL
 
@@ -236,29 +236,29 @@
 	AddElement(/datum/element/swaying, sway_angle = 4, sway_time = 2 SECONDS)
 
 /obj/structure/flora/darkpack_flower/marigold
-	name = "marigold"
+	name = "万寿菊"
 	icon_state = "marigold"
 
 /obj/structure/flora/darkpack_flower/flax
-	name = "prairie flax"
+	name = "草原亚麻"
 	icon_state = "prairie_flax"
 
 /obj/structure/flora/darkpack_flower/bluestar
-	name = "wooly bluestar"
+	name = "绒毛蓝星花"
 	icon_state = "wooly_bluestar"
 
 /obj/structure/flora/darkpack_flower/primrose
-	name = "evening primrose"
+	name = "月见草"
 	icon_state = "evening_primrose"
 
 /obj/structure/flora/darkpack_flower/turtleback
-	name = "velvet turtleback"
+	name = "绒毛龟背花"
 	icon_state = "velvet_turtleback"
 
 /obj/structure/flora/darkpack_flower/yerba
-	name = "yerba mansa"
+	name = "曼萨草"
 	icon_state = "yerba_mansa"
 
 /obj/structure/flora/darkpack_flower/paintbrush
-	name = "indian paintbrush"
+	name = "印第安画笔花"
 	icon_state = "indian_paintbrush"

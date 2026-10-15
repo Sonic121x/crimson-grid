@@ -157,7 +157,7 @@ SUBSYSTEM_DEF(job)
 		joinable_departments = list()
 		joinable_departments_by_type = list()
 		experience_jobs_map = list()
-		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
+		to_chat(world, span_boldannounce("职业初始化失败：未找到职业数据。"))
 		return FALSE
 
 	var/list/new_all_occupations = list()
@@ -721,7 +721,7 @@ SUBSYSTEM_DEF(job)
 	job_debug("RJCT: Player rejected, Player: [player]")
 	unassigned -= player
 	if(!run_divide_occupation_pure)
-		to_chat(player, span_infoplain("<b>You have failed to qualify for any job you desired.</b>"))
+		to_chat(player, span_infoplain("<b>你未能获得任何意向职业的任职资格。</b>"))
 		player.ready = PLAYER_NOT_READY
 
 
@@ -837,21 +837,21 @@ SUBSYSTEM_DEF(job)
 	)
 
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code
-	name = "Nanotrasen-Approved Spare ID Safe Code"
-	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
+	name = "纳诺传讯授权的备用身份卡保险箱密码"
+	desc = "证明你已获准担任船长，承受这个职位的一切荣耀与恐惧。"
 
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code/Initialize(mapload)
 	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
+	default_raw_text = "船长备用身份卡保险箱密码：[safe_code ? safe_code : "\[已删节\]"]<br><br>备用身份卡位于舰桥的专用保险箱内。<br><br>如果你原本的职业不具备部门主管权限，你的身份卡已被特别调整，以获得该权限。"
 	return ..()
 
 /obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code
-	name = "Emergency Spare ID Safe Code Requisition"
-	desc = "Proof that nobody has been approved for Captaincy. A skeleton key for a skeleton shift."
+	name = "紧急备用身份卡保险箱密码申领单"
+	desc = "证明无人获准担任船长。人手精简的班次，配上一把万能钥匙。"
 
 /obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code/Initialize(mapload)
 	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge."
+	default_raw_text = "船长备用身份卡保险箱密码：[safe_code ? safe_code : "\[已删节\]"]<br><br>备用身份卡位于舰桥的专用保险箱内。"
 	return ..()
 
 /datum/controller/subsystem/job/proc/promote_to_captain(mob/living/carbon/human/new_captain, acting_captain = FALSE)
@@ -867,12 +867,12 @@ SUBSYSTEM_DEF(job)
 		LOCATION_BACKPACK,
 		LOCATION_HANDS,
 	)
-	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE, indirect_action = TRUE) || "at your feet"
+	var/where = list(LOCATION_LPOCKET = "左口袋里", LOCATION_RPOCKET = "右口袋里", LOCATION_BACKPACK = "背包里", LOCATION_HANDS = "手中")[new_captain.equip_in_one_of_slots(paper, slots, FALSE, indirect_action = TRUE)] || "脚边"
 
 	if(acting_captain)
-		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Captain. You can find in important note about this [where]."))
+		to_chat(new_captain, span_notice("根据指挥继承顺序，你已被任命为代理船长。有关此事的重要通知就在你的[where]。"))
 	else
-		to_chat(new_captain, span_notice("You can find the code to obtain your spare ID from the secure safe on the Bridge [where]."))
+		to_chat(new_captain, span_notice("你的[where]有舰桥保险箱的密码，可用于取出备用身份卡。"))
 		new_captain.add_mob_memory(/datum/memory/key/captains_spare_code, safe_code = SSid_access.spare_id_safe_code)
 
 	// Force-give their ID card bridge access.

@@ -1,6 +1,6 @@
 /mob/living/basic/bat
-	name = "bat"
-	desc = "It's a bat."
+	name = "蝙蝠"
+	desc = "一只蝙蝠。"
 
 	basic_mob_flags = DEL_ON_DEATH
 

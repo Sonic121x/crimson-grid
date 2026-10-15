@@ -1,10 +1,10 @@
 /datum/subsplat/vampire_clan/gargoyle
 	name = "Gargoyle"
 	id = VAMPIRE_CLAN_GARGOYLE
-	desc = "The Gargoyles are a vampiric bloodline created by the Tremere as their servitors. Although technically not a Tremere bloodline, the bloodline is largely under their control. In the Final Nights, Gargoyle populations seem to be booming; this is largely because older, free Gargoyles are coming out of hiding to join the Camarilla, because more indentured Gargoyles break free from the clutches of the Tremere, and because the free Gargoyles have also begun to Embrace more mortals on their own."
+	desc = "石像鬼是睿魔尔创造的仆从血系。严格说来，他们并非睿魔尔的血脉分支，却大多受其控制。终末之夜中，石像鬼的数量似乎迅速增长：年长的自由石像鬼走出隐匿，加入密党；更多受奴役者挣脱睿魔尔的掌控；获得自由的石像鬼也开始自行初拥更多凡人。"
 	icon = "gargoyle"
-	curse = "All Gargoyles, much like the Nosferatu, are hideous to look at, a byproduct of their occult origins (and the varied Kindred stock from which they originate). This means that Gargoyles, just like the Nosferatu, have to hide their existence from common mortals, as their mere appearance is a breach of the Masquerade. In addition, the nature of the bloodline's origin manifests itself in the fact that Gargoyles are highly susceptible to mind control of any source. This weakness is intentional; a flaw placed into all Gargoyles by the Tremere in the hope that it would make them easier to control (and less likely to rebel)."
-	sense_the_sin_text = "has a mind like a fortress with gates open and unbarred. "
+	curse = "所有石像鬼都与诺斯费拉图一样面目可憎，这是秘术造物身份及混杂血族血统的结果。他们必须向普通凡人隐瞒存在，因为仅仅露面就会违反避世戒律。此外，石像鬼极易受到任何来源的精神控制。这是睿魔尔刻意植入的缺陷，目的是让他们更易受控、更难反叛。"
+	sense_the_sin_text = "心智宛如门户大开、毫无防备的堡垒。"
 	clan_disciplines = list(
 		/datum/discipline/fortitude,
 		/datum/discipline/potence,

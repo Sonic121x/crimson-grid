@@ -381,9 +381,9 @@ export const ScreenMessages = (props: {
     if (!timeStr || !timeStr.includes(':')) return timeStr || '';
     const [hourStr, minute] = timeStr.split(':');
     const hour = parseInt(hourStr, 10);
-    const period = hour >= 12 ? 'PM' : 'AM';
+    const period = hour >= 12 ? '下午' : '上午';
     const displayHour = hour % 12 || 12;
-    return `${displayHour}:${minute} ${period}`;
+    return `${period} ${displayHour}:${minute}`;
   };
   const {
     my_number,
@@ -615,12 +615,12 @@ export const ScreenMessages = (props: {
               onClick={() => setApp(null)}
               style={{ cursor: 'pointer' }}
             />
-            Messages
+            短信
           </Stack>
         </Stack.Item>
         <Stack.Item grow overflowY="auto">
           <Box p={1} textAlign="center" textColor="#969696">
-            No conversations yet
+            暂无会话
           </Box>
         </Stack.Item>
       </Stack>
@@ -636,7 +636,7 @@ export const ScreenMessages = (props: {
             onClick={() => setApp(null)}
             style={{ cursor: 'pointer' }}
           />
-          Messages
+          短信
         </Stack>
       </Stack.Item>
       <Stack.Item grow overflowY="auto">

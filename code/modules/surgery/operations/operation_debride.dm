@@ -1,7 +1,7 @@
 /datum/surgery_operation/limb/debride
-	name = "debride infected flesh"
-	rnd_name = "Debridement"
-	desc = "Remove infected or necrotic flesh from a patient's wound to promote healing."
+	name = "清除感染组织"
+	rnd_name = "清创术"
+	desc = "清除患者伤口中感染或坏死的组织，促进愈合。"
 	implements = list(
 		TOOL_HEMOSTAT = 1,
 		TOOL_SCALPEL = 1.25,
@@ -32,7 +32,7 @@
 	return image(/obj/item/reagent_containers/applicator/patch/aiuri)
 
 /datum/surgery_operation/limb/debride/all_required_strings()
-	return list("the limb must have a second degree or worse burn") + ..()
+	return list("肢体必须有二度或更严重的烧伤") + ..()
 
 /datum/surgery_operation/limb/debride/state_check(obj/item/bodypart/limb)
 	var/datum/wound/burn/flesh/wound = locate() in limb.wounds
@@ -50,11 +50,11 @@
 		if(-INFINITY to 1)
 			return null
 		if(1 to 2)
-			progress_text = ", preparing to remove the last remaining bits of infection"
+			progress_text = "，准备清除最后残留的感染组织"
 		if(2 to 4)
-			progress_text = ", steadily narrowing the remaining bits of infection"
+			progress_text = "，残留的感染组织正逐步减少"
 		if(5 to INFINITY)
-			progress_text = ", though there's still quite a lot to excise"
+			progress_text = "，不过仍有大量组织需要切除"
 
 	return progress_text
 

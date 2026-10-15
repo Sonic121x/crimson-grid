@@ -24,7 +24,7 @@
 	UNASSIGN_GAME_VERB(src, /client, ClearCredits)
 	qdel(credits_icon)
 
-GAME_VERB_PROC(/client, ClearCredits, "Hide Credits", "OOC")
+GAME_VERB_PROC(/client, ClearCredits, "隐藏制作人员名单", "OOC")
 	UNASSIGN_GAME_VERB(src, /client, ClearCredits)
 	QDEL_LIST(credits)
 	credits = null
@@ -41,7 +41,7 @@ GAME_VERB_PROC(/client, ClearCredits, "Hide Credits", "OOC")
 	icon = I
 	parent = P
 	icon_state = credited
-	maptext = MAPTEXT_PIXELLARI(credited)
+	maptext = MAPTEXT_PIXELLARI(credited == "Thanks for playing!" ? "感谢游玩！" : credited)
 	maptext_x = ICON_SIZE_X + 8
 	maptext_y = (ICON_SIZE_Y / 2) - 4
 	maptext_width = ICON_SIZE_X * 6

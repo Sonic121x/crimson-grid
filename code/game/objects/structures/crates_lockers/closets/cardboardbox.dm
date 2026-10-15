@@ -1,6 +1,6 @@
 /obj/structure/closet/cardboard
-	name = "large cardboard box"
-	desc = "Just a box..."
+	name = "大纸箱"
+	desc = "只是个箱子……"
 	icon_state = "cardboard"
 	mob_storage_capacity = 1
 	resistance_flags = FLAMMABLE
@@ -118,8 +118,8 @@
 	LAZYREMOVE(update_on_z, exclamation)
 
 /obj/structure/closet/cardboard/metal
-	name = "large metal box"
-	desc = "THE COWARDS! THE FOOLS!"
+	name = "大金属箱"
+	desc = "一群懦夫！一群蠢货！"
 	icon_state = "metalbox"
 	max_integrity = 500
 	mob_storage_capacity = 5

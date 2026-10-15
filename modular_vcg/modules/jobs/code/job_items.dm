@@ -1,3 +1,3 @@
 /obj/item/card/park_ranger/staff
-	name = "Park Staff badge"
-	desc = "A pretty park attracts more visitors. Keep the park clean and tidy."
+	name = "公园工作人员徽章"
+	desc = "漂亮的公园能吸引更多游客。请保持公园干净整洁。"

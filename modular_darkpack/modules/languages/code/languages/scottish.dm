@@ -1,6 +1,6 @@
 /datum/language/scottish
 	name = "Scottish"
-	desc = "The bold language spoken by the Scottish."
+	desc = "苏格兰人使用的语言，豪迈有力。"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "s"
 	space_chance = 40

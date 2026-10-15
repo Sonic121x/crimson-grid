@@ -2,14 +2,14 @@
 #define STRANGER 1
 
 /datum/brain_trauma/severe/split_personality
-	name = "Split Personality"
-	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
-	scan_desc = "complete lobe separation"
-	symptoms = "Exhibits two distinct personalities that alternate control over the same body, \
-		each with its own memories, behaviors, and preferences. While both personalities are aware of each other, \
-		they may have conflicting desires and actions, leading to confusion and disorientation for the host."
-	gain_text = span_warning("You feel like your mind was split in two.")
-	lose_text = span_notice("You feel alone again.")
+	name = "人格分裂"
+	desc = "患者的意识分裂为两个人格，随机交替控制身体。"
+	scan_desc = "脑叶完全分离"
+	symptoms = "表现为两个截然不同的人格交替控制同一具身体，\
+		各自拥有独立的记忆、行为和偏好。尽管两个人格都知道彼此的存在，\
+		它们的欲望和行动仍可能相互冲突，使宿主感到困惑并失去方向感。"
+	gain_text = span_warning("你感觉自己的意识分裂成了两半。")
+	lose_text = span_notice("你感觉脑海里又只剩下自己了。")
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/mob/living/split_personality/stranger_backseat //there's two so they can swap without overwriting
@@ -44,7 +44,7 @@
 /// Attempts to get a ghost to play the personality
 /datum/brain_trauma/severe/split_personality/proc/get_ghost()
 	var/mob/chosen_one = SSpolling.poll_ghosts_for_target(
-		question = "Do you want to play as [span_danger("[owner.real_name]'s")] [span_notice(poll_role)]?",
+		question = "你想扮演[span_danger("[owner.real_name]")]的[span_notice(poll_role == "split personality" ? "分裂人格" : poll_role == "blacked out drunkard" ? "断片醉汉" : poll_role)]吗？",
 		check_jobban = ROLE_PAI,
 		poll_time = poll_time,
 		checked_target = owner,
@@ -99,8 +99,8 @@
 		return
 
 	current_backseat.log_message("assumed control of [key_name(owner)] due to [src]. (Original owner: [current_controller == OWNER ? owner.key : current_backseat.key])", LOG_GAME)
-	to_chat(owner, span_userdanger("You feel your control being taken away... your other personality is in charge now!"))
-	to_chat(current_backseat, span_userdanger("You manage to take control of your body!"))
+	to_chat(owner, span_userdanger("你感觉自己正在失去控制……另一个人格接管了身体！"))
+	to_chat(current_backseat, span_userdanger("你成功夺得了身体的控制权！"))
 
 	//Body to backseat
 
@@ -145,8 +145,8 @@
 
 
 /mob/living/split_personality
-	name = "split personality"
-	real_name = "unknown conscience"
+	name = "分裂人格"
+	real_name = "未知意识"
 	var/mob/living/carbon/body
 	var/datum/brain_trauma/severe/split_personality/trauma
 
@@ -177,12 +177,12 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("As a split personality, you cannot do anything but observe. However, you will eventually gain control of your body, switching places with the current personality."))
-	to_chat(src, span_warning("<b>Do not commit suicide or put the body in a deadly position. Behave like you care about it as much as the owner.</b>"))
+	to_chat(src, span_notice("作为分裂人格，你目前只能旁观。不过，你迟早会与当前人格交换位置，获得身体的控制权。"))
+	to_chat(src, span_warning("<b>不要自杀或让身体陷入致命险境。你应当像原主一样珍惜这具身体。</b>"))
 
 /mob/living/split_personality/try_speak(message, ignore_spam, forced, filterproof)
 	SHOULD_CALL_PARENT(FALSE)
-	to_chat(src, span_warning("You cannot speak, your other self is controlling your body!"))
+	to_chat(src, span_warning("你无法说话，另一个你正在控制身体！"))
 	return FALSE
 
 /mob/living/split_personality/emote(act, type_override = NONE, message = null, intentional = FALSE, force_silence = FALSE, forced = FALSE)
@@ -191,11 +191,11 @@
 ///////////////BRAINWASHING////////////////////
 
 /datum/brain_trauma/severe/split_personality/brainwashing
-	name = "Split Personality"
-	desc = "Patient's brain is split into two personalities, which randomly switch control of the body."
-	scan_desc = "complete lobe separation"
+	name = "人格分裂"
+	desc = "患者的意识分裂为两个人格，随机交替控制身体。"
+	scan_desc = "脑叶完全分离"
 	gain_text = ""
-	lose_text = span_notice("You are free of your brainwashing.")
+	lose_text = span_notice("你摆脱了洗脑的控制。")
 	can_gain = FALSE
 	known_trauma = FALSE
 	var/codeword
@@ -225,7 +225,7 @@
 
 /datum/brain_trauma/severe/split_personality/brainwashing/get_ghost()
 	set waitfor = FALSE
-	var/mob/chosen_one = SSpolling.poll_ghosts_for_target("Do you want to play as [span_danger("[owner.real_name]'s")] brainwashed mind?", poll_time = 7.5 SECONDS, checked_target = stranger_backseat, alert_pic = owner, role_name_text = "brainwashed mind")
+	var/mob/chosen_one = SSpolling.poll_ghosts_for_target("你想扮演[span_danger("[owner.real_name]")]被洗脑的人格吗？", poll_time = 7.5 SECONDS, checked_target = stranger_backseat, alert_pic = owner, role_name_text = "brainwashed mind")
 	if(chosen_one)
 		stranger_backseat.PossessByPlayer(chosen_one.ckey)
 	else
@@ -248,8 +248,8 @@
 		speech_args[SPEECH_MESSAGE] = "" //oh hey did you want to tell people about the secret word to bring you back?
 
 /mob/living/split_personality/traitor
-	name = "split personality"
-	real_name = "unknown conscience"
+	name = "分裂人格"
+	real_name = "未知意识"
 	var/objective
 	var/codeword
 
@@ -257,20 +257,20 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("As a brainwashed personality, you cannot do anything yet but observe. However, you may gain control of your body if you hear the special codeword, switching places with the current personality."))
-	to_chat(src, span_notice("Your activation codeword is: <b>[codeword]</b>"))
+	to_chat(src, span_notice("作为被洗脑的人格，你目前只能旁观。不过，听到特定暗号后，你便可能与当前人格交换位置，获得身体的控制权。"))
+	to_chat(src, span_notice("你的激活暗号是：<b>[codeword]</b>"))
 	if(objective)
-		to_chat(src, span_notice("Your master left you an objective: <b>[objective]</b>. Follow it at all costs when in control."))
+		to_chat(src, span_notice("你的主人给你留下了目标：<b>[objective]</b>。控制身体时，不惜一切代价完成它。"))
 
 /datum/brain_trauma/severe/split_personality/blackout
-	name = "Alcohol-Induced CNS Impairment"
-	desc = "Patient's CNS has been temporarily impaired by imbibed alcohol, blocking memory formation, and causing reduced cognition and stupefaction."
-	scan_desc = "alcohol-induced CNS impairment"
-	symptoms = "Excessive alcohol consumption leading to a temporary blackout, followed by confusion, disorientation, and an almost \
-		completely altered state of consciousness upon waking for several minutes - during which the individual may exhibit \
-		impaired fine motor skills, an incredible resistance to pain, and a complete lack of memory."
-	gain_text = span_warning("Crap, that was one drink too many. You black out...")
-	lose_text = "You wake up very, very confused and hungover. All you can remember is drinking a lot of alcohol... what happened?"
+	name = "酒精性中枢神经功能障碍"
+	desc = "患者摄入的酒精暂时损害了中枢神经系统功能，阻碍记忆形成，并导致认知能力下降和意识迟钝。"
+	scan_desc = "酒精性中枢神经功能障碍"
+	symptoms = "过量饮酒导致暂时失去意识，醒来后数分钟内出现困惑、定向障碍，\
+		意识状态几乎完全改变。在此期间，患者可能表现出\
+		精细动作能力受损、异常强烈的耐痛能力以及完全的记忆缺失。"
+	gain_text = span_warning("糟糕，多喝了那一杯。你断片了……")
+	lose_text = "你醒来时头脑一片混乱，宿醉难受极了。你只记得自己喝了很多酒……发生了什么？"
 	poll_role = "blacked out drunkard"
 	random_gain = FALSE
 	poll_time = 10 SECONDS
@@ -285,9 +285,9 @@
 
 	RegisterSignal(owner, COMSIG_ATOM_SPLASHED, PROC_REF(on_splashed))
 	notify_ghosts(
-		"[owner.real_name] is blacking out!",
+		"[owner.real_name]喝到断片了！",
 		source = owner,
-		header = "Bro I'm not even drunk right now",
+		header = "兄弟，我真没醉",
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
 	)
 	var/datum/status_effect/inebriated/inebriation = owner.has_status_effect(/datum/status_effect/inebriated)
@@ -319,13 +319,13 @@
 		qdel(src)
 		return
 	else if(duration_in_seconds <= 60 && !(duration_in_seconds % 20))
-		to_chat(owner, span_warning("You have [duration_in_seconds] seconds left before sobering up!"))
+		to_chat(owner, span_warning("你还有[duration_in_seconds]秒就会清醒！"))
 	if(prob(10) && !HAS_TRAIT(owner, TRAIT_DISCOORDINATED_TOOL_USER))
 		ADD_TRAIT(owner, TRAIT_DISCOORDINATED_TOOL_USER, TRAUMA_TRAIT)
-		owner.balloon_alert(owner, "dexterity reduced temporarily!")
+		owner.balloon_alert(owner, "动作暂时变得笨拙！")
 		//We then send a callback to automatically re-add the trait
 		addtimer(TRAIT_CALLBACK_REMOVE(owner, TRAIT_DISCOORDINATED_TOOL_USER, TRAUMA_TRAIT), 10 SECONDS)
-		addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, balloon_alert), owner, "dexterity regained!"), 10 SECONDS)
+		addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, balloon_alert), owner, "动作恢复灵活！"), 10 SECONDS)
 	if(prob(15))
 		playsound(owner,'sound/mobs/humanoids/human/hiccup/sf_hiccup_male_01.ogg', 50)
 		owner.emote("hiccup")
@@ -336,15 +336,15 @@
 	duration_in_seconds -= seconds_per_tick
 
 /mob/living/split_personality/blackout
-	name = "blacked-out drunkard"
-	real_name = "drunken consciousness"
+	name = "断片醉汉"
+	real_name = "醉酒意识"
 
 /mob/living/split_personality/blackout/Login()
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("You're the incredibly inebriated leftovers of your host's consciousness! Make sure to act the part and leave a trail of confusion and chaos in your wake."))
-	to_chat(src, span_boldwarning("While you're drunk, you're not suicidal. Do not commit suicide or put the body in danger. You have a minor license to grief just like a clown, but do not kill anyone or create a situation leading to the body being put in danger or at risk of being harmed."))
+	to_chat(src, span_notice("你是宿主酩酊大醉后残存的意识！请扮演好醉汉，让你所到之处充满困惑和混乱。"))
+	to_chat(src, span_boldwarning("你只是喝醉了，并不想寻死。不要自杀或让身体陷入危险。你可以像小丑一样搞些小恶作剧，但不得杀人，也不得制造让这具身体陷入危险或可能受伤的局面。"))
 
 #undef OWNER
 #undef STRANGER

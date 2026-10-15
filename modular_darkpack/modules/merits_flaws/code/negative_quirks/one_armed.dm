@@ -1,12 +1,12 @@
 // W20 p. 474
 /datum/quirk/darkpack/one_armed
 	name = "One Arm"
-	desc = "You're missing your an arm. That just ain't right."
+	desc = "你缺了一条胳膊。总觉得哪里不对劲。"
 	icon = FA_ICON_HAND
 	ttrpg_sources = list(/datum/source_book/wta20 = 474)
 	value = -3
-	gain_text = span_warning("You can't feel your arm!")
-	lose_text = span_notice("Huh? Your arm is back...")
+	gain_text = span_warning("你感觉不到自己的胳膊了！")
+	lose_text = span_notice("咦？你的胳膊回来了……")
 	quirk_flags = QUIRK_CHANGES_APPEARANCE
 
 	var/arm_missing

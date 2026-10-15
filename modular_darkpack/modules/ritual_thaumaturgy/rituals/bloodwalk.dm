@@ -1,8 +1,8 @@
 /obj/ritual_rune/thaumaturgy/bloodwalk
-	name = "blood walk"
-	desc = "Trace the subject's lineage from a blood syringe."
+	name = "血脉追溯"
+	desc = "通过注射器中的血液追溯受检者的血系。"
 	icon_state = "rune7"
-	word = "Reveal thy bloodline for mine eyes."
+	word = "在我眼前显露你的血系。"
 	level = 2
 
 /obj/ritual_rune/thaumaturgy/bloodwalk/complete()
@@ -20,72 +20,72 @@
 				if(ishuman(last_activator))
 					SSoccult_research.process_blood_collection(last_activator, B)
 			else
-				to_chat(last_activator, "The blood speaks not; it is empty of power!")
+				to_chat(last_activator, "鲜血沉默不语，其中毫无力量！")
 		color = rgb(255,0,0)
 		activated = TRUE
 		qdel(src)
 
 /obj/ritual_rune/thaumaturgy/bloodwalk/proc/generate_message(generation, clan, real_name)
 	var/message = ""
-	message += "The owner of the blood's true name is [real_name].\n"
+	message += "这份血液主人的真名是[real_name]。\n"
 	switch(generation)
 		if(4)
-			message += "The blood is incredibly ancient and powerful! It must be from an ancient Methuselah!\n"
+			message += "这份血液无比古老而强大！它一定来自一位古老的玛士撒拉！\n"
 		if(5)
-			message += "The blood is incredibly ancient and powerful! It must be from a Methuselah!\n"
+			message += "这份血液无比古老而强大！它一定来自一位玛士撒拉！\n"
 		if(6)
-			message += "The blood is incredibly ancient and powerful! It must be from an Elder!\n"
+			message += "这份血液无比古老而强大！它一定来自一位长老！\n"
 		if(7, 8, 9)
-			message += "The blood is powerful. It must come from an Ancilla or Elder!\n"
+			message += "这份血液十分强大，一定来自一位资深者或长老！\n"
 		if(10, 11)
-			message += "The blood is of middling strength. It must come from someone young.\n"
+			message += "这份血液的力量中等，一定来自某个年轻的血族。\n"
 		if(12, 13)
-			message += "The blood is of waning strength. It must come from a neonate.\n"
+			message += "这份血液的力量已经衰薄，一定来自一位新血。\n"
 		else
 			if(generation >= 14)
-				message += "This is the vitae of a thinblood!\n"
+				message += "这是薄血者的血粹！\n"
 	switch(clan)
 		if(VAMPIRE_CLAN_TOREADOR, VAMPIRE_CLAN_DAUGHTERS_OF_CACOPHONY)
-			message += "The blood is sweet and rich. The owner must, too, be beautiful.\n"
+			message += "这份血液甘甜浓郁，其主人想必也十分美丽。\n"
 		if(VAMPIRE_CLAN_VENTRUE, VAMPIRE_CLAN_VENTRUE_ANTITRIBU)
-			message += "The blood has kingly power in it, descending from Mithras or Hardestadt.\n"
+			message += "这份血液蕴含王者之力，传承自密特拉斯或哈德斯塔特。\n"
 		if(VAMPIRE_CLAN_LASOMBRA)
-			message += "Cold and dark, this blood has a mystical connection to the Abyss.\n"
+			message += "冰冷而黑暗，这份血液与深渊有着神秘的联系。\n"
 		if(VAMPIRE_CLAN_TZIMISCE)
-			message += "The vitae is mutable and twisted. Is there any doubt to the cursed line it belongs to?\n"
+			message += "这份血粹变化无常、扭曲畸异。它所属的诅咒血系，还有什么可怀疑的吗？\n"
 		if(VAMPIRE_CLAN_OLD_CLAN_TZIMISCE)
-			message += "This vitae is old and ancient. It reminds you of a more twisted and cursed blood...\n"
+			message += "这份血粹极其古老，让你想起另一种更加扭曲、诅咒深重的血液……\n"
 		if(VAMPIRE_CLAN_GANGREL, VAMPIRE_CLAN_CITY_GANGREL)
-			message += "The blood emits a primal and feral aura. The same is likely of the owner.\n"
+			message += "这份血液散发着原始而野性的气息，其主人想必也是如此。\n"
 		if(VAMPIRE_CLAN_MALKAVIAN, VAMPIRE_CLAN_DOMINATE_MALKAVIAN)
-			message += "You can sense chaos and madness within this blood. It's owner must be maddened too.\n"
+			message += "你能感受到这份血液中的混乱与疯狂，其主人一定也已陷入疯癫。\n"
 		if(VAMPIRE_CLAN_BRUJAH)
-			message += "The blood is filled with passion and anger. So must be the owner of the blood.\n"
+			message += "这份血液充满激情与愤怒，其主人一定也是如此。\n"
 		if(VAMPIRE_CLAN_NOSFERATU)
-			message += "The blood is foul and disgusting. Same must apply to the owner.\n"
+			message += "这份血液污秽恶心，其主人一定也是如此。\n"
 		if(VAMPIRE_CLAN_TREMERE)
-			message += "The blood is filled with the power of magic. The owner must be a thaumaturge.\n"
+			message += "这份血液充满魔法力量，其主人一定是一位血魔法师。\n"
 		if(VAMPIRE_CLAN_BAALI)
-			message += "Tainted and corrupt. Vile and filthy. You see your reflection in the blood, but something else stares back.\n"
+			message += "污秽而腐化，卑劣而肮脏。你在血中看见自己的倒影，却有别的东西正回望着你。\n"
 		if(VAMPIRE_CLAN_BANU_HAQIM, VAMPIRE_CLAN_BANU_HAQIM_VIZIER)
-			message += "Potent... deadly... and cursed. You know well the curse laid by Tremere on the assassins.\n"
+			message += "强劲……致命……且深受诅咒。你深知睿魔尔对刺客们施加的诅咒。\n"
 		if(VAMPIRE_CLAN_TRUE_BRUJAH)
-			message += "The blood is cold and static... It's hard to feel any emotion within it.\n"
+			message += "这份血液冰冷而凝滞……其中几乎感受不到任何情绪。\n"
 		if(VAMPIRE_CLAN_HEALER_SALUBRI)
-			message += "The cursed blood of the Salubri! The owner of this blood must be slain.\n"
+			message += "萨鲁布里那受诅咒的血！必须杀死这份血液的主人。\n"
 		if(VAMPIRE_CLAN_WARRIOR_SALUBRI)
-			message += "The avatar of Samiel's vengeance stands before you, do you dare return their bitter hatred?\n"
+			message += "萨米尔复仇的化身就在你面前，你敢以同样刻骨的仇恨回敬吗？\n"
 		if(VAMPIRE_CLAN_GIOVANNI, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_HARBINGER)
-			message += "The blood is very cold and filled with death. The owner must be a necromancer.\n"
+			message += "这份血液极其冰冷，充满死亡气息，其主人一定是一位死灵术士。\n"
 		if(VAMPIRE_CLAN_KIASYD)
-			message += "The blood is filled with traces of fae magic.\n"
+			message += "这份血液充满妖精魔法的痕迹。\n"
 		if(VAMPIRE_CLAN_GARGOYLE)
-			message += "The blood of our stone servants.\n"
+			message += "这是我们岩石仆从的血液。\n"
 		if(VAMPIRE_CLAN_SETITE, VAMPIRE_CLAN_WARRIOR_SETITE)
-			message += "Seduction and allure are in the blood. Ah, one of the snakes.\n"
+			message += "这份血液蕴含诱惑与魅力。啊，是蛇族的一员。\n"
 		if(VAMPIRE_CLAN_NAGARAJA)
-			message += "This blood has an unsettling hunger to it, cold and stained with death.\n"
+			message += "这份血液冰冷，沾染着死亡，透出令人不安的饥饿。\n"
 		else
-			message += "The blood's origin is hard to trace. Perhaps it is one of the clanless?\n"
+			message += "这份血液的源头难以追溯。也许来自一位无氏族者？\n"
 
 	return message

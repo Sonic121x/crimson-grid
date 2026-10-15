@@ -1,5 +1,5 @@
 /turf/open/floor/plating/canal
-	name = "plating"
+	name = "铺板"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "canal1"
 	footstep = FOOTSTEP_FLOOR
@@ -19,7 +19,7 @@
 	icon_state = "canal[rand(1, 3)]"
 
 /turf/open/floor/plating/canalplating
-	name = "plating"
+	name = "铺板"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "canal_plating1"
 	footstep = FOOTSTEP_PARKET
@@ -40,7 +40,7 @@
 	icon_state = "canal_plating[rand(1, 4)]"
 
 /turf/open/water/vamp_sewer
-	name = "sewage"
+	name = "污水"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "shit"
 	fishing_datum = /datum/fish_source/sewer

@@ -12,14 +12,14 @@
 	wound_series = WOUND_SERIES_BRUISING
 
 /datum/wound/bruised
-	name = "Bruising"
-	undiagnosed_name = "Bruising"
-	desc = "Patient's skin appears bruised, showing marks of resistance."
+	name = "瘀伤"
+	undiagnosed_name = "瘀伤"
+	desc = "患者的皮肤有瘀伤，显露出挣扎抵抗的痕迹。"
 	sound_effect = null
-	treat_text = "Will treat itself overtime."
-	treat_text_short = "Best left alone."
+	treat_text = "会随着时间自行恢复。"
+	treat_text_short = "最好不要干预。"
 	examine_desc = null
-	occur_text = "gets bruised up"
+	occur_text = "出现了瘀伤"
 	threshold_penalty = 1
 	processes = TRUE
 	default_scar_file = null

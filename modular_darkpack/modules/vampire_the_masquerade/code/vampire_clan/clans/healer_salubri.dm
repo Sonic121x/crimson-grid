@@ -1,10 +1,10 @@
 /datum/subsplat/vampire_clan/salubri
 	name = "Salubri"
 	id = VAMPIRE_CLAN_HEALER_SALUBRI
-	desc = "The Salubri are one of the original 13 clans of the vampiric descendants of Caine. Salubri believe that vampiric existence is torment from which Golconda or death is the only escape. Consequently, the modern Salubri would Embrace, teach a childe the basics of the route, leave clues for the childe to follow to achieve Golconda, and then have their childe diablerize them."
+	desc = "萨鲁布里是该隐吸血鬼后裔最初的十三氏族之一。他们相信吸血鬼的存在是一种折磨，唯有达到超脱之境或死亡才能解脱。因此，现代萨鲁布里会初拥子嗣，教授求道的基础，留下通往超脱之境的线索，随后让子嗣对自己施行血噬。"
 	icon = "salubri"
-	curse = "Hunted and consensual feeding."
-	sense_the_sin_text = "is ruled by consent."
+	curse = "遭到追猎，且取食必须获得对方同意。"
+	sense_the_sin_text = "受制于他人的允诺。"
 	clan_disciplines = list(
 		/datum/discipline/auspex,
 		/datum/discipline/fortitude,
@@ -48,6 +48,6 @@
 	target.visible_message(span_warning("[target] tightly grasps their forehead, trying to conceal something"), span_cult("I MUST HIDE MY NATURE"))
 	target.apply_damage(50, BRUTE, BODY_ZONE_HEAD)
 	target.Paralyze(6 SECONDS) */
-	to_chat(target, span_cult("THE BEAST SCREAMS IN MY MIND TO RUN"))
+	to_chat(target, span_cult("心兽在我脑海中尖叫，催促我逃跑！"))
 	new /obj/effect/client_image_holder/baali_demon(get_turf(target), list(target))
 	// CRIMSON GRID ADD END: DARK THAUMATURGY

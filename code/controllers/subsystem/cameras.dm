@@ -287,7 +287,7 @@ SUBSYSTEM_DEF(cameras)
 /datum/controller/subsystem/cameras/proc/get_available_camera_by_tag_list(list/networks_available, list/z_levels_available)
 	var/list/available_cameras_by_tag = list()
 	for(var/obj/machinery/camera/camera as anything in get_filtered_and_sorted_cameras(networks_available, z_levels_available))
-		available_cameras_by_tag["[camera.c_tag][camera.can_use() ? null : " (Deactivated)"]"] = camera
+		available_cameras_by_tag["[camera.c_tag][camera.can_use() ? null : "（已停用）"]"] = camera
 
 	return available_cameras_by_tag
 

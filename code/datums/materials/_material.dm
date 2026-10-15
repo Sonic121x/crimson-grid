@@ -1,8 +1,8 @@
-/*! Material datum
-
-Simple datum which is instanced once per type and is used for every object of said material. It has a variety of variables that define behavior. Subtyping from this makes it easier to create your own materials.
-
-*/
+GLOBAL_LIST_INIT(localized_material_names, list("material" = "材料", "alloy" = "合金", "plasteel" = "等离子钢", "plastitanium" = "等离子钛", "plasmaglass" = "等离子玻璃", "titanium glass" = "钛玻璃", "plastitanium glass" = "等离子钛玻璃", "alien alloy" = "外星合金", "iron" = "铁", "glass" = "玻璃", "silver" = "银", "gold" = "金", "diamond" = "钻石", "uranium" = "铀", "plasma" = "等离子体", "bluespace crystal" = "蓝空间水晶", "bananium" = "香蕉矿", "titanium" = "钛", "runite" = "符文矿", "plastic" = "塑料", "biomass" = "生物质", "wood" = "木材", "adamantine" = "精金", "mythril" = "秘银", "hot ice" = "热冰", "metal hydrogen" = "金属氢", "sand" = "沙", "sandstone" = "砂岩", "snow" = "雪", "runed metal" = "符文金属", "bronze" = "青铜", "paper" = "纸", "cardboard" = "纸板", "bone" = "骨头", "bamboo" = "竹子", "zaukerite" = "噬光晶", "telecrystal" = "传送水晶", "rock" = "岩石", "hauntium" = "幽魂金属", "meat" = "肉", "pizza" = "披萨"))
+/datum/material/proc/get_localized_name()
+	if(istype(src, /datum/material/meat) && name != initial(name))
+		return name == "mystery meat" ? "来源不明的肉" : "[copytext(name, 1, length(name) - length(initial(name)) - (istype(src, /datum/material/meat/mob_meat) ? 2 : 0))]的肉"
+	return GLOB.localized_material_names[name] || name
 
 
 /datum/material

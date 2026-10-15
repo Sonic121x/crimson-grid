@@ -8,8 +8,8 @@
  */
 /datum/symptom/confusion
 	name = "Confusion"
-	desc = "The virus interferes with the proper function of the neural system, leading to bouts of confusion and erratic movement."
-	illness = "Shattered Reality"
+	desc = "病毒干扰神经系统的正常功能，导致间歇性的意识混乱与行动失常。"
+	illness = "破碎现实"
 	stealth = 2
 	resistance = 1
 	stage_speed = 1
@@ -20,9 +20,9 @@
 	symptom_delay = 20
 	symptom_cure = /datum/reagent/medicine/synaptizine
 	threshold_descs = list(
-		"Resistance 6" = "Causes brain damage over time.",
-		"Transmission 6" = "Increases confusion duration and strength.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"抗性 6" = "随时间推移造成脑部损伤。",
+		"传播力 6" = "延长意识混乱的持续时间并增强其程度。",
+		"隐蔽性 4" = "症状在发作前难以察觉。",
 	)
 	var/brain_damage = FALSE
 	var/causes_illiteracy = FALSE
@@ -53,9 +53,9 @@
 	switch(advanced_disease.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(infected_mob, span_warning("[pick("Your head hurts.", "Your mind blanks for a moment.")]"))
+				to_chat(infected_mob, span_warning("[pick("你的头很疼。", "你的脑海一瞬间变得空白。")]"))
 		else
-			to_chat(infected_mob, span_userdanger("You can't think straight!"))
+			to_chat(infected_mob, span_userdanger("你无法正常思考了！"))
 			infected_mob.adjust_confusion_up_to(16 SECONDS * power, 30 SECONDS)
 			if(brain_damage)
 				infected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, 3 * power, 80)

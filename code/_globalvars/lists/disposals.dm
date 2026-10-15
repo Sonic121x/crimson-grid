@@ -42,11 +42,11 @@
 //If you don't want to fuck up disposals, add to this list, and don't change the order.
 //If you insist on changing the order, you'll have to change every sort junction to reflect the new order. --Pete
 
-GLOBAL_LIST_INIT(TAGGERLOCATIONS, list("Disposals",
-	"Cargo Bay", "QM Office", "Engineering", "CE Office",
-	"Atmospherics", "Security", "HoS Office", "Medbay",
-	"CMO Office", "Chemistry", "Research", "RD Office",
-	"Robotics", "HoP Office", "Library", "Chapel", "Theatre",
-	"Bar", "Kitchen", "Hydroponics", "Janitor Closet","Genetics",
-	"Experimentor Lab", "Ordnance", "Dormitories", "Virology",
-	"Xenobiology", "Law Office","Detective's Office"))
+GLOBAL_LIST_INIT(TAGGERLOCATIONS, list("废弃物处理区",
+	"货舱", "军需官办公室", "工程部", "总工程师办公室",
+	"大气部", "安保部", "安保主管办公室", "医疗部",
+	"首席医疗官办公室", "化学室", "科研部", "科研主管办公室",
+	"机器人实验室", "人事主管办公室", "图书馆", "礼拜堂", "剧院",
+	"酒吧", "厨房", "水培室", "清洁间","遗传学实验室",
+	"实验机实验室", "军械部", "宿舍", "病毒学实验室",
+	"异种生物实验室", "律师办公室","侦探办公室"))

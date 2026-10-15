@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/gargoyle
-	name = "at our command it breathes"
-	desc = "Create a Gargoyle from vampire bodies. One body creates a normal Gargoyle, two bodies create a perfect Gargoyle."
+	name = "奉吾等之命而生"
+	desc = "用吸血鬼的躯体创造石像鬼。一具躯体可创造普通石像鬼，两具则可创造完美石像鬼。"
 	icon_state = "rune9"
 	word = "FORMA-GARGONEM"
 	level = 5
@@ -13,27 +13,27 @@
 	for(var/mob/living/carbon/human/H in loc)
 		if(get_kindred_splat(H))
 			if(H == usr)
-				to_chat(usr, span_warning("You may not turn yourself into a Gargoyle!"))
+				to_chat(usr, span_warning("你不能把自己变成石像鬼！"))
 				return
 			else if(H.is_clan(/datum/subsplat/vampire_clan/gargoyle))
-				to_chat(usr, span_warning("You may not use this ritual on a Gargoyle!"))
+				to_chat(usr, span_warning("你不能对石像鬼使用此仪式！"))
 				return
 			else if(IS_UNCONSCIOUS(H))
 				valid_bodies += H
 			else
 				H.adjust_agg_loss(50)
-				to_chat(usr, "Your specimen must be incapacitated! The ritual has merely hurt them!")
+				to_chat(usr, "实验对象必须失去行动能力！仪式只伤害了对方！")
 				return
 
 
 	if(valid_bodies.len < 1)
-		to_chat(usr, span_warning("The ritual requires at least one vampire body!"))
+		to_chat(usr, span_warning("仪式至少需要一具吸血鬼的躯体！"))
 		return
 
 	// Begin the ritual
 	var/body_count = valid_bodies.len
-	to_chat(usr, span_notice("You begin invoking the ritual of Gargoyle Creation with [body_count] vampire bod[body_count == 1 ? "y" : "ies"]..."))
-	usr.visible_message(span_notice("[usr] begins invoking a ritual with [body_count] vampire bod[body_count == 1 ? "y" : "ies"]..."))
+	to_chat(usr, span_notice("你开始用[body_count]具吸血鬼躯体施行创造石像鬼的仪式……"))
+	usr.visible_message(span_notice("[usr]开始用[body_count]具吸血鬼躯体施行仪式……"))
 
 	playsound(loc, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, FALSE)
 
@@ -52,15 +52,15 @@
 
 		var/transformation_message
 		if(perfect_gargoyle)
-			transformation_message = span_cult("The bodies begin to merge and petrify into a massive stone form!")
+			transformation_message = span_cult("这些躯体开始融合，石化成一个庞大的岩石身躯！")
 		else
-			transformation_message = span_cult("The body begins to petrify into a stone form!")
+			transformation_message = span_cult("躯体开始石化，变成岩石身躯！")
 		visible_message(transformation_message)
 
 		// Complete the transformation
 		addtimer(CALLBACK(src, PROC_REF(gargoyle_transform), valid_bodies, perfect_gargoyle), 1 SECONDS)
 	else
-		to_chat(usr, span_warning("Your ritual was interrupted!"))
+		to_chat(usr, span_warning("你的仪式被打断了！"))
 		// Unstun the bodies if interrupted
 		for(var/mob/living/carbon/human/H in valid_bodies)
 			H.Stun(5) // Brief stun to recover
@@ -72,7 +72,7 @@
 	if(perfect_gargoyle)
 		// Create perfect gargoyle (2+ bodies) -- you'd have to frag two different kindred players to create a perfect gargoyle.
 		var/mob/living/basic/gargoyle/perfect/G = new /mob/living/basic/gargoyle/perfect(loc)
-		G.visible_message(span_cult("A massive perfect Gargoyle rises from the ritual!"))
+		G.visible_message(span_cult("一个庞大的完美石像鬼从仪式中站起！"))
 
 		// Ensure perfect gargoyle is at full health
 		G.revive(TRUE)
@@ -91,9 +91,9 @@
 		G.AddComponent(\
 			/datum/component/ghost_direct_control,\
 			poll_candidates = TRUE,\
-			role_name = "a Perfect Gargoyle",\
+			role_name = "完美石像鬼",\
 			poll_length = 30 SECONDS,\
-			assumed_control_message = "You are a Perfect Gargoyle! A massive stone creation of Tremere magic.",\
+			assumed_control_message = "你是完美石像鬼！睿魔尔魔法造就的庞大岩石造物。",\
 			after_assumed_control = CALLBACK(src, PROC_REF(perfect_gargoyle_player_controlled), G)\
 		)
 		//poll_ignore_key = POLL_IGNORE_PERFECT_GARGOYLE,
@@ -142,16 +142,16 @@
 			target_body.AddComponent(\
 				/datum/component/ghost_direct_control,\
 				poll_candidates = TRUE,\
-				role_name = "a Sentient Gargoyle",\
+				role_name = "有智石像鬼",\
 				poll_length = 30 SECONDS,\
 
-				assumed_control_message = "You have been transformed into a Gargoyle!",\
+				assumed_control_message = "你已被转化为石像鬼！",\
 				after_assumed_control = CALLBACK(src, PROC_REF(sentient_gargoyle_name_prompt), target_body)\
 			)
 
 		//poll_ignore_key = POLL_IGNORE_SENTIENT_GARGOYLE,
 
-		target_body.visible_message(span_cult("A Gargoyle rises from the ritual!"))
+		target_body.visible_message(span_cult("一个石像鬼从仪式中站起！"))
 
 	qdel(src)
 
@@ -171,9 +171,9 @@
 /obj/ritual_rune/thaumaturgy/gargoyle/proc/sentient_gargoyle_name_prompt(mob/living/carbon/human/target_body)
 	message_admins("[key_name_admin(target_body)] has become a Sentient Gargoyle.")
 
-	var/choice = tgui_alert(target_body, "Do you want to pick a new name as a Gargoyle?", "Gargoyle Choose Name", list("Yes", "No"), 10 SECONDS)
-	if(choice == "Yes")
-		var/chosen_gargoyle_name = tgui_input_text(target_body, "What is your new name as a Gargoyle?", "Gargoyle Name Input")
+	var/choice = tgui_alert(target_body, "你想为石像鬼身份取一个新名字吗？", "选择石像鬼姓名", list("是", "否"), 10 SECONDS)
+	if(choice == "是")
+		var/chosen_gargoyle_name = tgui_input_text(target_body, "你的石像鬼新名字是什么？", "输入石像鬼姓名")
 		if(chosen_gargoyle_name)
 			target_body.real_name = chosen_gargoyle_name
 			target_body.name = chosen_gargoyle_name
@@ -181,8 +181,8 @@
 
 // Perfect Gargoyle definition
 /mob/living/basic/gargoyle/perfect
-	name = "Perfect Gargoyle"
-	desc = "A massive stone-skinned monstrosity with enhanced strength and durability."
+	name = "完美石像鬼"
+	desc = "一个拥有岩石皮肤的庞大怪物，力量与坚韧程度都得到了强化。"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "gargoyle_m"
 	icon_living = "gargoyle_m"
@@ -193,8 +193,8 @@
 	//harm_intent_damage = 8
 	melee_damage_lower = 35
 	melee_damage_upper = 60
-	attack_verb_continuous = "brutally crushes"
-	attack_verb_simple = "brutally crush"
+	attack_verb_continuous = "残暴地碾压"
+	attack_verb_simple = "残暴地碾压"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	bloodpool = 15
 	maxbloodpool = 15

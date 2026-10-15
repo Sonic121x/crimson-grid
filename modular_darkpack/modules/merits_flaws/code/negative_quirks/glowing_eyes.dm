@@ -1,14 +1,14 @@
 // VTM pg. 482
 /datum/quirk/darkpack/glowing_eyes
 	name = "Glowing Eyes"
-	desc = {"You have the stereotypical glowing eyes of vampire legend, giving you a -1 difficulty when intimidating mortals.
-		However, you MUST constantly disguise your condition, and the glow impairs your vision."}
+	desc = {"你有一双如吸血鬼传说中那般发光的眼睛，威吓凡人时难度降低 1。
+		但你必须时刻遮掩这一异常，而且眼中的光芒也会妨碍你的视力。"}
 	ttrpg_sources = list(/datum/source_book/vtm20 = 482)
 	icon = FA_ICON_EYE
 	value = -3
-	gain_text = span_notice("Your eyes glow with an unnatural light!")
-	lose_text = span_notice("The light in your eyes fades.")
-	failure_message = span_notice("The light in your eyes fades.")
+	gain_text = span_notice("你的双眼散发出不自然的光芒！")
+	lose_text = span_notice("你眼中的光芒消退了。")
+	failure_message = span_notice("你眼中的光芒消退了。")
 	mob_trait = TRAIT_GLOWING_EYES
 	allowed_splats = list(SPLAT_KINDRED)
 	excluded_clans = list(VAMPIRE_CLAN_KIASYD)// They already have masq violating eyes!
@@ -62,12 +62,12 @@ dark.*/
 
 /datum/quirk/darkpack/glowing_eyes/reflective // subtyped for organization
 	name = "Reflective Eyes"
-	desc = {"Your eyes reflect light in darkness. Whether you have a tapetum lucidum, exotic contact lenses, or some other condition, you'll frighten those you encounter in the dark.
-		This may even violate the laws your kind set to stay unknown if you are seen in the dark."}
+	desc = {"你的眼睛会在暗处反光。无论是因为眼底具有反光层、戴着奇特的隐形眼镜，还是其他原因，你都会吓到在黑暗中遇见的人。
+		如果在暗处被人看见，这甚至可能违反你的同类为隐匿身份而制定的律法。"}
 	value = -1
-	gain_text = span_notice("Your eyes reflect the light around you.")
-	lose_text = span_notice("The light in your eyes fades.")
-	failure_message = span_notice("Your eyes glint for a moment, then fade.")
+	gain_text = span_notice("你的双眼反射着周围的光线。")
+	lose_text = span_notice("你眼中的光芒消退了。")
+	failure_message = span_notice("你的双眼闪烁片刻，随即暗了下去。")
 	quirk_flags = QUIRK_PROCESSES
 	mob_trait = null
 	allowed_splats = null
@@ -122,8 +122,8 @@ dark.*/
 	linked_alert?.update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/alert/status_effect/glowing_eyes_warning
-	name = "Strange Eyes"
-	desc = "Your unnatural eyes are starting to catch the light. Find somewhere brighter or cover them before a someone notices."
+	name = "异常双眼"
+	desc = "你异于常人的双眼开始反光。在被人发现之前，赶快找个更亮的地方，或把眼睛遮起来。"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "template"
 
@@ -153,8 +153,8 @@ dark.*/
 	linked_alert?.update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/alert/status_effect/glowing_eyes_full
-	name = "Strange Eyes"
-	desc = "Your unnatural eyes are catching the light intensely now. Find somewhere brighter or cover them before a someone notices."
+	name = "异常双眼"
+	desc = "你异于常人的双眼正在强烈反光。在被人发现之前，赶快找个更亮的地方，或把眼睛遮起来。"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "template"
 

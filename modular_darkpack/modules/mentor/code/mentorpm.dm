@@ -11,7 +11,7 @@
 	if(chosen_client.prefs.muted & MUTE_ADMINHELP)
 		to_chat(src,
 			type = MESSAGE_TYPE_MODCHAT,
-			html = "<span class='danger'>Error: MentorPM: You are muted from Mentorhelps. (muted).</span>",
+			html = "<span class='danger'>导师私信错误：对方已被禁止使用导师求助，无法发送私信。</span>",
 			confidential = TRUE)
 		return
 	if(!chosen_client)
@@ -27,7 +27,7 @@
 
 	//Get message text, limit it's length.and clean/escape html
 	if(!msg)
-		msg = tgui_input_text(src, "Message:", "Private message", max_length = MAX_MESSAGE_LEN)
+		msg = tgui_input_text(src, "消息：", "私信", max_length = MAX_MESSAGE_LEN)
 
 		if(!msg)
 			return
@@ -70,13 +70,13 @@
 				confidential = TRUE)
 			to_chat(src,
 				type = MESSAGE_TYPE_MODCHAT,
-				html = "<font color='green'>Mentor PM to-<b>[key_name_mentor(chosen_client, chosen_client, TRUE, FALSE)]</b>: <span class='message linkify'>[msg]</span></font>",
+				html = "<font color='green'>发给导师<b>[key_name_mentor(chosen_client, chosen_client, TRUE, FALSE)]</b>的私信：<span class='message linkify'>[msg]</span></font>",
 				confidential = TRUE)
 
 	else
 		if(is_mentor())
 			//Receiver is a Non-Mentor - Left unsorted so people that Mentorhelp with Mod chat off will still get it, otherwise they'll complain.
-			to_chat(chosen_client, "<font color='purple'>Mentor PM from-<b>[key_name_mentor(src, chosen_client, TRUE, FALSE, FALSE)]</b>: [msg]</font>")
+			to_chat(chosen_client, "<font color='purple'>来自导师<b>[key_name_mentor(src, chosen_client, TRUE, FALSE, FALSE)]</b>的私信：[msg]</font>")
 			to_chat(src,
 				type = MESSAGE_TYPE_MODCHAT,
 				html = "<font color='green'>Mentor PM to-<b>[key_name_mentor(chosen_client, chosen_client, TRUE, FALSE)]</b>: <span class='message linkify'>[msg]</span></font>",

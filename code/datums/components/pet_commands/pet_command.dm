@@ -136,7 +136,7 @@
 	return isnull(living_pet) ? null : retrieve_command_text(living_pet, target)
 
 /datum/pet_command/proc/retrieve_command_text(atom/living_pet, atom/target)
-	return "signals [living_pet] to spring into action!"
+	return "示意[living_pet]立即行动！"
 
 /// Target the pointed atom for actions
 /datum/pet_command/proc/look_for_target(mob/living/friend, atom/potential_target)
@@ -204,7 +204,7 @@
 	if (hidden)
 		return
 	var/datum/radial_menu_choice/choice = new()
-	choice.name = command_name
+	choice.name = list("Stay" = "停留", "Loose" = "自由行动", "Follow" = "跟随", "Play Dead" = "装死", "Good Boy" = "夸奖", "Attack" = "攻击", "Breed" = "繁殖", "Use ability" = "使用能力", "Protect owner" = "保护主人", "Fish" = "钓鱼", "Move" = "移动", "Fetch" = "取回", "Befriend" = "交好", "Clean" = "清洁", "Automate mining" = "自动采矿", "Minebot ability" = "矿工机器人能力", "Toggle lights" = "切换灯光", "Dump ore" = "卸下矿石", "Swirl" = "盘旋", "Enter beehive" = "进入蜂箱", "Exit beehive" = "离开蜂箱", "Scatter" = "散开", "Launch solarbeam" = "发射日光束", "Rapid seeds" = "种子连射", "Flop" = "扑压", "Poison Bubble" = "毒泡", "Blood Rain" = "血雨", "Summon Toads" = "召唤蟾蜍", "Spit" = "吐出", "Draw Rune" = "绘制符文", "Lights" = "灯光", "Photo" = "拍照", "Trick Sequence" = "连环把戏", "Charge" = "冲锋", "Mine" = "采矿")[command_name] || command_name
 	choice.image = icon(icon = radial_icon, icon_state = radial_icon_state)
 	return list("[command_name]" = choice)
 
@@ -226,5 +226,5 @@
 	parent.ai_controller.cancel_current_plan()
 	if(!look_for_target(friend, potential_target) || !set_command_target(parent, potential_target))
 		return FALSE
-	parent.visible_message(span_warning("[parent] follows [friend]'s gesture towards [potential_target] [pointed_reaction]!"))
+	parent.visible_message(span_warning("[parent]顺着[friend]的手势看向[potential_target][list("and growls" = "，发出低吼", "and squeaks aggressively" = "，发出充满敌意的吱叫", "and cocks its gun" = "，给枪上膛", "and blorbles" = "，咕噜作响", "with great interest" = "，显得兴致勃勃", "stares intensely!" = "，目光灼灼")[pointed_reaction] || pointed_reaction]！"))
 	return TRUE

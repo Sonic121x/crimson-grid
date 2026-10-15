@@ -1,24 +1,24 @@
 /datum/antagonist/ert/darkpack/national_guard/leader
-	name = "National Guard Sergeant"
+	name = "国民警卫队中士"
 	outfit = /datum/outfit/job/vampire/ert/national_guard/sergeant
-	role = "National Guard Sergeant"
+	role = "国民警卫队中士"
 
 /datum/antagonist/ert/darkpack/national_guard/medic
-	name = "National Guard Medic"
+	name = "国民警卫队医护兵"
 	outfit = /datum/outfit/job/vampire/ert/national_guard/medic
-	role = "National Guard Medic"
+	role = "国民警卫队医护兵"
 
 /datum/antagonist/ert/darkpack/national_guard/rifleman
-	name = "National Guard Rifleman"
+	name = "国民警卫队步枪手"
 	outfit = /datum/outfit/job/vampire/ert/national_guard/rifleman
-	role = "National Guard Rifleman"
+	role = "国民警卫队步枪手"
 
 /datum/antagonist/ert/darkpack/national_guard/explosives
-	name = "National Guard Bomb Squad"
+	name = "国民警卫队排爆队员"
 	outfit = /datum/outfit/job/vampire/ert/national_guard/explosives
-	role = "National Guard Bomb Squad"
+	role = "国民警卫队排爆队员"
 
 /datum/antagonist/ert/darkpack/national_guard/marksman
-	name = "National Guard Marksman"
+	name = "国民警卫队精确射手"
 	outfit = /datum/outfit/job/vampire/ert/national_guard/marksman
-	role = "National Guard Marksman"
+	role = "国民警卫队精确射手"

@@ -4,7 +4,7 @@
 
 /datum/action/cooldown/blood_power
 	name = "Blood Power"
-	desc = "Use vitae to gain supernatural abilities."
+	desc = "运用血粹获得超自然力量。"
 	button_icon = 'modular_darkpack/modules/powers/icons/actions.dmi'
 	button_icon_state = "bloodpower"
 	background_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
@@ -20,25 +20,25 @@
 	/// How many "turns" its activated for. Multiplies the blood cost.
 	var/turns_activated = 2
 	var/list/obj/item/bodypart/strengthened_limbs
-
+/datum/action/cooldown/blood_power/get_display_name(action_name = name) { return "血能"; }
 /datum/action/cooldown/blood_power/IsAvailable(feedback)
 	. = ..()
 
 	if (HAS_TRAIT(owner, TRAIT_TORPOR))
 		if (feedback)
-			owner.balloon_alert(owner, "in Torpor!")
+			owner.balloon_alert(owner, "正处于长眠！")
 		return FALSE
 
 	if (!ishuman(owner))
 		if (feedback)
-			owner.balloon_alert(owner, "not human!")
+			owner.balloon_alert(owner, "并非人类形体！")
 		return FALSE
 
 	var/mob/living/carbon/human/human_owner = owner
 	if (human_owner.bloodpool < current_bp_cost(human_owner))
 		if (feedback)
 			SEND_SOUND(human_owner, sound('modular_darkpack/modules/deprecated/sounds/need_blood.ogg', volume = 75))
-			owner.balloon_alert(owner, "not enough BLOOD!")
+			owner.balloon_alert(owner, "血液不足！")
 		return FALSE
 
 /datum/action/cooldown/blood_power/Activate(mob/living/target)
@@ -51,7 +51,7 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	playsound(usr, 'modular_darkpack/modules/vampire_the_masquerade/sounds/bloodhealing.ogg', 50, FALSE)
-	to_chat(human_owner, span_notice("You use blood to become more powerful."))
+	to_chat(human_owner, span_notice("你借助鲜血变得更加强大。"))
 
 	// DARKPACK TODO - This can be represented by having stam do anything
 	human_owner.add_inner_armor(/datum/armor/blood_power)
@@ -78,7 +78,7 @@
 		return
 
 	var/mob/living/carbon/human/human_owner = owner
-	to_chat(human_owner, span_warning("You feel like your <b>BLOOD</b> power slowly decreases."))
+	to_chat(human_owner, span_warning("你感到<b>鲜血</b>赋予的力量正缓缓消退。"))
 
 	human_owner.remove_inner_armor(/datum/armor/blood_power)
 
@@ -89,7 +89,7 @@
 	human_owner.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 
 /datum/action/cooldown/blood_power/proc/set_usage()
-	var/turns = tgui_input_number(owner, "Set turns ([1 TURNS / 10] seconds per turn) to use blood for.", "Set Bloodpower Turns", turns_activated, TURNS_PER_SCENE, 1)
+	var/turns = tgui_input_number(owner, "设置消耗鲜血维持强化的轮数（每轮[1 TURNS / 10]秒）。", "设置血能持续轮数", turns_activated, TURNS_PER_SCENE, 1)
 	if(turns)
 		turns_activated = turns
 	var/datum/splat/vampire/kindred/kindred_splat = get_kindred_splat(owner)
@@ -100,7 +100,7 @@
 	if(max_buff_amount <= 1) // No reason to prompt them if they only have one option
 		return
 	stat_buff_amount = clamp(stat_buff_amount, 0, max_buff_amount)
-	var/stat_buff_input = tgui_input_number(owner, "Set amount of dice to add for usage. (Max based on your generation)", "Set Buff Bonus", stat_buff_amount, max_buff_amount, 1)
+	var/stat_buff_input = tgui_input_number(owner, "设置使用时增加的骰子数量。（上限由你的世代决定）", "设置强化加成", stat_buff_amount, max_buff_amount, 1)
 	if(stat_buff_input)
 		stat_buff_amount = stat_buff_input
 

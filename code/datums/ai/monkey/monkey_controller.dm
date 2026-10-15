@@ -39,7 +39,7 @@ have ways of interacting with a specific mob and control it.
 
 /datum/ai_controller/monkey/New(atom/new_pawn)
 	var/static/list/control_examine = list(
-		ORGAN_SLOT_EYES = span_monkey("%PRONOUN_They stare%PRONOUN_s around with wild, primal eyes."),
+		ORGAN_SLOT_EYES = span_monkey("正用充满原始野性的双眼四下张望。"),
 	)
 	AddElement(/datum/element/ai_control_examine, control_examine)
 	return ..()

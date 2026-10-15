@@ -32,11 +32,11 @@
 
 //Will display a message if it has been sold successfully
 /datum/component/selling/proc/sale_success_message()
-	return span_notice("You've sold [parent]!")
+	return span_notice("你卖出了[parent]！")
 
 //Will display a message if it hasn't been sold successfully (such as failing can_sell())
 /datum/component/selling/proc/sale_fail_message()
-	return span_notice("You cannot sell [parent].")
+	return span_notice("你无法出售[parent]。")
 
 /datum/component/selling/organ/Initialize(new_cost, new_object_category, new_illegal, new_humanity_loss, new_humanity_loss_limit, new_masquerade_sensitivity = FALSE)
 	if(!istype(parent, /obj/item/organ))
@@ -60,11 +60,11 @@
 	// If we found a seller and they're on Enlightenment path, no warning
 	if(seller && get_kindred_splat(seller))
 		if(seller.is_enlightenment())
-			return span_notice("You've sold [parent]!")
+			return span_notice("你卖出了[parent]！")
 
 	// Default warning for Humanity path or non-vampires
-	return span_userdanger("Selling organs is a depraved act! If I keep doing this I will become a wight.")
+	return span_userdanger("贩卖器官是堕落的行为！再这样下去，我会变成失心兽。")
 
 /datum/component/selling/organ/sale_fail_message()
 	var/obj/item/organ/organ = parent
-	return span_warning("The [organ.name] is too damaged to sell!")
+	return span_warning("[organ.name]损坏得太严重，无法出售！")

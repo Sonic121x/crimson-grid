@@ -35,14 +35,14 @@
 	var/self_msg
 
 	if(dismembered_part.body_zone == BODY_ZONE_CHEST)
-		occur_text = "is split open, causing [victim.p_their()] internal organs to spill out!"
-		self_msg = "is split open, causing your internal organs to spill out!"
+		occur_text = "被劈开，内脏洒了出来！"
+		self_msg = "被劈开，内脏洒了出来！"
 	else
 		occur_text = dismembered_part.get_dismember_message(wounding_type, outright)
 
-	var/msg = span_bolddanger("[victim]'s [dismembered_part.plaintext_zone] [occur_text]")
+	var/msg = span_bolddanger("[victim]的[dismembered_part.plaintext_zone][occur_text]")
 
-	victim.visible_message(msg, span_userdanger("Your [dismembered_part.plaintext_zone] [self_msg ? self_msg : occur_text]"))
+	victim.visible_message(msg, span_userdanger("你的[dismembered_part.plaintext_zone][self_msg ? self_msg : occur_text]"))
 
 	loss_wounding_type = wounding_type
 
@@ -61,25 +61,25 @@
 	if(outright)
 		switch(wounding_type)
 			if(WOUND_BLUNT)
-				occur_text = "is outright smashed to a gross pulp, severing it completely!"
+				occur_text = "直接被砸成恶心的肉泥，彻底断离了！"
 			if(WOUND_SLASH)
-				occur_text = "is outright slashed off, severing it completely!"
+				occur_text = "直接被砍了下来，彻底断离了！"
 			if(WOUND_PIERCE)
-				occur_text = "is outright blasted apart, severing it completely!"
+				occur_text = "直接被轰碎，彻底断离了！"
 			if(WOUND_BURN)
-				occur_text = "is outright incinerated, falling to dust!"
+				occur_text = "直接被焚毁，化为了灰烬！"
 	else
 		var/bone_text = get_internal_description()
 		var/tissue_text = get_external_description()
 
 		switch(wounding_type)
 			if(WOUND_BLUNT)
-				occur_text = "is shattered through the last [bone_text] holding it together, severing it completely!"
+				occur_text = "仅剩的相连[bone_text]被击碎，彻底断离了！"
 			if(WOUND_SLASH)
-				occur_text = "is slashed through the last [tissue_text] holding it together, severing it completely!"
+				occur_text = "仅剩的相连[tissue_text]被切断，彻底断离了！"
 			if(WOUND_PIERCE)
-				occur_text = "is pierced through the last [tissue_text] holding it together, severing it completely!"
+				occur_text = "仅剩的相连[tissue_text]被穿透，彻底断离了！"
 			if(WOUND_BURN)
-				occur_text = "is completely incinerated, falling to dust!"
+				occur_text = "被完全焚毁，化为了灰烬！"
 
 	return occur_text

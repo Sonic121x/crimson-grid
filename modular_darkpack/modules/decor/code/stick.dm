@@ -1,13 +1,13 @@
 /datum/storyteller_roll/avoid_stick
-	bumper_text = "avoid stick"
+	bumper_text = "避开树枝"
 	applicable_stats = list(STAT_PERCEPTION, STAT_STEALTH)
 	roll_output_type = ROLL_FLAG_ROLLER
 	roll_output_type_on_fail = ROLL_PUBLIC
 	spammy_roll = TRUE
 
 /obj/effect/mine/stick
-	name = "stick"
-	desc = "Sticky."
+	name = "树枝"
+	desc = "一看就是根树枝。"
 	icon = 'modular_darkpack/modules/decor/icons/stick.dmi'
 	icon_state = "stick1"
 	base_icon_state = "stick"
@@ -67,13 +67,13 @@
 	if(prob(33))
 		triggered = TRUE
 	for(var/mob/guy in hearers(7, src))
-		to_chat(guy, span_danger("*snap*"))
+		to_chat(guy, span_danger("*咔嚓*"))
 		playsound(src, pick(soundlist), 75, TRUE, 4, frequency = rand(0.8, 1.2))
 		icon_state = "[base_icon_state][stick_type]-snapped"
 
 /obj/effect/mine/stick/attack_hand(mob/living/user)
 	. = ..()
-	to_chat(user, span_notice("You discard [src]."))
+	to_chat(user, span_notice("你丢掉了[src]。"))
 	qdel(src)
 
 /obj/effect/mine/stick/fire_act()

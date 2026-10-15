@@ -5,7 +5,7 @@
 
 /datum/subsplat/werewolf/auspice/garou/ahroun
 	name = AUSPICE_AHROUN
-	desc = "The Ahroun is the archetype of the werewolf as murderous beast, though they range from unapologetic berserkers to hardened veterans tempering their Rage with discipline. Their high levels of Rage put them on the edge at all times - the Full Moon's blessing is a hair trigger, among other things. Those closer to the waxing moon tend to exult in the glory of the war, while those closer to the waning moon are more viciously pragmatic, ruthless in their bloodthirst. Every Ahroun is a dangerous individual to be around, but when the forces of the Wyrm attack, their packmates are glad to have a Full Moon warrior at the front of the charge."
+	desc = "满月战士体现了狼人作为杀戮猛兽的典型形象，其中既有毫不悔恨的狂战士，也有以纪律驾驭怒火的百战老兵。旺盛的怒火使他们时刻处于爆发边缘，满月的祝福也意味着一触即发的脾气。出生时接近盈月者往往沉醉于战争的荣耀，接近亏月者则更加凶狠务实，嗜血而无情。与任何满月战士相处都很危险，但当妖蛆势力来袭时，同伴们总会庆幸冲锋在前的是一位满月战士。"
 	start_rage = 5
 	gifts_provided= list(
 		/datum/action/cooldown/power/gift/falling_touch,
@@ -33,7 +33,7 @@
 
 /datum/subsplat/werewolf/auspice/garou/galliard
 	name = AUSPICE_GALLIARD
-	desc = "Where the Philodox is stoic, the Galliard is a creature of unbridled passion. The Gibbous Moon is a fiery muse, and stirs its children into great heights and depths of emotion. While all Galliards are prone to immense mirth and immense melancholy, those born under a waning moon fall more readily into dark, consuming passions; they are the tragedians of the Garou, mastering tales of doom, ruin, sacrifice and loss. Conversely, their waxing-moon cousins sing of triumph and conquest, of the pounding heart and the love of life. They tend to be the soul of their pack's morale - when the Galliard is willing to go on, so too are all the others."
+	desc = "半月仲裁者克制隐忍，盈月诗人却满怀奔放的激情。凸月如炽烈的缪斯，激起其子女情感上的大起大落。所有盈月诗人都容易大喜大悲，而亏月下出生者更易陷入黑暗、吞噬心灵的激情。他们是狼人的悲剧诗人，擅长讲述厄运、毁灭、牺牲与失落。盈月下出生者则歌颂胜利与征服、激荡的心跳和对生命的热爱。他们通常是维系狼群士气的灵魂：只要盈月诗人愿意继续前行，其他成员便也会跟上。"
 	start_rage = 4
 	gifts_provided = list(
 		/datum/action/cooldown/power/gift/beast_speech,
@@ -61,7 +61,7 @@
 
 /datum/subsplat/werewolf/auspice/garou/philodox
 	name = AUSPICE_PHILODOX
-	desc = "Buried so heavily in his role as impartial judge and jury, the Philodox may seem aloof, even surprisingly cold-blooded for a werewolf. Those born under the waxing Half Moon may seem unusually serene and disaffected, their emotions only emerging when their Rage comes to a boil. The waning-moon Philodox is more incisive and judgmental, his all-seeing eye always carefully watching his packmates and colleagues for any departure from the expected. The Half Moons' opinions are somewhat feared, yet highly respected - a word of praise or condemnation means much coming from those born to see both sides of every struggle."
+	desc = "半月仲裁者全心投入公正审判与裁决的职责，因而显得疏离，甚至冷酷得不像狼人。上弦月下出生者往往异常平静、淡漠，唯有怒火沸腾时才流露情绪。下弦月下出生者则更为敏锐、严苛，时刻细察狼群同伴与同僚是否偏离应有的行止。半月仲裁者的意见令人敬畏，也备受尊重：这些天生能够看清冲突双方的人，所给予的一句赞许或谴责都分量十足。"
 	start_rage = 3
 	gifts_provided= list(
 		/datum/action/cooldown/power/gift/resist_pain,
@@ -90,7 +90,7 @@
 
 /datum/subsplat/werewolf/auspice/garou/theurge
 	name = AUSPICE_THEURGE
-	desc = "The Crescent Moons can be strange and enigmatic, prone to falling into the convoluted symbolic logic of the spirits they truck with rather than the more familiar logic of humanity. Those Theurges born under the waning moon frequently have a harsher, more adversarial relationship with the spirit world - they tend to excel at binding and forcing spirits to their will, and are more vicious when battling spirits. Theurges born under the waxing moon tend to be more generous and open with the spirits, charming and cajoling rather than intimidating and threatening."
+	desc = "弦月祭司可能古怪而神秘，常常沉浸于所交往灵体那曲折的象征逻辑，而非人类熟悉的思维方式。亏月下出生的祭司与灵界关系往往更为严酷、对立：他们擅长束缚灵体、迫使其服从自身意志，与灵体交战时也更为凶狠。盈月下出生的祭司则更为宽厚坦诚，倾向于以魅力与劝诱打动灵体，而非恐吓与威胁。"
 	subsplat_traits = list(TRAIT_OPENS_MOONGATES)
 	start_rage = 2
 	gifts_provided = list(
@@ -120,7 +120,7 @@
 
 /datum/subsplat/werewolf/auspice/garou/ragabash
 	name = AUSPICE_RAGABASH
-	desc = "The Ragabash born under the waxing new moon is usually light-hearted and capricious, while one born under the waning new moon has a slightly more wicked and ruthless streak. It's a rare Ragabash indeed that lacks a keen wit and the capacity to find some humor in any situation, no matter how bleak. Many other werewolves are slow to take the Ragabash seriously, though, as it's difficult to tell the difference between a New Moon's mockery that points out a grievous flaw in a plan and similar mockery that simply amuses him. Sometimes a Ragabash points out that the emperor has no clothes - but sometimes they're the first to cry wolf, so to speak."
+	desc = "新月将盈时出生的诡术者通常轻松愉快、变幻无常，新月将亏时出生者则多几分邪气与无情。几乎每位新月诡术者都机敏过人，无论境况多么黯淡，总能从中找到笑料。然而，其他狼人往往难以认真对待他们，因为很难分清一番嘲弄究竟是在指出计划中的致命缺陷，还是仅仅为了取乐。有时，他们道破皇帝没穿衣服的真相；有时，他们却又是最先谎喊“狼来了”的人。"
 	start_rage = 1
 	gifts_provided= list(
 		/datum/action/cooldown/power/gift/blur_of_the_milky_eye,
@@ -147,5 +147,5 @@
 /datum/subsplat/werewolf/auspice/garou/stolen_moon
 	name = AUSPICE_NONE
 	// DARKPACK TODO - WEREWOLF - (len lore)
-	desc = "Your not a dog are you."
+	desc = "你又不是狗，对吧？"
 	// Stolen moon get no gifts

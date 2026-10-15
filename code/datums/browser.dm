@@ -120,7 +120,7 @@
 /datum/browser/proc/open(use_on_close = TRUE)
 	if(isnull(window_id)) //null check because this can potentially nuke goonchat
 		WARNING("Browser [title] tried to open with a null ID")
-		to_chat(user, span_userdanger("The [title] browser you tried to open failed a sanity check! Please report this on GitHub!"))
+		to_chat(user, span_userdanger("你尝试打开的[title]浏览器窗口未通过有效性检查！请在 GitHub 上报告此问题！"))
 		return
 
 	var/window_size = ""
@@ -166,7 +166,7 @@
 	var/list/display_list = list()
 	display_list += {"<center><b>[message]</b></center><br />
 		<div style="text-align:center">
-		<a style="font-size:large;float:[( button_2 ? "left" : "right" )]" href='byond://?src=[REF(src)];button=1'>[button_1]</a>"}
+		<a style="font-size:large;float:[( button_2 ? "left" : "right" )]" href='byond://?src=[REF(src)];button=1'>[button_1 == "Ok" ? "确定" : button_1]</a>"}
 
 	if (button_2)
 		display_list += {"<a style="font-size:large;[( button_3 ? "" : "float:right" )]" href='byond://?src=[REF(src)];button=2'>[button_2]</a>"}
@@ -295,7 +295,7 @@
 			display_list += {"<li><input id="name="[option["name"]]"" style="width: 50px" type="[type]" name="[option["name"]]" value="[option["value"]]">
 			<label for="[option["name"]]">[option["name"]]</label></li>"}
 	display_list += {"</ul><div style="text-align:center">
-		<button type="submit" name="button" value="1" style="font-size:large;float:[( button_2 ? "left" : "right" )]">[button_1]</button>"}
+		<button type="submit" name="button" value="1" style="font-size:large;float:[( button_2 ? "left" : "right" )]">[button_1 == "Ok" ? "确定" : button_1]</button>"}
 
 	if (button_2)
 		display_list += {"<button type="submit" name="button" value="2" style="font-size:large;[( button_3 ? "" : "float:right" )]">[button_2]</button>"}

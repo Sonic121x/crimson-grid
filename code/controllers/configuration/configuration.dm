@@ -490,7 +490,7 @@ Example config:
 		if (findtextEx(line, "#", 1, 2))
 			continue
 		// The older filter didn't apply to PDA
-		ic_outside_pda_filter_reasons[line] = "No reason available"
+		ic_outside_pda_filter_reasons[line] = "未提供原因"
 
 	update_chat_filter_regexes()
 

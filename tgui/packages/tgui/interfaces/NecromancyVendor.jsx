@@ -11,9 +11,9 @@ export const NecromancyVendor = (props) => {
 
   const getGreeting = () => {
     if (data.user?.has_necromancy){
-      return "Welcome, master of death and shadow...";
+      return "欢迎，死亡与暗影的主人……";
     } else {
-      return "The dead whisper of your arrival, mortal...";
+      return "亡者正低语着你的到来，凡人……";
     }
   };
 
@@ -21,7 +21,7 @@ export const NecromancyVendor = (props) => {
     <Window width={465} height={500} resizable theme="blood_cult">
       <Window.Content scrollable>
         <Section
-          title="Soul Harvester"
+          title="灵魂收割者"
           style={{
             'background-color': '#0d0d0d',
             'border-color': '#333333',
@@ -32,15 +32,15 @@ export const NecromancyVendor = (props) => {
             <Box style={{ 'color': '#cccccc' }}>
               {getGreeting()}
               <br />
-              You have harvested <b style={{ 'color': '#9966cc' }}>
-                {data.user.souls} souls
-              </b> from the living.
+              你已从生者身上收割了<b style={{ 'color': '#9966cc' }}>
+                {data.user.souls}个灵魂
+              </b>。
             </Box>
           )}
         </Section>
 
         <Section
-          title="The Bone Codex"
+          title="白骨秘典"
           style={{
             'background-color': '#0d0d0d',
             'border-color': '#333333',
@@ -97,7 +97,7 @@ export const NecromancyVendor = (props) => {
                         }
                       }}
                       disabled={!canAfford}
-                      content={`${product.price} souls`}
+                      content={`${product.price}个灵魂`}
                       onClick={() =>
                         act('purchase', {
                           ref: product.ref,
@@ -117,7 +117,7 @@ export const NecromancyVendor = (props) => {
               'padding': '20px',
               'font-style': 'italic'
             }}>
-              The codex lies empty... awaiting dark knowledge to fill its pages.
+              秘典空无一字……正等待黑暗知识填满书页。
             </Box>
           )}
         </Section>

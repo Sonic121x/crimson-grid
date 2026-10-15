@@ -26,27 +26,27 @@
 	var/list/dirs
 	switch(dirtype)
 		if(PIPE_STRAIGHT, PIPE_BENDABLE)
-			dirs = list("[NORTH]" = "Vertical", "[EAST]" = "Horizontal")
+			dirs = list("[NORTH]" = "纵向", "[EAST]" = "横向")
 			if(dirtype == PIPE_BENDABLE)
-				dirs += list("[NORTHWEST]" = "West to North", "[NORTHEAST]" = "North to East",
-							"[SOUTHWEST]" = "South to West", "[SOUTHEAST]" = "East to South")
+				dirs += list("[NORTHWEST]" = "西接北", "[NORTHEAST]" = "北接东",
+							"[SOUTHWEST]" = "南接西", "[SOUTHEAST]" = "东接南")
 		if(PIPE_TRINARY)
-			dirs = list("[NORTH]" = "West South East", "[SOUTH]" = "East North West",
-						"[EAST]" = "North West South", "[WEST]" = "South East North")
+			dirs = list("[NORTH]" = "西、南、东", "[SOUTH]" = "东、北、西",
+						"[EAST]" = "北、西、南", "[WEST]" = "南、东、北")
 		if(PIPE_TRIN_M)
-			dirs = list("[NORTH]" = "North East South", "[SOUTHWEST]" = "North West South",
-						"[NORTHEAST]" = "South East North", "[SOUTH]" = "South West North",
-						"[WEST]" = "West North East", "[SOUTHEAST]" = "West South East",
-						"[NORTHWEST]" = "East North West", "[EAST]" = "East South West",)
+			dirs = list("[NORTH]" = "北、东、南", "[SOUTHWEST]" = "北、西、南",
+						"[NORTHEAST]" = "南、东、北", "[SOUTH]" = "南、西、北",
+						"[WEST]" = "西、北、东", "[SOUTHEAST]" = "西、南、东",
+						"[NORTHWEST]" = "东、北、西", "[EAST]" = "东、南、西",)
 		if(PIPE_UNARY)
-			dirs = list("[NORTH]" = "North", "[SOUTH]" = "South", "[WEST]" = "West", "[EAST]" = "East")
+			dirs = list("[NORTH]" = "北", "[SOUTH]" = "南", "[WEST]" = "西", "[EAST]" = "东")
 		if(PIPE_ONEDIR)
 			dirs = list("[SOUTH]" = name)
 		if(PIPE_UNARY_FLIPPABLE)
-			dirs = list("[NORTH]" = "North", "[EAST]" = "East", "[SOUTH]" = "South", "[WEST]" = "West",
-						"[NORTHEAST]" = "North Flipped", "[SOUTHEAST]" = "East Flipped", "[SOUTHWEST]" = "South Flipped", "[NORTHWEST]" = "West Flipped")
+			dirs = list("[NORTH]" = "北", "[EAST]" = "东", "[SOUTH]" = "南", "[WEST]" = "西",
+						"[NORTHEAST]" = "北（翻转）", "[SOUTHEAST]" = "东（翻转）", "[SOUTHWEST]" = "南（翻转）", "[NORTHWEST]" = "西（翻转）")
 		if(PIPE_ONEDIR_FLIPPABLE)
-			dirs = list("[SOUTH]" = name, "[SOUTHEAST]" = "[name] Flipped")
+			dirs = list("[SOUTH]" = name, "[SOUTHEAST]" = "[name]（翻转）")
 
 	var/list/rows = list()
 	for(var/dir in dirs)
@@ -92,87 +92,87 @@
 		dirtype = id_atmos::construction_type::RPD_type
 
 /datum/pipe_info/pipe/bridge_pipe
-	name = "Bridge Pipe"
-	desc = "Can be used to cross pipelines of the same layer and color without accidentally joining them together.<br>\
-		Redundant for pipelines on different layers or of different colors."
+	name = "跨接管"
+	desc = "可使同层同色的管路交叉通过，避免意外相连。<br>\
+		不同层或不同颜色的管路无需使用。"
 	id = /obj/machinery/atmospherics/pipe/bridge_pipe
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/multiz_connector
-	name = "Multi-Deck Adapter"
-	desc = "Directly connects pipelines vertically across station levels."
+	name = "跨层接头"
+	desc = "沿垂直方向直接连接空间站不同楼层的管路。"
 	id = /obj/machinery/atmospherics/pipe/multiz
 	all_layers = FALSE
 
 /datum/pipe_info/pipe/manual_valve
-	name = "Manual Valve"
-	desc = "Blocks the flow of gas through the pipeline.<br>Cannot be operated by silicons. Does not require power."
+	name = "手动阀"
+	desc = "阻断管路中的气流。<br>硅基生命无法操作。无需电力。"
 	id = /obj/machinery/atmospherics/components/binary/valve
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/digital_valve
-	name = "Digital Valve"
-	desc = "Blocks the flow of gas through the pipeline.<br>Can be operated by silicons. Does not require power, despite being digital."
+	name = "数字阀"
+	desc = "阻断管路中的气流。<br>硅基生命可以操作。虽采用数字控制，但无需电力。"
 	id = /obj/machinery/atmospherics/components/binary/valve/digital
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/gas_pump
-	name = "Pressure Pump"
-	desc = "Moves gas from one pipeline to another.<br>Transfers a variable amount of gas until the output network reaches the configured pressure."
+	name = "气压泵"
+	desc = "将气体从一条管路输送至另一条。<br>按需输送气体，直到输出端管网达到设定气压。"
 	id = /obj/machinery/atmospherics/components/binary/pump
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/volume_pump
-	name = "Volume Pump"
-	desc = "Moves gas from one pipeline to another.<br>Transfers a fixed volume of gas based on the configured volume.<br>\
-		Can be overclocked to increase volume moved, though potentially causing leaks."
+	name = "容积泵"
+	desc = "将气体从一条管路输送至另一条。<br>按照设定容积输送固定体积的气体。<br>\
+		可通过超频增加输送量，但可能导致泄漏。"
 	id = /obj/machinery/atmospherics/components/binary/volume_pump
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/passive_gate
-	name = "Passive Gate"
-	desc = "Blocks the flow of gas through the pipeline while the output pipeline has higher pressure \
-		than either the configured pressure or the input pipeline's pressure.<br>Does not allow backwards flow, and does not require power."
+	name = "被动阀"
+	desc = "当输出端管路气压高于设定气压或输入端管路气压时，\
+		阻断管路中的气流。<br>不允许气体倒流，无需电力。"
 	id = /obj/machinery/atmospherics/components/binary/passive_gate
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/pressure_valve
-	name = "Pressure Gate"
-	desc = "Blocks the flow of gas through the pipeline while the input pipeline's pressure \
-		is below the configured pressure.<br>Does not allow backwards flow, and does not require power."
+	name = "压力阀"
+	desc = "当输入端管路气压\
+		低于设定气压时，阻断管路中的气流。<br>不允许气体倒流，无需电力。"
 	id = /obj/machinery/atmospherics/components/binary/pressure_valve
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/temperature_gate
-	name = "Temperature Gate"
-	desc = "Blocks the flow of gas through the pipeline while the input pipeline's temperature is below the configured temperature.<br>\
-		Does not allow backwards flow, and can be multitooled to instead check for exceeding the configured temperature."
+	name = "温控阀"
+	desc = "当输入端管路温度低于设定温度时，阻断管路中的气流。<br>\
+		不允许气体倒流。可用多功能工具改为在温度高于设定值时阻断气流。"
 	id = /obj/machinery/atmospherics/components/binary/temperature_gate
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/temperature_pump
-	name = "Temperature Pump"
-	desc = "Moves heat from one pipeline to another, cooling the input pipeline and heating the output pipeline. No gas is transferred."
+	name = "热泵"
+	desc = "将热量从一条管路传递至另一条，使输入端管路降温、输出端管路升温。不输送气体。"
 	id = /obj/machinery/atmospherics/components/binary/temperature_pump
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/vent
-	name = "Pump Vent"
-	desc = "A vent with an inbuilt pressure pump.<br>Forces gas from the connected pipeline into the exterior atmosphere, \
-		or pulls gas from the exterior atmosphere into the connected pipeline, depending on air alarm configuration.<br>\
-		Can be overclocked."
+	name = "泵式通风口"
+	desc = "内置气压泵的通风口。<br>根据空气警报器的设置，将相连管路中的气体泵入外界，\
+		或将外界气体吸入相连管路。<br>\
+		可超频运行。"
 	id = /obj/machinery/atmospherics/components/unary/vent_pump
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/passive_vent
-	name = "Passive Vent"
-	desc = "Combines exterior atmosphere with the connected pipeline.<br>Does not require power."
+	name = "被动通风口"
+	desc = "使外界空气与相连管路中的气体连通。<br>无需电力。"
 	id = /obj/machinery/atmospherics/components/unary/passive_vent
 	all_layers = TRUE
 
 /datum/pipe_info/pipe/heat_exchanger
-	name = "Heat Exchanger"
-	desc = "When directly facing another heat exchanger, balances the temperature of the gases within each connected pipeline."
+	name = "热交换器"
+	desc = "与另一台热交换器正面相对时，使双方相连管路中的气体温度趋于一致。"
 	id = /obj/machinery/atmospherics/components/unary/heat_exchanger
 	all_layers = FALSE
 

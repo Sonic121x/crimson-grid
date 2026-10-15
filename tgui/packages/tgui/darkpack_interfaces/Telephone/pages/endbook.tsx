@@ -189,27 +189,27 @@ export const browser_endbook = () => `
 
 <div class="endbook-container">
 	<div class="endbook-left">
-		<div class="endbook-logo">endbook</div>
-		<div class="endbook-tagline">Connect with friends and the world around you on EndBook.</div>
+		<div class="endbook-logo">安德社交</div>
+		<div class="endbook-tagline">通过安德社交，与朋友和身边的世界保持联系。</div>
 	</div>
 
 	<div class="endbook-right">
 		<form class="login-form">
-			<input type="text" class="login-input" placeholder="Email or phone number" />
-			<input type="password" class="login-input" placeholder="Password" />
-			<button type="button" class="login-button">Log In</button>
+			<input type="text" class="login-input" placeholder="电子邮箱或手机号" />
+			<input type="password" class="login-input" placeholder="密码" />
+			<button type="button" class="login-button">登录</button>
 		</form>
 
 		<div class="forgot-password">
-			<a href="#">Forgot password?</a>
+			<a href="#">忘记密码？</a>
 		</div>
 
 		<div class="divider"></div>
 
 		<div class="create-account">
-			<button type="button" class="create-button">Create new account</button>
+			<button type="button" class="create-button">创建新账户</button>
 		</div>
 	</div>
-    <p style="text-align: left; margin-bottom: 15px; margin-top: 20px; color: #606770;"> © EndBook, a Pentex subsidiary</p>
+    <p style="text-align: left; margin-bottom: 15px; margin-top: 20px; color: #606770;"> © 安德社交，潘特克斯旗下企业</p>
 </div>
 `;

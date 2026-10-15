@@ -3,12 +3,12 @@
 
 /datum/discipline/obfuscate
 	name = "Obfuscate"
-	desc = {"Makes you less noticable for living and un-living beings.
-● Cloak of Shadows: Passive
-●● Unseen Presence: Passive
-●●● Mask of a Thousand Faces: Manipulation + Performance (difficulty 7)
-●●●● Vanish from the Mind's Eye: Charisma + Stealth (difficulty 6)
-●●●●● Cloak the Gathering: Passive"}
+	desc = {"让生者与不死生物更难注意到你。
+● 阴影斗篷：被动
+●● 无形之身：被动
+●●● 千面假面：操控 + 表演（难度 7）
+●●●● 心眼隐没：魅力 + 潜行（难度 6）
+●●●●● 群体遮蔽：被动"}
 	icon_state = "obfuscate"
 	power_type = /datum/discipline_power/obfuscate
 
@@ -35,7 +35,7 @@
 	if(istype(activated_power, /datum/discipline_power/obfuscate))
 		return
 
-	to_chat(owner, span_danger("Your Obfuscation falls away as you focus your blood on another discipline!"))
+	to_chat(owner, span_danger("你将血液力量转向另一种律能，朦胧术的遮蔽随之消散！"))
 	try_deactivate(direct = TRUE)
 
 	deltimer(cooldown_timer)
@@ -48,7 +48,7 @@
 	if(speech_args[SPEECH_MODS][WHISPER_MODE] == MODE_WHISPER)
 		return
 
-	to_chat(owner, span_danger("Your Obfuscation falls away as you reveal yourself!"))
+	to_chat(owner, span_danger("你暴露了自身，朦胧术的遮蔽随之消散！"))
 	try_deactivate(direct = TRUE)
 
 	deltimer(cooldown_timer)
@@ -57,7 +57,7 @@
 /datum/discipline_power/obfuscate/proc/on_combat_signal(datum/source)
 	SIGNAL_HANDLER
 
-	to_chat(owner, span_danger("Your Obfuscation falls away as you reveal yourself!"))
+	to_chat(owner, span_danger("你暴露了自身，朦胧术的遮蔽随之消散！"))
 	try_deactivate(direct = TRUE)
 
 	deltimer(cooldown_timer)
@@ -73,15 +73,15 @@
 		if (viewer.is_blind() || IS_UNCONSCIOUS(viewer))
 			continue
 
-		to_chat(owner, span_warning("You cannot use [src] while you're being observed!"))
+		to_chat(owner, span_warning("有人观察你时，你无法使用[src]！"))
 		return FALSE
 
 	return TRUE
 
 //CLOAK OF SHADOWS
 /datum/discipline_power/obfuscate/cloak_of_shadows
-	name = "Cloak of Shadows"
-	desc = "Meld into the shadows and stay unnoticed so long as you draw no attention."
+	name = "阴影斗篷"
+	desc = "融入阴影，只要不引人注意，就不会被发现。"
 
 	level = 1
 	check_flags = DISC_CHECK_CAPABLE
@@ -123,7 +123,7 @@
 /datum/discipline_power/obfuscate/cloak_of_shadows/proc/handle_move(datum/source, atom/moving_thing, dir)
 	SIGNAL_HANDLER
 
-	to_chat(owner, span_danger("Your [src] falls away as you move from your position!"))
+	to_chat(owner, span_danger("你离开了原位，[src]的效果随之消散！"))
 	try_deactivate(direct = TRUE)
 
 	deltimer(cooldown_timer)
@@ -131,8 +131,8 @@
 
 //UNSEEN PRESENCE
 /datum/discipline_power/obfuscate/unseen_presence
-	name = "Unseen Presence"
-	desc = "Move among the crowds without ever being noticed. Achieve invisibility."
+	name = "无形之身"
+	desc = "在人群中穿行而不被察觉，隐去身形。"
 
 	level = 2
 	check_flags = DISC_CHECK_CAPABLE
@@ -177,7 +177,7 @@
 	SIGNAL_HANDLER
 
 	if (owner.move_intent != MOVE_INTENT_WALK)
-		to_chat(owner, span_danger("Your [src] falls away as you move too quickly!"))
+		to_chat(owner, span_danger("你移动得太快，[src]的效果随之消散！"))
 		try_deactivate(direct = TRUE)
 
 		deltimer(cooldown_timer)
@@ -185,8 +185,8 @@
 
 //MASK OF A THOUSAND FACES
 /datum/discipline_power/obfuscate/mask_of_a_thousand_faces
-	name = "Mask of a Thousand Faces"
-	desc = "Be noticed, but incorrectly. Hide your identity but nothing else."
+	name = "千面假面"
+	desc = "让人看得见你，却认错你的身份。只掩饰身份，不隐藏身形。"
 
 	level = 3
 	check_flags = DISC_CHECK_CAPABLE
@@ -215,7 +215,7 @@
 
 	var/mob/living/carbon/human/target = examined
 	var/image/target_image = image(target)
-	to_chat(owner, span_info("You get a good look at your target and memorize their features."))
+	to_chat(owner, span_info("你仔细观察目标，记住了对方的容貌特征。"))
 	// Oh this shit hella hard-dels.
 	LAZYSET(cached_targets, GET_GUESTBOOK_NAME_TRUE(examiner, target), list("image" = target_image, "target" = target))
 
@@ -229,7 +229,7 @@
 /datum/discipline_power/obfuscate/mask_of_a_thousand_faces/pre_activation_checks()
 	owner_splat = get_kindred_splat(owner)
 	if(!LAZYLEN(cached_targets))
-		to_chat(owner, span_warning("You haven't gotten a good look at anyone - so you can't mimic anyone's face!"))
+		to_chat(owner, span_warning("你还没有仔细观察过任何人，无法模仿他人的容貌！"))
 		return FALSE
 
 	if(!is_seen_check())
@@ -239,7 +239,7 @@
 	if(roll == ROLL_SUCCESS)
 		return TRUE
 
-	to_chat(owner, span_warning("You fail to focus your mind on the disguise."))
+	to_chat(owner, span_warning("你未能集中精神维持伪装。"))
 	return FALSE
 
 /datum/discipline_power/obfuscate/mask_of_a_thousand_faces/activate()
@@ -247,7 +247,7 @@
 	var/mob/living/carbon/human/target = owner?.mind?.guestbook.pick_known_guy(owner)
 
 	if(!istype(target))
-		to_chat(owner, span_warning("You can't recall [target]'s features clearly enough!"))
+		to_chat(owner, span_warning("你无法清晰地回忆起[target]的容貌特征！"))
 		try_deactivate(direct = TRUE)
 		return
 
@@ -279,7 +279,7 @@
 		owner.set_body_sprite(SPECIES_HUMAN, TRUE, TRUE)
 
 	owner.updateappearance(mutcolor_update = TRUE)
-	to_chat(owner, span_notice("You assume the appearance of [target.name]."))
+	to_chat(owner, span_notice("你变成了[target.name]的模样。"))
 
 	for(var/mob/living/carbon/human/npc/NPC in GLOB.npc_list)
 		if (NPC.danger_source == owner)
@@ -299,12 +299,12 @@
 
 	owner.set_body_sprite(original_sprite, original_sprite_greyscale, TRUE)
 	owner.updateappearance(mutcolor_update = TRUE)
-	to_chat(owner, span_notice("You assume your original form."))
+	to_chat(owner, span_notice("你恢复了原本的模样。"))
 
 //VANISH FROM THE MIND'S EYE
 /datum/discipline_power/obfuscate/vanish_from_the_minds_eye
-	name = "Vanish from the Mind's Eye"
-	desc = "Disappear from plain view, and possibly wipe your past presence from recollection."
+	name = "心眼隐没"
+	desc = "在众目睽睽之下消失，甚至可能抹去他人对你曾经在场的记忆。"
 
 	level = 4
 	check_flags = DISC_CHECK_CAPABLE
@@ -347,8 +347,8 @@
 
 //CLOAK THE GATHERING
 /datum/discipline_power/obfuscate/cloak_the_gathering
-	name = "Cloak the Gathering"
-	desc = "Hide yourself and others, scheme in peace."
+	name = "群体遮蔽"
+	desc = "隐藏自己与他人，安心密谋。"
 
 	level = 5
 	check_flags = DISC_CHECK_CAPABLE

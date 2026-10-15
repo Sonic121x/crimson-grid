@@ -75,8 +75,8 @@
 	frenzy_traits = list(TRAIT_IN_FRENZY, TRAIT_NOSOFTCRIT, TRAIT_ANALGESIA, TRAIT_CANNOT_FOCUS, TRAIT_ILLITERATE, TRAIT_CLUMSY, TRAIT_DISCOORDINATED_TOOL_USER)
 	// CRIMSON EDIT CHANGE - Original: frenzy_traits = list(TRAIT_IN_FRENZY, TRAIT_NOSOFTCRIT, TRAIT_ANALGESIA, TRAIT_CANNOT_FOCUS, TRAIT_ILLITERATE, TRAIT_PACIFISM)
 /atom/movable/screen/alert/status_effect/frenzy
-	name = "Frenzy"
-	desc = "FRENZY."
+	name = "狂乱"
+	desc = "狂乱。"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "fear"
 

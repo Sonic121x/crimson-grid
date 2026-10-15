@@ -1,6 +1,6 @@
 /datum/surgery_operation/limb/add_dental_implant
-	name = "add dental implant"
-	desc = "Implant a pill into a patient's teeth."
+	name = "植入牙内药片"
+	desc = "将一枚药片植入患者的牙齿中。"
 	operation_flags = OPERATION_NO_PATIENT_REQUIRED
 	implements = list(
 		/obj/item/reagent_containers/applicator/pill = 1,
@@ -62,8 +62,8 @@
 	)
 
 /datum/surgery_operation/limb/remove_dental_implant
-	name = "remove dental implant"
-	desc = "Remove a dental implant from a patient's teeth."
+	name = "移除牙内植入物"
+	desc = "从患者的牙齿中移除植入物。"
 	operation_flags = OPERATION_NO_PATIENT_REQUIRED
 	implements = list(
 		TOOL_HEMOSTAT = 1,
@@ -125,7 +125,7 @@
 
 // Teeth pill code
 /datum/action/item_action/activate_pill
-	name = "Activate Pill"
+	name = "咬破药片"
 	check_flags = NONE
 
 /datum/action/item_action/activate_pill/IsAvailable(feedback)
@@ -134,11 +134,11 @@
 	return ..()
 
 /datum/action/item_action/activate_pill/do_effect(trigger_flags)
-	owner.balloon_alert_to_viewers("[owner] grinds their teeth!", "you grit your teeth")
+	owner.balloon_alert_to_viewers("[owner]咬紧了牙关！", "你咬紧了牙关")
 	if(!do_after(owner, owner.stat * (2.5 SECONDS), owner,  IGNORE_USER_LOC_CHANGE | IGNORE_INCAPACITATED))
 		return FALSE
 	var/obj/item/pill = target
-	to_chat(owner, span_notice("You grit your teeth and burst the implanted [pill.name]!"))
+	to_chat(owner, span_notice("你咬紧牙关，咬破了植入的[pill.name]！"))
 	owner.log_message("swallowed an implanted pill, [pill]", LOG_ATTACK)
 	pill.reagents.trans_to(owner, pill.reagents.total_volume, transferred_by = owner, methods = INGEST)
 	qdel(pill)

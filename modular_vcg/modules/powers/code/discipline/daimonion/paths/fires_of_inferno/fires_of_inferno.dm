@@ -1,6 +1,6 @@
 /datum/discipline/path/inferno
 	name = "Fires of Inferno"
-	desc = "A path of daimonion that allows the manipulation of fire. Violates Masquerade."
+	desc = "一条能够操纵火焰的恶魔术道途。违反避世戒律。"
 	icon = 'modular_vcg/modules/paths/icons/paths.dmi'
 	icon_state = "inferno"
 	power_type = /datum/discipline_power/daimonion/path/inferno
@@ -28,17 +28,17 @@
 	. = ..()
 	success_count = SSroll.storyteller_roll_datum(owner, target, /datum/storyteller_roll/fires_of_inferno, difficulty = (level + 3))
 	if(success_count < 0)
-		owner.visible_message(span_notice("[owner] gets lit ablaze!."), \
-			span_notice("You get lit ablaze!"))
+		owner.visible_message(span_notice("[owner]浑身燃起火焰！"), \
+			span_notice("你浑身燃起了火焰！"))
 		inferno_botch_effect()
 		return TRUE
 	else if(success_count == 0)
-		to_chat(owner, span_notice("Your magic fizzles out!"))
+		to_chat(owner, span_notice("你的法术消散了！"))
 		return TRUE
 	return FALSE
 
 /datum/discipline_power/daimonion/path/inferno/proc/inferno_botch_effect()
-	to_chat(owner, span_userdanger("You feel like there's a sun inside of you!"))
+	to_chat(owner, span_userdanger("你感觉仿佛有一轮太阳正在体内燃烧！"))
 	owner.adjust_fire_stacks(5, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
 	owner.ignite_mob()
 
@@ -48,8 +48,8 @@
 	SEND_SIGNAL(owner, COMSIG_MOB_UPDATE_AURA)
 
 /datum/discipline_power/daimonion/path/inferno/lighter
-	name = "Lighter"
-	desc = "Conjure a spark of infernal fire."
+	name = "引火"
+	desc = "召出一簇炼狱之火。"
 
 	level = 1
 	range = 7
@@ -58,13 +58,13 @@
 /datum/discipline_power/daimonion/path/inferno/lighter/activate(mob/living/target)
 	if(..())
 		return
-	to_chat(owner, span_warning("You conjure a spark of infernal flames, lighting [target]!"))
+	to_chat(owner, span_warning("你召出一簇炼狱之火，点燃了[target]！"))
 	target.adjust_fire_stacks(1, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
 	target.ignite_mob()
 
 /datum/discipline_power/daimonion/path/inferno/stovetop
-	name = "Stovetop"
-	desc = "Hurl infernal flames at a target, igniting them."
+	name = "炉火"
+	desc = "向目标投掷炼狱之火，将其点燃。"
 
 	level = 2
 	range = 2
@@ -78,12 +78,12 @@
 	target.Knockdown(0.1 SECONDS)
 	target.apply_damage(5 * success_count, BURN)
 	target.adjust_fire_stacks(1, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
-	owner.visible_message(span_warning("[owner] hurls infernal flames at [target]!"), \
-			span_notice("You hurl infernal flames at [target]!"))
+	owner.visible_message(span_warning("[owner]向[target]掷出炼狱之火！"), \
+			span_notice("你向[target]掷出炼狱之火！"))
 
 /datum/discipline_power/daimonion/path/inferno/blowtorch
-	name = "Blowtorch"
-	desc = "Unleash a concentrated beam of infernal fire at a target."
+	name = "喷灯"
+	desc = "向目标射出一道凝聚的炼狱火束。"
 
 	level = 3
 	range = 7
@@ -95,12 +95,12 @@
 	var/beam_duration = clamp(success_count*2 SECONDS, 2 SECONDS, 10 SECONDS)
 	var/datum/beam/blowtorch/new_beam = new(owner, target, 'icons/effects/beam.dmi', "sm_arc_supercharged", beam_duration, 9, /obj/effect/ebeam/reacting/blowtorch, COLOR_VERY_DARK_LIME_GREEN)
 	INVOKE_ASYNC(new_beam, TYPE_PROC_REF(/datum/beam/, Start))
-	owner.visible_message(span_warning("[owner] unleashes a burning beam of infernal fire at [target]!"), \
-			span_notice("You unleash a burning beam of infernal fire at [target]!"))
+	owner.visible_message(span_warning("[owner]向[target]射出一道灼热的炼狱火束！"), \
+			span_notice("你向[target]射出一道灼热的炼狱火束！"))
 
 /datum/discipline_power/daimonion/path/inferno/flamethrower
-	name = "Flame-thrower"
-	desc = "Spray a cone of infernal fire across a target area."
+	name = "烈焰喷射"
+	desc = "向目标区域喷出锥形的炼狱之火。"
 
 	level = 4
 	range = 7
@@ -114,12 +114,12 @@
 	owner.setDir(dir)
 	var/datum/action/cooldown/spell/cone/staggered/entropic_plume_infernal/flamethrower = new(owner)
 	flamethrower.cast(owner)
-	owner.visible_message(span_warning("[owner] manifests a devastating cloud of inferno!"), \
-			span_notice("You manifest a devastating cloud of inferno!"))
+	owner.visible_message(span_warning("[owner]召出了一片毁灭性的炼狱火云！"), \
+			span_notice("你召出了一片毁灭性的炼狱火云！"))
 
 /datum/discipline_power/daimonion/path/inferno/conflagration
-	name = "Conflagration"
-	desc = "Unleash a growing storm of green fire that expands outward."
+	name = "燎原烈火"
+	desc = "释放一场不断向外扩张的绿色火焰风暴。"
 
 	level = 5
 	range = 7
@@ -129,15 +129,15 @@
 	if(..())
 		return
 
-	to_chat(owner, span_notice("You begin channeling a deadly inferno..."))
+	to_chat(owner, span_notice("你开始引导致命的炼狱烈火……"))
 
 	var/turf/center = get_turf(target)
 
 	new /obj/effect/temp_visual/inferno_warning/infernal(center)
-	owner.visible_message(span_warning("Sparks of green flame begin to fly and the temperature begins to climb... Something terrible is about to happen!"))
+	owner.visible_message(span_warning("绿色火星四溅，温度不断攀升……可怕的事情即将发生！"))
 
 	if(!do_after(owner, 2 SECONDS))
-		to_chat(owner, span_warning("Your inferno casting was interrupted!"))
+		to_chat(owner, span_warning("你的炼狱烈火施法被打断了！"))
 		for(var/obj/effect/temp_visual/inferno_warning/infernal/warning in center)
 			qdel(warning)
 		return
@@ -166,15 +166,15 @@
 	addtimer(CALLBACK(src, PROC_REF(spread_fire), center, 2, base_damage, fire_stacks_amount, ignite_chance), 4 SECONDS)
 
 	playsound(center, effect_sound, 100, TRUE)
-	owner.visible_message(span_danger("[owner] unleashes a devastating inferno!"))
+	owner.visible_message(span_danger("[owner]释放了毁灭性的炼狱烈火！"))
 
 	switch(success_count)
 		if(1)
-			to_chat(owner, span_bolddanger("Your inferno burns with modest intensity."))
+			to_chat(owner, span_bolddanger("你的炼狱烈火燃烧着，火势尚不猛烈。"))
 		if(2)
-			to_chat(owner, span_bolddanger("Your inferno rages with considerable power."))
+			to_chat(owner, span_bolddanger("你的炼狱烈火猛烈肆虐。"))
 		if(3 to INFINITY)
-			to_chat(owner, span_bolddanger("Your inferno burns with devastating supernatural fury!"))
+			to_chat(owner, span_bolddanger("你的炼狱烈火以毁灭性的超自然怒焰熊熊燃烧！"))
 
 /datum/discipline_power/daimonion/path/inferno/conflagration/proc/spread_fire(turf/selected_turf, dist, base_damage, fire_stacks_amount, ignite_chance)
 	for(var/turf/open/open_turf in orange(dist, selected_turf))
@@ -192,7 +192,7 @@
 		if(prob(ignite_chance))
 			living_target.adjust_fire_stacks(fire_stacks_amount, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
 			living_target.ignite_mob()
-		to_chat(living_target, span_userdanger("You are caught in a supernatural inferno!"))
+		to_chat(living_target, span_userdanger("你被卷入了超自然的炼狱烈火！"))
 
 /datum/discipline_power/daimonion/path/inferno/conflagration/proc/create_ghost_fire(turf/selected_turf, dist)
 	for(var/turf/open/open_turf in orange(dist, selected_turf))

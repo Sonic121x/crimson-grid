@@ -1,6 +1,6 @@
 /obj/structure/brazier
-	name = "brazier"
-	desc = "A metal pan atop stone brick, meant to hold fire. It is gas-powered, with a strange insignia around the gas knob center."
+	name = "火盆"
+	desc = "架在石砖上的金属盆，用于生火。它以燃气为燃料，燃气旋钮中央周围有一圈奇怪的徽记。"
 	icon = 'modular_darkpack/modules/brazier/icons/brazier.dmi'
 	icon_state = "brazier"
 	layer = OBJ_LAYER
@@ -35,8 +35,8 @@
 	set_light(light_range, light_power, light_color)
 
 	if(user)
-		to_chat(user, span_notice("You turn the knob, lighting the [name]."))
-		user.visible_message(span_notice("[user] turns the knob, lighting the [name]."), null, null, 3)
+		to_chat(user, span_notice("你转动旋钮，点燃了[name]。"))
+		user.visible_message(span_notice("[user]转动旋钮，点燃了[name]。"), null, null, 3)
 
 /obj/structure/brazier/proc/turn_off(mob/user)
 	if(!lit)
@@ -47,5 +47,5 @@
 	set_light(0)
 
 	if(user)
-		to_chat(user, span_notice("You turn the knob backwards, extinguishing the [name]."))
-		user.visible_message(span_notice("[user] extinguishes the [name]."), null, null, 3)
+		to_chat(user, span_notice("你反向转动旋钮，熄灭了[name]。"))
+		user.visible_message(span_notice("[user]熄灭了[name]。"), null, null, 3)

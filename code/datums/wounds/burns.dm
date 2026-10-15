@@ -6,7 +6,7 @@
 // TODO: well, a lot really, but specifically I want to add potential fusing of clothing/equipment on the affected area, and limb infections, though those may go in body part code
 /datum/wound/burn
 	name = "Burn Wound"
-	undiagnosed_name = "Burns"
+	undiagnosed_name = "烧伤"
 	a_or_from = "from"
 	sound_effect = 'sound/effects/wounds/sizzle1.ogg'
 
@@ -287,12 +287,12 @@
 
 // we don't even care about first degree burns, straight to second
 /datum/wound/burn/flesh/moderate
-	name = "Second Degree Burns"
-	desc = "Patient is suffering considerable burns with mild skin penetration, weakening limb integrity and increased burning sensations."
-	treat_text = "Apply topical ointment or regenerative mesh to the wound."
-	treat_text_short = "Apply healing aid such as regenerative mesh."
-	examine_desc = "is badly burned and breaking out in blisters"
-	occur_text = "breaks out with violent red burns"
+	name = "二度烧伤"
+	desc = "患者有较严重的烧伤，浅层皮肤受损，肢体强度下降，灼痛感增强。"
+	treat_text = "在伤口上涂抹烧伤药膏或敷上再生网片。"
+	treat_text_short = "使用再生网片等治疗用品。"
+	examine_desc = "严重烧伤，起了水疱"
+	occur_text = "出现大片鲜红的烧伤"
 	severity = WOUND_SEVERITY_MODERATE
 	damage_multiplier_penalty = 1.1
 	series_threshold_penalty = 30 // burns cause significant decrease in limb integrity compared to other wounds
@@ -300,9 +300,9 @@
 	flesh_damage = 5
 	scar_keyword = "burnmoderate"
 
-	simple_desc = "Patient's skin is burned, weakening the limb and multiplying perceived damage!"
-	simple_treat_text = "Ointment will speed up recovery, as will regenerative mesh. Risk of infection is negligible."
-	homemade_treat_text = "Healthy tea will speed up recovery. Salt, or preferably a salt-water mixture, will sanitize the wound, but the former will cause skin irritation, increasing the risk of infection."
+	simple_desc = "患者皮肤烧伤，肢体变得脆弱，疼痛感加剧！"
+	simple_treat_text = "烧伤药膏和再生网片均能加快恢复。感染风险微乎其微。"
+	homemade_treat_text = "健康茶能加快恢复。盐可以消毒伤口，但最好使用盐水；直接用盐会刺激皮肤，增加感染风险。"
 
 /datum/wound_pregen_data/flesh_burn/second_degree
 	abstract = FALSE
@@ -312,15 +312,15 @@
 	threshold_minimum = 40
 
 /datum/wound/burn/flesh/severe
-	name = "Third Degree Burns"
-	desc = "Patient is suffering extreme burns with full skin penetration, creating serious risk of infection and greatly reduced limb integrity."
-	treat_text = "Swiftly apply healing aids such as Synthflesh or regenerative mesh to the wound. \
-		Disinfect the wound and surgically debride any infected skin, and wrap in clean gauze / use ointment to prevent further infection. \
-		If the limb has locked up, it must be amputated, augmented or treated with cryogenics."
+	name = "三度烧伤"
+	desc = "患者有极严重的烧伤，皮肤全层受损，感染风险很高，肢体强度大幅下降。"
+	treat_text = "迅速在伤口上使用合成血肉、再生网片等治疗用品。\
+		消毒伤口，手术清除感染皮肤，并用干净纱布包扎或涂抹药膏，以防感染加重。\
+		若肢体已无法活动，必须截肢、更换义肢或接受低温治疗。"
 	treat_text_short = "Apply healing aid such as regenerative mesh, Synthflesh, or cryogenics and disinfect / debride. \
 		Clean gauze or ointment will slow infection rate."
-	examine_desc = "appears seriously charred, with aggressive red splotches"
-	occur_text = "chars rapidly, exposing ruined tissue and spreading angry red burns"
+	examine_desc = "严重焦黑，伴有大片鲜红斑块"
+	occur_text = "迅速炭化，露出毁坏的组织，鲜红的烧伤不断蔓延"
 	severity = WOUND_SEVERITY_SEVERE
 	damage_multiplier_penalty = 1.2
 	series_threshold_penalty = 40
@@ -330,7 +330,7 @@
 	flesh_damage = 12.5
 	scar_keyword = "burnsevere"
 
-	simple_desc = "Patient's skin is badly burned, significantly weakening the limb and compounding further damage!!"
+	simple_desc = "患者皮肤严重烧伤，肢体明显脆弱，后续伤害会进一步加重！！"
 	simple_treat_text = "<b>Bandages will speed up recovery</b>, as will <b>ointment or regenerative mesh</b>. <b>Spaceacilin, sterilizine, and 'Miner's Salve'</b> will help with infection."
 	homemade_treat_text = "<b>Healthy tea</b> will speed up recovery. <b>Salt</b>, or preferably a <b>salt-water</b> mixture, will sanitize the wound, but the former especially will cause skin irritation and dehydration, speeding up infection. <b>Space Cleaner</b> can be used as disinfectant in a pinch."
 
@@ -342,15 +342,15 @@
 	threshold_minimum = 80
 
 /datum/wound/burn/flesh/critical
-	name = "Catastrophic Burns"
-	desc = "Patient is suffering near complete loss of tissue and significantly charred muscle and bone, creating life-threatening risk of infection and negligible limb integrity."
-	treat_text = "Immediately apply healing aids such as Synthflesh or regenerative mesh to the wound. \
-		Disinfect the wound and surgically debride any infected skin, and wrap in clean gauze / use ointment to prevent further infection. \
-		If the limb has locked up, it must be amputated, augmented or treated with cryogenics."
+	name = "毁损性烧伤"
+	desc = "患者组织几乎完全缺损，肌肉和骨骼严重炭化，感染风险危及生命，肢体强度所剩无几。"
+	treat_text = "立即在伤口上使用合成血肉、再生网片等治疗用品。\
+		消毒伤口，手术清除感染皮肤，并用干净纱布包扎或涂抹药膏，以防感染加重。\
+		若肢体已无法活动，必须截肢、更换义肢或接受低温治疗。"
 	treat_text_short = "Apply healing aid such as regenerative mesh, Synthflesh, or cryogenics and disinfect / debride. \
 		Clean gauze or ointment will slow infection rate."
-	examine_desc = "is a ruined mess of blanched bone, melted fat, and charred tissue"
-	occur_text = "vaporizes as flesh, bone, and fat melt together in a horrifying mess"
+	examine_desc = "只剩惨白骨骼、熔化脂肪和焦黑组织混成的残骸"
+	occur_text = "在高温下汽化，血肉、骨骼和脂肪熔成恐怖的一团"
 	severity = WOUND_SEVERITY_CRITICAL
 	damage_multiplier_penalty = 1.3
 	sound_effect = 'sound/effects/wounds/sizzle2.ogg'
@@ -361,7 +361,7 @@
 	flesh_damage = 20
 	scar_keyword = "burncritical"
 
-	simple_desc = "Patient's skin is destroyed and tissue charred, leaving the limb with almost <b>no integrity<b> and a drastic chance of <b>infection<b>!!!"
+	simple_desc = "患者皮肤毁坏、组织炭化，肢体几乎<b>完全损毁<b>，且有极高的<b>感染<b>风险！！！"
 	simple_treat_text = "Immediately <b>bandage</b> the wound and treat it with <b>ointment or regenerative mesh</b>. <b>Spaceacilin, sterilizine, or 'Miner's Salve'</b> will stave off infection. Seek professional care <b>immediately</b>, before sepsis sets in and the wound becomes untreatable."
 	homemade_treat_text = "<b>Healthy tea</b> will help with recovery. A <b>salt-water mixture</b>, topically applied, might help stave off infection in the short term, but pure table salt is NOT recommended. <b>Space Cleaner</b> can be used as disinfectant in a pinch."
 

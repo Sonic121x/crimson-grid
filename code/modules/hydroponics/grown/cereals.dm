@@ -32,18 +32,18 @@
 
 // Oat
 /obj/item/seeds/wheat/oat
-	name = "oat seed pack"
-	desc = "These may, or may not, grow into oat."
+	name = "燕麦种子包"
+	desc = "这些种子也许能长成燕麦，也许不能。"
 	icon_state = "seed-oat"
 	species = "oat"
-	plantname = "Oat Stalks"
+	plantname = "燕麦秆"
 	product = /obj/item/food/grown/oat
 	mutatelist = null
 
 /obj/item/food/grown/oat
 	seed = /obj/item/seeds/wheat/oat
-	name = "oat"
-	desc = "Eat oats, do squats."
+	name = "燕麦"
+	desc = "吃燕麦，练深蹲。"
 	gender = PLURAL
 	icon_state = "oat"
 	bite_consumption_mod = 0.5
@@ -56,11 +56,11 @@
 
 // Rice
 /obj/item/seeds/wheat/rice
-	name = "rice seed pack"
-	desc = "These may, or may not, grow into rice."
+	name = "水稻种子包"
+	desc = "这些种子也许能长成水稻，也许不能。"
 	icon_state = "seed-rice"
 	species = "rice"
-	plantname = "Rice Stalks"
+	plantname = "水稻"
 	instability = 1
 	product = /obj/item/food/grown/rice
 	mutatelist = null
@@ -70,8 +70,8 @@
 
 /obj/item/food/grown/rice
 	seed = /obj/item/seeds/wheat/rice
-	name = "rice"
-	desc = "Rice to meet you."
+	name = "稻谷"
+	desc = "很高兴稻遇你。"
 	gender = PLURAL
 	icon_state = "rice"
 	bite_consumption_mod = 0.5

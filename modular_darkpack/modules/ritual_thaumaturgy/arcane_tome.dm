@@ -1,6 +1,6 @@
 /obj/item/ritual_tome/arcane
-	name = "arcane tome"
-	desc = "The secrets of Blood Magic..."
+	name = "奥术典籍"
+	desc = "血魔法的奥秘……"
 	icon_state = "arcane"
 	icon = 'modular_darkpack/modules/ritual_thaumaturgy/icons/arcane_tome.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ritual_thaumaturgy/icons/arcane_tome_onfloor.dmi')
@@ -11,12 +11,12 @@
 /obj/item/ritual_tome/arcane/attack_self(mob/user)
 	var/mob/living/living_user = astype(user)
 	if(!living_user || !living_user.get_discipline(/datum/discipline/thaumaturgy))
-		to_chat(user, span_cult("A book whose title is inscribed in latin and coated with various sigils and shapes. You'll need a teacher if you want to learn more. For some reason it wont open."))
+		to_chat(user, span_cult("一本以拉丁文题名、覆满各种符印与图案的书。若想进一步学习，你需要一位老师。不知为何，它怎么也打不开。"))
 		return
 	. = ..()
 
 /datum/crafting_recipe/arctome
-	name = "Arcane Tome"
+	name = "奥术典籍"
 	time = 10 SECONDS
 	reqs = list(/obj/item/paper = 3, /obj/item/reagent_containers/blood = 2)
 	result = /obj/item/ritual_tome/arcane

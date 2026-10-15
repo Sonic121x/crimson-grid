@@ -1,8 +1,8 @@
 /datum/keybinding/human/bite
 	hotkey_keys = list("V")
 	name = "bite"
-	full_name = "Bite"
-	description = "Bite whoever you're aggressively grabbing, and feed on them if possible."
+	full_name = "啃咬"
+	description = "啃咬你正强力抓住的目标，并在可能的情况下吸取其血液。"
 	keybind_signal = COMSIG_KB_HUMAN_BITE_DOWN
 
 /datum/keybinding/human/bite/down(client/user)

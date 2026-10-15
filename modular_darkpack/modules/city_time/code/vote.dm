@@ -1,17 +1,17 @@
-#define CHOICE_15 "15 Minutes"
-#define CHOICE_30 "30 Mintues"
-#define CHOICE_60 "1 Hour"
-#define CHOICE_NO "No Extension"
+#define CHOICE_15 "15分钟"
+#define CHOICE_30 "30分钟"
+#define CHOICE_60 "1小时"
+#define CHOICE_NO "不延长"
 
 /datum/vote/extend_night
-	name = "Extend Night"
+	name = "延长黑夜"
 	default_choices = list(
 		CHOICE_15,
 		CHOICE_30,
 		CHOICE_60,
 		CHOICE_NO
 	)
-	default_message = "Vote to extend the night by a given amount."
+	default_message = "投票决定将黑夜延长多久。"
 
 /datum/vote/extend_night/can_be_initiated(forced)
 	. = ..()
@@ -22,7 +22,7 @@
 		return VOTE_AVAILABLE
 
 	if(SScity_time.daytime_started)
-		return "The night has already ended."
+		return "黑夜已经结束了。"
 
 	return VOTE_AVAILABLE
 

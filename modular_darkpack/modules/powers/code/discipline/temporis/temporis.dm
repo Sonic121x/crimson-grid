@@ -1,11 +1,11 @@
 /datum/discipline/temporis
 	name = "Temporis"
-	desc = {"Temporis is a Discipline unique to the True Brujah. Supposedly a refinement of Celerity, Temporis grants the Cainite the ability to manipulate the flow of time itself.
-● Hourglass of the Mind: Passive
-●● Recurring Contemplation: Passive
-●●● Leaden Moment: Passive
-●●●● Patience of the Norns: Passive
-●●●●● Clotho's Gift: Passive"}
+	desc = {"时流术是真布鲁赫独有的律能。据说它是迅捷术的精进形式，赋予该隐后裔操纵时间流动本身的能力。
+● 心灵沙漏：被动
+●● 循环沉思：被动
+●●● 凝铅时刻：被动
+●●●● 诺伦之耐：被动
+●●●●● 克洛托之赐：被动"}
 	icon_state = "temporis"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/temporis
@@ -29,7 +29,7 @@
 	if (!istype(power, /datum/discipline_power/celerity))
 		return
 
-	to_chat(owner, span_userdanger("You try to use Celerity, but your active Temporis causes your body to wrench itself apart!"))
+	to_chat(owner, span_userdanger("你试图使用迅捷术，但正在生效的时流术使你的身体自行撕裂！"))
 	INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 3 SECONDS)
 
@@ -37,8 +37,8 @@
 
 //HOURGLASS OF THE MIND
 /datum/discipline_power/temporis/hourglass_of_the_mind
-	name = "Hourglass of the Mind"
-	desc = "Gain a perfect sense of time. Know exactly when you are."
+	name = "心灵沙漏"
+	desc = "获得完美的时间感，准确知晓自己身处何时。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -67,14 +67,14 @@
 				target_list += ", "
 			else if(i == targets.len - 1)
 				target_list += " and "
-		to_chat(owner, span_notice("[english_list(targets)] [targets.len == 1 ? "has" : "have"] temporal distortions around [targets.len == 1 ? "themself" : "themselves"]."))
+		to_chat(owner, span_notice("[english_list(targets, nothing_text = "无人", and_text = "和", comma_text = "、", final_comma_text = "")]周围存在时间扭曲。"))
 	else
-		to_chat(owner, span_notice("There are no temporal distortions nearby."))
+		to_chat(owner, span_notice("附近没有时间扭曲。"))
 
 //RECURRING CONTEMPLATION
 /datum/discipline_power/temporis/recurring_contemplation
-	name = "Recurring Contemplation"
-	desc = "Trap your target into repeating the same set of actions."
+	name = "循环沉思"
+	desc = "使目标陷入循环，反复执行同一组动作。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -93,8 +93,8 @@
 
 //LEADEN MOMENT
 /datum/discipline_power/temporis/leaden_moment
-	name = "Leaden Moment"
-	desc = "Slow time around your opponent, reducing their speed."
+	name = "凝铅时刻"
+	desc = "减缓对手周围的时间流动，使其速度降低。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -109,7 +109,7 @@
 
 /datum/discipline_power/temporis/leaden_moment/activate(mob/living/target)
 	. = ..()
-	to_chat(target, span_userdanger("<b>Slow down.</b>"))
+	to_chat(target, span_userdanger("<b>慢下来。</b>"))
 	target.add_movespeed_modifier(/datum/movespeed_modifier/temporis)
 
 /datum/discipline_power/temporis/leaden_moment/deactivate(mob/living/target)
@@ -121,8 +121,8 @@
 
 //PATIENCE OF THE NORNS
 /datum/discipline_power/temporis/patience_of_the_norns
-	name = "Patience of the Norns"
-	desc = "Be in multiple places at once, creating several false images."
+	name = "诺伦之耐"
+	desc = "同时出现在多处，制造多个幻影。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -162,8 +162,8 @@
 
 //CLOTHOS GIFT
 /datum/discipline_power/temporis/clothos_gift
-	name = "Clotho's Gift"
-	desc = "Accelerate yourself through time and magnify your speed."
+	name = "克洛托之赐"
+	desc = "加快自身的时间流动，大幅提升速度。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE

@@ -1,6 +1,6 @@
 /obj/item/storage/fancy/hardcase
-	name = "magazine hardcase"
-	desc = "A small metal hardcase designed to carry magazines."
+	name = "弹匣硬盒"
+	desc = "用于携带弹匣的小型金属硬盒。"
 	icon = 'modular_darkpack/modules/weapons/icons/storage.dmi'
 	icon_state = "hardcasebox"
 	base_icon_state = "hardcasebox"
@@ -25,12 +25,12 @@
 	set_holdable(/obj/item/ammo_box/magazine)
 
 /obj/item/storage/fancy/hardcase/mag_556
-	name = "5.56 magazine hardcase"
-	desc = "A small metal hardcase specifically designed to carry 5.56 magazines."
+	name = "5.56弹匣硬盒"
+	desc = "专门用于携带5.56弹匣的小型金属硬盒。"
 	spawn_type = /obj/item/ammo_box/magazine/darkpack556
 
 /obj/item/storage/fancy/hardcase/mag_mp5
-	name = "mp5 magazine hardcase"
-	desc = "A small metal hardcase specifically designed to carry mp5 magazines."
+	name = "MP5弹匣硬盒"
+	desc = "专门用于携带MP5弹匣的小型金属硬盒。"
 	spawn_type = /obj/item/ammo_box/magazine/darkpack9mp5
 

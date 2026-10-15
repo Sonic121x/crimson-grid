@@ -1,9 +1,9 @@
 // Homebrew I made up for a special little snowflake
 /obj/item/occult_artifact/werewolf/magpies_ears
-	name = "strange doll"
-	desc = "A handcrafted doll with strange accoutrements."
-	true_name = "Magpie's Ears"
-	true_desc = "A handmade doll with a penchant for listening."
+	name = "奇怪的玩偶"
+	desc = "一个手工玩偶，配着古怪的饰物。"
+	true_name = "喜鹊之耳"
+	true_desc = "一个喜欢倾听的手工玩偶。"
 	icon_state = "argemia"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/toys/icons/toys_onfloor.dmi')
@@ -38,7 +38,7 @@
 		return
 
 	if(!length(heard_messages))
-		say("I'm afraid I have nothing to say.")
+		say("恐怕我没什么可说的。")
 
 	COOLDOWN_START(src, yap_cooldown, 5 SECONDS)
 	var/message = pick(heard_messages)
@@ -48,4 +48,4 @@
 
 /obj/item/occult_artifact/werewolf/magpies_ears/identify()
 	. = ..()
-	say("I am [spirit_name]... I lend my ears and secrets to you...")
+	say("我是[spirit_name]……愿将我的耳朵与秘密借予你……")

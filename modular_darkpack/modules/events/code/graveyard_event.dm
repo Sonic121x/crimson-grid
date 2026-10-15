@@ -30,7 +30,7 @@
 	for(var/mob/living/player in GLOB.player_list)
 		if(!player.get_discipline(/datum/discipline/necromancy))
 			continue
-		to_chat(player, span_hypnophrase("You feel uneasiness from across the Shroud... a great mass of spirits awaken."))
+		to_chat(player, span_hypnophrase("你感到冥幕彼端传来不安……大批亡魂正在苏醒。"))
 
 /datum/round_event/graveyard/start()
 	for(var/obj/vampgrave/grave in GLOB.generic_event_spawns)

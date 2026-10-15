@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(research)
 	)
 	/// An associative list of all point types that techwebs will have and their respective 'abbreviated' name.
 	/// If you introduce a new point type, ADD IT HERE AS WELL!
-	var/list/point_types = list(TECHWEB_POINT_TYPE_GENERIC = "Gen. Res.")
+	var/list/point_types = list(TECHWEB_POINT_TYPE_GENERIC = "通用科研")
 
 	//----------------------------------------------
 	var/list/single_server_income = list(
@@ -200,5 +200,5 @@ SUBSYSTEM_DEF(research)
 /proc/techweb_point_display_generic(list/point_list)
 	var/list/ret = list()
 	for(var/point_type, point_amount in point_list)
-		ret += "[SSresearch.point_types[point_type] || "ERRORED POINT TYPE"]: [point_amount]"
+		ret += "[SSresearch.point_types[point_type] || "科研点类型错误"]：[point_amount]"
 	return ret.Join("<BR>")

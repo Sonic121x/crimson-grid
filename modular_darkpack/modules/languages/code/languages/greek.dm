@@ -1,6 +1,6 @@
 /datum/language/greek
 	name = "Greek"
-	desc = "The language from the land of marble and philosophy."
+	desc = "来自大理石与哲学之乡的语言。"
 	key = "k"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 40

@@ -1,6 +1,6 @@
 /datum/action/cooldown/power/gift/primal_anger
-	name = "Primal Anger"
-	desc = "The character may inflict a single level of aggravated damage on herself once per scene, and gain three points of Rage in exchange."
+	name = "原始怒意"
+	desc = "每个场景一次，角色可对自身造成一级恶性伤害，换取三点怒火。"
 	button_icon_state = "primal_anger"
 	rank = 1
 	cooldown_time = 1 SCENES

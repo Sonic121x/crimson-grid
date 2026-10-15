@@ -9,7 +9,7 @@
 
 /datum/action/cooldown/guardian/check_type
 	name = "Check Type"
-	desc = "A reminder on what your abilities are."
+	desc = "查看你的能力说明。"
 	//this is based off of the antag ui icon, if that changes then change this too please.
 	button_icon_state = /datum/action/antag_info::button_icon_state
 	default_button_position = SCRN_OBJ_INSERT_FIRST
@@ -20,7 +20,7 @@
 
 /datum/action/cooldown/guardian/communicate
 	name = "Communicate"
-	desc = "Communicate telepathically with your user."
+	desc = "与你的使用者进行心灵通讯。"
 	button_icon_state = "communicate"
 	default_button_position = ui_guardian_communication
 
@@ -29,7 +29,7 @@
 
 /datum/action/cooldown/guardian/manifest
 	name = "Manifest"
-	desc = "Spring forth into battle!"
+	desc = "现身投入战斗！"
 	button_icon_state = "manifest"
 	default_button_position = ui_guardian_manifest
 
@@ -38,7 +38,7 @@
 
 /datum/action/cooldown/guardian/recall
 	name = "Recall"
-	desc = "Return to your user."
+	desc = "回到你的使用者身边。"
 	button_icon_state = "recall"
 	default_button_position = ui_guardian_recall
 
@@ -47,7 +47,7 @@
 
 /datum/action/cooldown/guardian/toggle_light
 	name = "Toggle Light"
-	desc = "Glow like star dust."
+	desc = "像星尘一样发光。"
 	button_icon_state = "light"
 
 /datum/action/cooldown/guardian/toggle_light/Activate()
@@ -55,7 +55,7 @@
 
 /datum/action/cooldown/guardian/toggle_mode
 	name = "Toggle Mode"
-	desc = "Switch between ability modes."
+	desc = "切换能力模式。"
 	button_icon_state = "toggle"
 	default_button_position = ui_guardian_special
 
@@ -64,7 +64,7 @@
 
 /datum/action/cooldown/guardian/toggle_mode/assassin
 	name = "Toggle Stealth"
-	desc = "Enter or exit stealth."
+	desc = "进入或退出隐身状态。"
 	button_icon_state = "stealth"
 	transparent_when_unavailable = TRUE
 
@@ -73,5 +73,5 @@
 
 /datum/action/cooldown/guardian/toggle_mode/gases
 	name = "Toggle Gas"
-	desc = "Switch between possible gases."
+	desc = "切换可用气体。"
 	button_icon_state = "gases"

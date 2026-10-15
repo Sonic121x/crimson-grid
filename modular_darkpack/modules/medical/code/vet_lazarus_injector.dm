@@ -3,8 +3,8 @@
  * In-game item that can be used to revive a simplemob once. Does not make mobs friendly.
  */
 /obj/item/lazarus_injector/lazadon
-	name = "lazadon injector"
-	desc = "An injector with a cocktail chemicals, able to bring pets back from the brink."
+	name = "拉撒顿复苏注射器"
+	desc = "装有混合药剂的注射器，能够让宠物起死回生。"
 	icon = 'modular_darkpack/modules/medical/icons/lazadon_injector.dmi'
 	lefthand_file = 'modular_darkpack/modules/medical/icons/lazadon_lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/medical/icons/lazadon_righthand.dmi'

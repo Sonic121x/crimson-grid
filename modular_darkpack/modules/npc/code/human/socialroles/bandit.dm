@@ -90,56 +90,56 @@
 
 	//[Lucia] - this has been edited to have better English because it included slurs, but none of the others have yet
 	male_phrases = list(
-		"Whatchu staring at?",
-		"Tryina threaten me or sumthin'?",
-		"You need somethin'?",
-		"You've got some balls, that's for sure.",
-		"You know who I work for?",
-		"Get the hell outta here, 'fore I get my gang on yo' ass.",
-		"You need sumn' punk?",
-		"Get lost, liberal.",
-		"Get outta this side of town.",
-		"Think you scare me? You know who I work for?",
-		"Think you're hot shit?"
+		"瞅什么瞅？",
+		"想吓唬我还是怎么着？",
+		"有事？",
+		"你小子还真有种。",
+		"知道我是跟谁混的吗？",
+		"赶紧滚，别逼我叫兄弟们来收拾你。",
+		"小混蛋，有事吗？",
+		"滚远点，自由派。",
+		"滚出这片街区。",
+		"以为能吓到我？知道我是跟谁混的吗？",
+		"以为自己很牛逼？"
 	)
 	neutral_phrases = list(
-		"Why you starin' at me like that?",
-		"Another dumbass tryin' to look threatening.",
-		"Halloween's over, what's with the costumes.",
-		"I think that whore gave me the clap.",
-		"Gotta get home soon, family to feed and all that.",
-		"Get lost, liberal.",
-		"I think.. I miss my wife.",
-		"What? You need somethin?",
-		"Outta my way.",
-		"Piss off asshole, ain't in the mood for your shit.",
-		"Fuck off."
+		"干吗这么盯着我？",
+		"又来个装凶吓人的傻逼。",
+		"万圣节早过了，穿这身干吗。",
+		"我怀疑那婊子把淋病传给我了。",
+		"得早点回家了，还得养家糊口呢。",
+		"滚远点，自由派。",
+		"我想……我有点想我老婆了。",
+		"干吗？你有事？",
+		"别挡道。",
+		"滚蛋，混球，没心情搭理你。",
+		"滚开。"
 	)
 	random_phrases = list(
-		"Dumbass.",
-		"I miss my girl...",
-		"What's wrong bro?",
-		"GOOD. FUCKING. EVENING.",
-		"Evenin.",
-		"Y'know I saw you sellin' dope, right?",
-		"We're fucking doomed...",
-		"It's over...",
-		"Guh..."
+		"傻逼。",
+		"我想我女朋友了……",
+		"怎么了，兄弟？",
+		"晚上。他妈的。好。",
+		"晚上好。",
+		"我看见你卖毒品了，知道吧？",
+		"咱们他妈的完蛋了……",
+		"完了……",
+		"呃……"
 	)
 	answer_phrases = list(
-		"I've got it...",
-		"Fucking hellhole, this whole town.",
-		"Shit, man.",
-		"You don' look like I know you.. Do I know you?",
-		"Right.",
-		"Uhmm... Cool I guess",
-		"Had some good food over at gummaguts, stomach hurts though..."
+		"我明白了……",
+		"这整座城就是个他妈的鬼地方。",
+		"操，兄弟。",
+		"你看着挺面生的……我认识你吗？",
+		"对。",
+		"呃……算是不错吧。",
+		"在咕玛肚吃了顿好的，不过现在肚子疼……"
 	)
 	help_phrases = list(
-		"God, not again!",
-		"Fucking FREAK!",
-		"What the hell are you doing!?",
-		"You fucked up!",
-		"Check yo' self, fool!",
-		"We got shit, shit that'll shut you up for good!"
+		"老天，别再来了！",
+		"他妈的怪胎！",
+		"你他妈的在干什么！？",
+		"你摊上事了！",
+		"放老实点，蠢货！",
+		"我们有家伙，能让你永远闭嘴的家伙！"
 	)

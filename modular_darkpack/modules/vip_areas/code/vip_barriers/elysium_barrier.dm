@@ -1,6 +1,6 @@
 /obj/effect/vip_barrier/elysium
-	name = "Elysium Checkpoint"
-	desc = "The barrier between a moonlit night and a world of darkness."
+	name = "极乐境检查点"
+	desc = "将月色下的夜晚与黑暗世界隔开的屏障。"
 	protected_zone_id = "elysium"
 	social_roll_difficulty = 9
 

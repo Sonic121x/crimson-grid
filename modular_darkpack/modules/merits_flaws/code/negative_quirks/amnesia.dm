@@ -1,11 +1,11 @@
 /datum/quirk/darkpack/amnesia
 	name = "Amnesia"
-	desc = "You are unable to remember anything about your past, yourself or your family (mortal or vampiric), though your past may come back to haunt you. You find it hard to remember even your own name, and all of the most major details of your memory are permanently gone. This is a roleplay trait that has no bearing on gameplay, by taking it, your character is expected to roleplay their amnesia."
+	desc = "你无法记起自己的过去、身份或家人，无论他们是凡人还是血族，但过去仍可能回来纠缠你。你连自己的名字都难以想起，记忆中最重要的细节也已永久消失。这是一项不影响游戏机制的角色扮演特质；选择后，你应当扮演角色失忆的状态。"
 	value = -1 // -2 in tabletop, but lets be real
-	gain_text = span_notice("You forget everything about yourself and your past.")
-	lose_text = span_notice("Oh, I remember now.")
+	gain_text = span_notice("你忘记了关于自己和过去的一切。")
+	lose_text = span_notice("哦，我想起来了。")
 	icon = FA_ICON_BRAIN
-	failure_message = "Oh, I remember now."
+	failure_message = "哦，我想起来了。"
 	ttrpg_sources = list(
 		/datum/source_book/vtm20 = 486,
 		/datum/source_book/wta20 = 477,

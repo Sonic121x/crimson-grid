@@ -14,8 +14,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/salad/aesirsalad
-	name = "\improper Aesir salad"
-	desc = "Probably too incredible for mortal men to fully enjoy."
+	name = "\improper 阿萨神族沙拉"
+	desc = "或许美妙得让凡人无福消受。"
 	icon_state = "aesirsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 12)
 	tastes = list("leaves" = 1)
@@ -23,8 +23,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/herbsalad
-	name = "herb salad"
-	desc = "A tasty salad with apples on top."
+	name = "香草沙拉"
+	desc = "上面放着苹果的美味沙拉。"
 	icon_state = "herbsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("leaves" = 1, "apple" = 1)
@@ -32,8 +32,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/salad/validsalad
-	name = "valid salad"
-	desc = "It's just an herb salad with meatballs and fried potato slices. Nothing suspicious about it."
+	name = "正当沙拉"
+	desc = "只是加了肉丸和炸土豆片的香草沙拉，没什么可疑的。"
 	icon_state = "validsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/doctor_delight = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("leaves" = 1, "potato" = 1, "meat" = 1, "valids" = 1)
@@ -41,8 +41,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/salad/fruit
-	name = "fruit salad"
-	desc = "Your standard fruit salad."
+	name = "水果沙拉"
+	desc = "普普通通的水果沙拉。"
 	icon_state = "fruitsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("fruit" = 1)
@@ -50,8 +50,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/jungle
-	name = "jungle salad"
-	desc = "Exotic fruits in a bowl."
+	name = "丛林沙拉"
+	desc = "一碗异域水果。"
 	icon_state = "junglesalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/banana = 5, /datum/reagent/consumable/nutriment/vitamin = 7)
 	tastes = list("fruit" = 1, "the jungle" = 1)
@@ -59,8 +59,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/citrusdelight
-	name = "citrus delight"
-	desc = "Citrus overload!"
+	name = "柑橘之乐"
+	desc = "柑橘大爆发！"
 	icon_state = "citrusdelight"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -71,8 +71,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/uncooked_rice
-	name = "uncooked rice"
-	desc = "A clump of raw rice."
+	name = "生米"
+	desc = "一团没煮熟的米。"
 	icon_state = "uncooked_rice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("rice" = 1)
@@ -86,8 +86,8 @@
 	AddElement(/datum/element/microwavable, /obj/item/food/boiledrice)
 
 /obj/item/food/boiledrice
-	name = "boiled rice"
-	desc = "A steaming cup of boiled rice. A bit bland by itself, but the basis for something delicious..."
+	name = "白米饭"
+	desc = "一杯热气腾腾的白米饭。单吃有点寡淡，却是美味佳肴的基础……"
 	icon_state = "cooked_rice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -99,8 +99,8 @@
 	custom_price = 1 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/salad/ricepudding
-	name = "rice pudding"
-	desc = "Everybody loves rice pudding!"
+	name = "米布丁"
+	desc = "人人都爱米布丁！"
 	icon_state = "ricepudding"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -112,8 +112,8 @@
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/salad/ricepork
-	name = "rice and pork"
-	desc = "Well, it looks like pork..."
+	name = "猪肉饭"
+	desc = "嗯，看起来像猪肉……"
 	icon_state = "riceporkbowl"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -127,8 +127,8 @@
 	custom_price = 2 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/salad/risotto
-	name = "risotto"
-	desc = "Proof the Italians mastered every carb."
+	name = "意式烩饭"
+	desc = "证明了意大利人对各种碳水食材都驾轻就熟。"
 	icon_state = "risotto"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -140,8 +140,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/eggbowl
-	name = "egg bowl"
-	desc = "A bowl of rice with a fried egg."
+	name = "煎蛋饭"
+	desc = "一碗配上煎蛋的米饭。"
 	icon_state = "eggbowl"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -154,8 +154,8 @@
 	custom_price = 2 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/salad/edensalad
-	name = "\improper Salad of Eden"
-	desc = "A salad brimming with untapped potential."
+	name = "\improper 伊甸沙拉"
+	desc = "充满未开发潜力的沙拉。"
 	icon_state = "edensalad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 7,
@@ -166,8 +166,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/gumbo
-	name = "black eyed gumbo"
-	desc = "A spicy and savory meat and rice dish."
+	name = "黑眼豆浓汤饭"
+	desc = "一道辛辣鲜香的肉类米饭料理。"
 	icon_state = "gumbo"
 	food_reagents = list(
 		/datum/reagent/consumable/capsaicin = 2,
@@ -180,8 +180,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/bowl
-	name = "bowl"
-	desc = "A simple bowl, used for soups and salads."
+	name = "碗"
+	desc = "用来盛汤和沙拉的普通碗。"
 	icon = 'icons/obj/food/soupsalad.dmi'
 	icon_state = "bowl"
 	base_icon_state = "bowl"
@@ -231,7 +231,7 @@
 	var/list/soups_found = list()
 	for(var/datum/reagent/current_reagent as anything in reagents.reagent_list)
 		if(istype(current_reagent, /datum/reagent/consumable/nutriment/soup))
-			soups_found += "&bull; [round(current_reagent.volume, 0.01)] units of [current_reagent.name]"
+			soups_found += "&bull; [round(current_reagent.volume, 0.01)]单位[current_reagent.name]"
 		else
 			unknown_volume += current_reagent.volume
 
@@ -239,24 +239,24 @@
 		// There was no soup in the pot, do normal examine
 		return
 
-	examine_list += "Inside, you can see:"
+	examine_list += "你能看到里面装着："
 	examine_list += soups_found
 	if(unknown_volume > 0)
-		examine_list += "&bull; [round(unknown_volume, 0.01)] units of unknown reagents"
+		examine_list += "&bull; [round(unknown_volume, 0.01)]单位未知试剂"
 
 	return STOP_GENERIC_REAGENT_EXAMINE
 
 // empty salad for custom salads
 /obj/item/food/salad/empty
-	name = "salad"
+	name = "沙拉"
 	foodtypes = NONE
 	tastes = list()
 	icon_state = "bowl"
-	desc = "A delicious customized salad."
+	desc = "一份自选配料的美味沙拉。"
 
 /obj/item/food/salad/kale_salad
-	name = "kale salad"
-	desc = "A healthy kale salad drizzled in oil, perfect for warm summer months."
+	name = "羽衣甘蓝沙拉"
+	desc = "淋了油的健康羽衣甘蓝沙拉，非常适合温暖的夏季。"
 	icon_state = "kale_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,
@@ -267,8 +267,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/greek_salad
-	name = "greek salad"
-	desc = "A popular salad made of tomatoes, onions, feta cheese, and olives all drizzled in olive oil. Though it feels like it's missing something..."
+	name = "希腊沙拉"
+	desc = "由番茄、洋葱、菲达奶酪和橄榄拌成，淋上橄榄油的流行沙拉。不过总觉得少了点什么……"
 	icon_state = "greek_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 13,
@@ -279,8 +279,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/salad/caesar_salad
-	name = "caesar salad"
-	desc = "A simple yet flavorful salad of onions, lettuce, croutons, and shreds of cheese dressed in oil. Comes with a slice of pita bread!"
+	name = "凯撒沙拉"
+	desc = "洋葱、生菜、烤面包丁和奶酪丝拌油制成的沙拉，简单却风味十足。还配有一片皮塔饼！"
 	icon_state = "caesar_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,
@@ -291,8 +291,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/salad/spring_salad
-	name = "spring salad"
-	desc = "A simple salad of carrots, lettuce and peas drizzled in oil with a pinch of salt."
+	name = "春日沙拉"
+	desc = "胡萝卜、生菜和豌豆淋油，再撒一撮盐制成的简单沙拉。"
 	icon_state = "spring_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,
@@ -303,8 +303,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/potato_salad
-	name = "potato salad"
-	desc = "A dish of boiled potatoes mixed with boiled eggs, onions, and mayonnaise. A staple of every self-respecting barbecue."
+	name = "土豆沙拉"
+	desc = "煮土豆拌上煮鸡蛋、洋葱和蛋黄酱。每场像样的烧烤都少不了它。"
 	icon_state = "potato_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,
@@ -316,8 +316,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/spinach_fruit_salad
-	name = "spinach fruit salad"
-	desc = "A vibrant fruit salad made of spinach, berries, and pineapple chunks all drizzled in oil. Yummy!"
+	name = "菠菜水果沙拉"
+	desc = "菠菜、浆果和菠萝块淋油制成的鲜艳水果沙拉。美味！"
 	icon_state = "spinach_fruit_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,
@@ -328,8 +328,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/salad/antipasto_salad
-	name = "antipasto salad"
-	desc = "A traditional Italian salad made of salami, mozzarella cheese, olives, and tomatoes. Often served as a first course meal."
+	name = "意式前菜沙拉"
+	desc = "用萨拉米香肠、马苏里拉奶酪、橄榄和番茄制成的传统意式沙拉，通常作为头盘。"
 	icon_state = "antipasto_salad"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/vitamin = 12,

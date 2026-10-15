@@ -1,11 +1,11 @@
 /datum/discipline/animalism
 	name = "Animalism"
-	desc = {"Summons spectral animals over your targets. Violates Masquerade.
-● Summon Rat: Passive
-●● Summon Cat: Passive
-●●● Summon Wolf: Passive
-●●●● Summon Bat: Passive
-●●●●● Skitter: Passive"}
+	desc = {"召唤幽灵般的动物对付目标。违反避世戒律。
+● 召唤鼠灵：被动
+●● 召唤猫灵：被动
+●●● 召唤狼灵：被动
+●●●● 召唤蝠灵：被动
+●●●●● 鼠行：被动"}
 	icon_state = "animalism"
 	power_type = /datum/discipline_power/animalism
 
@@ -16,8 +16,8 @@
 
 //SUMMON RAT
 /datum/discipline_power/animalism/summon_rat
-	name = "Summon Rat"
-	desc = "Summon a spectral rat to do your bidding."
+	name = "召唤鼠灵"
+	desc = "召唤一只幽灵般的老鼠，听候你的差遣。"
 	level = 1
 	violates_masquerade = TRUE
 	cooldown_length = 8 SECONDS
@@ -29,8 +29,8 @@
 
 //SUMMON CAT
 /datum/discipline_power/animalism/summon_cat
-	name = "Summon Cat"
-	desc = "Summon a spectral cat to do your bidding."
+	name = "召唤猫灵"
+	desc = "召唤一只幽灵般的猫，听候你的差遣。"
 	level = 2
 	violates_masquerade = TRUE
 	cooldown_length = 8 SECONDS
@@ -42,8 +42,8 @@
 
 //SUMMON WOLF
 /datum/discipline_power/animalism/summon_wolf
-	name = "Summon Wolf"
-	desc = "Summon a spectral wolf to do your bidding."
+	name = "召唤狼灵"
+	desc = "召唤一只幽灵般的狼，听候你的差遣。"
 	level = 3
 	violates_masquerade = TRUE
 	cooldown_length = 8 SECONDS
@@ -55,8 +55,8 @@
 
 //SUMMON BAT
 /datum/discipline_power/animalism/summon_bat
-	name = "Summon Bat"
-	desc = "Summon a spectral bat to do your bidding."
+	name = "召唤蝠灵"
+	desc = "召唤一只幽灵般的蝙蝠，听候你的差遣。"
 	level = 4
 	violates_masquerade = TRUE
 	cooldown_length = 8 SECONDS
@@ -67,8 +67,8 @@
 	owner.add_beastmaster_minion(/mob/living/basic/bat/summoned)
 
 /datum/action/cooldown/spell/shapeshift/animalism
-	name = "Animalism Form"
-	desc = "Take on the shape of a rat."
+	name = "兽性形态"
+	desc = "化身为老鼠。"
 	button_icon_state = "shapeshift"
 	cooldown_time = 5 SECONDS
 	spell_requirements = NONE
@@ -81,8 +81,8 @@
 
 //RAT SHAPESHIFT
 /datum/discipline_power/animalism/rat_shapeshift
-	name = "Skitter"
-	desc = "Become one of the rats that crawl beneath the city."
+	name = "鼠行"
+	desc = "化身为城市地下穿行的老鼠。"
 	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE | DISC_CHECK_LYING
 	level = 5
 	violates_masquerade = TRUE
@@ -119,8 +119,8 @@
 		owner.Stun(1.5 SECONDS)
 
 /mob/living/basic/mouse/vampire/summoned
-	name = "rat"
-	desc = "A rat bound to its master's will."
+	name = "老鼠"
+	desc = "一只受主人意志束缚的老鼠。"
 	ai_controller = /datum/ai_controller/basic_controller/beastmaster_summon
 	melee_damage_lower = 3
 	melee_damage_upper = 8
@@ -132,8 +132,8 @@
 	. = ..()
 
 /mob/living/basic/pet/cat/darkpack/summoned
-	name = "cat"
-	desc = "A cat bound to its master's will."
+	name = "猫"
+	desc = "一只受主人意志束缚的猫。"
 	ai_controller = /datum/ai_controller/basic_controller/beastmaster_summon
 	melee_damage_lower = 5
 	melee_damage_upper = 12
@@ -141,8 +141,8 @@
 	bloodpool = 2
 
 /mob/living/basic/pet/dog/wolf/summoned
-	name = "wolf"
-	desc = "A wolf bound to its master's will."
+	name = "狼"
+	desc = "一只受主人意志束缚的狼。"
 	ai_controller = /datum/ai_controller/basic_controller/beastmaster_summon
 	basic_mob_flags = DEL_ON_DEATH
 	mob_biotypes = MOB_ORGANIC
@@ -152,19 +152,19 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	obj_damage = 20
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
 	attack_sound = 'modular_darkpack/modules/deprecated/sounds/dog.ogg'
 	random_wolf_color = FALSE
 	bloodpool = 2
 
 /mob/living/basic/bat/summoned
-	name = "bat"
-	desc = "A bat bound to its master's will."
+	name = "蝙蝠"
+	desc = "一只受主人意志束缚的蝙蝠。"
 	ai_controller = /datum/ai_controller/basic_controller/beastmaster_summon
 	melee_damage_lower = 4
 	melee_damage_upper = 10
 	obj_damage = 10
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
 	bloodpool = 2

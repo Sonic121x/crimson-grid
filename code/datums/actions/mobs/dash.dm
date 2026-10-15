@@ -2,7 +2,7 @@
 	name = "Dash"
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	desc = "Allows you to dash towards a position."
+	desc = "向选定位置冲刺。"
 	cooldown_time = 1.5 SECONDS
 	/// The range of the dash
 	var/dash_range = 4

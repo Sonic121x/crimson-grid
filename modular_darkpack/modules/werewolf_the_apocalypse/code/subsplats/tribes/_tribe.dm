@@ -68,10 +68,10 @@
 	var/datum/splat/werewolf/shifter/garou_splat = get_shifter_splat(target)
 	if(garou_splat?.rage > 4)
 		target.playsound_local(target, "modular_darkpack/modules/powers/sounds/daimonion_laughs/demonlaugh1.ogg", 50, FALSE)
-		to_chat(target, span_cult("THE WYRMFOE IS ALL AROUND ME"))
+		to_chat(target, span_cult("妖蛆之敌就在我四周！"))
 		new /datum/hallucination/delusion(target, TRUE, "dancer", 200, 0)
 		target.trigger_rage_frenzy()
 	else
-		to_chat(target, span_cult("I can feel a overwhelming presence.. I NEED TO RUN!!"))
+		to_chat(target, span_cult("我感到一股压倒性的威压……我必须逃跑！"))
 		new /obj/effect/client_image_holder/baali_demon/wyrm(get_turf(target), list(target))
 		target.playsound_local(target, "modular_darkpack/modules/powers/sounds/daimonion_laughs/demonlaugh2.ogg", 50, FALSE)

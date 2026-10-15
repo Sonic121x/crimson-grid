@@ -1,7 +1,7 @@
 // TODO: [Rebase] - Gas should be handled as a reagent
 /obj/item/liquid_flamethrower
-	name = "flamethrower"
-	desc = "Well fire weapon."
+	name = "火焰喷射器"
+	desc = "嗯，一把喷火的武器。"
 	icon_state = "flamethrower4"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
@@ -39,20 +39,20 @@
 			oil = min(1000, oil+gas_to_transfer)
 			if(oil)
 				playsound(get_turf(user), 'modular_darkpack/master_files/sounds/effects/gas_fill.ogg', 50, TRUE)
-				to_chat(user, span_notice("You fill [src]."))
+				to_chat(user, span_notice("你为[src]补充了燃料。"))
 				icon_state = "flamethrower4"
 
 /obj/item/liquid_flamethrower/examine(mob/user)
 	. = ..()
-	. += "<b>Ammo:</b> [(oil/1000)*100]%"
+	. += "<b>燃料：</b> [(oil/1000)*100]%"
 
 /obj/item/liquid_flamethrower/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("You can't bring yourself to fire \the [src]! You don't want to risk harming anyone..."))
+		to_chat(user, span_warning("你无法让自己使用[src]开火！你不想冒伤害他人的风险……"))
 		return ITEM_INTERACT_BLOCKING
 	playsound(get_turf(user), 'modular_darkpack/modules/deprecated/sounds/flamethrower.ogg', 50, TRUE)
-	visible_message(span_warning("[user] fires [src]!"), span_warning("You fire [src]!"))
+	visible_message(span_warning("[user]用[src]开火了！"), span_warning("你用[src]开火了！"))
 	var/turf/target_turf = get_turf(interacting_with)
 	if(target_turf)
 		var/turflist = get_line(user, target_turf)

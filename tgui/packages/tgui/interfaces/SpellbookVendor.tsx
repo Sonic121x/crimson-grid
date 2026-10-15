@@ -74,7 +74,7 @@ const ProductRow = (props) => {
         <b style={{ color: inStock ? '#ff4444' : '#666666' }}>{product.name}</b>
         <br />
         <span style={{ fontSize: '0.8em', color: inStock ? '#996666' : '#555555' }}>
-          Stock: {product.stock || 0}
+          库存：{product.stock || 0}
         </span>
       </Table.Cell>
       <Table.Cell>
@@ -83,7 +83,7 @@ const ProductRow = (props) => {
           onClick={() => onPurchase(product.ref)}
           style={{ minWidth: '105px', textAlign: 'center' }}
         >
-          {inStock ? `${product.price || 0} research points` : 'Out of Stock!'}
+          {inStock ? `${product.price || 0} 研究点` : '已售罄！'}
         </Button>
       </Table.Cell>
     </Table.Row>
@@ -97,8 +97,8 @@ export const SpellbookVendor = (props) => {
 
   const { product_records = [], tremere_members = [], user } = data;
   const greeting = user?.has_thaumaturgy
-    ? 'Greetings, student of the blood...'
-    : 'Greetings, seeker...';
+    ? '你好，鲜血的学徒……'
+    : '你好，求索者……';
 
   const selectedMember = tremere_members.find((m) => m.ref === selectedTarget);
   const amount = transferAmount || 0;
@@ -108,17 +108,17 @@ export const SpellbookVendor = (props) => {
   return (
     <Window width={465} height={700} theme="blood_cult">
       <Window.Content scrollable>
-        <Section title="Practitioner" style={STYLE.section}>
+        <Section title="研习者" style={STYLE.section}>
           {user && (
             <Box style={{ color: '#cc3333' }}>
               {greeting}
               <br />
-              You have <b style={{ color: '#ff4444' }}>{user.points} research points</b>.
+              你拥有 <b style={{ color: '#ff4444' }}>{user.points} 研究点</b>。
             </Box>
           )}
         </Section>
 
-        <Section title="The Archives" style={STYLE.section}>
+        <Section title="档案库" style={STYLE.section}>
           <Table style={STYLE.tableDark}>
             {product_records.map((product) => (
               <ProductRow
@@ -132,10 +132,10 @@ export const SpellbookVendor = (props) => {
         </Section>
 
         {tremere_members.length > 0 && (
-          <Collapsible title="Tremere Network" style={STYLE.section}>
+          <Collapsible title="睿魔尔网络" style={STYLE.section}>
             <Section style={{ ...STYLE.section, backgroundColor: '#0d0000' }}>
               <Box style={{ marginBottom: '10px', color: '#cc3333' }}>
-                <b style={{ color: '#ff4444' }}>Clan Members:</b>
+                <b style={{ color: '#ff4444' }}>氏族成员：</b>
               </Box>
 
               <Table style={{ ...STYLE.tableDark, marginBottom: '15px' }}>
@@ -147,7 +147,7 @@ export const SpellbookVendor = (props) => {
                       <span style={{ fontSize: '0.9em', color: '#996666' }}>{member.role}</span>
                     </Table.Cell>
                     <Table.Cell style={{ color: '#cc3333', textAlign: 'right' }}>
-                      <b style={{ color: '#ff6666' }}>{member.points} points</b>
+                      <b style={{ color: '#ff6666' }}>{member.points} 研究点</b>
                     </Table.Cell>
                   </Table.Row>
                 ))}
@@ -155,18 +155,18 @@ export const SpellbookVendor = (props) => {
 
               <Box style={{ marginBottom: '10px' }}>
                 <Box style={{ marginBottom: '5px', color: '#cc3333' }}>
-                  <b style={{ color: '#ff4444' }}>Select Target:</b>
+                  <b style={{ color: '#ff4444' }}>选择目标：</b>
                 </Box>
                 <Dropdown
                   width="100%"
                   options={tremere_members.map((m) => ({
-                    displayText: `${m.name} (${m.role}) - ${m.points} points`,
+                    displayText: `${m.name}（${m.role}）- ${m.points} 研究点`,
                     value: m.ref,
                   }))}
                   displayText={
                     selectedMember
-                      ? `${selectedMember.name} (${selectedMember.role}) - ${selectedMember.points} points`
-                      : 'Select a clan member...'
+                      ? `${selectedMember.name}（${selectedMember.role}）- ${selectedMember.points} 研究点`
+                      : '选择一位氏族成员……'
                   }
                   selected={selectedTarget || ''}
                   onSelected={(value) => setSelectedTarget(value)}
@@ -176,7 +176,7 @@ export const SpellbookVendor = (props) => {
 
               <Box style={{ marginBottom: '10px' }}>
                 <Box style={{ marginBottom: '5px', color: '#cc3333' }}>
-                  <b style={{ color: '#ff4444' }}>Amount:</b>
+                  <b style={{ color: '#ff4444' }}>数量：</b>
                 </Box>
                 <NumberInput
                   width="100%"
@@ -197,7 +197,7 @@ export const SpellbookVendor = (props) => {
                   }}
                   style={{ flex: '1' }}
                 >
-                  Transfer Points
+                  转移研究点
                 </Button>
 
                 {user?.is_regent && (
@@ -209,14 +209,14 @@ export const SpellbookVendor = (props) => {
                     }}
                     style={{ flex: '1' }}
                   >
-                    Seize Points
+                    征收研究点
                   </Button>
                 )}
               </Box>
 
               {user?.is_regent && (
                 <Box style={{ marginTop: '10px', fontSize: '0.9em', color: '#996666' }}>
-                  <i>As Regent, you may seize research points from any clan member.</i>
+                  <i>身为秘所摄政，你可以征收任何氏族成员的研究点。</i>
                 </Box>
               )}
             </Section>

@@ -222,14 +222,14 @@
 		return
 
 	if(!silent && !demoted)
-		var/msg = span_danger("[victim]'s [limb.plaintext_zone] [occur_text]!")
+		var/msg = span_danger("[victim]的[limb.plaintext_zone][occur_text]！")
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
 		if(severity > WOUND_SEVERITY_SEVERE)
 			msg = "<b>[msg]</b>"
 			vis_dist = DEFAULT_MESSAGE_RANGE
 
-		victim.visible_message(msg, span_userdanger("Your [limb.plaintext_zone] [occur_text]!"), vision_distance = vis_dist)
+		victim.visible_message(msg, span_userdanger("你的[limb.plaintext_zone][occur_text]！"), vision_distance = vis_dist)
 		if(sound_effect)
 			playsound(limb.owner, sound_effect, sound_volume + (20 * severity), TRUE, falloff_exponent = SOUND_FALLOFF_EXPONENT + 2,  ignore_walls = FALSE, falloff_distance = 0)
 
@@ -521,7 +521,7 @@
 	// now that we've determined we have a valid attempt at treating,
 	// we can stomp on their dreams if we're already interacting with the patient or if their part is obscured
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("You're already interacting with [victim]!"))
+		to_chat(user, span_warning("你已经在与[victim]互动了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	// next we check if the bodypart in actually accessible (not under thick clothing). We skip the species trait check since skellies
@@ -642,7 +642,7 @@
 /datum/wound/proc/get_examine_description(mob/user)
 	. = get_wound_description(user)
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
-		. += span_notice("<br>There is a holo-image next to the wound that seems to contain indications for treatment.")
+		. += span_notice("<br>伤口旁边有一幅全息图像，似乎标注了治疗指引。")
 
 	return .
 
@@ -652,9 +652,9 @@
 	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(limb.applied_items, LIMB_ITEM_GAUZE)
 	if ((wound_flags & ACCEPTS_GAUZE) && current_gauze)
 		var/sling_condition = get_gauze_condition()
-		desc = "[victim.p_Their()] [limb.plaintext_zone] is [sling_condition]fastened in a sling of [current_gauze.name]"
+		desc = "[victim]的[limb.plaintext_zone]被[current_gauze.name]吊带[sling_condition]固定着"
 	else
-		desc = "[victim.p_Their()] [limb.plaintext_zone] [examine_desc]"
+		desc = "[victim]的[limb.plaintext_zone][examine_desc]"
 
 	desc = modify_desc_before_span(desc, user)
 
@@ -676,13 +676,13 @@
 /datum/wound/proc/get_self_check_description(self_aware)
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_danger("此处有[LOWER_TEXT(undiagnosed_name || name)]。")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)].")
+			return span_warning("此处有[LOWER_TEXT(undiagnosed_name || name)]。")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!")
+			return span_boldwarning("此处有[LOWER_TEXT(undiagnosed_name || name)]！")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's suffering [a_or_from] [LOWER_TEXT(undiagnosed_name || name)]!!")
+			return span_boldwarning("此处有[LOWER_TEXT(undiagnosed_name || name)]！！")
 
 /// A hook proc used to modify desc before it is spanned via [get_desc_intensity]. Useful for inserting spans yourself.
 /datum/wound/proc/modify_desc_before_span(desc, mob/user)
@@ -696,29 +696,29 @@
 
 	switch(current_gauze.absorption_capacity)
 		if(0 to 1.25)
-			return "just barely "
+			return "勉强"
 		if(1.25 to 2.75)
-			return "loosely "
+			return "松松地"
 		if(2.75 to 4)
-			return "mostly "
+			return "大致"
 		if(4 to INFINITY)
-			return "tightly "
+			return "紧紧地"
 
 /// Spans [desc] based on our severity.
 /datum/wound/proc/get_desc_intensity(desc)
 	SHOULD_BE_PURE(TRUE)
 	if (severity > WOUND_SEVERITY_MODERATE)
-		return span_bold("[desc]!")
-	return "[desc]."
+		return span_bold("[desc]！")
+	return "[desc]。"
 
 /**
  * Prints the details about the wound for the wound scanner on simple mode
  */
 /datum/wound/proc/get_scanner_description(mob/user)
-	return "Type: [name]<br>\
-		Severity: [severity_text()]<br>\
-		Description: [desc]<br>\
-		Recommended Treatment: [treat_text]"
+	return "类型：[name]<br>\
+		严重程度：[severity_text()]<br>\
+		描述：[desc]<br>\
+		建议治疗：[treat_text]"
 
 /**
  * Prints the details about the wound for the wound scanner on complex mode
@@ -728,13 +728,13 @@
 	for(var/i in 1 to severity)
 		severity_text_formatted += "!"
 
-	var/scanner_text = "[name] detected!<br>\
-		Risk: [severity_text_formatted]<br>\
-		Description: [simple_desc || desc]<br>"
+	var/scanner_text = "检测到[name]！<br>\
+		风险：[severity_text_formatted]<br>\
+		描述：[simple_desc || desc]<br>"
 	if(simple_treat_text)
-		scanner_text += "<i>Treatment Guide: [simple_treat_text]</i><br>"
+		scanner_text += "<i>治疗指南：[simple_treat_text]</i><br>"
 	if(homemade_treat_text)
-		scanner_text += "<i>Homemade Remedies: [homemade_treat_text]</i>"
+		scanner_text += "<i>简易疗法：[homemade_treat_text]</i>"
 
 	return scanner_text
 
@@ -744,13 +744,13 @@
 /datum/wound/proc/severity_text()
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return "Trivial"
+			return "轻微"
 		if(WOUND_SEVERITY_MODERATE)
-			return "Moderate"
+			return "中度"
 		if(WOUND_SEVERITY_SEVERE)
-			return "<b>Severe</b>"
+			return "<b>严重</b>"
 		if(WOUND_SEVERITY_CRITICAL)
-			return "<b>Critical</b>"
+			return "<b>危重</b>"
 
 /// Returns TRUE if our limb is the head or chest, FALSE otherwise.
 /// Essential in the sense of "we cannot live without it".

@@ -25,14 +25,14 @@
 	main_icon.blend_icon(breed_homid, ICON_OVERLAY)
 
 
-/**
- * Gets the singleton of an breed_form
- * from its name, typepath, or returns the
- * argument if given a breed_form singleton.
- *
- * Arguments:
- * * breed_form_identifier - Name, typepath, or singleton of the breed_form being retrieved
- */
+/proc/localized_fera_forms(list/forms)
+	var/list/choices = list()
+	for(var/datum/species/human/shifter/form as anything in forms)
+		choices[form::name] = form
+	return choices
+
+
+
 /proc/get_fera_breed_form(breed_form_identifier)
 	RETURN_TYPE(/datum/subsplat/werewolf/breed_form)
 

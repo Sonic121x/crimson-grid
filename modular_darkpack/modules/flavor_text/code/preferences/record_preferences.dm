@@ -26,10 +26,10 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "exploitable_info"
 	maximum_value_length = MAX_FLAVOR_LEN
-
+/datum/preference/text/exploitable/compile_ui_data(mob/user, value) { return value == EXPLOITABLE_DEFAULT_TEXT ? "在此填写任何可被他人利用的弱点。修改这段文字后，某些律能便能查看此内容，前提是文本框中确有内容。" : ..(); }
 /datum/preference/text/exploitable/create_default_value()
 	return EXPLOITABLE_DEFAULT_TEXT
-
+/datum/preference/text/exploitable/deserialize(input, datum/preferences/preferences) { return ..(input == "在此填写任何可被他人利用的弱点。修改这段文字后，某些律能便能查看此内容，前提是文本框中确有内容。" ? EXPLOITABLE_DEFAULT_TEXT : input, preferences); }
 /datum/preference/text/exploitable/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
 

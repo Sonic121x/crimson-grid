@@ -196,11 +196,11 @@
 
 			if((rank < hotswap_rank) && (rank_changed >= hotswap_rank))
 				var/mob/mob_parent = parent
-				mob_parent.balloon_alert(mob_parent, "hotswapping enabled")
+				mob_parent.balloon_alert(mob_parent, "快速换物已启用")
 
 			else if((rank >= hotswap_rank) && (rank_changed < hotswap_rank))
 				var/mob/mob_parent = parent
-				mob_parent.balloon_alert(mob_parent, "hotswapping disabled")
+				mob_parent.balloon_alert(mob_parent, "快速换物已停用")
 
 			rank = rank_changed
 
@@ -247,27 +247,27 @@
 /datum/component/style/proc/rank_to_string(new_rank)
 	switch(new_rank)
 		if(STYLE_DULL)
-			return "DULL"
+			return "D·乏味"
 		if(STYLE_COOL)
-			return "COOL"
+			return "C·酷炫"
 		if(STYLE_BRUTAL)
-			return "BRUTAL"
+			return "B·狂暴"
 		if(STYLE_ABSOLUTE)
-			return "ABSOLUTE"
+			return "A·超凡"
 		if(STYLE_SPACED)
-			return "SPACED!"
+			return "S·宇宙级！"
 
 /datum/component/style/proc/format_rank_string(new_rank)
 	return MAPTEXT_PIXELLARI("<font color='[rank_to_color(new_rank)]'>[rank_to_string(new_rank)]</font>")
 
 /datum/component/style/proc/generate_multiplier()
-	return "<br>" + MAPTEXT_GRAND9K("MULTIPLIER: [permanent_multiplier + point_multiplier]X")
+	return "<br>" + MAPTEXT_GRAND9K("倍率：[permanent_multiplier + point_multiplier]倍")
 
 /datum/component/style/proc/generate_actions()
 	var/action_string = ""
 	for(var/i in 0 to length(actions) - 1)
 		var/action = actions[length(actions) - i]
-		action_string += "<br>" + MAPTEXT_GRAND9K("+ <font color='[action_to_color(actions[action])]'>[actions[action]]</font>")
+		action_string += "<br>" + MAPTEXT_GRAND9K("+ <font color='[action_to_color(actions[action])]'>[list(ACTION_KILL = "击杀", ACTION_MINOR_KILL = "小型目标击杀", ACTION_MAJOR_KILL = "大型目标击杀", ACTION_DISRESPECT = "羞辱", ACTION_MELEED = "近战命中", ACTION_ORE_MINED = "采掘矿石", ACTION_TRAPPER = "设陷命中", ACTION_PARRIED = "弹反", ACTION_PROJECTILE_BOOST = "弹丸助推", ACTION_GIBTONITE_HIT = "敲击爆炸矿石", ACTION_GIBTONITE_BOOM = "引爆爆炸矿石", ACTION_GIBTONITE_DEFUSED = "解除矿石引爆", ACTION_MARK_DETONATED = "引爆标记", ACTION_GEYSER_MARKED = "标记间歇泉", ACTION_VENT_TAPPED = "开采矿脉喷口")[actions[action]] || actions[action]]</font>")
 	return action_string
 
 /datum/component/style/proc/action_to_color(action)
@@ -319,13 +319,13 @@
 /datum/component/style/proc/hotswap_interact(mob/living/source, obj/item/weapon, atom/target, list/modifiers)
 	var/datum/storage/atom_storage = target.loc.atom_storage
 	if(!atom_storage.can_insert(weapon, source, messages = FALSE))
-		source.balloon_alert(source, "unable to hotswap!")
+		source.balloon_alert(source, "无法快速换物！")
 		return
 
 	if (atom_storage.attempt_insert(weapon, source, override = TRUE) && source.put_in_hands(target))
-		source.visible_message(span_notice("[source] quickly swaps [weapon] out with [target]!"), span_notice("You quickly swap [weapon] with [target]."))
+		source.visible_message(span_notice("[source]迅速将[weapon]换成了[target]！"), span_notice("你迅速将[weapon]换成了[target]。"))
 	else
-		source.balloon_alert(source, "unable to hotswap!")
+		source.balloon_alert(source, "无法快速换物！")
 
 /// Increase our permanent multiplier based on the modifier.
 /datum/component/style/proc/adjust_permanent_multiplier(modifier)

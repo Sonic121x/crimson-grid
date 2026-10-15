@@ -5,67 +5,67 @@ import {
 } from '../base';
 
 export const flavor_text: Feature<string> = {
-  name: 'Flavor Text',
-  description: "Appears when your character is examined (but only if they're identifiable - try a gas mask).",
+  name: '外观描述',
+  description: "他人查看角色时显示，仅在身份可辨认时可见（戴上防毒面具就能遮蔽身份）。",
   component: FeatureTextInput,
 };
 
 export const war_form_flavor_text: Feature<string> = {
-  name: 'Flavor Text (War form)',
-  description: "Appears when your character is examined as a war form fera (Crinos). This replaces the main flavor text section.",
+  name: '外观描述（战斗形态）',
+  description: "角色处于变形者的战斗形态（Crinos）时，他人查看角色会看到这段文字，替代通常的外观描述。",
   component: FeatureTextInput,
 };
 
 export const feral_form_flavor_text: Feature<string> = {
-  name: 'Flavor Text (Feral form)',
-  description: "Appears when your character is examined as a feral and dire form fera (Hispo/Lupus). This replaces the main flavor text section.",
+  name: '外观描述（野兽形态）',
+  description: "角色处于变形者的巨兽或野兽形态（Hispo/Lupus）时，他人查看角色会看到这段文字，替代通常的外观描述。",
   component: FeatureTextInput,
 };
 
 export const nsfw_flavor_text: Feature<string> = {
-  name: 'Flavor Text (NSFW)',
-  description: "Appears when your character is examined (but only if they're identifiable - try a gas mask).",
+  name: '外观描述（成人内容）',
+  description: "他人查看角色时显示，仅在身份可辨认时可见（戴上防毒面具就能遮蔽身份）。",
   component: FeatureTextInput,
 };
 
 export const character_notes: Feature<string> = {
-  name: 'Character Notes',
+  name: '角色备注',
   description:
-    'OOC information about your character specifically! Like if you want a human ghouled or embraced.',
+    '关于这个角色的角色外信息，例如你是否希望人类角色成为血仆或接受初拥。',
   component: FeatureTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
-  name: 'OOC Notes (NSFW)',
-  description: 'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
+  name: '玩家备注（成人内容）',
+  description: '填写你希望其他玩家了解的信息，例如参与对抗剧情的意愿、会让你本人感到不适的内容等。',
   component: FeatureTextInput,
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const criminal_record: Feature<string> = {
-  name: 'Records (Criminal)',
-  description: 'Viewable with security access. For criminal records, arrest history, things like that.',
+  name: '犯罪档案',
+  description: '拥有安保权限者可查看。用于填写犯罪记录、逮捕经历等。',
   component: FeatureTextInput,
 };
 
 export const medical_record: Feature<string> = {
-  name: 'Records (Medical)',
-  description: 'Viewable with medical access. For things like medical history, prescriptions, DNR orders, etc.',
+  name: '医疗档案',
+  description: '拥有医疗权限者可查看。用于填写病史、处方、拒绝心肺复苏指示等。',
   component: FeatureTextInput,
 };
 
 export const exploitable_info: Feature<string> = {
-  name: 'Records (Exploitable)',
+  name: '可利用情报',
   description:
-    'Can be IC or OOC. Viewable by certain antagonists, as well as ghosts. Generally contains \
-  things like weaknesses, strengths, important background, trigger words, etc. It ALSO may contain things like \
-  antagonist preferences, e.g. if you want to be antagonized, by whom, with what, etc.',
+    '可填写角色内或角色外信息，特定对抗角色及幽灵可查看。通常包括 \
+  弱点、长处、重要背景、触发词等，也可以填写 \
+  对抗剧情偏好，例如是否愿意卷入冲突、希望与谁互动、接受哪些手段等。',
   component: FeatureTextInput,
 };
 
 export const background_info: Feature<string> = {
-  name: 'Records (Background)',
-  description: 'Only viewable by yourself and ghosts. You can have whatever you want in here - it may be valuable as a way to orient yourself to what your character is.',
+  name: '背景档案',
+  description: '仅自己和幽灵可查看。可以自由填写，用来梳理角色的身份、身世与经历。',
   component: FeatureTextInput,
 };

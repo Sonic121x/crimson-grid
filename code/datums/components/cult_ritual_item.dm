@@ -1,11 +1,11 @@
-/*
- * Component for items that are used by cultists to conduct rituals.
- *
- * - Draws runes, including the rune to summon Nar'sie.
- * - Purges cultists of holy water on attack.
- * - (Un/re)anchors cult structures when hit.
- * - Instantly destroys cult girders on hit.
- */
+/proc/cult_rune_display_name(rune_name)
+	var/static/list/display_names = list("basic rune" = "基础符文", "malformed rune" = "畸形符文", "Offer" = "献祭", "Empower" = "赋能", "Teleport" = "传送", "Nar'Sie" = "纳尔西", "Revive" = "复生", "Barrier" = "屏障", "Summon Cultist" = "召唤教徒", "Boil Blood" = "沸血", "Spirit Realm" = "灵界", "Apocalypse" = "天启")
+	return display_names[rune_name] || rune_name
+/proc/localized_cult_rune_choices()
+	var/list/choices = list()
+	for(var/rune_name in GLOB.rune_types)
+		choices[cult_rune_display_name(rune_name)] = rune_name
+	return choices
 /datum/component/cult_ritual_item
 	/// Whether we are currently being used to draw a rune.
 	var/drawing_a_rune = FALSE
@@ -89,7 +89,7 @@
 		return
 
 	if(drawing_a_rune)
-		to_chat(user, span_warning("You are already drawing a rune."))
+		to_chat(user, span_warning("你已经在绘制符文了。"))
 		return
 
 	INVOKE_ASYNC(src, PROC_REF(start_scribe_rune), source, user)
@@ -156,7 +156,7 @@
  */
 /datum/component/cult_ritual_item/proc/do_purge_holywater(mob/living/target, mob/living/cultist)
 	// Allows cultists to be rescued from the clutches of ordained religion
-	to_chat(cultist, span_cult("You remove the taint from [target] using [parent]."))
+	to_chat(cultist, span_cult("你用[parent]清除了[target]身上的污秽。"))
 	var/holy_to_unholy = target.reagents.get_reagent_amount(/datum/reagent/water/holywater)
 	target.reagents.del_reagent(/datum/reagent/water/holywater)
 	// For carbonss we also want to clear out the stomach of any holywater
@@ -178,8 +178,8 @@
 /datum/component/cult_ritual_item/proc/do_destroy_girder(obj/structure/girder/cult/cult_girder, mob/living/cultist)
 	playsound(cult_girder, 'sound/items/weapons/resonator_blast.ogg', 40, TRUE, ignore_walls = FALSE)
 	cultist.visible_message(
-		span_warning("[cultist] strikes [cult_girder] with [parent]!"),
-		span_notice("You demolish [cult_girder].")
+		span_warning("[cultist]用[parent]敲击[cult_girder]！"),
+		span_notice("你拆毁了[cult_girder]。")
 		)
 	new /obj/item/stack/sheet/runed_metal(cult_girder.drop_location())
 	qdel(cult_girder)
@@ -193,7 +193,7 @@
 /datum/component/cult_ritual_item/proc/do_unanchor_structure(obj/structure/cult_structure, mob/living/cultist)
 	playsound(cult_structure, 'sound/items/deconstruct.ogg', 30, TRUE, ignore_walls = FALSE)
 	cult_structure.set_anchored(!cult_structure.anchored)
-	to_chat(cultist, span_notice("You [cult_structure.anchored ? "":"un"]secure \the [cult_structure] [cult_structure.anchored ? "to":"from"] the floor."))
+	to_chat(cultist, span_notice("你[cult_structure.anchored ? "将[cult_structure]固定在地板上" : "解除了[cult_structure]与地板的固定"]。"))
 
 /*
  * Removes the targeted rune. If the rune is important, asks for confirmation and logs it.
@@ -203,8 +203,8 @@
  */
 /datum/component/cult_ritual_item/proc/do_scrape_rune(obj/effect/rune/rune, mob/living/cultist)
 	if(rune.log_when_erased)
-		var/confirm = tgui_alert(cultist, "Erasing this [rune.cultist_name] rune may work against your goals.", "Begin to erase the [rune.cultist_name] rune?", list("Proceed", "Abort"))
-		if(confirm != "Proceed")
+		var/confirm = tgui_alert(cultist, "擦除这个[cult_rune_display_name(rune.cultist_name)]符文可能妨碍你的目标。", "开始擦除[cult_rune_display_name(rune.cultist_name)]符文？", list("继续", "取消"))
+		if(confirm != "继续")
 			return
 
 		// Gee, good thing we made sure cultists can't input stall to grief their team and get banned anyway
@@ -222,7 +222,7 @@
 		cultist.log_message("erased a [rune.cultist_name] rune with [parent].", LOG_GAME)
 		message_admins("[ADMIN_LOOKUPFLW(cultist)] erased a [rune.cultist_name] rune with [parent].")
 
-	to_chat(cultist, span_notice("You carefully erase the [LOWER_TEXT(rune.cultist_name)] rune."))
+	to_chat(cultist, span_notice("你小心地擦除了[cult_rune_display_name(rune.cultist_name)]符文。"))
 	qdel(rune)
 
 /*
@@ -246,7 +246,7 @@
 /datum/component/cult_ritual_item/proc/do_scribe_rune(obj/item/tool, mob/living/cultist)
 	var/turf/our_turf = get_turf(cultist)
 	var/obj/effect/rune/rune_to_scribe
-	var/entered_rune_name
+	var/list/rune_choices = localized_cult_rune_choices()
 	var/chosen_keyword
 
 	var/datum/antagonist/cult/user_antag = cultist.mind.has_antag_datum(/datum/antagonist/cult, TRUE)
@@ -256,23 +256,23 @@
 		return FALSE
 
 	if(!LAZYLEN(GLOB.rune_types))
-		to_chat(cultist, span_cult("There appears to be no runes to scribe. Contact your god about this!"))
+		to_chat(cultist, span_cult("似乎没有可绘制的符文。向你的神明反映此事吧！"))
 		stack_trace("[type] - [cultist] attempted to scribe a rune, but the global rune list is empty!")
 		return FALSE
 
-	entered_rune_name = tgui_input_list(cultist, "Choose a rite to scribe", "Sigils of Power", GLOB.rune_types)
+	var/entered_rune_name = tgui_input_list(cultist, "选择要绘制的仪式符文", "力量印记", rune_choices)
 	if(isnull(entered_rune_name))
 		return FALSE
 	if(!can_scribe_rune(tool, cultist))
 		return FALSE
 
-	rune_to_scribe = GLOB.rune_types[entered_rune_name]
+	rune_to_scribe = GLOB.rune_types[rune_choices[entered_rune_name]]
 	if(!ispath(rune_to_scribe))
 		stack_trace("[type] - [cultist] attempted to scribe a rune, but did not find a path from the global rune list!")
 		return FALSE
 
 	if(initial(rune_to_scribe.req_keyword))
-		chosen_keyword = tgui_input_text(cultist, "Keyword for the new rune", "Words of Power", max_length = MAX_NAME_LEN)
+		chosen_keyword = tgui_input_text(cultist, "新符文的关键词", "力量之言", max_length = MAX_NAME_LEN)
 		if(!chosen_keyword)
 			drawing_a_rune = FALSE
 			start_scribe_rune(tool, cultist)
@@ -284,13 +284,13 @@
 		return FALSE
 
 	if(ispath(rune_to_scribe, /obj/effect/rune/summon) && (!is_station_level(our_turf.z) || istype(get_area(cultist), /area/space)))
-		to_chat(cultist, span_cult_italic("The veil is not weak enough here to summon a cultist, you must be on station!"))
+		to_chat(cultist, span_cult_italic("此处的帷幕还不够薄弱，无法召唤教徒，你必须身处空间站内！"))
 		return
 
 	if(ispath(rune_to_scribe, /obj/effect/rune/apocalypse))
 		if((world.time - SSticker.round_start_time) <= 6000)
 			var/wait = 6000 - (world.time - SSticker.round_start_time)
-			to_chat(cultist, span_cult_italic("The veil is not yet weak enough for this rune - it will be available in [DisplayTimeText(wait)]."))
+			to_chat(cultist, span_cult_italic("帷幕尚未薄弱到足以绘制此符文——还需等待[DisplayTimeText(wait)]。"))
 			return
 		if(!check_if_in_ritual_site(cultist, user_team, TRUE))
 			return
@@ -303,8 +303,8 @@
 	var/can_have_blood = CAN_HAVE_BLOOD(cultist)
 
 	cultist.visible_message(
-		span_warning("[cultist] [can_have_blood ? "cuts open [cultist.p_their()] arm and begins writing in [cultist.p_their()] own blood":"begins sketching out a strange design"]!"),
-		span_cult("You [can_have_blood ? "slice open your arm and ":""]begin drawing a sigil of the Geometer.")
+		span_warning("[cultist][can_have_blood ? "割开自己的手臂，开始用自己的血绘画" : "开始勾勒一个奇怪的图案"]！"),
+		span_cult("你[can_have_blood ? "割开自己的手臂，" : ""]开始绘制几何之主的印记。")
 		)
 
 	if(can_have_blood)
@@ -334,15 +334,15 @@
 		return FALSE
 
 	cultist.visible_message(
-		span_warning("[cultist] creates a strange circle[can_have_blood ? " in [cultist.p_their()] own blood":""]."),
-		span_cult("You finish drawing the arcane markings of the Geometer.")
+		span_warning("[cultist][can_have_blood ? "用自己的血" : ""]画出了一个奇怪的圆圈。"),
+		span_cult("你完成了几何之主的奥秘印记。")
 		)
 
 	cleanup_shields()
 	var/obj/effect/rune/made_rune = new rune_to_scribe(our_turf, chosen_keyword)
 	made_rune.add_mob_blood(cultist)
 
-	to_chat(cultist, span_cult("The [LOWER_TEXT(made_rune.cultist_name)] rune [made_rune.cultist_desc]"))
+	to_chat(cultist, span_cult("[cult_rune_display_name(made_rune.cultist_name)]符文：[made_rune.cultist_desc]"))
 	cultist.log_message("scribed \a [LOWER_TEXT(made_rune.cultist_name)] rune using [parent] ([parent.type])", LOG_GAME)
 	SSblackbox.record_feedback("tally", "cult_runes_scribed", 1, made_rune.cultist_name)
 
@@ -360,23 +360,23 @@
 	if(!check_if_in_ritual_site(cultist, cult_team))
 		return FALSE
 	if(sac_objective && !sac_objective.check_completion())
-		to_chat(cultist, span_warning("The sacrifice is not complete. The portal would lack the power to open if you tried!"))
+		to_chat(cultist, span_warning("献祭尚未完成。即使尝试，传送门也没有足够的力量开启！"))
 		return FALSE
 	if(summon_objective.check_completion())
-		to_chat(cultist, span_cult_large("\"I am already here. There is no need to try to summon me now.\""))
+		to_chat(cultist, span_cult_large("“吾已降临。无需再尝试召唤吾。”"))
 		return FALSE
-	var/confirm_final = tgui_alert(cultist, "This is the FINAL step to summon Nar'Sie; it is a long, painful ritual and the crew will be alerted to your presence.", "Are you prepared for the final battle?", list("My life for Nar'Sie!", "No"))
-	if(confirm_final == "No")
-		to_chat(cultist, span_cult("You decide to prepare further before scribing the rune."))
+	var/confirm_final = tgui_alert(cultist, "这是召唤纳尔西的最后一步；仪式漫长而痛苦，船员也会获知你的存在。", "准备好迎接最终决战了吗？", list("为纳尔西献上生命！", "否"))
+	if(confirm_final == "否")
+		to_chat(cultist, span_cult("你决定做好更多准备后再绘制符文。"))
 		return
 	if(!check_if_in_ritual_site(cultist, cult_team))
 		return FALSE
 	var/area/summon_location = get_area(cultist)
 	var/static/cult_music_played = FALSE
 	priority_announce(
-		text = "Figments from an eldritch god are being summoned by [cultist.real_name] into [summon_location.get_original_area_name()] from an unknown dimension. Disrupt the ritual at all costs!",
+		text = "[cultist.real_name]正在从未知维度召唤邪神的幻象，使其降临[summon_location.get_original_area_name()]。不惜一切代价阻止仪式！",
 		sound = cult_music_played ? 'sound/announcer/notice/notice3.ogg' : 'sound/music/antag/bloodcult/bloodcult_scribe.ogg',
-		sender_override = "[command_name()] Higher Dimensional Affairs",
+		sender_override = "[command_name()]高维事务部",
 		has_important_message = TRUE,
 	)
 	cult_music_played = TRUE
@@ -384,9 +384,9 @@
 		LAZYADD(shields, new /obj/structure/emergency_shield/cult/narsie(shielded_turf))
 
 	notify_ghosts(
-		"[cultist.real_name] has begun scribing a Nar'Sie rune!",
+		"[cultist.real_name]已开始绘制纳尔西符文！",
 		source = cultist,
-		header = "Maranax Infirmux!",
+		header = "玛拉纳克斯·因菲穆克斯！",
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
 	)
 
@@ -426,14 +426,14 @@
  */
 /datum/component/cult_ritual_item/proc/can_scribe_rune(obj/item/tool, mob/living/cultist)
 	if(!IS_CULTIST(cultist))
-		to_chat(cultist, span_warning("[tool] is covered in unintelligible shapes and markings."))
+		to_chat(cultist, span_warning("[tool]上满是无法理解的图案和标记。"))
 		return FALSE
 
 	if(QDELETED(tool) || !cultist.is_holding(tool))
 		return FALSE
 
 	if(cultist.incapacitated || cultist.stat == DEAD)
-		to_chat(cultist, span_warning("You can't draw a rune right now."))
+		to_chat(cultist, span_warning("你现在无法绘制符文。"))
 		return FALSE
 
 	if(!check_rune_turf(get_turf(cultist), cultist))
@@ -449,16 +449,16 @@
  */
 /datum/component/cult_ritual_item/proc/check_rune_turf(turf/target, mob/living/cultist)
 	if(isspaceturf(target))
-		to_chat(cultist, span_warning("You cannot scribe runes in space!"))
+		to_chat(cultist, span_warning("你不能在太空中绘制符文！"))
 		return FALSE
 
 	if(locate(/obj/effect/rune) in target)
-		to_chat(cultist, span_cult("There is already a rune here."))
+		to_chat(cultist, span_cult("这里已经有一个符文了。"))
 		return FALSE
 
 	var/area/our_area = get_area(target)
 	if((!is_station_level(target.z) && !is_mining_level(target.z)) || (our_area && !(our_area.area_flags & CULT_PERMITTED)))
-		to_chat(cultist, span_warning("The veil is not weak enough here."))
+		to_chat(cultist, span_warning("此处的帷幕还不够薄弱。"))
 		return FALSE
 
 	return TRUE
@@ -474,15 +474,15 @@
 	var/datum/objective/eldergod/summon_objective = locate() in cult_team.objectives
 	var/area/our_area = get_area(cultist)
 	if(!summon_objective)
-		to_chat(cultist, span_warning("There are no ritual sites on this station to scribe this rune!"))
+		to_chat(cultist, span_warning("这座空间站没有可绘制此符文的仪式地点！"))
 		return FALSE
 
 	if(!(our_area in summon_objective.summon_spots))
-		to_chat(cultist, span_warning("This veil is not weak enough here - it can only be scribed in [english_list(summon_objective.summon_spots)]!"))
+		to_chat(cultist, span_warning("此处的帷幕还不够薄弱——只能在[english_list(summon_objective.summon_spots, nothing_text = "无", and_text = "或", comma_text = "、")]绘制此符文！"))
 		return FALSE
 
 	if(fail_if_last_site && length(summon_objective.summon_spots) <= 1)
-		to_chat(cultist, span_warning("This rune cannot be scribed here - the ritual site must be reserved for the final summoning!"))
+		to_chat(cultist, span_warning("不能在这里绘制此符文——必须将此仪式地点留给最终召唤！"))
 		return FALSE
 
 	return TRUE

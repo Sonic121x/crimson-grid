@@ -40,7 +40,7 @@
 /datum/element/digitalcamo/proc/on_examine(datum/source, mob/M, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_warning("[source.p_their()] skin seems to be shifting like something is moving below it.")
+	examine_list += span_warning("[source]的皮肤似乎在蠕动，仿佛有什么东西在皮下活动。")
 
 /datum/element/digitalcamo/proc/can_track(datum/source, mob/user)
 	SIGNAL_HANDLER

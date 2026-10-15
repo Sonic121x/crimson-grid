@@ -1,7 +1,7 @@
 // W20 p. 161
 /datum/action/cooldown/power/gift/blur_of_the_milky_eye
-	name = "Blur Of The Milky Eye"
-	desc = "The Garou's form becomes a shimmering blur, allowing him to pass unnoticed among others."
+	name = "朦胧之眼"
+	desc = "狼人的身形化作微光闪烁的朦胧影像，使其能够在人群中悄然穿行。"
 	button_icon_state = "blur_of_the_milky_eye"
 	cooldown_time = 1 SCENES
 	rank = 1
@@ -43,8 +43,8 @@
 
 
 /datum/action/cooldown/power/gift/infectious_laughter
-	name = "Infectious Laughter"
-	desc = "When the Ragabash laughs, those around her are compelled to follow along, forgetting their grievances. Uses the last message you spoke for the ability"
+	name = "传染之笑"
+	desc = "新月诡术者发笑时，周围的人也会不由自主地跟着笑，忘却怨恨。此能力使用你最后说出的一句话。"
 	button_icon_state = "infectious_laughter"
 	rank = 1
 	// I dont acctually see anything in the book that is causes rage.
@@ -73,7 +73,7 @@
 	. = ..()
 	if(!last_spoken_message || (when_spoken + 3 TURNS < world.time))
 		if(feedback)
-			to_chat(owner, span_warning("You haven't said anything making a joke of the current scene in the past few moments!"))
+			to_chat(owner, span_warning("你刚才没有说过调侃当前情景的话！"))
 		return FALSE
 
 /datum/action/cooldown/power/gift/infectious_laughter/Activate(atom/target)
@@ -97,7 +97,7 @@
 	var/roll = roll_datum.st_roll(owner)
 	if(roll == ROLL_SUCCESS)
 		for(var/mob/living/hearer in hearers)
-			to_chat(hearer, span_hypnophrase("The message bounces around in your head, \"[last_spoken_message]\". You struggle to recall why you might have been mad."))
+			to_chat(hearer, span_hypnophrase("那句话在你脑海中回荡：“[last_spoken_message]”。你几乎想不起自己刚才为何生气。"))
 			hearer.emote("laugh")
 
 	last_spoken_message = null
@@ -110,8 +110,8 @@
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/action/cooldown/power/gift/open_seal
-	name = "Open Seal"
-	desc = "With this Gift, the Garou can open nearly any sort of closed or locked physical device."
+	name = "启封"
+	desc = "凭借此天赋，狼人几乎能打开任何封闭或上锁的实体装置。"
 	button_icon_state = "open_seal"
 	click_to_activate = TRUE
 	rank = 1

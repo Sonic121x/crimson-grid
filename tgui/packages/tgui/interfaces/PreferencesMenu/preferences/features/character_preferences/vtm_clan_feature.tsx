@@ -7,13 +7,13 @@ import {
 } from '../base';
 
 export const clan_mark: FeatureChoiced = {
-  name: 'Marks',
-  component: (props: FeatureValueProps<string, string>) => {
-    return <FeatureExternalInput {...props} />;
+  name: '印记',
+  component: (props: FeatureValueProps<string, string, { display_names?: Record<string, string> }>) => {
+    return <FeatureExternalInput {...props} value={props.serverData?.display_names?.[props.value] ?? props.value} serverData={undefined} />;
   },
 };
 
 export const gargoyle_legs_and_tail: FeatureToggle = {
-  name: 'Gargoyle Legs and Tail',
+  name: '石像鬼双腿与尾巴',
   component: CheckboxInput,
 };

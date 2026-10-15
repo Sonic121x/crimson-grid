@@ -1,11 +1,11 @@
 /datum/discipline/obeah
 	name = "Obeah"
-	desc = {"Use your third eye in healing or protecting needs.
-● Sense Vitality: Perception + Empathy (difficulty 7)
-●● Anesthetic Touch: Willpower (difficulty 8 if unwilling)
-●●● Corpore Sano: No roll
-●●●● Shepherd's Watch: No roll
-●●●●● Unburden the Bestial Soul: Intelligence + Empathy (difficulty 8)"}
+	desc = {"运用第三只眼进行治疗或保护。
+● 生命感知：感知 + 共情（难度 7）
+●● 麻醉之触：意志力（目标不自愿时难度为 8）
+●●● 健全肉身：无需掷骰
+●●●● 牧者守望：无需掷骰
+●●●●● 卸去兽魂重负：智力 + 共情（难度 8）"}
 	icon_state = "obeah"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/obeah
@@ -17,8 +17,8 @@
 	activate_sound = 'modular_darkpack/modules/powers/sounds/obeah.ogg'
 
 /datum/discipline_power/obeah/sense_vitality
-	name = "Sense Vitality"
-	desc = "Allows you to determine the vitality of a target."
+	name = "生命感知"
+	desc = "感知目标的生命状况。"
 	level = 1
 	check_flags = DISC_CHECK_CAPABLE
 	target_type = TARGET_HUMAN | TARGET_SELF
@@ -50,28 +50,28 @@
 	var/blood_volume = target.get_blood_volume(apply_modifiers = TRUE)
 	switch(blood_volume)
 		if(BLOOD_VOLUME_EXCESS to INFINITY)
-			return "Their veins are engorged to the point of rupture."
+			return "对方的血管胀得几乎破裂。"
 		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
-			return "They are heavily overloaded with blood."
+			return "对方体内的血液严重过量。"
 		if(BLOOD_VOLUME_SAFE to BLOOD_VOLUME_MAXIMUM)
-			return "Their blood volume is healthy."
+			return "对方的血容量正常。"
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			return "Their blood is lower than normal."
+			return "对方的血容量低于正常水平。"
 		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
-			return "Their blood volume is dangerously low."
+			return "对方的血容量已低至危险水平。"
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
-			return "Dangerously low blood."
+			return "血量低至危险水平。"
 		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			return "They are nearly void of blood altogether. Death comes for them soon without immediate intervention."
+			return "对方几乎流尽了鲜血。若不立即施救，很快就会死亡。"
 		else
-			return "They are completely exsanguinated."
+			return "对方的鲜血已经流尽。"
 
 /datum/discipline_power/obeah/sense_vitality/proc/damage_severity(damage)
 	if(damage < 30)
-		return "some"
+		return "轻度"
 	if(damage < 50)
-		return "moderate"
-	return "heavy"
+		return "中度"
+	return "重度"
 
 /datum/discipline_power/obeah/sense_vitality/ui_state(mob/user)
 	return GLOB.always_state
@@ -104,14 +104,14 @@
 	msg_mental = ""
 
 	// on one success, identify their splat
-	var/creature_type = "a mortal"
+	var/creature_type = "凡人"
 	if(get_kindred_splat(target))
-		creature_type = "kindred"
+		creature_type = "血族"
 	else if(get_ghoul_splat(target))
-		creature_type = "a ghoul"
+		creature_type = "血仆"
 	else if(isavatar(target) || isobserver(target)) // because salubri spend all their time in the clinic anyway. they'll use this on ghosts
-		creature_type = "a wraith"
-	msg_creature = "[target] is [creature_type]."
+		creature_type = "怨灵"
+	msg_creature = "[target]是[creature_type]。"
 
 	// on two successes, identify their damage
 	if(successes >= 2)
@@ -122,20 +122,20 @@
 		var/agg = target.get_agg_loss()
 		var/list/damage_parts = list()
 		if(brute > 0)
-			damage_parts += "[damage_severity(brute)] bruising"
+			damage_parts += "[damage_severity(brute)]瘀伤"
 		if(burn > 0)
-			damage_parts += "[damage_severity(burn)] burns"
+			damage_parts += "[damage_severity(burn)]烧伤"
 		if(tox > 0)
-			damage_parts += "[damage_severity(tox)] toxin damage"
+			damage_parts += "[damage_severity(tox)]毒素伤害"
 		if(oxy > 0)
-			damage_parts += "[damage_severity(oxy)] oxygen deprivation"
+			damage_parts += "[damage_severity(oxy)]缺氧"
 		if(agg > 0)
-			damage_parts += "[damage_severity(agg)] supernatural wounds"
-		msg_damage = length(damage_parts) ? "They bear [english_list(damage_parts)]." : "They appear uninjured."
+			damage_parts += "[damage_severity(agg)]超自然创伤"
+		msg_damage = length(damage_parts) ? "对方存在[english_list(damage_parts, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]。" : "对方看起来没有受伤。"
 
 	// on three successes, detect their bloodpool, if any exists
 	if(successes >= 3)
-		msg_blood = "[blood_read(target)] [round(target.bloodpool / target.maxbloodpool * 100)]% of Blood Pool remaining."
+		msg_blood = "[blood_read(target)]血池剩余 [round(target.bloodpool / target.maxbloodpool * 100)]%。"
 
 	// on four, display any diseases they might have
 	if(successes >= 4)
@@ -144,16 +144,16 @@
 			var/list/disease_names = list()
 			for(var/datum/disease/D in diseases)
 				disease_names += D.name
-			msg_disease = "Detected [english_list(disease_names)] in their blood."
+			msg_disease = "在对方血液中检测到[english_list(disease_names, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]。"
 		else
-			msg_disease = "Found no diseases in their blood."
+			msg_disease = "未在对方血液中发现疾病。"
 		var/list/mental_conditions = list()
 		if(target.has_quirk(/datum/quirk/insanity))
-			mental_conditions += "insanity"
+			mental_conditions += "精神错乱"
 		if(target.has_quirk(/datum/quirk/darkpack/derangement))
-			mental_conditions += "an incurable derangement"
+			mental_conditions += "无法治愈的精神紊乱"
 		if(length(mental_conditions))
-			msg_mental = "[english_list(mental_conditions)] clouds their mind."
+			msg_mental = "[english_list(mental_conditions, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]蒙蔽了对方的心智。"
 
 	ui_interact(owner)
 	to_chat(owner, span_notice("[msg_creature] \n[msg_damage] \n[msg_blood] \n[msg_disease] \n[msg_mental]"))
@@ -162,8 +162,8 @@
 	. = ..()
 
 /datum/discipline_power/obeah/anesthetic_touch
-	name = "Anesthetic Touch"
-	desc = "Soothe your patient's pain, or place a mortal into peaceful slumber."
+	name = "麻醉之触"
+	desc = "抚平患者的痛苦，或使凡人安然入睡。"
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
 	target_type = TARGET_LIVING
@@ -196,8 +196,8 @@
 /datum/discipline_power/obeah/anesthetic_touch/activate(mob/living/target)
 	. = ..()
 	var/list/choices = list(
-		"Soothe Pain" = icon('icons/mob/actions/actions_spells.dmi', "statue"),
-		"Put To Sleep" = icon('icons/mob/actions/actions_spells.dmi', "blind"),
+		"Soothe Pain" = localized_radial_choice(icon('icons/mob/actions/actions_spells.dmi', "statue"), "缓解疼痛"),
+		"Put To Sleep" = localized_radial_choice(icon('icons/mob/actions/actions_spells.dmi', "blind"), "使其入睡"),
 	)
 	var/chosen_option = show_radial_menu(owner, target, choices, radius = 38, require_near = TRUE)
 	switch(chosen_option)
@@ -207,7 +207,7 @@
 			addtimer(CALLBACK(src, PROC_REF(end_soothe_pain), target), (successes TURNS) + soothe_duration_length)
 		if("Put To Sleep")
 			if(get_kindred_splat(target))
-				to_chat(owner, span_warning("You can't put a Kindred to sleep with this power!"))
+				to_chat(owner, span_warning("你无法用这种能力使血族入睡！"))
 				return TRUE
 			target.SetSleeping(sleep_duration_length + (successes TURNS)) // 50 seconds + successes in turns
 			target.adjust_blood_pool(1) // restores a BP to the target, but if this gets abused, maybe make this depend on successes
@@ -218,8 +218,8 @@
 	REMOVE_TRAIT(target, TRAIT_ANALGESIA, type)
 
 /datum/discipline_power/obeah/corpore_sano
-	name = "Corpore Sano"
-	desc = "Lay hands on your patient and heal their wounds."
+	name = "健全肉身"
+	desc = "将双手放在患者身上，治愈其伤口。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -242,8 +242,8 @@
 // Radius - the length of the line you draw from the central point of a circle towards any point of the outer boundary, which in geometry is called the circumference.
 #define SHEPHERDS_WATCH_RADIUS 3
 /datum/discipline_power/obeah/shepherds_watch
-	name = "Shepherd's Watch"
-	desc = "Create a supernatural barrier to protect yourself from harm."
+	name = "牧者守望"
+	desc = "创造一道超自然屏障，保护自己免受伤害。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -276,8 +276,8 @@
 #undef SHEPHERDS_WATCH_RADIUS
 
 /datum/discipline_power/obeah/mens_sana
-	name = "Mens Sana"
-	desc = "With this power, the Salubri can heal madness, quieting inner demons and bringing a soul to peace."
+	name = "健全心智"
+	desc = "借助这种能力，萨鲁布里可以治愈疯狂，平息内心的恶魔，使灵魂重获安宁。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -290,7 +290,7 @@
 	frenzy_usable = FALSE
 
 /datum/storyteller_roll/mens_sana
-	bumper_text = "mens sana"
+	bumper_text = "健全心智"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_EMPATHY)
 	difficulty = 8
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -301,12 +301,12 @@
 	if(!carbon_target)
 		return
 	var/obj/item/organ/brain/target_brain = carbon_target.get_organ_by_type(/obj/item/organ/brain)
-	var/list/gotten_traumas = target_brain.traumas
+	var/list/gotten_traumas = target_brain.traumas; var/list/trauma_choices = gotten_traumas?.Copy() || list(); for(var/choice_index in 1 to length(trauma_choices)) { trauma_choices[choice_index] = trauma_choices[choice_index] == "Derangement" ? "精神紊乱" : trauma_choices[choice_index] }
 	if(carbon_target.has_quirk(/datum/quirk/darkpack/derangement))
-		gotten_traumas += "Derangement"
-	var/chosen_derangement = tgui_input_list(owner, "Choose a trauma to cure", "Traumas", gotten_traumas)
+		gotten_traumas += "Derangement"; trauma_choices += "精神紊乱"
+	var/chosen_derangement = tgui_input_list(owner, "选择要治愈的创伤", "脑部创伤", trauma_choices); chosen_derangement = chosen_derangement == "精神紊乱" ? "Derangement" : chosen_derangement
 	if(!chosen_derangement)
-		to_chat(owner, span_notice("You fail to find any traumas."))
+		to_chat(owner, span_notice("你未能找到任何创伤。"))
 		return
 	var/datum/storyteller_roll/mens_sana/discipline_roll = new()
 	var/success = discipline_roll.st_roll(owner, target)
@@ -317,13 +317,13 @@
 				owner.add_quirk(/datum/quirk/darkpack/derangement)
 			else
 				owner_brain.gain_trauma_type(chosen_derangement, TRAUMA_RESILIENCE_MAGIC)
-			to_chat(owner, span_bolddanger("You fail to alleviate [target]'s [chosen_derangement] as your own brain inherits it!"))
+			to_chat(owner, span_bolddanger("你未能缓解[target]的[chosen_derangement == "Derangement" ? "精神紊乱" : chosen_derangement]，反而让自己的大脑染上了它！"))
 		if(ROLL_FAILURE)
-			to_chat(owner, span_danger("You fail to alleviate [target]'s [chosen_derangement]."))
+			to_chat(owner, span_danger("你未能缓解[target]的[chosen_derangement == "Derangement" ? "精神紊乱" : chosen_derangement]。"))
 		if(ROLL_SUCCESS)
 			if(chosen_derangement == "Derangement")
 				carbon_target.remove_quirk(/datum/quirk/darkpack/derangement)
 			else
 				target_brain.cure_trauma_type(chosen_derangement, TRAUMA_RESILIENCE_MAGIC)
-			to_chat(owner, span_notice("You succesfully alleviate [target]'s [chosen_derangement]."))
+			to_chat(owner, span_notice("你成功缓解了[target]的[chosen_derangement == "Derangement" ? "精神紊乱" : chosen_derangement]。"))
 

@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_banu
 	title = JOB_PRIMOGEN_BANU_HAQIM
-	description = "Offer your infinite knowledge to Prince of the City, while overseeing the Banu Haqim in the city. Monitor their contracts and ensure they remain true to the ways of the Clan. You have an official cover with the Police Department as a local civilian consultant, ensure things run smoothly, on either end."
+	description = "以渊博的学识辅佐本市亲王，同时统领城中的哈基姆之裔。监督他们的契约，确保他们恪守氏族之道。你在警局的公开掩护身份是本地民间顾问，务必让两边的事务都顺利进行。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

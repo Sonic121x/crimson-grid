@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/gift/city_running
-	name = "City Running"
-	desc = {"The player spends a point of Rage. For the rest of the scene, the character may climb at her full movement speed,
-	and the difficulty of all Athletics rolls to navigate is reduced by two."}
+	name = "城市奔行"
+	desc = {"消耗一点怒火。在本场景剩余时间内，角色可按全速攀爬，
+	且穿越地形所需的所有运动检定难度降低两点。"}
 	button_icon_state = "city_running"
 	rank = 1
 	rage_cost = 1
@@ -33,8 +33,8 @@
  * This requires the expenditure of a Gnosis point; the effects last for a scene.
 */
 /datum/action/cooldown/power/gift/master_of_fire
-	name = "Master of Fire"
-	desc = "The spirits of flame agree to hold back their hunger, letting you regenerate fire damage for a scene."
+	name = "驭火之主"
+	desc = "火焰之灵同意暂时克制饥渴，让你在一个场景内能够再生恢复火焰伤害。"
 	button_icon_state = "master_of_fire" // TODO: get an icon for this
 	rank = 1
 	gnosis_cost = 1
@@ -58,21 +58,21 @@
 	alert_type = /atom/movable/screen/alert/status_effect/gift/master_of_fire
 
 /datum/status_effect/master_of_fire/on_apply()
-	to_chat(owner, span_notice("The spirits of flame agree to hold back their hunger, for a while."))
+	to_chat(owner, span_notice("火焰之灵同意暂时克制饥渴。"))
 	return TRUE
 
 /datum/status_effect/master_of_fire/on_remove()
-	to_chat(owner, span_warning("The spirits of flame grow hungry yet again."))
+	to_chat(owner, span_warning("火焰之灵再度饥渴起来。"))
 
 /atom/movable/screen/alert/status_effect/gift/master_of_fire
 	name = /datum/action/cooldown/power/gift/master_of_fire::name
-	desc = "Lets you heal fire damage as if it were bashing."
+	desc = "让你像恢复钝击伤害一样恢复火焰伤害。"
 	overlay_state = /datum/action/cooldown/power/gift/master_of_fire::button_icon_state
 
 
 /datum/action/cooldown/power/gift/apecrafts_blessings
-	name = "Apecraft's Blessings"
-	desc = "Grants a bonus to the next roll made to employ any tool."
+	name = "猿工赐福"
+	desc = "下一次使用任意工具的检定获得加成。"
 	button_icon_state = "apecrafts_blessing"
 	rank = 1
 
@@ -121,7 +121,7 @@
 	return ..()
 
 /datum/status_effect/apecrafts_blessings/on_apply()
-	to_chat(owner, span_notice("Your hands glow with power."))
+	to_chat(owner, span_notice("你的双手闪耀着力量的光芒。"))
 	RegisterSignal(owner, COMSIG_LIVING_PRE_DICE_ROLLED, PROC_REF(on_dice_rolled))
 	return TRUE
 
@@ -133,7 +133,7 @@
 		qdel(src)
 
 /datum/status_effect/apecrafts_blessings/on_remove()
-	to_chat(owner, span_warning("The power in your hands wanes.."))
+	to_chat(owner, span_warning("双手中的力量渐渐消退……"))
 	UnregisterSignal(owner, COMSIG_LIVING_PRE_DICE_ROLLED)
 
 

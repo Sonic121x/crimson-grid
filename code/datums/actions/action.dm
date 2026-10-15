@@ -4,7 +4,7 @@
  * A simple base for an modular behavior attached to atom or datum.
  */
 /datum/action
-	/// The name of the action
+	var/static/list/localized_mob_action_names = list("Lava Swoop" = "熔岩俯冲", "Meteors" = "陨石雨", "Standard Mob Cooldown Ability" = "标准生物冷却能力", "Command Star Gazer" = "指挥观星者", "Personality Commune" = "人格交流", "Projectile Attack" = "弹体攻击", "Rapid Fire" = "连射", "Shrapnel Fire" = "破片射击", "Strong Shrapnel Fire" = "强化破片射击", "Spiral Shots" = "螺旋射击", "All Directions" = "全向射击", "Shotgun Fire" = "霰弹射击", "Alternating Shotgun Fire" = "交替霰弹射击", "Circular Shotgun Fire" = "环形霰弹射击", "Directional Shots" = "定向射击", "Alternating Shots" = "交替射击", "Fire Kinetic Accelerator" = "发射动能加速器", "Titan's Finale" = "泰坦终幕", "Wave Shots" = "波状射击", "Sign Language" = "手语", "Sneak" = "潜行", "Teleport" = "传送", "Dashing And Attacking" = "冲刺攻击", "Direct And AoE Firing" = "直射与范围射击", "Join" = "回到宿主身边", "Hide" = "隐藏", "Show" = "显现", "Echolocation Focus" = "回声定位聚焦", "Listen Prayers" = "聆听祈祷", "Pump your blood" = "主动泵血", "Force Contract" = "强制收缩", "MMI Talk" = "人机接口传话", "Toggle Seethrough" = "切换身体透视", "Toggle" = "切换", "Toggle Hood" = "收放兜帽", "Adrenaline!" = "激发肾上腺素！", "Mindread" = "读心术", "Drop a limb" = "舍弃肢体", "Create Snow" = "造雪", "Cryobeam" = "寒冰射线", "Farsight" = "远视", "Create Ash" = "造灰", "Pyrobeam" = "烈焰射线", "Remember the Scent" = "记住气味", "Activate Thermal Vision" = "启用热成像视觉", "Launch spike" = "发射舌刺", "Launch chem spike" = "发射药剂尖刺", "Transfer Chemicals" = "转移药剂", "Shock Touch" = "电击之触", "Mending Touch" = "愈合之触", "Invoke Void" = "召唤虚空", "Convoke Void" = "召集虚空")
 	var/name = "Generic Action"
 	/// The description of what the action does, shown in button tooltips
 	var/desc
@@ -182,37 +182,37 @@
 	if((check_flags & AB_CHECK_CONSCIOUS) && IS_UNCONSCIOUS_OR_CRIT(owner))
 		if (feedback)
 			if(owner.stat == DEAD)
-				owner.balloon_alert(owner, "dead!")
+				owner.balloon_alert(owner, "已死亡！")
 			else if(IS_UNCONSCIOUS(owner))
-				owner.balloon_alert(owner, "unconscious!")
+				owner.balloon_alert(owner, "昏迷中！")
 			else
-				owner.balloon_alert(owner, "in critical!")
+				owner.balloon_alert(owner, "处于濒危状态！")
 		return FALSE
 	if((check_flags & AB_CHECK_HANDS_BLOCKED) && HAS_TRAIT(owner, TRAIT_HANDS_BLOCKED))
 		if (feedback)
-			owner.balloon_alert(owner, "hands blocked!")
+			owner.balloon_alert(owner, "双手受阻！")
 		return FALSE
 	if((check_flags & AB_CHECK_IMMOBILE) && HAS_TRAIT(owner, TRAIT_IMMOBILIZED))
 		if (feedback)
-			owner.balloon_alert(owner, "can't move!")
+			owner.balloon_alert(owner, "无法移动！")
 		return FALSE
 	if((check_flags & AB_CHECK_INCAPACITATED) && HAS_TRAIT(owner, TRAIT_INCAPACITATED))
 		if (feedback)
-			owner.balloon_alert(owner, "incapacitated!")
+			owner.balloon_alert(owner, "无法行动！")
 		return FALSE
 	if((check_flags & AB_CHECK_LYING) && isliving(owner))
 		var/mob/living/action_owner = owner
 		if(action_owner.body_position == LYING_DOWN)
 			if (feedback)
-				owner.balloon_alert(owner, "must stand up!")
+				owner.balloon_alert(owner, "必须先站起来！")
 			return FALSE
 	if((check_flags & AB_CHECK_PHASED) && HAS_TRAIT(owner, TRAIT_MAGICALLY_PHASED))
 		if (feedback)
-			owner.balloon_alert(owner, "incorporeal!")
+			owner.balloon_alert(owner, "没有实体！")
 		return FALSE
 	if((check_flags & AB_CHECK_OPEN_TURF) && !isopenturf(owner.loc))
 		if (feedback)
-			owner.balloon_alert(owner, "not enough space!")
+			owner.balloon_alert(owner, "空间不足！")
 		return FALSE
 	return TRUE
 
@@ -254,14 +254,14 @@
 	if(update_flags & UPDATE_BUTTON_STATUS)
 		update_button_status(button, force)
 
-/**
- * Updates the name and description of the button to match our action name and discription.
- *
- * current_button - what button are we editing?
- * force - whether an update is forced regardless of existing status
- */
+/datum/action/proc/get_display_name(action_name = name)
+	var/static/list/localized_names = list("Generic Action" = "通用动作", "Item Action" = "物品动作", "Vote!" = "投票！", "Dash" = "冲刺", "End Holocall" = "结束全息通话", "Adjust Item" = "调整物品", "Adjust Item Style" = "调整物品样式", "Adjust Visor" = "调整面罩", "Toggle Zooming Speed" = "切换瞄准速度", "Switch Zoom Mode" = "切换瞄准模式", "Berserk" = "狂暴", "Activate Jump Boots" = "启动跳跃靴", "Activate Rocket Boots" = "启动火箭靴", "Change Name" = "更改姓名", "Draw Blood Rune" = "绘制鲜血符文", "Activate Flight Jets" = "启动飞行喷射器", "Activate" = "启动", "Shift Nerves" = "调整神经", "Toggle Zoom" = "切换变焦", "Organ Action" = "器官动作", "Toggle Organ" = "开关器官", "Use Organ" = "使用器官", "Go Feral" = "野性爆发", "Bite the Hand that Feeds" = "恩将仇报", "Unleash Id" = "释放本我", "Activate Catbrain" = "启用猫脑", "Gremlin Mode" = "小捣蛋鬼模式", "Nom Mode" = "啃咬模式", "Dehumanize Yourself" = "抛弃人性", "Misbehave" = "撒野", "Juggernaut mode" = "重装防御模式", "Reload Rebar" = "装填钢筋", "Set Internals" = "设置供氧气源", "Deploy Box" = "展开纸箱", "Summon Stick Minions" = "召唤火柴人仆从", "Toggle Flashlight" = "开关手电筒", "Toggle Gunlight" = "开关枪灯", "Toggle Mode" = "切换模式", "Toggle Barrier Spread" = "切换屏障展开模式", "Toggle Paddles" = "取放电极板", "Toggle Mister" = "取放喷雾器", "Toggle Helmet Light" = "开关头盔照明", "Toggle Welding Screen" = "开关焊接护目屏", "Toggle Suit Thermal Regulator" = "开关服装温控器", "Toggle Helmet Flashlight" = "开关头盔手电筒", "Toggle Helmet Mode" = "切换头盔模式", "Toggle Voice Box" = "开关语音盒", "Toggle Helmet" = "收放头盔", "Toggle Seclight" = "开关安保手电筒", "Toggle Jetpack" = "开关喷气背包", "Toggle Jetpack Stabilization" = "开关喷气背包稳定器", "Toggle Implant HUD" = "开关植入式HUD", "Toggle Wheels" = "收放滑轮", "Activate Kindle Kicks" = "启动炫光鞋", "Switch gathering mode" = "切换收集模式", "Flip" = "翻转", "Call MODlink" = "呼叫模块通讯器", "Toggle Wearable HUD" = "开关穿戴式HUD", "Toggle Night Vision" = "开关夜视", "Unzip Duffel" = "拉开行李袋", "Unzip" = "拉开拉链", "Zip" = "拉上拉链", "Vortex Recall" = "漩涡召回", "Adjust Vision" = "调整视野", "Assume Form" = "拟态", "Blood Warp" = "鲜血跃迁", "Charge" = "冲锋", "Basic Charge" = "基础冲锋", "Triple Charge" = "三连冲锋", "Hallucination Charge" = "幻象冲锋", "Surround Target" = "包围目标", "Charge APCs" = "为区域电力控制器充电", "Chase Target" = "追击目标", "Foam wall" = "泡沫墙", "Create Legion Skull" = "制造军团头骨", "Create Sentinels" = "制造哨卫", "Change Mode" = "切换模式", "Fire Breath" = "火焰吐息", "Fire Cone" = "锥形火焰", "Mass Fire" = "烈焰迸发", "Ground Slam" = "震地重击", "Check Type" = "查看类型", "Communicate" = "心灵通讯", "Manifest" = "显现", "Recall" = "召回", "Toggle Light" = "开关发光", "Toggle Stealth" = "切换隐身", "Toggle Gas" = "切换气体")
+	if(istype(src, /datum/action/vote) && findtext(action_name, "Vote: ") == 1)
+		return "投票：[copytext(action_name, 7)]"
+	return localized_mob_action_names[action_name] || localized_names[action_name] || (istype(src, /datum/action/item_action/adjust_style) && findtext(action_name, "Adjust ") == 1 ? "调整[copytext(action_name, 8, -8)]的样式" : istype(src, /datum/action/item_action/adjust_visor) && findtext(action_name, "Adjust ") == 1 ? "调整[copytext(action_name, 8, -6)]的面罩" : istype(src, /datum/action/item_action/adjust) && findtext(action_name, "Adjust ") == 1 ? "调整[copytext(action_name, 8)]" : istype(src, /datum/action/item_action/organ_action/toggle) && findtext(action_name, "Toggle ") == 1 ? "开关[copytext(action_name, 8)]" : istype(src, /datum/action/item_action/organ_action/use) && findtext(action_name, "Use ") == 1 ? "使用[copytext(action_name, 5)]" : action_name)
 /datum/action/proc/update_button_name(atom/movable/screen/movable/action_button/button, force = FALSE)
-	button.name = name
+	button.position_name = name
+	button.name = get_display_name(name)
 	if(desc)
 		button.desc = desc
 
@@ -446,7 +446,7 @@
 		full_key = null
 		update_button_status(current_button)
 		return
-	full_key = tgui_input_keycombo(user, "Please bind a key for this action.")
+	full_key = tgui_input_keycombo(user, "请为此动作绑定按键。")
 	update_button_status(current_button)
 
 /datum/action/proc/keydown(mob/source, key, client/client, full_key)

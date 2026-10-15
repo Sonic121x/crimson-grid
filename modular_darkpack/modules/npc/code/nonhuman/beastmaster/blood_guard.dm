@@ -1,6 +1,6 @@
 /mob/living/basic/blood_guard
-	name = "blood guardian"
-	desc = "A clot of blood in humanoid form."
+	name = "鲜血守卫"
+	desc = "一团凝成人形的血块。"
 	icon = 'modular_darkpack/modules/npc/icons/blood_guard.dmi'
 	icon_state = "blood_guardian"
 	icon_living = "blood_guardian"

@@ -1,5 +1,5 @@
 /obj/item/clothing/mask
-	name = "mask"
+	name = "面具"
 	icon = 'icons/obj/clothing/masks.dmi'
 	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
@@ -41,7 +41,7 @@
 	if((clothing_flags & VOICEBOX_TOGGLABLE))
 		clothing_flags ^= (VOICEBOX_DISABLED)
 		var/status = !(clothing_flags & VOICEBOX_DISABLED)
-		to_chat(user, span_notice("You turn the voice box in [src] [status ? "on" : "off"]."))
+		to_chat(user, span_notice("你[status ? "开启" : "关闭"]了[src]的变声器。"))
 
 /obj/item/clothing/mask/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file, bodyshape = NONE)
 	. = ..()

@@ -23,10 +23,10 @@
 #define ROLL_PUBLIC ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET|ROLL_FLAG_NEARBY
 
 #define ROLL_OUTPUT_IC list( \
-	"Nearby", \
-	"Roller", \
-	"Target", \
-	"Admin", \
+	"附近的人", \
+	"掷骰者", \
+	"目标", \
+	"管理员", \
 )
 
 DEFINE_BITFIELD(roll_output_type, list(

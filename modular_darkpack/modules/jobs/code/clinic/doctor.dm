@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 8 // CRIMSON EDIT CHANGE - Original: total_positions = 4
 	spawn_positions = 8 // CRIMSON EDIT CHANGE - Original: spawn_positions = 4
-	supervisors = "the Clinic Director"
+	supervisors = "诊所主任"
 	config_tag = "DOCTOR"
 	job_flags = CITY_JOB_FLAGS
 	outfit = /datum/outfit/job/vampire/clinic_doctor
@@ -21,7 +21,7 @@
 		JOB_PRIMOGEN_MALKAVIAN
 	)
 
-	description = "Help your fellow kindred in all matters medicine related. Sell blood. Keep your human colleagues ignorant."
+	description = "帮助血族同胞处理一切医疗事务，出售血液，并让人类同事对真相一无所知。"
 	maximal_generation = 9
 	maximum_immortal_age = 200
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL, SPLAT_KINFOLK, SPLAT_NONE)

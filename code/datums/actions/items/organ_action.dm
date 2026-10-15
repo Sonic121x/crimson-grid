@@ -40,10 +40,10 @@
 	if(!cat_fangs.feral_mode)
 		background_icon_state = "bg_default"
 		button_icon_state = "feral_mode_off"
-		to_chat(cat_fangs.owner, span_notice("You will make unarmed attacks normally."))
+		to_chat(cat_fangs.owner, span_notice("你将正常进行徒手攻击。"))
 	else
 		background_icon_state = "bg_default_on"
 		button_icon_state = "feral_mode_on"
-		to_chat(cat_fangs.owner, span_notice("You will bite when making an unarmed attack."))
+		to_chat(cat_fangs.owner, span_notice("你将在徒手攻击时啃咬目标。"))
 	build_all_button_icons()
 	return TRUE

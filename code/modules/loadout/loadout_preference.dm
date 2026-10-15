@@ -38,18 +38,18 @@
 		var/obj/item/real_path = istext(path) ? text2path(path) : path
 		if(!ispath(real_path, /obj/item))
 			if(optional_loadout_owner)
-				to_chat(optional_loadout_owner, span_boldnotice("The following invalid item path was found \
-					in your character loadout: [real_path || "null"]. \
-					It has been removed, renamed, or is otherwise missing - \
-					You may want to check your loadout settings."))
+				to_chat(optional_loadout_owner, span_boldnotice("在你的角色初始装备中 \
+					发现了无效的物品路径：[real_path || "空值"]。 \
+					该物品已被移除、重命名或因其他原因无法找到。 \
+					请检查初始装备设置。"))
 			continue
 
 		else if(!istype(GLOB.all_loadout_datums[real_path], /datum/loadout_item))
 			if(optional_loadout_owner)
-				to_chat(optional_loadout_owner, span_boldnotice("The following invalid loadout item was found \
-					in your character loadout: [real_path || "null"]. \
-					It has been removed, renamed, or is otherwise missing - \
-					You may want to check your loadout settings."))
+				to_chat(optional_loadout_owner, span_boldnotice("在你的角色初始装备中 \
+					发现了无效的装备条目：[real_path || "空值"]。 \
+					该物品已被移除、重命名或因其他原因无法找到。 \
+					请检查初始装备设置。"))
 			continue
 
 		var/datum/loadout_item/loadout_item = GLOB.all_loadout_datums[real_path]

@@ -40,7 +40,7 @@ GLOBAL_DATUM_INIT(mentor_requests, /datum/request_manager/mentor, new)
 	// Only admins should be sending actions
 	var/client/mentor_client = usr.client
 	if(!mentor_client || !mentor_client.is_mentor())
-		to_chat(mentor_client, "You are not allowed to be using this mentor-only proc. Please report it.", confidential = TRUE)
+		to_chat(mentor_client, "你无权使用这项导师专属功能，请报告此问题。", confidential = TRUE)
 		return
 
 	// Get the request this relates to

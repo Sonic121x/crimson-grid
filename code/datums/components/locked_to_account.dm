@@ -34,7 +34,7 @@
 /// adds a note to the examine text saying its account-locked
 /datum/component/locked_to_account/proc/on_examine(obj/structure/closet/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_warning("An account lock prevents this from opening except by the purchasing account holder.")
+	examine_list += span_warning("账户锁限制了开启权限，只有购买账户的持有人才能打开。")
 
 /**
  * runs when someone tries to open the crate, checks their ID against buyer_account
@@ -50,11 +50,11 @@
 
 	var/obj/item/card/id/id_card = user.get_idcard(TRUE) // the ID card the user is holding/wearing, used to check their linked bank account
 	if(isnull(id_card))
-		deny(source, user, "No ID detected!")
+		deny(source, user, "未检测到身份证！")
 		return BLOCK_OPEN
 
 	if(!id_card.registered_account)
-		deny(source, user, "No linked bank account detected!")
+		deny(source, user, "未检测到关联的银行账户！")
 		return BLOCK_OPEN
 
 	var/is_department = istype(buyer_account, /datum/bank_account/department) // department orders check the user's paycheck department instead of a personal account match.  TRUE if this user is allowed to open the crate
@@ -64,7 +64,7 @@
 		: (id_card.registered_account == buyer_account)
 
 	if(!account_matches)
-		deny(source, user, "Bank account does not match with buyer!")
+		deny(source, user, "银行账户与购买者不符！")
 		return BLOCK_OPEN
 
 	if(iscarbon(user))
@@ -81,13 +81,13 @@
 /// emag skips this whole check and goes straight to remove_lock
 /datum/component/locked_to_account/proc/on_emag(obj/structure/closet/source, mob/emagger)
 	SIGNAL_HANDLER
-	emagger.balloon_alert(emagger, "account lock bypassed")
+	emagger.balloon_alert(emagger, "已绕过账户锁")
 	remove_lock(source, emagger)
 
 /// unlocks the crate  and removes this component
 /datum/component/locked_to_account/proc/remove_lock(obj/structure/closet/source, mob/user)
-	source.visible_message(span_notice("[source]'s account lock disengages with a soft click."))
-	to_chat(user, span_notice("You unlock [source]."))
+	source.visible_message(span_notice("[source]的账户锁轻轻咔嗒一声，解开了。"))
+	to_chat(user, span_notice("你解锁了[source]。"))
 	source.update_appearance()
 	qdel(src)
 

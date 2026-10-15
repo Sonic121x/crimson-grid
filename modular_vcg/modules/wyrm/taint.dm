@@ -43,26 +43,26 @@
 	holder.add_reagent(/datum/reagent/wyrmtaint, 0.1 * metabolization_ratio * seconds_per_tick)
 
 /obj/item/reagent_containers/applicator/pill/magaloft
-	name = "magaloft pill"
-	desc = "Used to alleviate anxiety and depression, proven to have no side effects*."
+	name = "玛加舒药片"
+	desc = "用于缓解焦虑与抑郁，经证实没有副作用*。"
 	list_reagents = list(/datum/reagent/drug/happiness/magaloft = 5)
 	icon_state = "pill_happy"
 	rename_with_volume = TRUE
 
 /obj/item/storage/pill_bottle/magaloft
-	name = "magaloft antidepressants"
-	desc = "Antidepressants with no proven side effects*."
+	name = "玛加舒抗抑郁药"
+	desc = "尚未证实有副作用的抗抑郁药*。"
 	spawn_count = 5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/magaloft
 
 /obj/item/reagent_containers/applicator/pill/magafinil
-	name = "magafinil pill"
-	desc = "Used to treat symptoms of drowsiness and sudden loss of consciousness."
+	name = "玛加醒药片"
+	desc = "用于治疗嗜睡和突发意识丧失等症状。"
 	list_reagents = list(/datum/reagent/consumable/sugar = 5, /datum/reagent/medicine/synaptizine = 5, /datum/reagent/medicine/modafinil/magafinil = 3)
 	icon_state = "pill15"
 
 /obj/item/storage/pill_bottle/magafinil
-	name = "bottle of magafinil pills"
-	desc = "A bottle of magafinil pills used to help prevent drowsiness and increase alertness."
+	name = "玛加醒药片瓶"
+	desc = "一瓶玛加醒药片，用于帮助预防困倦并提高警觉。"
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/magafinil

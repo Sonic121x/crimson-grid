@@ -8,8 +8,8 @@
 */
 /datum/symptom/sneeze
 	name = "Sneezing"
-	desc = "The virus causes irritation of the nasal cavity, making the host sneeze occasionally. Sneezes from this symptom will spread the virus in a 4 meter cone in front of the host."
-	illness = "Bard Flu"
+	desc = "病毒刺激鼻腔，使宿主偶尔打喷嚏。该症状引发的喷嚏会将病毒传播至宿主前方4米的扇形区域。"
+	illness = "吟游诗人流感"
 	stealth = -2
 	resistance = 3
 	stage_speed = 0
@@ -20,9 +20,9 @@
 	delay_variation = 0.4
 	required_organ = ORGAN_SLOT_LUNGS
 	threshold_descs = list(
-		"Transmission 9" = "Increases sneezing range, spreading the virus over 6 meter cone instead of over a 4 meter cone.",
-		"Stealth 4" = "The symptom remains hidden until active.",
-		"Stage Speed 17" = "The force of each sneeze catapults the host backwards, potentially stunning and lightly damaging them if they hit a wall or another person mid-flight."
+		"传播力 9" = "扩大喷嚏范围，将病毒传播区域从前方4米扩大至6米的扇形区域。",
+		"隐蔽性 4" = "症状在发作前难以察觉。",
+		"发展速度 17" = "每次喷嚏的冲力都会把宿主向后弹飞；若途中撞到墙壁或他人，可能会被击晕并受到轻微伤害。"
 	)
 	///Emote cooldowns
 	COOLDOWN_DECLARE(sneeze_cooldown)
@@ -56,7 +56,7 @@
 			affected_mob.emote("sneeze")
 			active_disease.airborne_spread(spread_range = src.spread_range, force_spread = TRUE, require_facing = TRUE)
 			if(cartoon_sneezing) //Yeah, this can fling you around even if you have a space suit helmet on. It's, uh, bluespace snot, yeah.
-				to_chat(affected_mob, span_userdanger("You are launched violently backwards by an all-mighty sneeze!"))
+				to_chat(affected_mob, span_userdanger("一个惊天动地的喷嚏把你猛地向后弹飞了！"))
 				var/sneeze_distance = rand(2,4) //twice as far as a normal baseball bat strike will fling you
 				var/turf/target = get_ranged_target_turf(affected_mob, REVERSE_DIR(affected_mob.dir), sneeze_distance)
 				affected_mob.throw_at(target, sneeze_distance, rand(1,4)) //with the wounds update, sneezing at 7 speed was causing peoples bones to spontaneously explode, turning cartoonish sneezing into a nightmarishly lethal GBS 2.0 outbreak

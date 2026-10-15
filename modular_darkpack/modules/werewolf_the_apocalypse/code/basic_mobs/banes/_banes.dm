@@ -1,5 +1,5 @@
 /mob/living/basic/bane
-	name = "creature"
+	name = "怪物"
 	abstract_type = /mob/living/basic/bane
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/basic/banes.dmi'
 
@@ -13,10 +13,10 @@
 	melee_damage_upper = 20
 	obj_damage = 20
 
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
 	attack_sound = 'sound/items/weapons/bite.ogg'
-	speak_emote = list("gnashes")
+	speak_emote = list("咬牙切齿地说")
 
 	faction = list("bane")
 

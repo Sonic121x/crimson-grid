@@ -30,7 +30,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if("[user.client.prefs.default_slot]" in user.persistent_client.joined_as_slots)
-		to_chat(user, span_warning("You cannot be spawned in as this character to adjust its stats."))
+		to_chat(user, span_warning("你已使用此角色进入游戏，无法再调整其属性。"))
 		return FALSE
 
 	var/datum/st_stat/stat_path = preferences.preference_storyteller_stats[text2path(params["stat"])]
@@ -66,7 +66,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!isnewplayer(user))
-		to_chat(user, span_warning("You have to be in the main menu to adjust your stats."))
+		to_chat(user, span_warning("你必须回到主菜单才能调整属性。"))
 		return FALSE
 
 	var/datum/st_stat/stat_path = preferences.preference_storyteller_stats[text2path(params["stat"])]
@@ -97,7 +97,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!isnewplayer(user))
-		to_chat(user, span_warning("You have to be in the main menu to adjust your stats."))
+		to_chat(user, span_warning("你必须回到主菜单才能调整属性。"))
 		return FALSE
 
 	var/real_name = user.client.prefs.read_preference(/datum/preference/name/real_name)

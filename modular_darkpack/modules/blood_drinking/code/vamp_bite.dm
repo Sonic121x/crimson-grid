@@ -8,32 +8,32 @@
 			var/mob/living/bit_living = pulling
 			if(!get_vampire_splat(src))
 				SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
-				to_chat(src, span_warning("You're not desperate enough to try <i>that</i>."))
+				to_chat(src, span_warning("你还没绝望到要尝试<i>那种事</i>。"))
 				return
 			// Allow ghouls to steal viate?
 			if(get_ghoul_splat(src))
 				if(!get_kindred_splat(bit_living))
 					SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
-					to_chat(src, span_warning("You're not desperate enough to try <i>that</i>."))
+					to_chat(src, span_warning("你还没绝望到要尝试<i>那种事</i>。"))
 					return
 			// Allow for diablor?
 			if(!get_kindred_splat(bit_living) || !get_kindred_splat(src))
 				if(!CAN_HAVE_BLOOD(bit_living) || (bit_living.blood_volume <= 50) || (bit_living.bloodpool <= 0))
 					SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
-					to_chat(src, span_warning("This vessel is empty. You'll have to find another."))
+					to_chat(src, span_warning("这具血囊已经空了。你得另找一个。"))
 					return
 			// Prey exclusion for anyone with the Flaw. Note that this is different than drinksomeblood.dm and TRAIT_FEEDING_RESTRICTION which disallows ventrue from drinking blood of poor npcs.
 			var/datum/quirk/darkpack/prey_exclusion/prey_exclusion_datum = src.get_quirk(/datum/quirk/darkpack/prey_exclusion)
 			if(prey_exclusion_datum && prey_exclusion_datum.prey_exclusion && istype(bit_living, prey_exclusion_datum.prey_exclusion))
 				SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
-				to_chat(src, span_warning("You despise this kind of prey."))
+				to_chat(src, span_warning("你厌恶这类猎物。"))
 				// DARKPACK TODO - FRENZY - tgui_input, yes or no to continue feeding in spite of the prey being excluded, if so, frenzy and path/humanity hit
 				return
 
 			// anthropic taste flaw
 			if(HAS_TRAIT(src, TRAIT_ANTHROPIC_TASTE) && istype(bit_living, /mob/living/basic))
 				SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
-				to_chat(src, span_warning("You despise this kind of prey."))
+				to_chat(src, span_warning("你厌恶这类猎物。"))
 				// DARKPACK TODO - FRENZY - tgui_input, yes or no to continue feeding in spite of the prey being excluded, if so, frenzy and path/humanity hit
 				return
 
@@ -45,13 +45,13 @@
 						votm.victim_of_the_masquerade_roll = new()
 					var/result = votm.victim_of_the_masquerade_roll.st_roll(src, bit_living)
 					if(result != ROLL_SUCCESS)
-						to_chat(src, span_warning("What the hell am I doing? I'm not a vampire... oh god... I feel lightheaded..."))
+						to_chat(src, span_warning("我到底在干什么？我又不是吸血鬼……天啊……我觉得头好晕……"))
 						src.Unconscious(1 TURNS)
 						SEND_SIGNAL(src, COMSIG_PATH_HIT, -1, 0, FALSE)
 						SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
 						return
 					else
-						to_chat(src, span_notice("Your teeth... or are they fangs... sink deep. It feels warm and good... oh god... this is wrong...!"))
+						to_chat(src, span_notice("你的牙齿……还是说獠牙……深深刺入。温热而美妙……天啊……这样不对……！"))
 
 			// territorial flaw
 			if(HAS_TRAIT(src, TRAIT_VAMPIRE_TERRITORIAL))
@@ -59,20 +59,20 @@
 				if(terr && terr.territory)
 					var/area/current_area = get_area(bit_living)
 					if(!istype(current_area, terr.territory))
-						to_chat(src, span_warning("This isn't your territory. You don't want to feed here."))
+						to_chat(src, span_warning("这不是你的领地。你不愿在这里进食。"))
 						SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
 						return
 
 			// Dulled Bite flaw, defanged kindred.
 			if(HAS_TRAIT(src, TRAIT_DULLFANGS))
-				to_chat(src, span_warning("Your fangs are too dull to pierce flesh!"))
+				to_chat(src, span_warning("你的獠牙太钝，无法刺穿血肉！"))
 				SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
 				return
 
 			// Thirst Of Ages flaw.
 			if(HAS_TRAIT(src, TRAIT_THIRST_OF_AGES))
 				if(!bit_living.get_full_splat())
-					to_chat(src, span_warning("Their blood isn't potent enough!"))
+					to_chat(src, span_warning("对方的血液蕴含的力量还不够！"))
 					SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
 					return
 
@@ -88,16 +88,16 @@
 			var/skipface = (wear_mask && (wear_mask.flags_cover & MASKCOVERSMOUTH)) || (head && (head.flags_cover & HEADCOVERSMOUTH))
 			if(!skipface)
 				if(get_kindred_splat(src) && HAS_TRAIT(src, TRAIT_NEEDS_BLOOD))
-					trigger_kindred_frenzy(bit_living, 6, 0, "The taste of blood while hungry")
+					trigger_kindred_frenzy(bit_living, 6, 0, "饥渴时尝到的血味")
 
 				if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER))
 					playsound(src, 'modular_darkpack/modules/blood_drinking/sounds/drinkblood1.ogg', 30, TRUE) // CRIMSON EDIT CHANGE - ORIGINAL: playsound(src, 'modular_darkpack/modules/blood_drinking/sounds/drinkblood1.ogg', 50, TRUE)
 
-					bit_living.visible_message(span_warning(span_bold("[src] bites [bit_living]'s neck!")), span_warning(span_bold("[src] bites your neck!")))
+					bit_living.visible_message(span_warning(span_bold("[src]咬住了[bit_living]的脖子！")), span_warning(span_bold("[src]咬住了你的脖子！")))
 				if(!HAS_TRAIT(src, TRAIT_BLOODY_LOVER))
 					SEND_SIGNAL(src, COMSIG_MASQUERADE_VIOLATION)
 				else
 					playsound(src, 'modular_darkpack/modules/blood_drinking/sounds/kiss.ogg', 50, TRUE)
-					bit_living.visible_message(span_italics(span_bold("[src] kisses [bit_living]!")), span_userlove(span_bold("[src] kisses you!")))
+					bit_living.visible_message(span_italics(span_bold("[src]亲吻了[bit_living]！")), span_userlove(span_bold("[src]亲吻了你！")))
 				log_combat(src, bit_living, "bit and is drinking blood from", "Drinker bloodpool : [bloodpool] ,  Victim bloodpool : [bit_living.bloodpool]")
 				drinksomeblood(bit_living, TRUE)

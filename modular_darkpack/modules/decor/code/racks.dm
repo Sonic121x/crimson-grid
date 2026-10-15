@@ -1,6 +1,6 @@
 /obj/structure/rack/clothing
-	name = "clothing rack"
-	desc = "Have some clothes."
+	name = "衣物架"
+	desc = "这里有些衣物。"
 	icon = 'modular_darkpack/modules/decor/icons/rack.dmi'
 	icon_state = "rack"
 
@@ -13,8 +13,8 @@
 
 
 /obj/structure/rack/clothing_hanger
-	name = "clothing hanger"
-	desc = "Have some clothes."
+	name = "衣架"
+	desc = "这里有些衣物。"
 	icon = 'modular_darkpack/modules/decor/icons/rack.dmi'
 	icon_state = "hanger1"
 
@@ -26,7 +26,7 @@
 	icon_state = "hanger[rand(1, 4)]"
 
 /obj/structure/rack/fruit_stand
-	name = "frust stand"
+	name = "水果摊"
 	icon = 'modular_darkpack/modules/decor/icons/rack.dmi'
 	icon_state = "fruit_stand"
 
@@ -36,8 +36,8 @@
 
 // Soft deprecated.
 /obj/structure/rack/food
-	name = "food rack"
-	desc = "Have some food."
+	name = "食品货架"
+	desc = "这里有些食品。"
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "rack1"
 	pixel_w = -16

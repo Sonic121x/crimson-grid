@@ -1,6 +1,6 @@
 /obj/item/card/drivers_license
-	name = "driver's license"
-	desc = "An identification card allowing its holder to own and operate motor vehicles. Doubles as a valid form of identification."
+	name = "驾驶执照"
+	desc = "允许持证人拥有和驾驶机动车辆的证件，也可作为有效身份证明。"
 	icon = 'modular_darkpack/modules/government/icons/docs.dmi'
 	icon_state = "drivers"
 	worn_icon_state = ""
@@ -47,8 +47,8 @@
 	if(!examine_roll)
 		examine_roll = new()
 		examine_roll.reroll_cooldown = 1 SCENES
-	var/roll_result = examine_roll.st_roll(user, src)
+	var/roll_result = examine_roll.st_roll(user, src); var/datum/preference/choiced/state_preference = GLOB.preference_entries[/datum/preference/choiced/state_of_origin]; var/list/state_names = state_preference.get_choices()
 	if(owner)
-		. += span_notice("It reads as belonging to [owner], issued by the state of [issuing_state].")
+		. += span_notice("证件上写着：持证人[owner]，签发地[state_names[issuing_state] ? state_names[issuing_state] : issuing_state]。")
 		if(fake && (roll_result == ROLL_SUCCESS))
-			. += span_notice("It looks like a crude counterfeit.")
+			. += span_notice("这看起来是一份粗制滥造的假证。")

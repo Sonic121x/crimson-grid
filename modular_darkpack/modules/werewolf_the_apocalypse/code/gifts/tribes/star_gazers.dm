@@ -1,6 +1,6 @@
 /datum/action/cooldown/power/gift/channeling
-	name = "Channeling"
-	desc = "The user burns 1 to 3 rage in exchange for that many bonus dice on there next roll."
+	name = "怒火引导"
+	desc = "消耗 1 至 3 点怒火，使下一次检定获得等量的额外骰子。"
 	button_icon_state = "channeling"
 	rank = 1
 	rage_cost = 1
@@ -12,9 +12,9 @@
 		return
 
 	var/static/list/radial_menu_options = list(
-			"One" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_one"),
-			"Two" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_two"),
-			"Three" = icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_three"),
+			"One" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_one"), "一点"),
+			"Two" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_two"), "两点"),
+			"Three" = localized_radial_choice(icon('modular_darkpack/modules/werewolf_the_apocalypse/icons/gifts/tribes/bone_gnawers.dmi', "radial_three"), "三点"),
 		)
 
 	var/pick = show_radial_menu(owner, owner, radial_menu_options)
@@ -59,5 +59,5 @@
 
 /atom/movable/screen/alert/status_effect/gift/channeling
 	name = /datum/action/cooldown/power/gift/channeling::name
-	desc = "Your next roll will will get extra dice added to that roll"
+	desc = "你的下一次检定将获得额外骰子。"
 	overlay_state = /datum/action/cooldown/power/gift/channeling::button_icon_state

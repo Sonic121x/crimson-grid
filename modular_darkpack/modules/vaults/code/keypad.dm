@@ -7,8 +7,8 @@ GLOBAL_LIST_EMPTY(vault_doors)
 	return pincode
 
 /obj/keypad
-	name = "keypad"
-	desc = "Requires a password to open."
+	name = "密码键盘"
+	desc = "需要输入密码才能开门。"
 	icon = 'modular_darkpack/modules/vaults/icons/keypad.dmi'
 	icon_state = "keypad"
 	layer = SIGN_LAYER
@@ -35,21 +35,21 @@ GLOBAL_LIST_EMPTY(vault_doors)
 
 /obj/keypad/attack_hand(mob/user)
 	if(!length(connected_shutters))
-		to_chat(user, span_warning("No connected shutters."))
+		to_chat(user, span_warning("没有连接任何卷帘门。"))
 		return
 
-	var/choice = tgui_alert(user, "Enter pincode or close shutters?", "Keypad", list("Enter Pincode", "Close Shutters", "Cancel"))
-	if(choice == "Enter Pincode")
-		var/input = tgui_input_text(user, "Enter 5-digit pincode:", "Keypad")
+	var/choice = tgui_alert(user, "输入密码还是关闭卷帘门？", "密码键盘", list("输入密码", "关闭卷帘门", "取消"))
+	if(choice == "输入密码")
+		var/input = tgui_input_text(user, "输入五位数字密码：", "密码键盘")
 		if("[input]" == pincode)
-			to_chat(user, span_notice("ACCESS GRANTED"))
+			to_chat(user, span_notice("验证通过"))
 			for(var/obj/machinery/door/poddoor/shutters/S in connected_shutters)
 				if(S.density)
 					INVOKE_ASYNC(S, TYPE_PROC_REF(/obj/machinery/door/poddoor/shutters, open))
 		else
-			to_chat(user, span_warning("ACCESS DENIED"))
+			to_chat(user, span_warning("拒绝访问"))
 
-	else if(choice == "Close Shutters")
+	else if(choice == "关闭卷帘门")
 		for(var/obj/machinery/door/poddoor/shutters/S in connected_shutters)
 			if(!S.density)
 				INVOKE_ASYNC(S, TYPE_PROC_REF(/obj/machinery/door/poddoor/shutters, close))

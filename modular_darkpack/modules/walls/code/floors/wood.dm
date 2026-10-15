@@ -6,7 +6,7 @@
 //	barefootstep = FOOTSTEP_PARKET
 
 /turf/open/floor/wood/rough
-	name = "wood flooring"
+	name = "木地板"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "wood1"
 	base_icon_state = "wood"
@@ -17,7 +17,7 @@
 	icon_state = "[base_icon_state][rand(1, 12)]"
 
 /turf/open/floor/wood/herring
-	name = "fancy wood flooring"
+	name = "精美木地板"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "woodd1"
 	base_icon_state = "woodd"

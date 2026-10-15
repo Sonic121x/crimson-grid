@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(fetish_merit_choice, generate_merit_fetishes())
 // W20 p. 137 for the garou background rather then the kinfolk merit.
 /datum/quirk/darkpack/item_quirk/fetish
 	name = "Fetish"
-	desc = "You own a weak fetish. You may have inherited this item, received it as a gift, it should have an important value to you."
+	desc = "你拥有一件力量较弱的灵器。它可能是继承而来，也可能是别人赠送的礼物，应当对你具有重要意义。"
 	value = 3 // Middle ground price between the kinfolk merit or garou background
 	// Acctually a kinfolk merit in the books.
 	allowed_splats = list(SPLAT_KINFOLK, SPLAT_GAROU, SPLAT_CORAX)
@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(fetish_merit_choice, generate_merit_fetishes())
 			LOCATION_BACKPACK,
 			LOCATION_HANDS,
 		),
-		flavour_text = "This is your precious fetish!",
+		flavour_text = "这是你珍贵的灵器！",
 		notify_player = TRUE,
 	)
 

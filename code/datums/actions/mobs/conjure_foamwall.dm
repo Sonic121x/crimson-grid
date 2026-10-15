@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/conjure/foam_wall
 	name = "Foam wall"
-	desc = "Create a wall of foam."
+	desc = "制造一面泡沫墙。"
 
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "metalfoam"

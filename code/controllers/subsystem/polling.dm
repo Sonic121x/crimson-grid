@@ -60,9 +60,9 @@ SUBSYSTEM_DEF(polling)
 	if(role && !role_name_text)
 		role_name_text = role
 	if(role_name_text && !question)
-		question = "Do you want to play as [span_notice(role_name_text)]?"
+		question = "你想扮演[span_notice(role_name_text)]吗？"
 	if(!question)
-		question = "Do you want to play as a special role?"
+		question = "你想扮演特殊角色吗？"
 	log_ghost_poll("Candidate poll started.", data = list(
 		"role name" = role_name_text,
 		"poll question" = question,
@@ -152,11 +152,11 @@ SUBSYSTEM_DEF(polling)
 		var/custom_link_style_start = "<style>a:visited{color:Crimson !important}</style>"
 		var/custom_link_style_end = "style='color:DodgerBlue;font-weight:bold;-dm-text-outline: 1px black'"
 		if(isatom(alert_pic) && isobserver(candidate_mob))
-			act_jump = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];jump=1'[custom_link_style_end]>\[Teleport\]</a>"
-		var/act_signup = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];signup=1'[custom_link_style_end]>\[[start_signed_up ? "Opt out" : "Sign Up"]\]</a>"
+			act_jump = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];jump=1'[custom_link_style_end]>\[传送\]</a>"
+		var/act_signup = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];signup=1'[custom_link_style_end]>\[[start_signed_up ? "退出报名" : "报名"]\]</a>"
 		var/act_never = ""
 		if(ignore_category)
-			act_never = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];never=1'[custom_link_style_end]>\[Never For This Round\]</a>"
+			act_never = "[custom_link_style_start]<a href='byond://?src=[REF(poll_alert_button)];never=1'[custom_link_style_end]>\[本回合不再询问\]</a>"
 
 		if(!duplicate_message_check(alert_poll)) //Only notify people once. They'll notice if there are multiple and we don't want to spam people.
 

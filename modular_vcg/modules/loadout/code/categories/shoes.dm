@@ -1,7 +1,7 @@
 /datum/loadout_item/shoes/harness_boots
-	name = "harness boots"
+	name = "束带靴"
 	item_path = /obj/item/clothing/shoes/vampire/harness_boots
 
 /datum/loadout_item/shoes/harness_boots_brown
-	name = "brown harness boots"
+	name = "棕色束带靴"
 	item_path = /obj/item/clothing/shoes/vampire/harness_boots/brown

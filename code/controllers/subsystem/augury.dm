@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(augury)
 			orbitter.ManualFollow(biggest_doom)
 
 /datum/action/innate/augury
-	name = "Auto Follow Debris"
+	name = "自动跟随残骸"
 	button_icon = 'icons/obj/meteor.dmi'
 	button_icon_state = "flaming"
 
@@ -70,10 +70,10 @@ SUBSYSTEM_DEF(augury)
 
 /datum/action/innate/augury/Activate()
 	SSaugury.watchers += owner
-	to_chat(owner, span_notice("You are now auto-following debris."))
+	to_chat(owner, span_notice("你开始自动跟随残骸。"))
 	active = TRUE
 
 /datum/action/innate/augury/Deactivate()
 	SSaugury.watchers -= owner
-	to_chat(owner, span_notice("You are no longer auto-following debris."))
+	to_chat(owner, span_notice("你停止了自动跟随残骸。"))
 	active = FALSE

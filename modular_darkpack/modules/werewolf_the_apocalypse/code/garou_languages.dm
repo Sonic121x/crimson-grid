@@ -33,7 +33,7 @@
 
 /datum/language/garou_tongue
 	name = "Garou Tongue"
-	desc = "A guttural and pitchy language also known as 'High Tongue', the language of the Garou capable of being learned and spoken by Garou. It is hard to speak in human form."
+	desc = "狼人能够学习并使用的语言，又称“高等语”，以喉音和多变的音调为特点。人类形态很难说出这种语言。"
 	key = "w"
 	flags = LANGUAGE_TONGUELESS_SPEECH | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 40
@@ -50,7 +50,7 @@
 
 /datum/language/primal_tongue
 	name = "Primal Tongue"
-	desc = "A language inherently known to all Garou breeds at birth, able to be spoken only in Lupus, Crinos and Hispo forms."
+	desc = "所有出身的狼人都天生通晓的语言，仅能在野兽形态、战斗形态和巨兽形态下使用。"
 	key = "p"
 	flags = LANGUAGE_TONGUELESS_SPEECH | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 40

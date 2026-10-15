@@ -29,7 +29,7 @@
 
 /datum/component/revenant_prison/proc/on_parent_break(obj/source, damage_flags)
 	SIGNAL_HANDLER
-	source.visible_message(span_revenwarning("The revenant cackles as it escapes from [source]!"))
+	source.visible_message(span_revenwarning("怨灵狂笑着从[source]中逃出！"))
 	playsound(source.loc, 'sound/effects/chemistry/ahaha.ogg', 100, TRUE)
 	release_revenant(source, cause = "[parent] breaking")
 
@@ -40,7 +40,7 @@
 			continue
 		REMOVE_TRAIT(new_home, TRAIT_COZY_REVENANT_HOME, INNATE_TRAIT)
 		new_home.TakeComponent(src)
-		new_home.visible_message(span_revenwarning("A dismal moan echoes as particles of [parent] fall onto [new_home]!"))
+		new_home.visible_message(span_revenwarning("随着[parent]的尘粒落到[new_home]上，一阵凄厉的呻吟声回荡开来！"))
 		log_game("A revenant was trapped inside [new_home]")
 		message_admins("A revenant was trapped inside [new_home] [ADMIN_JMP(new_home)]")
 		return
@@ -74,7 +74,7 @@
 /datum/component/revenant_prison/proc/on_parent_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(istype(parent, /obj/structure/mirror))
-		examine_list += span_revenwarning("The reflection is shifting and distorted.")
+		examine_list += span_revenwarning("映像扭曲变幻。")
 
 /datum/component/revenant_prison/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_parent_examine))

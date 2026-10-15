@@ -54,7 +54,7 @@ class PencilTransaction implements LayerTransaction {
 
 export class Pencil extends Tool {
   icon = 'pencil';
-  name = 'Pencil';
+  name = '铅笔';
   currentTransaction: PencilTransaction | null;
   lastPoint: [number, number] | null = null;
 

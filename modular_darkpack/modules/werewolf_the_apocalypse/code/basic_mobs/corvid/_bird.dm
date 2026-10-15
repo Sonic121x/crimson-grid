@@ -1,6 +1,6 @@
 /mob/living/basic/corvid
-	name = "corvid"
-	desc = "Caw."
+	name = "鸦科鸟类"
+	desc = "嘎。"
 	abstract_type = /mob/living/basic/corvid
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	icon_state = "black"
@@ -9,20 +9,20 @@
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/corax_forms/corvid.dmi'
 	density = FALSE
 	butcher_results = list(/obj/item/food/meat/slab/chicken = 1)
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	response_harm_continuous = "pecks"
-	response_harm_simple = "peck"
-	attack_verb_continuous = "pecks"
-	attack_verb_simple = "peck"
-	friendly_verb_continuous = "headbutts"
-	friendly_verb_simple = "headbutt"
-	verb_say = "caws"
-	verb_exclaim = "squawks"
-	verb_yell = "shrieks"
-	speak_emote = list("caws")
+	response_help_continuous = "抚摸"
+	response_help_simple = "抚摸"
+	response_disarm_continuous = "轻轻推开"
+	response_disarm_simple = "轻轻推开"
+	response_harm_continuous = "啄击"
+	response_harm_simple = "啄击"
+	attack_verb_continuous = "啄击"
+	attack_verb_simple = "啄击"
+	friendly_verb_continuous = "用头轻撞"
+	friendly_verb_simple = "用头轻撞"
+	verb_say = "嘎嘎叫道"
+	verb_exclaim = "聒噪地叫道"
+	verb_yell = "尖叫道"
+	speak_emote = list("嘎嘎叫道")
 	health = 20
 	maxHealth = 20
 	pass_flags = PASSTABLE | PASSMOB
@@ -74,8 +74,8 @@
 	. += emissive_overlay
 
 /datum/action/innate/togglecorvidflight // this action handles corvid forms toggle their flight, and swaps their sprite to be of the relevant type.
-	name = "Toggle Flight"
-	desc = "Unfurl or withdraw your wings, toggling your ability to fly"
+	name = "切换飞行"
+	desc = "展开或收起翅膀，切换飞行状态。"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_IMMOBILE
 	button_icon = 'modular_darkpack/master_files/icons/hud/actions.dmi'
 	button_icon_state = "fly"
@@ -92,7 +92,7 @@
 	// if(!do_after(src, 0.5 SECONDS, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 	// 	return
 	if (!(HAS_TRAIT(corvid, TRAIT_MOVE_FLYING)))
-		to_chat(corvid, span_notice("You beat your wings and begin to hover gently above the ground..."))
+		to_chat(corvid, span_notice("你拍打翅膀，轻盈地悬浮在地面上方……"))
 		corvid.set_resting(FALSE, TRUE)
 		// sadly, "is flying animal" does not give us flying traits when life() is called, only during VV or upon Init. We're doing this the hard way.
 		// the corax sprites already animate up-and-down bobbing, no need to float
@@ -100,7 +100,7 @@
 		corvid.remove_traits(list(TRAIT_WADDLING), INNATE_TRAIT)
 		// we set this while we wait for the icons to update, otherwise there is latency
 	else
-		to_chat(corvid, span_notice("You settle gently back onto the ground..."))
+		to_chat(corvid, span_notice("你轻轻落回地面……"))
 		corvid.remove_traits(list(TRAIT_MOVE_FLYING, TRAIT_NO_FLOATING_ANIM), ACTION_TRAIT)
 		corvid.AddElementTrait(TRAIT_WADDLING, INNATE_TRAIT, /datum/element/waddling)
 
@@ -120,7 +120,7 @@
 /// Picks up an item from the ground and puts it in our claws. Returns TRUE if we picked it up, FALSE otherwise.
 /mob/living/basic/corvid/put_in_hand_check(obj/item/item_to_pick_up)
 	if(item_to_pick_up.w_class > WEIGHT_CLASS_SMALL)
-		balloon_alert(src, "too big to pick up!")
+		balloon_alert(src, "太大了，抓不起来！")
 		return FALSE
 
 	return ..()
@@ -128,16 +128,16 @@
 /mob/living/basic/corvid/put_in_hand(obj/item/target, hand_index, forced = FALSE, ignore_anim = TRUE, visuals_only = FALSE)
 	if(..())
 		visible_message(
-			span_notice("[src] grabs [target]!"),
-			span_notice("You grab [target]!"),
-			span_hear("You hear the sounds of wings flapping furiously."),
+			span_notice("[src]抓起了[target]！"),
+			span_notice("你抓起了[target]！"),
+			span_hear("你听到翅膀猛烈拍打的声音。"),
 		)
 	return TRUE
 
 /// Looks for an item that we can snatch and puts it in our claws. Returns TRUE if we picked it up, FALSE otherwise.
 /mob/living/basic/corvid/proc/steal_from_mob(mob/living/carbon/victim)
 	if(!isnull(get_active_held_item()))
-		balloon_alert(src, "already holding something!")
+		balloon_alert(src, "已经抓着东西了！")
 		return FALSE
 
 	for(var/obj/item/stealable in victim.held_items)
@@ -149,9 +149,9 @@
 
 		dropItemToGround(stealable)
 		visible_message(
-			span_notice("[src] wrestles [stealable] out of [victim]'s hand!"),
-			span_notice("You wrestles [stealable] out of [victim]'s hand!"),
-			span_hear("You hear the sounds of wings flapping furiously."),
+			span_notice("[src]从[victim]手中夺走了[stealable]！"),
+			span_notice("你从[victim]手中夺走了[stealable]！"),
+			span_hear("你听到翅膀猛烈拍打的声音。"),
 		)
 		return TRUE
 
@@ -165,21 +165,21 @@
 /datum/emote/corvid/caw
 	key = "caw"
 	key_third_person = "caws"
-	message = "caws!"
+	message = "嘎嘎叫了起来！"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/emotes/caw.ogg'
 
 /mob/living/basic/corvid/crow
-	name = "crow"
-	desc = "Unlike a raven, it has a fan shaped tail."
+	name = "乌鸦"
+	desc = "它的尾巴呈扇形，与渡鸦不同。"
 
 /mob/living/basic/corvid/raven
-	name = "raven"
-	desc = "Unlike a crow, it has a wedge shaped tail."
-	verb_say = "gronks"
-	verb_exclaim = "gronks"
-	speak_emote = list("gronks")
+	name = "渡鸦"
+	desc = "它的尾巴呈楔形，与乌鸦不同。"
+	verb_say = "低哑地叫道"
+	verb_exclaim = "低哑地叫道"
+	speak_emote = list("低哑地叫道")
 
 /mob/living/basic/corvid/raven/Initialize(mapload)
 	. = ..()

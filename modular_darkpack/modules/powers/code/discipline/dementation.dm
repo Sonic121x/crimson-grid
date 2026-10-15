@@ -1,11 +1,11 @@
 /datum/discipline/dementation
 	name = "Dementation"
-	desc = {"Makes all humans in radius mentally ill for a moment, supressing their defending ability.
-● Passion: Charisma + Empathy
-●● The Haunting: Manipulation + Subterfuge
-●●● Eyes of Chaos: Perception + Occult
-●●●● Voice of Madness: Manipulation + Empathy
-●●●●● Total Insanity: Manipulation + Intimidation"}
+	desc = {"使范围内的所有人类短暂陷入精神错乱，削弱其防御能力。
+● 激情：魅力 + 共情
+●● 幻魇侵扰：操控 + 诡诈
+●●● 混沌之眼：感知 + 神秘学
+●●●● 疯狂之声：操控 + 共情
+●●●●● 彻底疯狂：操控 + 威吓"}
 	icon_state = "dementation"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/dementation
@@ -50,8 +50,8 @@ to difficulties of frenzy rolls, Virtue rolls, rolls to resist
 Presence powers, etc
 */
 /datum/discipline_power/dementation/passion
-	name = "Passion"
-	desc = "Stir the deepest parts of your target to manipulate their psyche. Stuns target."
+	name = "激情"
+	desc = "撩动目标内心最深处的情感，操纵其心智。使目标眩晕。"
 	level = 1
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
 	target_type = TARGET_HUMAN
@@ -69,12 +69,12 @@ Presence powers, etc
 	var/mypower = SSroll.storyteller_roll_datum(owner, applic_stats = list(STAT_CHARISMA, STAT_EMPATHY))
 	switch(mypower)
 		if(ROLL_FAILURE, ROLL_BOTCH)
-			to_chat(owner, span_warning("[target]'s mind is too powerful to influence!"))
+			to_chat(owner, span_warning("[target]的心智太过强大，无法施加影响！"))
 			return FALSE
 		if(ROLL_SUCCESS)
-			dementation_phrase = tgui_input_text(owner, "What will you say to [target] to stir their emotions?")
+			dementation_phrase = tgui_input_text(owner, "你要对[target]说什么来激起对方的情绪？")
 			if(!dementation_phrase)
-				to_chat(owner, span_warning("You must say something to your target to influence their emotions."))
+				to_chat(owner, span_warning("你必须对目标说些什么，才能影响其情绪。"))
 				return FALSE
 			return TRUE
 
@@ -131,8 +131,8 @@ rie or harrowing apparitions can certainly reduce dice
 pools for a turn or two after the manifestation.
 */
 /datum/discipline_power/dementation/the_haunting
-	name = "The Haunting"
-	desc = "Manipulate your target's senses, making them perceive what isn't there."
+	name = "幻魇侵扰"
+	desc = "操纵目标的感官，使其感知到并不存在的事物。"
 	level = 2
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
 	target_type = TARGET_HUMAN
@@ -155,11 +155,11 @@ pools for a turn or two after the manifestation.
 	var/theirpower = target.st_get_stat(STAT_PERCEPTION) + resistence_stat
 	mypower = SSroll.storyteller_roll_datum(owner, difficulty = theirpower, applic_stats = list(STAT_MANIPULATION, STAT_SUBTERFUGE), numerical = TRUE)
 	if(mypower <= 0)
-		to_chat(owner, span_warning("[target]'s mind is too powerful to influence!"))
+		to_chat(owner, span_warning("[target]的心智太过强大，无法施加影响！"))
 		return FALSE
-	dementation_phrase = tgui_input_text(owner, "What will you say to [target] to haunt them?")
+	dementation_phrase = tgui_input_text(owner, "你要对[target]说什么来使其遭受幻魇侵扰？")
 	if(!dementation_phrase)
-		to_chat(owner, span_warning("You must say something to your target to haunt them."))
+		to_chat(owner, span_warning("你必须对目标说些什么，才能使其遭受幻魇侵扰。"))
 		return FALSE
 	return TRUE
 
@@ -232,8 +232,8 @@ vanishing up into the night sky.” Avoid stating plainly,
 Methuselah.”
 */
 /datum/discipline_power/dementation/eyes_of_chaos
-	name = "Eyes of Chaos"
-	desc = "See the hidden patterns in the world and uncover people's true selves."
+	name = "混沌之眼"
+	desc = "看透世界中隐藏的规律，揭露他人的真实自我。"
 	level = 3
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
 	target_type = TARGET_HUMAN | TARGET_SELF
@@ -248,13 +248,13 @@ Methuselah.”
 
 /datum/discipline_power/dementation/eyes_of_chaos/proc/update_choices()
 	for(var/i in choice_options)
-		choice_options[i] = icon('icons/effects/effects.dmi', "quantum_sparks")
+		choice_options[i] = localized_radial_choice(icon('icons/effects/effects.dmi', "quantum_sparks"), list("Secrets" = "秘密", "Age" = "年龄")[i])
 
 /datum/discipline_power/dementation/eyes_of_chaos/proc/open_chaos_eyes_window(mob/living/carbon/human/target)
 	var/exploitable_information = sanitize_text(target.client?.prefs.read_preference(/datum/preference/text/exploitable))
 	if(exploitable_information == EXPLOITABLE_DEFAULT_TEXT) //they havent set exploitable text
-		exploitable_information = "You do not manage to uncover any secrets."
-	to_chat(owner, span_notice("You search [target]'s mind... [exploitable_information]"))
+		exploitable_information = "你未能发现任何秘密。"
+	to_chat(owner, span_notice("你探查[target]的心智……[exploitable_information]"))
 
 
 /datum/discipline_power/dementation/eyes_of_chaos/proc/display_select_menu(mob/living/carbon/human/target)
@@ -270,14 +270,14 @@ Methuselah.”
 			open_chaos_eyes_window(target)
 		if("Age")
 			var/total_age = target.chronological_age
-			var/determined_age = "but can't seem to find anything."
+			var/determined_age = "却似乎一无所获。"
 			if(total_age < 100)
-				determined_age = "[target] is less than a century old."
+				determined_age = "[target]的年龄不足百岁。"
 			else if(total_age < 200)
-				determined_age = "[target] is in their second century."
+				determined_age = "[target]的年龄已满百岁，但不足两百岁。"
 			else
-				determined_age = "[target] is an elder."
-			to_chat(owner, span_abductor("You search [target]'s mind for information about their age... [determined_age]"))
+				determined_age = "[target]是一位长老。"
+			to_chat(owner, span_abductor("你在[target]的心智中探寻其年龄的线索……[determined_age]"))
 
 
 /datum/discipline_power/dementation/eyes_of_chaos/pre_activation_checks(mob/living/carbon/human/target)
@@ -286,7 +286,7 @@ Methuselah.”
 		if(ROLL_SUCCESS)
 			return TRUE
 		if(ROLL_FAILURE, ROLL_BOTCH)
-			to_chat(owner, span_warning("[target]'s mind resists you!"))
+			to_chat(owner, span_warning("[target]的心智抵抗了你！"))
 			return FALSE
 
 /datum/discipline_power/dementation/eyes_of_chaos/activate(mob/living/carbon/human/target)
@@ -332,8 +332,8 @@ frenzy or Rötschreck response is automatic.
 */
 
 /datum/discipline_power/dementation/voice_of_madness
-	name = "Voice of Madness"
-	desc = "Your voice becomes a source of utter insanity, affecting you and all those around you."
+	name = "疯狂之声"
+	desc = "你的声音成为疯狂的源泉，影响你自己和周围的所有人。"
 	level = 4
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SPEAK
 	target_type = NONE
@@ -369,9 +369,9 @@ frenzy or Rötschreck response is automatic.
 /datum/discipline_power/dementation/voice_of_madness/pre_activation_checks(mob/living/target)
 	successes = SSroll.storyteller_roll_datum(owner, difficulty = 7, applic_stats = list(STAT_MANIPULATION, STAT_EMPATHY), numerical = TRUE)
 	if(successes >= 0)
-		dementation_phrase = tgui_input_text(owner, "What will you say to cause people nearby to flee?")
+		dementation_phrase = tgui_input_text(owner, "你要说什么来使周围的人逃跑？")
 		if(!dementation_phrase)
-			to_chat(owner, span_warning("You must say something to use this discipline."))
+			to_chat(owner, span_warning("你必须说些什么，才能使用此律能。"))
 			return FALSE
 		return TRUE
 	if(successes <= 0) // failure or botch, see above comment
@@ -423,8 +423,8 @@ determines the duration.
 */
 //TOTAL INSANITY
 /datum/discipline_power/dementation/total_insanity
-	name = "Total Insanity"
-	desc = "Bring out the darkest parts of a person's psyche, bringing them to utter insanity."
+	name = "彻底疯狂"
+	desc = "唤起一个人心灵中最黑暗的部分，使其彻底陷入疯狂。"
 	level = 5
 	vitae_cost = 1
 	check_flags = DISC_CHECK_CAPABLE
@@ -447,7 +447,7 @@ determines the duration.
 		theirpower -= 2
 	mypower = SSroll.storyteller_roll_datum(owner, difficulty = theirpower, applic_stats = list(STAT_MANIPULATION, STAT_INTIMIDATION), numerical = TRUE)
 	if(mypower <= 0)
-		to_chat(owner, span_warning("[target]'s mind is too powerful to corrupt!"))
+		to_chat(owner, span_warning("[target]的心智太过强大，无法腐化！"))
 		return FALSE
 	return TRUE
 

@@ -1,14 +1,14 @@
 // DARKPACK TODO - This should include clans.
 
-/**
- * # Subsplat
- *
- * Represents the "splats" described in splatbooks, e.g. clans, tribes, factions and kiths.
- * These are the "real" splats but we call them subsplats as we used that type path for what WW calls supernaturals
- * A more official term sometimes used, especially for games in the Chronicles of Darkness, is "character axis".
- *
- * These at present are only stored on splats as a var for a given subtype and requires mostly implementing its own handling for everything.
- */
+/datum/preference/choiced/subsplat/compile_constant_data()
+	var/list/data = ..()
+	var/list/display_names = list()
+	var/list/choices = get_choices()
+	for(var/choice in choices)
+		display_names[choice] = FERA_DISPLAY_NAME(choice)
+	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = display_names
+	data["name"] = main_feature_name
+	return data
 /datum/subsplat
 	abstract_type = /datum/subsplat
 
@@ -96,6 +96,6 @@
 /// Displays description and roleplay level of the subsplat.
 /datum/subsplat/proc/show_lore(mob/user)
 	if(desc)
-		to_chat(user, span_notice("[uppertext(name)]<br>[desc]"))
+		to_chat(user, span_notice("[istype(src, /datum/subsplat/vampire_clan) ? CLAN_DISPLAY_NAME(name) : FERA_DISPLAY_NAME(name)]<br>[desc]"))
 	if(roleplay_level)
-		to_chat(user, span_notice("<br>ROLEPLAY LEVEL: [roleplay_level] <br>Roleplay levels, or, the difficulty to play and portray a character from that auspice, are as follows: Beginner Friendly, Intermediate, Advanced."))
+		to_chat(user, span_notice("<br>扮演难度：[list("Beginner Friendly" = "新手友好", "Intermediate" = "中等", "Advanced" = "进阶")[roleplay_level] || roleplay_level]<br>扮演难度表示塑造此类角色所需的经验，分为：新手友好、中等、进阶。"))

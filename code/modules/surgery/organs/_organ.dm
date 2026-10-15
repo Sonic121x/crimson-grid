@@ -66,7 +66,7 @@
 	/// Status Effects that are given to the holder of the organ.
 	var/list/organ_effects
 	/// String displayed when the organ has decayed.
-	var/failing_desc = "has decayed for too long, and has turned a sickly color. It probably won't work without repairs."
+	var/failing_desc = "腐烂了太久，颜色变得病态。未经修复恐怕无法正常工作。"
 	/// Assoc list of alternate zones where this can organ be slotted to organ slot for that zone
 	var/list/valid_zones = null
 	/// The cell line we can spawn on us
@@ -529,9 +529,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!HAS_TRAIT(eater, TRAIT_READY_TO_OPERATE))
 		return NONE
 	if(eater == feeder)
-		to_chat(feeder, span_warning("You feel it unwise to eat [source] while you're undergoing surgery."))
+		to_chat(feeder, span_warning("你觉得接受手术时吃[source]不太明智。"))
 	else
-		to_chat(feeder, span_warning("The only thing you could think of doing with [source] right now is feeding it to [eater], but that doesn't seem right."))
+		to_chat(feeder, span_warning("你现在只能想到把[source]喂给[eater]，但这似乎不太对。"))
 	return BLOCK_EAT_ATTEMPT
 
 /// Get all possible organ slots by checking every organ, and then store it and give it whenever needed

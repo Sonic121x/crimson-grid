@@ -4,12 +4,12 @@
  */
 /datum/action/push_weights
 	name = "Work out"
-	desc = "Start working out"
+	desc = "开始锻炼"
 	button_icon = 'icons/obj/fluff/gym_equipment.dmi'
 	button_icon_state = "stacklifter"
 	///Reference to the weightpress we are created inside of.
 	var/obj/structure/weightmachine/weightpress
-
+/datum/action/push_weights/get_display_name(action_name = name) { return "锻炼"; }
 /datum/action/push_weights/IsAvailable(feedback = FALSE)
 	if(DOING_INTERACTION(owner, weightpress))
 		return FALSE

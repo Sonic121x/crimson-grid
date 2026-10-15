@@ -48,9 +48,9 @@
 		var/mob/mob_parent = parent
 		parent_name = "[mob_parent.real_name]"
 	notify_ghosts(
-		"[parent_name] is now deadchat controllable!",
+		"现在可以通过亡者频道控制[parent_name]了！",
 		source = parent,
-		header = "Ghost Possession!",
+		header = "幽灵附身！",
 	)
 
 /datum/component/deadchat_control/Destroy(force)
@@ -76,17 +76,17 @@
 			return
 		var/cooldown = ckey_to_cooldown[source.ckey] - world.time
 		if(cooldown > 0)
-			to_chat(source, span_warning("Your deadchat control inputs are still on cooldown for another [CEILING(cooldown * 0.1, 1)] second\s."))
+			to_chat(source, span_warning("你的亡者频道控制输入还需冷却[CEILING(cooldown * 0.1, 1)]秒。"))
 			return MOB_DEADSAY_SIGNAL_INTERCEPT
 		ckey_to_cooldown[source.ckey] = world.time + input_cooldown
 		addtimer(CALLBACK(src, PROC_REF(end_cooldown), source.ckey), input_cooldown)
 		inputs[message].Invoke()
-		to_chat(source, span_notice("\"[message]\" input accepted. You are now on cooldown for [input_cooldown * 0.1] second\s."))
+		to_chat(source, span_notice("已接受“[message]”指令。现在进入[input_cooldown * 0.1]秒的冷却。"))
 		return MOB_DEADSAY_SIGNAL_INTERCEPT
 
 	if(deadchat_mode & DEMOCRACY_MODE)
 		ckey_to_cooldown[source.ckey] = message
-		to_chat(source, span_notice("You have voted for \"[message]\"."))
+		to_chat(source, span_notice("你已投票选择“[message]”。"))
 		return MOB_DEADSAY_SIGNAL_INTERCEPT
 
 /datum/component/deadchat_control/proc/democracy_loop()
@@ -97,11 +97,11 @@
 	if(!isnull(result))
 		inputs[result].Invoke()
 		if(!(deadchat_mode & MUTE_DEMOCRACY_MESSAGES))
-			var/message = "<span class='deadsay italics bold'>[parent] has done action [result]!<br>New vote started. It will end in [input_cooldown * 0.1] second\s.</span>"
+			var/message = "<span class='deadsay italics bold'>[parent]已执行[result]动作！<br>新一轮投票开始，将于[input_cooldown * 0.1]秒后结束。</span>"
 			for(var/M in orbiters)
 				to_chat(M, message)
 	else if(!(deadchat_mode & MUTE_DEMOCRACY_MESSAGES))
-		var/message = "<span class='deadsay italics bold'>No votes were cast this cycle.</span>"
+		var/message = "<span class='deadsay italics bold'>本轮无人投票。</span>"
 		for(var/M in orbiters)
 			to_chat(M, message)
 
@@ -200,19 +200,19 @@
 	if(!isobserver(user))
 		return
 
-	examine_list += span_notice("[A.p_Theyre()] currently under deadchat control using the [(deadchat_mode & DEMOCRACY_MODE) ? "democracy" : "anarchy"] ruleset!")
+	examine_list += span_notice("目前由亡者频道按[(deadchat_mode & DEMOCRACY_MODE) ? "民主投票" : "自由操控"]规则控制！")
 
 	if(deadchat_mode & DEMOCRACY_MODE)
-		examine_list += span_notice("Type a command into chat to vote on an action. This happens once every [input_cooldown * 0.1] second\s.")
+		examine_list += span_notice("在聊天中输入指令即可投票选择动作。每[input_cooldown * 0.1]秒进行一轮投票。")
 	else if(deadchat_mode & ANARCHY_MODE)
-		examine_list += span_notice("Type a command into chat to perform. You may do this once every [input_cooldown * 0.1] second\s.")
+		examine_list += span_notice("在聊天中输入指令即可执行。你每[input_cooldown * 0.1]秒可执行一次。")
 
-	var/extended_examine = "<span class='notice'>Command list:"
+	var/extended_examine = "<span class='notice'>指令列表："
 
 	for(var/possible_input in inputs)
 		extended_examine += " [possible_input]"
 
-	extended_examine += ".</span>"
+	extended_examine += "。</span>"
 
 	examine_list += extended_examine
 
@@ -222,7 +222,7 @@
 	var/mob/ghost = get_mob_by_ckey(ghost_ckey)
 	if(!ghost || isliving(ghost))
 		return
-	to_chat(ghost, "[FOLLOW_LINK(ghost, parent)] <span class='nicegreen'>Your deadchat control inputs for [parent] are no longer on cooldown.</span>")
+	to_chat(ghost, "[FOLLOW_LINK(ghost, parent)] <span class='nicegreen'>你通过亡者频道控制[parent]的输入冷却已结束。</span>")
 
 /**
  * Deadchat Moves Things

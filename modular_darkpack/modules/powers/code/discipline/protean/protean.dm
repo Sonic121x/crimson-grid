@@ -1,11 +1,11 @@
 /datum/discipline/protean
 	name = "Protean"
-	desc = {"Lets your beast out, making you stronger and faster. Violates Masquerade.
-● Eyes of the Beast: Passive
-●● Feral Claws: Passive
-●●● Earth Meld: Passive
-●●●● Shape of the Beast: Passive
-●●●●● Mist Form: Passive"}
+	desc = {"释放你的心兽，让你更强大、更迅捷。违反避世戒律。
+● 兽瞳：被动
+●● 野性利爪：被动
+●●● 融入大地：被动
+●●●● 野兽形态：被动
+●●●●● 雾化形态：被动"}
 	icon_state = "protean"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/protean
@@ -21,8 +21,8 @@
 
 //EYES OF THE BEAST // VTM5 Corebook, page 270
 /datum/discipline_power/protean/eyes_of_the_beast
-	name = "Eyes of the Beast"
-	desc = "Let your eyes be a gateway to your Beast. Gain its eyes."
+	name = "兽瞳"
+	desc = "让双眼成为心兽显现的门户，获得它的视力。"
 
 	level = 1
 
@@ -62,8 +62,8 @@
 	owner.remove_eye_color(EYE_COLOR_DISC)
 
 /datum/discipline_power/protean/feral_claws
-	name = "Feral Claws"
-	desc = "Become a predator and grow hideous talons."
+	name = "野性利爪"
+	desc = "化身掠食者，长出狰狞的利爪。"
 
 	level = 2
 
@@ -81,7 +81,7 @@
 	if(do_after(owner, 1 TURNS, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 		return TRUE
 	else
-		to_chat(owner, span_warning("You are rendered unable to transform!"))
+		to_chat(owner, span_warning("你的变形被打断了！"))
 		return FALSE
 
 /datum/discipline_power/protean/feral_claws/activate()
@@ -97,8 +97,8 @@
 
 //EARTH MELD
 /datum/discipline_power/protean/earth_meld
-	name = "Earth Meld"
-	desc = "Hide yourself in the earth itself."
+	name = "融入大地"
+	desc = "将自身藏入大地之中。"
 
 	level = 3
 
@@ -128,7 +128,7 @@
 	)
 
 	if(!is_type_in_list(owner.loc, allowed_turfs)) // Check if the turf we're standing on is in allowed_turfs
-		to_chat(owner, span_warning("You can't meld into the ground here!"))
+		to_chat(owner, span_warning("你无法融入这里的地面！"))
 		return FALSE
 	else
 		return TRUE
@@ -151,8 +151,8 @@
 
 //SHAPE OF THE BEAST
 /datum/discipline_power/protean/shape_of_the_beast
-	name = "Shape of the Beast"
-	desc = "Assume the form of an animal and retain your power."
+	name = "野兽形态"
+	desc = "化为动物形态，同时保留你的力量。"
 
 	level = 4
 
@@ -176,7 +176,7 @@
 	if(do_after(owner, 3 TURNS, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 		return TRUE
 	else
-		to_chat(owner, span_warning("You are rendered unable to transform!"))
+		to_chat(owner, span_warning("你的变形被打断了！"))
 		return FALSE
 
 /datum/discipline_power/protean/shape_of_the_beast/activate()
@@ -199,8 +199,8 @@
 
 //MIST FORM
 /datum/discipline_power/protean/mist_form
-	name = "Mist Form"
-	desc = "Dissipate your body and move as mist."
+	name = "雾化形态"
+	desc = "将身体化为雾气，以雾的形态移动。"
 
 	level = 5
 
@@ -224,7 +224,7 @@
 	if(do_after(owner, 3 TURNS, timed_action_flags = IGNORE_USER_LOC_CHANGE))
 		return TRUE
 	else
-		to_chat(owner, span_warning("You are rendered unable to transform!"))
+		to_chat(owner, span_warning("你的变形被打断了！"))
 		return FALSE
 
 /datum/discipline_power/protean/mist_form/activate()

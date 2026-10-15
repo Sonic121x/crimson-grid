@@ -1,5 +1,5 @@
 /obj/structure/vampdoor/prison // Metal bar door, such as for prison or sewers
-	name = "security door"
+	name = "防护门"
 	icon_state = "prison-1"
 	base_icon_state = "prison"
 	bash_difficulty = 8

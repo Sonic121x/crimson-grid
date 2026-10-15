@@ -22,7 +22,7 @@
 	var/datum/splat/werewolf/casting_splat = get_werewolf_splat(owner)
 	if(!casting_splat)
 		if(feedback)
-			owner.balloon_alert(owner, "not a gift user!")
+			owner.balloon_alert(owner, "无法使用天赋！")
 		return FALSE
 
 /datum/action/cooldown/power/gift/can_afford(feedback)
@@ -34,7 +34,7 @@
 			return FALSE
 		if(casting_splat.rage < get_rage_cost())
 			if(feedback)
-				to_chat(owner, span_warning("You don't have enough <b>RAGE</b> to do that!"))
+				to_chat(owner, span_warning("你的<b>怒火</b>不足，无法这么做！"))
 				SEND_SOUND(owner, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_cast_failed.ogg', volume = 50))
 			return FALSE
 	if(gnosis_cost)
@@ -42,7 +42,7 @@
 			return FALSE
 		if(casting_splat.gnosis < gnosis_cost)
 			if(feedback)
-				to_chat(owner, span_warning("You don't have enough <b>GNOSIS</b> to do that!"))
+				to_chat(owner, span_warning("你的<b>灵悟</b>不足，无法这么做！"))
 				SEND_SOUND(owner, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_cast_failed.ogg', volume = 50))
 			return FALSE
 

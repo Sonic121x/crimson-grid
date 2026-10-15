@@ -20,8 +20,8 @@
 	throw_range = 5
 	force = 5
 	item_flags = NEEDS_PERMIT
-	attack_verb_continuous = list("strikes", "hits", "bashes")
-	attack_verb_simple = list("strike", "hit", "bash")
+	attack_verb_continuous = list("打击", "击打", "猛砸")
+	attack_verb_simple = list("打击", "击打", "猛砸")
 	action_slots = ALL
 
 	// Muzzle Flash
@@ -206,11 +206,11 @@
 	var/healthpercent = (atom_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(60 to 95)
-			. += span_info("It looks slightly damaged.")
+			. += span_info("看起来有轻微损坏。")
 		if(25 to 60)
-			. += span_warning("It appears heavily damaged.")
+			. += span_warning("看起来损坏严重。")
 		if(0 to 25)
-			. += span_boldwarning("It's falling apart!")
+			. += span_boldwarning("它快散架了！")
 
 //called after the gun has successfully fired its chambered ammo.
 /obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
@@ -229,7 +229,7 @@
 	return !user.contains(src)
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	balloon_alert_to_hearers("*click*")
+	balloon_alert_to_hearers("*咔哒*")
 	playsound(src, dry_fire_sound, dry_fire_sound_volume, TRUE)
 
 /obj/item/gun/proc/fire_sounds()
@@ -258,38 +258,38 @@
 		return FALSE
 	if(tk_firing(user))
 		visible_message(
-			span_danger("[src] fires itself[pointblank ? " point blank at [pbtarget]!" : "!"]"),
-			blind_message = span_hear("You hear a gunshot!"),
+			span_danger("[src]自行[pointblank ? "抵近向[pbtarget]开火了！" : "开火了！"]"),
+			blind_message = span_hear("你听到一声枪响！"),
 			vision_distance = COMBAT_MESSAGE_RANGE
 		)
 	else if(pointblank)
 		if(user == pbtarget)
 			user.visible_message(
-				span_danger("[user] fires [src] point blank at [user.p_them()]self!"),
-				span_userdanger("You fire [src] point blank at yourself!"),
-				span_hear("You hear a gunshot!"),
+				span_danger("[user]用[src]抵近朝自己开火！"),
+				span_userdanger("你用[src]抵近朝自己开火！"),
+				span_hear("你听到一声枪响！"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		else
 			user.visible_message(
-				span_danger("[user] fires [src] point blank at [pbtarget]!"),
-				span_danger("You fire [src] point blank at [pbtarget]!"),
-				span_hear("You hear a gunshot!"),
+				span_danger("[user]用[src]抵近朝[pbtarget]开火！"),
+				span_danger("你用[src]抵近朝[pbtarget]开火！"),
+				span_hear("你听到一声枪响！"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				ignored_mobs = pbtarget,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
-			to_chat(pbtarget, span_userdanger("[user] fires [src] point blank at you!"))
+			to_chat(pbtarget, span_userdanger("[user]用[src]抵近朝你开火！"))
 		if(pb_knockback > 0 && ismob(pbtarget))
 			var/mob/PBT = pbtarget
 			var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
 			PBT.throw_at(throw_target, pb_knockback, 2)
 	else if(!tk_firing(user))
 		user.visible_message(
-			span_danger("[user] fires [src]!"),
-			span_danger("You fire [src]!"),
-			span_hear("You hear a gunshot!"),
+			span_danger("[user]用[src]开火！"),
+			span_danger("你用[src]开火！"),
+			span_hear("你听到一声枪响！"),
 			vision_distance = COMBAT_MESSAGE_RANGE,
 			ignored_mobs = user,
 			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
@@ -304,7 +304,7 @@
 		return ..()
 	var/mob/living/holder = loc
 	if(holder.is_holding(src) && !IS_UNCONSCIOUS(holder))
-		to_chat(holder, span_boldwarning("[src] breaks down!"))
+		to_chat(holder, span_boldwarning("[src]坏了！"))
 		holder.playsound_local(get_turf(src), 'sound/items/weapons/smash.ogg', 50, TRUE)
 	return ..()
 
@@ -334,15 +334,15 @@
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
 		// yes this will sound silly for bows and wands, but that's a "gun" moment for you
 		user.visible_message(
-			span_danger("While trying to flip [src] [user] pulls the trigger accidentally!"),
-			span_userdanger("While trying to flip [src] you pull the trigger accidentally!"),
+			span_danger("[user]试图翻转[src]时，不小心扣下了扳机！"),
+			span_userdanger("你试图翻转[src]时，不小心扣下了扳机！"),
 		)
 		process_fire(user, user, FALSE, user.get_random_valid_zone(even_weights = TRUE))
 		user.dropItemToGround(src, TRUE)
 	else
 		user.visible_message(
-			span_notice("[user] spins [src] around [user.p_their()] finger by the trigger. That's pretty badass."),
-			span_notice("You spin [src] around your finger by the trigger. That's pretty badass."),
+			span_notice("[user]用手指勾着扳机部位，让[src]绕着手指转了一圈。真够帅的。"),
+			span_notice("你用手指勾着扳机部位，让[src]绕着手指转了一圈。真够帅的。"),
 		)
 		playsound(src, 'sound/items/handling/ammobox_pickup.ogg', 20, FALSE)
 
@@ -363,10 +363,10 @@
 
 	var/datum/component/gunpoint/gunpoint_component = user.GetComponent(/datum/component/gunpoint)
 	if (gunpoint_component)
-		balloon_alert(user, "already holding [gunpoint_component.target == interacting_with ? "them" : "someone"] up!")
+		balloon_alert(user, "已经在持枪威胁[gunpoint_component.target == interacting_with ? "这个目标" : "别人"]了！")
 		return ITEM_INTERACT_BLOCKING
 	if (user == interacting_with)
-		balloon_alert(user, "can't hold yourself up!")
+		balloon_alert(user, "不能持枪威胁自己！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(do_after(user, 0.5 SECONDS, interacting_with))
@@ -420,7 +420,7 @@
 
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
-		balloon_alert(user, "use both hands!")
+		balloon_alert(user, "需要双手持枪！")
 		return ITEM_INTERACT_BLOCKING
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
@@ -444,7 +444,7 @@
 				var/target_zone = user.get_random_valid_zone(blacklisted_parts = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), even_weights = TRUE, bypass_warning = TRUE)
 				if(!target_zone)
 					return
-				to_chat(user, span_userdanger("You shoot yourself in the foot with [src]!"))
+				to_chat(user, span_userdanger("你用[src]打中了自己的脚！"))
 				process_fire(user, user, FALSE, null, target_zone)
 				SEND_SIGNAL(user, COMSIG_MOB_CLUMSY_SHOOT_FOOT)
 				if(!tk_firing(user) && !HAS_TRAIT(src, TRAIT_NODROP))
@@ -455,7 +455,7 @@
 	. = ..()
 	// DARKPACK EDIT ADD START - WEREWOLF
 	if(HAS_TRAIT(user, TRAIT_JAMMING_WEAPONS) && !HAS_TRAIT(src, TRAIT_NATURAL))
-		to_chat(user, span_warning("[src] ineffectively jams or malfunctions!"))
+		to_chat(user, span_warning("[src]卡住或发生故障，未能开火！"))
 		return FALSE
 	// DARKPACK EDIT ADD END
 	if(!handle_pins(user))
@@ -471,8 +471,8 @@
 			pin.auth_fail(user)
 			return FALSE
 	else
-		to_chat(user, span_warning("[src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
-		balloon_alert(user, "trigger locked, firing pin needed!")
+		to_chat(user, span_warning("[src]的扳机被锁住了。这把武器没有安装击针！"))
+		balloon_alert(user, "扳机锁定，需要击针！")
 	return FALSE
 
 /// Called to put ammo back in a gun which recharges itself, should call super if successful
@@ -493,7 +493,7 @@
 		return FALSE
 
 	if(HAS_TRAIT(user, TRAIT_PACIFISM) && chambered.harmful) // Is the bullet chambered harmful?
-		to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
+		to_chat(user, span_warning("[src]膛内装有致命弹药！你不想冒着伤人的风险开火……"))
 		firing_burst = FALSE
 		return FALSE
 
@@ -588,7 +588,7 @@
 			shoot_with_empty_chamber(user)
 			return user.combat_mode ? ITEM_INTERACT_SKIP_TO_ATTACK : NONE
 		if(HAS_TRAIT(user, TRAIT_PACIFISM) && chambered.harmful) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
-			to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
+			to_chat(user, span_warning("[src]膛内装有致命弹药！你不想冒着伤人的风险开火……"))
 			return NONE
 		var/sprd = round((rand(0, 1) - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * total_random_spread)
 		before_firing(target,user)
@@ -673,26 +673,26 @@
 		return NONE
 
 	if(user == target)
-		target.visible_message(span_warning("[user] sticks [src] in [user.p_their()] mouth, ready to pull the trigger..."), \
-			span_userdanger("You stick [src] in your mouth, ready to pull the trigger..."))
+		target.visible_message(span_warning("[user]将[src]塞进嘴里，准备扣下扳机……"), \
+			span_userdanger("你将[src]塞进嘴里，准备扣下扳机……"))
 	else
-		target.visible_message(span_warning("[user] points [src] at [target]'s head, ready to pull the trigger..."), \
-			span_userdanger("[user] points [src] at your head, ready to pull the trigger..."))
+		target.visible_message(span_warning("[user]用[src]瞄准[target]的头，准备扣下扳机……"), \
+			span_userdanger("[user]用[src]瞄准你的头，准备扣下扳机……"))
 
 	fire_cd = TRUE
 
 	if(!bypass_timer && (!do_after(user, 12 SECONDS, target) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
 		if(user)
 			if(user == target)
-				user.visible_message(span_notice("[user] decided not to shoot."))
+				user.visible_message(span_notice("[user]决定不开枪。"))
 			else if(target?.Adjacent(user))
-				target.visible_message(span_notice("[user] has decided to spare [target]"), span_notice("[user] has decided to spare your life!"))
+				target.visible_message(span_notice("[user]决定放过[target]。"), span_notice("[user]决定饶你一命！"))
 		fire_cd = FALSE
 		return ITEM_INTERACT_BLOCKING
 
 	fire_cd = FALSE
 
-	target.visible_message(span_warning("[user] pulls the trigger!"), span_userdanger("[(user == target) ? "You pull" : "[user] pulls"] the trigger!"))
+	target.visible_message(span_warning("[user]扣下了扳机！"), span_userdanger("[(user == target) ? "你" : "[user]"]扣下了扳机！"))
 
 	if(!chambered?.loaded_projectile)
 		shoot_with_empty_chamber(user)

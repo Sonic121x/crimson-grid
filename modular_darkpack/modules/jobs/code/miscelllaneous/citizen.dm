@@ -1,6 +1,6 @@
 /datum/job/vampire/citizen
 	title = JOB_CITIZEN
-	description = "Obey the authorities... Or don't. You are up late tonight for one reason or another."
+	description = "服从当局……或者不服从。无论出于什么原因，今晚你迟迟没有入睡。"
 	faction = FACTION_CITY
 	total_positions = -1
 	spawn_positions = -1

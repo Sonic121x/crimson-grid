@@ -1,6 +1,6 @@
 /obj/item/organ/tongue
 	name = "tongue"
-	desc = "A fleshy muscle mostly used for lying."
+	desc = "一块肉质肌肉，主要用来说谎。"
 	icon_state = "tongue"
 
 	zone = BODY_ZONE_PRECISE_MOUTH
@@ -65,11 +65,11 @@
 	. = ..()
 	if(HAS_MIND_TRAIT(user, TRAIT_ENTRAILS_READER)|| isobserver(user))
 		if(liked_foodtypes)
-			. += span_info("This tongue has an affinity for the taste of [english_list(bitfield_to_list(liked_foodtypes, FOOD_FLAGS_IC))].")
+			. += span_info("这条舌头喜欢[english_list(bitfield_to_list(liked_foodtypes, FOOD_FLAGS_IC), "无", "和", "、")]的味道。")
 		if(disliked_foodtypes)
-			. += span_info("This tongue has an aversion for the taste of [english_list(bitfield_to_list(disliked_foodtypes, FOOD_FLAGS_IC))].")
+			. += span_info("这条舌头讨厌[english_list(bitfield_to_list(disliked_foodtypes, FOOD_FLAGS_IC), "无", "和", "、")]的味道。")
 		if(toxic_foodtypes)
-			. += span_info("This tongue's physiology makes [english_list(bitfield_to_list(toxic_foodtypes, FOOD_FLAGS_IC))] toxic.")
+			. += span_info("这条舌头的生理特性使[english_list(bitfield_to_list(toxic_foodtypes, FOOD_FLAGS_IC), "无", "和", "、")]对持有者有毒。")
 
 /**
  * Used in setting up the "languages possible" list.

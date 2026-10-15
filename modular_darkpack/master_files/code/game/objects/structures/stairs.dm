@@ -3,7 +3,7 @@
 	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/structure/stairs/ramp
-	name = "ramp"
+	name = "坡道"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "ramp"
 

@@ -64,7 +64,7 @@ function CharacterControls(props: CharacterControlsProps) {
           onClick={props.handleRotate}
           fontSize="22px"
           icon="undo"
-          tooltip="Rotate"
+          tooltip="旋转"
           tooltipPosition="top"
         />
       </Stack.Item>
@@ -74,7 +74,7 @@ function CharacterControls(props: CharacterControlsProps) {
           onClick={props.handleOpenSplats} // DARKPACK EDIT CHANGE - SPLATS
           fontSize="22px"
           icon="paw"
-          tooltip="Splats" // DARKPACK EDIT CHANGE - SPLATS
+          tooltip="族类" // DARKPACK EDIT CHANGE - SPLATS
           tooltipPosition="top"
         />
       </Stack.Item>
@@ -91,7 +91,7 @@ function CharacterControls(props: CharacterControlsProps) {
           fontSize="22px"
           icon="trash"
           color="red"
-          tooltip="Delete Character"
+          tooltip="删除角色"
           tooltipPosition="top"
           disabled={!props.canDeleteCharacter}
         />
@@ -115,7 +115,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
   const [searchText, setSearchText] = useState('');
 
   if (!catalog.icons) {
-    return <Box color="red">Provided catalog had no icons!</Box>;
+    return <Box color="red">当前选项列表没有图标！</Box>;
   }
 
   return (
@@ -132,7 +132,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
         <Stack.Item>
           <Section
             fill
-            title={`Select ${props.name.toLowerCase()}`}
+            title={`选择${props.name.toLowerCase()}`}
             buttons={
               supplementalFeature && (
                 <FeatureValueInput
@@ -147,7 +147,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
             <Input
               autoFocus
               fluid
-              placeholder="Search..."
+              placeholder="搜索……"
               onChange={setSearchText}
             />
           </Section>
@@ -155,7 +155,7 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
         <Stack.Item grow>
           <Section fill scrollable noTopPadding>
             <Stack wrap>
-              {searchInCatalog(searchText, catalog.icons).map(
+              {searchInCatalog(searchText, catalog.icons, catalog.display_names).map(
                 ([name, image], index) => {
                   const locked = isLocked?.(name) ?? false; // DARKPACK EDIT ADD
                   return (
@@ -167,8 +167,8 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
                       selected={name === props.selected}
                       tooltip={
                         locked
-                          ? `${name} (Not whitelisted!)`
-                          : name
+                          ? `${catalog.display_names?.[name] ?? name}（未获得白名单权限！）`
+                          : catalog.display_names?.[name] ?? name
                       } // DARKPACK EDIT ADD
                       tooltipPosition="right"
                       style={{
@@ -217,12 +217,12 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
   );
 }
 
-function searchInCatalog(searchText = '', catalog: Record<string, string>) {
+function searchInCatalog(searchText = '', catalog: Record<string, string>, displayNames?: Record<string, string>) {
   let items = Object.entries(catalog);
   if (searchText) {
     items = filter(
       items,
-      createSearch(searchText, ([name, _icon]) => name),
+      createSearch(searchText, ([name, _icon]) => `${displayNames?.[name] ?? name} ${name}`),
     );
   }
   return items;
@@ -264,7 +264,7 @@ function GenderButton(props: GenderButtonProps) {
         <Button
           fontSize="22px"
           icon={GENDERS[props.gender].icon}
-          tooltip="Gender"
+          tooltip="性别"
           tooltipPosition="top"
         />
       </div>
@@ -411,7 +411,7 @@ export function PreferenceList(props: PreferenceListProps) {
             if (feature === undefined) {
               return (
                 <Stack.Item key={featureId}>
-                  <b>Feature {featureId} is not recognized.</b>
+                  <b>无法识别选项 {featureId}。</b>
                 </Stack.Item>
               );
             }
@@ -797,7 +797,7 @@ export function MainPage(props: MainPageProps) {
                   page={PrefPage.Visual}
                   setPage={setCurrentPrefPage}
                 >
-                  Character Visuals
+                  角色外观
                 </PageButton>
               </Stack.Item>
               <Stack.Item grow={2}>
@@ -806,7 +806,7 @@ export function MainPage(props: MainPageProps) {
                   page={PrefPage.Profile}
                   setPage={setCurrentPrefPage}
                 >
-                  Character Lore
+                  角色背景
                 </PageButton>
               </Stack.Item>
             </Stack>

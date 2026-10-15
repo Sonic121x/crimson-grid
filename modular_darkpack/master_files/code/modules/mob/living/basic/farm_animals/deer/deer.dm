@@ -1,6 +1,6 @@
 /mob/living/basic/deer
-	name = "deer"
-	desc = "A gentle, peaceful forest animal."
+	name = "鹿"
+	desc = "一种温顺平和的森林动物。"
 	icon_state = "deer"
 	icon_living = "deer"
 	icon_dead = "deer_dead"
@@ -12,11 +12,11 @@
 /mob/living/basic/deer/Initialize(mapload)
 	. = ..()
 	if(gender == MALE)
-		name = "buck"
+		name = "雄鹿"
 		if(prob(90))
 			antlers = TRUE
 	else
-		name = "doe"
+		name = "雌鹿"
 
 	update_appearance(UPDATE_OVERLAYS)
 

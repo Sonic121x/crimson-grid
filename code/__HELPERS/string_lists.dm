@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(string_lists)
 	return string_list(values)
 
 /turf/closed/indestructible/baseturfs_ded
-	name = "Report this"
-	desc = "It looks like base turfs went to the fucking moon, TELL YOUR LOCAL CODER TODAY"
+	name = "请报告此问题"
+	desc = "底层地形似乎出了严重问题，请立即向开发者反馈！"
 	icon = 'icons/turf/debug.dmi'
 	icon_state = "fucked_baseturfs"

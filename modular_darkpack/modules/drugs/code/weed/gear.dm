@@ -10,10 +10,10 @@
 /obj/structure/closet/crate/wooden/communitygardens/Initialize(mapload)
 	. = ..()
 	if(isnull(desc))
-		desc = "It's marked with the [CITY_NAME] City Council stamp"
+		desc = "上面盖着[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME]市议会的印章。"
 
 /obj/structure/closet/crate/wooden/communitygardens/tools
-	name = "community garden tools"
+	name = "社区花园工具"
 
 /obj/structure/closet/crate/wooden/communitygardens/tools/PopulateContents()
 	new /obj/item/storage/bag/plants(src)
@@ -29,7 +29,7 @@
 	new /obj/item/soil_sack(src)
 
 /obj/structure/closet/crate/wooden/communitygardens/seeds
-	name = "community garden seeds"
+	name = "社区花园种子"
 
 /obj/structure/closet/crate/wooden/communitygardens/seeds/PopulateContents()
 	new /obj/item/seeds/cabbage(src)

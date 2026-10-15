@@ -128,49 +128,49 @@
 
 	//Voice Lines
 	neutral_phrases = list(
-		"Buddy, you'd better step back.",
-		"Only VIP's are allowed through here.",
-		"Mind your manners."
+		"伙计，你最好退后点。",
+		"只有贵宾才能进去。",
+		"注意你的礼貌。"
 	)
 	random_phrases = list(
-		"Real quiet night tonight."
+		"今晚真安静。"
 	)
 
-	answer_phrases = list("Shit, man.")
+	answer_phrases = list("操，伙计。")
 	help_phrases = list(
-		"It's time you walked out.",
-		"Let me show you the door.",
-		"We were having a peaceful night, till you showed up.",
-		"This is gonna hurt me more than it hurts you."
+		"你该走人了。",
+		"让我送你出去吧。",
+		"本来好好的一晚上，全让你搅和了。",
+		"打你这一顿，我比你还难受。"
 	)
 
 
 	//Phrase said when someone is denied entry
 	var/denial_phrases = list(
-		"You aren't on the list.",
-		"No entry. Not for you.",
-		"It's a private gathering, past here."
+		"名单上没有你。",
+		"不准进。说的就是你。",
+		"里面是私人聚会。"
 	)
 
 
 	var/entry_phrases = list(
-		"Good to see you again.",
-		"Welcome to the dark side.",
-		"We've been expecting you.",
-		"A pleasure, as always."
+		"很高兴又见到你。",
+		"欢迎来到黑暗的一侧。",
+		"我们恭候多时了。",
+		"见到你总是很愉快。"
 	)
 
 	var/police_block_phrases = list(
-		"Fuck Twelve.",
-		"Oh yeah? Why don't you come back with a warrant?",
-		"You aren't getting in without a warrant.",
-		"I know my rights. You stay the hell out."
+		"条子去死。",
+		"哦，是吗？带着搜查令再来怎么样？",
+		"没搜查令，你就别想进去。",
+		"我知道自己的权利。你他妈给我待在外面。"
 	)
 
 	var/block_phrases = list(
-		"I thought we told you to piss off.",
-		"For the last time, you aren't getting in.",
-		"Nice story, bucko. Now scram."
+		"我们不是叫你滚了吗？",
+		"最后说一次，你别想进去。",
+		"故事编得不错，伙计。现在滚吧。"
 	)
 
 	var/bouncer_weapon_type = /obj/item/gun/ballistic/shotgun/vampire

@@ -1,7 +1,7 @@
 /datum/emote/living/carbon/human/sigh_exasperated
 	key = "esigh" // short for exasperated sigh
 	key_third_person = "esighs"
-	message = "lets out an exasperated sigh."
+	message = "恼火地叹了口气。"
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/carbon/human/sigh_exasperated/run_emote(mob/living/user, params, type_override, intentional)

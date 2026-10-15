@@ -3,7 +3,7 @@
 
 /obj/item/organ/stomach
 	name = "stomach"
-	desc = "Onaka ga suite imasu."
+	desc = "肚子饿了。"
 	icon_state = "stomach"
 
 	w_class = WEIGHT_CLASS_SMALL
@@ -15,10 +15,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 1.15 // ~13 minutes, the stomach is one of the first organs to die
 
-	low_threshold_passed = span_info("Your stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.")
-	high_threshold_passed = span_warning("Your stomach flares up with constant pain- you can hardly stomach the idea of food right now!")
-	high_threshold_cleared = span_info("The pain in your stomach dies down for now, but food still seems unappealing.")
-	low_threshold_cleared = span_info("The last bouts of pain in your stomach have died out.")
+	low_threshold_passed = span_info("你的胃一阵疼痛，随后又消退了。现在似乎不适合进食。")
+	high_threshold_passed = span_warning("你的胃疼个不停——现在光是想到食物就让你受不了！")
+	high_threshold_cleared = span_info("你的胃痛暂时减轻了，但仍然没有食欲。")
+	low_threshold_cleared = span_info("最后几阵胃痛也消退了。")
 
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue/stomach_lining = 5)
 	//This is a reagent user and needs more then the 10u from edible component
@@ -126,13 +126,13 @@
 	//The stomach is damage has nutriment but low on theshhold, lo prob of vomit
 	if(SPT_PROB(0.0125 * damage * nutri_vol * nutri_vol, seconds_per_tick))
 		body.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = damage)
-		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		to_chat(body, span_warning("你的胃一阵剧痛，实在容不下这么多食物！"))
 		return
 
 	// the change of vomit is now high
 	if(damage > high_threshold && SPT_PROB(0.05 * damage * nutri_vol * nutri_vol, seconds_per_tick))
 		body.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = damage)
-		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down all that food!"))
+		to_chat(body, span_warning("你的胃一阵剧痛，实在容不下这么多食物！"))
 
 /obj/item/organ/stomach/proc/handle_hunger(mob/living/carbon/human/human, seconds_per_tick)
 	if(HAS_TRAIT(human, TRAIT_NOHUNGER))
@@ -141,12 +141,12 @@
 	//The fucking TRAIT_FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 	if(HAS_TRAIT_FROM(human, TRAIT_FAT, OBESITY))//I share your pain, past coder.
 		if(human.overeatduration < (OVEREAT_TIME_LIMIT))
-			to_chat(human, span_notice("You feel fit again!"))
+			to_chat(human, span_notice("你感觉身材又恢复了！"))
 			human.remove_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)
 
 	else
 		if(human.overeatduration >= (OVEREAT_TIME_LIMIT))
-			to_chat(human, span_danger("You suddenly feel blubbery!"))
+			to_chat(human, span_danger("你突然感觉浑身长满了肥肉！"))
 			human.add_traits(list(TRAIT_FAT, TRAIT_OFF_BALANCE_TACKLER), OBESITY)
 
 	// nutrition decrease and satiety
@@ -184,15 +184,15 @@
 		human.metabolism_efficiency = 1
 	else if(nutrition > NUTRITION_LEVEL_FED && human.satiety > 80)
 		if(human.metabolism_efficiency != 1.25)
-			to_chat(human, span_notice("You feel vigorous."))
+			to_chat(human, span_notice("你感觉精力充沛。"))
 			human.metabolism_efficiency = 1.25
 	else if(nutrition < NUTRITION_LEVEL_STARVING + 50)
 		if(human.metabolism_efficiency != 0.8)
-			to_chat(human, span_notice("You feel sluggish."))
+			to_chat(human, span_notice("你感觉无精打采。"))
 		human.metabolism_efficiency = 0.8
 	else
 		if(human.metabolism_efficiency == 1.25)
-			to_chat(human, span_notice("You no longer feel vigorous."))
+			to_chat(human, span_notice("你不再感觉精力充沛了。"))
 		human.metabolism_efficiency = 1
 
 /obj/item/organ/stomach/get_availability(datum/species/owner_species, mob/living/owner_mob)

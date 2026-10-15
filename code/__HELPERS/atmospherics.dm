@@ -105,18 +105,18 @@ GLOBAL_LIST_EMPTY(gas_handbook)
 				factor_info["factor_type"] = "gas"
 				factor_info["factor_name"] = momentary_gas_list[factor]["name"] //Common name
 			else
-				factor_info["factor_name"] = factor
+				factor_info["factor_name"] = list("Temperature" = "温度", "Pressure" = "压力", "Energy" = "能量", "Radiation" = "辐射", "Location" = "位置", "Hot Ice" = "热冰")[factor] || factor
 				factor_info["factor_type"] = "misc"
 				if(factor == "Temperature" || factor == "Pressure")
-					factor_info["tooltip"] = "Reaction is influenced by the [LOWER_TEXT(factor)] of the place where the reaction is occurring."
+					factor_info["tooltip"] = "反应会受到发生地点的[factor == "Temperature" ? "温度" : "压力"]影响。"
 				else if(factor == "Energy")
-					factor_info["tooltip"] = "Energy released by the reaction. May or may not result in linear temperature change depending on a slew of other factors."
+					factor_info["tooltip"] = "反应释放的能量。受其他多种因素影响，温度变化不一定与能量呈线性关系。"
 				else if(factor == "Radiation")
-					factor_info["tooltip"] = "This reaction emits hazardous radiation - take precautions."
+					factor_info["tooltip"] = "此反应会释放有害辐射，请做好防护。"
 				else if (factor == "Location")
-					factor_info["tooltip"] = "This reaction has special behaviour when occurring in specific locations."
+					factor_info["tooltip"] = "此反应在特定地点发生时会表现出特殊性质。"
 				else if(factor == "Hot Ice")
-					factor_info["tooltip"] = "Hot ice are solidified stacks of plasma. Ignition of one will result in a raging fire."
+					factor_info["tooltip"] = "热冰是固化成块的等离子体，点燃一块就会引发猛烈的大火。"
 			reaction_info["factors"] += list(factor_info)
 		GLOB.reaction_handbook += list(reaction_info)
 		qdel(reaction)

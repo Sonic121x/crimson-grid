@@ -106,12 +106,12 @@
 		proj_damage_mult = our_gun.projectile_damage_multiplier
 	var/list/readout = list()
 	if(proj_damage_mult <= 0 || (initial_damage <= 0 && initial_stamina <= 0))
-		return "Our legal team has determined the offensive nature of these [span_warning(caliber)] rounds to be esoteric."
+		return "我们的法律团队认为，这种[span_warning(caliber)]弹药的攻击性质难以解释。"
 	// No dividing by 0
 	if(initial_damage)
-		readout += "Most monkeys our legal team subjected to these [span_warning(caliber)] rounds succumbed to their wounds after [span_warning("[HITS_TO_CRIT((initial(exam_proj.damage) * proj_damage_mult) * pellets)] shot\s")] at point-blank, taking [span_warning("[pellets] shot\s")] per round."
+		readout += "我们的法律团队用这种[span_warning(caliber)]弹药近距离射击猴子，其中大多数在遭到[span_warning("[HITS_TO_CRIT((initial(exam_proj.damage) * proj_damage_mult) * pellets)]发")]射击后伤重倒下，每发含[span_warning("[pellets]枚")]弹丸。"
 	if(initial_stamina)
-		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after [span_warning("[HITS_TO_CRIT((initial(exam_proj.stamina) * proj_damage_mult) * pellets)] impact\s")] of these [span_warning("[caliber]")] rounds."
+		readout += "[!readout.len ? "大多数猴子" : "比较幸运的猴子"]被这种[span_warning("[caliber]")]弹药击中[span_warning("[HITS_TO_CRIT((initial(exam_proj.stamina) * proj_damage_mult) * pellets)]次")]后力竭倒地。"
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
@@ -119,7 +119,7 @@
 	return ..()
 
 /obj/item/ammo_casing/update_desc()
-	desc = "[initial(desc)][loaded_projectile ? null : " This one is spent."]"
+	desc = "[initial(desc)][loaded_projectile ? null : "这枚已经击发过了。"]"
 	return ..()
 
 /*
@@ -160,10 +160,10 @@
 			boolets++
 
 	if (!boolets)
-		to_chat(user, span_warning("You fail to collect anything!"))
+		to_chat(user, span_warning("你没能收集到任何弹药！"))
 		return FALSE
 	box.update_appearance()
-	to_chat(user, span_notice("You collect [boolets] [box.casing_phrasing]\s. [box] now contains [box.stored_ammo.len] [box.casing_phrasing]\s."))
+	to_chat(user, span_notice("你收集了[boolets]发弹药。[box]现在装有[box.stored_ammo.len]发弹药。"))
 	return TRUE
 
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

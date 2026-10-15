@@ -1,6 +1,6 @@
 /datum/action/cooldown/power/gift/heightened_senses
-	name = "Heightened Senses"
-	desc = "The player gains an uncanncy sense of perception and tracking ability"
+	name = "感官强化"
+	desc = "获得超乎寻常的感知与追踪能力。"
 	button_icon_state = "heightened_senses"
 	rank = 1
 	gnosis_cost = 1
@@ -59,8 +59,8 @@
 
 
 /datum/action/cooldown/uncanny_tracking
-	name = "Uncanny Tracking"
-	desc = "Sense the location."
+	name = "超凡追踪"
+	desc = "感知目标的位置。"
 	button_icon = /datum/action/cooldown/power/gift/heightened_senses::button_icon
 	button_icon_state = /datum/action/cooldown/power/gift/heightened_senses::button_icon_state
 	check_flags = AB_CHECK_CONSCIOUS

@@ -10,7 +10,7 @@
  */
 /mob/living/proc/perform_surgery(atom/movable/operating_on, potential_tool = IMPLEMENT_HAND, intentionally_fail = FALSE, operating_zone = zone_selected)
 	if(DOING_INTERACTION(src, (HAS_TRAIT(src, TRAIT_HIPPOCRATIC_OATH) ? operating_on : DOAFTER_SOURCE_SURGERY)))
-		operating_on.balloon_alert(src, "already performing surgery!")
+		operating_on.balloon_alert(src, "已经在进行手术！")
 		return ITEM_INTERACT_BLOCKING
 
 	// allow cyborgs to use "hands"
@@ -45,13 +45,13 @@
 		if (isliving(operating_on))
 			var/mob/living/patient = operating_on
 			if(!patient.is_location_accessible(operating_zone, IGNORED_OPERATION_CLOTHING_SLOTS))
-				patient.balloon_alert(src, "operation site is obstructed!")
+				patient.balloon_alert(src, "手术部位被遮挡！")
 			else if(!IS_LYING_OR_CANNOT_LIE(patient))
-				patient.balloon_alert(src, "not lying down!")
+				patient.balloon_alert(src, "患者尚未躺下！")
 			else
-				patient.balloon_alert(src, "nothing to do with [realtool.name]!")
+				patient.balloon_alert(src, "[realtool.name]无法用于当前步骤！")
 		else
-			operating.balloon_alert(src, "nothing to do with [realtool.name]!")
+			operating.balloon_alert(src, "[realtool.name]无法用于当前步骤！")
 		//  ...then, block attacking. prevents the surgeon from viciously stabbing the patient on a mistake
 		return ITEM_INTERACT_BLOCKING
 
@@ -615,7 +615,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
  * For surgery operations that can be performed with any item, this explains what kind of item is needed
  */
 /datum/surgery_operation/proc/get_any_tool()
-	return "Any item"
+	return "任意物品"
 
 /**
  * Return a list of lists of strings indicating the various requirements for this operation
@@ -635,7 +635,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	SHOULD_CALL_PARENT(TRUE)
 	. = bitfield_to_list(all_surgery_states_required, SURGERY_STATE_GUIDES("must"))
 	if(!(operation_flags & OPERATION_STANDING_ALLOWED))
-		. += "the patient must be lying down"
+		. += "患者必须躺下"
 
 /// Returns a list of strings indicating any of the requirements for this operation
 /// "Any requirements" are formatted as "At least one of the following must be true:"
@@ -646,13 +646,13 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	var/parsed_any_flags = any_surgery_states_required
 	if((parsed_any_flags & ALL_SURGERY_BONE_STATES) == ALL_SURGERY_BONE_STATES)
 		parsed_any_flags &= ~ALL_SURGERY_BONE_STATES
-		. += "the bone must be sawed or drilled"
+		. += "骨骼必须已锯开或钻开"
 	if((parsed_any_flags & ALL_SURGERY_SKIN_STATES) == ALL_SURGERY_SKIN_STATES)
 		parsed_any_flags &= ~ALL_SURGERY_SKIN_STATES
-		. += "the skin must be cut or opened"
+		. += "皮肤必须已切开或牵开"
 	if((parsed_any_flags & ALL_SURGERY_VESSEL_STATES) == ALL_SURGERY_VESSEL_STATES)
 		parsed_any_flags &= ~ALL_SURGERY_VESSEL_STATES
-		. += "the blood vessels must be clamped or unclamped" // weird phrasing but whatever
+		. += "血管必须处于已钳夹或未钳夹状态" // weird phrasing but whatever
 
 	. += bitfield_to_list(parsed_any_flags, SURGERY_STATE_GUIDES("must"))
 
@@ -662,7 +662,7 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	SHOULD_CALL_PARENT(TRUE)
 	. = list()
 	if(operation_flags & OPERATION_SELF_OPERABLE)
-		. += "a surgeon may perform this on themselves"
+		. += "医生可以对自己进行此手术"
 
 /// Returns a list of strings indicating blocked states for this operation
 /// "Blocked requirements" are formatted as "However, none of the following may be true:"
@@ -673,13 +673,13 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	var/parsed_blocked_flags = any_surgery_states_blocked
 	if((parsed_blocked_flags & ALL_SURGERY_BONE_STATES) == ALL_SURGERY_BONE_STATES)
 		parsed_blocked_flags &= ~ALL_SURGERY_BONE_STATES
-		. += "the bone must be intact"
+		. += "骨骼必须完整"
 	if((parsed_blocked_flags & ALL_SURGERY_SKIN_STATES) == ALL_SURGERY_SKIN_STATES)
 		parsed_blocked_flags &= ~ALL_SURGERY_SKIN_STATES
-		. += "the skin must be intact"
+		. += "皮肤必须完整"
 	if((parsed_blocked_flags & ALL_SURGERY_VESSEL_STATES) == ALL_SURGERY_VESSEL_STATES)
 		parsed_blocked_flags &= ~ALL_SURGERY_VESSEL_STATES
-		. += "the blood vessels must be intact"
+		. += "血管必须完整"
 
 	. += bitfield_to_list(parsed_blocked_flags, SURGERY_STATE_GUIDES("must not"))
 	if(!(operation_flags & OPERATION_IGNORE_CLOTHES))
@@ -1141,9 +1141,9 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You begin to operate on [display_target]..."),
-		span_notice("[surgeon] begins to operate on [display_target]."),
-		span_notice("[surgeon] begins to operate on [display_target]."),
+		span_notice("你开始对[display_target]进行手术……"),
+		span_notice("[surgeon]开始对[display_target]进行手术。"),
+		span_notice("[surgeon]开始对[display_target]进行手术。"),
 	)
 
 /**
@@ -1173,9 +1173,9 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	display_results(
 		surgeon,
 		patient,
-		span_notice("You succeed."),
-		span_notice("[surgeon] succeeds!"),
-		span_notice("[surgeon] finishes."),
+		span_notice("你成功了。"),
+		span_notice("[surgeon]成功了！"),
+		span_notice("[surgeon]完成了手术。"),
 	)
 
 /**
@@ -1222,9 +1222,9 @@ GLOBAL_DATUM_INIT(operations, /datum/operation_holder, new)
 	display_results(
 		surgeon,
 		patient,
-		span_warning("You screw up![screwedmessage]"),
-		span_warning("[surgeon] screws up!"),
-		span_notice("[surgeon] finishes."),
+		span_warning("你操作失误了！[screwedmessage]"),
+		span_warning("[surgeon]操作失误了！"),
+		span_notice("[surgeon]完成了手术。"),
 		TRUE, //By default the patient will notice if the wrong thing has been cut
 	)
 

@@ -1,5 +1,5 @@
 /datum/loadout_item/pocket_items/passport
-	name = "Identification"
+	name = "身份证件"
 	item_path = /obj/item/passport
 
 /datum/loadout_item/pocket_items/passport/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
@@ -13,8 +13,8 @@
 		return ..()
 
 /obj/item/passport
-	name = "passport"
-	desc = "A book with someone's license, photo, and identifying information. Don't lose it!"
+	name = "护照"
+	desc = "记载持证人证件信息、照片和身份资料的小册子。可别弄丢了！"
 	icon = 'modular_darkpack/modules/government/icons/docs.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon_state = "passport1"
@@ -61,19 +61,19 @@
 	if(!examine_roll)
 		examine_roll = new()
 		examine_roll.reroll_cooldown = 1 SCENES
-	var/roll_result = examine_roll.st_roll(user, src)
+	var/roll_result = examine_roll.st_roll(user, src); var/datum/preference/choiced/country_preference = GLOB.preference_entries[/datum/preference/choiced/country_of_origin]; var/list/country_names = country_preference.get_choices()
 	if(!closed && owner)
-		. += span_notice("It reads as belonging to [owner] from [country_of_origin].")
+		. += span_notice("证件上写着：持证人[owner]，来自[country_names[country_of_origin] ? country_names[country_of_origin] : country_of_origin]。")
 		if(fake && (roll_result == ROLL_SUCCESS))
-			. += span_notice("It looks like a crude counterfeit.")
+			. += span_notice("这看起来是一份粗制滥造的假证。")
 
 /obj/item/passport/attack_self(mob/user)
 	. = ..()
 	if(closed)
 		closed = FALSE
 		icon_state = "passport0"
-		to_chat(user, span_notice("You open [src]."))
+		to_chat(user, span_notice("你翻开了[src]。"))
 	else
 		closed = TRUE
 		icon_state = "passport1"
-		to_chat(user, span_notice("You close [src]."))
+		to_chat(user, span_notice("你合上了[src]。"))

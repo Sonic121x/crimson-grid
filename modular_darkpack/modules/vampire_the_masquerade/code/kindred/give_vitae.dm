@@ -1,6 +1,6 @@
 /datum/action/cooldown/mob_cooldown/give_vitae
-	name = "Give Vitae"
-	desc = "Give your vitae to someone, make the Blood Bond."
+	name = "赐予血粹"
+	desc = "将你的血粹赐予他人，建立血缚。"
 	button_icon_state = "vitae"
 	check_flags = AB_CHECK_HANDS_BLOCKED | AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 	button_icon = 'modular_darkpack/modules/vampire_the_masquerade/icons/vitae.dmi'
@@ -16,46 +16,46 @@
 
 /datum/action/cooldown/mob_cooldown/give_vitae/Activate(mob/living/carbon/human/target)
 	if(!IN_GIVEN_RANGE(owner, target, 1))
-		owner.balloon_alert(owner, "too far!")
+		owner.balloon_alert(owner, "距离太远！")
 		return FALSE
 	if(!target.reagents)
 		return FALSE
 	if(target == owner)
 		return FALSE
 
-	var/list/options = list("Feed Blood")
+	var/list/options = list("喂血")
 	if(CONFIG_GET(number/discipline_teaching) != DISCIPLINE_TEACHING_DISABLED)
-		options += "Teach Discipline"
-	options += "Cancel"
+		options += "传授律能"
+	options += "取消"
 
-	var/choice = tgui_alert(owner, "", "Give Vitae", options)
+	var/choice = tgui_alert(owner, "", "赐予血粹", options)
 	if(QDELETED(owner) || QDELETED(target))
 		return FALSE
-	if(!choice || choice == "Cancel")
+	if(!choice || choice == "取消")
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, 1))
-		owner.balloon_alert(owner, "too far!")
+		owner.balloon_alert(owner, "距离太远！")
 		return FALSE
 
-	if(choice == "Teach Discipline")
+	if(choice == "传授律能")
 		return teach_discipline(target)
 
 	StartCooldown()
 	unset_click_ability(owner, refund_cooldown = FALSE)
 	owner.visible_message(
-		span_danger("[owner] starts pouring blood into \the [target][ismob(target) ? "'s mouth" : null]!"),
-		span_info("You start pouring blood into \the [target][ismob(target) ? "'s mouth" : null]."))
+		span_danger("[owner]开始将血液灌入[target][ismob(target) ? "的口中" : "中"]！"),
+		span_info("你开始将血液灌入[target][ismob(target) ? "的口中" : "中"]。"))
 	if(!do_after(owner, delay = charge_duration, target = target, cog_icon = 'modular_darkpack/modules/vampire_the_masquerade/icons/vitae.dmi', cog_iconstate = "vitae"))
 		return FALSE
 
 	var/mob/living/carbon/vamp = owner
 	if(vamp.bloodpool <= 1)
-		to_chat(vamp, span_danger("You don't have enough vitae!"))
+		to_chat(vamp, span_danger("你的血粹不足！"))
 		return FALSE
 
 	owner.visible_message(
-		span_danger("[owner] finishes pouring blood into \the [target][ismob(target) ? "'s mouth" : null]!"),
-		span_info("You finish pouring blood into \the [target][ismob(target) ? "'s mouth" : null]."))
+		span_danger("[owner]将血液灌入[target][ismob(target) ? "的口中" : "中"]，完成了喂血！"),
+		span_info("你将血液灌入[target][ismob(target) ? "的口中" : "中"]，完成了喂血。"))
 	owner.log_message("poured their vitae into [key_name(target)].", LOG_GAME)
 	message_admins("[ADMIN_LOOKUPFLW(vamp)] poured their vitae into [ADMIN_LOOKUPFLW(target)].")
 	vamp.adjust_blood_pool(-1)
@@ -69,7 +69,7 @@
 		return FALSE
 
 	if(CONFIG_GET(number/discipline_teaching) == DISCIPLINE_TEACHING_DISABLED)
-		owner.balloon_alert(owner, "discipline teaching is disabled!")
+		owner.balloon_alert(owner, "律能传授已禁用！")
 		return FALSE
 
 	var/list/discipline_entries = list()
@@ -86,29 +86,29 @@
 		if(!can_teach_discipline(owner, disc.type))
 			continue
 		seen_types += disc.type // prevent duplicates
-		discipline_entries += "[disc.name]"
-		disc_type["[disc.name]"] = disc.type
+		discipline_entries += DISCIPLINE_DISPLAY_NAME(disc.name)
+		disc_type[DISCIPLINE_DISPLAY_NAME(disc.name)] = disc.type
 
 	if(!length(discipline_entries))
 		return FALSE
 
 	if(!student || IS_UNCONSCIOUS_OR_CRIT(student))
-		owner.balloon_alert(owner,"they must be conscious!")
+		owner.balloon_alert(owner,"对方必须保持清醒！")
 		return FALSE
 
-	var/chosen = tgui_input_list(owner, "Select a discipline to teach to [student]", "Teach Discipline", discipline_entries)
+	var/chosen = tgui_input_list(owner, "选择要传授给[student]的律能", "传授律能", discipline_entries)
 	if(!chosen || QDELETED(owner) || QDELETED(student))
 		return FALSE
 
 	if(!IN_GIVEN_RANGE(owner, student, 1)) // they moved away
-		owner.balloon_alert(owner,"too far!")
+		owner.balloon_alert(owner,"距离太远！")
 		return FALSE
 
 	StartCooldown()
 	unset_click_ability(owner, refund_cooldown = FALSE)
 	owner.visible_message(
-		span_danger("[owner] starts pouring blood into [student]'s mouth!"),
-		span_info("You start pouring blood into [student]'s mouth."))
+		span_danger("[owner]开始将血液灌入[student]的口中！"),
+		span_info("你开始将血液灌入[student]的口中。"))
 	if(!do_after(owner, delay = 1 MINUTES, target = student, cog_icon = 'modular_darkpack/modules/vampire_the_masquerade/icons/vitae.dmi', cog_iconstate = "vitae"))
 		return FALSE
 
@@ -117,7 +117,7 @@
 
 	var/mob/living/carbon/vamp = owner
 	if(vamp.bloodpool <= 1)
-		to_chat(vamp, span_danger("You don't have enough vitae!"))
+		to_chat(vamp, span_danger("你的血粹不足！"))
 		return FALSE
 
 	vamp.adjust_blood_pool(-1)
@@ -131,11 +131,11 @@
 		if(student_splat && !student_splat.get_power(discipline_type))
 			var/list/validation = validate_mob_sheet(student, discipline_type)
 			if(validation && !validation["valid"])
-				owner.balloon_alert(owner, "unable to teach them anything!")
+				owner.balloon_alert(owner, "无法向对方传授能力！")
 				var/violations = ""
 				for(var/violation in validation["violations"])
 					violations += violation
-				to_chat(owner, span_warning("[student] is unable to learn [chosen]."))
+				to_chat(owner, span_warning("[student]无法学习[chosen]。"))
 				message_admins("[ADMIN_LOOKUPFLW(owner)] tried to teach [chosen] to [ADMIN_LOOKUPFLW(student)], but doing so would've made [key_name(student)]'s sheet invalid due to the following: [violations]")
 				return FALSE
 			if(student.client?.prefs && !fail_to_save_reason)

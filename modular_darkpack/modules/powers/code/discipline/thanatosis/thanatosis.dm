@@ -1,11 +1,11 @@
 /datum/discipline/thanatosis
 	name = "Thanatosis"
-	desc = {"Offers control over your own rotted body.
-● Hag's Wrinkles: Stamina + Subterfuge
-●● Putrefaction: Dexterity + Medicine vs. target's Stamina
-●●● Ashes to Ashes: Passive
-●●●● Withering: Manipulation + Medicine vs. target's Stamina
-●●●●● Necrosis: Dexterity + Medicine vs. target's Stamina"}
+	desc = {"掌控自己腐朽的躯体。
+● 老妪褶皱：耐力 + 诡诈
+●● 腐败：敏捷 + 医学，对抗目标的耐力
+●●● 尘归尘：被动
+●●●● 枯萎：操控 + 医学，对抗目标的耐力
+●●●●● 坏死：敏捷 + 医学，对抗目标的耐力"}
 	icon_state = "thanatosis"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/thanatosis
@@ -16,8 +16,8 @@
 
 //HAG'S WRINKLES
 /datum/discipline_power/thanatosis/hag_wrinkles
-	name = "Hag's Wrinkles"
-	desc = "Morph your flesh to allow you to store items inside your skin."
+	name = "老妪褶皱"
+	desc = "改变血肉形态，使你能够将物品藏入皮肤之中。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -32,13 +32,13 @@
 	frenzy_usable = FALSE
 
 /datum/storyteller_roll/hags_wrinkles
-	bumper_text = "hag's wrinkles"
+	bumper_text = "老妪褶皱"
 	applicable_stats = list(STAT_STAMINA, STAT_SUBTERFUGE)
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /obj/item/implant/storage/thanatosis
-	name = "hag's wrinkles"
-	desc = "Your skin has numerous folds, convenient pockets for items you may want to conceal"
+	name = "老妪褶皱"
+	desc = "你的皮肤布满褶皱，如同便利的口袋，可用于藏匿物品。"
 
 /datum/discipline_power/thanatosis/hag_wrinkles/pre_activation_checks()
 	. = ..()
@@ -63,8 +63,8 @@
 
 //PUTREFACTION
 /datum/discipline_power/thanatosis/putrefaction
-	name = "Putrefaction"
-	desc = "Use your power over rot and decay to deal damage and cause muscle and bone decay inside your target."
+	name = "腐败"
+	desc = "运用掌控腐朽的力量造成伤害，使目标体内的肌肉与骨骼腐烂。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -81,7 +81,7 @@
 	var/datum/storyteller_roll/putrefaction/putrefaction_roll
 
 /datum/storyteller_roll/putrefaction/putrefaction_roll
-	bumper_text = "putrefaction"
+	bumper_text = "腐败"
 	applicable_stats = list(STAT_DEXTERITY, STAT_MEDICINE)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -104,7 +104,7 @@
 	if(successes > 0)
 		return TRUE
 	else
-		to_chat(owner, span_warning("Putrefaction has failed to affect [target]!"))
+		to_chat(owner, span_warning("腐败未能影响[target]！"))
 		return FALSE
 
 /datum/discipline_power/thanatosis/putrefaction/activate(mob/living/target)
@@ -114,8 +114,8 @@
 
 //ASHES TO ASHES
 /mob/living/basic/samedi_ash_pile
-	name = "ash pile"
-	desc = "Ashes to ashes, dust to dust, and into space."
+	name = "灰烬堆"
+	desc = "尘归尘，土归土，最终散入太空。"
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "ash"
 	icon_living = "ash"
@@ -124,12 +124,12 @@
 	health = 1000
 	melee_damage_lower = 1
 	melee_damage_upper = 1
-	attack_verb_continuous = "splashes"
-	attack_verb_simple = "splash"
+	attack_verb_continuous = "泼洒"
+	attack_verb_simple = "泼洒"
 
 /datum/action/cooldown/spell/shapeshift/samedi_ash
-	name = "Ashes to Ashes"
-	desc = "Turn into ash to hide."
+	name = "尘归尘"
+	desc = "化作灰烬以隐藏自己。"
 	button_icon = 'modular_darkpack/modules/vampire_the_masquerade/icons/vampire_clans.dmi'
 	button_icon_state = "thanatosis"
 	background_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
@@ -143,8 +143,8 @@
 	convert_damage_type = BRUTE
 
 /datum/discipline_power/thanatosis/ashes_to_ashes
-	name = "Ashes to Ashes"
-	desc = "Turn into ash to hide."
+	name = "尘归尘"
+	desc = "化作灰烬以隐藏自己。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -182,8 +182,8 @@
 
 //WITHERING
 /datum/discipline_power/thanatosis/withering
-	name = "Withering"
-	desc = "Instantly wither an opponent's body with a mere touch, causing a limb to wither to pieces."
+	name = "枯萎"
+	desc = "仅凭触碰便使对手的身体瞬间枯萎，令一条肢体枯朽碎裂。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -203,7 +203,7 @@
 	var/datum/storyteller_roll/withering/withering_roll
 
 /datum/storyteller_roll/withering
-	bumper_text = "withering"
+	bumper_text = "枯萎"
 	applicable_stats = list(STAT_MANIPULATION, STAT_MEDICINE)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -225,7 +225,7 @@
 	if(successes > 0)
 		return TRUE
 	else
-		to_chat(owner, span_warning("Withering has failed to affect [target]!"))
+		to_chat(owner, span_warning("枯萎未能影响[target]！"))
 		return FALSE
 
 /datum/discipline_power/thanatosis/withering/activate(mob/living/target)
@@ -251,18 +251,18 @@
 						chosen_part = limb
 						break
 			if(chosen_part)
-				target.visible_message(span_danger("[target]'s [chosen_part.name] withers into nothingness!"), span_userdanger("YOUR <b>[chosen_part.name]</b> WITHERS INTO NOTHING!"))
+				target.visible_message(span_danger("[target]的[chosen_part.name]枯朽消散！"), span_userdanger("你的<b>[chosen_part.name]</b>枯朽消散了！"))
 				chosen_part.dismember(BURN)
 			else
-				target.visible_message(span_danger("[target]'s body withers under the curse!"), span_userdanger("YOUR BODY WITHERS UNDER THE CURSE!"))
+				target.visible_message(span_danger("[target]的身体在诅咒下枯萎！"), span_userdanger("你的身体在诅咒下枯萎！"))
 				target.adjust_brute_loss(150)
 		else
 			target.adjust_brute_loss(150)
 
 //NECROSIS
 /datum/discipline_power/thanatosis/necrosis
-	name = "Necrosis"
-	desc = "Cause advanced decay in your victim - similar to Putrefaction, but with much stronger decay."
+	name = "坏死"
+	desc = "使受害者的身体深度腐烂——与腐败类似，但腐烂程度远为严重。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -280,7 +280,7 @@
 	var/datum/storyteller_roll/necrosis/necrosis_roll
 
 /datum/storyteller_roll/necrosis
-	bumper_text = "necrosis"
+	bumper_text = "坏死"
 	applicable_stats = list(STAT_DEXTERITY, STAT_MEDICINE)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -303,7 +303,7 @@
 	if(successes > 0)
 		return TRUE
 	else
-		to_chat(owner, span_warning("Necrosis has failed to affect [target]!"))
+		to_chat(owner, span_warning("坏死未能影响[target]！"))
 		return FALSE
 
 /datum/discipline_power/thanatosis/necrosis/activate(mob/living/carbon/human/target)
@@ -311,7 +311,7 @@
 	target.adjust_brute_loss(3 TTRPG_DAMAGE)
 
 	if(successes <= 1)
-		to_chat(owner, span_warning("Necrosis has failed to affect [target]!"))
+		to_chat(owner, span_warning("坏死未能影响[target]！"))
 		return
 	switch(successes)
 		if(1)

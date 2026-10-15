@@ -5,7 +5,7 @@
 GAME_VERB_PROC(/client, cmd_mentor_say, "Mentorsay", null)
 	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(!is_mentor())
-		to_chat(src, span_danger("Error: Only mentors and administrators may use this command."), confidential = TRUE)
+		to_chat(src, span_danger("错误：只有导师和管理员可以使用此命令。"), confidential = TRUE)
 		return
 
 	msg = emoji_parse(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN))

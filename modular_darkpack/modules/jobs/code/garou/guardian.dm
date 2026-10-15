@@ -1,6 +1,6 @@
 /datum/job/vampire/guardian
 	title = JOB_GAROU_GUARDIAN
-	description = "You are the bottom of the Sept's pecking order, but also the frontline offense and defense, serving directly under the Warder and Wyrmfoe to ensure the caern's safety and well-being."
+	description = "你在社群中资历最浅，却也是攻防两端的前线力量。直接听从守望长与妖蛆之敌的指挥，确保圣地安然无恙。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_GAIA
 	total_positions = 3

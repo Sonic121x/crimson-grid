@@ -46,24 +46,24 @@
 		var/new_tape_gag = new tape_gag(src)
 		user.put_in_hands(new_tape_gag)
 		use(1)
-		to_chat(user, span_notice("You rip off a piece of tape."))
+		to_chat(user, span_notice("你撕下一片胶带。"))
 		playsound(user, 'sound/items/duct_tape/duct_tape_snap.ogg', 50, TRUE)
 		return TRUE
 	return ..()
 
 /obj/item/stack/medical/wrap/sticky_tape/examine(mob/user)
 	. = ..()
-	. += "[span_notice("You could rip a piece off by using an empty hand.")]"
+	. += "[span_notice("你可以用空手撕下一片胶带。")]"
 
 /obj/item/stack/medical/wrap/sticky_tape/interact_with_atom(obj/item/target, mob/living/user, list/modifiers)
 	if(!isitem(target))
 		return NONE
 
 	if(target.get_embed()?.type == conferred_embed)
-		to_chat(user, span_warning("[target] is already coated in [src]!"))
+		to_chat(user, span_warning("[target]上已经贴着[src]了！"))
 		return ITEM_INTERACT_BLOCKING
 
-	user.visible_message(span_notice("[user] begins wrapping [target] with [src]."), span_notice("You begin wrapping [target] with [src]."))
+	user.visible_message(span_notice("[user]开始用[src]缠绕[target]。"), span_notice("你开始用[src]缠绕[target]。"))
 	playsound(user, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
 
 	if(!do_after(user, 3 SECONDS, target=target))
@@ -159,9 +159,9 @@
 	return "tape" + (tray_extended ? "" : "_out")
 
 /obj/item/stack/medical/wrap/sticky_tape/duct
-	name = "duct tape"
-	singular_name = "duct tape"
-	desc = "Tape designed for sealing punctures, holes and breakages in objects. Engineers swear by this stuff for practically all kinds of repairs. Maybe a little TOO much..."
+	name = "布基胶带"
+	singular_name = "布基胶带"
+	desc = "用于封住物体上的穿孔、洞口和破损处的胶带。工程师几乎什么维修都靠它，可能有点太依赖了……"
 	prefix = "duct taped"
 	conferred_embed = /datum/embedding/sticky_tape/duct
 	merge_type = /obj/item/stack/medical/wrap/sticky_tape/duct

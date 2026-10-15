@@ -3,8 +3,8 @@
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 
 /obj/item/food/muffin
-	name = "muffin"
-	desc = "A delicious and spongy little cake."
+	name = "玛芬"
+	desc = "美味松软的小蛋糕。"
 	icon_state = "muffin"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -18,19 +18,19 @@
 	custom_price = 1 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/muffin/berry
-	name = "berry muffin"
+	name = "浆果玛芬"
 	icon_state = "berrymuffin"
-	desc = "A delicious and spongy little cake, with berries."
+	desc = "加了浆果的美味松软小蛋糕。"
 	tastes = list("muffin" = 3, "berry" = 1)
 	foodtypes = GRAIN|DAIRY|SUGAR|BREAKFAST|FRUIT
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/muffin/booberry
-	name = "booberry muffin"
+	name = "幽灵莓玛芬"
 	icon_state = "berrymuffin"
 	alpha = 125
-	desc = "My stomach is a graveyard! No living being can quench my bloodthirst!"
+	desc = "我的胃就是墓地！任何活物都无法满足我的嗜血欲望！"
 	tastes = list("muffin" = 3, "spookiness" = 1)
 	foodtypes = GRAIN|DAIRY|SUGAR|BREAKFAST|FRUIT
 	crafting_complexity = FOOD_COMPLEXITY_4
@@ -40,10 +40,10 @@
 	AddComponent(/datum/component/ghost_edible, bite_consumption = bite_consumption)
 
 /obj/item/food/muffin/moffin
-	name = "moffin"
+	name = "蛾芬"
 	icon_state = "moffin_1"
 	base_icon_state = "moffin"
-	desc = "A delicious and spongy little cake."
+	desc = "美味松软的小蛋糕。"
 	tastes = list("muffin" = 3, "dust" = 1, "lint" = 1)
 	foodtypes = CLOTH|DAIRY|GRAIN|SUGAR|BREAKFAST
 	crafting_complexity = FOOD_COMPLEXITY_2
@@ -58,15 +58,15 @@
 		return
 	var/mob/living/moffin_observer = user
 	if(moffin_observer.get_liked_foodtypes() & CLOTH)
-		. += span_nicegreen("Ooh! It's even got bits of clothes on it! Yummy!")
+		. += span_nicegreen("哦！上面居然还有碎布！真好吃！")
 	else
-		. += span_warning("You're not too sure what's on top though...")
+		. += span_warning("不过，你不太确定上面放的是什么……")
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 
 /obj/item/food/waffles
-	name = "waffles"
-	desc = "Mmm, waffles."
+	name = "华夫饼"
+	desc = "嗯，华夫饼。"
 	icon_state = "waffles"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -82,8 +82,8 @@
 	AddComponent(/datum/component/ice_cream_holder, max_scoops = 1, x_offset = -2)
 
 /obj/item/food/soylentgreen
-	name = "\improper Soylent Green"
-	desc = "Not made of people. Honest." //Totally people.
+	name = "\improper 索伊伦绿饼"
+	desc = "不是人肉做的，真的。" //Totally people.
 	icon_state = "soylent_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -97,8 +97,8 @@
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/soylenviridians
-	name = "\improper Soylent Virdians"
-	desc = "Not made of people. Honest." //Actually honest for once.
+	name = "\improper 索伊伦翠绿饼"
+	desc = "不是人肉做的，真的。" //Actually honest for once.
 	icon_state = "soylent_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -111,8 +111,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/rofflewaffles
-	name = "roffle waffles"
-	desc = "Waffles from Roffle. Co."
+	name = "乐福华夫饼"
+	desc = "乐福公司出品的华夫饼。"
 	icon_state = "rofflewaffles"
 	bite_consumption = 4
 	food_reagents = list(
@@ -132,8 +132,8 @@
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 
 /obj/item/food/cookie
-	name = "cookie"
-	desc = "COOKIE!!!"
+	name = "曲奇"
+	desc = "曲奇！！！"
 	icon_state = "COOKIE!!!"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -152,8 +152,8 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/chloralhydrate = 10)
 
 /obj/item/food/fortunecookie
-	name = "fortune cookie"
-	desc = "A true prophecy in each cookie!"
+	name = "幸运饼干"
+	desc = "每块饼干里都有一句真正的预言！"
 	icon_state = "fortune_cookie"
 	trash_type = /obj/item/paper/paperslip/fortune
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
@@ -183,8 +183,8 @@
 		AddElement(/datum/element/food_trash, trash_type, food_flags, TYPE_PROC_REF(/obj/item/food/fortunecookie, get_fortune))
 
 /obj/item/food/cookie/sugar
-	name = "sugar cookie"
-	desc = "Just like your little sister used to make."
+	name = "糖饼干"
+	desc = "就像你妹妹以前做的那样。"
 	icon_state = "sugarcookie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -198,12 +198,12 @@
 	. = ..()
 	if(seasonal_changes && check_holidays(FESTIVE_SEASON))
 		var/shape = pick("tree", "bear", "santa", "stocking", "present", "cane")
-		desc = "A sugar cookie in the shape of a [shape]. I hope Santa likes it!"
+		desc = "一块[list("tree" = "圣诞树", "bear" = "小熊", "santa" = "圣诞老人", "stocking" = "长袜", "present" = "礼物", "cane" = "拐杖")[shape]]形状的糖饼干。希望圣诞老人喜欢！"
 		icon_state = "sugarcookie_[shape]"
 
 /obj/item/food/chococornet
-	name = "chocolate cornet"
-	desc = "Which side's the head, the fat end or the thin end?"
+	name = "巧克力螺旋卷"
+	desc = "哪边才是头，粗的那端还是细的那端？"
 	icon_state = "chococornet"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -215,8 +215,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/oatmeal
-	name = "oatmeal cookie"
-	desc = "The best of both cookie and oat."
+	name = "燕麦曲奇"
+	desc = "兼具曲奇与燕麦的美好。"
 	icon_state = "oatmealcookie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -227,8 +227,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/raisin
-	name = "raisin cookie"
-	desc = "Why would you put raisins on a cookie?"
+	name = "葡萄干曲奇"
+	desc = "为什么要往曲奇里放葡萄干？"
 	icon_state = "raisincookie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -239,8 +239,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/poppypretzel
-	name = "poppy pretzel"
-	desc = "It's all twisted up!"
+	name = "罂粟籽椒盐卷饼"
+	desc = "全都拧到一起了！"
 	icon_state = "poppypretzel"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -253,8 +253,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/plumphelmetbiscuit
-	name = "plump helmet biscuit"
-	desc = "This is a finely-prepared plump helmet biscuit. The ingredients are exceptionally minced plump helmet, and well-minced dwarven wheat flour."
+	name = "厚盔菇饼干"
+	desc = "这是一块精心制作的厚盔菇饼干，原料是切得极细的厚盔菇和磨得细致的矮人小麦粉。"
 	icon_state = "phelmbiscuit"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -269,8 +269,8 @@
 /obj/item/food/plumphelmetbiscuit/Initialize(mapload)
 	var/fey = prob(10)
 	if(fey)
-		name = "exceptional plump helmet biscuit"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
+		name = "极品厚盔菇饼干"
+		desc = "微波炉陷入了灵感狂热！它烹制出了一块极品厚盔菇饼干！"
 		food_reagents = list(
 			/datum/reagent/medicine/omnizine = 5,
 			/datum/reagent/consumable/nutriment = 1,
@@ -281,8 +281,8 @@
 		reagents.add_reagent(/datum/reagent/medicine/omnizine, 5)
 
 /obj/item/food/cracker
-	name = "cracker"
-	desc = "It's a salted cracker."
+	name = "咸脆饼干"
+	desc = "一块加盐的脆饼干。"
 	icon_state = "cracker"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -293,8 +293,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/khachapuri
-	name = "khachapuri"
-	desc = "Bread with egg and cheese?"
+	name = "格鲁吉亚奶酪面包"
+	desc = "加了鸡蛋和奶酪的面包？"
 	icon_state = "khachapuri"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 11,
@@ -307,8 +307,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cherrycupcake
-	name = "cherry cupcake"
-	desc = "A sweet cupcake with cherry bits."
+	name = "樱桃纸杯蛋糕"
+	desc = "含有樱桃碎的香甜纸杯蛋糕。"
 	icon_state = "cherrycupcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -321,15 +321,15 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cherrycupcake/blue
-	name = "blue cherry cupcake"
-	desc = "Blue cherries inside a delicious cupcake."
+	name = "蓝樱桃纸杯蛋糕"
+	desc = "美味的纸杯蛋糕里藏着蓝樱桃。"
 	icon_state = "bluecherrycupcake"
 	tastes = list("cake" = 3, "blue cherry" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/jupitercupcake
-	name = "jupiter-cup-cake"
-	desc = "A static dessert."
+	name = "朱庇特纸杯蛋糕"
+	desc = "一道带静电的甜点。"
 	icon_state = "jupitercupcake"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -345,8 +345,8 @@
 	crafted_food_buff = /datum/status_effect/food/trait/shockimmune
 
 /obj/item/food/honeybun
-	name = "honey bun"
-	desc = "A sticky pastry bun glazed with honey."
+	name = "蜂蜜面包"
+	desc = "表面涂着蜂蜜的黏甜面包。"
 	icon_state = "honeybun"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -358,8 +358,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cannoli
-	name = "cannoli"
-	desc = "A Sicilian treat that makes you into a wise guy."
+	name = "西西里奶油卷"
+	desc = "让你也像个黑帮老手的西西里点心。"
 	icon_state = "cannoli"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -372,8 +372,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/icecream
-	name = "waffle cone"
-	desc = "Delicious waffle cone, but no ice cream."
+	name = "华夫蛋筒"
+	desc = "美味的华夫蛋筒，不过里面没有冰淇淋。"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "icecream_cone_waffle"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
@@ -398,18 +398,18 @@
 
 /obj/item/food/icecream/Initialize(mapload, list/prefill_flavours)
 	if(ingredients)
-		ingredients_text = "Requires: [reagent_paths_list_to_text(ingredients)]"
+		ingredients_text = "需要：[reagent_paths_list_to_text(ingredients)]"
 	src.prefill_flavours = prefill_flavours
 	return ..()
 
 /obj/item/food/icecream/make_edible()
 	. = ..()
 	var/max_scoops = check_holidays(ICE_CREAM_DAY) ? DEFAULT_MAX_ICE_CREAM_SCOOPS * 4 : DEFAULT_MAX_ICE_CREAM_SCOOPS
-	AddComponent(/datum/component/ice_cream_holder, max_scoops, filled_name = "ice cream", change_desc = TRUE, prefill_flavours = prefill_flavours)
+	AddComponent(/datum/component/ice_cream_holder, max_scoops, filled_name = "冰淇淋", change_desc = TRUE, prefill_flavours = prefill_flavours)
 
 /obj/item/food/icecream/chocolate
-	name = "chocolate cone"
-	desc = "Delicious chocolate cone, but no ice cream."
+	name = "巧克力蛋筒"
+	desc = "美味的巧克力蛋筒，不过里面没有冰淇淋。"
 	icon_state = "icecream_cone_chocolate"
 	foodtypes = CHOCOLATE //DARKPACK EDIT CHANGE: Chocolate
 	food_reagents = list(
@@ -423,8 +423,8 @@
 	)
 
 /obj/item/food/icecream/korta
-	name = "korta cone"
-	desc = "Delicious lizard-friendly cone, but no ice cream."
+	name = "科塔坚果蛋筒"
+	desc = "适合蜥蜴人食用的美味蛋筒，不过里面没有冰淇淋。"
 	foodtypes = NUTS | SUGAR
 	ingredients = list(
 		/datum/reagent/consumable/korta_flour,
@@ -432,8 +432,8 @@
 	)
 
 /obj/item/food/cookie/peanut_butter
-	name = "peanut butter cookie"
-	desc = "A tasty, chewy peanut butter cookie."
+	name = "花生酱曲奇"
+	desc = "一块美味耐嚼的花生酱曲奇。"
 	icon_state = "peanut_butter_cookie"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -444,8 +444,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/raw_brownie_batter
-	name = "raw brownie batter"
-	desc = "A sticky mixture of raw brownie batter, cook it in the oven!"
+	name = "生布朗尼面糊"
+	desc = "黏稠的生布朗尼面糊，放进烤箱烤熟吧！"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "raw_brownie_batter"
 	food_reagents = list(
@@ -461,8 +461,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/brownie_sheet, rand(20 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/brownie_sheet
-	name = "brownie sheet"
-	desc = "An uncut sheet of cooked brownie, use a knife to cut it!."
+	name = "整盘布朗尼"
+	desc = "烤好但还没切开的整盘布朗尼，用刀切开吧！"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "brownie_sheet"
 	food_reagents = list(
@@ -478,8 +478,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/brownie, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/brownie
-	name = "brownie"
-	desc = "A square slice of delicious, chewy brownie. Often the target of potheads."
+	name = "布朗尼"
+	desc = "一块方形的美味耐嚼布朗尼，经常被大麻爱好者盯上。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "brownie"
 	food_reagents = list(
@@ -492,8 +492,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/peanut_butter_brownie_batter
-	name = "raw peanut butter brownie batter"
-	desc = "A sticky mixture of raw peanut butter brownie batter, cook it in the oven!"
+	name = "生花生酱布朗尼面糊"
+	desc = "黏稠的生花生酱布朗尼面糊，放进烤箱烤熟吧！"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie_batter"
 	food_reagents = list(
@@ -510,8 +510,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/peanut_butter_brownie_sheet, rand(20 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/peanut_butter_brownie_sheet
-	name = "peanut butter brownie sheet"
-	desc = "An uncut sheet of cooked peanut butter brownie, use a knife to cut it!"
+	name = "整盘花生酱布朗尼"
+	desc = "烤好但还没切开的整盘花生酱布朗尼，用刀切开吧！"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie_sheet"
 	food_reagents = list(
@@ -528,8 +528,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/peanut_butter_brownie, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/peanut_butter_brownie
-	name = "peanut butter brownie"
-	desc = "A square slice of delicious, chewy peanut butter brownie. Often the target of potheads."
+	name = "花生酱布朗尼"
+	desc = "一块方形的美味耐嚼花生酱布朗尼，经常被大麻爱好者盯上。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "peanut_butter_brownie"
 	food_reagents = list(
@@ -543,8 +543,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/crunchy_peanut_butter_tart
-	name = "crunchy peanut butter tart"
-	desc = "A miniature pie with a peanut butter filling, creamy icing, and topping of chopped nuts."
+	name = "香脆花生酱挞"
+	desc = "夹着花生酱的小馅饼，覆有奶油糖霜，再撒上碎坚果。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "crunchy_peanut_butter_tart"
 	food_reagents = list(
@@ -558,8 +558,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/chocolate_chip_cookie
-	name = "chocolate chip cookie"
-	desc = "A delightful-smelling chocolate chip cookie. Where's the milk?"
+	name = "巧克力豆曲奇"
+	desc = "香气诱人的巧克力豆曲奇。牛奶呢？"
 	icon_state = "COOKIE!!!"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("soft cookie" = 2, "chocolate" = 3)
@@ -569,8 +569,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/snickerdoodle
-	name = "snickerdoodle"
-	desc = "A soft cookie made from vanilla and cinnamon."
+	name = "肉桂糖曲奇"
+	desc = "用香草和肉桂制成的软曲奇。"
 	icon_state = "snickerdoodle"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("soft cookie" = 2, "vanilla" = 3)
@@ -580,8 +580,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/macaron
-	name = "macaron"
-	desc = "A sandwich-like confectionary with a soft cookie shell and a creamy meringue center."
+	name = "马卡龙"
+	desc = "像三明治一样的甜点，柔软饼干外壳中夹着绵密蛋白霜。"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
 	icon_state = "macaron_1"
 	base_icon_state = "macaron"
@@ -596,8 +596,8 @@
 	icon_state = "[base_icon_state]_[rand(1, 4)]"
 
 /obj/item/food/cookie/thumbprint_cookie
-	name = "thumbprint cookie"
-	desc = "A cookie with a thumb-sized indent in the middle made for fillings. This one is filled with cherry jelly"
+	name = "拇指饼干"
+	desc = "中间留有拇指大小凹槽、用来放馅料的饼干。这块装着樱桃果酱。"
 	icon_state = "thumbprint_cookie"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
 	tastes = list("cookie" = 2, "cherry jelly" = 3)
@@ -607,8 +607,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/apple_fritter
-	name = "apple fritter"
-	desc = "For something that looks like a pile of glazed dirt, it's suprisingly tart. It smells sweet enough to knock you unconscious."
+	name = "苹果炸饼"
+	desc = "看着像一堆裹了糖衣的泥土，尝起来却出奇地酸。那股甜香简直能把你熏晕。"
 	icon_state = "apple_fritter"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,

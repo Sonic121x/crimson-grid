@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/selfgib
-	name = "self destruction"
-	desc = "Meet the Final Death."
+	name = "自毁"
+	desc = "迎接终亡。"
 	icon_state = "rune2"
 	word = "CHNGE DA'WORD, GDBE"
 

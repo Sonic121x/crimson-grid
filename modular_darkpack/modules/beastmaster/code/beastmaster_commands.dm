@@ -19,12 +19,12 @@
 	// don't attack friends
 	var/list/friends = parent.ai_controller.blackboard[BB_FRIENDS_LIST]
 	if(friends && (living_target in friends))
-		to_chat(friend, span_warning("[parent] refuses to attack [living_target]!"))
+		to_chat(friend, span_warning("[parent]拒绝攻击[living_target]！"))
 		return FALSE
 
 	// don't attack the summoner
 	if(living_target == friend)
-		to_chat(friend, span_warning("[parent] refuses to attack you!"))
+		to_chat(friend, span_warning("[parent]拒绝攻击你！"))
 		return FALSE
 
 	// don't attack dead things
@@ -43,7 +43,7 @@
 
 	parent.ai_controller.set_blackboard_key(BB_CURRENT_PET_TARGET, living_target)
 	parent.ai_controller.set_blackboard_key(BB_ACTIVE_PET_COMMAND, src)
-	parent.visible_message(span_warning("[parent] follows [friend]'s gesture towards [living_target] [pointed_reaction]!"))
+	parent.visible_message(span_warning("[parent]顺着[friend]的手势看向[living_target][list("and growls" = "，发出低吼")[pointed_reaction] || pointed_reaction]！"))
 	return TRUE
 
 /datum/pet_command/attack/beastmaster/execute_action(datum/ai_controller/controller)
@@ -127,11 +127,11 @@
 
 /datum/pet_command/befriend_target
 	command_name = "Befriend"
-	command_desc = "Command your pet to befriend someone you click on."
+	command_desc = "命令你的宠物与点击的目标交好。"
 	radial_icon = 'modular_darkpack/modules/beastmaster/icons/radial_beastmaster.dmi'
 	radial_icon_state = "friend"
 	speech_commands = list("befriend", "friend")
-	command_feedback = "wags tail"
+	command_feedback = "摇尾巴"
 
 /datum/pet_command/befriend_target/set_command_active(mob/living/parent, mob/living/commander, radial_command = FALSE)
 	if(!pet_able_to_respond())
@@ -160,7 +160,7 @@
 
 	var/list/friends = parent.ai_controller.blackboard[BB_FRIENDS_LIST]
 	if(friends && (living_target in friends))
-		to_chat(friend, span_notice("[parent] is already friends with [living_target]!"))
+		to_chat(friend, span_notice("[parent]已经是[living_target]的朋友了！"))
 		return FALSE
 
 	parent.befriend(living_target)
@@ -184,11 +184,11 @@
 		parent.ai_controller.clear_blackboard_key(BB_CURRENT_PET_TARGET)
 		parent.ai_controller.cancel_current_plan()
 
-	parent.visible_message(span_notice("[parent] follows [friend]'s gesture and befriends [living_target]!"))
+	parent.visible_message(span_notice("[parent]听从[friend]的手势，与[living_target]交好！"))
 	return TRUE
 
 /datum/pet_command/befriend_target/retrieve_command_text(atom/living_pet, atom/target)
-	return isnull(target) ? null : "signals [living_pet] to befriend [target]!"
+	return isnull(target) ? null : "示意[living_pet]与[target]交好！"
 
 /datum/pet_command/befriend_target/execute_action(datum/ai_controller/controller)
 	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)

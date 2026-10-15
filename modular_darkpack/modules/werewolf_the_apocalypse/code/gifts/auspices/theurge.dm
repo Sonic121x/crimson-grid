@@ -15,8 +15,8 @@ ner, if the Gift is applied during the same scene in which
 the scar is received and an extra Gnosis point is spent.
 */
 /datum/action/cooldown/power/gift/mothers_touch
-	name = "Mother's Touch"
-	desc = "The Garou is able to heal the wounds of any living creature, aggravated or otherwise, simply by laying hands over the afflicted area."
+	name = "慈母之触"
+	desc = "狼人只需将双手覆于伤处，便能治愈生物的创伤，无论是恶性伤害还是其他伤害。"
 	button_icon_state = "mothers_touch"
 	click_to_activate = TRUE
 	rank = 1
@@ -59,8 +59,8 @@ the scar is received and an extra Gnosis point is spent.
 
 
 /datum/action/cooldown/power/gift/spirit_speech
-	name = "Spirit Speech"
-	desc = "This Gift allows the Garou to communicate with encountered spirits."
+	name = "灵语"
+	desc = "此天赋让狼人能够与遇到的灵体交流。"
 	button_icon_state = "spirit_speech"
 	rank = 1
 
@@ -73,10 +73,10 @@ the scar is received and an extra Gnosis point is spent.
 
 	if(HAS_TRAIT_FROM(owner, TRAIT_LOCAL_SIXTHSENSE, GIFT_TRAIT))
 		REMOVE_TRAIT(owner, TRAIT_LOCAL_SIXTHSENSE, GIFT_TRAIT)
-		to_chat(owner, span_notice("You deactivate [name]."))
+		to_chat(owner, span_notice("你停用了[name]。"))
 	else
 		ADD_TRAIT(owner, TRAIT_LOCAL_SIXTHSENSE, GIFT_TRAIT)
-		to_chat(owner, span_notice("You activate [name]."))
+		to_chat(owner, span_notice("你启用了[name]。"))
 
 /datum/action/cooldown/power/gift/spirit_speech/Remove(mob/removed_from)
 	. = ..()

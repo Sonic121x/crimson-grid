@@ -76,9 +76,9 @@
 		return FALSE
 	var/eat_verb
 	if(drinking)
-		eat_verb = pick("slurp","sip","guzzle","drink","quaff","suck")
+		eat_verb = pick("吸溜着喝下","小口抿着","咕咚咕咚地喝下","喝下","大口痛饮着","吮吸着")
 	else
-		eat_verb = pick("bite","chew","nibble","gnaw","gobble","chomp")
+		eat_verb = pick("咬着","咀嚼着","小口啃着","啃咬着","狼吞虎咽地吃着","大口嚼着")
 
 	var/best_match = null
 	var/best_value = 0
@@ -107,12 +107,12 @@
 
 	if (to_heal > 0)
 		var/healed = eater.heal_overall_damage(to_heal)
-		eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target][healed ? ", restoring some health" : ""]."))
+		eater.visible_message(span_notice("[eater][eat_verb][target]。"), span_notice("你[eat_verb][target][healed ? "，恢复了一些健康" : ""]。"))
 	else if (to_damage > 0 && damage_type)
 		var/damaged = eater.apply_damage(to_damage, damage_type)
-		eater.visible_message(span_notice("[eater] [eat_verb]s [target][damaged ? ", and seems to hurt [eater.p_themselves()]!" : "."]"), span_notice("You [eat_verb] [target][damaged ? ", hurting yourself in the process" : ""]."))
+		eater.visible_message(span_notice("[eater][eat_verb][target][damaged ? "，似乎因此受了伤！" : "。"]"), span_notice("你[eat_verb][target][damaged ? "，却因此受了伤" : ""]。"))
 	else
-		eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target]."))
+		eater.visible_message(span_notice("[eater][eat_verb][target]。"), span_notice("你[eat_verb][target]。"))
 
 	finish_eating(eater, target, feeder, to_heal)
 	return TRUE

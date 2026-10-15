@@ -1,10 +1,10 @@
 /datum/storyteller_roll/gift/control_simple_machine
-	bumper_text = "Control Simple Machine"
+	bumper_text = "操控简单机械"
 	applicable_stats = list(STAT_MANIPULATION, STAT_CRAFTS)
 	difficulty = 7
 
 /datum/storyteller_roll/gift/control_complex_machine
-	bumper_text = "Control Complex Machine"
+	bumper_text = "操控复杂机械"
 	applicable_stats = list(STAT_MANIPULATION, STAT_SCIENCE) // or STAT_COMPUTER
 
 
@@ -108,8 +108,8 @@
 
 
 /datum/action/cooldown/power/gift/control_machine/simple
-	name = "Control Simple Machine"
-	desc = "The Garou may command the spirits of the simplest machines, causing levers to flip, doors to unbolt, pulleys to roll, and so on."
+	name = "操控简单机械"
+	desc = "狼人可命令简单机械中的灵体，使杠杆翻转、门闩开启、滑轮转动等。"
 	button_icon_state = "control_simple_machine"
 
 	rank = 1
@@ -118,8 +118,8 @@
 
 // DARKPACK TODO - (gifts past rank 1)
 /datum/action/cooldown/power/gift/control_machine/complex
-	name = "Control Complex Machine"
-	desc = "Similar to Control Simple Machine, the Glass Walker may now converse with and command the spirits of electronic devices such as computers, smart phones, and cars."
+	name = "操控复杂机械"
+	desc = "类似操控简单机械，玻璃行者如今可与电脑、智能手机、汽车等电子设备中的灵体交谈并发号施令。"
 
 	rank = 3
 
@@ -138,7 +138,7 @@
 
 /obj/item/grenade/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
-	.["prime"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use")
+	.["prime"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use"), "启动引信")
 
 /obj/item/grenade/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -151,7 +151,7 @@
 
 /obj/item/lighter/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
-	.["light"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use")
+	.["light"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use"), "点燃／熄灭")
 
 /obj/item/lighter/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -195,7 +195,7 @@
 /obj/machinery/light/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
 	if(status != LIGHT_EMPTY)
-		.["unscrew"] = image(icon = 'icons/hud/radial.dmi', icon_state = "machine")
+		.["unscrew"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "machine"), "拧下灯泡")
 
 /obj/machinery/light/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -209,7 +209,7 @@
 
 /obj/machinery/button/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
-	.["flick"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use")
+	.["flick"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use"), "按下按钮")
 
 /obj/machinery/button/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -223,7 +223,7 @@
 /obj/machinery/shower/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
 	if(!is_complex)
-		.["turn"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use")
+		.["turn"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use"), "开关淋浴")
 
 /obj/machinery/shower/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -237,7 +237,7 @@
 /obj/machinery/firealarm/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
 	if(!is_complex)
-		.["flip"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use")
+		.["flip"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_use"), "启动警报")
 
 /obj/machinery/firealarm/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -251,7 +251,7 @@
 /obj/vehicle/ridden/scooter/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
 	if(!is_complex)
-		.["roll"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate")
+		.["roll"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate"), "向前滑行")
 
 /obj/vehicle/ridden/scooter/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()
@@ -265,7 +265,7 @@
 /obj/structure/vampdoor/get_control_machine_options(mob/living/user, is_complex = FALSE)
 	. = ..()
 	if(!is_complex)
-		.["lock"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate")
+		.["lock"] = localized_radial_choice(image(icon = 'icons/hud/radial.dmi', icon_state = "radial_rotate"), "上锁")
 
 /obj/structure/vampdoor/run_control_machine(mob/living/user, choice, is_complex = FALSE)
 	. = ..()

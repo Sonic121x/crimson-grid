@@ -4,8 +4,8 @@
 #define ALREADY_LIT 3
 
 /obj/item/flashlight
-	name = "flashlight"
-	desc = "A hand-held emergency light."
+	name = "手电筒"
+	desc = "一盏手持应急灯。"
 	custom_price = PAYCHECK_CREW
 	icon = 'modular_darkpack/master_files/icons/obj/lighting.dmi' // DARKPACK EDIT CHANGE
 	ONFLOOR_ICON_HELPER('modular_darkpack/master_files/icons/obj/lighting_onfoor.dmi') // DARKPACK EDIT ADD
@@ -100,7 +100,7 @@
 	playsound(src, light_on ? sound_off : sound_on, 40, TRUE)
 	if(!COOLDOWN_FINISHED(src, disabled_time))
 		if(user)
-			balloon_alert(user, "disrupted!")
+			balloon_alert(user, "受到干扰！")
 		set_light_on(FALSE)
 		update_brightness()
 		update_item_action_buttons()
@@ -120,15 +120,15 @@
 
 /obj/item/flashlight/suicide_act(mob/living/user)
 	if (user.is_blind())
-		user.visible_message(span_suicide("[user] is putting [src] close to [user.p_their()] eyes and turning it on... but [user.p_theyre()] blind!"))
+		user.visible_message(span_suicide("[user]把[src]凑到眼前并打开……但[user]是盲人！"))
 		return SHAME
-	user.visible_message(span_suicide("[user] is putting [src] close to [user.p_their()] eyes and turning it on! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]把[src]凑到眼前并打开！看起来是想自杀！"))
 	return FIRELOSS
 
 /obj/item/flashlight/proc/eye_examine(mob/living/carbon/human/patient, mob/living/user)
 	. = list()
 	if((patient.head && patient.head.flags_cover & HEADCOVERSEYES) || (patient.wear_mask && patient.wear_mask.flags_cover & MASKCOVERSEYES) || (patient.glasses && patient.glasses.flags_cover & GLASSESCOVERSEYES))
-		to_chat(user, span_warning("You're going to need to remove that [(patient.head && patient.head.flags_cover & HEADCOVERSEYES) ? "helmet" : (patient.wear_mask && patient.wear_mask.flags_cover & MASKCOVERSEYES) ? "mask": "glasses"] first!"))
+		to_chat(user, span_warning("你需要先摘下[(patient.head && patient.head.flags_cover & HEADCOVERSEYES) ? "头盔" : (patient.wear_mask && patient.wear_mask.flags_cover & MASKCOVERSEYES) ? "面罩": "眼镜"]！"))
 		return
 
 	var/obj/item/organ/eyes/eyes = patient.get_organ_slot(ORGAN_SLOT_EYES)
@@ -136,47 +136,47 @@
 	var/obj/item/organ/zombie_infection/tumor = patient.get_organ_slot(ORGAN_SLOT_ZOMBIE) //this slot only ever holds zombie tumors, so we can just check if this exists
 	var/braaaainz = tumor?.causes_damage //prevents steath tumors (admin bullshittery or romerol) from showing up to preserve stealthiness
 	if(!eyes)
-		to_chat(user, span_warning("[patient] doesn't have any eyes!"))
+		to_chat(user, span_warning("[patient]没有眼睛！"))
 		return
 
 	patient.flash_act(visual = TRUE, length = (user.combat_mode) ? 2.5 SECONDS : 1 SECONDS) // Apply a 1 second flash effect to the target. The duration increases to 2.5 Seconds if you have combat mode on.
 
 	if(patient == user) //they're using it on themselves
-		user.visible_message(span_warning("[user] shines [src] into [patient.p_their()] eyes."), ignored_mobs = user)
-		. += span_info("You direct [src] to into your eyes:\n")
+		user.visible_message(span_warning("[user]用[src]照向自己的眼睛。"), ignored_mobs = user)
+		. += span_info("你用[src]照向自己的眼睛：\n")
 
 		if(patient.is_blind())
-			. += span_notice_ml("You're not entirely certain what you were expecting...\n")
+			. += span_notice_ml("你也不太清楚自己到底想看到什么……\n")
 		else
-			. += span_notice_ml("Trippy!\n")
+			. += span_notice_ml("真迷幻！\n")
 
 	else
-		user.visible_message(span_warning("[user] directs [src] to [patient]'s eyes."), ignored_mobs = user)
-		. += span_info("You direct [src] to [patient]'s eyes:\n")
+		user.visible_message(span_warning("[user]用[src]照向[patient]的眼睛。"), ignored_mobs = user)
+		. += span_info("你用[src]照向[patient]的眼睛：\n")
 
 		if(patient.stat == DEAD || patient.is_blind() || patient.get_eye_protection() >= FLASH_PROTECTION_WELDER) //this used to be just > but literally nothing accessable in the game gave greater than welder without also covering eyes
-			. += span_danger_ml("[patient.p_Their()] [eyes.pupils_name] don't react to the light!\n")//mob is dead
+			. += span_danger_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]对光线没有反应！\n")//mob is dead
 		else if(brain.damage > 20)
-			. += span_danger_ml("[patient.p_Their()] [eyes.pupils_name] contract unevenly!\n")//mob has sustained damage to their brain
+			. += span_danger_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]收缩不均！\n")//mob has sustained damage to their brain
 		else
-			. += span_notice_ml("[patient.p_Their()] [eyes.pupils_name] narrow.\n")//they're okay :D
+			. += span_notice_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]缩小了。\n")//they're okay :D
 
 		if(HAS_TRAIT(patient, TRAIT_XRAY_VISION))
-			. += span_danger_ml("[patient.p_Their()] [eyes.pupils_name] give an eerie glow!\n")//mob has X-ray vision
+			. += span_danger_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]发出诡异的光芒！\n")//mob has X-ray vision
 		if(eyes.penlight_message != /obj/item/organ/eyes::penlight_message) //prevent default eyes from cluttering text, if this still happens somehow it displays "default message please report"
 			. += span_notice_ml("[eyes.penlight_examine(user, src)]\n")
 		if(braaaainz)
 			. += span_danger_ml("<b>[patient.p_Their()] eyes are webbed by fibrous black tendrils!</b>\n")
 		if(patient.has_status_effect(/datum/status_effect/drugginess) || patient.has_status_effect(/datum/status_effect/trance))
-			. += span_danger_ml("[patient.p_Their()] [eyes.pupils_name] are responsive, but entirely unfocused.")
+			. += span_danger_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]有反应，却完全无法聚焦。")
 		if(patient.has_status_effect(/datum/status_effect/stoned))
-			. += span_danger_ml("[patient.p_Their()] eyes are wide, lazy, and bloodshot.") //this shit is GAS, batman. *wheezing chuckle*
+			. += span_danger_ml("[patient]双眼圆睁、目光涣散，布满血丝。") //this shit is GAS, batman. *wheezing chuckle*
 	return .
 
 /obj/item/flashlight/proc/mouth_examine(mob/living/carbon/human/patient, mob/living/user)
 	. = list()
 	if(patient.is_mouth_covered())
-		to_chat(user, span_warning("You're going to need to remove that [(patient.head && patient.head.flags_cover & HEADCOVERSMOUTH) ? "helmet" : "mask"] first!"))
+		to_chat(user, span_warning("你需要先摘下[(patient.head && patient.head.flags_cover & HEADCOVERSMOUTH) ? "头盔" : "面罩"]！"))
 		return
 
 	var/list/mouth_organs = list()
@@ -214,56 +214,56 @@
 					if(WEST)
 						can_use_mirror = mirror.pixel_x < 0
 
-		patient.visible_message(span_notice("[patient] directs [src] to [patient.p_their()] mouth."), ignored_mobs = user)
-		. += span_info_ml("You point [src] into your mouth:\n")
+		patient.visible_message(span_notice("[patient]用[src]照向自己的嘴。"), ignored_mobs = user)
+		. += span_info_ml("你用[src]照向自己的嘴：\n")
 		if(!can_use_mirror)
-			to_chat(user, span_notice("You can't see anything without a mirror."))
+			to_chat(user, span_notice("没有镜子，你什么也看不见。"))
 			return
 		if(organ_count)
-			. += span_notice_ml("Inside your mouth [organ_count > 1 ? "are" : "is"] [organ_list].\n")
+			. += span_notice_ml("你的口腔内有[organ_list]。\n")
 		else
-			. += span_notice_ml("There's nothing inside your mouth.\n")
+			. += span_notice_ml("你的口腔内空无一物。\n")
 		if(pill_count)
-			. += span_notice_ml("You have [pill_count] implanted pill[pill_count > 1 ? "s" : ""].\n")
+			. += span_notice_ml("你植入了[pill_count]颗药片。\n")
 
 	else //if we're looking in someone elses mouth
-		user.visible_message(span_notice("[user] directs [src] to [patient]'s mouth."), ignored_mobs = user)
-		. += span_info_ml("You point [src] into [patient]'s mouth:\n")
+		user.visible_message(span_notice("[user]用[src]照向[patient]的嘴。"), ignored_mobs = user)
+		. += span_info_ml("你用[src]照向[patient]的嘴：\n")
 		if(organ_count)
-			. += span_notice_ml("Inside [patient.p_their()] mouth [organ_count > 1 ? "are" : "is"] [organ_list].\n")
+			. += span_notice_ml("[patient]的口腔内有[organ_list]。\n")
 		else
-			. += span_notice_ml("[patient] doesn't have any organs in [patient.p_their()] mouth.\n")
+			. += span_notice_ml("[patient]的口腔内没有任何器官。\n")
 		if(pill_count)
-			. += span_notice_ml("[patient] has [pill_count] pill[pill_count > 1 ? "s" : ""] implanted in [patient.p_their()] teeth.\n")
+			. += span_notice_ml("[patient]的牙齿中植入了[pill_count]颗药片。\n")
 
 	//assess any suffocation damage
 	var/hypoxia_status = patient.get_oxy_loss() > 20
 
 	if(patient == user)
 		if(hypoxia_status)
-			. += span_danger_ml("Your lips appear blue!\n")//you have suffocation damage
+			. += span_danger_ml("你的嘴唇发青！\n")//you have suffocation damage
 		else
-			. += span_notice_ml("Your lips appear healthy.\n")//you're okay!
+			. += span_notice_ml("你的嘴唇看起来很健康。\n")//you're okay!
 	else
 		if(hypoxia_status)
-			. += span_danger_ml("[patient.p_Their()] lips appear blue!\n")//they have suffocation damage
+			. += span_danger_ml("[patient]的嘴唇发青！\n")//they have suffocation damage
 		else
-			. += span_notice_ml("[patient.p_Their()] lips appear healthy.\n")//they're okay!
+			. += span_notice_ml("[patient]的嘴唇看起来很健康。\n")//they're okay!
 
 	//assess blood level
 	if(patient == user)
-		. += span_info_ml("You press a finger to your gums:\n")
+		. += span_info_ml("你用手指按压自己的牙龈：\n")
 	else
-		. += span_info_ml("You press a finger to [patient.p_their()] gums:\n")
+		. += span_info_ml("你用手指按压[patient]的牙龈：\n")
 
 	var/cached_blood_volume = patient.get_blood_volume(apply_modifiers = TRUE)
 
 	if(cached_blood_volume <= BLOOD_VOLUME_SAFE && cached_blood_volume > BLOOD_VOLUME_OKAY)
-		. += span_danger_ml("Color returns slowly!\n")//low blood
+		. += span_danger_ml("血色恢复缓慢！\n")//low blood
 	else if(cached_blood_volume <= BLOOD_VOLUME_OKAY)
-		. += span_danger_ml("Color does not return!\n")//critical blood
+		. += span_danger_ml("血色没有恢复！\n")//critical blood
 	else
-		. += span_notice_ml("Color returns quickly.\n")//they're okay :D
+		. += span_notice_ml("血色迅速恢复。\n")//they're okay :D
 
 
 /obj/item/flashlight/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -279,14 +279,14 @@
 
 	. = ITEM_INTERACT_BLOCKING
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("You don't have the dexterity to do this!"))
+		to_chat(user, span_warning("你的动作不够灵巧，无法这样做！"))
 		return
 	var/mob/living/scanning = interacting_with
 	if(!scanning.get_bodypart(BODY_ZONE_HEAD))
-		to_chat(user, span_warning("[scanning] doesn't have a head!"))
+		to_chat(user, span_warning("[scanning]没有头！"))
 		return
 	if(light_power < 0.5)
-		to_chat(user, span_warning("[src] isn't bright enough to see anything!"))
+		to_chat(user, span_warning("[src]的亮度不足，什么也看不清！"))
 		return
 
 	var/list/render_list = list()
@@ -391,8 +391,8 @@
 		visible_message(span_danger("[creator] created a medical hologram!"))
 
 /obj/item/flashlight/seclite
-	name = "seclite"
-	desc = "A robust flashlight used by security."
+	name = "警用手电筒"
+	desc = "安保人员使用的结实手电筒。"
 	dir = EAST
 	icon_state = "seclite"
 	inhand_icon_state = "seclite"

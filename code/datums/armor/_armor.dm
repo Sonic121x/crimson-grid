@@ -212,23 +212,23 @@ GLOBAL_LIST_INIT(armor_by_type, generate_armor_type_cache())
 /proc/armor_to_protection_name(armor_type)
 	switch(armor_type)
 		if(ACID)
-			return "ACID"
+			return "酸蚀"
 		if(BIO)
-			return "BIOHAZARD"
+			return "生物危害"
 		if(BOMB)
-			return "EXPLOSIVE"
+			return "爆炸"
 		if(BULLET)
-			return "BULLET"
+			return "弹丸"
 		if(CONSUME)
-			return "CONSUMING"
+			return "吞噬"
 		if(ENERGY)
-			return "ENERGY"
+			return "能量"
 		if(FIRE)
-			return "FIRE"
+			return "火焰"
 		if(LASER)
-			return "LASER"
+			return "激光"
 		if(MELEE)
-			return "MELEE"
+			return "近战"
 		if(WOUND)
-			return "WOUNDING"
+			return "创伤"
 	CRASH("Unknown armor type '[armor_type]'")

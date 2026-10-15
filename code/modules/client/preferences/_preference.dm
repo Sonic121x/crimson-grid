@@ -8,10 +8,10 @@
 /// The priority at which species runs, needed for external organs to apply properly.
 #define PREFERENCE_PRIORITY_SPECIES 3
 
-/**
- * Some preferences get applied directly to bodyparts (anything head_flags related right now).
- * These must apply after species, as species gaining might replace the bodyparts of the human.
- */
+/proc/localized_preference_choices(list/choices, list/display_names)
+	. = list()
+	for(var/choice in choices)
+		.[choice] = display_names[choice] || choice
 #define PREFERENCE_PRIORITY_BODYPARTS 4
 
 /// The priority at which gender is determined, needed for proper randomization.
@@ -496,7 +496,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	if (!isnull(main_feature_name))
 		data["name"] = main_feature_name
 
-	return data
+	return data + ((savefile_key in list("hairstyle_name", "facial_style_name", "hair_gradient", "facial_hair_gradient")) ? list("display_names" = localized_accessory_names(choices)) : savefile_key == "zulo_form" ? list("display_names" = list("Beast" = "野兽", "Brust" = "四臂")) : savefile_key == "acute_sense" ? list("display_names" = list("hearing" = "听觉", "smell" = "嗅觉", "sight" = "视觉", "taste" = "味觉", "touch" = "触觉")) : (savefile_key in list("missing_arm", "lame_leg")) ? list("display_names" = list("left" = "左侧", "right" = "右侧")) : savefile_key == "prey_exclusion" ? list("display_names" = localized_preference_choices(choices, list("Middle-income" = "中等收入者", "Police Officers" = "警察", "Criminals" = "罪犯", "High income" = "高收入者", "Homeless" = "无家可归者"))) : savefile_key == "fetish_merit" ? list("display_names" = localized_preference_choices(choices, list("Random" = "随机"))) : list()) // KUKU：括起成员判断，避免三元运算优先级错误破坏偏好数据并使数值选项越界
 
 /// This subtype handles a lot of boilerplate for implementing a species preference tied to a feature key / sprite accessory
 /datum/preference/choiced/species_feature

@@ -16,8 +16,8 @@
 */
 
 /obj/item/gas_can
-	name = "gas can"
-	desc = "Stores gasoline or pure fire death."
+	name = "汽油桶"
+	desc = "装着汽油，也可以说装着火焰与死亡。"
 	icon_state = "gasoline"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
@@ -28,7 +28,7 @@
 
 /obj/item/gas_can/examine(mob/user)
 	. = ..()
-	. += "<b>Gas</b>: [stored_gasoline]/1000"
+	. += "<b>汽油</b>：[stored_gasoline]/1000"
 
 /obj/item/gas_can/full
 	custom_price = 250 // ECONOMY
@@ -64,12 +64,12 @@
 		stored_gasoline = max(0, stored_gasoline-50)
 		H.fire_stacks = min(10, H.fire_stacks+10)
 		playsound(get_turf(H), 'modular_darkpack/modules/cars/sounds/gas_splat.ogg', 50, TRUE)
-		user.visible_message(span_warning("[user] covers [target] in something flammable!"))
+		user.visible_message(span_warning("[user]把某种易燃物泼在了[target]身上！"))
 		log_combat(user, target, "poured gasoline on")
 
 /obj/effect/decal/cleanable/gasoline
-	name = "gasoline"
-	desc = "I HOPE YOU DIE IN A FIRE!!!"
+	name = "汽油"
+	desc = "烧死你！！！"
 	icon = 'modular_darkpack/modules/cars/icons/water.dmi'
 	icon_state = "water"
 	base_icon_state = "water"
@@ -131,15 +131,15 @@
 /obj/effect/decal/cleanable/gasoline/attackby(obj/item/tool, mob/living/user)
 	var/attacked_by_hot_thing = tool.get_temperature()
 	if(attacked_by_hot_thing)
-		visible_message(span_warning("[user] tries to ignite [src] with [tool]!"), span_warning("You try to ignite [src] with [tool]."))
+		visible_message(span_warning("[user]试图用[tool]点燃[src]！"), span_warning("你试图用[tool]点燃[src]。"))
 		log_combat(user, src, (attacked_by_hot_thing < 480) ? "tried to ignite" : "ignited", tool)
 		fire_act(attacked_by_hot_thing)
 		return
 	return ..()
 
 /obj/structure/fuelstation
-	name = "fuel station"
-	desc = "Fuel your car here. 50 dollars per 1000 units."
+	name = "加油机"
+	desc = "在这里给你的车加油。每1000单位50美元。"
 	icon = 'modular_darkpack/modules/deprecated/icons/props.dmi'
 	icon_state = "fuelstation"
 	anchored = TRUE
@@ -149,7 +149,7 @@
 
 /obj/structure/fuelstation/click_alt(mob/user)
 	if(stored_money > 0)
-		say("Money refunded.")
+		say("已退款。")
 		var/money_to_spawn = min(stored_money, /obj/item/stack/dollar::max_amount)
 		new /obj/item/stack/dollar(loc, money_to_spawn)
 		stored_money -= money_to_spawn
@@ -157,14 +157,14 @@
 
 /obj/structure/fuelstation/examine(mob/user)
 	. = ..()
-	. += "<b>Balance</b>: [stored_money] [MONEY_NAME]"
+	. += "<b>余额</b>：[stored_money] [MONEY_NAME]"
 
 /obj/structure/fuelstation/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(iscash(tool))
 		stored_money += tool.get_item_credit_value()
-		to_chat(user, span_notice("You insert [tool.get_item_credit_value()] [MONEY_NAME] into [src]."))
+		to_chat(user, span_notice("你向[src]投入了[tool.get_item_credit_value()] [MONEY_NAME]。"))
 		qdel(tool)
-		say("Payment received.")
+		say("款项已收到。")
 		return ITEM_INTERACT_SUCCESS
 	if(istype(tool, /obj/item/gas_can))
 		var/obj/item/gas_can/G = tool
@@ -174,8 +174,8 @@
 			G.stored_gasoline = min(1000, G.stored_gasoline+gas_to_dispense)
 			stored_money = max(0, stored_money-money_to_spend)
 			playsound(loc, 'modular_darkpack/master_files/sounds/effects/gas_fill.ogg', 50, TRUE)
-			to_chat(user, span_notice("You fill [tool]."))
-			say("Gas filled.")
+			to_chat(user, span_notice("你给[tool]加注了汽油。"))
+			say("加油完毕。")
 			return ITEM_INTERACT_SUCCESS
 		return ITEM_INTERACT_BLOCKING
 	return NONE

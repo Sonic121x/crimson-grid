@@ -1,6 +1,6 @@
 /obj/structure/vampfence
-	name = "\improper fence"
-	desc = "Protects places from walking in."
+	name = "\improper 围栏"
+	desc = "阻止人们随意进入。"
 	icon = 'modular_darkpack/modules/decor/icons/fence.dmi'
 	icon_state = "fence"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -25,8 +25,8 @@
 	RemoveElement(/datum/element/climbable)
 
 /obj/structure/gargoyle
-	name = "\improper gargoyle"
-	desc = "Some kind of gothic architecture."
+	name = "\improper 石像鬼雕像"
+	desc = "某种哥特式建筑装饰。"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "gargoyle"
 	pixel_z = 8
@@ -34,8 +34,8 @@
 	anchored = TRUE
 
 /obj/machinery/light/floor/lamppost
-	name = "lamppost"
-	desc = "Gives some light to the streets."
+	name = "路灯"
+	desc = "为街道提供一些照明。"
 	icon = 'modular_darkpack/modules/decor/icons/lamppost.dmi'
 	icon_state = "base"
 	bulb_colour = "#ffde9b"
@@ -80,8 +80,8 @@
 	icon_state = "chinese"
 
 /obj/structure/trafficlight
-	name = "traffic light"
-	desc = "Shows when road is free or not."
+	name = "交通信号灯"
+	desc = "指示何时可以通行。"
 	icon = 'modular_darkpack/modules/decor/icons/lamppost.dmi'
 	icon_state = "traffic"
 	layer = SPACEVINE_LAYER
@@ -96,8 +96,8 @@
 			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/closet/crate/dumpster
-	name = "dumpster"
-	desc = "Holds garbage inside."
+	name = "大垃圾箱"
+	desc = "里面装着垃圾。"
 	icon = 'modular_darkpack/master_files/icons/obj/storage/crates32x32.dmi'
 	icon_state = "garbage"
 	base_icon_state = "garbage"
@@ -132,8 +132,8 @@
 	external_trash_chance = 0
 
 /obj/structure/trashbag
-	name = "trash bags"
-	desc = "Enough trashbags to block your way."
+	name = "垃圾袋堆"
+	desc = "堆得足以挡住去路的垃圾袋。"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "garbage1"
 	density = TRUE
@@ -148,8 +148,8 @@
 	return ..()
 
 /obj/structure/hotelbanner
-	name = "banner"
-	desc = "It says H O T E L."
+	name = "招幡"
+	desc = "上面写着“旅馆”。"
 	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "banner"
 	anchored = TRUE
@@ -163,8 +163,8 @@
 			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/arc
-	name = "chinatown arc"
-	desc = "Cool chinese architecture."
+	name = "唐人街牌楼"
+	desc = "漂亮的中式建筑。"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "ark1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -181,8 +181,8 @@
 	icon_state = "ark2"
 
 /obj/structure/trad
-	name = "traditional lamp"
-	desc = "Cool chinese lamp."
+	name = "传统灯笼"
+	desc = "漂亮的中式灯笼。"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "trad"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -190,7 +190,7 @@
 
 
 /obj/structure/vampipe
-	name = "pipes"
+	name = "管道"
 	icon = 'modular_darkpack/modules/decor/icons/pipes.dmi'
 	icon_state = "piping1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -209,15 +209,15 @@
 
 
 /obj/structure/vamproofwall
-	name = "wall"
+	name = "墙壁"
 	icon = 'modular_darkpack/modules/decor/icons/roofwall.dmi'
 	icon_state = "the_wall"
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/hydrant
-	name = "hydrant"
-	desc = "Used for firefighting."
+	name = "消防栓"
+	desc = "用于灭火。"
 	icon = 'modular_darkpack/modules/decor/icons/hydrant.dmi'
 	icon_state = "hydrant"
 	anchored = TRUE
@@ -235,8 +235,8 @@
 		LoadComponent(/datum/component/leanable, dropped)
 
 /obj/structure/roadblock
-	name = "\improper road block"
-	desc = "Protects places from walking in."
+	name = "\improper 路障"
+	desc = "阻止人们随意进入。"
 	icon = 'modular_darkpack/modules/decor/icons/barriers.dmi'
 	icon_state = "roadblock"
 	anchored = TRUE
@@ -247,7 +247,7 @@
 
 // DARKPACK TODO - Does not pass the sniff test of being a decal. Make a structure
 /obj/effect/decal/painting
-	name = "painting"
+	name = "画作"
 	icon = 'modular_darkpack/modules/decor/icons/paintings.dmi'
 	icon_state = "painting1"
 	plane = GAME_PLANE
@@ -260,10 +260,10 @@
 	icon_state = "painting3"
 
 /obj/structure/painting/trad
-	name = "chinese traditional ink painting"
+	name = "中国传统水墨画"
 	icon_state = "trad-art1"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
-	desc = "Seems to be ink on a pleasant yellow canvas."
+	desc = "似乎是在柔和的黄色画布上用墨绘成的。"
 	layer = SIGN_LAYER
 
 /obj/structure/painting/trad/second
@@ -273,16 +273,16 @@
 	icon_state = "trad-art3"
 
 /obj/structure/fluff/shrine
-	name = "altar shrine"
-	desc = "An old rustic buddhist shrine, with a red cermaic roof."
+	name = "佛龛"
+	desc = "一座古老质朴的佛龛，顶着红色陶瓦屋顶。"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "budshrine"
 	anchored = TRUE
 	density = TRUE
 
 /obj/structure/jesuscross
-	name = "Jesus Christ on a cross"
-	desc = "Jesus said, “Father, forgive them, for they do not know what they are doing.” And they divided up his clothes by casting lots (Luke 23:34)."
+	name = "耶稣基督受难像"
+	desc = "耶稣说：“父啊，赦免他们！因为他们所做的，他们不晓得。”他们就拈阄分他的衣服。（《路加福音》23:34）"
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "cross"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -292,8 +292,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/structure/barrels
-	name = "barrel"
-	desc = "Store some liquids."
+	name = "桶"
+	desc = "储存一些液体。"
 	icon = 'modular_darkpack/modules/decor/icons/barrels.dmi'
 	icon_state = "barrel1"
 	base_icon_state = "barrel"
@@ -310,8 +310,8 @@
 	icon_state = "[base_icon_state][rand(1, variants)]"
 
 /obj/structure/barrels/plural
-	name = "barrels"
-	desc = "Store some liquids."
+	name = "桶堆"
+	desc = "储存一些液体。"
 	icon = 'modular_darkpack/modules/decor/icons/barrels.dmi'
 	icon_state = "barrels1"
 	base_icon_state = "barrels"
@@ -325,8 +325,8 @@
 	variants = 18
 
 /obj/structure/barrels/rusty
-	name = "barrels"
-	desc = "Used to store some liquids."
+	name = "桶堆"
+	desc = "曾经用来储存液体。"
 	icon = 'modular_darkpack/modules/decor/icons/barrels.dmi'
 	icon_state = "rustybarrels1"
 	base_icon_state = "rustybarrels"
@@ -340,8 +340,8 @@
 	variants = 6
 
 /obj/structure/bricks
-	name = "bricks"
-	desc = "Building material."
+	name = "砖块"
+	desc = "建筑材料。"
 	icon = 'modular_darkpack/modules/decor/icons/alleyway.dmi'
 	icon_state = "bricks"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -349,8 +349,8 @@
 	density = TRUE
 
 /obj/structure/tire
-	name = "tire"
-	desc = "It's a tire."
+	name = "轮胎"
+	desc = "一个轮胎。"
 	icon = 'modular_darkpack/modules/decor/icons/alleyway.dmi'
 	icon_state = "tire"
 	anchored = TRUE
@@ -369,8 +369,8 @@
 	AddElement(/datum/element/climbable)
 
 /obj/structure/pallets
-	name = "pallets"
-	desc = "Great for burning and blocking the player in cheap 2005 FPS games."
+	name = "托盘堆"
+	desc = "在2005年那些廉价的第一人称射击游戏里，特别适合拿来烧，或是挡住玩家的去路。"
 	icon = 'modular_darkpack/modules/decor/icons/alleyway_32x48.dmi'
 	icon_state = "pallets1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -386,7 +386,7 @@
 		icon_state = "pallets[rand(1, 2)]"
 
 /obj/effect/decal/pallet
-	name = "pallet"
+	name = "托盘"
 	icon = 'modular_darkpack/modules/decor/icons/alleyway.dmi'
 	icon_state = "under1"
 
@@ -398,8 +398,8 @@
 	icon_state = "under[rand(1, 2)]"
 
 /obj/cargotrain
-	name = "cargocrate"
-	desc = "It delivers a lot of things."
+	name = "货运集装箱"
+	desc = "运送着许多东西。"
 	icon = 'modular_darkpack/modules/decor/icons/containers.dmi'
 	icon_state = "1"
 	anchored = TRUE
@@ -424,8 +424,8 @@
 	. = ..()
 
 /obj/cargocrate
-	name = "cargocrate"
-	desc = "It delivers a lot of things."
+	name = "集装箱"
+	desc = "运送着许多东西。"
 	icon = 'modular_darkpack/modules/decor/icons/containers.dmi'
 	icon_state = "1"
 	anchored = TRUE
@@ -466,8 +466,8 @@
 	return last_open || start
 
 /obj/structure/marketplace
-	name = "stock market"
-	desc = "Recent stocks visualization."
+	name = "股票行情屏"
+	desc = "显示近期股票行情。"
 	icon = 'modular_darkpack/modules/decor/icons/stonks.dmi'
 	icon_state = "marketplace"
 	anchored = TRUE
@@ -476,13 +476,13 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/structure/reagent_dispensers/cleaningfluid
-	name = "cleaning fluid tank"
-	desc = "A container filled with cleaning fluid."
+	name = "清洁液罐"
+	desc = "装满清洁液的容器。"
 	reagent_id = /datum/reagent/space_cleaner
 	icon_state = "water"
 
 /obj/underplate
-	name = "underplate"
+	name = "餐盘垫"
 	icon = 'modular_darkpack/modules/decor/icons/restaurant.dmi'
 	icon_state = "underplate"
 	anchored = TRUE
@@ -491,8 +491,8 @@
 	icon_state = "stuff"
 
 /obj/structure/pole
-	name = "stripper pole"
-	desc = "A pole fastened to the ceiling and floor, used to show of ones goods to company."
+	name = "舞蹈钢管"
+	desc = "固定在天花板与地板之间的钢管，用来向观众展示身材。"
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "pole"
 	density = TRUE
@@ -508,7 +508,7 @@
 	if(.)
 		return
 	if(pole_in_use)
-		to_chat(user, "It's already in use - wait a bit.")
+		to_chat(user, "已经有人在用了，稍等一会儿。")
 		return
 
 	if(user.dancing)
@@ -518,7 +518,7 @@
 	user.setDir(SOUTH)
 	user.Stun(100)
 	user.forceMove(src.loc)
-	user.visible_message("<B>[user] dances on [src]!</B>")
+	user.visible_message("<B>[user]在[src]上跳舞！</B>")
 	animatepole(user)
 	user.layer = layer //set them to the poles layer
 	pole_in_use = FALSE
@@ -553,8 +553,8 @@
 	user.dir = 2
 
 /obj/structure/fountain
-	name = "fountain"
-	desc = "Gothic water structure."
+	name = "喷泉"
+	desc = "哥特式水景建筑。"
 	icon = 'modular_darkpack/modules/decor/icons/fountain.dmi'
 	icon_state = "fountain"
 	anchored = TRUE
@@ -563,7 +563,7 @@
 	pixel_z = -16
 
 /obj/effect/decal/graffiti
-	name = "graffiti"
+	name = "涂鸦"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "graffiti1"
 	pixel_z = 32
@@ -589,7 +589,7 @@
 	return isclosedturf(here_turf)
 
 /obj/effect/decal/kopatich
-	name = "hide carpet"
+	name = "兽皮地毯"
 	pixel_w = -16
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/decor/icons/rugs64x64.dmi'
@@ -632,8 +632,8 @@
 	rune_in_use = FALSE */ // CRIMSON GRID ADD END: DARK THAUMATURGY
 
 /obj/structure/vampstatue
-	name = "statue"
-	desc = "A cloaked figure forgotten to the ages."
+	name = "雕像"
+	desc = "身披斗篷的人物，早已被岁月遗忘。"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x64.dmi'
 	icon_state = "statue"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -642,20 +642,20 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/structure/vampstatue/angel
-	name = "angel statue"
-	desc = "An angel stands before you. You're glad it's only stone."
+	name = "天使雕像"
+	desc = "一位天使站在你面前。幸好只是一尊石像。"
 	icon = 'modular_darkpack/modules/deprecated/icons/64x64.dmi'
 	icon_state = "angelstatue"
 
 /obj/structure/vampstatue/cloaked
-	name = "cloaked figure"
-	desc = "He appears to be sitting."
+	name = "斗篷人像"
+	desc = "他似乎正坐着。"
 	icon = 'modular_darkpack/modules/deprecated/icons/32x48.dmi'
 	icon_state = "cloakedstatue"
 
 /obj/structure/bath
-	name = "bath"
-	desc = "Not big enough for hiding in."
+	name = "浴缸"
+	desc = "不够大，没法躲进去。"
 	icon = 'modular_darkpack/modules/decor/icons/bathroom.dmi'
 	icon_state = "tub"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -664,8 +664,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
 
 /obj/weapon_showcase
-	name = "weapon showcase"
-	desc = "Look, a gun."
+	name = "武器展示柜"
+	desc = "看，一把枪。"
 	icon = 'modular_darkpack/modules/decor/icons/showcase.dmi'
 	icon_state = "showcase"
 	density = TRUE
@@ -678,15 +678,15 @@
 	icon_state = "showcase[rand(1, 7)]"
 
 /obj/effect/decal/carpet
-	name = "carpet"
+	name = "地毯"
 	pixel_w = -16
 	pixel_z = -16
 	icon = 'modular_darkpack/modules/decor/icons/rugs64x64.dmi'
 	icon_state = "kover"
 
 /obj/structure/bury_pit
-	name = "bury pit"
-	desc = "You can bury someone here."
+	name = "埋葬坑"
+	desc = "可以在这里埋人。"
 	icon = 'modular_darkpack/modules/decor/icons/bury_pit.dmi'
 	icon_state = "pit0"
 	layer = ABOVE_OPEN_TURF_LAYER
@@ -702,7 +702,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		pit_busy = TRUE
-		user.visible_message(span_warning("[user] starts to dig [src]"), span_warning("You start to dig [src]."))
+		user.visible_message(span_warning("[user]开始挖掘[src]。"), span_warning("你开始挖掘[src]。"))
 		if(!do_after(user, 10 SECONDS, src))
 			pit_busy = FALSE
 
@@ -711,12 +711,12 @@
 			for(var/mob/living/L in get_turf(src))
 				L.forceMove(src)
 				icon_state = "pit1"
-				user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
+				user.visible_message(span_warning("[user]在[src]里挖了一个洞。"), span_warning("你在[src]里挖了一个洞。"))
 		else
 			for(var/mob/living/L in src)
 				L.forceMove(get_turf(src))
 			icon_state = "pit0"
-			user.visible_message(span_warning("[user] digs a hole in [src]."), span_warning("You dig a hole in [src]."))
+			user.visible_message(span_warning("[user]在[src]里挖了一个洞。"), span_warning("你在[src]里挖了一个洞。"))
 
 /obj/structure/bury_pit/container_resist_act(mob/living/user)
 	if(pit_busy)
@@ -733,27 +733,27 @@
 
 
 /obj/structure/fluff/tv
-	name = "\improper TV"
-	desc = "A slightly battered looking TV. It's off"
+	name = "\improper 电视机"
+	desc = "看起来有些破旧的电视机，关着。"
 	icon = 'modular_darkpack/modules/decor/icons/television.dmi'
 	icon_state = "tv_off"
 	density = TRUE
 
 /obj/structure/fluff/tv/news
-	desc = "A slightly battered looking TV. Looks like you're not on the news... this time."
+	desc = "看起来有些破旧的电视机。看来你没上新闻……这次没有。"
 	icon_state = "tv_news"
 
 /obj/structure/fluff/tv/nature
-	desc = "A slightly battered looking TV. A documentary about a rabbit named 'Lepix'."
+	desc = "看起来有些破旧的电视机，正在播放一部关于一只名叫‘莱皮克斯’的兔子的纪录片。"
 	icon_state = "tv_nature"
 
 /obj/structure/fluff/tv/analog
-	desc = "A slightly battered looking TV. It might be broken."
+	desc = "看起来有些破旧的电视机。它可能坏了。"
 	icon_state = "tv_analog"
 
 /obj/structure/fluff/tv/order
-	name = "order screen"
-	desc = "A slightly battered looking TV. It shows a menu to order from."
+	name = "点餐屏"
+	desc = "看起来有些破旧的电视机，上面显示着点餐菜单。"
 	icon = 'modular_darkpack/modules/decor/icons/restaurant.dmi'
 	icon_state = "order1"
 
@@ -776,6 +776,6 @@
 	icon_state = "order[rand(1,4)]"
 
 /obj/structure/projector
-	name = "projector"
+	name = "投影仪"
 	icon = 'icons/obj/machines/stationary_camera.dmi'
 	icon_state = "camera"

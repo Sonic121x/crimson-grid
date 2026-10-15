@@ -1,6 +1,6 @@
 /obj/ritual_rune/thaumaturgy/teleport
-	name = "teleportation"
-	desc = "Move your body among the city streets. Requires a bloodpack."
+	name = "传送"
+	desc = "在城市街道间传送自身。需要一袋血。"
 	icon_state = "rune6"
 	word = "CLAV'TRANSITUM"
 	level = 5
@@ -17,9 +17,9 @@
 	. = ..()
 	if(activated)
 		if(last_activator != user)
-			to_chat(user, span_warning("You are not the one who activated this rune!"))
+			to_chat(user, span_warning("这道符文不是由你激活的！"))
 			return
-		var/direction = tgui_input_list(user, "Choose direction:", "Teleportation Rune", list("North", "East", "South", "West"))
+		var/direction = tgui_input_list(user, "选择方向：", "传送符文", list("北", "东", "南", "西"))
 		if(direction)
 			var/x_dir = user.x
 			var/y_dir = user.y
@@ -30,36 +30,36 @@
 			var/turf/destination = null
 
 			if(get_dist(src, user) > 1)
-				to_chat(user, span_warning("You moved away from the rune!"))
+				to_chat(user, span_warning("你已经离开了符文附近！"))
 				return
 
 			// Move at least min_distance tiles in the chosen direction
 			while(step <= min_distance)
 				switch(direction)
-					if("North")
+					if("北")
 						y_dir += 1
-					if("East")
+					if("东")
 						x_dir += 1
-					if("South")
+					if("南")
 						y_dir -= 1
-					if("West")
+					if("西")
 						x_dir -= 1
 				step += 1
 
 			// Continue moving until a valid destination is found or max_distance is reached
 			while(step <= max_distance && !valid_destination)
 				switch(direction)
-					if("North")
+					if("北")
 						y_dir += 1
-					if("East")
+					if("东")
 						x_dir += 1
-					if("South")
+					if("南")
 						y_dir -= 1
-					if("West")
+					if("西")
 						x_dir -= 1
 
 				if(x_dir < 15 || x_dir > 240 || y_dir < 15 || y_dir > 240)
-					to_chat(user, span_warning("You can't teleport outside the city!"))
+					to_chat(user, span_warning("你不能传送到城市之外！"))
 					return
 
 				destination = locate(x_dir, y_dir, user.z)
@@ -73,6 +73,6 @@
 				user.forceMove(destination)
 				qdel(src)
 			else
-				to_chat(user, span_warning("The spell fails as no destination is found!"))
+				to_chat(user, span_warning("找不到可用的目的地，法术失败了！"))
 
 

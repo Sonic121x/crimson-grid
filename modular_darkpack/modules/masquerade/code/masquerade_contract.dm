@@ -1,6 +1,6 @@
 /obj/item/masquerade_contract
-	name = "\improper elegant scroll"
-	desc = "An elegant looking scroll."
+	name = "\improper 精美卷轴"
+	desc = "一卷外观精美的卷轴。"
 	icon = 'modular_darkpack/modules/masquerade/icons/masquerade_contract.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/masquerade/icons/onfloor.dmi')
 	icon_state = "masquerade"
@@ -18,7 +18,7 @@
 	if(!get_vampire_splat(user))
 		return
 	var/turf/current_location = get_turf(user)
-	to_chat(user, span_info("[span_bold("YOU")], [get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
+	to_chat(user, span_info("[span_bold("你的位置")]，[get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
 	for(var/mob/living/carbon/breacher in GLOB.masquerade_breakers_list)
 		var/location_info
 		var/turf/turf = get_turf(breacher)
@@ -26,14 +26,14 @@
 			location_info = "[get_area_name(turf)], X:[turf.x] Y:[turf.y] Z:[turf.z]"
 		else
 			location_info = "[get_area_name(turf)]"
-		to_chat(user, span_info("[breacher.real_name], Masquerade Breaches: [5 - breacher.masquerade_score], Diablerist: [(HAS_TRAIT(breacher, TRAIT_DIABLERIE) && !HAS_TRAIT(breacher, TRAIT_HIDDEN_DIABLERIE)) ? "<b>YES</b>" : "NO"], [location_info]")) // CRIMSON EDIT CHANGE - Original: to_chat(user, span_info("[breacher.real_name], Masquerade: [breacher.masquerade_score], Diablerist: [(HAS_TRAIT(breacher, TRAIT_DIABLERIE) && !HAS_TRAIT(breacher, TRAIT_HIDDEN_DIABLERIE)) ? "<b>YES</b>" : "NO"], [location_info]"))
+		to_chat(user, span_info("[breacher.real_name]，违反避世戒律次数：[5 - breacher.masquerade_score]，血噬者：[(HAS_TRAIT(breacher, TRAIT_DIABLERIE) && !HAS_TRAIT(breacher, TRAIT_HIDDEN_DIABLERIE)) ? "<b>是</b>" : "否"]，[location_info]")) // CRIMSON EDIT CHANGE - Original: to_chat(user, span_info("[breacher.real_name], Masquerade: [breacher.masquerade_score], Diablerist: [(HAS_TRAIT(breacher, TRAIT_DIABLERIE) && !HAS_TRAIT(breacher, TRAIT_HIDDEN_DIABLERIE)) ? "<b>YES</b>" : "NO"], [location_info]"))
 
 	if(!GLOB.masquerade_breakers_list)
-		to_chat(user, span_info("No available Masquerade breakers in city..."))
+		to_chat(user, span_info("城中未发现违反避世戒律者……"))
 
 /obj/item/veil_contract
-	name = "\improper brass pocketwatch"
-	desc = "A posh looking pocketwatch."
+	name = "\improper 黄铜怀表"
+	desc = "一块看起来颇为高档的怀表。"
 	icon = 'modular_darkpack/modules/masquerade/icons/masquerade_contract.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/masquerade/icons/onfloor.dmi')
 	icon_state = "pocketwatch"
@@ -47,7 +47,7 @@
 	if(!get_werewolf_splat(user))
 		return
 	var/turf/current_location = get_turf(user)
-	to_chat(user, span_info("[span_bold("YOU")], [get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
+	to_chat(user, span_info("[span_bold("你的位置")]，[get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
 	for(var/mob/living/breacher in GLOB.veil_breakers_list)
 		var/location_info
 		var/turf/turf = get_turf(breacher)
@@ -55,14 +55,14 @@
 			location_info = "[get_area_name(turf)], X:[turf.x] Y:[turf.y] Z:[turf.z]"
 		else
 			location_info = "[get_area_name(turf)]"
-		to_chat(user, span_info("[breacher.real_name], Veil: [breacher.masquerade_score], [location_info]"))
+		to_chat(user, span_info("[breacher.real_name]，帷幕：[breacher.masquerade_score]，[location_info]"))
 
 	if(!GLOB.veil_breakers_list)
-		to_chat(user, span_info("No available Veil breakers in city..."))
+		to_chat(user, span_info("城中未发现揭露帷幕者……"))
 
 /obj/item/intel_report
-	name = "intelligence report"
-	desc = "A file with information of note on local operations, listing persons of interests."
+	name = "情报报告"
+	desc = "一份记载当地行动重要情报的文件，列出了值得关注的人物。"
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "docs_part"
 	item_flags = NOBLUDGEON
@@ -73,7 +73,7 @@
 /obj/item/intel_report/attack_self(mob/user, modifiers)
 	. = ..()
 	var/turf/current_location = get_turf(user)
-	to_chat(user, span_info("[span_bold("YOU")], [get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
+	to_chat(user, span_info("[span_bold("你的位置")]，[get_area_name(user)] X:[current_location.x] Y:[current_location.y] Z:[current_location.z]"))
 	for(var/mob/living/breacher in GLOB.supernatural_breakers_list)
 		var/location_info
 		var/turf/turf = get_turf(breacher)
@@ -81,10 +81,10 @@
 			location_info = "[get_area_name(turf)], X:[turf.x] Y:[turf.y] Z:[turf.z]"
 		else
 			location_info = "[get_area_name(turf)]"
-		to_chat(user, span_info("[breacher.real_name], Veil: [breacher.masquerade_score], [location_info]"))
+		to_chat(user, span_info("[breacher.real_name]，帷幕：[breacher.masquerade_score]，[location_info]"))
 
 	if(!GLOB.supernatural_breakers_list)
-		to_chat(user, span_info("No available freaks of nature in city..."))
+		to_chat(user, span_info("城中未发现超自然怪物……"))
 
 // CRIMSON EDIT ADD START - Sell Valuables
 /obj/item/veil_contract/Initialize(mapload)

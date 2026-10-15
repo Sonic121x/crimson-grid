@@ -7,7 +7,7 @@
 	src.our_role = our_role
 
 /datum/contact
-	var/name = "Unknown"
+	var/name = "未知联系人"
 	var/number = null
 	var/role = null
 	var/datum/weakref/phone_ref = null
@@ -23,7 +23,7 @@
 		src.phone_ref = phone_ref
 
 /datum/phonecontact
-	var/name = "Unknown"
+	var/name = "未知联系人"
 	var/number = ""
 
 /datum/phonecontact/New(name, number)

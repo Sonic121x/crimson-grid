@@ -6,22 +6,22 @@
 	return list(get_step(src, dir))
 
 /obj/structure/sign/city/police_department
-	name = "\improper " + CITY_POLICE_DEPARTMENT + " sign"
-	desc = "Stop right there you criminal scum! Nobody can break the law on my watch!!"
+	name = "\improper 旧金山警察局标牌"
+	desc = "站住，你这犯罪渣滓！有我在，谁都别想违法！！"
 	icon_state = "police1"
 	pixel_z = 4
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/police_department, 32)
 
 /obj/structure/sign/city/order
-	name = "order sign"
+	name = "秩序标牌"
 	icon_state = "order"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/order, 32)
 
 /obj/structure/sign/city/hotel
-	name = "sign"
-	desc = "It says H O T E L."
+	name = "招牌"
+	desc = "上面写着：旅　馆。"
 	icon_state = "hotel"
 	//plane = GAME_PLANE
 	layer = ABOVE_ALL_MOB_LAYER
@@ -37,8 +37,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/hotel, 0)
 			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/sign/city/millenium
-	name = "sign"
-	desc = "It says M I L L E N I U M."
+	name = "招牌"
+	desc = "上面写着：千　禧。"
 	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "millenium1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -51,8 +51,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/hotel, 0)
 	set_light(3, 3, "#4299bb")
 
 /obj/structure/sign/city/anarch
-	name = "sign"
-	desc = "It says B A R."
+	name = "招牌"
+	desc = "上面写着：酒　吧。"
 	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "bar"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -68,8 +68,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/hotel, 0)
 			icon_state = "[initial(icon_state)]-snow"
 
 /obj/structure/sign/city/chinese
-	name = "sign"
-	desc = "雨天和血的机会."
+	name = "招牌"
+	desc = "阴雨天，可能会下血雨。"
 	icon = 'modular_darkpack/modules/decor/icons/city_sign.dmi'
 	icon_state = "chinese1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -105,8 +105,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/chinese/alt5, 0)
 
 // Hrm. Not synced with PRIMARY_NIGHTCLUB_COMPANY and it cant really be..
 /obj/structure/sign/city/strip_club
-	name = "sign"
-	desc = "It says DO RA. Maybe it's some kind of strip club..."
+	name = "招牌"
+	desc = "上面写着：多　拉。也许是某种脱衣舞俱乐部……"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
 	icon_state = "dora"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -121,8 +121,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/strip_club, 32)
 	set_light(3, 2, "#8e509e")
 
 /obj/structure/sign/city/cabaret_sign
-	name = "cabaret"
-	desc = "An enticing pair of legs... I wonder what's inside?"
+	name = "歌舞厅招牌"
+	desc = "一双诱人的美腿……不知道里面有什么？"
 	icon = 'modular_darkpack/modules/decor/icons/cabaret.dmi'
 	icon_state = "cabar"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -146,30 +146,30 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/cabaret_sign/two, 32)
 	pixel_w = -16
 
 /obj/structure/sign/city/store/bacotell
-	name = "Baco Tell"
-	desc = "Eat some precious tacos and pizza!"
+	name = "巴可特尔"
+	desc = "来尝尝美味的塔可和披萨吧！"
 	icon_state = "bacotell"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/bacotell, 32)
 
 /obj/structure/sign/city/store/bubway
-	name = "BubWay"
-	desc = "Eat some precious burgers and pizza!"
+	name = "巴布威"
+	desc = "来尝尝美味的汉堡和披萨吧！"
 	icon_state = "bubway"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/bubway, 32)
 
 /obj/structure/sign/city/store/gummaguts
-	name = "Gumma Guts"
-	desc = "Eat some precious chicken nuggets and donuts!"
+	name = "咕玛肚"
+	desc = "来尝尝美味的鸡块和甜甜圈吧！"
 	icon_state = "gummaguts"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/gummaguts, 32)
 
 /obj/structure/sign/city/skateshop
-	name = "Beralta Skateshop"
+	name = "贝拉尔塔滑板店"
 	icon_state = "beralta1"
-	desc = "Bowell Beralta, apart from having a very unfortunate name, is one of the biggest names in authentic knock-off skateboards."
+	desc = "鲍威尔·贝拉尔塔的名字虽然不太吉利，却是正宗山寨滑板界数一数二的响亮招牌。"
 
 /obj/structure/sign/city/skateshop/two
 	icon_state = "beralta2"
@@ -185,22 +185,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/skateshop/three, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/skateshop/four, 32)
 
 /obj/structure/sign/city/store/reddragon
-	name = "Red Dragon"
-	desc = "Eat yummy-yummy flame fire noodles!"
+	name = "红龙"
+	desc = "来吃香喷喷的烈焰火面吧！"
 	icon_state = "reddragon"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/reddragon, 32)
 
 /obj/structure/sign/city/store/otolleys
-	name = "O\'Tolleys"
-	desc = "O-o-o Oh Toll-ees, Families Welcome!"
+	name = "奥托利"
+	desc = "奥、奥、奥——奥托利，欢迎全家光临！"
 	icon_state = "otolleys"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/otolleys, 32)
 
 /obj/structure/sign/city/store/magadon
-	name = "Magadon, Incorporated"
-	desc = "Magadon: Building a better you."
+	name = "玛加顿公司"
+	desc = "玛加顿：塑造更好的你。"
 	icon_state = "magadon"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/city/store/magadon, 32)

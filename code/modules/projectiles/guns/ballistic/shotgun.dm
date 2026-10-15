@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/shotgun
 	name = "shotgun"
-	desc = "A traditional shotgun with wood furniture and a four-shell capacity underneath."
+	desc = "一把传统霰弹枪，配有木质护木和枪托，下方弹仓可容纳四发霰弹。"
 	icon_state = "shotgun"
 	worn_icon_state = null
 	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'

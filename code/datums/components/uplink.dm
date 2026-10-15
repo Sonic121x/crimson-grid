@@ -10,7 +10,7 @@
 /datum/component/uplink
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// Name of the uplink
-	var/name = "syndicate uplink"
+	var/name = "辛迪加上行终端"
 	/// Whether the uplink is currently active or not
 	var/active = FALSE
 	/// Whether this uplink can be locked or not
@@ -105,7 +105,7 @@
 
 /datum/component/uplink/proc/load_tc(mob/user, obj/item/stack/telecrystal/telecrystals, silent = FALSE)
 	if(!silent)
-		to_chat(user, span_notice("You slot [telecrystals] into [parent] and charge its internal uplink."))
+		to_chat(user, span_notice("你将[telecrystals]插入[parent]，为其中的上行终端充值。"))
 	var/amt = telecrystals.amount
 	uplink_handler.add_telecrystals(amt)
 	telecrystals.use(amt)
@@ -129,11 +129,11 @@
 
 	if(user != owner)
 		return
-	examine_list += span_warning("[parent] contains your hidden uplink\
-		[unlock_code ? ", the code to unlock it is [span_boldwarning(unlock_code)]" : null].")
+	examine_list += span_warning("[parent]里藏着你的上行终端\
+		[unlock_code ? "，解锁口令为[span_boldwarning(unlock_code)]" : null]。")
 
 	if(failsafe_code)
-		examine_list += span_warning("The failsafe code is [span_boldwarning(failsafe_code)].")
+		examine_list += span_warning("紧急自毁口令为[span_boldwarning(failsafe_code)]。")
 
 /datum/component/uplink/proc/interact(datum/source, mob/user)
 	SIGNAL_HANDLER
@@ -172,9 +172,9 @@
 		for(var/datum/objective/task as anything in uplink_handler.primary_objectives)
 			var/list/task_data = list()
 			if(length(primary_objectives) > length(GLOB.phonetic_alphabet))
-				task_data["task_name"] = "DIRECTIVE [length(primary_objectives) + 1]" //The english alphabet is WEAK
+				task_data["task_name"] = "指令[length(primary_objectives) + 1]" //The english alphabet is WEAK
 			else
-				task_data["task_name"] = "DIRECTIVE [uppertext(GLOB.phonetic_alphabet[length(primary_objectives) + 1])]"
+				task_data["task_name"] = "指令[uppertext(GLOB.phonetic_alphabet[length(primary_objectives) + 1])]"
 			task_data["task_text"] = task.explanation_text
 			primary_objectives += list(task_data)
 		data["primary_objectives"] = primary_objectives
@@ -251,7 +251,7 @@
 		if("buy_raw_tc")
 			if (uplink_handler.telecrystals <= 0)
 				return
-			var/desired_amount = tgui_input_number(ui.user, "How many raw telecrystals to buy?", "Buy Raw TC", default = uplink_handler.telecrystals, max_value = uplink_handler.telecrystals)
+			var/desired_amount = tgui_input_number(ui.user, "要购买多少枚实体传送水晶？", "购买实体传送水晶", default = uplink_handler.telecrystals, max_value = uplink_handler.telecrystals)
 			if(!desired_amount || desired_amount < 1)
 				return
 			uplink_handler.purchase_raw_tc(ui.user, desired_amount, parent)
@@ -315,7 +315,7 @@
 	locked = FALSE
 	if(ismob(user))
 		interact(null, user)
-		to_chat(user, span_hear("The computer softly beeps."))
+		to_chat(user, span_hear("电脑轻轻响了一声。"))
 	return COMPONENT_STOP_RINGTONE_CHANGE
 
 /datum/component/uplink/proc/check_detonate()
@@ -350,7 +350,7 @@
 		return
 	locked = FALSE
 	interact(null, user)
-	to_chat(user, "As you whisper the code into your headset, a soft chime fills your ears.")
+	to_chat(user, "你对着耳机低声说出口令，耳中随即响起一声轻柔的提示音。")
 	return COMPONENT_CANNOT_USE_RADIO
 
 // Pen signal responses
@@ -368,7 +368,7 @@
 		previous_attempts.Cut()
 		master.degrees = 0
 		interact(null, user)
-		to_chat(user, span_warning("Your pen makes a clicking noise, before quickly rotating back to 0 degrees!"))
+		to_chat(user, span_warning("你的笔咔哒一声，随即迅速转回0度！"))
 
 	else if(compare_list(previous_attempts, failsafe_code))
 		failsafe(user)
@@ -377,11 +377,11 @@
 	unlock_code = generate_code()
 	var/obj/item/P = parent
 	if(istype(parent,/obj/item/modular_computer))
-		unlock_note = "<B>Uplink Passcode:</B> [unlock_code] ([P.name])."
+		unlock_note = "<B>上行终端口令：</B>[unlock_code]（[P.name]）。"
 	else if(istype(parent,/obj/item/radio))
-		unlock_note = "<B>Radio Passcode:</B> [unlock_code] ([P.name], [RADIO_TOKEN_UPLINK] channel)."
+		unlock_note = "<B>无线电口令：</B>[unlock_code]（[P.name]，[RADIO_TOKEN_UPLINK]频道）。"
 	else if(istype(parent,/obj/item/pen))
-		unlock_note = "<B>Uplink Degrees:</B> [english_list(unlock_code)] ([P.name])."
+		unlock_note = "<B>上行终端旋转角度：</B>[english_list(unlock_code, and_text = "、", comma_text = "、", final_comma_text = "")]（[P.name]）。"
 
 /datum/component/uplink/proc/generate_code()
 	var/returnable_code = ""

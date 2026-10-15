@@ -1,25 +1,25 @@
 /datum/st_stat/virtue/conscience
-	name = "Conscience"
+	name = "良知"
 	starting_score = 1 //All vampires by default start out with this.
 	score = 1
-	description = "Remorse and atonement for your moral transgressions. Requires Conviction to be zero."
+	description = "为违背道德的行为感到悔恨并寻求赎罪。要求信念为零。"
 
 /datum/st_stat/virtue/self_control
-	name = "Self-Control"
+	name = "自制"
 	starting_score = 1 //All vampires by default start out with this.
 	score = 1
-	description = "Discipline and mastery over the Beast and other dark impulses. Requires Instinct to be zero."
+	description = "约束并驾驭心兽及其他黑暗冲动。要求本能为零。"
 
 /datum/st_stat/virtue/conviction
-	name = "Conviction"
-	description = "Represents the reconciliation of the predatory urge with the character's capacity for atrocity. Where Conscience represents guilt, Conviction represents moral resolve and acceptance. Requires Conscience to be zero."
+	name = "信念"
+	description = "体现角色如何调和捕食冲动与自身实施暴行的能力。良知代表愧疚，信念则代表对自身道德观的坚定与接纳。要求良知为零。"
 
 /datum/st_stat/virtue/instinct
-	name = "Instinct"
-	description = "The ability to control the Beast by familiarity rather than denial. Requires Self-Control to be zero."
+	name = "本能"
+	description = "通过熟悉而非否认心兽来掌控它的能力。要求自制为零。"
 
 /datum/st_stat/virtue/courage
-	name = "Courage"
-	description = "The quality that allows characters to stand in the face of fear or daunting adversity. It is bravery, mettle, and stoicism combined. Raises your Willpower by one."
+	name = "勇气"
+	description = "使角色能直面恐惧与严峻逆境的品质，融合了勇敢、胆识与坚忍。每点提高一点意志力。"
 	starting_score = 1
 	min_score = 1

@@ -102,86 +102,86 @@
 	var/mob/parent_mob = parent
 
 	if(HAS_TRAIT(parent_mob, TRAIT_AURA_OF_CONFIDENCE))
-		examine_message = "[parent_mob.p_Their()] aura is swamped in so much superiority nothing else can be made out."
+		examine_message = "其灵光被强烈的优越感淹没，无法辨识出其他任何东西。"
 		return
 
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
 	if(HAS_TRAIT(parent_mob, TRAIT_AURA_OF_INFERNO))
-		examine_message = "[parent_mob.p_Their()] aura has obvious balefire stains."
+		examine_message = "其灵光带有明显的邪焰污痕。"
 		return
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
 
 	switch(current_aura)
 		if(AURA_AFRAID)
-			examine_message = "[parent_mob.p_Their()] aura burns a bright orange, tense and flickering at the edges."
+			examine_message = "其灵光燃着明亮的橙色，紧绷的边缘闪烁不定。"
 		if(AURA_AGGRESSIVE)
-			examine_message = "[parent_mob.p_Their()] aura radiates a deep purple, pulsing like an engine."
+			examine_message = "其灵光散发出深紫色，如引擎般搏动。"
 		if(AURA_ANGRY)
-			examine_message = "[parent_mob.p_Their()] aura blazes a fierce red, hot and agitated."
+			examine_message = "其灵光燃着猛烈的红色，炽热而躁动。"
 		if(AURA_BITTER)
-			examine_message = "[parent_mob.p_Their()] aura settles in a muddy brown, murky and stagnant."
+			examine_message = "其灵光沉淀为泥泞般的棕色，浑浊而凝滞。"
 		if(AURA_CALM)
-			examine_message = "[parent_mob.p_Their()] aura glows a soft blue, steady and unhurried."
+			examine_message = "其灵光泛着柔和的蓝色，平稳而从容。"
 		if(AURA_COMPASSIONATE)
-			examine_message = "[parent_mob.p_Their()] aura shines a warm pink, open and gentle."
+			examine_message = "其灵光闪着温暖的粉色，坦诚而温柔。"
 		if(AURA_CONSERVATIVE)
-			examine_message = "[parent_mob.p_Their()] aura holds a muted lavender, contained and composed."
+			examine_message = "其灵光呈现柔淡的薰衣草紫色，内敛而沉着。"
 		if(AURA_DEPRESSED)
-			examine_message = "[parent_mob.p_Their()] aura fades to a dull gray, thin and sluggish."
+			examine_message = "其灵光褪为暗淡的灰色，稀薄而迟滞。"
 		if(AURA_DESIROUS)
-			examine_message = "[parent_mob.p_Their()] aura smolders a deep red, heavy and pulling."
+			examine_message = "其灵光暗燃着深红色，浓重而充满牵引力。"
 		if(AURA_DISTRUSTFUL)
-			examine_message = "[parent_mob.p_Their()] aura flickers a pale green, guarded and watchful."
+			examine_message = "其灵光闪着浅绿色，戒备而警觉。"
 		if(AURA_ENVIOUS)
-			examine_message = "[parent_mob.p_Their()] aura coils a dark green, tight and covetous."
+			examine_message = "其灵光盘绕着深绿色，紧绷而贪求。"
 		if(AURA_EXCITED)
-			examine_message = "[parent_mob.p_Their()] aura crackles with violet, quick and restless."
+			examine_message = "其灵光迸出紫罗兰色的闪光，急促而不安分。"
 		if(AURA_GENEROUS)
-			examine_message = "[parent_mob.p_Their()] aura blooms a soft rose, warm and outward-reaching."
+			examine_message = "其灵光绽放出柔和的玫瑰色，温暖地向外舒展。"
 		if(AURA_HAPPY)
-			examine_message = "[parent_mob.p_Their()] aura shines a vivid vermillion, bright and expansive."
+			examine_message = "其灵光闪耀着鲜艳的朱红色，明亮而开阔。"
 		if(AURA_HATEFUL)
-			examine_message = "[parent_mob.p_Their()] aura darkens to black, heavy and oppressive."
+			examine_message = "其灵光沉为黑色，浓重而压抑。"
 		if(AURA_IDEALISTIC)
-			examine_message = "[parent_mob.p_Their()] aura gleams a bright yellow, clear and radiant."
+			examine_message = "其灵光泛着明亮的黄色，清澈而灿烂。"
 		if(AURA_INNOCENT)
-			examine_message = "[parent_mob.p_Their()] aura glows a clean white, simple and unguarded."
+			examine_message = "其灵光散发出纯净的白色，质朴而毫无戒备。"
 		if(AURA_LOVESTRUCK)
-			examine_message = "[parent_mob.p_Their()] aura pulses a warm blue, soft and yearning."
+			examine_message = "其灵光搏动着温暖的蓝色，柔和而充满渴望。"
 		if(AURA_OBSESSED)
-			examine_message = "[parent_mob.p_Their()] aura burns a steady green, fixed and unyielding."
+			examine_message = "其灵光燃着稳定的绿色，执着而不肯退让。"
 		if(AURA_SAD)
-			examine_message = "[parent_mob.p_Their()] aura dims to a pale silver, quiet and withdrawn."
+			examine_message = "其灵光暗为浅淡的银色，安静而退缩。"
 		if(AURA_SPIRITUAL)
-			examine_message = "[parent_mob.p_Their()] aura shimmers gold, with a ghostly hue."
+			examine_message = "其灵光闪烁着金色，带着幽灵般的色泽。"
 		if(AURA_SUSPICIOUS)
-			examine_message = "[parent_mob.p_Their()] aura shifts a dark blue, restless and searching."
+			examine_message = "其灵光变幻着深蓝色，躁动不安，仿佛在探寻什么。"
 		if(AURA_ANXIOUS)
-			examine_message = "[parent_mob.p_Their()] aura appears scrambled, like static or white noise."
+			examine_message = "其灵光杂乱不堪，如同静电干扰或白噪声。"
 		if(AURA_CONFUSED)
-			examine_message = "[parent_mob.p_Their()] aura shifts between mottled, flickering colors."
+			examine_message = "其灵光在斑驳闪烁的色彩间变幻。"
 		if(AURA_DAYDREAMING)
-			examine_message = "[parent_mob.p_Their()] aura flickers with sharp, slow colors."
+			examine_message = "其灵光以鲜明的色彩缓缓闪烁。"
 		if(AURA_PSYCHOTIC)
-			examine_message = "[parent_mob.p_Their()] aura swirls with hypnotic, fast colors."
+			examine_message = "其灵光色彩迅速旋转，令人目眩。"
 		else
 			examine_message = ""
 	var/quality = GLOB.emotion_to_quality[current_emotion_name]
 	if(examine_message && quality)
-		examine_message += " You sense [quality]."
+		examine_message += "你感受到了[quality]。"
 	examine_message += "\n \n" // makes the below stand out more
 	if(HAS_TRAIT(parent_mob, TRAIT_DIABLERIE) && !HAS_TRAIT(parent_mob, TRAIT_HIDDEN_DIABLERIE))
-		examine_message += "Black veins pulse through [parent_mob.p_their()] aura."
+		examine_message += "黑色脉络在其灵光中搏动。"
 	if(HAS_TRAIT(parent_mob, TRAIT_FRENETIC_AURA))
-		examine_message += "[parent_mob.p_Their()] aura appears especially energetic."
+		examine_message += "其灵光显得格外充满活力。"
 
 	if(has_pale_aura(parent_mob))
-		examine_message += "[parent_mob.p_Their()] aura colors appear pale."
+		examine_message += "其灵光色彩显得苍白。"
 	else if(has_pale_blotches(parent_mob))
-		examine_message += "Pale blotches mark [parent_mob.p_their()] aura."
+		examine_message += "其灵光上浮现着苍白的斑块。"
 
 	if(isavatar(parent_mob) || isobserver(parent_mob))
-		examine_message += "[parent_mob.p_Their()] aura is weak and intermittent, fading in and out."
+		examine_message += "其灵光微弱而断续，时隐时现。"
 
 /datum/component/aura/proc/update_aura()
 	SIGNAL_HANDLER

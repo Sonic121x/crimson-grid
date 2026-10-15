@@ -189,7 +189,7 @@
 	return list(/datum/reagent/cellulose = 1.5)
 
 /obj/item/paper/paperslip/fortune
-	name = "fortune slip"
+	name = "幸运签条"
 
 /obj/item/paper/paperslip/fortune/Initialize(mapload)
 	default_raw_text = pick(GLOB.wisdoms)

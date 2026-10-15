@@ -22,8 +22,8 @@
 
 		SEND_SOUND(initiator, sound('sound/effects/adminhelp.ogg'))
 
-		to_chat(initiator, "<font color='red' size='4'><b>- MentorHelp Question! -</b></font>")
-		to_chat(initiator, "<font color='red'>This question is about <b>game mechanics</b>, so should be asked in <b>Mentorhelp</b> instead. To do so, use the <b>Mentorhelp</b> verb under the <b>Mentor<b> tab on the upper right of your screen.</font>")
+		to_chat(initiator, "<font color='red' size='4'><b>- 请向导师求助！ -</b></font>")
+		to_chat(initiator, "<font color='red'>这个问题涉及<b>游戏机制</b>，应通过<b>导师求助</b>提出。请使用屏幕右上方<b>导师（Mentor）<b>选项卡中的<b>导师求助</b>命令。</font>")
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "mhelp this")
 	var/msg = "Ticket [TicketHref("#[id]")] told to mentorhelp by [key_name]"

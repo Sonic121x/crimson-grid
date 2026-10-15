@@ -1,5 +1,5 @@
 /datum/loadout_category/accessories
-	category_name = "Accessory"
+	category_name = "配饰"
 	category_ui_icon = FA_ICON_VEST
 	type_to_generate = /datum/loadout_item/accessory
 	tab_order = /datum/loadout_category/head::tab_order + 3
@@ -19,11 +19,11 @@
 		return ..()
 	. = ..()
 	UNTYPED_LIST_ADD(., list(
-		"label" = "Layer",
+		"label" = "穿戴层次",
 		"act_key" = "set_layer",
 		"active_key" = INFO_LAYER,
-		"active_text" = "Above Suit",
-		"inactive_text" = "Below Suit",
+		"active_text" = "外套外侧",
+		"inactive_text" = "外套内侧",
 	))
 
 	return .
@@ -63,26 +63,26 @@
 	return . | ITEM_SLOT_OCLOTHING | ITEM_SLOT_ICLOTHING
 
 /datum/loadout_item/accessory/maid_apron
-	name = "Maid Apron"
+	name = "女仆围裙"
 	item_path = /obj/item/clothing/accessory/maidapron
 
 /datum/loadout_item/accessory/waistcoat
-	name = "Waistcoat"
+	name = "西装马甲"
 	item_path = /obj/item/clothing/accessory/waistcoat
 
 /datum/loadout_item/accessory/sweatervest
-	name = "Sweater Vest"
+	name = "针织背心"
 	item_path = /obj/item/clothing/accessory/sweatervest
 
 /datum/loadout_item/accessory/pocket_protector
-	name = "Pocket Protector"
+	name = "口袋护套"
 	item_path = /obj/item/clothing/accessory/pocketprotector
 
 /datum/loadout_item/accessory/full_pocket_protector
-	name = "Pocket Protector (Filled)"
+	name = "口袋护套（装有文具）"
 	item_path = /obj/item/clothing/accessory/pocketprotector/full
 
 /datum/loadout_item/accessory/pride
-	name = "Pride Pin"
+	name = "骄傲徽章"
 	item_path = /obj/item/clothing/accessory/pride
 	reskin_datum = /datum/atom_skin/pride_pin

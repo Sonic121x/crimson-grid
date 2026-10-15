@@ -1,13 +1,13 @@
 // VTM pg. 482
 /datum/quirk/darkpack/lame
 	name = "Lame"
-	desc = {"One or both of your legs are damaged, which prevents you from running or walking easily.
-You are forced to walk with a crutch or possibly leg braces, and you have a pronounced limp to your stride."} // we give them one leg trait to select, since using both will make them unable to walk entirely.
+	desc = {"你的一条或两条腿受损，无法轻松行走或奔跑。
+你不得不借助拐杖或腿部支具行走，步履明显跛行。"} // we give them one leg trait to select, since using both will make them unable to walk entirely.
 	icon = FA_ICON_CRUTCH
 	value = -3
-	gain_text = span_notice("Your legs ache!")
-	lose_text = span_notice("Your legs no longer hurt.")
-	failure_message = span_notice("Your legs no longer hurt.")
+	gain_text = span_notice("你的腿疼得厉害！")
+	lose_text = span_notice("你的腿不再疼了。")
+	failure_message = span_notice("你的腿不再疼了。")
 	var/lame_leg // Which leg are we not using?
 
 /*Your legs are damaged, which prevents you from running or walking easily.

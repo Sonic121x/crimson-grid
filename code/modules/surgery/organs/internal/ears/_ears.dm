@@ -1,7 +1,7 @@
 /obj/item/organ/ears
 	name = "ears"
 	icon_state = "ears"
-	desc = "There are three parts to the ear. Inner, middle and outer. Only one of these parts should be normally visible."
+	desc = "耳朵分为内耳、中耳和外耳。正常情况下，你应该只能看到其中一部分。"
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_EARS
 	gender = PLURAL
@@ -9,10 +9,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = span_info("Your ears begin to resonate with an internal ring sometimes.")
-	now_failing = span_warning("You are unable to hear at all!")
-	now_fixed = span_info("Noise slowly begins filling your ears once more.")
-	low_threshold_cleared = span_info("The ringing in your ears has died down.")
+	low_threshold_passed = span_info("你的耳中开始时不时地嗡嗡作响。")
+	now_failing = span_warning("你什么也听不见了！")
+	now_fixed = span_info("声音再次缓缓传入你的耳中。")
+	low_threshold_cleared = span_info("你的耳鸣已经消退。")
 	visual = FALSE
 
 	/// temporary deafness, measured in seconds. While > 0, the person is unable to hear anything.
@@ -30,7 +30,7 @@
 /obj/item/organ/ears/on_life(seconds_per_tick)
 	// only inform when things got worse, needs to happen before we heal
 	if((damage > low_threshold && prev_damage < low_threshold) || (damage > high_threshold && prev_damage < high_threshold))
-		to_chat(owner, span_warning("The ringing in your ears grows louder, blocking out any external noises for a moment."))
+		to_chat(owner, span_warning("耳鸣越来越响，一时间盖过了所有外界声音。"))
 
 	. = ..()
 	// if we have non-damage related deafness like mutations, quirks or clothing (earmuffs), don't bother processing here.

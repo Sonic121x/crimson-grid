@@ -31,9 +31,9 @@ SUBSYSTEM_DEF(pai)
 	var/datum/pai_candidate/candidate = candidates[user.ckey]
 	if(isnull(candidate))
 		return data
-	data["comments"] = candidate.comments
-	data["description"] = candidate.description
-	data["name"] = candidate.name
+	data["comments"] = candidate.comments == "Unknown" ? "未知" : candidate.comments
+	data["description"] = candidate.description == "Unknown" ? "未知" : candidate.description
+	data["name"] = candidate.name == "Unknown" ? "未知" : candidate.name
 	return data
 
 /datum/controller/subsystem/pai/ui_act(action, list/params, datum/tgui/ui)
@@ -43,11 +43,11 @@ SUBSYSTEM_DEF(pai)
 	var/mob/user = ui.user
 	var/datum/pai_candidate/candidate = candidates[user.ckey]
 	if(is_banned_from(user.ckey, ROLE_PAI))
-		to_chat(user, span_warning("You are banned from playing pAI!"))
+		to_chat(user, span_warning("你已被禁止扮演个人AI！"))
 		ui.close()
 		return FALSE
 	if(isnull(candidate))
-		to_chat(user, span_warning("There was an error. Please resubmit."))
+		to_chat(user, span_warning("发生错误，请重新提交。"))
 		ui.close()
 		return FALSE
 	switch(action)
@@ -72,10 +72,10 @@ SUBSYSTEM_DEF(pai)
 			return TRUE
 		if("withdraw")
 			if(!candidate.ready)
-				to_chat(user, span_warning("You need to submit an application before you can withdraw one."))
+				to_chat(user, span_warning("你需要先提交申请，才能撤回。"))
 				return FALSE
 			candidate.ready = FALSE
-			to_chat(user, span_notice("Your pAI candidacy has been withdrawn."))
+			to_chat(user, span_notice("你的个人AI候选申请已撤回。"))
 			return TRUE
 	return FALSE
 
@@ -99,12 +99,12 @@ SUBSYSTEM_DEF(pai)
  */
 /datum/controller/subsystem/pai/proc/submit_alert(mob/user)
 	if(submit_spam)
-		to_chat(user, span_warning("Your candidacy has been submitted, but pAI cards have been alerted too recently."))
+		to_chat(user, span_warning("你的候选申请已提交，但距离上次通知个人AI卡的时间太短，暂不重复通知。"))
 		return FALSE
 	submit_spam = TRUE
 	for(var/obj/item/pai_card/pai_card as anything in pai_card_list)
 		if(!pai_card.pai)
 			pai_card.alert_update()
-	to_chat(user, span_notice("Your pAI candidacy has been submitted!"))
+	to_chat(user, span_notice("你的个人AI候选申请已提交！"))
 	addtimer(VARSET_CALLBACK(src, submit_spam, FALSE), PAI_SPAM_TIME, TIMER_UNIQUE|TIMER_DELETE_ME)
 	return TRUE

@@ -94,13 +94,13 @@ function PriorityHeaders() {
       <Stack>
         <Stack.Item grow />
 
-        <Stack.Item className={className}>Off</Stack.Item>
+        <Stack.Item className={className}>关</Stack.Item>
 
-        <Stack.Item className={className}>Low</Stack.Item>
+        <Stack.Item className={className}>低</Stack.Item>
 
-        <Stack.Item className={className}>Med</Stack.Item>
+        <Stack.Item className={className}>中</Stack.Item>
 
-        <Stack.Item className={className}>High</Stack.Item>
+        <Stack.Item className={className}>高</Stack.Item>
       </Stack>
     </Stack.Item>
   );
@@ -126,7 +126,7 @@ function PriorityButtons(props: PriorityButtonsProps) {
       {isOverflow ? (
         <>
           <PriorityButton
-            name="Off"
+            name="关闭"
             modifier="off"
             color="light-grey"
             enabled={!priority}
@@ -134,7 +134,7 @@ function PriorityButtons(props: PriorityButtonsProps) {
           />
 
           <PriorityButton
-            name="On"
+            name="开启"
             color="green"
             enabled={!!priority}
             onClick={createSetPriority(JobPriority.High)}
@@ -143,7 +143,7 @@ function PriorityButtons(props: PriorityButtonsProps) {
       ) : (
         <>
           <PriorityButton
-            name="Off"
+            name="关闭"
             modifier="off"
             color="light-grey"
             enabled={!priority}
@@ -151,21 +151,21 @@ function PriorityButtons(props: PriorityButtonsProps) {
           />
 
           <PriorityButton
-            name="Low"
+            name="低"
             color="red"
             enabled={priority === JobPriority.Low}
             onClick={createSetPriority(JobPriority.Low)}
           />
 
           <PriorityButton
-            name="Medium"
+            name="中"
             color="yellow"
             enabled={priority === JobPriority.Medium}
             onClick={createSetPriority(JobPriority.Medium)}
           />
 
           <PriorityButton
-            name="High"
+            name="高"
             color="green"
             enabled={priority === JobPriority.High}
             onClick={createSetPriority(JobPriority.High)}
@@ -219,7 +219,7 @@ function JobRow(props: JobRowProps) {
   const experienceNeeded = job_required_experience?.[name];
   const daysLeft = job_days_left ? job_days_left[name] : 0;
 
-  // DARKPACK EDIT ADD START -  ALTERNATIVE_JOB_TITLES
+  const jobNames = useServerPrefs()?.jobs.display_names ?? {};
   const alt_title_selected = data.job_alt_titles[name]
     ? data.job_alt_titles[name]
     : name;
@@ -234,7 +234,7 @@ function JobRow(props: JobRowProps) {
     rightSide = (
       <Stack pr={1}>
         <Stack.Item grow textAlign="right" height="stretch">
-          <b>{hoursNeeded}h</b> as {experience_type}
+          <b>{hoursNeeded} 小时</b>（{({ Playtime: '游玩时长', 'Garou Nation': '狼人国度', Pentex: '潘特克斯', 'Camarilla Authorities': '密党当局', Supply: '物资供应', Chantry: '秘所', Anarchs: '自由派', Sabbat: '魔宴同盟', 'Police Force': '警察', 'City Services': '城市服务', Clinic: '诊所', 'Giovanni Family': '乔凡尼家族', 'Tzimisce Manor': '茨密希庄园', Church: '教会', 'Strip Club': '脱衣舞俱乐部', 'Society of Leopold': '圣利奥波德协会', 'Chinese Triad': '三合会' } as Record<string, string>)[experience_type] ?? experience_type}）
         </Stack.Item>
       </Stack>
     );
@@ -242,7 +242,7 @@ function JobRow(props: JobRowProps) {
     rightSide = (
       <Stack pr={1}>
         <Stack.Item grow textAlign="right" height="stretch">
-          <b>{daysLeft}</b> day{daysLeft === 1 ? '' : 's'} left
+          <b>{daysLeft}</b> {daysLeft === 1 ? '天' : '天'}后可用
         </Stack.Item>
       </Stack>
     );
@@ -250,7 +250,7 @@ function JobRow(props: JobRowProps) {
     rightSide = (
       <Stack pr={1}>
         <Stack.Item grow textAlign="right" height="stretch">
-          <b>Banned</b>
+          <b>已被禁止担任</b>
         </Stack.Item>
       </Stack>
     );
@@ -303,13 +303,13 @@ function JobRow(props: JobRowProps) {
                 {
                   // DARKPACK EDIT CHANGE START - ALTERNATIVE_JOB_TITLES - ORIGINAL: {name}
                   !job.alt_titles ? (
-                    name
+                    jobNames[name] ?? name
                   ) : (
                     <Box position="relative">
                       <Dropdown
                         width="100%"
-                        options={job.alt_titles}
-                        selected={alt_title_selected}
+                        options={job.alt_titles.map((value) => ({ value, displayText: jobNames[value] ?? value }))}
+                        selected={alt_title_selected} displayText={jobNames[alt_title_selected] ?? alt_title_selected}
                         menuWidth="25"
                         onSelected={(value) =>
                           act('set_job_title', {
@@ -427,15 +427,15 @@ function JoblessRoleDropdown(props) {
 
   const options = [
     {
-      displayText: `Join as ${data.overflow_role} if unavailable`,
+      displayText: `未获所选职业时，以${data.overflow_role === 'Citizen' ? '市民' : data.overflow_role}加入`,
       value: JoblessRole.BeOverflow,
     },
     {
-      displayText: `Join as a random job if unavailable`,
+      displayText: `未获所选职业时，以随机职业加入`,
       value: JoblessRole.BeRandomJob,
     },
     {
-      displayText: `Return to lobby if unavailable`,
+      displayText: `未获所选职业时，返回大厅`,
       value: JoblessRole.ReturnToLobby,
     },
   ];
@@ -482,8 +482,8 @@ function CharacterSection(props: CharacterSectionsProps) {
         >
           <Stack vertical p={1}>
             <Stack.Item textAlign="center">
-              Drag a character to a job to load that character if you are
-              selected for that job.
+              将角色拖到某项职业上；若分配到该职业，
+              就会加载这个角色。
             </Stack.Item>
             <Stack.Item>
               <Stack wrap>
@@ -519,7 +519,7 @@ function CharacterSection(props: CharacterSectionsProps) {
         onClick={() => setCharacterFloating(!characterFloating)}
         icon={'angle-down'}
       >
-        Show Characters
+        显示角色
       </Button>
     </Floating>
   );

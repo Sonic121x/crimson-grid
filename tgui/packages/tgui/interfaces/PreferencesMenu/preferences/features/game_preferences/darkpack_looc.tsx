@@ -12,9 +12,9 @@ export const looc_admin_pref: FeatureToggle = {
 };
 
 export const enable_looc_runechat: FeatureToggle = {
-  name: 'Enable LOOC runechat',
+  name: '在头顶显示本地角色外聊天',
   category: 'RUNECHAT',
   description:
-    "If TRUE, LOOC will appear above the speaker's head as well as in the chat.",
+    "启用后，本地角色外聊天（LOOC）会同时显示在聊天栏和说话者头顶。",
   component: CheckboxInput,
 };

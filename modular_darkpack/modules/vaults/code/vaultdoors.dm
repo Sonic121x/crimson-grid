@@ -1,6 +1,6 @@
 /obj/structure/vaultdoor
-	name = "vault door"
-	desc = "A heavy duty door that looks like it could withstand a lot of punishment."
+	name = "金库门"
+	desc = "一扇厚重的门，看起来能承受猛烈的破坏。"
 	icon = 'modular_darkpack/modules/vaults/icons/vault.dmi'
 	icon_state = "vault-1"
 	base_icon_state = "vault"
@@ -28,12 +28,12 @@
 	var/is_locked = FALSE
 
 /obj/structure/vaultdoor/pincode
-	name = "vault door"
-	desc = "A heavy duty door that looks like it could withstand a lot of punishment."
+	name = "金库门"
+	desc = "一扇厚重的门，看起来能承受猛烈的破坏。"
 
 /obj/structure/vaultdoor/pincode/bank
-	name = "bank vault door"
-	desc = "A massive reinforced vault door protecting the bank's reserves."
+	name = "银行金库门"
+	desc = "一扇巨大的加固金库门，守护着银行的储备资金。"
 	lock_id = "bank_vault"
 
 /obj/structure/vaultdoor/Initialize(mapload)
@@ -69,7 +69,7 @@
 	set_density(FALSE)
 	opacity = FALSE
 	layer = OPEN_DOOR_LAYER
-	visible_message("<span class='warning' style='color:red; font-size:20px;'><b>[src] breaks open!</b></span>")
+	visible_message("<span class='warning' style='color:red; font-size:20px;'><b>[src]被破开了！</b></span>")
 
 /obj/structure/vaultdoor/proc/open_door(mob/user)
 	playsound(src, open_sound, 75, TRUE)
@@ -79,14 +79,14 @@
 		set_density(FALSE)
 		opacity = FALSE
 		layer = OPEN_DOOR_LAYER
-		to_chat(user, span_notice("You open [src]."))
+		to_chat(user, span_notice("你打开了[src]。"))
 		closed = FALSE
 	door_moving = FALSE
 
 /obj/structure/vaultdoor/proc/close_door(mob/user)
 	for(var/atom/movable/door_blocker in src.loc)
 		if(door_blocker.density)
-			to_chat(user, span_warning("[door_blocker] is preventing you from closing [src]."))
+			to_chat(user, span_warning("[door_blocker]挡住了[src]，你无法将门关上。"))
 			return
 	playsound(src, close_sound, 75, TRUE)
 	door_moving = TRUE
@@ -95,21 +95,21 @@
 		set_density(TRUE)
 		opacity = TRUE
 		layer = ABOVE_ALL_MOB_LAYER
-		to_chat(user, span_notice("You close [src]."))
+		to_chat(user, span_notice("你关上了[src]。"))
 		closed = TRUE
 		is_locked = TRUE
-		to_chat(user, span_notice("[src] automatically locks."))
+		to_chat(user, span_notice("[src]自动锁上了。"))
 		playsound(src, lock_sound, 50, TRUE)
 	door_moving = FALSE
 
 /obj/structure/vaultdoor/examine(mob/user)
 	. = ..()
-	. += span_notice("Door health: [door_health]/100.")
+	. += span_notice("门的耐久度：[door_health]/100。")
 
 	if(is_locked)
-		. += span_warning("[src] is locked.")
+		. += span_warning("[src]锁着。")
 
-	. += span_notice("[src] uses a digital keypad lock.")
+	. += span_notice("[src]使用电子密码锁。")
 
 /obj/structure/vaultdoor/ui_interact(mob/user, datum/tgui/ui)
 	if(is_broken || !is_locked)
@@ -132,11 +132,11 @@
 
 	if(action == "submit_pincode")
 		if(params["pincode"] == pincode)
-			to_chat(usr, span_notice("ACCESS GRANTED."))
+			to_chat(usr, span_notice("验证通过。"))
 			is_locked = FALSE
 			playsound(src, 'sound/machines/terminal/terminal_success.ogg', 50, TRUE)
 		else
-			to_chat(usr, span_warning("ACCESS DENIED."))
+			to_chat(usr, span_warning("拒绝访问。"))
 			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 50, TRUE)
 		. = TRUE
 

@@ -107,11 +107,11 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 		return
 	var/list/npc_options = list()
 	if(length(products))
-		npc_options[TRADER_OPTION_BUY] = radial_icons_cache[TRADER_RADIAL_BUY]
+		npc_options[TRADER_OPTION_BUY] = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_BUY], "购买")
 	if(length(wanted_items))
-		npc_options[TRADER_OPTION_SELL] = radial_icons_cache[TRADER_RADIAL_SELL]
+		npc_options[TRADER_OPTION_SELL] = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_SELL], "出售")
 	if(length(trader_data.say_phrases))
-		npc_options[TRADER_OPTION_TALK] = radial_icons_cache[TRADER_RADIAL_TALK]
+		npc_options[TRADER_OPTION_TALK] = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_TALK], "交谈")
 	if(!length(npc_options))
 		return
 
@@ -194,13 +194,13 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 	product_info = products[item_to_buy]
 
 	if(!product_info[TRADER_PRODUCT_INFO_QUANTITY])
-		trader.say("[initial(item_to_buy.name)] appears to be out of stock.")
+		trader.say("[initial(item_to_buy.name)]好像已经卖完了。")
 		return
 
-	trader.say("It will cost you [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name] to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?")
+	trader.say("购买[initial(item_to_buy.name)]需要支付[product_info[TRADER_PRODUCT_INFO_PRICE]][trader_data.currency_name]。确定要买吗？")
 	var/list/npc_options = list(
-		TRADER_OPTION_YES = radial_icons_cache[TRADER_RADIAL_YES],
-		TRADER_OPTION_NO = radial_icons_cache[TRADER_RADIAL_NO],
+		TRADER_OPTION_YES = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_YES], "是"),
+		TRADER_OPTION_NO = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_NO], "否"),
 	)
 
 	var/buyer_will_buy = show_radial_menu(customer, trader, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), customer), require_near = TRUE, tooltips = TRUE)
@@ -291,10 +291,10 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 		return FALSE
 
 	trader.say(trader_data.return_trader_phrase(INTERESTED_PHRASE))
-	trader.say("You will receive [cost] [trader_data.currency_name] for the [selling].")
+	trader.say("卖掉[selling]，你可以得到[cost][trader_data.currency_name]。")
 	var/list/npc_options = list(
-		TRADER_OPTION_YES = radial_icons_cache[TRADER_RADIAL_YES],
-		TRADER_OPTION_NO = radial_icons_cache[TRADER_RADIAL_NO],
+		TRADER_OPTION_YES = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_YES], "是"),
+		TRADER_OPTION_NO = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_NO], "否"),
 	)
 
 	trader.face_atom(customer)
@@ -358,9 +358,9 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 ///Talk about what items are being sold/wanted by the trader and in what quantity or lore
 /datum/component/trader/proc/discuss(mob/customer)
 	var/list/npc_options = list(
-		TRADER_OPTION_LORE = radial_icons_cache[TRADER_RADIAL_LORE],
-		TRADER_OPTION_SELLING = radial_icons_cache[TRADER_RADIAL_DISCUSS_SELL],
-		TRADER_OPTION_BUYING = radial_icons_cache[TRADER_RADIAL_DISCUSS_BUY],
+		TRADER_OPTION_LORE = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_LORE], "聊聊你的故事"),
+		TRADER_OPTION_SELLING = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_DISCUSS_SELL], "你卖什么？"),
+		TRADER_OPTION_BUYING = localized_radial_choice(radial_icons_cache[TRADER_RADIAL_DISCUSS_BUY], "你收什么？"),
 	)
 	var/pick = show_radial_menu(customer, parent, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), customer), require_near = TRUE, tooltips = TRUE)
 	if(!can_trade(customer))
@@ -383,16 +383,16 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 		trader.say(trader_data.return_trader_phrase(TRADER_NOT_BUYING_ANYTHING))
 		return
 
-	var/list/buy_info = list(span_green("I'm willing to buy the following:"))
+	var/list/buy_info = list(span_green("我收购以下物品："))
 
 	var/list/product_info
 	for(var/obj/item/thing as anything in wanted_items)
 		product_info = wanted_items[thing]
-		var/tern_op_result = (product_info[TRADER_PRODUCT_INFO_QUANTITY] == INFINITY ? "as many as I can." : "[product_info[TRADER_PRODUCT_INFO_QUANTITY]]") //Coder friendly string concat
+		var/tern_op_result = (product_info[TRADER_PRODUCT_INFO_QUANTITY] == INFINITY ? "不限" : "[product_info[TRADER_PRODUCT_INFO_QUANTITY]]") //Coder friendly string concat
 		if(product_info[TRADER_PRODUCT_INFO_QUANTITY] <= 0) //Zero demand
-			buy_info += span_notice("&bull; [span_red("(DOESN'T WANT MORE)")] [initial(thing.name)] for [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name][product_info[TRADER_PRODUCT_INFO_PRICE_MOD_DESCRIPTION]]; willing to buy [span_red("[tern_op_result]")] more.")
+			buy_info += span_notice("&bull; [span_red("（已收够）")] [initial(thing.name)]，收购价[product_info[TRADER_PRODUCT_INFO_PRICE]][trader_data.currency_name][product_info[TRADER_PRODUCT_INFO_PRICE_MOD_DESCRIPTION]]；剩余收购数量：[span_red("[tern_op_result]")]。")
 		else
-			buy_info += span_notice("&bull; [initial(thing.name)] for [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name][product_info[TRADER_PRODUCT_INFO_PRICE_MOD_DESCRIPTION]]; willing to buy [span_green("[tern_op_result]")]")
+			buy_info += span_notice("&bull; [initial(thing.name)]，收购价[product_info[TRADER_PRODUCT_INFO_PRICE]][trader_data.currency_name][product_info[TRADER_PRODUCT_INFO_PRICE_MOD_DESCRIPTION]]；剩余收购数量：[span_green("[tern_op_result]")]")
 
 	to_chat(customer, boxed_message(buy_info.Join("\n")))
 
@@ -404,15 +404,15 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 	if(!length(products))
 		trader.say(trader_data.return_trader_phrase(TRADER_NOT_SELLING_ANYTHING))
 		return
-	var/list/sell_info = list(span_green("I'm currently selling the following:"))
+	var/list/sell_info = list(span_green("我目前出售以下物品："))
 	var/list/product_info
 	for(var/obj/item/thing as anything in products)
 		product_info = products[thing]
-		var/tern_op_result = (product_info[TRADER_PRODUCT_INFO_QUANTITY] == INFINITY ? "an infinite amount" : "[product_info[TRADER_PRODUCT_INFO_QUANTITY]]") //Coder friendly string concat
+		var/tern_op_result = (product_info[TRADER_PRODUCT_INFO_QUANTITY] == INFINITY ? "无限" : "[product_info[TRADER_PRODUCT_INFO_QUANTITY]]") //Coder friendly string concat
 		if(product_info[TRADER_PRODUCT_INFO_QUANTITY] <= 0) //Out of stock
-			sell_info += span_notice("&bull; [span_red("(OUT OF STOCK)")] [initial(thing.name)] for [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name]; [span_red("[tern_op_result]")] left in stock")
+			sell_info += span_notice("&bull; [span_red("（缺货）")] [initial(thing.name)]，售价[product_info[TRADER_PRODUCT_INFO_PRICE]][trader_data.currency_name]；剩余库存：[span_red("[tern_op_result]")]")
 		else
-			sell_info += span_notice("&bull; [initial(thing.name)] for [product_info[TRADER_PRODUCT_INFO_PRICE]] [trader_data.currency_name]; [span_green("[tern_op_result]")] left in stock")
+			sell_info += span_notice("&bull; [initial(thing.name)]，售价[product_info[TRADER_PRODUCT_INFO_PRICE]][trader_data.currency_name]；剩余库存：[span_green("[tern_op_result]")]")
 	to_chat(customer, boxed_message(sell_info.Join("\n")))
 
 ///Sets quantity of all products to initial(quanity); this proc is currently called during initialize
@@ -427,10 +427,10 @@ Can accept both a type path, and an instance of a datum. Type path has priority.
 /datum/component/trader/proc/can_trade(mob/customer)
 	var/mob/living/trader = parent
 	if(trader.combat_mode)
-		trader.balloon_alert(customer, "in combat!")
+		trader.balloon_alert(customer, "正在战斗！")
 		return FALSE
 	if(trader.incapacitated)
-		trader.balloon_alert(customer, "indisposed!")
+		trader.balloon_alert(customer, "无法交易！")
 		return FALSE
 	return TRUE
 

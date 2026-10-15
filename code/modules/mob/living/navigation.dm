@@ -10,19 +10,19 @@
 	/// Images of the path created by navigate().
 	var/list/navigation_images = list()
 
-GAME_VERB(/mob/living, navigate, "Navigate", "IC") // CRIMSON EDIT CHANGE ORIGINAL: GAME_VERB_HIDDEN(/mob/living, navigate, "Navigate")
+GAME_VERB(/mob/living, navigate, "导航", "IC") // CRIMSON EDIT CHANGE ORIGINAL: GAME_VERB_HIDDEN(/mob/living, navigate, "Navigate")
 
 	if(incapacitated)
 		return
 	if(length(client.navigation_images))
 		addtimer(CALLBACK(src, PROC_REF(cut_navigation)), world.tick_lag)
-		balloon_alert(src, "navigation path removed")
+		balloon_alert(src, "已清除导航路线")
 		return
 	if(navigating)
-		balloon_alert(src, "busy navigating!")
+		balloon_alert(src, "正在规划路线！")
 		return
 	if(!COOLDOWN_FINISHED(src, navigate_cooldown))
-		balloon_alert(src, "navigation on cooldown!")
+		balloon_alert(src, "导航尚未冷却！")
 		return
 	addtimer(CALLBACK(src, PROC_REF(create_navigation)), world.tick_lag)
 
@@ -33,22 +33,22 @@ GAME_VERB(/mob/living, navigate, "Navigate", "IC") // CRIMSON EDIT CHANGE ORIGIN
 			continue
 		var/destination_name = GLOB.navigate_destinations[destination]
 		if(destination.z != z && is_multi_z_level(z)) // up or down is just a good indicator "we're on the station", we don't need to check specifics
-			destination_name += ((get_dir_multiz(src, destination) & UP) ? " (Above)" : " (Below)")
+			destination_name += ((get_dir_multiz(src, destination) & UP) ? " (楼上)" : " (楼下)")
 
 		destination_list[destination_name] = destination
 
 	var/can_go_down = SSmapping.level_trait(z, ZTRAIT_DOWN)
 	var/can_go_up = SSmapping.level_trait(z, ZTRAIT_UP)
 	if(can_go_down)
-		destination_list["Nearest Way Down"] = DOWN
+		destination_list["最近的下楼通道"] = DOWN
 	if(can_go_up)
-		destination_list["Nearest Way Up"] = UP
+		destination_list["最近的上楼通道"] = UP
 
 	if(!length(destination_list))
-		balloon_alert(src, "no navigation signals!")
+		balloon_alert(src, "未发现导航信号！")
 		return
 
-	var/platform_code = tgui_input_list(src, "Select a location", "Navigate", sort_list(destination_list))
+	var/platform_code = tgui_input_list(src, "请选择目的地", "导航", sort_list(destination_list))
 	var/atom/navigate_target = destination_list[platform_code]
 	create_navigation_line(navigate_target)
 
@@ -64,12 +64,12 @@ GAME_VERB(/mob/living, navigate, "Navigate", "IC") // CRIMSON EDIT CHANGE ORIGIN
 		// lowering the cooldown to 5 seconds if we're navigating to a ladder or staircase instead of a proper destination
 		// (so we can decide to move to another destination right off the bat, rather than needing to wait)
 		COOLDOWN_START(src, navigate_cooldown, 5 SECONDS)
-		var/direction_name = isatom(navigate_target) ? "there" : (navigate_target == UP ? "up" : "down")
+		var/direction_name = isatom(navigate_target) ? "目的地" : (navigate_target == UP ? "楼上" : "楼下")
 		var/nav_dir = isatom(navigate_target) ? (get_dir_multiz(src, navigate_target) & (UP|DOWN)) : navigate_target
 		var/atom/new_target = find_nearest_stair_or_ladder(nav_dir)
 
 		if(!new_target)
-			balloon_alert(src, "can't find ladder or staircase going [direction_name]!")
+			balloon_alert(src, "找不到通往[direction_name]的梯子或楼梯！")
 			return
 
 		navigate_target = new_target
@@ -82,14 +82,14 @@ GAME_VERB(/mob/living, navigate, "Navigate", "IC") // CRIMSON EDIT CHANGE ORIGIN
 	var/datum/callback/await = list(CALLBACK(src, PROC_REF(finish_navigation), navigate_target, finding_zchange))
 	if(!SSpathfinder.pathfind(src, navigate_target, MAX_NAVIGATE_RANGE, mintargetdist = 1, access = get_access(), skip_first = FALSE, on_finish = await))
 		navigating = FALSE
-		balloon_alert(src, "failed to begin navigation!")
+		balloon_alert(src, "无法开始导航！")
 
 /mob/living/proc/finish_navigation(turf/navigate_target, finding_zchange, list/path)
 	navigating = FALSE
 	if(!client)
 		return
 	if(!length(path))
-		balloon_alert(src, "no valid path with current access!")
+		balloon_alert(src, "当前通行权限下无可用路线！")
 		return
 	path |= get_turf(navigate_target)
 	for(var/i in 1 to length(path))
@@ -118,7 +118,7 @@ GAME_VERB(/mob/living, navigate, "Navigate", "IC") // CRIMSON EDIT CHANGE ORIGIN
 	RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(cut_navigation))
 	if(finding_zchange)
 		RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(cut_navigation))
-	balloon_alert(src, "navigation path created")
+	balloon_alert(src, "已生成导航路线")
 
 /mob/living/proc/shine_navigation()
 	for(var/i in 1 to length(client.navigation_images))

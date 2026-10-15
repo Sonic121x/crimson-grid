@@ -1,6 +1,6 @@
-#define JOB_CHOICE_YES "Yes"
-#define JOB_CHOICE_REROLL "Reroll"
-#define JOB_CHOICE_CANCEL "Cancel"
+#define JOB_CHOICE_YES "确定"
+#define JOB_CHOICE_REROLL "重新随机"
+#define JOB_CHOICE_CANCEL "取消"
 
 GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
@@ -8,14 +8,14 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 /datum/latejoin_menu/proc/fallback_ui(mob/dead/new_player/user)
 	var/list/jobs = list()
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
-		jobs += job.title
+		jobs[JOB_DISPLAY_NAME(job.title)] = job.title
 
-	var/input_contents = input(user, "Pick a job to join as:", "Latejoin Job Selection") as null|anything in jobs
+	var/input_contents = input(user, "选择要担任的职业：", "中途加入职业选择") as null|anything in jobs
 
 	if(!input_contents)
 		return
 
-	user.AttemptLateSpawn(input_contents)
+	user.AttemptLateSpawn(jobs[input_contents])
 
 /datum/latejoin_menu/ui_close(mob/dead/new_player/user)
 	. = ..()
@@ -31,12 +31,12 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			user.jobs_menu_mounted = FALSE
 			addtimer(CALLBACK(src, PROC_REF(scream_at_player), user), 5 SECONDS)
 
-		ui = new(user, src, "JobSelection", "Latejoin Menu")
+		ui = new(user, src, "JobSelection", "中途加入菜单")
 		ui.open()
 
 /datum/latejoin_menu/proc/scream_at_player(mob/dead/new_player/player)
 	if(!player.jobs_menu_mounted)
-		to_chat(player, span_notice("If the late join menu isn't showing, hold CTRL while clicking the join button!"))
+		to_chat(player, span_notice("如果中途加入菜单未显示，请按住 CTRL 再点击加入按钮！"))
 
 /datum/latejoin_menu/ui_data(mob/user)
 	var/mob/dead/new_player/owner = user
@@ -49,9 +49,9 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 	if(SSshuttle.emergency)
 		switch(SSshuttle.emergency.mode)
 			if(SHUTTLE_ESCAPE)
-				data["shuttle_status"] = "The station has been evacuated."
+				data["shuttle_status"] = "本站已完成撤离。"
 			if(SHUTTLE_CALL, SHUTTLE_DOCKED, SHUTTLE_IGNITING, SHUTTLE_ESCAPE)
-				data["shuttle_status"] = "The station is currently undergoing evacuation procedures."
+				data["shuttle_status"] = "本站正在执行撤离程序。"
 
 	for(var/datum/job/prioritized_job in SSjob.prioritized_jobs)
 		if(prioritized_job.current_positions >= prioritized_job.total_positions)
@@ -116,7 +116,7 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
 			var/list/job_data = list(
 				"command" = !!(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND),
-				"description" = job_datum.description,
+				"description" = job_datum.description, "display_name" = JOB_DISPLAY_NAME(job_datum.title),
 			)
 
 			department_jobs[job_datum.title] = job_data
@@ -146,11 +146,11 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 				params["job"] = job
 
 			if(!SSticker?.IsRoundInProgress())
-				tgui_alert(owner, "The round is either not ready, or has already finished...", "Oh No!")
+				tgui_alert(owner, "本回合尚未就绪，或已经结束……", "无法加入")
 				return TRUE
 
 			if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-				tgui_alert(owner, "There is an administrative lock on entering the game for non-observers!", "Oh No!")
+				tgui_alert(owner, "管理员已限制进入游戏，目前仅可旁观！", "无法加入")
 				return TRUE
 
 			//Determines Relevent Population Cap
@@ -164,13 +164,13 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 
 			if(SSticker.queued_players.len && !(ckey(owner.key) in GLOB.admin_datums))
 				if((living_player_count() >= relevant_cap) || (owner != SSticker.queued_players[1]))
-					tgui_alert(owner, "The server is full!", "Oh No!")
+					tgui_alert(owner, "服务器人数已满！", "无法加入")
 					return TRUE
 
 			// DARKPACK EDIT ADD START - (prevents players from joining with negative freebie points)
 			var/datum/st_stat/freebie/freebie_stat = owner.client?.prefs?.preference_storyteller_stats[STAT_FREEBIE_POINTS]
 			if(freebie_stat && freebie_stat.get_points() < 0)
-				tgui_alert(owner, "You cannot join with negative freebie points! Please fix your character preferences.", "Oh No!")
+				tgui_alert(owner, "自由点数为负时不能加入游戏！请调整角色设置。", "无法加入")
 				return TRUE
 			// DARKPACK EDIT ADD END
 			// SAFETY: AttemptLateSpawn has it's own sanity checks. This is perfectly safe.
@@ -203,20 +203,20 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			dept_data += job_datum.title
 
 	if(dept_data.len <= 0) //Congratufuckinglations
-		tgui_alert(owner, "There are literally no random jobs available for you on this server, ahelp for assistance.", "Oh No!")
+		tgui_alert(owner, "服务器上没有任何你可随机选择的职业，请向管理员求助。", "无可用职业")
 		return
 
 	var/random_job
 
 	while(random_job != JOB_CHOICE_YES)
 		if(dept_data.len <= 0)
-			tgui_alert(owner, "It seems that there are no more random jobs available for you!", "Oh No!")
+			tgui_alert(owner, "似乎已经没有其他可随机选择的职业了！", "无可用职业")
 			return
 
 		var/random = pick_n_take(dept_data)
 		var/list/random_job_options = list(JOB_CHOICE_YES, JOB_CHOICE_REROLL, JOB_CHOICE_CANCEL)
 
-		random_job = tgui_alert(owner, "[random]?", "Random Job", random_job_options)
+		random_job = tgui_alert(owner, "选择[JOB_DISPLAY_NAME(random)]？", "随机职业", random_job_options)
 
 		if(random_job == JOB_CHOICE_CANCEL)
 			return

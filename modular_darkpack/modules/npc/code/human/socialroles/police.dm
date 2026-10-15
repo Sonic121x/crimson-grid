@@ -96,58 +96,58 @@
 	// pockets = list(/obj/item/stack/dollar/rand)
 
 	male_phrases = list(
-		"I see you.",
-		"Looking suspicious...",
-		"Don't try anything stupid.",
-		"Nothing to see here.",
-		"We're watching you...Scum.",
-		"Have you seen a man in a black coat with black hair?",
-		"Citizen.",
-		"You catch the game last night?"
+		"我看着你呢。",
+		"看着很可疑……",
+		"别干蠢事。",
+		"这里没什么好看的。",
+		"我们盯着你呢……人渣。",
+		"见过一个黑头发、穿黑外套的男人吗？",
+		"市民。",
+		"昨晚的比赛看了吗？"
 	)
 
 	neutral_phrases = list(
-		"I see you.",
-		"Looking suspicious...",
-		"Don't try anything stupid.",
-		"Nothing to see here.",
-		"We're watching you...Scum.",
-		"Have you seen a man in a black coat with black hair?",
-		"Citizen.",
-		"You catch the game last night?"
+		"我看着你呢。",
+		"看着很可疑……",
+		"别干蠢事。",
+		"这里没什么好看的。",
+		"我们盯着你呢……人渣。",
+		"见过一个黑头发、穿黑外套的男人吗？",
+		"市民。",
+		"昨晚的比赛看了吗？"
 	)
 
 	female_phrases = list(
-		"I see you.",
-		"Looking suspicious...",
-		"Don't try anything stupid.",
-		"Nothing to see here.",
-		"We're watching you...Scum.",
-		"Have you seen a man in a black coat with black hair?",
-		"Citizen.",
-		"You catch the game last night?"
+		"我看着你呢。",
+		"看着很可疑……",
+		"别干蠢事。",
+		"这里没什么好看的。",
+		"我们盯着你呢……人渣。",
+		"见过一个黑头发、穿黑外套的男人吗？",
+		"市民。",
+		"昨晚的比赛看了吗？"
 	)
 
 	random_phrases = list(
-		"I see you.",
-		"Looking suspicious...",
-		"Don't try anything stupid.",
-		"Nothing to see here.",
-		"We're watching you...Scum.",
-		"Have you seen a man in a black coat with black hair?",
-		"Citizen.",
-		"You catch the game last night?",
+		"我看着你呢。",
+		"看着很可疑……",
+		"别干蠢事。",
+		"这里没什么好看的。",
+		"我们盯着你呢……人渣。",
+		"见过一个黑头发、穿黑外套的男人吗？",
+		"市民。",
+		"昨晚的比赛看了吗？",
 	)
 	answer_phrases = list(
-		"I'm here to protect you."
+		"我是来保护你的。"
 	)
 	help_phrases = list(
-		"Lay down!",
-		"Stop right there!!",
-		"Drop your weapon!",
-		"Stop there right now!!",
-		"This is SFPD, hands on your head!",
-		"You have the right to remain silent!",
-		"Bush gave me the right to kick your head in!",
-		"I'm gonna beat you harder than the Eagles got beat by the Patriots!",
+		"趴下！",
+		"站住！！",
+		"放下武器！",
+		"马上站住！！",
+		"旧金山警察局，双手抱头！",
+		"你有权保持沉默！",
+		"布什给了我踢烂你脑袋的权利！",
+		"我要把你揍得比被爱国者队打败的老鹰队还惨！",
 	)

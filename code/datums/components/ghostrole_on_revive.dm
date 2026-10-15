@@ -20,9 +20,9 @@
 	datum/callback/on_successful_revive,
 	revive_title = "a recovered crewmember",
 	spawn_text = "Recovered Crew",
-	you_are_text = "You are a long dead crewmember, but are soon to be revived to rejoin the crew!",
-	flavor_text = "Get a job and get back to work!",
-	important_text = "Do your best to help the station. You still roll for midround antagonists."
+	you_are_text = "你是一名死去已久的船员，但即将复活，重新加入船员们的行列！",
+	flavor_text = "找份工作，回到岗位上去！",
+	important_text = "尽力帮助空间站。你仍有机会被选为回合中途加入的反派。"
 )
 	src.refuse_revival_if_failed = refuse_revival_if_failed
 	src.on_successful_revive = on_successful_revive
@@ -104,7 +104,7 @@
 /datum/component/ghostrole_on_revive/proc/brain_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_info("Another soul may take [source.p_their()] place if put in a body...")
+	examine_list += span_info("如果将其植入身体，另一个灵魂或许会取代原主……")
 
 /datum/component/ghostrole_on_revive/proc/on_revive(mob/living/source)
 	SIGNAL_HANDLER
@@ -131,7 +131,7 @@
 				jobbans |= ROLE_SYNDICATE
 
 	var/mob/dead/observer/chosen_one = SSpolling.poll_ghosts_for_target(
-		question = "Would you like to play as [revive_title]?",
+		question = "你愿意扮演[revive_title == "a recovered crewmember" ? "一名获救船员" : revive_title]吗？",
 		check_jobban = jobbans,
 		poll_time = 15 SECONDS,
 		checked_target = reviving,
@@ -152,7 +152,7 @@
 
 	else if(refuse_revival_if_failed)
 		reviving.death()
-		reviving.visible_message(span_deadsay("[reviving]'s soul is struggling to return!"))
+		reviving.visible_message(span_deadsay("[reviving]的灵魂正在挣扎着试图归来！"))
 
 
 /datum/component/ghostrole_on_revive/proc/add_orbit_twitching(mob/living/parent_mob)

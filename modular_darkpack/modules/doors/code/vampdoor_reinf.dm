@@ -1,5 +1,5 @@
 /obj/structure/vampdoor/reinf // Blue three-paneled door
-	name = "reinforced door"
+	name = "加固门"
 	icon_state = "reinf-1"
 	base_icon_state = "reinf"
 	bash_difficulty = 8

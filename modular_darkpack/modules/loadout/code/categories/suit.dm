@@ -1,5 +1,5 @@
 /datum/loadout_category/suits
-	category_name = "Outerwear"
+	category_name = "外套"
 	category_ui_icon = FA_ICON_USER_SECRET
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 10
@@ -19,27 +19,27 @@
 	abstract_type = /datum/loadout_item/suit/coat
 
 /datum/loadout_item/suit/coat/slickbackcoat
-	name = "Coat (Purple Fur)"
+	name = "大衣（紫色皮草）"
 	item_path = /obj/item/clothing/suit/vampire/slickbackcoat
 
 /datum/loadout_item/suit/coat/labcoat
-	name = "Labcoat"
+	name = "实验服"
 	item_path = /obj/item/clothing/suit/vampire/labcoat
 
 /datum/loadout_item/suit/coat/brown
-	name = "Coat (Brown)"
+	name = "大衣（棕色）"
 	item_path = /obj/item/clothing/suit/vampire/coat
 
 /datum/loadout_item/suit/coat/green
-	name = "Coat (Green)"
+	name = "大衣（绿色）"
 	item_path = /obj/item/clothing/suit/vampire/coat/alt
 
 /datum/loadout_item/suit/coat/black
-	name = "Coat (Black)"
+	name = "大衣（黑色）"
 	item_path = /obj/item/clothing/suit/vampire/coat/winter
 
 /datum/loadout_item/suit/coat/red
-	name = "Coat (Red)"
+	name = "大衣（红色）"
 	item_path = /obj/item/clothing/suit/vampire/coat/winter/alt
 
 /datum/loadout_item/suit/coat/leopardcoat
@@ -47,20 +47,20 @@
 
 //CRIMSON GRID ADDITION START: MILPARKA TO LOADOUT
 /datum/loadout_item/suit/jacket/military_parka
-	name = "Military Parka"
+	name = "军用派克大衣"
 	item_path = /obj/item/clothing/suit/vampire/coat/milparka
 //CRIMSON GRID ADDITION END
 
 /datum/loadout_item/suit/jacket/oversizedjacket
-	name = "Oversized Jacket"
+	name = "宽大夹克"
 	item_path = /obj/item/clothing/suit/jacket/oversized
 
 /datum/loadout_item/suit/jacket/fancyfurcoat
-	name = "Fancy Fur Coat"
+	name = "华丽皮草大衣"
 	item_path = /obj/item/clothing/suit/jacket/fancy
 
 /datum/loadout_item/suit/jacket/trenchcoatalt
-	name = "Trenchcoat (Alt)"
+	name = "风衣（另一款式）"
 	item_path = /obj/item/clothing/suit/toggle/jacket/trenchcoat
 
 // Jackets
@@ -68,47 +68,47 @@
 	abstract_type = /datum/loadout_item/suit/jacket
 
 /datum/loadout_item/suit/jacket/majima_jacket
-	name = "Fancy Jacket (Majima)"
+	name = "华丽夹克（真岛款）"
 	item_path = /obj/item/clothing/suit/vampire/majima_jacket
 
 /datum/loadout_item/suit/jacket/fancy_gray
-	name = "Fancy Jacket (Gray)"
+	name = "华丽夹克（灰色）"
 	item_path = /obj/item/clothing/suit/vampire/fancy_gray
 
 /datum/loadout_item/suit/jacket/fancy_red
-	name = "Fancy Jacket (Red)"
+	name = "华丽夹克（红色）"
 	item_path = /obj/item/clothing/suit/vampire/fancy_red
 
 /datum/loadout_item/suit/jacket/black_leather
-	name = "Leather Jacket (Black)"
+	name = "皮夹克（黑色）"
 	item_path = /obj/item/clothing/suit/vampire/jacket
 
 /datum/loadout_item/suit/jacket/black_leather_cut
-	name = "Cropped Leather Jacket (Black)"
+	name = "短款皮夹克（黑色）"
 	item_path = /obj/item/clothing/suit/vampire/jacket/cropped
 
 /datum/loadout_item/suit/jacket/red_leather
-	name = "Leather Jacket (Red)"
+	name = "皮夹克（红色）"
 	item_path = /obj/item/clothing/suit/vampire/jacket/red
 
 /datum/loadout_item/suit/jacket/red_leather_cut
-	name = "Cropped Leather Jacket (Red)"
+	name = "短款皮夹克（红色）"
 	item_path = /obj/item/clothing/suit/vampire/jacket/cropped/red
 
 /datum/loadout_item/suit/jacket/military
-	name = "Jacket (Military)"
+	name = "夹克（军用）"
 	item_path = /obj/item/clothing/suit/jacket/miljacket
 
 /datum/loadout_item/suit/jacket/black_suit
-	name = "Jacket (Black Suit)"
+	name = "夹克（黑色西装）"
 	item_path = /obj/item/clothing/suit/toggle/lawyer/black
 
 /datum/loadout_item/suit/jacket/bomber_classic
-	name = "Classic Bomber Jacket"
+	name = "经典飞行夹克"
 	item_path = /obj/item/clothing/suit/vampire/bomber_jacket_classic
 
 /datum/loadout_item/suit/jacket/bomber_gray
-	name = "Gray Bomber Jacket"
+	name = "灰色飞行夹克"
 	item_path = /obj/item/clothing/suit/vampire/bomber_jacket_gray
 
 // Trenchcoats
@@ -116,15 +116,15 @@
 	abstract_type = /datum/loadout_item/suit/trenchcoat
 
 /datum/loadout_item/suit/trenchcoat/black
-	name = "Trenchcoat (Black)"
+	name = "风衣（黑色）"
 	item_path = /obj/item/clothing/suit/vampire/trench
 
 /datum/loadout_item/suit/trenchcoat/brown
-	name = "Trenchcoat (Brown)"
+	name = "风衣（棕色）"
 	item_path = /obj/item/clothing/suit/vampire/trench/alt
 
 /datum/loadout_item/suit/trenchcoat/burgundy
-	name = "Trenchcoat (Burgundy)"
+	name = "风衣（酒红色）"
 	item_path = /obj/item/clothing/suit/vampire/trench/archive
 
 // Hoodies
@@ -136,25 +136,25 @@
 
 // Misc
 /datum/loadout_item/suit/kasaya
-	name = "Kasaya"
+	name = "袈裟"
 	item_path = /obj/item/clothing/suit/vampire/kasaya
 
 // CRIMSON GRID ADDITION START: HAZARD VEST TO LOADOUT
 /datum/loadout_item/suit/hazard_vest
-	name = "Hazard Vest"
+	name = "反光安全背心"
 	item_path = /obj/item/clothing/suit/hazardvest
 //CRIMSON GRID ADDITION END
 
 /datum/loadout_item/suit/imam
-	name = "Imam Robe"
+	name = "伊玛目长袍"
 	item_path = /obj/item/clothing/suit/vampire/imam
 
 /datum/loadout_item/suit/orthodox
-	name = "Orthodox Robe"
+	name = "东正教教士袍"
 	item_path = /obj/item/clothing/suit/vampire/orthodox
 
 /datum/loadout_item/suit/letterman_red
-	name = "Letterman (Red)"
+	name = "校队夹克（红色）"
 	item_path = /obj/item/clothing/suit/jacket/letterman_syndie
 
 // Robes
@@ -162,39 +162,39 @@
 	abstract_type = /datum/loadout_item/suit/robes
 
 /datum/loadout_item/suit/robes/white
-	name = "Robes (White)"
+	name = "长袍（白色）"
 	item_path = /obj/item/clothing/suit/hooded/robes
 
 /datum/loadout_item/suit/robes/black
-	name = "Robes (Black)"
+	name = "长袍（黑色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/black
 
 /datum/loadout_item/suit/robes/grey
-	name = "Robes (Grey)"
+	name = "长袍（灰色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/grey
 
 /datum/loadout_item/suit/robes/darkred
-	name = "Robes (Dark Red)"
+	name = "长袍（暗红色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/darkred
 
 /datum/loadout_item/suit/robes/yellow
-	name = "Robes (Yellow)"
+	name = "长袍（黄色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/yellow
 
 /datum/loadout_item/suit/robes/green
-	name = "Robes (Green)"
+	name = "长袍（绿色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/green
 
 /datum/loadout_item/suit/robes/Red
-	name = "Robes (Red)"
+	name = "长袍（红色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/red
 
 /datum/loadout_item/suit/robes/purple
-	name = "Robes (Purple)"
+	name = "长袍（紫色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/purple
 
 /datum/loadout_item/suit/robes/blue
-	name = "Robes (Blue)"
+	name = "长袍（蓝色）"
 	item_path = /obj/item/clothing/suit/hooded/robes/blue
 
 
@@ -203,9 +203,9 @@
 	abstract_type = /datum/loadout_item/suit/shawl
 
 /datum/loadout_item/suit/shawl/black
-	name = "Black Shawl"
+	name = "黑色披肩"
 	item_path = /obj/item/clothing/suit/vampire/shawl_black
 
 /datum/loadout_item/suit/shawl/white
-	name = "White Shawl"
+	name = "白色披肩"
 	item_path = /obj/item/clothing/suit/vampire/shawl_white

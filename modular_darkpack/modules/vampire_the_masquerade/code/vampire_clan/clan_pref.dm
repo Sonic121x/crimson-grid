@@ -1,6 +1,6 @@
 /datum/preference/choiced/subsplat/vampire_clan
 	savefile_key = "vampire_clan"
-	main_feature_name = "Clan"
+	main_feature_name = "氏族"
 	relevant_inherent_trait = TRAIT_VTM_CLANS
 
 /datum/preference/choiced/subsplat/vampire_clan/init_possible_values()
@@ -18,12 +18,12 @@
 	var/datum/subsplat/vampire_clan/clan = get_vampire_clan(value)
 	clan?.show_lore(user)
 
-/*
 /datum/preference/choiced/subsplat/vampire_clan/compile_constant_data()
 	var/list/data = ..()
-	var/list/names_to_key = list()
-	for(var/datum/subsplat/vampire_clan/clan in GLOB.vampire_clans)
-		names_to_key[clan.name] = clan.id
-	data["names_to_key"] = names_to_key
+	var/list/display_names = list()
+	var/list/choices = get_choices()
+	for(var/clan_name in choices)
+		display_names[clan_name] = CLAN_DISPLAY_NAME(clan_name)
+	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = display_names
+	data["name"] = main_feature_name
 	return data
-*/

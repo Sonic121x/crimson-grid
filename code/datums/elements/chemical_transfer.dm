@@ -1,6 +1,6 @@
 //the default chemical transfer messages if they aren't set
-#define DEFAULT_ATTACKER_MESSAGE span_notice("You transfer your chemicals to %VICTIM.")
-#define DEFAULT_VICTIM_MESSAGE span_userdanger("Chemicals have been transferred into you from %ATTACKER!")
+#define DEFAULT_ATTACKER_MESSAGE span_notice("你将体内的化学物质转移给了%VICTIM。")
+#define DEFAULT_VICTIM_MESSAGE span_userdanger("%ATTACKER体内的化学物质被转移到了你体内！")
 
 /**
  * ## chemical transfer element!
@@ -41,14 +41,14 @@
 	var/probability_description
 	switch(transfer_prob)
 		if(1 to 25)
-			probability_description = "rarely"
+			probability_description = "极少"
 		if(26 to 66)
-			probability_description = "sometimes"
+			probability_description = "有时"
 		if(67 to 99)
-			probability_description = "often"
+			probability_description = "经常"
 		if(100)
-			probability_description = "always"
-	examine_list += span_notice("Attacking with [target] will [probability_description] transfer reagents inside of you to your victim.")
+			probability_description = "总是"
+	examine_list += span_notice("用[target]攻击时，[probability_description]会将你体内的试剂转移给受击者。")
 
 ///signal called on parent being used to attack a victim
 /datum/element/chemical_transfer/proc/on_attack(datum/target, mob/living/transfer_victim, mob/living/transfer_attacker)
@@ -57,7 +57,7 @@
 	if(!istype(transfer_attacker) || !prob(transfer_prob))
 		return
 	var/built_attacker_message = replacetext(attacker_message, "%VICTIM", transfer_victim)
-	var/built_victim_message = replacetext(attacker_message, "%ATTACKER", transfer_attacker)
+	var/built_victim_message = replacetext(victim_message, "%ATTACKER", transfer_attacker)
 	transfer_attacker.reagents?.trans_to(transfer_victim, transfer_attacker.reagents.total_volume, transferred_by = transfer_attacker)
 	to_chat(transfer_attacker, built_attacker_message)
 	to_chat(transfer_victim, built_victim_message)

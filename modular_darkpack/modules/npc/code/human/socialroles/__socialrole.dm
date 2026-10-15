@@ -18,18 +18,18 @@
 	var/max_age = 85
 	var/preferred_gender
 	var/list/male_names = list(
-		"Jack",
-		"Robert",
-		"Cornelius",
-		"Tyler"
+		"杰克",
+		"罗伯特",
+		"科尼利厄斯",
+		"泰勒"
 	)
 	var/list/female_names = list(
-		"Marla"
+		"玛拉"
 	)
 	var/list/surnames = list(
-		"Durden",
-		"Polson",
-		"Singer"
+		"德顿",
+		"波尔森",
+		"辛格"
 	)
 
 	//Hair shit
@@ -184,53 +184,53 @@
 
 	//For reaction
 	var/list/male_phrases = list(
-		"My wife is waiting for me at home...",
-		"Sorry, pal, not today.",
-		"Go find yourself someone at the bar, I'm busy.",
+		"我老婆还在家里等我呢……",
+		"抱歉，伙计，今天没空。",
+		"去酒吧找别人吧，我忙着呢。",
 	)
 	var/list/female_phrases = list(
-		"Buy yourself a watch.",
-		"I'm going to scream if you keep it up!",
-		"Don't touch me.",
+		"自己买块表去。",
+		"再这样我就喊人了！",
+		"别碰我。",
 	)
 	var/list/neutral_phrases = list(
-		"Fuck off.",
-		"Go on your way.",
-		"Not the best time to talk right now, pal.",
-		"Мgmmph...",
-		"Do I know you?",
-		"I don't have much time.",
+		"滚开。",
+		"走你的路去。",
+		"伙计，现在不是聊天的时候。",
+		"唔嗯……",
+		"我认识你吗？",
+		"我没多少时间。",
 	)
 	var/list/random_phrases = list(
-		"You a foreigner?...",
-		"It seems I've been going around here in circles for the third time, already.",
-		"Watch where you're walkin'!",
-		"Go back to the drains where you came from.",
-		"Tourists... Pheh.",
-		"Rumors travel fast.",
+		"你是外国人？……",
+		"我好像已经绕着这儿转了三圈了。",
+		"走路看着点！",
+		"从哪条臭水沟来的，就滚回哪儿去。",
+		"游客……呸。",
+		"流言传得可真快。",
 	)
 	var/list/answer_phrases = list(
-		"I agree.",
-		"Yes-yes...",
-		"Exactly.",
-		"Maybe.",
-		"Exactly.",
-		"Affirmative..",
+		"我同意。",
+		"对，对……",
+		"没错。",
+		"也许吧。",
+		"没错。",
+		"是的……",
 	)
 	var/list/help_phrases = list(
-		"Help!",
-		"Help Me!!",
-		"What the hell's going on here!?",
-		"Shoot!!",
+		"救命！",
+		"救救我！！",
+		"这里他妈的怎么回事！？",
+		"开枪！！",
 	)
 	var/list/car_dodged = list(
-		"WOAH!",
-		"Watch where you're going!",
-		"Holy shit!",
-		"Watch it!",
-		"Learn to drive!",
-		"You almost ran me over!",
-		"What the fuck!?",
+		"哇啊！",
+		"看着点路！",
+		"我操！",
+		"小心点！",
+		"先学会开车再上路！",
+		"你差点轧死我！",
+		"他妈的搞什么！？",
 	)
 
 	var/is_criminal = FALSE

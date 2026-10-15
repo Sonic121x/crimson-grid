@@ -31,8 +31,8 @@
 	announce_chance = 20
 
 /datum/round_event/sarcophagus/announce(fake)
-	var/endpost_author = pick("thesupernaturalguy71", "mhaley71", "justplumbin92", "illuminati_truther777", "satanwatch_now")
-	var/endpost_post = pick("saw something soooo weird... :) new video coming soon on my channel", "(the post has an extremely blurry image attached of what looks to be some kind of strange tomb.)")
+	var/endpost_author = pick("超自然老哥71", "M海莉71", "水管工而已92", "光明会真相者777", "撒旦观察进行时")
+	var/endpost_post = pick("看到了个超——级古怪的东西…… :) 新视频很快就会发到我的频道", "（帖子附着一张极其模糊的照片，看起来像是某种奇怪的陵墓。）")
 	endpost_announce(endpost_post, endpost_author)
 
 /datum/round_event/sarcophagus/start()

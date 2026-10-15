@@ -1,13 +1,13 @@
 /datum/quirk/darkpack/iron_will
 	name = "Iron Will"
-	desc = "When you are determined and your mind is set, nothing can thwart you from your goals. Dementation, Dominate, and any mind altering discipline is at +3 difficulty against you, Presence doesn't fall under this." // TODO: no check exists for characters under 8 wp
+	desc = "一旦你下定决心，便没有什么能阻止你达成目标。惑狂术、支配术以及其他改变心智的律能对你施展时，难度增加 3；威仪术不在此列。" // TODO: no check exists for characters under 8 wp
 	ttrpg_sources = list(/datum/source_book/vtm20 = 485)
 	value = 3
 	mob_trait = TRAIT_IRON_WILL
-	gain_text = span_notice("Your will is iron.")
-	lose_text = span_notice("Your will isn't iron anymore.")
+	gain_text = span_notice("你的意志坚如钢铁。")
+	lose_text = span_notice("你的意志不再坚如钢铁。")
 	icon = FA_ICON_USER_SHIELD
-	failure_message = "Your will isn't iron anymore."
+	failure_message = "你的意志不再坚如钢铁。"
 	allowed_splats = list(SPLAT_KINDRED)
 	excluded_clans = list(VAMPIRE_CLAN_GARGOYLE)
 

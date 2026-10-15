@@ -51,9 +51,9 @@
 /// Called in `/obj/item/detective_scanner/proc/print_report()`
 /datum/detective_scanner_log/proc/generate_report_text()
 	var/list/report_text = list()
-	report_text += "<h2>[capitalize(scan_target)] scan</h2>" + (scan_time ? "<h2> at [scan_time]</h2><dr>" : null) // DARKPACK EDIT CHANGE - ORIGINAL: report_text += "<h2>[capitalize(scan_target)] scan at [scan_time]</h2><dr>"
+	report_text += "<h2>[capitalize(scan_target)]扫描结果</h2>" + (scan_time ? "<h2>时间：[scan_time]</h2><dr>" : null) // DARKPACK EDIT CHANGE - ORIGINAL: report_text += "<h2>[capitalize(scan_target)] scan at [scan_time]</h2><dr>"
 	if(!length(data_entries))
-		report_text += "No forensic traces found."
+		report_text += "未发现可供鉴定的痕迹。"
 	else
 		sort_data_entries()
 		for(var/log_category,data_entry in data_entries)

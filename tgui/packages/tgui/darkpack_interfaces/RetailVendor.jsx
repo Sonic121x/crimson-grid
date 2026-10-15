@@ -24,15 +24,15 @@ export const UserDetails = (props) => {
         (data.user.money > 0 || data.user.is_card === 1) &&
         ((data.user.is_card === 0 && (
           <Box>
-            You seem to have $<b>{data.user.money}</b> on you.
+            你身上似乎带着 <b>{data.user.money}</b> 美元现金。
           </Box>
         )) ||
           (data.user.is_card === 1 && (
             <Box>
-              I see you are paying with <b>card</b>. Products over $20 dollars
-              require you to input your pin. What would you like to order?
+              看来你打算用<b>银行卡</b>付款。购买超过 20 美元的商品
+              需要输入密码。你想买些什么？
             </Box>
-          )))) || <Box color="light-gray">No cash, no card, no service!</Box>}
+          )))) || <Box color="light-gray">没现金也没卡，概不接待！</Box>}
     </NoticeBox>
   );
 };
@@ -47,7 +47,7 @@ export const RetailVendor = (props) => {
           <Stack.Item>
             <UserDetails />
           </Stack.Item>
-          <Section title="Products">
+          <Section title="商品">
             <Table>
               {inventory.map((product) => {
                 return (
@@ -84,7 +84,7 @@ export const RetailVendor = (props) => {
                       />
                     </Table.Cell>
                     <Table.Cell>
-                      {product.stock > -1 && <b>Stock: {product.stock}</b>}
+                      {product.stock > -1 && <b>库存：{product.stock}</b>}
                     </Table.Cell>
                   </Table.Row>
                 );

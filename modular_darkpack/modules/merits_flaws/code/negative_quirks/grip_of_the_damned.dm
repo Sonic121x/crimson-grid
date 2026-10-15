@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/grip_of_the_damned
 	name = "Grip of the Damned"
-	desc = "There is no ecstasy in your Embrace — only terror and pain. Mortals upon whom you feed struggle and shriek while you attempt to feed."
+	desc = "你的初拥毫无狂喜可言，只有恐惧和痛苦。你试图进食时，被你吸血的凡人会挣扎尖叫。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 495)
 	icon = FA_ICON_DRUMSTICK_BITE
 	value = -4

@@ -1,15 +1,15 @@
 /obj/item/vampirebook
-	name = "a book"
-	desc = "So full of knowledge"
+	name = "书"
+	desc = "满载知识。"
 	icon_state = "book"
 	icon = 'modular_darkpack/modules/books/icons/books.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/books/icons/books_onfloor.dmi')
 	w_class = WEIGHT_CLASS_SMALL
-	var/quote = "Hm... This book is boring."
+	var/quote = "嗯……这本书真无聊。"
 	COOLDOWN_DECLARE(read)
 
 /obj/item/vampirebook/proc/read_book(mob/living/carbon/human/user)
-	quote = "Hm... this book is boring."
+	quote = "嗯……这本书真无聊。"
 
 /obj/item/vampirebook/attack_self(mob/living/carbon/human/user)
 	if(!COOLDOWN_FINISHED(src, read))
@@ -23,28 +23,28 @@
 		icon_state = original_icon_state
 
 /obj/item/vampirebook/lilith
-	name = "dark mother's revelations"
+	name = "黑暗之母启示录"
 	icon_state = "revelationsofdarkmother"
 
 /obj/item/vampirebook/lilith/read_book(mob/living/carbon/human/user)
 	quote = pick(GLOB.bahari_quotes)
 
 /obj/item/vampirebook/noddist
-	name = "book of Nod"
+	name = "挪得之书"
 	icon_state = "bookofnod"
 
 /obj/item/vampirebook/noddist/read_book(mob/living/carbon/human/user)
 	quote = pick(GLOB.noddist_quotes)
 
 /obj/item/vampirebook/quran
-	name = "Quran"
+	name = "古兰经"
 	icon_state = "quran"
 
 /obj/item/vampirebook/quran/read_book(mob/living/carbon/human/user)
 	quote = pick(GLOB.quran_quotes)
 
 /obj/item/vampirebook/bible
-	name = "Bible"
+	name = "圣经"
 	icon_state = "bible"
 
 // note to self - fucking move this to the parent type

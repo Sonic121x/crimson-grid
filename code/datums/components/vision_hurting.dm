@@ -5,7 +5,7 @@
 	/// Do people looking at us make a fuss?
 	var/silent
 
-/datum/component/vision_hurting/Initialize(damage_per_second=1, message="Your eyes burn as you look at", silent = FALSE)
+/datum/component/vision_hurting/Initialize(damage_per_second=1, message="双眼传来灼痛！你正在直视", silent = FALSE)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -26,6 +26,6 @@
 		if(silent)
 			return
 		if(SPT_PROB(50, seconds_per_tick))
-			to_chat(viewer, span_userdanger("[message] [parent]!"))
+			to_chat(viewer, span_userdanger("[message][parent]！"))
 		if(SPT_PROB(20, seconds_per_tick))
 			viewer.emote("scream")

@@ -1,6 +1,6 @@
 /mob/living/basic/avatar
-	name = "ghost"
-	desc = "A malevolent spirit."
+	name = "幽灵"
+	desc = "一个心怀恶意的灵体。"
 	icon = 'icons/mob/simple/mob.dmi'
 	icon_state = "ghost"
 	mob_biotypes = MOB_SPIRIT
@@ -13,14 +13,14 @@
 	sight = SEE_SELF
 	throwforce = 0
 
-	friendly_verb_continuous = "touches"
-	friendly_verb_simple = "touch"
-	response_help_continuous = "passes through"
-	response_help_simple = "pass through"
-	response_disarm_continuous = "swings through"
-	response_disarm_simple = "swing through"
-	response_harm_continuous = "punches through"
-	response_harm_simple = "punch through"
+	friendly_verb_continuous = "触碰"
+	friendly_verb_simple = "触碰"
+	response_help_continuous = "穿过"
+	response_help_simple = "穿过"
+	response_disarm_continuous = "挥手穿过"
+	response_disarm_simple = "挥手穿过"
+	response_harm_continuous = "挥拳穿过"
+	response_harm_simple = "挥拳穿过"
 	unsuitable_atmos_damage = 0
 	physiology = list(TOX = 0, STAMINA = 0, OXY = 0)
 	habitable_atmos = null

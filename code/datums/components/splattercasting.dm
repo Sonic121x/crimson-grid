@@ -43,7 +43,7 @@
 
 	playsound(source, 'sound/effects/wounds/splatter.ogg', 60, TRUE, -1)
 	to_fire.color = "#ff7070"
-	to_fire.name = "blood-[to_fire.name]"
+	to_fire.name = "血化[to_fire.name]"
 	to_fire.set_light(2, 2, LIGHT_COLOR_BLOOD_MAGIC, l_on = TRUE)
 
 ///signal sent before parent casts a spell
@@ -88,14 +88,14 @@
 
 	switch(blood_cost)
 		if(1 to 50)
-			cost_desc = "trickle"
+			cost_desc = "涓涓细流般"
 		if(51 to 100)
-			cost_desc = "stream"
+			cost_desc = "溪水般"
 		if(101 to 200)
-			cost_desc = "river"
+			cost_desc = "江河般"
 		if(201 to INFINITY)
-			cost_desc = "torrent"
+			cost_desc = "洪流般"
 
-	to_chat(source, span_danger("You feel a [cost_desc] of your blood drained into the spell you just cast."))
+	to_chat(source, span_danger("你感觉自己的鲜血如[cost_desc]涌入刚刚施放的法术。"))
 
 #undef COOLDOWN_TO_BLOOD_RATIO

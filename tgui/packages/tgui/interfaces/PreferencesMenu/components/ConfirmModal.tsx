@@ -2,7 +2,7 @@
 
 import { Box, Button, Stack } from 'tgui-core/components';
 
-const DEFAULT_BODY = "Changing significant character details (Clan, age, etc.) will wipe ALL of your existing disciplines. This cannot be undone. Are you sure?";
+const DEFAULT_BODY = "修改重要角色信息（氏族、年龄等）会清空所有现有律能。此操作无法撤销。确定要继续吗？";
 
 type Props = {
   title?: string;
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function ConfirmModal(props: Props) {
-  const { title = 'Change Character Details?', body = DEFAULT_BODY, onConfirm, onCancel } = props;
+  const { title = '修改角色信息？', body = DEFAULT_BODY, onConfirm, onCancel } = props;
 
   return (
     <Box
@@ -47,12 +47,12 @@ export function ConfirmModal(props: Props) {
         <Stack textAlign="center" justify="center">
           <Stack.Item>
             <Button textAlign="center" onClick={onCancel}>
-              Cancel
+              取消
             </Button>
           </Stack.Item>
           <Stack.Item>
             <Button textAlign="center" color="bad" onClick={onConfirm}>
-              Proceed
+              继续
             </Button>
           </Stack.Item>
         </Stack>

@@ -1,6 +1,6 @@
 /datum/preference/choiced/subsplat/fera_breed
 	abstract_type = /datum/preference/choiced/subsplat/fera_breed
-	main_feature_name = "Breed"
+	main_feature_name = "出身"
 	must_be_accessible = TRUE
 	var/splat_id
 

@@ -1,6 +1,6 @@
 /mob/living/basic/zombie/darkpack
-	name = "Shambling Corpse"
-	desc = "When there is no more room in Hell, the dead will walk on Earth."
+	name = "蹒跚行尸"
+	desc = "当地狱再无容身之处，死者便会行走于人间。"
 	icon = 'modular_darkpack/modules/npc/icons/zombies.dmi'
 	icon_state = "zombie"
 	icon_living = "zombie"
@@ -16,8 +16,8 @@
 	maxbloodpool = 2
 	living_flags = LIVING_CAN_HAVE_BLOOD
 	obj_damage = 2
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
 	attack_sound = 'modular_darkpack/modules/deprecated/sounds/zombuzi.ogg'
 	status_flags = CANPUSH
 	basic_mob_flags = NONE
@@ -45,7 +45,7 @@
 	return ..()
 
 /mob/living/basic/zombie/darkpack/skeleton
-	name = "Skeleton"
+	name = "骷髅"
 	health = 30
 	maxHealth = 30
 	bloodpool = 0
@@ -58,7 +58,7 @@
 	speed = 2
 
 /mob/living/basic/zombie/darkpack/fat_zombie
-	name = "Fat Zombie"
+	name = "肥胖僵尸"
 	health = 70
 	maxHealth = 70
 	melee_damage_lower = 31

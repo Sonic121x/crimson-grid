@@ -84,52 +84,52 @@
 
 	var/label_line = ""
 	if(damage_multiplier > 1 || added_damage > 0)
-		label_line += "It is especially effective against"
+		label_line += "对以下目标尤其有效："
 	else if(damage_multiplier < 1 || added_damage < 0)
-		label_line += "It is less effective against"
+		label_line += "对以下目标效果较差："
 	else
-		label_line += "It interacts uniquely with" // for custom behaviors?
+		label_line += "对以下目标有特殊作用：" // for custom behaviors?
 
 	label_line += " "
 	if(label_text)
-		label_line += label_text
+		label_line += list("statues" = "雕像", "assistants" = "助理", "fishpeople" = "鱼人")[label_text] || label_text
 	else if(affected_biotypes)
-		var/list/affected_biotypes_readable = bitfield_to_list(affected_biotypes, MOB_BIOTYPES_READABLE)
-		label_line += "[english_list(affected_biotypes_readable)] enemies"
+		var/list/affected_biotypes_readable = bitfield_to_list(affected_biotypes, list("有机体", "矿物生物", "机器人", "不死生物", "类人生物", "昆虫", "野兽", "怪物", "爬行动物", "灵体", "植物", "史莱姆", "水生生物", "矿区生物", "甲壳类生物", "骷髅"))
+		label_line += "[english_list(affected_biotypes_readable, nothing_text = "无", and_text = "和", comma_text = "、")]类型的敌人"
 	else
-		label_line += "certain enemies"
+		label_line += "某些敌人"
 
 	if(damage_multiplier > 1 || added_damage > 0)
 		var/magnitude = ""
 		switch(max(damage_multiplier, added_damage / 10))
 			if(3 to INFINITY)
-				magnitude = "massively increased"
+				magnitude = "巨幅提升"
 			if(2 to 3)
-				magnitude = "greatly increased"
+				magnitude = "大幅提升"
 			if(1.5 to 2)
-				magnitude = "significantly increased"
+				magnitude = "明显提升"
 			if(1 to 1.5)
-				magnitude = "slightly increased"
+				magnitude = "略微提升"
 
-		label_line += ", dealing [span_warning(magnitude)] damage per hit"
+		label_line += "，每次命中的伤害[span_warning(magnitude)]"
 
 	else if(damage_multiplier < 1 || added_damage < 0)
 		var/magnitude = ""
 		switch(min(damage_multiplier, 10 / abs(added_damage || 1)))
 			if(-INFINITY to 0)
-				magnitude = "no"
+				magnitude = "为零"
 			if(0 to 0.3)
-				magnitude = "massively reduced"
+				magnitude = "巨幅降低"
 			if(0.3 to 0.6)
-				magnitude = "greatly reduced"
+				magnitude = "大幅降低"
 			if(0.6 to 0.9)
-				magnitude = "significantly reduced"
+				magnitude = "明显降低"
 			if(0.9 to 1)
-				magnitude = "slightly reduced"
+				magnitude = "略微降低"
 
-		label_line += ", dealing [span_warning(magnitude)] damage per hit"
+		label_line += "，每次命中的伤害[span_warning(magnitude)]"
 
-	label_line += "."
+	label_line += "。"
 	readout += label_line
 
 // Item attack handling

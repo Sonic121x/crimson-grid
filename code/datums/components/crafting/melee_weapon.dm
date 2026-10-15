@@ -1,5 +1,5 @@
 /datum/crafting_recipe/stunprod
-	name = "Stunprod"
+	name = "简易电击棍"
 	result = /obj/item/melee/baton/security/cattleprod
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -124,7 +124,7 @@
 	category = CAT_WEAPON_MELEE
  */
 /datum/crafting_recipe/chainsaw
-	name = "Chainsaw"
+	name = "链锯"
 	result = /obj/item/chainsaw/vamp // DARKPACK EDIT CHANGE
 	reqs = list(
 		/obj/item/circular_saw = 1,
@@ -137,7 +137,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/chainsaw/dual
-	name = "Double-ended chainsaw spear"
+	name = "双头链锯矛"
 	result = /obj/item/chainsaw/dual
 	reqs = list(
 		/datum/reagent/consumable/ethanol/beer = 20,
@@ -150,7 +150,7 @@
 	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/spear
-	name = "Spear"
+	name = "长矛"
 	result = /obj/item/spear
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -162,7 +162,7 @@
 	skill_dots_minimum = 1 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/wireprod
-	name = "Wireprod assembly"
+	name = "缠线金属杆组件"
 	result = /obj/item/wireprod
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -183,7 +183,7 @@
 	category = CAT_WEAPON_MELEE
  */
 /datum/crafting_recipe/bonedagger
-	name = "Bone Dagger"
+	name = "骨匕首"
 	result = /obj/item/knife/combat/bone
 	time = 2 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 2)
@@ -191,7 +191,7 @@
 	skill_dots_minimum = 2 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/bonespear
-	name = "Bone Spear"
+	name = "骨矛"
 	result = /obj/item/spear/bonespear
 	time = 3 SECONDS
 	reqs = list(
@@ -202,7 +202,7 @@
 	skill_dots_minimum = 2 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/boneaxe
-	name = "Bone Axe"
+	name = "骨斧"
 	result = /obj/item/fireaxe/boneaxe
 	time = 5 SECONDS
 	reqs = list(
@@ -213,7 +213,7 @@
 	skill_dots_minimum = 2 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/house_edge
-	name = "House Edge"
+	name = "庄家之刃"
 	result = /obj/item/house_edge
 	tool_behaviors = list(TOOL_WRENCH, TOOL_SCREWDRIVER, TOOL_WELDER)
 	reqs = list(
@@ -264,7 +264,7 @@
 	category = CAT_WEAPON_MELEE
  */
 /datum/crafting_recipe/bambostaff
-	name = "Bamboo Bo Staff"
+	name = "竹制长棍"
 	result = /obj/item/bambostaff
 	reqs = list(
 		/obj/item/stack/sheet/mineral/bamboo = 4,

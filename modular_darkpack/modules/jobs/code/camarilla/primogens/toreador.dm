@@ -1,6 +1,6 @@
 /datum/job/vampire/primogen_toreador
 	title = JOB_PRIMOGEN_TOREADOR
-	description = "Offer your infinite knowledge to Prince of the City. Take care of the Strip Club and its Elysium, for it is your domain and a social center within the city."
+	description = "以渊博的学识辅佐本市亲王。照管脱衣舞俱乐部及其中的极乐境，这里既是你的领地，也是城中的社交中心。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

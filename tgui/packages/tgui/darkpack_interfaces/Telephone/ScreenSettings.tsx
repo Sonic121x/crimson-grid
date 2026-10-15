@@ -30,86 +30,86 @@ export const ScreenSettings = (props: {
   // most of these are fake... for now
   const choices: SettingsChoice[] = [
     {
-      name: 'Network & Internet',
-      description: 'Mobile, Wi-Fi, hotspot',
+      name: '网络与互联网',
+      description: '移动网络、Wi-Fi、热点',
       icon: 'wifi',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Connected Devices',
-      description: 'Bluetooth, pairing',
+      name: '已连接的设备',
+      description: '蓝牙、配对',
       icon: 'computer',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Personalize',
-      description: "Change your phone's background",
+      name: '个性化',
+      description: "更换手机壁纸",
       icon: 'image',
       functional: true,
       action: () => setApp(NavigableApps.Backgrounds),
     },
     {
-      name: 'Display',
-      description: 'Dark theme, font size, brightness',
+      name: '显示',
+      description: '深色主题、字体大小、亮度',
       icon: 'sun',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Home & lock screen',
-      description: 'Customize what is displayed on home & lock screens',
+      name: '主屏幕与锁屏',
+      description: '自定义主屏幕和锁屏显示的内容',
       icon: 'phone',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Sound & vibration',
-      description: 'Volume, vibration, Do Not Disturb, ringtones', //CRIMSON GRID EDIT - ORIGINAL: description: 'Volume, vibration, Do Not Disturb',
+      name: '声音与振动',
+      description: '音量、振动、勿扰模式、铃声', //CRIMSON GRID EDIT - ORIGINAL: description: 'Volume, vibration, Do Not Disturb',
       icon: 'volume-up',
       functional: true,
       action: () => setApp(NavigableApps.SoundSettings),
     },
     {
-      name: 'Notifications',
-      description: 'Notification history, conversations',
+      name: '通知',
+      description: '通知历史、会话',
       icon: 'bell',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Gestures',
+      name: '手势',
       description:
-        'Use gestures and keys to quickly open frequently used functions',
+        '通过手势和按键快速打开常用功能',
       icon: 'hand-pointer',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Battery',
-      description: `${batteryPercentage}% - ${batteryDays} days, ${batteryHours}hr`,
+      name: '电池',
+      description: `${batteryPercentage}% - ${batteryDays}天${batteryHours}小时`,
       icon: 'battery-full',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Storage',
-      description: `${storageUsed}% used - ${storageFree} GB free`,
+      name: '存储空间',
+      description: `已用 ${storageUsed}% - 剩余 ${storageFree} GB`,
       icon: 'hdd',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Location',
-      description: 'On - 3 apps have access to location',
+      name: '位置',
+      description: '已开启 - 3 个应用可访问位置',
       icon: 'map-marker-alt',
       functional: false,
       action: () => null,
     },
     {
-      name: 'Accessibility',
-      description: 'Display, interaction, audio',
+      name: '无障碍',
+      description: '显示、交互、音频',
       icon: 'person',
       functional: false,
       action: () => null,
@@ -125,7 +125,7 @@ export const ScreenSettings = (props: {
             style={{ cursor: 'pointer' }}
           />
           <Stack.Item grow ml={1}>
-            Settings
+            设置
           </Stack.Item>
         </Stack>
       </Stack.Item>

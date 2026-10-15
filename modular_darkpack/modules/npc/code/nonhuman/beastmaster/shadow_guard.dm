@@ -1,6 +1,6 @@
 /mob/living/basic/shadow_guard
-	name = "heart of silence"
-	desc = "A shadow given life, fathomless creature..."
+	name = "静默之心"
+	desc = "一道被赋予生命的暗影，一个深不可测的生物……"
 	icon = 'modular_darkpack/modules/npc/icons/shadow_guard.dmi'
 	icon_state = "shadow2"
 	icon_living = "shadow2"
@@ -14,8 +14,8 @@
 	obj_damage = 50
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "gouges"
-	attack_verb_simple = "gouge"
+	attack_verb_continuous = "剜击"
+	attack_verb_simple = "剜击"
 	attack_sound = 'sound/mobs/non-humanoids/venus_trap/venus_trap_hit.ogg'
 
 	faction = list(VAMPIRE_CLAN_LASOMBRA)
@@ -32,8 +32,8 @@
 	AddElement(/datum/element/ai_retaliate)
 
 /mob/living/basic/shadow_guard/hungry_shade
-	name = "hungry shade"
-	desc = "A shade from the furthest reaches of the underworld made manifest."
+	name = "饥饿幽影"
+	desc = "一个来自冥界最深处、显现于世的幽影。"
 	maxHealth = 150
 	health = 150
 	melee_damage_upper = 25

@@ -44,11 +44,11 @@
 #define EXODRONE_TOOL_DRILL "drill"
 
 GLOBAL_LIST_INIT(exodrone_tool_metadata,list(
-	EXODRONE_TOOL_WELDER = list("description"="A heavy duty welder.","icon"="burn"),
-	EXODRONE_TOOL_TRANSLATOR = list("description"="Powerful translation and data recording software.","icon"="language"),
-	EXODRONE_TOOL_LASER = list("description"="Multipurpose tool suitable for combat and precision cutting.","icon"="bolt"),
-	EXODRONE_TOOL_MULTITOOL = list("description"="Multipurpose tool for electronics manipulation. Comes with suite of radiation and radiowave sensors.","icon"="broadcast-tower"),
-	EXODRONE_TOOL_DRILL = list("description"="Heavy duty drill useful for mining.","icon"="screwdriver")
+	EXODRONE_TOOL_WELDER = list("description"="一台重型焊接机。","icon"="burn"),
+	EXODRONE_TOOL_TRANSLATOR = list("description"="功能强大的翻译与数据记录软件。","icon"="language"),
+	EXODRONE_TOOL_LASER = list("description"="适用于战斗和精密切割的多用途工具。","icon"="bolt"),
+	EXODRONE_TOOL_MULTITOOL = list("description"="用于操作电子设备的多用途工具，配有一组辐射与无线电波传感器。","icon"="broadcast-tower"),
+	EXODRONE_TOOL_DRILL = list("description"="适用于采矿的重型钻机。","icon"="screwdriver")
 ))
 
 // Site traits

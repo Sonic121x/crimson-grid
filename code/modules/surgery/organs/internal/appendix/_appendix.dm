@@ -13,8 +13,8 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	now_failing = span_warning("An explosion of pain erupts in your lower right abdomen!")
-	now_fixed = span_info("The pain in your abdomen has subsided.")
+	now_failing = span_warning("你的右下腹突然爆发出剧痛！")
+	now_fixed = span_info("你的腹痛已经消退。")
 	visual = FALSE
 
 	var/inflamation_stage = 0
@@ -74,7 +74,7 @@
 				organ_owner.emote("cough")
 		if(2)
 			if(SPT_PROB(1.5, seconds_per_tick))
-				to_chat(organ_owner, span_warning("You feel a stabbing pain in your abdomen!"))
+				to_chat(organ_owner, span_warning("你的腹部传来刺痛！"))
 				organ_owner.adjust_organ_loss(ORGAN_SLOT_APPENDIX, 5)
 				organ_owner.Stun(rand(40, 60))
 				organ_owner.adjust_tox_loss(1, forced = TRUE)

@@ -26,15 +26,15 @@ SUBSYSTEM_DEF(masquerade)
 	var/return_list = ""
 	switch(masquerade_level)
 		if(0)
-			return_list += "MASQUEARADE FAILURE: "
+			return_list += "避世戒律崩溃："
 		if(1 to 9)
-			return_list += "MASSIVE BREACH: "
+			return_list += "大规模暴露："
 		if(10 to 14)
-			return_list += "MODERATE VIOLATION: "
+			return_list += "中度违规："
 		if(15 to 20)
-			return_list += "SUSPICIOUS: "
+			return_list += "引人怀疑："
 		else
-			return_list += "STABLE: "
+			return_list += "稳定："
 	return_list += "[masquerade_level]/[MASQUERADE_MAX_LEVEL]"
 	return return_list
 

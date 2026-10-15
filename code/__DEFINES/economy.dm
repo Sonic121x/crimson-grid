@@ -91,13 +91,13 @@
 // DARKPACK EDIT CHANGE START
 #define MONEY_SYMBOL "$"
 /// The name for the default type of money used in the code.
-#define MONEY_NAME "dollars"
-#define MONEY_NAME_SINGULAR "dollar"
-#define MONEY_NAME_CAPITALIZED "Dollars"
+#define MONEY_NAME "美元"
+#define MONEY_NAME_SINGULAR "美元"
+#define MONEY_NAME_CAPITALIZED "美元"
 // Due to the ways macros work, I cant just directly use credit\s.
 // You will need to verify there is no loose use cases of credit\s.
 // As of present there is none left floating around.
-#define MONEY_NAME_AUTOPURAL(amount) "dollar[##amount == 1 ? "" : "s"]"
+#define MONEY_NAME_AUTOPURAL(amount) "美元[##amount == 1 ? "" : ""]"
 // DARKPACK EDIT CHANGE END
 
 #define MONEY_MINING_SYMBOL "mp"

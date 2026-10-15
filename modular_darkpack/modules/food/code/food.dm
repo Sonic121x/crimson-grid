@@ -27,7 +27,7 @@
 	foodtypes = JUNKFOOD|GRAIN|DAIRY|FRIED|SUGAR|BREAKFAST|CHOCOLATE
 
 /obj/item/food/pizzaslice/square
-	name = "square pizza slice"
+	name = "方形披萨片"
 	icon_state = "pizza"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
@@ -47,14 +47,14 @@
 	icon_state = "taco"
 
 /obj/item/trash/vampirenugget
-	name = "chicken wing bone"
+	name = "鸡翅骨"
 	icon_state = "nugget0"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 
 /obj/item/food/vampire/nugget
-	name = "chicken wing"
-	desc = "Big Wing for a big man."
+	name = "鸡翅"
+	desc = "大块头就该吃大鸡翅。"
 	icon_state = "nugget1"
 	trash_type = /obj/item/trash/vampirenugget
 	bite_consumption = 1
@@ -70,8 +70,8 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 
 /obj/item/food/submarine_sandwich
-	name = "submarine sandwich"
-	desc = "Like a sandwich, but underwater. Wait, no, that isn't right..."
+	name = "潜艇三明治"
+	desc = "像三明治，不过是在水下。等等，不对……"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	icon_state = "sub"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
@@ -94,14 +94,14 @@
 	if(!prob(0.1))
 		return
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
-	visible_message(span_warning("They got the order wrong!"))
+	visible_message(span_warning("他们把订单弄错了！"))
 	new /obj/item/food/submarine_sandwich/wish(loc)
 	qdel(src)
 #endif
 
 /obj/item/food/submarine_sandwich/meatball
-	name = "meatball sub"
-	desc = "Better than the sub-ball meat."
+	name = "肉丸潜艇三明治"
+	desc = "总比“潜艇丸子肉”强。"
 	icon_state = "meatball"
 	tastes = list("italy" = 4, "meat" = 2) // demon
 	food_reagents = list(
@@ -110,14 +110,14 @@
 	foodtypes = MEAT | GRAIN
 
 /obj/item/food/submarine_sandwich/italiano
-	name = "italiano sub"
-	desc = "Don't let your plumber see this."
+	name = "意式潜艇三明治"
+	desc = "别让你的水管工看见这个。"
 	icon_state = "italian"
 	tastes = list("extra italy" = 4, "meat" = 2, "cheese" = 2, "lettuce" = 1)
 
 /obj/item/food/submarine_sandwich/wish
-	name = "wish sandwich"
-	desc = "Make a wish!"
+	name = "许愿三明治"
+	desc = "许个愿吧！"
 	icon_state = "wish"
 	tastes = list("a wish that the sandwich had anything in it" = 4)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
@@ -126,14 +126,14 @@
 //--------PACKAGED SNACKS-----------//
 
 /obj/item/trash/vampirebar
-	name = "chocolate bar wrapper"
+	name = "巧克力棒包装纸"
 	icon_state = "bar0"
 	icon = 'modular_darkpack/modules/food/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/food/icons/food_onfloor.dmi')
 
 /obj/item/food/vampire/icecream
-	name = "ice cream"
-	desc = "Taste the childhood."
+	name = "冰淇淋"
+	desc = "尝尝童年的味道。"
 	icon_state = "icecream2"
 	food_reagents = list(/datum/reagent/consumable/cream = 2, /datum/reagent/consumable/vanilla = 1, /datum/reagent/consumable/sugar = 4)
 	tastes = list("vanilla" = 2, "ice cream" = 2)
@@ -167,8 +167,8 @@
 
 // CRIMSON EDIT ADD START - Shop Inventories Additions
 /obj/item/food/bowled/chicken_noodle
-	name = "chicken noodle soup"
-	desc = "A hearty bowl of chicken noodle soup, perfect for when you're stuck at home and sick."
+	name = "鸡肉汤面"
+	desc = "一碗丰盛的鸡肉汤面，适合生病待在家时享用。"
 	icon_state = "chicken_noodle_soup"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/soup/chicken_noodle_soup = 30,
@@ -181,8 +181,8 @@
 	trash_type = /obj/item/reagent_containers/cup/bowl
 
 /obj/item/food/khinkali/dumpling
-	name = "dumpling"
-	desc = "A steamed parcel of dough pinched shut at the top, filled with pork and onion."
+	name = "蒸饺"
+	desc = "顶部捏合封口的蒸制面点，包着猪肉和洋葱馅。"
 	tastes = list("pork" = 2, "onions" = 1, "dough" = 1)
 	custom_price = 2
 

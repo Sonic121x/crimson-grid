@@ -1,6 +1,6 @@
 /// Pocket items (Moved to backpack)
 /datum/loadout_category/pocket
-	category_name = "Other"
+	category_name = "其他"
 	category_ui_icon = FA_ICON_QUESTION
 	type_to_generate = /datum/loadout_item/pocket_items
 	tab_order = /datum/loadout_category/head::tab_order + 12 // DARKPACK EDIT CHANGE
@@ -9,7 +9,7 @@
 
 /datum/loadout_category/pocket/New()
 	. = ..()
-	category_info = "([max_allowed] allowed)"
+	category_info = "（最多 [max_allowed] 件）"
 
 /datum/loadout_category/pocket/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
@@ -38,140 +38,140 @@
 	return ..()
 
 /datum/loadout_item/pocket_items/plush
-	group = "Plushies"
+	group = "毛绒玩偶"
 	abstract_type = /datum/loadout_item/pocket_items/plush
 	loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
 
 /datum/loadout_item/pocket_items/plush/bee
-	name = "Plush (Bee)"
+	name = "毛绒玩偶（蜜蜂）"
 	item_path = /obj/item/toy/plush/beeplushie
 
 /datum/loadout_item/pocket_items/plush/carp
-	name = "Plush (Carp)"
+	name = "毛绒玩偶（鲤鱼）"
 	item_path = /obj/item/toy/plush/carpplushie
 
 /datum/loadout_item/pocket_items/plush/lizard_greyscale
-	name = "Plush (Lizard, Colorable)"
+	name = "毛绒玩偶（蜥蜴，可染色）"
 	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
 
 /datum/loadout_item/pocket_items/plush/lizard_random
-	name = "Plush (Lizard, Random)"
+	name = "毛绒玩偶（蜥蜴，随机）"
 	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_BLOCK_GREYSCALING
 	ui_icon = 'icons/obj/fluff/previews.dmi'
 	ui_icon_state = "plushie_lizard_random"
 	item_path = /obj/item/toy/plush/lizard_plushie
 
 /datum/loadout_item/pocket_items/plush/moth
-	name = "Plush (Moth)"
+	name = "毛绒玩偶（飞蛾）"
 	item_path = /obj/item/toy/plush/moth
 
 /datum/loadout_item/pocket_items/plush/nukie
-	name = "Plush (Nukie)"
+	name = "毛绒玩偶（核特工）"
 	item_path = /obj/item/toy/plush/nukeplushie
 
 /datum/loadout_item/pocket_items/plush/peacekeeper
-	name = "Plush (Peacekeeper)"
+	name = "毛绒玩偶（维和机器人）"
 	item_path = /obj/item/toy/plush/pkplush
 
 /datum/loadout_item/pocket_items/plush/plasmaman
-	name = "Plush (Plasmaman)"
+	name = "毛绒玩偶（等离子人）"
 	item_path = /obj/item/toy/plush/plasmamanplushie
 
 /datum/loadout_item/pocket_items/plush/human
-	name = "Plush (human)"
+	name = "毛绒玩偶（人类）"
 	item_path = /obj/item/toy/plush/human
 
 /datum/loadout_item/pocket_items/plush/rouny
-	name = "Plush (Rouny)"
+	name = "毛绒玩偶（奔跑异形）"
 	item_path = /obj/item/toy/plush/rouny
 
 /datum/loadout_item/pocket_items/plush/snake
-	name = "Plush (Snake)"
+	name = "毛绒玩偶（蛇）"
 	item_path = /obj/item/toy/plush/snakeplushie
 
 /datum/loadout_item/pocket_items/plush/horse
-	name = "Plush (Horse)"
+	name = "毛绒玩偶（马）"
 	item_path = /obj/item/toy/plush/horse
 
 /datum/loadout_item/pocket_items/dice
-	group = "Dice"
+	group = "骰子"
 	abstract_type = /datum/loadout_item/pocket_items/dice
 
 /datum/loadout_item/pocket_items/dice/dice_bag
-	name = "Dice Bag"
+	name = "骰子袋"
 	item_path = /obj/item/storage/dice
 
 /datum/loadout_item/pocket_items/dice/d1
-	name = "D1"
+	name = "单面骰（D1）"
 	item_path = /obj/item/dice/d1
 
 /datum/loadout_item/pocket_items/dice/d2
-	name = "D2"
+	name = "两面骰（D2）"
 	item_path = /obj/item/dice/d2
 
 /datum/loadout_item/pocket_items/dice/d4
-	name = "D4"
+	name = "四面骰（D4）"
 	item_path = /obj/item/dice/d4
 
 /datum/loadout_item/pocket_items/dice/d6
-	name = "D6"
+	name = "六面骰（D6）"
 	item_path = /obj/item/dice/d6
 
 /datum/loadout_item/pocket_items/dice/d6_ebony
-	name = "D6 (Ebony)"
+	name = "六面骰（D6，乌木）"
 	item_path = /obj/item/dice/d6/ebony
 
 /datum/loadout_item/pocket_items/dice/d6_space
-	name = "D6 (Space)"
+	name = "六面骰（D6，太空）"
 	item_path = /obj/item/dice/d6/space
 
 /datum/loadout_item/pocket_items/dice/d8
-	name = "D8"
+	name = "八面骰（D8）"
 	item_path = /obj/item/dice/d8
 
 /datum/loadout_item/pocket_items/dice/d10
-	name = "D10"
+	name = "十面骰（D10）"
 	item_path = /obj/item/dice/d10
 
 /datum/loadout_item/pocket_items/dice/d12
-	name = "D12"
+	name = "十二面骰（D12）"
 	item_path = /obj/item/dice/d12
 
 /datum/loadout_item/pocket_items/dice/d20
-	name = "D20"
+	name = "二十面骰（D20）"
 	item_path = /obj/item/dice/d20
 
 /datum/loadout_item/pocket_items/dice/d100
-	name = "D100"
+	name = "百面骰（D100）"
 	item_path = /obj/item/dice/d100
 
 /datum/loadout_item/pocket_items/dice/d00
-	name = "D00"
+	name = "百分骰（D00）"
 	item_path = /obj/item/dice/d00
 
 /datum/loadout_item/pocket_items/card_binder
-	name = "Card Binder"
+	name = "卡牌收集册"
 	item_path = /obj/item/storage/card_binder
 
 /datum/loadout_item/pocket_items/card_deck
-	name = "Playing Card Deck"
+	name = "扑克牌"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/pocket_items/kotahi_deck
-	name = "Kotahi Deck"
+	name = "科塔希牌"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
 /datum/loadout_item/pocket_items/wizoff_deck
-	name = "Wizoff Deck"
+	name = "巫师对决牌"
 	item_path = /obj/item/toy/cards/deck/wizoff
 
 /datum/loadout_item/pocket_items/lipstick
-	name = "Lipstick"
+	name = "口红"
 	item_path = /obj/item/lipstick
 
 /datum/loadout_item/pocket_items/lipstick/get_item_information()
 	. = ..()
-	.[FA_ICON_PALETTE] = "Recolorable"
+	.[FA_ICON_PALETTE] = "可染色"
 
 /datum/loadout_item/pocket_items/lipstick/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/job/outfit, visuals_only = FALSE)
 	. = ..()
@@ -196,13 +196,13 @@
 /datum/loadout_item/pocket_items/lipstick/get_ui_buttons()
 	. = ..()
 	UNTYPED_LIST_ADD(., list(
-		"label" = "Style",
+		"label" = "样式",
 		"act_key" = "select_lipstick_style",
 		"button_icon" = FA_ICON_ARROWS_ROTATE,
 		"active_key" = INFO_LAYER,
 	))
 	UNTYPED_LIST_ADD(., list(
-		"label" = "Color",
+		"label" = "颜色",
 		"act_key" = "select_lipstick_color",
 		"button_icon" = FA_ICON_PALETTE,
 		"active_key" = INFO_GREYSCALE,
@@ -214,8 +214,8 @@
 	switch(action)
 		if("select_lipstick_style")
 			var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
-			var/old_style = their_loadout?[item_path]?[INFO_LAYER] || MIDDLE_LIP
-			var/chosen = tgui_input_list(user, "Pick a lipstick style. (This determines where it sits on your sprite.)", "Pick a style", list(UPPER_LIP, MIDDLE_LIP, LOWER_LIP), old_style)
+			var/list/lip_styles = list("上唇" = UPPER_LIP, "唇中部" = MIDDLE_LIP, "下唇" = LOWER_LIP)
+			var/chosen = lip_styles[tgui_input_list(user, "选择口红样式（决定口红在角色外观上的位置）。", "选择样式", lip_styles, lip_styles[assoc_to_values(lip_styles).Find(their_loadout?[item_path]?[INFO_LAYER] || MIDDLE_LIP)])]
 			their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			if(their_loadout?[item_path]) // Validate they still have it equipped
 				their_loadout[item_path][INFO_LAYER] = chosen
@@ -225,7 +225,7 @@
 		if("select_lipstick_color")
 			var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
 			var/old_color = their_loadout?[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
-			var/chosen = tgui_color_picker(user, "Pick a lipstick color.", "Pick a color", old_color)
+			var/chosen = tgui_color_picker(user, "选择口红颜色。", "选择颜色", old_color)
 			their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
 			if(their_loadout?[item_path]) // Validate they still have it equipped
 				their_loadout[item_path][INFO_GREYSCALE] = chosen
@@ -235,27 +235,27 @@
 	return ..()
 
 /datum/loadout_item/pocket_items/lighter
-	name = "Zippo Lighter"
+	name = "芝宝打火机"
 	item_path = /obj/item/lighter
 
 /datum/loadout_item/pocket_items/flask
-	name = "Pocket Flask"
+	name = "便携酒壶"
 	item_path = /obj/item/reagent_containers/cup/glass/flask
 
 /datum/loadout_item/pocket_items/clipboard
-	name = "Clipboard"
+	name = "写字板"
 	item_path = /obj/item/clipboard
 
 /datum/loadout_item/pocket_items/dye
-	name = "Hair Dye"
+	name = "染发剂"
 	item_path = /obj/item/dyespray
 
 /datum/loadout_item/pocket_items/poster
-	name = "Poster (Contraband)"
+	name = "海报（违禁）"
 	item_path = /obj/item/poster/random_contraband
 
 /datum/loadout_item/pocket_items/poster_pinup
-	name = "Poster (Pinup)"
+	name = "海报（性感人物）"
 	item_path = /obj/item/poster/random_contraband/pinup
 
 /* // DARKPACK EDIT REMOVAL
@@ -269,12 +269,12 @@
 */
 
 /datum/loadout_item/pocket_items/britcup
-	name = "British Flag Cup"
+	name = "英国国旗杯"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/britcup
 
 // The wallet loadout item is special, and puts the player's ID and other small items into it on initialize (fancy!)
 /datum/loadout_item/pocket_items/wallet
-	name = "Wallet"
+	name = "钱包"
 	item_path = /obj/item/storage/wallet/darkpack // DARKPACK EDIT CHANGE - ORIGINAL: item_path = /obj/item/storage/wallet
 
 /datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
@@ -334,5 +334,5 @@
 */
 
 /datum/loadout_item/pocket_items/candles
-	name = "Box of Candles"
+	name = "蜡烛盒"
 	item_path = /obj/item/storage/fancy/candle_box

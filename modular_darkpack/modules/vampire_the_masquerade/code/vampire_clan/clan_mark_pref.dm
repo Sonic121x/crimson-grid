@@ -4,7 +4,7 @@
 	priority = PREFERENCE_PRIORITY_REQUIRES_SUBSPLAT
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	relevant_inherent_trait = TRAIT_VTM_CLANS
-
+/datum/preference/external_choiced/clan_mark/compile_constant_data() { return list("display_names" = list("none" = "无", "beast legs" = "兽腿", "beast tail" = "兽尾", "beast tail and legs" = "兽尾与兽腿", "nosferatu ears" = "诺斯费拉图耳", "fae ears" = "妖精耳", "spines" = "骨刺", "spines slim" = "细骨刺", "animal skull" = "动物头骨", "gargoyle full" = "石像鬼（完整）", "gargoyle left" = "石像鬼（左侧）", "gargoyle right" = "石像鬼（右侧）", "gargoyle broken" = "石像鬼（折断）", "gargoyle round" = "石像鬼（圆形）", "gargoyle oni" = "石像鬼（鬼）", "gargoyle devil" = "石像鬼（恶魔）", "gargoyle tail" = "石像鬼腿与尾")); }
 /datum/preference/external_choiced/clan_mark/has_relevant_feature(datum/preferences/preferences)
 	. = ..()
 	if(!.) // Make sure we acctually can select clan in the first place

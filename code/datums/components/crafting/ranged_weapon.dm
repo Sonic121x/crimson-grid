@@ -1,5 +1,5 @@
 /datum/crafting_recipe/bola
-	name = "Bola"
+	name = "流星索"
 	result = /obj/item/restraints/legcuffs/bola
 	reqs = list(
 		/obj/item/restraints/handcuffs/cable = 1,
@@ -20,7 +20,7 @@
 	category = CAT_WEAPON_RANGED
 */
 /datum/crafting_recipe/receiver
-	name = "Modular Rifle Receiver"
+	name = "模块化步枪机匣"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER)
 	result = /obj/item/weaponcrafting/receiver
 	reqs = list(
@@ -34,7 +34,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/riflestock
-	name = "Wooden Rifle Stock"
+	name = "木制步枪枪托"
 	tool_paths = list(/obj/item/hatchet)
 	result = /obj/item/weaponcrafting/stock
 	reqs = list(
@@ -46,7 +46,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/gun_maint_kit
-	name = "Makeshift Gun Maintenance Kit"
+	name = "简易枪械保养套件"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_SCREWDRIVER)
 	result = /obj/item/gun_maintenance_supplies/makeshift
 	reqs = list(
@@ -164,7 +164,7 @@
 	category = CAT_WEAPON_RANGED
 */
 /datum/crafting_recipe/improvised_pneumatic_cannon //Pretty easy to obtain but
-	name = "Pneumatic Cannon"
+	name = "气动炮"
 	result = /obj/item/pneumatic_cannon/ghetto
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(
@@ -194,7 +194,7 @@
 */
 
 /datum/crafting_recipe/pipegun
-	name = "Pipegun"
+	name = "钢管步枪"
 	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun/empty
 	reqs = list(
 		/obj/item/weaponcrafting/receiver = 1,
@@ -209,7 +209,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/pipepistol
-	name = "Pipe Pistol"
+	name = "钢管手枪"
 	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun/pistol/empty
 	reqs = list(
 		/obj/item/weaponcrafting/receiver = 1,
@@ -226,7 +226,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/rebarxbow
-	name = "Heated Rebar Crossbow"
+	name = "加热式钢筋弩"
 	result = /obj/item/gun/ballistic/rifle/rebarxbow
 	reqs = list(
 		/obj/item/stack/rods = 6,
@@ -242,8 +242,8 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/rebarxbowforced
-	name = "Forced Rebar Crossbow"
-	desc = "A much quicker reload... for a chance of shooting yourself when you fire it."
+	name = "强改钢筋弩"
+	desc = "装填快多了……代价是射击时可能会射中自己。"
 	result = /obj/item/gun/ballistic/rifle/rebarxbow/forced
 	reqs = list(
 		/obj/item/gun/ballistic/rifle/rebarxbow = 1,
@@ -258,7 +258,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/pipegun_prime
-	name = "Regal Pipegun"
+	name = "皇家钢管步枪"
 	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun/prime/empty
 	reqs = list(
 		/obj/item/gun/ballistic/rifle/boltaction/pipegun = 1,
@@ -275,7 +275,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/deagle_prime //When you factor in the makarov (7 tc), the toolbox (1 tc), and the emag (3 tc), this comes to a total of 18 TC or thereabouts. Igorning the 20k pricetag, obviously.
-	name = "Regal Condor"
+	name = "皇家神鹫"
 	result = /obj/item/gun/ballistic/automatic/pistol/deagle/regal/no_mag
 	reqs = list(
 		/obj/item/gun/ballistic/automatic/pistol = 1,
@@ -300,7 +300,7 @@
 	return ..()
 
 /datum/crafting_recipe/deagle_prime_mag
-	name = "Regal Condor Magazine (.45 Reaper)"
+	name = "皇家神鹫弹匣（.45收割者）"
 	result = /obj/item/ammo_box/magazine/r45
 	reqs = list(
 		/obj/item/stack/sheet/iron = 10,
@@ -321,7 +321,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/pipe_organ_gun
-	name = "Pipe Organ Gun"
+	name = "管风琴炮"
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	result = /obj/structure/mounted_gun/organ_gun
 	reqs = list(
@@ -356,7 +356,7 @@
 */
 
 /datum/crafting_recipe/detached_ratvarian_repeater
-	name = "Iconoclast's Repeater"
+	name = "破像者连发枪"
 	tool_behaviors = list(TOOL_WELDER)
 	result = /obj/item/gun/energy/laser/musket/repeater
 	structures = list(
@@ -367,7 +367,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/large_ballista
-	name = "Improvised Ballista"
+	name = "简易弩炮"
 	tool_behaviors = list(TOOL_WELDER,TOOL_SCREWDRIVER,TOOL_WRENCH,TOOL_WIRECUTTER)
 	result = /obj/structure/mounted_gun/ballista
 	reqs = list(
@@ -381,7 +381,7 @@
 	skill_dots_minimum = 4 // DARKPACK EDIT ADD - STORYTELER_STATS
 
 /datum/crafting_recipe/trash_cannon
-	name = "Trash Cannon"
+	name = "垃圾炮"
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	result = /obj/structure/cannon/trash
 	reqs = list(
@@ -410,7 +410,7 @@
 	category = CAT_WEAPON_RANGED
 */
 /datum/crafting_recipe/laser_musket_prime
-	name = "Heroic Laser Musket"
+	name = "英雄激光火枪"
 	result = /obj/item/gun/energy/laser/musket/prime
 	reqs = list(
 		/obj/item/gun/energy/laser/musket = 1,
@@ -441,7 +441,7 @@
 	category = CAT_WEAPON_RANGED
 */
 /datum/crafting_recipe/smoothbore_disabler_prime
-	name = "Elite Smoothbore Disabler"
+	name = "精英滑膛失能枪"
 	result = /obj/item/gun/energy/disabler/smoothbore/prime
 	reqs = list(
 		/obj/item/gun/energy/disabler/smoothbore = 1,
@@ -455,7 +455,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/shortbow
-	name = "Shortbow"
+	name = "短弓"
 	result = /obj/item/gun/ballistic/bow/shortbow
 	reqs = list(
 		/obj/item/stack/sheet/mineral/wood = 4,

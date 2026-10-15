@@ -1,11 +1,11 @@
 /obj/item/reagent_containers/cup/glass/baggie
-	name = "small plastic bag"
+	name = "小塑料袋"
 	icon_state = "package_empty"
 	icon = 'modular_darkpack/modules/drugs/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/drugs/icons/onfloor.dmi')
 
 /obj/item/reagent_containers/cup/glass/baggie/meth
-	name = "blue package"
+	name = "蓝色小包"
 	icon_state = "package_meth"
 	list_reagents = list(/datum/reagent/drug/methamphetamine = 30)
 
@@ -16,7 +16,7 @@
 
 
 /obj/item/reagent_containers/cup/glass/baggie/meth/cocaine
-	name = "white package"
+	name = "白色小包"
 	icon_state = "package_cocaine"
 	list_reagents = list(/datum/reagent/drug/methamphetamine/cocaine = 30)
 

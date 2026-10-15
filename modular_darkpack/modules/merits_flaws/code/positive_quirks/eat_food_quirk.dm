@@ -1,11 +1,11 @@
 /datum/quirk/darkpack/eat_food
 	name = "Eat Food"
-	desc = "Unlike most of the Undead, you retain the ability to eat and digest food normally, a semblance of your mortal life. While you gain no nourishment from it, you can consume food without the usual revulsion Kindred experience. Be warned: what goes down must come up, eventually."
+	desc = "与大多数不死者不同，你保留了正常进食和消化食物的能力，仿佛仍过着凡人的生活。虽然无法从中获得营养，但你吃东西时不会像其他血族那样感到恶心。请记住：吃下去的东西，迟早还是要吐出来。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 480)
 	value = 1
 	mob_trait = TRAIT_EAT_FOOD
-	gain_text = span_notice("Your stomach stirs as you feel the organ come to life. You can now eat food.")
-	lose_text = span_notice("The ability to eat food fades from you.")
+	gain_text = span_notice("你的胃开始蠕动，仿佛这个器官活了过来。你现在可以进食了。")
+	lose_text = span_notice("你失去了进食的能力。")
 	allowed_splats = list(SPLAT_KINDRED)
 	icon = FA_ICON_UTENSILS
 

@@ -1,6 +1,6 @@
 /obj/item/vampire_stake
-	name = "stake"
-	desc = "Paralyzes blank-bodies if aimed straight to the heart."
+	name = "木桩"
+	desc = "直刺心脏即可使空躯麻痹。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
@@ -10,8 +10,8 @@
 	force = 1 TTRPG_DAMAGE
 
 	sharpness = SHARP_POINTY
-	attack_verb_continuous = list("pierces", "cuts")
-	attack_verb_simple = list("pierce", "cut")
+	attack_verb_continuous = list("穿刺", "切割")
+	attack_verb_simple = list("穿刺", "切割")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 2)
@@ -25,16 +25,16 @@
 		return TRUE
 
 	if(HAS_TRAIT(target, TRAIT_STAKE_IMMUNE) || HAS_TRAIT(target, TRAIT_STAKE_RESISTANT))
-		visible_message(span_warning("[user]'s stake splinters as it touches [target]'s heart!"), span_warning("Your stake splinters as it touches [target]'s heart!"))
+		visible_message(span_warning("[user]的木桩刚碰到[target]的心脏就碎裂了！"), span_warning("你的木桩刚碰到[target]的心脏就碎裂了！"))
 		REMOVE_TRAIT(target, TRAIT_STAKE_RESISTANT, MAGIC_TRAIT)
 		qdel(src)
 		return TRUE
 
-	visible_message(span_danger("[user] aims [src] straight to the [target]'s heart!"), span_danger("You aim [src] straight to the [target]'s heart!"))
+	visible_message(span_danger("[user]将[src]对准了[target]的心脏！"), span_danger("你将[src]对准了[target]的心脏！"))
 	if(!do_after(user, 1 TURNS, target))
 		return TRUE
 	user.do_attack_animation(target)
-	visible_message(span_danger("[user] pierces [target]'s torso!"), span_danger("You pierce [target]'s torso!"))
+	visible_message(span_danger("[user]刺穿了[target]的躯干！"), span_danger("你刺穿了[target]的躯干！"))
 
 	user.do_attack_animation(target, used_item = src)
 	var/datum/embedding/stake/embed = get_embed()

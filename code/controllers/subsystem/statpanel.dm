@@ -23,17 +23,17 @@ SUBSYSTEM_DEF(statpanels)
 		var/datum/map_config/cached = SSmap_vote.next_map_config
 
 		if(isnull(SSmapping.current_map))
-			global_data = list("Loading")
+			global_data = list("正在加载")
 		else if(SSmapping.current_map.feedback_link)
-			global_data = list(list("Map: [SSmapping.current_map.map_name]", " (Feedback)", "action=openLink&link=[SSmapping.current_map.feedback_link]"))
+			global_data = list(list("地图：[SSmapping.current_map.map_name]", "（反馈）", "action=openLink&link=[SSmapping.current_map.feedback_link]"))
 		else
-			global_data = list("Map: [SSmapping.current_map?.map_name]")
+			global_data = list("地图：[SSmapping.current_map?.map_name]")
 
 		if(SSmapping.current_map?.mapping_url)
-			global_data += list(list("same_line", " | (View in Browser)", "action=openWebMap"))
+			global_data += list(list("same_line", " | （在浏览器中查看）", "action=openWebMap"))
 
 		if(cached)
-			global_data += "Next Map: [cached.map_name]"
+			global_data += "下一张地图：[cached.map_name]"
 
 		// CRIMSON EDIT ADDITION START - ACTIVE AND OBSERVING PLAYERS
 		var/real_round_time = world.timeofday - SSticker.real_round_start_time
@@ -42,19 +42,19 @@ SUBSYSTEM_DEF(statpanels)
 		// CRIMSON EDIT ADDITION END
 
 		global_data += list(
-			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
+			"回合编号：[GLOB.round_id ? GLOB.round_id : "无"]",
 			// CRIMSON EDIT ADD START- Active and Observing Players
-			"Connected: [GLOB.clients.len] | Active: [active_players] | Observing: [observing_players]",
-			"Connected Players: [GLOB.clients.len]",
+			"在线：[GLOB.clients.len] | 活跃：[active_players] | 旁观：[observing_players]",
+			"在线玩家：[GLOB.clients.len]",
 			" ",
 			// CRIMSON EDIT ADD END - Active and Observing Players
-			"Server Time: [server_timestamp(format = "YYYY-MM-DD hh:mm:ss")]", // DARKPACK EDIT CHANGE - CITY_TIME
-			"Round Time: [(SSticker.current_state < GAME_STATE_PLAYING) ? "Pre-Game" : round_timestamp()]", // DARKPACK EDIT CHANGE - CITY_TIME
-			"Actual Round Timer: [(SSticker.current_state < GAME_STATE_PLAYING) ? "Pre-Game" : time2text(real_round_time, "hh:mm:ss", 0)]", // CRIMSON EDIT ADD
-			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
+			"服务器时间：[server_timestamp(format = "YYYY-MM-DD hh:mm:ss")]", // DARKPACK EDIT CHANGE - CITY_TIME
+			"回合时间：[(SSticker.current_state < GAME_STATE_PLAYING) ? "尚未开始" : round_timestamp()]", // DARKPACK EDIT CHANGE - CITY_TIME
+			"回合实际用时：[(SSticker.current_state < GAME_STATE_PLAYING) ? "尚未开始" : time2text(real_round_time, "hh:mm:ss", 0)]", // CRIMSON EDIT ADD
+			"时间延缓：[round(SStime_track.time_dilation_current,1)]% 平均值：([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 			"\n", // DARKPACK EDIT ADD
-			"Canon: [GLOB.canon_event ? "Yes" : "No"]", // DARKPACK EDIT ADD
-			"Masquerade: [SSmasquerade.get_description()]", // DARKPACK EDIT ADD
+			"计入正史：[GLOB.canon_event ? "是" : "否"]", // DARKPACK EDIT ADD
+			"避世戒律：[SSmasquerade.get_description()]", // DARKPACK EDIT ADD
 		)
 
 		if(SSshuttle.emergency)

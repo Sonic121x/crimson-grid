@@ -81,14 +81,14 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 
 
 /datum/storyteller_roll/sarcophagus_cipher
-	bumper_text = "examine"
+	bumper_text = "查看"
 	difficulty = 10
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_OCCULT)
 	reroll_cooldown = 1 SCENES
 
 /obj/sarcophagus
-	name = "unknown sarcophagus"
-	desc = "A shiver runs down your spine just looking at it..."
+	name = "神秘石棺"
+	desc = "光是看着它，就让你脊背发凉……"
 	icon = 'modular_darkpack/modules/antediluvian_sarcophagus/icons/sarcophagus.dmi'
 	icon_state = "b_sarcophagus"
 	// layer = CAR_LAYER
@@ -110,15 +110,15 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 
 /obj/sarcophagus/examine(mob/user)
 	. = ..()
-	var/message = "You see an engraved text on it: <b>[encipher(password, passkey)]</b>."
+	var/message = "你看到上面刻着一段文字：<b>[encipher(password, passkey)]</b>。"
 	if(isliving(user))
 		if(!cipher_roll)
 			cipher_roll = new()
 		var/roll_result = cipher_roll.st_roll(user, src)
 		if(roll_result == ROLL_SUCCESS)
-			message += " It's an ancient cipher. You shift letters in your head till you end up with [uppertext(password)]."
+			message += " 这是一种古老的密码。你在脑中逐一移动字母，最终得到了[uppertext(password)]。"
 		else
-			message += " You have no clue what that could possibly mean..."
+			message += " 你完全不知道这是什么意思……"
 	. += message
 
 #define OPEN_SOUND 'modular_darkpack/modules/antediluvian_sarcophagus/sounds/mp_hello.ogg'
@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 
 /obj/sarcophagus/proc/open_the_sarcophagus()
 	icon_state = "b_sarcophagus-open1"
-	to_chat(world, span_userdanger("<b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b>"))
+	to_chat(world, span_userdanger("<b>神秘石棺已被打开</b>"))
 	SEND_SOUND(world, sound('modular_darkpack/master_files/sounds/announce.ogg'))
 	var/sound_length = SSsounds.get_sound_length(OPEN_SOUND)
 	playsound(src, OPEN_SOUND, 100, FALSE)
@@ -149,7 +149,7 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 
 /obj/sarcophagus/bomb/open_the_sarcophagus()
 	icon_state = "b_sarcophagus-open2"
-	to_chat(world, span_userdanger("<b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b>"))
+	to_chat(world, span_userdanger("<b>神秘石棺已被打开</b>"))
 	SEND_SOUND(world, sound('modular_darkpack/master_files/sounds/announce.ogg'))
 	playsound(src, 'sound/items/weapons/armbomb.ogg', 100, FALSE)
 	anchored = TRUE
@@ -159,8 +159,8 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 	explosion(src, devastation_range = 2, heavy_impact_range = 7, light_impact_range = 11)
 	qdel(src)
 	priority_announce(
-		"BREAKING NEWS!!! A massive explosion has been reported in your area. First responders are advised to rush to the scene as soon as possible to rescue any survivors and a curfew is issued immediately to all citizens until the city is safe.",
-		"EMERGENCY BREAKING NEWS",
+		"突发新闻！！！据报道，本地区发生大规模爆炸。请应急救援人员尽快赶赴现场，营救幸存者。全体市民即刻实行宵禁，直至城市恢复安全。",
+		"紧急突发新闻",
 		'modular_darkpack/modules/events/sounds/news_notification.ogg',
 		ANNOUNCEMENT_TYPE_PRIORITY,
 		color_override = "red",
@@ -170,12 +170,12 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 
 /obj/sarcophagus/empty/open_the_sarcophagus()
 	icon_state = "b_sarcophagus-open0"
-	to_chat(world, span_userdanger("<b>UNKNOWN SARCOPHAGUS HAS BEEN OPENED</b>"))
+	to_chat(world, span_userdanger("<b>神秘石棺已被打开</b>"))
 	SEND_SOUND(world, sound('modular_darkpack/master_files/sounds/announce.ogg'))
 
 /obj/fake_sarcophagus
-	name = "unknown sarcophagus"
-	desc = "A shiver runs down your spine just looking at it..."
+	name = "神秘石棺"
+	desc = "光是看着它，就让你脊背发凉……"
 	icon = 'modular_darkpack/modules/antediluvian_sarcophagus/icons/sarcophagus.dmi'
 	icon_state = "b_sarcophagus"
 	density = TRUE
@@ -183,12 +183,12 @@ GLOBAL_LIST_INIT(caesar_cipher, list(
 	pixel_w = -8
 
 /obj/fake_sarcophagus/voivode
-	name = "\improper Voivode-in-Waiting's Sarcophagus"
-	desc = "The Voivode-in-Waiting lies here."
+	name = "\improper 沉眠领主的石棺"
+	desc = "沉眠领主长眠于此。"
 
 /obj/item/sarcophagus_key
-	name = "sarcophagus key"
-	desc = "Something strange and ancient..."
+	name = "石棺钥匙"
+	desc = "一件古老而奇异的东西……"
 	icon_state = "sarcophagus_key"
 	icon = 'modular_darkpack/modules/antediluvian_sarcophagus/icons/key.dmi'
 	w_class = WEIGHT_CLASS_SMALL

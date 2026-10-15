@@ -1,16 +1,16 @@
 #define LOOC_RANGE 7
 
-GAME_VERB_DESC(/client, looc, "LOOC", "Local OOC, seen only by those in view.", "OOC")
+GAME_VERB_DESC(/client, looc, "LOOC", "本地角色外聊天，仅视野内的人可见。", "OOC")
 	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(looc_message), msg))
 
-GAME_VERB_DESC(/client, looc_wallpierce, "LOOC (Wallpierce)", "Local OOC, seen by anyone within 7 tiles of you.", "OOC")
+GAME_VERB_DESC(/client, looc_wallpierce, "LOOC（穿墙）", "本地角色外聊天，周围7格内的人均可见。", "OOC")
 	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(looc_message), msg, TRUE))
 
 /client/proc/looc_message(msg, wall_pierce)
 	if(GLOB.say_disabled)
-		to_chat(usr, span_danger("Speech is currently admin-disabled."))
+		to_chat(usr, span_danger("管理员已暂时禁用发言。"))
 		return
 
 	if(!mob)
@@ -22,25 +22,25 @@ GAME_VERB_DESC(/client, looc_wallpierce, "LOOC (Wallpierce)", "Local OOC, seen b
 
 	if(!holder)
 		if(!GLOB.looc_allowed)
-			to_chat(src, span_danger("LOOC is globally muted."))
+			to_chat(src, span_danger("本地角色外聊天（LOOC）已全局禁言。"))
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, span_boldannounce("<B>Advertising other servers is not allowed.</B>"))
+			to_chat(src, span_boldannounce("<B>禁止为其他服务器发布广告。</B>"))
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			return
 		if(prefs.muted & MUTE_LOOC)
-			to_chat(src, span_danger("You cannot use LOOC (muted)."))
+			to_chat(src, span_danger("你已被禁言，无法使用本地角色外聊天（LOOC）。"))
 			return
 		if(is_banned_from(ckey, BAN_LOOC))
-			to_chat(src, span_warning("You are LOOC banned!"))
+			to_chat(src, span_warning("你已被禁止使用本地角色外聊天（LOOC）！"))
 			return
 		if(mob.stat == DEAD && CONFIG_GET(flag/disable_ghost_looc))
-			to_chat(src, span_danger("You cannot use LOOC while dead."))
+			to_chat(src, span_danger("死亡时无法使用本地角色外聊天（LOOC）。"))
 			return
 		if(isdead(mob) && CONFIG_GET(flag/disable_ghost_looc))
-			to_chat(src, span_danger("You cannot use LOOC while ghosting."))
+			to_chat(src, span_danger("以幽灵身份旁观时无法使用本地角色外聊天（LOOC）。"))
 			return
 
 	msg = emoji_parse(msg)
@@ -86,7 +86,7 @@ GAME_VERB_DESC(/client, looc_wallpierce, "LOOC (Wallpierce)", "Local OOC, seen b
 			hearing_client.mob?.create_chat_message(mob, /datum/language/common, "\[LOOC: [msg]\]", list("looc", "italics"))
 		// CRIMSON EDIT ADDITION END
 
-		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? " (WALL PIERCE)" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
+		to_chat(hearing_client, span_looc(span_prefix("LOOC[wall_pierce ? "（穿墙）" : ""]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]")))
 
 	for(var/client/admin_client in GLOB.admins)
 		if(admin_seen[admin_client])

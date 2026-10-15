@@ -36,7 +36,7 @@
 				precision = max(rand(1,100)*interference,100)
 				if(isliving(teleatom))
 					var/mob/living/MM = teleatom
-					to_chat(MM, span_warning("The clashing pulls of bluespace interfere with your teleport!"))
+					to_chat(MM, span_warning("相互冲突的蓝空间牵引力干扰了你的传送！"))
 
 			// if effects are not specified and not explicitly disabled, sparks
 			if((!effectin || !effectout) && !no_effects)
@@ -70,7 +70,7 @@
 
 	if(!destturf || (!forced && !check_teleport_valid(teleatom, destturf, channel, original_destination = destination)))
 		if(ismob(teleatom))
-			teleatom.balloon_alert(teleatom, "something holds you back!")
+			teleatom.balloon_alert(teleatom, "有什么阻止了你的传送！")
 		return FALSE
 
 	if(SEND_SIGNAL(teleatom, COMSIG_MOVABLE_TELEPORTING, destination, channel))
@@ -112,7 +112,7 @@
 				continue
 
 			if(get_turf(rider) != destturf) //precision made them teleport somewhere else
-				to_chat(rider, span_warning("As you reorient your senses, you realize you aren't riding [teleatom] anymore!"))
+				to_chat(rider, span_warning("重新辨清方向后，你发现自己已经不在[teleatom]上了！"))
 				continue
 
 			// [mob/living].forceMove() forces mobs to unbuckle, so we need to buckle them again

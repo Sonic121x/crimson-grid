@@ -1,6 +1,6 @@
 /obj/structure/fermenting_barrel
-	name = "wooden barrel"
-	desc = "A large wooden barrel. You can ferment fruits and such inside it, or just use it to hold reagents."
+	name = "木桶"
+	desc = "一只大木桶。可以在里面发酵水果等食材，也可以单纯用来盛放试剂。"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barrel"
 	base_icon_state = "barrel"
@@ -51,16 +51,16 @@
 	if(open)
 		var/fruit_count = contents.len
 		if(fruit_count)
-			. += span_notice("It contains [fruit_count] fruit\s ready to be fermented.")
-			. += span_notice("[EXAMINE_HINT("Right-click")] to take them out of [src].")
-		. += span_notice("It is currently open, letting you fill it with fruits or reagents.")
+			. += span_notice("里面装有[fruit_count]份待发酵的果实。")
+			. += span_notice("[EXAMINE_HINT("右键点击")]可从[src]中取出果实。")
+		. += span_notice("桶盖目前开着，可以放入果实或倒入试剂。")
 	else
-		. += span_notice("It is currently closed, letting it ferment fruits or draw reagents from its tap.")
+		. += span_notice("桶盖目前关着，可以发酵果实或从龙头取出试剂。")
 
 /obj/structure/fermenting_barrel/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(open)
 		if(istype(tool, /obj/item/food/grown) && insert_fruit(user, tool))
-			balloon_alert(user, "added fruit")
+			balloon_alert(user, "已放入果实")
 			return ITEM_INTERACT_SUCCESS
 
 		if(istype(tool, /obj/item/storage/bag/plants))
@@ -73,7 +73,7 @@
 			if(!inserted_fruits)
 				return ITEM_INTERACT_BLOCKING
 
-			balloon_alert(user, "added [inserted_fruits] fruit\s")
+			balloon_alert(user, "已放入[inserted_fruits]份果实")
 			return ITEM_INTERACT_SUCCESS
 
 	return NONE
@@ -104,11 +104,11 @@
 		return .
 
 	if(!length(contents))
-		balloon_alert(user, "empty!")
+		balloon_alert(user, "里面是空的！")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	dump_contents()
-	balloon_alert(user, "emptied [src]")
+	balloon_alert(user, "已倒空[src]")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/fermenting_barrel/wrench_act(mob/living/user, obj/item/tool)
@@ -130,18 +130,18 @@
 
 /obj/structure/fermenting_barrel/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = open ? "Close" : "Open"
+		context[SCREENTIP_CONTEXT_LMB] = open ? "关闭" : "打开"
 
 		if(open && length(contents))
-			context[SCREENTIP_CONTEXT_RMB] = "Empty"
+			context[SCREENTIP_CONTEXT_RMB] = "倒空"
 
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(held_item.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unanchor" : "Anchor"
+		context[SCREENTIP_CONTEXT_LMB] = anchored ? "解除固定" : "固定"
 
 	else if(open && (istype(held_item, /obj/item/food/grown) || istype(held_item, /obj/item/storage/bag/plants)))
-		context[SCREENTIP_CONTEXT_LMB] = "Add to barrel"
+		context[SCREENTIP_CONTEXT_LMB] = "放入桶中"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -153,16 +153,16 @@
 /// Adds the fruit to the barrel to queue the fermentation
 /obj/structure/fermenting_barrel/proc/insert_fruit(mob/user, obj/item/food/grown/fruit, obj/item/storage/bag/plants/bag = null)
 	if(reagents.total_volume + potential_volume > reagents.maximum_volume)
-		balloon_alert(user, "it's full!")
+		balloon_alert(user, "已经满了！")
 		return FALSE
 	if(!fruit.can_distill)
-		balloon_alert(user, "can't ferment this!")
+		balloon_alert(user, "无法发酵这个！")
 		return FALSE
 	if(bag && !bag.atom_storage.attempt_remove(fruit, src))
-		balloon_alert(user, "can't take from bag!")
+		balloon_alert(user, "无法从袋中取出！")
 		return FALSE
 	else if (!user.transferItemToLoc(fruit, src))
-		balloon_alert(user, "can't take fruit!")
+		balloon_alert(user, "无法取出果实！")
 		return FALSE
 	potential_volume += fruit.reagents.total_volume
 	return TRUE

@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/thaumaturgically_inept
 	name = "Thaumaturgically Inept"
-	desc = "Something about you refuses to respond to Thaumaturgy. It just doesn't work for you. Thaumaturgy will be completely removed when joining the game."
+	desc = "你身上某种特质拒绝回应血魔法，使你完全无法运用它。进入游戏时，你的血魔法将被彻底移除。"
 	value = -5
 	icon = FA_ICON_BAN
 	allowed_splats = list(SPLAT_KINDRED)

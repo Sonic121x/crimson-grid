@@ -1,6 +1,6 @@
 /obj/item/toy/plush/argemia
-	name = "strange plushie"
-	desc = "Voiding..."
+	name = "奇怪的毛绒玩偶"
+	desc = "遁入虚空……"
 	icon_state = "argemia"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/toys/icons/toys_onfloor.dmi')
@@ -16,10 +16,10 @@
 
 // Not made by us, but a readditon because TG removed it in https://github.com/tgstation/tgstation/pull/92311
 /obj/item/toy/plush/goatplushie
-	name = "strange goat plushie"
+	name = "奇怪的山羊毛绒玩偶"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	icon_state = "goat"
-	desc = "Despite its cuddly appearance and plush nature, it will beat you up all the same. Goats never change."
+	desc = "虽然外表软萌，浑身毛绒绒，它照样会揍你。山羊本性难移。"
 	squeak_override = list('sound/items/weapons/punch1.ogg' = 1)
 	/// Whether or not this goat is currently taking in a monsterous doink
 	var/going_hard = FALSE
@@ -39,15 +39,15 @@
 	if(!istype(fat_dart))
 		return ..()
 	if(splat)
-		to_chat(user, span_notice("[src] doesn't seem to be able to go hard right now."))
+		to_chat(user, span_notice("[src]现在似乎嗨不起来了。"))
 		return ITEM_INTERACT_BLOCKING
 	if(going_hard)
-		to_chat(user, span_notice("[src] is already going too hard!"))
+		to_chat(user, span_notice("[src]已经嗨过头了！"))
 		return ITEM_INTERACT_BLOCKING
 	if(!fat_dart.lit)
-		to_chat(user, span_notice("You'll have to light that first!"))
+		to_chat(user, span_notice("你得先把它点燃！"))
 		return ITEM_INTERACT_BLOCKING
-	to_chat(user, span_notice("You put [fat_dart] into [src]'s mouth."))
+	to_chat(user, span_notice("你把[fat_dart]塞进[src]嘴里。"))
 	qdel(fat_dart)
 	going_hard = TRUE
 	update_icon(UPDATE_OVERLAYS)
@@ -62,15 +62,15 @@
 		update_icon(UPDATE_OVERLAYS)
 	icon_state = "goat_splat"
 	playsound(src, SFX_DESECRATION, 50, TRUE)
-	visible_message(span_danger("[src] gets absolutely flattened!"))
+	visible_message(span_danger("[src]被彻底压扁了！"))
 	splat = TRUE
 
 /obj/item/toy/plush/goatplushie/examine(mob/user)
 	. = ..()
 	if(splat)
-		. += span_notice("[src] might need medical attention.")
+		. += span_notice("[src]可能需要医疗救助。")
 	if(going_hard)
-		. += span_notice("[src] is going so hard, feel free to take a picture.")
+		. += span_notice("[src]嗨得正起劲，尽管拍照留念吧。")
 
 /obj/item/toy/plush/goatplushie/update_overlays()
 	. = ..()
@@ -79,11 +79,11 @@
 
 
 /obj/item/toy/plush/tzi
-	name = "wretched creature"
-	desc = "A horrid flesh-thing with a still functioning brain. Perfect for working intricate meat contraptions!"
+	name = "悲惨造物"
+	desc = "一团骇人的血肉造物，大脑仍能运作。用来操纵复杂的血肉机关再合适不过！"
 	icon = 'modular_darkpack/modules/toys/icons/toys.dmi'
 	icon_state = "plushtzi"
-	attack_verb_continuous = list("tortures", "scourges")
-	attack_verb_simple = list("torture", "scourge")
+	attack_verb_continuous = list("折磨", "鞭打")
+	attack_verb_simple = list("折磨", "鞭打")
 	squeak_override = list('modular_darkpack/modules/toys/sounds/femurbreaker.ogg'=1)
 	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 10)

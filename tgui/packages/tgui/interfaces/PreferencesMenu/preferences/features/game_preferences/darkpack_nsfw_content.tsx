@@ -1,8 +1,8 @@
 import { CheckboxInput, type FeatureToggle } from '../base';
 
 export const nsfw_content_pref: FeatureToggle = {
-  name: 'Enable NSFW Content',
+  name: '启用成人内容',
   category: 'GAMEPLAY',
-  description: 'The ability to see NSFW flavor texts.',
+  description: '允许查看含成人内容的外观描述。',
   component: CheckboxInput,
 };

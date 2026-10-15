@@ -10,8 +10,8 @@ Bonus
 */
 /datum/symptom/flesh_eating
 	name = "Necrotizing Fasciitis"
-	desc = "The virus aggressively attacks bone cells, causing excessive wobbliness and falling down a lot."
-	illness = "Jellyitis"
+	desc = "病毒猛烈攻击骨细胞，导致身体摇晃不稳、频繁跌倒。"
+	illness = "果冻症"
 	stealth = -2
 	resistance = -1
 	stage_speed = 0
@@ -23,8 +23,8 @@ Bonus
 	symptom_cure = /datum/reagent/medicine/omnizine
 	cure_color = "orange"
 	threshold_descs = list(
-		"Resistance 7" = "Host will bleed profusely during necrosis.",
-		"Transmission 8" = "Causes extreme pain to the host, weakening it.",
+		"抗性 7" = "宿主的组织坏死时会大量出血。",
+		"传播力 8" = "使宿主承受剧痛，导致体力衰弱。",
 	)
 	var/bleed = FALSE
 	var/pain = FALSE
@@ -46,9 +46,9 @@ Bonus
 	switch(A.stage)
 		if(2,3)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("You feel a sudden pain across your body.", "Drops of blood appear suddenly on your skin.")]"))
+				to_chat(M, span_warning("[pick("你突然感到全身疼痛。", "你的皮肤上突然渗出了血珠。")]"))
 		if(4,5)
-			to_chat(M, span_userdanger("[pick("You cringe as a violent pain takes over your body.", "It feels like your body is eating itself inside out.", "IT HURTS.")]"))
+			to_chat(M, span_userdanger("[pick("剧痛席卷全身，你不由得蜷缩起来。", "你感觉自己的身体正从内到外吞噬自身。", "好痛！")]"))
 			Flesheat(M, A)
 
 /datum/symptom/flesh_eating/proc/Flesheat(mob/living/M, datum/disease/advance/A)
@@ -83,8 +83,8 @@ Bonus
 /datum/symptom/flesh_death
 
 	name = "Autophagocytosis Necrosis"
-	desc = "The virus rapidly consumes infected cells, leading to heavy and widespread damage."
-	illness = "Premature Mummification"
+	desc = "病毒迅速吞噬受感染的细胞，造成大范围的严重损伤。"
+	illness = "过早木乃伊化"
 	stealth = -2
 	resistance = -2
 	stage_speed = 1
@@ -97,8 +97,8 @@ Bonus
 	cure_color = "red"
 	var/chems = FALSE
 	threshold_descs = list(
-		"Stage Speed 7" = "Synthesizes Heparin and Lipolicide inside the host, causing increased bleeding and hunger.",
-		"Stealth 5" = "The symptom remains hidden until active.",
+		"发展速度 7" = "在宿主体内合成肝素和溶脂毒素，加重出血和饥饿。",
+		"隐蔽性 5" = "症状在发作前难以察觉。",
 	)
 	var/suppress_warning = FALSE
 
@@ -119,10 +119,10 @@ Bonus
 	switch(A.stage)
 		if(2,3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("You feel your body break apart.", "Your skin rubs off like dust.")]"))
+				to_chat(M, span_warning("[pick("你感到自己的身体正在崩解。", "你的皮肤一擦就像灰尘一样脱落。")]"))
 		if(4,5)
 			if(prob(base_message_chance / 2)) //reduce spam
-				to_chat(M, span_userdanger("[pick("You feel your muscles weakening.", "Some of your skin detaches itself.", "You feel sandy.")]"))
+				to_chat(M, span_userdanger("[pick("你感到肌肉逐渐无力。", "你的部分皮肤自行脱落了。", "你感觉自己的身体像散沙一样。")]"))
 			Flesh_death(M, A)
 
 /datum/symptom/flesh_death/proc/Flesh_death(mob/living/M, datum/disease/advance/A)

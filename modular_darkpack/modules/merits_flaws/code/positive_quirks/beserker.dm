@@ -1,9 +1,9 @@
 /datum/quirk/darkpack/beserker
 	name = "Berserker"
-	desc = {"You have uncanny control over your inner anger, and can use your Rage as most Garou cannot.
-		You can enter a berserk frenzy at will, ignoring your wound penalties.
-		You still suffer the consequences of any actions committed in the throes of frenzy.
-		When circumstances might cause you to frenzy, you must make a standard roll to see if you do so or not."}
+	desc = {"你能以非同寻常的方式控制内心的愤怒，运用怒火的能力令大多数狼人望尘莫及。
+		你可以随时主动进入狂暴性的狂乱，无视伤势惩罚。
+		但你仍须承担狂乱期间所作所为带来的一切后果。
+		当外界情境可能引发狂乱时，你仍须按通常规则掷骰，判定自己是否陷入狂乱。"}
 	ttrpg_sources = list(/datum/source_book/wta20 = 476)
 	value = 2
 	icon = FA_ICON_ANGRY

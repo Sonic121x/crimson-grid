@@ -71,9 +71,9 @@
 	var/list/data = list()
 
 	data[SPLAT_NONE] = list()
-	data[SPLAT_NONE]["name"] = "Nothing"
-	data[SPLAT_NONE]["desc"] = "A normal human..."
-	data[SPLAT_NONE]["lore"] = list("You know this one...")
+	data[SPLAT_NONE]["name"] = "普通人类"
+	data[SPLAT_NONE]["desc"] = "一个普通人……"
+	data[SPLAT_NONE]["lore"] = list("这一类，你再熟悉不过了……")
 	data[SPLAT_NONE]["icon"] = SPLAT_NONE
 	data[SPLAT_NONE]["perks"] = list(
 		SPECIES_POSITIVE_PERK = list(),
@@ -86,7 +86,7 @@
 		var/datum/splat/splats = GLOB.splat_prototypes[splats_type]
 
 		data[splats_id] = list()
-		data[splats_id]["name"] = splats.name
+		data[splats_id]["name"] = list("Kindred" = "血族", "Ghoul" = "血仆", "Kinfolk" = "眷属", "Garou" = "狼人", "Corax" = "渡鸦变形者")[splats.name] || splats.name
 		data[splats_id]["desc"] = splats.get_splat_description()
 		data[splats_id]["lore"] = splats.get_splat_lore()
 		data[splats_id]["icon"] = sanitize_css_class_name(splats.name)

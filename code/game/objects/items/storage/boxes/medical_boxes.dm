@@ -1,8 +1,8 @@
 // This file contains all boxes used by the Medical department, or otherwise associated with the task of mob interactions.
 
 /obj/item/storage/box/syringes
-	name = "box of syringes"
-	desc = "A box full of syringes."
+	name = "注射器盒"
+	desc = "装满注射器的盒子。"
 	illustration = "syringe"
 
 /obj/item/storage/box/syringes/PopulateContents()
@@ -19,8 +19,8 @@
 	new /obj/item/reagent_containers/syringe/bluespace(src)
 
 /obj/item/storage/box/medipens
-	name = "box of medipens"
-	desc = "A box full of epinephrine MediPens."
+	name = "急救注射笔盒"
+	desc = "装满肾上腺素急救注射笔的盒子。"
 	illustration = "epipen"
 
 /obj/item/storage/box/medipens/PopulateContents()
@@ -38,7 +38,7 @@
 		new /obj/item/reagent_containers/hypospray/medipen/stimpack(src)
 
 /obj/item/storage/box/beakers
-	name = "box of beakers"
+	name = "烧杯盒"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/PopulateContents()
@@ -46,7 +46,7 @@
 		new /obj/item/reagent_containers/cup/beaker( src )
 
 /obj/item/storage/box/beakers/big
-	name = "box of big beakers"
+	name = "大烧杯盒"
 	illustration = "beaker"
 
 /obj/item/storage/box/beakers/big/PopulateContents()
@@ -94,8 +94,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/bodybags
-	name = "body bags"
-	desc = "The label indicates that it contains body bags."
+	name = "尸袋盒"
+	desc = "标签表明里面装着尸袋。"
 	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/PopulateContents()

@@ -3,12 +3,12 @@
 
 /datum/discipline/vicissitude
 	name = "Vicissitude"
-	desc = {"It is widely known as Tzimisce art of flesh and bone shaping. Violates Masquerade.
-● Malleable Visage: Passive
-●● Fleshcrafting: Passive
-●●● Bonecrafting: Strength + Medicine (difficulty 7)
-●●●● Horrid Form: Passive
-●●●●● Bloodform: Passive"}
+	desc = {"广为人知的茨密希血肉与骨骼塑造之术。违反避世戒律。
+● 可塑面容：被动
+●● 血肉塑造：被动
+●●● 骨骼塑造：力量 + 医学（难度 7）
+●●●● 骇人形态：被动
+●●●●● 血液形态：被动"}
 	icon_state = "vicissitude"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/vicissitude
@@ -36,8 +36,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/discipline_power/vicissitude/malleable_visage
-	name = "Malleable Visage"
-	desc = "Shapeshift yourself."
+	name = "可塑面容"
+	desc = "改变自己的外形。"
 
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
@@ -55,8 +55,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/discipline_power/vicissitude/fleshcrafting
-	name = "Fleshcrafting"
-	desc = "Shapeshift yourself or others."
+	name = "血肉塑造"
+	desc = "改变自己或他人的外形。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -110,8 +110,8 @@
 
 
 /datum/discipline_power/vicissitude/bonecrafting
-	name = "Bonecrafting"
-	desc = "Forcefully injure a body."
+	name = "骨骼塑造"
+	desc = "强行扭曲躯体，造成伤害。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND | DISC_CHECK_IMMOBILE
@@ -137,7 +137,7 @@
 			target = target,
 			timed_action_flags = DO_AFTER_CHECK_NEXT_MOVE | IGNORE_INCAPACITATED
 		))
-			to_chat(owner, span_warning("You stopped before vivasecting the [target]'s corpse."))
+			to_chat(owner, span_warning("你在剖开[target]的尸体之前停了下来。"))
 			return FALSE
 		if(QDELETED(target))
 			return FALSE
@@ -170,13 +170,13 @@
 		if(roll >= 5)
 			// A vampire who scores five or more successes on the roll (...) cause the affected vampire to lose half his blood points.
 			if((target_zone == BODY_ZONE_CHEST))
-				target.visible_message(span_danger("[target]'s rib cage curves inwards grotesquely!"), span_danger("Your feel your ribcages curve inwards and pierce your heart!"))
+				target.visible_message(span_danger("[target]的胸廓诡异地向内弯曲！"), span_danger("你感觉自己的肋骨向内弯曲，刺穿了心脏！"))
 				target.adjust_blood_pool(-(round(target.bloodpool * 0.5)))
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/discipline_power/vicissitude/horrid_form
-	name = "Horrid Form"
-	desc = "Force yourself to become something truly monstrous."
+	name = "骇人形态"
+	desc = "强行将自己变成真正的怪物。"
 
 	level = 4
 	violates_masquerade = TRUE
@@ -194,14 +194,14 @@
 /datum/discipline_power/vicissitude/horrid_form/pre_activation_checks()
 	.=..()
 	if(activating) // Prevent multi-activation while the do_after is ongoing
-		to_chat(owner, span_warning("You are already attempting to fleshcraft yourself into a Zulo Warform!"))
+		to_chat(owner, span_warning("你已经在尝试将自己的血肉塑造成祖洛战斗形态！"))
 		return FALSE
 
 	//do_after timer based on generation; Gen 9 and below can spend more BP per turn, so it activates faster.
 	if(owner.get_generation() >= 10)
 		activating = TRUE
 		owner.do_jitter_animation(2 TURNS)
-		to_chat(owner, span_warning("Your body slowly starts to warp and twist into a horrifying war form..."))
+		to_chat(owner, span_warning("你的身体开始缓慢扭曲，化作骇人的战斗形态……"))
 		var/zulo_interrupt_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM
 		if(HAS_TRAIT(owner, TRAIT_PROMETHEAN_CLAY)) // Promethean Clay makes self-vicissitude changes into reflexive actions (like free actions in other TTRPGs). Implemented here by making the 2-turn transformation for Gen 10+ vamps impossible to interrupt.
 			zulo_interrupt_flags |= IGNORE_INCAPACITATED
@@ -215,7 +215,7 @@
 			return TRUE
 		activating = TRUE
 		owner.do_jitter_animation(1 TURNS)
-		to_chat(owner, span_warning("Your body quickly starts to warp and twist into a horrifying war form..."))
+		to_chat(owner, span_warning("你的身体开始迅速扭曲，化作骇人的战斗形态……"))
 		if(do_after(owner, 1 TURNS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_HELD_ITEM)))
 			return TRUE
 		activating = FALSE
@@ -240,8 +240,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/discipline_power/vicissitude/bloodform
-	name = "Bloodform"
-	desc = "Liquify into a shifting mass of sentient Vitae."
+	name = "血液形态"
+	desc = "液化成一团不断变形、具有意识的血粹。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE

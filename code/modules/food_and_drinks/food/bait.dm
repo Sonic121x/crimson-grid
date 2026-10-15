@@ -15,8 +15,8 @@
 	ADD_TRAIT(src, bait_quality, INNATE_TRAIT)
 
 /obj/item/food/bait/worm
-	name = "worm"
-	desc = "It's a wriggling worm from a can of fishing bait. You're not going to eat it, are you?"
+	name = "蠕虫"
+	desc = "一条从鱼饵罐里钻出来、扭来扭去的蠕虫。你不会打算吃掉它吧？"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "worm"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 1)

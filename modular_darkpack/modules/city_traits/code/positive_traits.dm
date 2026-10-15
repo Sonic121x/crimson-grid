@@ -12,7 +12,7 @@
 	weight = 2
 
 	darkpack_allowed = TRUE
-	newspaper_message = "The moon the brighest it will be this month!"
+	newspaper_message = "今晚的月亮将是本月最明亮的！"
 	newspaper_chance = 95
 
 /datum/station_trait/full_moon/on_round_start()

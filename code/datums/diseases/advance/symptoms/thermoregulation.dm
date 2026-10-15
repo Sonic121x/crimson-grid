@@ -8,7 +8,7 @@
 
 /datum/symptom/thermoregulation
 	name = "Thermoregulation"
-	desc = "The virus reacts to extreme conditions and assists the body in regulating its temperature."
+	desc = "病毒会对极端环境作出反应，帮助身体调节体温。"
 	stealth = 0
 	resistance = 1
 	stage_speed = -2
@@ -16,7 +16,7 @@
 	level = 4
 	severity = 0
 	threshold_descs = list(
-		"Resistance 8" = "Increases thermal regulation speed."
+		"抗性 8" = "加快体温调节速度。"
 	)
 
 /datum/symptom/thermoregulation/Start(datum/disease/advance/A)
@@ -34,6 +34,6 @@
 		var/mob/living/carbon/carbon_host = A.affected_mob
 		var/difference = carbon_host.dna.species.bodytemp_normal - carbon_host.bodytemperature
 		if(!(carbon_host.dna.species.bodytemp_cold_damage_limit < carbon_host.bodytemperature < carbon_host.dna.species.bodytemp_heat_damage_limit)) // No need to spam chat
-			to_chat(carbon_host, span_notice("You feel a [difference < 0 ? "warmth" : "chill"] spread through your body."))
+			to_chat(carbon_host, span_notice("你感到一阵[difference < 0 ? "凉意" : "暖意"]蔓延至全身。"))
 		var/stage_power = (A.stage == 3) ? power * 5 : power * 10 // Half as strong at stage 3
 		carbon_host.adjust_bodytemperature(clamp(difference, -stage_power, stage_power))

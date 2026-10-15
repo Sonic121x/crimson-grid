@@ -124,7 +124,7 @@
 	SIGNAL_HANDLER
 	if(target == parent)
 		var/mob/living/ridden = parent
-		ridden.balloon_alert(rider_pulling, "not while riding it!")
+		ridden.balloon_alert(rider_pulling, "骑乘时不能拖拽！")
 		return COMSIG_LIVING_CANCEL_PULL
 
 /// This is called after the ridden atom is successfully moved and is used to handle icon stuff
@@ -334,7 +334,7 @@
 
 	switch(other_unbuckle)
 		if(CANNOT_FORCE_UNBUCKLE)
-			to_chat(unbuckler, span_warning("You can't dismount [source]'s rider[length(source.buckled_mobs) == 1 ? "" : "s"]!"))
+			to_chat(unbuckler, span_warning("你无法让[source]身上的骑乘者下来！"))
 		if(CAN_DISARM_UNBUCKLE)
 			parent_disarmed(source, unbuckler)
 
@@ -350,27 +350,27 @@
 	if(!prob(disarm_chance))
 		if(disarm_chance > 0)
 			source.visible_message(
-				span_warning("[disarmer] shoves [source] around, trying to throw off [source.p_their()] rider[length(source.buckled_mobs) == 1 ? "" : "s"]!"),
-				span_warning("[disarmer] shoves you around, trying to throw off your rider[length(source.buckled_mobs) == 1 ? "" : "s"]!"),
+				span_warning("[disarmer]推搡着[source]，试图把骑乘者甩下来！"),
+				span_warning("[disarmer]推搡着你，试图把你身上的骑乘者甩下来！"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			if(source.is_blind())
-				to_chat(source, span_warning("Someone shoves you around, trying to throw off your rider[length(source.buckled_mobs) == 1 ? "" : "s"]!"))
+				to_chat(source, span_warning("有人推搡着你，试图把你身上的骑乘者甩下来！"))
 			if(!disarmer.is_blind())
 				switch(disarm_chance)
 					if(50 to INFINITY)
-						to_chat(disarmer, span_warning("[source] barely holds stable as you shove them around! Keep at it!"))
+						to_chat(disarmer, span_warning("在你的推搡下，[source]勉强保持着稳定！继续！"))
 					if(25 to 50)
-						to_chat(disarmer, span_warning("[source] holds stable as you shove them around! Weakening [source.p_their()] stability would help..."))
+						to_chat(disarmer, span_warning("在你的推搡下，[source]仍保持着稳定！设法让其站不稳会有帮助……"))
 					if(-INFINITY to 25)
-						to_chat(disarmer, span_warning("[source] effortlessly holds stable as you shove them around! You'd need to weaken [source.p_their()] stability...!"))
+						to_chat(disarmer, span_warning("在你的推搡下，[source]仍轻松保持着稳定！你得先设法让其站不稳……！"))
 		return
 	source.visible_message(
-		span_warning("As [disarmer] shoves [source] around, [throwing] is thrown from [parent]!"),
-		span_warning("As [disarmer] shoves you around, [throwing] is thrown from you!"),
+		span_warning("[disarmer]推搡着[source]，将[throwing]从[parent]身上甩了下来！"),
+		span_warning("[disarmer]推搡着你，将[throwing]从你身上甩了下来！"),
 	)
 	if(source.is_blind())
-		to_chat(source, span_warning("As someone shoves you around, you feel [length(source.buckled_mobs) == 1 ? "your rider" : "one of your riders"] get thrown from you!"))
+		to_chat(source, span_warning("有人推搡着你，你感觉[length(source.buckled_mobs) == 1 ? "身上的骑乘者" : "身上的一名骑乘者"]被甩了下来！"))
 
 	source.unbuckle_mob(throwing, force = TRUE)
 	throwing.Knockdown(throwing.has_status_effect(/datum/status_effect/staggered) ? SHOVE_KNOCKDOWN_COLLATERAL : SHOVE_KNOCKDOWN_HUMAN)
@@ -382,28 +382,28 @@
 	if(!prob(disarm_chance))
 		if(disarm_chance > 0)
 			rider.visible_message(
-				span_warning("[disarmer] shoves [rider] around, trying to throw [rider.p_them()] off [parent]!"),
-				span_warning("As [disarmer] shoves you around, you [(disarm_chance >= 50 ? "barely" : (disarm_chance >= 25 ? "" : "effortlessly"))] manage to hold on to [parent]!"),
+				span_warning("[disarmer]推搡着[rider]，试图将其从[parent]上推下去！"),
+				span_warning("[disarmer]推搡着你，你[(disarm_chance >= 50 ? "勉强" : (disarm_chance >= 25 ? "仍然" : "轻松地"))]抓住了[parent]！"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 			)
 			if(rider.is_blind())
-				to_chat(rider, span_warning("As someone shoves you around, you [(disarm_chance >= 50 ? "barely" : (disarm_chance >= 25 ? "" : "effortlessly"))] manage to hold on to [parent]!"))
+				to_chat(rider, span_warning("有人推搡着你，你[(disarm_chance >= 50 ? "勉强" : (disarm_chance >= 25 ? "仍然" : "轻松地"))]抓住了[parent]！"))
 			if(!disarmer.is_blind())
 				switch(disarm_chance)
 					if(50 to INFINITY)
-						to_chat(disarmer, span_warning("[rider] barely holds on to [parent] as you shove them around! Keep at it!"))
+						to_chat(disarmer, span_warning("在你的推搡下，[rider]勉强抓住了[parent]！继续！"))
 					if(25 to 50)
-						to_chat(disarmer, span_warning("[rider] holds on to [parent] as you shove them around! Weakening [rider.p_their()] [pick("balance", "grip", "hold")] would help..."))
+						to_chat(disarmer, span_warning("在你的推搡下，[rider]仍抓住了[parent]！设法[pick("破坏其平衡", "削弱其握力", "让其抓不稳")]会有帮助……"))
 					if(-INFINITY to 25)
-						to_chat(disarmer, span_warning("[rider] effortlessly holds on to [parent] as you shove them around! You'd need to weaken [rider.p_their()] [pick("balance", "grip", "hold")]...!"))
+						to_chat(disarmer, span_warning("在你的推搡下，[rider]仍轻松地抓着[parent]！你得先设法[pick("破坏其平衡", "削弱其握力", "让其抓不稳")]……！"))
 		return
 
 	rider.visible_message(
-		span_warning("As [disarmer] shoves [rider] around, [rider.p_they()] lose[rider.p_s()] [rider.p_their()] [pick("balance", "grip", "hold")] and fall[rider.p_s()] off [parent]!"),
-		span_warning("As [disarmer] shoves you around, you lose your [pick("balance", "grip", "hold")] and fall off [parent]!")
+		span_warning("[disarmer]推搡着[rider]，使其[pick("失去平衡", "松开了手", "没能抓牢")]，从[parent]上摔了下来！"),
+		span_warning("[disarmer]推搡着你，你[pick("失去平衡", "松开了手", "没能抓牢")]，从[parent]上摔了下来！")
 	)
 	if(rider.is_blind())
-		to_chat(rider, span_warning("As someone shoves you around, you lose your [pick("balance", "grip", "hold")] and fall off [parent]!"))
+		to_chat(rider, span_warning("有人推搡着你，你[pick("失去平衡", "松开了手", "没能抓牢")]，从[parent]上摔了下来！"))
 
 	var/atom/movable/riding = parent
 	riding.unbuckle_mob(rider, force = TRUE)

@@ -455,8 +455,8 @@
 	return /datum/reagent/consumable/pineapplejuice
 
 /obj/item/food/crab_rangoon
-	name = "crab rangoon"
-	desc = "Has many names, like crab puffs, cheese won'tons, crab dumplings? Whatever you call them, they're a fabulous blast of cream cheesy crab."
+	name = "蟹肉奶酪炸馄饨"
+	desc = "它有很多名字：蟹肉酥、奶酪馄饨、蟹肉饺？随便怎么叫，浓郁的奶油奶酪与蟹肉风味都会让你大呼过瘾。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "crabrangoon"
 	food_reagents = list(
@@ -586,8 +586,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/onigiri
-	name = "onigiri"
-	desc = "A ball of cooked rice surrounding a filling formed into a triangular shape and wrapped in seaweed. Can be added fillings!"
+	name = "饭团"
+	desc = "米饭包住馅料，捏成三角形，再裹上海苔。可以添加馅料！"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "onigiri"
 	food_reagents = list(
@@ -606,8 +606,8 @@
 
 // empty onigiri for custom onigiri
 /obj/item/food/onigiri/empty
-	name = "onigiri"
-	desc = "A ball of cooked rice surrounding a filling formed into a triangular shape and wrapped in seaweed."
+	name = "饭团"
+	desc = "米饭包住馅料，捏成三角形，再裹上海苔。"
 	icon_state = "onigiri"
 	foodtypes = VEGETABLES|GRAIN
 	tastes = list()
@@ -655,8 +655,8 @@
 		return FOOD_LIKED
 
 /obj/item/food/springroll
-	name = "spring roll"
-	desc = "A plate of translucent rice wrappers filled with fresh vegetables, served with sweet chili sauce. You either love them or hate them."
+	name = "春卷"
+	desc = "一盘用半透明米皮裹着新鲜蔬菜的春卷，配上甜辣酱。喜欢的人很喜欢，不喜欢的人很讨厌。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "springroll"
 	food_reagents = list(

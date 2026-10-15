@@ -1,53 +1,53 @@
 // Lighters
 /datum/loadout_item/pocket_items/cheap_lighter
-	name = "Lighter (Cheap)"
+	name = "打火机（廉价）"
 	item_path = /obj/item/lighter/greyscale
 
 // Pens
 /datum/loadout_item/pocket_items/pen
-	name = "Pen (Black)"
+	name = "笔（黑色）"
 	item_path = /obj/item/pen
 
 /datum/loadout_item/pocket_items/pen_fourcolor
-	name = "Pen (Four Color)"
+	name = "笔（四色）"
 	item_path = /obj/item/pen/fourcolor
 
 /datum/loadout_item/pocket_items/pen_fountain
-	name = "Pen (Fountain)"
+	name = "钢笔"
 	item_path = /obj/item/pen/fountain
 
 /datum/loadout_item/pocket_items/pen_charcoal
-	name = "Pen (Charcoal)"
+	name = "炭笔"
 	item_path = /obj/item/pen/charcoal
 
 // Cards
 /datum/loadout_item/pocket_items/card_tarot
-	name = "Deck of Cards (Tarot)"
+	name = "塔罗牌"
 	item_path = /obj/item/toy/cards/deck/tarot
 
 // Misc
 /datum/loadout_item/pocket_items/spray_can
-	name = "Spray Can"
+	name = "喷漆罐"
 	item_path = /obj/item/toy/crayon/spraycan
 
 /datum/loadout_item/pocket_items/flashlight
-	name = "Flashlight"
+	name = "手电筒"
 	item_path = /obj/item/flashlight
 
 /datum/loadout_item/pocket_items/wristwatch
-	name = "Wrist watch"
+	name = "腕表"
 	item_path = /obj/item/watch
 
 /datum/loadout_item/pocket_items/gold_cross
-	name = "Cross (Gold)"
+	name = "十字架（金）"
 	item_path = /obj/item/card/hunter
 
 /datum/loadout_item/pocket_items/silver_cross
-	name = "Cross (Silver)"
+	name = "十字架（银）"
 	item_path = /obj/item/card/hunter/silver
 
 /datum/loadout_item/pocket_items/gothic_cross
-	name = "Cross (Gothic)"
+	name = "十字架（哥特式）"
 	item_path = /obj/item/card/hunter/gothic
 
 /*

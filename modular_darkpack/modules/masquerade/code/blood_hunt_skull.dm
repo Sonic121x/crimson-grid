@@ -1,6 +1,6 @@
 /obj/item/blood_hunt
-	name = "ominous skull"
-	desc = "A stylized skull, made out of marble."
+	name = "不祥的骷髅"
+	desc = "一颗用大理石雕成的骷髅。"
 	icon = 'modular_darkpack/modules/masquerade/icons/blood_hunt_skull.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/masquerade/icons/onfloor.dmi')
 	icon_state = "skull"
@@ -25,16 +25,16 @@
 /obj/item/blood_hunt/examine(mob/user)
 	. = ..()
 	if(get_kindred_splat(user))
-		. += span_notice("This thaumaturgically-created artifact allows you to announce a Blood Hunt to the city.")
-		. += span_notice("It also allows you to pardon a kindred's masquerade violation by <b>interacting</b> with the kindred while holding the skull.")
+		. += span_notice("这件以血魔法创造的器物能让你向全城宣布血猎。")
+		. += span_notice("手持这颗骷髅与血族<b>互动</b>，还可以赦免其违反避世戒律的罪行。")
 
 /obj/item/blood_hunt/attack_self(mob/user)
 	. = ..()
-	var/chosen_name = tgui_input_text(user, "Write the hunted or forgiven character name:", "Blood Hunt")
+	var/chosen_name = tgui_input_text(user, "输入要追猎或赦免的角色姓名：", "血猎")
 	if(!chosen_name)
 		return
 	chosen_name = sanitize_name(chosen_name)
-	var/reason = tgui_input_text(user, "Write the reason of the Blood Hunt:", "Blood Hunt Reason")
+	var/reason = tgui_input_text(user, "输入宣布血猎的理由：", "血猎理由")
 	if(!reason)
 		return
 	reason = sanitize(reason)
@@ -47,17 +47,17 @@
 			else
 				start_hunt(user, player_mob, reason)
 				return
-	to_chat(user, span_danger("There is no such name in the city!"))
+	to_chat(user, span_danger("城里没有这个人！"))
 
 /obj/item/blood_hunt/proc/start_hunt(mob/user, mob/target, reason)
-	to_chat(user, span_warning("You add [target.real_name] to the Hunted list."))
+	to_chat(user, span_warning("你将[target.real_name]列入了血猎名单。"))
 	RegisterSignals(target, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_LIVING_GIBBED), PROC_REF(complete_hunt))
 	log_game("[user.real_name] started a bloodhunt on [target.real_name] for: [reason]")
 	message_admins("[ADMIN_LOOKUPFLW(user)]] started a bloodhunt on [target.real_name] for: [reason]")
 	target.start_blood_hunt(reason)
 
 /obj/item/blood_hunt/proc/end_hunt(mob/user, mob/target)
-	to_chat(user, span_warning("You remove [target.real_name] from the Hunted list."))
+	to_chat(user, span_warning("你将[target.real_name]移出了血猎名单。"))
 	UnregisterSignal(target, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING, COMSIG_LIVING_GIBBED))
 	log_game("[user.real_name] ended a bloodhunt on [target.real_name].")
 	message_admins("[ADMIN_LOOKUPFLW(user)]] ended a bloodhunt on [target.real_name].")
@@ -76,11 +76,11 @@
 	if(!get_kindred_splat(interacting_with))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You hold the [src] up to [interacting_with]..."))
+	to_chat(user, span_notice("你朝[interacting_with]举起[src]……"))
 	if(!do_after(user, 10 SECONDS, interacting_with))
 		return ITEM_INTERACT_BLOCKING
 	if(SSmasquerade.masquerade_reinforce(src, interacting_with, MASQUERADE_REASON_PREFERENCES))
-		to_chat(user, span_notice("You pardon [interacting_with]'s masquerade breach!"))
+		to_chat(user, span_notice("你赦免了[interacting_with]违反避世戒律的罪行！"))
 		return ITEM_INTERACT_SUCCESS
-	to_chat(user, span_notice("[interacting_with]'s masquerade breach isn't worthy enough to be pardoned!"))
+	to_chat(user, span_notice("[interacting_with]违反避世戒律的罪行尚不符合赦免条件！"))
 	return ITEM_INTERACT_BLOCKING

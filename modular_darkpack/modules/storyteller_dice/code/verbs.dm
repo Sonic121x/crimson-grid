@@ -5,39 +5,39 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(roll_storyteller_dice, R_FUN, "Roll storyteller dic
 
 	BLACKBOX_LOG_ADMIN_VERB("Storyteller dice")
 
-GAME_VERB(/mob/living, do_roll_dice_custom, "Roll custom dice", null)
+GAME_VERB(/mob/living, do_roll_dice_custom, "自定义掷骰", null)
 	roll_dice_custom()
 
 /mob/living/proc/roll_dice_custom(atom/movable/roll_target)
-	var/list/allowed_stats = list()
+	var/list/allowed_stats = list(); var/list/stat_labels = list()
 	for(var/stat_path, dots_in in storyteller_stats)
 		var/datum/st_stat/stat = stat_path
 		if(!ispath(stat))
 			continue
 		if(stat == stat::abstract_type)
 			continue
-		allowed_stats += stat
+		allowed_stats += stat; stat_labels += "[stat::name]"
 		//allowed_stats[stat] = "[stat::name]: [dots_in]"
-	var/list/stats_to_use = tgui_input_checkboxes(usr, "Select stats to use for the roll.", "Choose Stats", allowed_stats, min_checked = 0, max_checked = 5)
+	var/list/stats_to_use = tgui_input_checkboxes(usr, "选择本次检定使用的属性。", "选择属性", stat_labels, min_checked = 0, max_checked = 5)
 	var/list/output_stats = list()
 	if(length(stats_to_use))
 		for(var/list/stat as anything in stats_to_use)
-			output_stats += text2path(stat[1])
+			output_stats += allowed_stats[stat[2]]
 
-	var/bonus_dice = tgui_input_number(usr, "Input amount of bonus dice to roll.", "Dice", 0, 20, -20)
+	var/bonus_dice = tgui_input_number(usr, "输入额外骰子的数量。", "骰子", 0, 20, -20)
 	if(isnull(bonus_dice))
 		return
 
-	var/difficulty = tgui_input_number(usr, "Input roll difficulty.", "Difficulty", 6, ROLL_DIFFICULTY_MAX, ROLL_DIFFICULTY_MIN)
+	var/difficulty = tgui_input_number(usr, "输入检定难度。", "难度", 6, ROLL_DIFFICULTY_MAX, ROLL_DIFFICULTY_MIN)
 	if(isnull(difficulty))
 		return
 
-	var/successes_needed = tgui_input_number(usr, "Input successes required to pass.", "Successes Needed", 1, 5, 1)
+	var/successes_needed = tgui_input_number(usr, "输入通过检定所需的成功数。", "所需成功数", 1, 5, 1)
 	if(isnull(successes_needed))
 		return
 
 	var/static/list/roll_choices = ROLL_OUTPUT_IC
-	var/list/roll_type_choice = tgui_input_checkboxes(usr, "Who do you want to roll to.", "Roll Type", roll_choices)
+	var/list/roll_type_choice = tgui_input_checkboxes(usr, "选择向谁显示本次掷骰。", "显示范围", roll_choices)
 	if(!roll_type_choice)
 		return
 	var/roll_type = NONE
@@ -54,12 +54,12 @@ GAME_VERB(/mob/living, do_roll_dice_custom, "Roll custom dice", null)
 
 
 /datum/storyteller_roll/custom_roll
-	bumper_text = "custom roll"
+	bumper_text = "自定义检定"
 
 #define UI_MOB_DICE_ROLL "EAST-4:22,SOUTH+1:24"
 
 /atom/movable/screen/dice_roll
-	name = "roll custom dice"
+	name = "自定义掷骰"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "dice"
 	screen_loc = UI_MOB_DICE_ROLL

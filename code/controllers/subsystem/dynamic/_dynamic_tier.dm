@@ -113,24 +113,24 @@
 /datum/dynamic_tier/greenshift
 	tier = DYNAMIC_TIER_GREEN
 	config_tag = "Greenshift"
-	name = "Greenshift"
+	name = "平静班次"
 	weight = 2
 
-	advisory_report = "Advisory Level: <b>Green Star</b></center><BR>\
-		Your sector's advisory level is Green Star. \
-		Surveillance information shows no credible threats to Nanotrasen assets within the Spinward Sector at this time. \
-		As always, the Department advises maintaining vigilance against potential threats, regardless of a lack of known threats."
+	advisory_report = "预警级别：<b>绿星</b></center><BR>\
+		你所在星区的预警级别为绿星。\
+		监控情报表明，目前没有可靠证据显示旋臂星区内的纳诺传讯资产受到威胁。\
+		与往常一样，本部门建议即使没有已知威胁，也应对潜在威胁保持警惕。"
 
 /datum/dynamic_tier/low
 	tier = DYNAMIC_TIER_LOW
 	config_tag = "Low Chaos"
-	name = "Low Chaos"
+	name = "低度混乱"
 	weight = 8
 
-	advisory_report = "Advisory Level: <b>Yellow Star</b></center><BR>\
-		Your sector's advisory level is Yellow Star. \
-		Surveillance shows a credible risk of enemy attack against our assets in the Spinward Sector. \
-		We advise a heightened level of security alongside maintaining vigilance against potential threats."
+	advisory_report = "预警级别：<b>黄星</b></center><BR>\
+		你所在星区的预警级别为黄星。\
+		监控情报显示，我们在旋臂星区的资产确有遭受敌方袭击的风险。\
+		我们建议加强安保措施，并对潜在威胁保持警惕。"
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
@@ -171,14 +171,14 @@
 /datum/dynamic_tier/lowmedium
 	tier = DYNAMIC_TIER_LOWMEDIUM
 	config_tag = "Low-Medium Chaos"
-	name = "Low-Medium Chaos"
+	name = "中低度混乱"
 	weight = 46
 
-	advisory_report = "Advisory Level: <b>Red Star</b></center><BR>\
-		Your sector's advisory level is Red Star. \
-		The Department of Intelligence has decrypted Cybersun communications suggesting a high likelihood of attacks \
-		on Nanotrasen assets within the Spinward Sector. \
-		Stations in the region are advised to remain highly vigilant for signs of enemy activity and to be on high alert."
+	advisory_report = "预警级别：<b>红星</b></center><BR>\
+		你所在星区的预警级别为红星。\
+		情报部破译的赛博太阳通讯表明，旋臂星区内的\
+		纳诺传讯资产极有可能遭到袭击。\
+		建议该区域内的空间站高度警惕敌方活动迹象，并保持高度戒备。"
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
@@ -219,15 +219,15 @@
 /datum/dynamic_tier/mediumhigh
 	tier = DYNAMIC_TIER_MEDIUMHIGH
 	config_tag = "Medium-High Chaos"
-	name = "Medium-High Chaos"
+	name = "中高度混乱"
 	weight = 36
 
-	advisory_report = "Advisory Level: <b>Black Orbit</b></center><BR>\
-		Your sector's advisory level is Black Orbit. \
-		Your sector's local communications network is currently undergoing a blackout, \
-		and we are therefore unable to accurately judge enemy movements within the region. \
-		However, information passed to us by GDI suggests a high amount of enemy activity in the sector, \
-		indicative of an impending attack. Remain on high alert and vigilant against any other potential threats."
+	advisory_report = "预警级别：<b>黑轨</b></center><BR>\
+		你所在星区的预警级别为黑轨。\
+		本星区的本地通讯网络目前已中断，\
+		因此我们无法准确判断区域内的敌方动向。\
+		不过，GDI 提供的情报显示，星区内敌方活动频繁，\
+		预示着袭击即将发生。请保持高度戒备，并警惕其他潜在威胁。"
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
@@ -268,16 +268,16 @@
 /datum/dynamic_tier/high
 	tier = DYNAMIC_TIER_HIGH
 	config_tag = "High Chaos"
-	name = "High Chaos"
+	name = "高度混乱"
 	weight = 10
 
 	min_pop = 25
 
-	advisory_report = "Advisory Level: <b>Midnight Sun</b></center><BR>\
-		Your sector's advisory level is Midnight Sun. \
-		Credible information passed to us by GDI suggests that the Syndicate \
-		is preparing to mount a major concerted offensive on Nanotrasen assets in the Spinward Sector to cripple our foothold there. \
-		All stations should remain on high alert and prepared to defend themselves."
+	advisory_report = "预警级别：<b>午夜太阳</b></center><BR>\
+		你所在星区的预警级别为午夜太阳。\
+		GDI 提供的可靠情报表明，辛迪加\
+		正准备对旋臂星区内的纳诺传讯资产发动大规模协同攻势，以摧毁我们在当地的立足点。\
+		所有空间站均应保持高度戒备，做好自卫准备。"
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(

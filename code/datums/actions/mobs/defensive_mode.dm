@@ -3,7 +3,7 @@
 	name = "Change Mode"
 	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "defensive_mode"
-	desc = "Activates a defensive mode to reduce damage but will make you slower."
+	desc = "启动防御模式以减少所受伤害，但会降低移动速度。"
 	cooldown_time = 5 SECONDS
 	click_to_activate = FALSE
 	/// If the defensive mode is activated or not.

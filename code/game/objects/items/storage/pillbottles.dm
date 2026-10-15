@@ -3,8 +3,8 @@
  * Pill Bottles
  */
 /obj/item/storage/pill_bottle
-	name = "pill bottle"
-	desc = "It's an airtight container for storing medication."
+	name = "药片瓶"
+	desc = "用于存放药物的密封容器。"
 	icon_state = "pill_canister"
 	icon = 'icons/obj/medical/chemical.dmi'
 	inhand_icon_state = "contsolid"
@@ -23,7 +23,7 @@
 	VAR_PROTECTED/obj/item/reagent_containers/applicator/pill/spawn_type
 
 /obj/item/storage/pill_bottle/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is trying to get the cap off [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正试图打开[src]的瓶盖！看起来是想自杀！"))
 	return TOXLOSS
 
 /obj/item/storage/pill_bottle/PopulateContents()
@@ -36,8 +36,8 @@
 		new spawn_type(src)
 
 /obj/item/storage/pill_bottle/multiver
-	name = "bottle of multiver pills"
-	desc = "Contains pills used to counter toxins."
+	name = "多效净药片瓶"
+	desc = "内装用于解毒的药片。"
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/multiver
 
@@ -45,8 +45,8 @@
 	spawn_count = 3
 
 /obj/item/storage/pill_bottle/epinephrine
-	name = "bottle of epinephrine pills"
-	desc = "Contains pills used to stabilize patients."
+	name = "肾上腺素药片瓶"
+	desc = "内装用于稳定患者状况的药片。"
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/epinephrine
 
@@ -57,27 +57,27 @@
 	spawn_type = /obj/item/reagent_containers/applicator/pill/mutadone
 
 /obj/item/storage/pill_bottle/potassiodide
-	name = "bottle of potassium iodide pills"
-	desc = "Contains pills used to reduce radiation damage."
+	name = "碘化钾药片瓶"
+	desc = "内装用于减轻辐射损伤的药片。"
 	spawn_count = 3
 	spawn_type = /obj/item/reagent_containers/applicator/pill/potassiodide
 	custom_price = 100 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/storage/pill_bottle/probital
-	name = "bottle of probital pills"
-	desc = "Contains pills used to treat brute damage. The tag in the bottle states 'Eat before ingesting, may cause fatigue'."
+	name = "愈肌宁药片瓶"
+	desc = "内装用于治疗外伤的药片。瓶内标签写着“饭后服用，可能引起疲劳”。"
 	spawn_count = 4
 	spawn_type = /obj/item/reagent_containers/applicator/pill/probital
 
 /obj/item/storage/pill_bottle/iron
-	name = "bottle of iron pills"
-	desc = "Contains pills used to reduce blood loss slowly. The tag in the bottle states 'Only take one each five minutes'."
+	name = "补铁药片瓶"
+	desc = "内装用于缓慢缓解失血的药片。瓶内标签写着“每五分钟只能服用一片”。"
 	spawn_count = 4
 	spawn_type = /obj/item/reagent_containers/applicator/pill/iron
 
 /obj/item/storage/pill_bottle/mannitol
-	name = "bottle of mannitol pills"
-	desc = "Contains pills used to treat brain damage."
+	name = "甘露醇药片瓶"
+	desc = "内装用于治疗脑损伤的药片。"
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/mannitol
 
@@ -118,8 +118,8 @@
 	spawn_type = /obj/item/reagent_containers/applicator/pill/happy
 
 /obj/item/storage/pill_bottle/lsd
-	name = "suspicious pill bottle"
-	desc = "There is a crude drawing which could be either a mushroom, or a deformed moon."
+	name = "可疑的药片瓶"
+	desc = "上面画着一个粗糙的图案，可能是蘑菇，也可能是变形的月亮。"
 	spawn_count = 5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/lsd
 
@@ -130,20 +130,20 @@
 	spawn_type = /obj/item/reagent_containers/applicator/pill/aranesp
 
 /obj/item/storage/pill_bottle/psicodine
-	name = "bottle of psicodine pills"
-	desc = "Contains pills used to treat mental distress and traumas."
+	name = "安神定药片瓶"
+	desc = "内装用于缓解精神不适和治疗精神创伤的药片。"
 	spawn_count = 7
 	spawn_type = /obj/item/reagent_containers/applicator/pill/psicodine
 
 /obj/item/storage/pill_bottle/penacid
-	name = "bottle of pentetic acid pills"
-	desc = "Contains pills to expunge radiation and toxins."
+	name = "喷替酸药片瓶"
+	desc = "内装用于清除体内辐射与毒素的药片。"
 	spawn_count = 3
 	spawn_type = /obj/item/reagent_containers/applicator/pill/penacid
 
 /obj/item/storage/pill_bottle/neurine
-	name = "bottle of neurine pills"
-	desc = "Contains pills to treat non-severe mental traumas."
+	name = "神经修复剂药片瓶"
+	desc = "内装用于治疗轻度精神创伤的药片。"
 	spawn_count = 5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/neurine
 

@@ -4,7 +4,7 @@
 	faction = FACTION_SABBAT
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = " the Laws of Hospitality"
+	supervisors = "待客之律"
 	config_tag = "BOGATYR"
 	outfit = /datum/outfit/job/vampire/bogatyr
 	job_flags = CITY_JOB_FLAGS
@@ -17,7 +17,7 @@
 	allowed_splats = list(SPLAT_KINDRED)
 	allowed_clans = list(VAMPIRE_CLAN_TZIMISCE)
 
-	description = "Whether you are of Voivode-in-Waiting's blood or if you've been honored, you are one of the Kin of the Voivode. Protect your Family, as your Family would protect you."
+	description = "无论你传承着沉眠领主的血脉，还是获赐了这份殊荣，你都是领主的亲族。守护家族，就如家族会守护你一样。"
 	maximal_generation = 9
 	maximum_immortal_age = 200
 	minimum_masquerade = 2

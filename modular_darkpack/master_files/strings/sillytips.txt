@@ -1,69 +1,69 @@
-* is blind
+* 失明了
 /obj/item/melee/vampirearms/knife/gangrel/lasombra
-All of the Salubri in the world are in San Francisco.
-Also try Minecraft!!
-Are you trujah, then?
-As a Garou, it's tremendously important to slaughter anyone who drops so much as a bottlecap in the woods.
-Ask about the free arsenic!
-Blowing up the oil rig with a dirty bomb will certainly help Gaia recover.
-Call in the burgermen.
-Deer will freeze when they see a vehicle. This includes scooters.
-Diablerize your Sire NOW!!!
-Do not feed your Ghoul after midnight~.
-Do you have any bloodpacks? I got a headache.
-Do you think a Nexus Crawler would improve the feng shui of this landfill?
-Do you think there are any Garou in the Teen Wolf fandom?
-Does anyone else think what Tremere did was really screwed up?
-Dogs know how to skateboard.
-Don’t listen to the stop signs.
-Elkabo, elkabo, pixy queen where all is green.
-Everyone thinks the game was made by yankees anyway.
-Explain it to me like I'm a dog.
-First priority more mechanics for people to enjoy. Last priority refactoring if it isn't lagging.
-Fixed on Darkpack.
-Gaia saved next week!
-I AM THE SWORD OF CAINE!!!
-I WANT A BLACK AND MILD!!!!!!!
-I run on blood! I take jobs from American vampires!
-It doesn't need to expand. Only to go deeper.
-It's 2009, get over it.
-Just level appearance.
-Kinfolk are just ghouls for dogs.
-Little known fact, you can actually take Corvid Kinfolk home with you for free. I have 47 in my back yard.
-Little known fact, you can actually take Feline Kinfolk home with you for free. I have 47 in my back yard.
-Little known fact, you can actually take Kyubi Kinfolk home with you for free. I have 47 in my back yard.
-Little known fact, you can actually take Latrani Kinfolk home with you for free. I have 47 in my back yard.
-Little known fact, you can actually take Lupus Kinfolk home with you for free. I have 47 in my back yard.
-Lots of people spread nasty rumors about the Tzimisce turning people into chairs. The reality is that they prefer loveseats. More surface area for the skin, you see.
-Lupus-born Garou typically can't read and typically don't have a legal identity. This means it's really easy to write a hit piece in the newspaper about them without fear of legal retribution.
-Maggots love you. Trust me.
-Maybe the real Beckoning is the Kindred we met along the way.
-My Wyrm could beat up your Wyrm.
-Ravens and crows will chase shiny objects around. Make sure to start corvid turf wars.
-Reminder: Emissions caused by Corporate Wolves factories are good and cool, but emissions from Endron factories are disgusting and evil.
-Sire: God
-So-called “Kindred” will insist that garlic, holy water, and crosses are ineffective against them. They are lying. Do not listen to them.
-The Black Furies breeding pits do not exist. Do not attempt to breach the Bawn to find it.
-The Camarilla doesn’t want you to know this but the ghouls at the Tower are free. You can take them home. I have 458 ghouls.
-The Delirium is a genetic, supernatural fear of Garou and other breeds that remind you of Jacob from Twilight.
-The Malkavian hivemind allows you to send any message, except images. Don't forget what they took from you.
-The get_step() spaceship cannot hurt you.
-The get_step() ziggurat cannot hurt you.
-The mannequins no longer get a little quirky at night.
-There are many different types of werewolf fetishes. Stop it.
-There are two wolves inside you. They are both in nullspace.
-There are two wolves..... and two birds.... inside of you. All four are in nullspace...
-There's a Nosferatu standing behind you watching you roleplay.
-There's nothing stopping you from just putting a chew toy in the mouth of a vampire. What are they going to do, bite you?
-This is Ennoia, by the way. I have an eagle head right now.
-This truly is a world of darkness.
-Trujah in the future have studied your ass for centuries - and sent me back in time to kick it!
-What if heartsblood tastes like a fruit gusher?
-What the hell is Bardo?
-What the hell is Ogham?
-What the hell is Sanguinus?
-When in doubt, just put vampire in the typepath.
-You can throw a stick to distract an aggressive Garou.
-You cannot buy a blender at the dollar store.
-You're thinking about fangs right now.
-You've turned your back on Fenris, the Get of Fenris, and even Gaia! For your TREACHERY, the only penalty... is DEATH. Who's next?
+全世界的萨鲁布里都在旧金山。
+也试试《我的世界》！！
+这么说，你是真布鲁赫咯？
+身为狼人，哪怕有人只是在林子里丢了个瓶盖，你也务必要把他宰了。
+问问那免费送的砒霜！
+用脏弹炸掉石油钻井平台，肯定能帮助盖亚恢复。
+把汉堡人叫来。
+鹿看见车辆就会僵住。滑板车也算。
+现在就去血噬你的血亲！！！
+午夜之后不要喂你的血仆～。
+你有血袋吗？我头疼。
+你觉得来一只枢纽爬行者，会改善这个垃圾填埋场的风水吗？
+你觉得《少狼》的粉丝里有狼人吗？
+还有人觉得睿魔尔干的那些事很缺德吗？
+狗会玩滑板。
+别听停车标志的话。
+埃尔卡博，埃尔卡博，小妖精女王所在之处皆是翠绿。
+反正大家都以为这游戏是美国佬做的。
+把我当成一条狗来解释。
+最优先的是多做些让大家玩得开心的机制。只要不卡，重构就排最后。
+Darkpack上已经修好了。
+下周就能拯救盖亚！
+我就是该隐之剑！！！
+我要一支黑色柔和雪茄！！！！！！！
+我靠鲜血驱动！我替美国吸血鬼干活！
+不必拓宽，只需挖深。
+现在是2009年，接受现实吧。
+把外貌加上去就行了。
+眷属就是狗狗的血仆。
+冷知识：鸦裔眷属其实可以免费带回家。我家后院有47只。
+冷知识：猫裔眷属其实可以免费带回家。我家后院有47只。
+冷知识：九尾狐眷属其实可以免费带回家。我家后院有47只。
+冷知识：郊狼眷属其实可以免费带回家。我家后院有47只。
+冷知识：狼裔眷属其实可以免费带回家。我家后院有47只。
+很多人恶意造谣，说茨密希会把人变成椅子。其实他们更喜欢双人沙发。你懂的，皮肤能铺开的面积更大。
+狼裔狼人通常不识字，也没有合法身份。所以你大可以在报纸上写文章抹黑他们，不用担心吃官司。
+蛆虫爱你。相信我。
+或许，真正的召唤，就是我们一路上结识的血族。
+我的妖蛆能把你的妖蛆揍趴下。
+渡鸦和乌鸦会追着闪亮的东西跑。记得挑起鸦群地盘争夺战。
+提醒：企业狼族的工厂排放既美好又酷炫，安德隆工厂的排放则恶心又邪恶。
+血亲：上帝
+那些自称“血族”的家伙会坚称大蒜、圣水和十字架对他们没用。他们在撒谎。别听他们的。
+黑怒之女的繁育坑并不存在。别闯进圣地周边领地去找。
+密党不想让你知道，大厦里的血仆其实是免费的。你可以带回家。我已经有458个了。
+谵妄是一种遗传而来的超自然恐惧，让你害怕狼人，以及其他会让你想起《暮光之城》里雅各布的族群。
+魔卡维的蜂巢意识可以发送任何消息，除了图片。别忘了他们夺走了什么。
+get_step()宇宙飞船伤害不了你。
+get_step()金字塔神庙伤害不了你。
+那些人体模特夜里已经不会再搞点怪事了。
+狼人的灵器有很多种。别往性癖上想。
+你的体内有两匹狼。它们都在空无之地。
+你的体内有两匹狼……还有两只鸟……四个都在空无之地……
+有个诺斯费拉图正站在你身后，看你角色扮演。
+没人拦着你往吸血鬼嘴里塞咬咬玩具。他们能怎样，咬你吗？
+顺便说一句，我是恩诺娅。我现在顶着个鹰头。
+这可真是个黑暗世界。
+未来的真布鲁赫研究了你的屁股好几个世纪，然后把我送回过去来踹它！
+要是心血喝起来像爆浆果汁糖呢？
+巴尔多术到底是个什么鬼？
+欧甘术到底是个什么鬼？
+血脉术到底是个什么鬼？
+拿不准时，就往类型路径里加个vampire。
+你可以扔根棍子来转移凶暴狼人的注意力。
+一元店里买不到搅拌机。
+你现在正想着尖牙。
+你背叛了芬里斯、芬里斯之裔，甚至盖亚！对于你的背叛，唯一的惩罚……就是死。下一个是谁？

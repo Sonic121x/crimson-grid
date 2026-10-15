@@ -1,9 +1,9 @@
 /mob/living/basic/bear/vampire
-	name = "grizzly bear"
+	name = "灰熊"
 
 /mob/living/basic/bear/vampire/blackbear
-	name = "black bear"
-	desc = "Huh he looks kinda chill.. WAIT NO!!"
+	name = "黑熊"
+	desc = "唔，它看起来还挺温和的……等等，不对！！"
 	icon = 'modular_vcg/modules/npc/icons/blackbear.dmi'
 	icon_state = "blackbear"
 	icon_living = "blackbear"

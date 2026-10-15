@@ -45,10 +45,10 @@
 	if (bullet.damage >= minimum_projectile_force || (bullet.damage_type in vulnerable_projectile_types))
 		return
 	if (below_projectile_multiplier == 0)
-		parent.visible_message(span_danger("[parent] seems unharmed by [bullet]!"))
+		parent.visible_message(span_danger("[parent]似乎完全没有被[bullet]伤到！"))
 		return PROJECTILE_INTERRUPT_HIT
 	bullet.damage *= below_projectile_multiplier
-	parent.visible_message(span_danger("[parent] seems resistant to [bullet]!"))
+	parent.visible_message(span_danger("[parent]似乎能抵御[bullet]的伤害！"))
 
 /// Ignore thrown damage based on projectile properties. There's no elegant way to multiply the damage because throwforce is persistent.
 /datum/element/ranged_armour/proc/pre_thrown_impact(atom/parent, obj/item/hit_atom, datum/thrownthing/throwingdatum)
@@ -57,5 +57,5 @@
 		return
 	if (hit_atom.throwforce >= minimum_thrown_force)
 		return
-	parent.visible_message(span_danger("[hit_atom] [throw_blocked_message] [parent]!"))
+	parent.visible_message(span_danger("[hit_atom][list("bounces off" = "被[parent]弹开了", "bounces off of" = "被[parent]弹开了", "merely dinks off of the" = "只是轻轻撞上[parent]就弹开了", "doesn't affect the sturdiness of" = "丝毫没能撼动坚固的[parent]", "simply misses" = "根本没碰到[parent]", "doesn't affect the purity of" = "丝毫没能玷污[parent]的纯净", "does nothing to the rocky hide of the" = "丝毫没能伤到[parent]岩石般的外皮", "bounces off the shell of" = "被[parent]的外壳弹开了", "is absorbed by the spongy hide of" = "被[parent]海绵般的外皮吸收了", "does nothing to the tough hide of" = "丝毫没能伤到[parent]坚韧的外皮", "does nothing to the thick shell of" = "丝毫没能伤到[parent]厚实的外壳", "bounces harmlessly off of" = "被[parent]弹开，未造成任何伤害", "passes between the bodies of the" = "从[parent]的多个躯体之间穿过了")[throw_blocked_message] || " [throw_blocked_message] [parent]"]！"))
 	return COMSIG_HIT_PREVENTED

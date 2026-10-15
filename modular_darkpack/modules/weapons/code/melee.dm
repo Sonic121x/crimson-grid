@@ -12,8 +12,8 @@
 
 
 /obj/item/fireaxe/vamp
-	name = "fire axe"
-	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
+	name = "消防斧"
+	desc = "简直是疯子的武器。谁会想到用斧头对付火灾？"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -30,8 +30,8 @@
 	custom_price = 1800
 
 /obj/item/katana/vamp
-	name = "katana"
-	desc = "An elegant weapon, its tiny edge is capable of cutting through flesh and bone with ease."
+	name = "武士刀"
+	desc = "一把优雅的武器，纤薄的刀刃能轻易切开血肉与骨骼。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -50,7 +50,7 @@
 	AddComponent(/datum/component/selling, 100, "katana", FALSE)
 
 /obj/item/katana/vamp/fire
-	name = "burning katana"
+	name = "燃烧的武士刀"
 	icon_state = "katana_burning"
 	item_flags = DROPDEL
 	obj_flags = NONE
@@ -72,7 +72,7 @@
 		burnt_mob.apply_damage(15, BURN)
 
 /obj/item/katana/vamp/blood
-	name = "bloody katana"
+	name = "鲜血武士刀"
 	color = "#bb0000"
 	item_flags = DROPDEL
 	obj_flags = NONE
@@ -91,8 +91,8 @@
 		burnt_mob.apply_damage(15, AGGRAVATED)
 
 /obj/item/melee/sabre/vamp
-	name = "sabre"
-	desc = "A curved sword, the sabre is a weapon of the cavalry, designed for slashing and thrusting."
+	name = "军刀"
+	desc = "一种弯刃刀剑，是骑兵用来劈砍和刺击的武器。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -111,8 +111,8 @@
 	AddComponent(/datum/component/selling, value, "sabre", FALSE)
 
 /obj/item/melee/sabre/rapier
-	name = "rapier"
-	desc = "A thin, elegant sword, the rapier is a weapon of the duelist, designed for thrusting."
+	name = "刺剑"
+	desc = "一把纤细优雅的剑，是决斗者用于刺击的武器。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -129,13 +129,13 @@
 	AddComponent(/datum/component/selling, 700, "rapier", FALSE)
 
 /obj/item/melee/sabre/vamp/training
-	name = "foam sabre"
+	name = "泡沫军刀"
 	force = 0
 	value = 3
 
 /obj/item/claymore/longsword
-	name = "longsword"
-	desc = "A classic weapon of the knight, the longsword is a versatile weapon that can be used for both cutting and thrusting."
+	name = "长剑"
+	desc = "骑士的经典武器，可劈可刺，用途广泛。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -152,8 +152,8 @@
 	AddComponent(/datum/component/selling, 600, "longsword", FALSE)
 
 /obj/item/claymore/machete
-	name = "machete"
-	desc = "A certified chopper fit for the jungles...but you don't see any vines around. Well-weighted enough to be thrown."
+	name = "砍刀"
+	desc = "一把适合丛林的正经砍刀……可你在周围看不到藤蔓。配重适中，也适合投掷。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -174,15 +174,15 @@
 
 // "Keepers" derived from "my brother's keeper" are an epithet for Lasombra but this seems to be a wholly unqiue item not found in any book.
 /obj/item/claymore/longsword/keeper
-	name = "The Brother's Keeper"
-	desc = "The ancient yet classic weapon of times gone, this is a longsword. This exemplar is surprisingly well taken care of, despite its age, to the point that whatever blood or vitae it may have drawn in the past is not visible at all, while still functioning as well as it first did however long ago. Upon the flat side of this blade, a simple well-worn inscription is engraved in Latin. 'In Death, I Rise.'"
+	name = "兄弟守护者"
+	desc = "一把来自往昔岁月的古老经典长剑。尽管年代久远，它却保养得出奇完好，过去沾染过的鲜血或血粹都不留痕迹，锋芒也一如初铸。剑身平面刻着一句简朴而磨损的拉丁文铭文：‘于死亡中，我将崛起。’"
 	color = "#C0C0C0"
 	w_class = WEIGHT_CLASS_BULKY
 	force = 50
 	block_chance = 45
 	armour_penetration = 40
-	attack_verb_continuous = list("slashes", "cuts")
-	attack_verb_simple = list("slash", "cut")
+	attack_verb_continuous = list("劈砍", "切割")
+	attack_verb_simple = list("劈砍", "切割")
 	hitsound = 'sound/items/weapons/rapierhit.ogg'
 	wound_bonus = 5
 
@@ -192,8 +192,8 @@
 	fera_silver_damage(target, 5, 1)
 
 /obj/item/melee/baseball_bat/vamp
-	name = "baseball bat"
-	desc = "There ain't a skull in the league that can withstand a swatter."
+	name = "棒球棍"
+	desc = "整个联盟也找不出一颗扛得住这记挥击的脑袋。"
 	w_class = WEIGHT_CLASS_BULKY	//TG parent bat is huge
 
 	// WTA pg. 302
@@ -216,8 +216,8 @@
 	AddComponent(/datum/component/selling, 20, "baseball", FALSE)
 
 /obj/item/melee/baseball_bat/vamp/hand
-	name = "ripped arm"
-	desc = "Wow, that was someone's arm."
+	name = "撕下的手臂"
+	desc = "哇，这曾经是某人的手臂。"
 	icon_state = "hand"
 	force = 1 TTRPG_DAMAGE
 	attack_difficulty = 5
@@ -225,22 +225,22 @@
 	//is_wood = FALSE
 
 /obj/item/melee/vamp/tire
-	name = "tire iron"
-	desc = "Can be used as a tool or as a weapon."
+	name = "轮胎撬棒"
+	desc = "既能当工具，也能当武器。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "pipe"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	force = 2 LETHAL_TTRPG_DAMAGE
-	attack_verb_continuous = list("beats", "smacks")
-	attack_verb_simple = list("beat", "smack")
+	attack_verb_continuous = list("殴打", "猛击")
+	attack_verb_simple = list("殴打", "猛击")
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF
 	obj_flags = CONDUCTS_ELECTRICITY
 
 /obj/item/knife/vamp
-	name = "knife"
-	desc = "Don't cut yourself accidentally."
+	name = "小刀"
+	desc = "小心别割伤自己。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -253,7 +253,7 @@
 	custom_price = 85
 
 /obj/item/knife/vamp/lasombra_tentacle
-	name = "shadow tentacle"
+	name = "暗影触须"
 	force = 7
 	armour_penetration = 100
 	block_chance = 0
@@ -273,14 +273,14 @@
 		L.apply_damage(7, BURN)
 
 /obj/item/melee/vamp/handsickle
-	name = "hand sickle"
-	desc = "Reap what they have sowed."
+	name = "手镰"
+	desc = "收割他们种下的恶果。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "handsickle"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	force = 2 LETHAL_TTRPG_DAMAGE
-	attack_verb_continuous = list("slashes", "cuts", "reaps")
-	attack_verb_simple = list("slash", "cut", "reap")
+	attack_verb_continuous = list("劈砍", "切割", "收割")
+	attack_verb_simple = list("劈砍", "切割", "收割")
 	hitsound = 'sound/items/weapons/slash.ogg'
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_NORMAL
@@ -289,8 +289,8 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 
 /obj/item/melee/touch_attack/werewolf
-	name = "falling touch"
-	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
+	name = "倒地之触"
+	desc = "有点像在长毛地毯上蹭脚攒出静电，再去电你的朋友，只不过危险得多。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	//catchphrase = null
 	//on_use_sound = 'sound/magic/disintegrate.ogg'
@@ -308,8 +308,8 @@
 	return ..()
 
 /obj/item/chainsaw/vamp
-	name = "chainsaw"
-	desc = "A versatile power tool. Useful for limbing trees and delimbing humans."
+	name = "链锯"
+	desc = "一种多用途动力工具。既能修剪树枝，也能锯掉人的四肢。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -325,8 +325,8 @@
 	custom_price = 2000
 
 /obj/item/shovel/vamp
-	name = "shovel"
-	desc = "Great weapon against mortal or immortal."
+	name = "铲子"
+	desc = "对付凡人或不朽者都很趁手的武器。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -340,18 +340,18 @@
 /obj/item/shovel/vamp/attack(mob/living/target, mob/living/user)
 	. = ..()
 	if(prob(10))
-		to_chat(user, span_warning("You smash [target] over the head with the shovel!"))
+		to_chat(user, span_warning("你用铲子猛砸[target]的头！"))
 		target.visible_message(
-			span_userdanger("You are smashed over the head by [user]!"),
-			span_warning("You see stars!"),
-			span_hear("You hear a dull THUNK!"))
+			span_userdanger("[user]猛砸了你的头！"),
+			span_warning("你眼冒金星！"),
+			span_hear("你听到一声沉闷的砰响！"))
 		var/head_protection = target.run_armor_check(BODY_ZONE_HEAD, MELEE)
 		target.apply_effect(5 SECONDS, EFFECT_KNOCKDOWN, head_protection)
 		target.drop_all_held_items()
 
 /obj/item/scythe/vamp
-	name = "scythe"
-	desc = "More instrument, than a weapon. Instrumentally cuts heads..."
+	name = "长柄镰刀"
+	desc = "与其说是武器，不如说是工具。一件割脑袋的工具……"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -366,8 +366,8 @@
 
 
 /obj/item/instrument/eguitar/vamp
-	name = "electric guitar"
-	desc = "You are pretty fly for a white guy..."
+	name = "电吉他"
+	desc = "作为一个白人小伙，你还挺潮……"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -381,8 +381,8 @@
 	attack_difficulty = 7
 
 /obj/item/melee/baton/vamp
-	name = "police baton"
-	desc = "Blunt instrument of justice."
+	name = "警棍"
+	desc = "伸张正义的钝器。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "baton"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
@@ -390,8 +390,8 @@
 	custom_price = 20
 
 /obj/item/switchblade/vamp
-	name = "switchblade"
-	desc = "A spring-loaded knife. Perfect for stabbing sharks and jets."
+	name = "弹簧刀"
+	desc = "一把弹簧驱动的小刀。捅鲨鱼帮和喷气机帮正合适。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
 	righthand_file = 'modular_darkpack/modules/deprecated/icons/righthand.dmi'
@@ -403,8 +403,8 @@
 	attack_difficulty = 4
 
 /obj/item/melee/vamp/brick
-	name = "Brick"
-	desc = "Killer of gods and men alike, builder of worlds vast."
+	name = "砖块"
+	desc = "既能弑神杀人，也能筑起大千世界。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "red_brick"
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
@@ -417,8 +417,8 @@
 	throwforce = 2 TTRPG_DAMAGE
 	throw_range = 4
 
-	attack_verb_continuous = list("bludgeons", "bashes", "beats")
-	attack_verb_simple = list("bludgeon", "bash", "beat", "smacks")
+	attack_verb_continuous = list("重击", "猛砸", "殴打")
+	attack_verb_simple = list("重击", "猛砸", "殴打", "猛击")
 	hitsound = 'sound/items/weapons/genhit3.ogg'
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	//grid_width = 2 GRID_BOXES
@@ -443,8 +443,8 @@
 
 //this should be a subtype of spear in the future but we lack the sprites
 /obj/item/darkpack/spear
-	name = "spear"
-	desc = "A staple of warfare through centuries, the spear is great for poking at things."
+	name = "长矛"
+	desc = "几个世纪以来一直是战争中的常备兵器，用来戳东西再合适不过。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "spear"
 	lefthand_file = 'modular_darkpack/modules/weapons/icons/melee_lefthand.dmi'
@@ -458,8 +458,8 @@
 	/// Grrr this should be twohanded.
 
 	sharpness = SHARP_POINTY
-	attack_verb_continuous = list("stabs", "pokes")
-	attack_verb_simple = list("stab", "poke")
+	attack_verb_continuous = list("刺击", "戳刺")
+	attack_verb_simple = list("刺击", "戳刺")
 	hitsound = 'sound/items/weapons/rapierhit.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK

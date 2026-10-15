@@ -1,6 +1,6 @@
 // kinda equivlent to /obj/item/reagent_containers/cup/glass/drinkingglass
 /obj/item/reagent_containers/cup/glass/drinkingglass/collins_glass
-	name = "collins glass"
+	name = "柯林斯杯"
 	icon_state = "collins_glass"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "collinsglass"
@@ -10,7 +10,7 @@
 
 // kinda equivlent to /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass
 /obj/item/reagent_containers/cup/glass/drinkingglass/vodka_shot
-	name = "shot glass"
+	name = "小酒杯"
 	icon_state = "vodka_shot"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "vodkashot"
@@ -22,7 +22,7 @@
 	custom_reagent_sprites = FALSE
 
 /obj/item/reagent_containers/cup/glass/drinkingglass/martini_glass
-	name = "martini glass"
+	name = "马天尼杯"
 	icon_state = "martini_glass"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "martiniglass"
@@ -34,7 +34,7 @@
 	custom_reagent_sprites = FALSE
 
 /obj/item/reagent_containers/cup/glass/drinkingglass/whiskey_shot
-	name = "whiskey shot"
+	name = "威士忌小酒杯"
 	icon_state = "whiskey_shot"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "whiskeyshot"
@@ -45,7 +45,7 @@
 	custom_reagent_sprites = FALSE
 
 /obj/item/reagent_containers/cup/glass/drinkingglass/wine_glass
-	name = "wine glass"
+	name = "葡萄酒杯"
 	icon_state = "wine_glass"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "wineglass"
@@ -56,7 +56,7 @@
 	custom_reagent_sprites =  FALSE
 
 /obj/item/reagent_containers/cup/glass/drinkingglass/pint
-	name = "pint glass"
+	name = "品脱杯"
 	icon_state = "pint"
 	icon = 'modular_darkpack/modules/food/icons/drinking_glass.dmi'
 	fill_icon_state = "pint"

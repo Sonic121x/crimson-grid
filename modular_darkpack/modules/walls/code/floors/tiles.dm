@@ -3,21 +3,21 @@
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 
 /turf/open/floor/city/plating
-	name = "plating"
+	name = "铺板"
 	icon_state = "plating"
 	footstep = FOOTSTEP_PLATING
 
 /turf/open/floor/city/plating_mono
-	name = "plating"
+	name = "铺板"
 	icon_state = "plating-mono"
 	footstep = FOOTSTEP_PLATING
 
 /turf/open/floor/city/plating_stone
-	name = "plating"
+	name = "铺板"
 	icon_state = "plating-stone"
 
 /turf/open/floor/city/toilet
-	name = "plating"
+	name = "铺板"
 	icon_state = "toilet1"
 
 /turf/open/floor/city/toilet/Initialize(mapload)
@@ -26,7 +26,7 @@
 		icon_state = "toilet[rand(1, 9)]"
 
 /turf/open/floor/city/toilet/large
-	name = "plating"
+	name = "铺板"
 	icon_state = "toilet_large1"
 
 /turf/open/floor/city/toilet/large/Initialize(mapload)
@@ -35,7 +35,7 @@
 		icon_state = "toilet_large[rand(1, 9)]"
 
 /turf/open/floor/city/clinic
-	name = "plating"
+	name = "铺板"
 	icon_state = "clinic1"
 
 /turf/open/floor/city/clinic/Initialize(mapload)
@@ -44,7 +44,7 @@
 		icon_state = "clinic[rand(1, 9)]"
 
 /turf/open/floor/city/factory
-	name = "plating"
+	name = "铺板"
 	icon_state = "factory1"
 
 /turf/open/floor/city/factory/Initialize(mapload)
@@ -53,7 +53,7 @@
 		icon_state = "factory[rand(1, 9)]"
 
 /turf/open/floor/city/industrial
-	name = "plating"
+	name = "铺板"
 	icon_state = "industrial1"
 
 /turf/open/floor/city/industrial/Initialize(mapload)
@@ -62,7 +62,7 @@
 		icon_state = "industrial[rand(1, 9)]"
 
 /turf/open/floor/city/industrial/large
-	name = "plating"
+	name = "铺板"
 	icon_state = "industrial_large1"
 
 /turf/open/floor/city/industrial/large/Initialize(mapload)
@@ -71,7 +71,7 @@
 		icon_state = "industrial_large[rand(1, 9)]"
 
 /turf/open/floor/city/circled
-	name = "fancy plating"
+	name = "精美铺板"
 	icon_state = "circle1"
 
 /turf/open/floor/city/circled/Initialize(mapload)
@@ -80,11 +80,11 @@
 		icon_state = "circle[rand(1, 8)]"
 
 /turf/open/floor/city/circled/large
-	name = "fancy plating"
+	name = "精美铺板"
 	icon_state = "circle_large"
 
 /turf/open/floor/city/church
-	name = "fancy plating"
+	name = "精美铺板"
 	icon_state = "church1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
@@ -95,7 +95,7 @@
 		icon_state = "church[rand(1, 4)]"
 
 /turf/open/floor/city/saint
-	name = "fancy plating"
+	name = "精美铺板"
 	icon_state = "saint1"
 	footstep = FOOTSTEP_PARKET
 	barefootstep = FOOTSTEP_PARKET
@@ -106,7 +106,7 @@
 		icon_state = "saint[rand(1, 2)]"
 
 /turf/open/floor/city/bacotell
-	name = "plating"
+	name = "铺板"
 	icon_state = "bacotell1"
 	base_icon_state = "bacotell"
 
@@ -116,7 +116,7 @@
 		icon_state = "[base_icon_state][rand(1, 4)]"
 
 /turf/open/floor/city/gummaguts
-	name = "plating"
+	name = "铺板"
 	icon_state = "gummaguts"
 	base_icon_state = "gummaguts"
 

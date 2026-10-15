@@ -7,12 +7,12 @@
 	resilience = TRAUMA_RESILIENCE_SURGERY
 
 /datum/brain_trauma/severe/mute
-	name = "Mutism"
-	desc = "Patient is completely unable to speak."
-	scan_desc = "extensive damage to the brain's speech center"
-	symptoms = "Completley incapable of producing sound or speech verbally."
-	gain_text = span_warning("You forget how to speak!")
-	lose_text = span_notice("You suddenly remember how to speak.")
+	name = "缄默症"
+	desc = "患者完全无法说话。"
+	scan_desc = "大脑言语中枢广泛受损"
+	symptoms = "完全无法通过口部发声或说话。"
+	gain_text = span_warning("你忘了该怎么说话！")
+	lose_text = span_notice("你突然想起了该怎么说话。")
 
 /datum/brain_trauma/severe/mute/on_gain()
 	ADD_TRAIT(owner, TRAIT_MUTE, TRAUMA_TRAIT)
@@ -23,12 +23,12 @@
 	..()
 
 /datum/brain_trauma/severe/aphasia
-	name = "Aphasia"
-	desc = "Patient is unable to speak or understand any language."
-	scan_desc = "extensive damage to the brain's language center"
-	symptoms = "Completely incapable of understanding or producing language besides incomprehensible utterances."
-	gain_text = span_warning("You have trouble forming words in your head...")
-	lose_text = span_notice("You suddenly remember how languages work.")
+	name = "失语症"
+	desc = "患者无法说出或理解任何语言。"
+	scan_desc = "大脑语言中枢广泛受损"
+	symptoms = "完全无法理解或使用语言，只能发出难以理解的声音。"
+	gain_text = span_warning("你难以在脑海中组织词语……")
+	lose_text = span_notice("你突然想起了该如何使用语言。")
 
 /datum/brain_trauma/severe/aphasia/on_gain()
 	owner.add_blocked_language(subtypesof(/datum/language) - /datum/language/aphasia, source = LANGUAGE_APHASIA)
@@ -43,12 +43,12 @@
 	..()
 
 /datum/brain_trauma/severe/blindness
-	name = "Cerebral Blindness"
-	desc = "Patient's brain is no longer connected to its eyes."
-	scan_desc = "extensive damage to the brain's occipital lobe"
-	symptoms = "Exhibits a complete loss of vision despite having fully functional eyes."
-	gain_text = span_warning("You can't see!")
-	lose_text = span_notice("Your vision returns.")
+	name = "脑源性失明"
+	desc = "患者的大脑与眼睛失去了联系。"
+	scan_desc = "大脑枕叶广泛受损"
+	symptoms = "即使眼睛功能完好，也完全丧失了视力。"
+	gain_text = span_warning("你看不见了！")
+	lose_text = span_notice("你的视力恢复了。")
 
 /datum/brain_trauma/severe/blindness/on_gain()
 	owner.become_blind(TRAUMA_TRAIT)
@@ -59,10 +59,10 @@
 	..()
 
 /datum/brain_trauma/severe/paralysis
-	name = "Paralysis"
-	desc = "Patient's brain can no longer control part of its motor functions."
-	scan_desc = "cerebral paralysis"
-	symptoms = "Experience a complete loss of voluntary movement in specific body parts."
+	name = "瘫痪"
+	desc = "患者的大脑无法再控制部分运动功能。"
+	scan_desc = "脑源性瘫痪"
+	symptoms = "特定身体部位完全丧失自主运动能力。"
 	gain_text = ""
 	lose_text = ""
 	var/paralysis_type
@@ -77,35 +77,35 @@
 	var/subject
 	switch(paralysis_type)
 		if("full")
-			subject = "your body"
+			subject = "身体"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_ARM, TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_L_LEG, TRAIT_PARALYSIS_R_LEG)
 		if("left")
-			subject = "the left side of your body"
+			subject = "左半边身体"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_ARM, TRAIT_PARALYSIS_L_LEG)
 		if("right")
-			subject = "the right side of your body"
+			subject = "右半边身体"
 			paralysis_traits = list(TRAIT_PARALYSIS_R_ARM, TRAIT_PARALYSIS_R_LEG)
 		if("arms")
-			subject = "your arms"
+			subject = "双臂"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_ARM, TRAIT_PARALYSIS_R_ARM)
 		if("legs")
-			subject = "your legs"
+			subject = "双腿"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_LEG, TRAIT_PARALYSIS_R_LEG)
 		if("r_arm")
-			subject = "your right arm"
+			subject = "右臂"
 			paralysis_traits = list(TRAIT_PARALYSIS_R_ARM)
 		if("l_arm")
-			subject = "your left arm"
+			subject = "左臂"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_ARM)
 		if("r_leg")
-			subject = "your right leg"
+			subject = "右腿"
 			paralysis_traits = list(TRAIT_PARALYSIS_R_LEG)
 		if("l_leg")
-			subject = "your left leg"
+			subject = "左腿"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_LEG)
 
-	gain_text = span_warning("You can't feel [subject] anymore!")
-	lose_text = span_notice("You can feel [subject] again!")
+	gain_text = span_warning("你的[subject]失去了知觉！")
+	lose_text = span_notice("你的[subject]恢复了知觉！")
 
 /datum/brain_trauma/severe/paralysis/on_gain()
 	. = ..()
@@ -137,12 +137,12 @@
 	paralysis_type = "right"
 
 /datum/brain_trauma/severe/narcolepsy
-	name = "Narcolepsy"
-	desc = "Patient may involuntarily fall asleep during normal activities."
-	scan_desc = "traumatic narcolepsy"
-	symptoms = "Experiences sudden and uncontrollable episodes of drowsiness or sleepiness during regular activities."
-	gain_text = span_warning("You have a constant feeling of drowsiness...")
-	lose_text = span_notice("You feel awake and aware again.")
+	name = "发作性睡病"
+	desc = "患者可能在正常活动时不由自主地睡着。"
+	scan_desc = "创伤性发作性睡病"
+	symptoms = "日常活动中突然出现无法控制的困倦或嗜睡。"
+	gain_text = span_warning("你总是感到昏昏欲睡……")
+	lose_text = span_notice("你感觉又清醒过来了。")
 	/// Odds seconds_per_tick the user falls asleep
 	var/sleep_chance = 1
 	/// Odds seconds_per_tick the user falls asleep while running
@@ -184,21 +184,21 @@
 
 	//if not drowsy, don't fall asleep but make them drowsy
 	if(!drowsy)
-		to_chat(owner, span_warning("You feel tired..."))
+		to_chat(owner, span_warning("你感觉很困……"))
 		owner.adjust_drowsiness(rand(drowsy_time_minimum, drowsy_time_maximum))
 		if(prob(50))
 			owner.emote("yawn")
 		else if(prob(33)) //rarest message is a custom emote
-			owner.visible_message("rubs [owner.p_their()] eyes.", visible_message_flags = EMOTE_MESSAGE)
+			owner.visible_message("揉了揉眼睛。", visible_message_flags = EMOTE_MESSAGE)
 	//drowsy, so fall asleep. you've had your chance to remedy it
 	else
-		to_chat(owner, span_warning("You fall asleep."))
+		to_chat(owner, span_warning("你睡着了。"))
 		owner.Sleeping(rand(sleep_time_minimum, sleep_time_maximum))
 		if(prob(50) && owner.IsSleeping())
 			owner.emote("snore")
 
 /datum/brain_trauma/severe/narcolepsy/permanent
-	scan_desc = "chronic narcolepsy" //less odds to fall asleep than parent, but sleeps for longer
+	scan_desc = "慢性发作性睡病" //less odds to fall asleep than parent, but sleeps for longer
 	sleep_chance = 0.333
 	sleep_chance_running = 0.333
 	sleep_chance_drowsy = 1
@@ -207,13 +207,13 @@
 	known_trauma = FALSE
 
 /datum/brain_trauma/severe/monophobia
-	name = "Monophobia"
-	desc = "Patient feels sick and distressed when not around other people, leading to potentially lethal levels of stress."
-	scan_desc = "monophobia"
-	symptoms = "Experiences intense fear and anxiety when alone, often leading to panic attacks, \
-		nausea, rapid heartbeat, and in severe cases, fainting, vomiting, or heart failure."
-	gain_text = span_warning("You feel really lonely...")
-	lose_text = span_notice("You feel like you could be safe on your own.")
+	name = "独处恐惧症"
+	desc = "患者在身边没有他人时感到不适和痛苦，由此产生的压力可能致命。"
+	scan_desc = "独处恐惧症"
+	symptoms = "独处时出现强烈的恐惧和焦虑，常引发惊恐发作、\
+		恶心及心跳加速，严重时会昏厥、呕吐或心力衰竭。"
+	gain_text = span_warning("你感觉非常孤独……")
+	lose_text = span_notice("你觉得独自一人也能安然无恙了。")
 
 /datum/brain_trauma/severe/monophobia/on_gain()
 	. = ..()
@@ -224,12 +224,12 @@
 	owner.RemoveComponentSource(REF(src), /datum/component/fearful)
 
 /datum/brain_trauma/severe/discoordination
-	name = "Discoordination"
-	desc = "Patient is unable to use complex tools or machinery."
-	scan_desc = "extreme discoordination"
-	symptoms = "Completely incapable of performing tasks that require fine motor skills or coordination, such as using tools or operating machinery."
-	gain_text = span_warning("You can barely control your hands!")
-	lose_text = span_notice("You feel in control of your hands again.")
+	name = "协调障碍"
+	desc = "患者无法使用复杂工具或机器。"
+	scan_desc = "严重协调障碍"
+	symptoms = "完全无法执行需要精细动作或协调能力的任务，例如使用工具或操作机器。"
+	gain_text = span_warning("你几乎控制不了自己的双手！")
+	lose_text = span_notice("你感觉又能控制自己的双手了。")
 
 /datum/brain_trauma/severe/discoordination/on_gain()
 	. = ..()
@@ -240,13 +240,13 @@
 	return ..()
 
 /datum/brain_trauma/severe/pacifism
-	name = "Traumatic Non-Violence"
-	desc = "Patient is extremely unwilling to harm others in violent ways."
-	scan_desc = "pacific syndrome"
-	symptoms = "Completely incapable of willing themselves to commit acts of violence or harm towards others, \
-		often going to great lengths to avoid confrontations or situations that may lead to violence."
-	gain_text = span_notice("You feel oddly peaceful.")
-	lose_text = span_notice("You no longer feel compelled to not harm.")
+	name = "创伤性非暴力倾向"
+	desc = "患者极度不愿通过暴力伤害他人。"
+	scan_desc = "和平综合征"
+	symptoms = "完全无法下定决心对他人施暴或造成伤害，\
+		经常竭尽所能避开冲突或可能引发暴力的情境。"
+	gain_text = span_notice("你感到异样的平和。")
+	lose_text = span_notice("你不再觉得自己非得避免伤害他人。")
 
 /datum/brain_trauma/severe/pacifism/on_gain()
 	ADD_TRAIT(owner, TRAIT_PACIFISM, TRAUMA_TRAIT)
@@ -257,13 +257,13 @@
 	..()
 
 /datum/brain_trauma/severe/hypnotic_stupor
-	name = "Hypnotic Stupor"
-	desc = "Patient is prone to episodes of extreme stupor that leaves them extremely suggestible."
-	scan_desc = "oneiric feedback loop"
-	symptoms = "Experiences sudden episodes of deep stupor or trance-like states, during which the patient becomes highly suggestible to external influences, \
-		often leading to altered perceptions or behaviors, memories imposed by others, or in severe cases, danger to self or others."
-	gain_text = span_warning("You feel somewhat dazed.")
-	lose_text = span_notice("You feel like a fog was lifted from your mind.")
+	name = "催眠性木僵"
+	desc = "患者容易陷入极度木僵状态，变得极易接受暗示。"
+	scan_desc = "梦境反馈循环"
+	symptoms = "突然陷入深度木僵或恍惚状态，此时极易受到外界暗示，\
+		常导致感知或行为改变、被他人植入记忆，严重时可能危及自身或他人。"
+	gain_text = span_warning("你感觉有些恍惚。")
+	lose_text = span_notice("你感觉脑海中的迷雾散去了。")
 
 /datum/brain_trauma/severe/hypnotic_stupor/on_lose() //hypnosis must be cleared separately, but brain surgery should get rid of both anyway
 	..()
@@ -275,11 +275,11 @@
 		owner.apply_status_effect(/datum/status_effect/trance, rand(100,300), FALSE)
 
 /datum/brain_trauma/severe/hypnotic_trigger
-	name = "Hypnotic Trigger"
-	desc = "Patient has a trigger phrase set in their subconscious that will trigger a suggestible trance-like state."
-	scan_desc = "oneiric feedback loop"
-	gain_text = span_warning("You feel odd, like you just forgot something important.")
-	lose_text = span_notice("You feel like a weight was lifted from your mind.")
+	name = "催眠触发"
+	desc = "患者的潜意识中被设下了触发短语，听到后会进入易受暗示的恍惚状态。"
+	scan_desc = "梦境反馈循环"
+	gain_text = span_warning("你感觉有些异样，仿佛刚刚忘记了什么重要的事。")
+	lose_text = span_notice("你感觉心中的重担卸下了。")
 	random_gain = FALSE
 	known_trauma = FALSE
 	var/trigger_phrase = "Nanotrasen"
@@ -304,17 +304,17 @@
 		hearing_args[HEARING_RAW_MESSAGE] = reg.Replace(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("*********"))
 
 /datum/brain_trauma/severe/hypnotic_trigger/proc/hypnotrigger()
-	to_chat(owner, span_warning("The words trigger something deep within you, and you feel your consciousness slipping away..."))
+	to_chat(owner, span_warning("那些话触动了你内心深处的某样东西，你感觉意识正在远去……"))
 	owner.apply_status_effect(/datum/status_effect/trance, rand(100,300), FALSE)
 
 /datum/brain_trauma/severe/dyslexia
-	name = "Dyslexia"
-	desc = "Patient is unable to read or write."
-	scan_desc = "dyslexia"
-	symptoms = "Experiences significant difficulties in reading and writing, often confusing letters and words, \
-		leading to challenges in literacy-related tasks such as reading scanners or completing paperwork."
-	gain_text = span_warning("You have trouble reading or writing...")
-	lose_text = span_notice("You suddenly remember how to read and write.")
+	name = "读写障碍"
+	desc = "患者无法阅读或书写。"
+	scan_desc = "读写障碍"
+	symptoms = "阅读和书写明显困难，经常混淆字母和词语，\
+		难以完成阅读扫描仪或填写文件等涉及文字的任务。"
+	gain_text = span_warning("你读写起来很吃力……")
+	lose_text = span_notice("你突然想起了该如何阅读和书写。")
 
 /datum/brain_trauma/severe/dyslexia/on_gain()
 	ADD_TRAIT(owner, TRAIT_ILLITERATE, TRAUMA_TRAIT)
@@ -325,13 +325,13 @@
 	..()
 
 /datum/brain_trauma/severe/kleptomaniac
-	name = "Kleptomania"
-	desc = "Patient is prone to stealing things."
-	scan_desc = "kleptomania"
-	symptoms = "Experiences an uncontrollable urge to steal nearby items, often without need or reason, \
-		leading to compulsive theft behaviors that can interfere with daily life and social interactions."
-	gain_text = span_warning("You feel a sudden urge to take that. Surely no one will notice.")
-	lose_text = span_notice("You no longer feel the urge to take things.")
+	name = "偷窃癖"
+	desc = "患者容易偷拿物品。"
+	scan_desc = "偷窃癖"
+	symptoms = "出现无法控制的冲动，想偷拿附近的物品，往往既无需要也无理由，\
+		由此产生的强迫性偷窃行为可能干扰日常生活与社交。"
+	gain_text = span_warning("你突然很想把那个东西拿走。肯定没人会注意到。")
+	lose_text = span_notice("你不再想偷拿东西了。")
 	/// Cooldown between allowing steal attempts
 	COOLDOWN_DECLARE(steal_cd)
 

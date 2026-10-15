@@ -1,10 +1,10 @@
 /datum/subsplat/vampire_clan/giovanni
 	name = "Giovanni"
 	id = VAMPIRE_CLAN_GIOVANNI
-	desc = "The Giovanni are the usurpers of Clan Cappadocian and one of the youngest clans. The Giovanni has historically been both a clan and a family. They Embrace almost exclusively within their family, and are heavily focused on the goals of money and necromantic power."
+	desc = "乔凡尼是篡夺卡帕多西亚地位的氏族，也是最年轻的氏族之一。历史上的乔凡尼既是氏族，也是家族。他们几乎只在家族内部施行初拥，专注于追求金钱与死灵术的力量。"
 	icon = "giovanni"
-	curse = "Extremely painful bites that injure their quarry causing them to scream in pain and perhaps die, while other Clan's bites lull their victims into a pleasurable, foggy trance."
-	sense_the_sin_text = "never considers any action too great for their family."
+	curse = "噬咬极其痛苦，会伤害猎物，使其惨叫，甚至死亡；其他氏族的噬咬则会让受害者陷入愉悦而朦胧的恍惚。"
+	sense_the_sin_text = "认为为了家族，付出再大的代价也不为过。"
 	clan_disciplines = list(
 		/datum/discipline/potence,
 		/datum/discipline/dominate,
@@ -21,6 +21,6 @@
 	joining.grant_language(/datum/language/italian)
 
 /datum/subsplat/vampire_clan/giovanni/psychomania_effect(mob/living/target, mob/living/owner)
-	to_chat(target, span_cult("A sense of profound dread enters you as soundless words enter your mind"))
+	to_chat(target, span_cult("无声的话语侵入脑海，深沉的恐惧随之笼罩你。"))
 	target.playsound_local(target, "modular_darkpack/modules/powers/sounds/daimonion_laughs/eldritchlaugh.ogg", 50, FALSE)
 	new /obj/effect/client_image_holder/baali_demon/spectre(get_turf(target), list(target))

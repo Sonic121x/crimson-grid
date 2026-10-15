@@ -1,6 +1,6 @@
 /obj/lettermachine
-	name = "letter machine"
-	desc = "Work as letterman! Find a job!"
+	name = "邮务终端"
+	desc = "来当邮递员吧！找份工作干！"
 	icon = 'modular_darkpack/modules/postal/icons/letters.dmi'
 	icon_state = "mail"
 	density = TRUE
@@ -16,22 +16,22 @@
 		return
 	if(money >= 10)
 		new /obj/item/letter(loc)
-		say("New letter delivered!")
+		say("新信件已发放！")
 		money = max(0, money-10)
 	else
-		say("Not enough money on [src] balance!")
+		say("[src]的余额不足！")
 
 /obj/lettermachine/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(iscash(tool))
 		money += tool.get_item_credit_value()
-		to_chat(user, span_notice("You insert [tool.get_item_credit_value()] [MONEY_NAME] into [src]."))
-		say("[tool] inserted.")
+		to_chat(user, span_notice("你向[src]投入了[tool.get_item_credit_value()][MONEY_NAME]。"))
+		say("已投入[tool]。")
 		qdel(tool)
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/mark))
 		new /obj/item/stack/dollar(loc, 30)
-		say("[tool] delivered!")
+		say("[tool]已交付！")
 		qdel(tool)
 		return ITEM_INTERACT_SUCCESS
 
@@ -39,10 +39,10 @@
 
 /obj/lettermachine/examine(mob/user)
 	. = ..()
-	. += span_info("It contains [money] [MONEY_NAME].")
+	. += span_info("其中存有[money][MONEY_NAME]。")
 
 /obj/item/letter
-	name = "letter"
+	name = "信件"
 	icon_state = "letter"
 	icon = 'modular_darkpack/modules/postal/icons/letters.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
@@ -50,7 +50,7 @@
 	var/datum/weakref/mail_target_weakref
 
 /obj/item/mark
-	name = "letter mark"
+	name = "收件回执"
 	icon_state = "mark"
 	icon = 'modular_darkpack/modules/postal/icons/letters.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/deprecated/icons/onfloor.dmi')
@@ -64,13 +64,13 @@
 			mail_recipients += alive
 	if(length(mail_recipients))
 		var/mob/mail_target = pick(mail_recipients)
-		name = "letter ([mail_target.real_name])"
+		name = "信件（[mail_target.real_name]）"
 		mail_target_weakref = WEAKREF(mail_target)
 
 /obj/item/letter/examine(mob/user)
 	. = ..()
 	var/mob/mail_target = mail_target_weakref.resolve()
-	. += "This letter is adressed to <b>[mail_target?.real_name]</b>"
+	. += "这封信的收件人是<b>[mail_target?.real_name]</b>。"
 
 /obj/item/letter/attack_self(mob/user)
 	. = ..()

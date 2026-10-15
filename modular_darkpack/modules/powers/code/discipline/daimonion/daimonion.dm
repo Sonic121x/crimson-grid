@@ -1,11 +1,11 @@
 /datum/discipline/daimonion
 	name = "Daimonion"
-	desc = {"Draw power from the demons and infernal nature of Hell. Use subtle power to manipulate people and when you must, draw upon fire itself and protect yourself.
-● Sense the Sin: Perception + Empathy vs. target's Self-Control + 4
-●● Fear of the Void Below: Wits + Intimidation vs. target's Courage + 4
-●●● Conflagration: No roll
-●●●● Psychomania: target's lowest Virtue
-●●●●● Condemnation: Intelligence + Occult vs. target's Willpower"}
+	desc = {"从恶魔与地狱的邪恶本质中汲取力量。以隐秘之力操控他人，必要时召来烈火护身。
+● 洞悉罪孽：感知 + 共情，对抗目标的自制 + 4
+●● 深渊恐惧：机敏 + 威吓，对抗目标的勇气 + 4
+●●● 燎原烈火：无需掷骰
+●●●● 恐惧具现：目标最低的美德
+●●●●● 定罪：智力 + 神秘学，对抗目标的意志力"}
 	icon_state = "daimonion"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/daimonion
@@ -21,8 +21,8 @@
 
 //SENSE THE SIN
 /datum/discipline_power/daimonion/sense_the_sin
-	name = "Sense the Sin"
-	desc = "Sense the sins and cruelties of your victim."
+	name = "洞悉罪孽"
+	desc = "感知受害者的罪孽与残酷本性。"
 
 	target_type = TARGET_HUMAN
 	range = 7
@@ -34,7 +34,7 @@
 	var/datum/storyteller_roll/sense_the_sin/sense_the_sin_roll
 
 /datum/storyteller_roll/sense_the_sin
-	bumper_text = "sense the sin"
+	bumper_text = "洞悉罪孽"
 	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
 	roll_output_type = ROLL_FLAG_ROLLER
 
@@ -51,15 +51,15 @@
 /datum/discipline_power/daimonion/sense_the_sin/activate(mob/living/carbon/human/target)
 	. = ..()
 	if(target.st_get_stat(STAT_CHARISMA) <= 2)
-		to_chat(owner, span_notice("They are not social or influencing."))
+		to_chat(owner, span_notice("对方不擅交际，也缺乏影响力。"))
 	if(target.st_get_stat(STAT_PERMANENT_WILLPOWER) <= 2)
-		to_chat(owner, span_notice("They lack appropiate willpower."))
+		to_chat(owner, span_notice("对方缺乏足够的意志力。"))
 	if(target.st_get_stat(STAT_STRENGTH) <= 2)
-		to_chat(owner, span_notice("Their body is weak and feeble."))
+		to_chat(owner, span_notice("对方的身体孱弱无力。"))
 	if(target.st_get_stat(STAT_DEXTERITY) <= 2)
-		to_chat(owner, span_notice("They lack coordination."))
+		to_chat(owner, span_notice("对方缺乏协调性。"))
 	if(get_garou_splat(target))
-		to_chat(owner, span_notice("Their natural banishment is silver..."))
+		to_chat(owner, span_notice("白银是对方天生的克星……"))
 	if(get_kindred_splat(target))
 		var/datum/subsplat/vampire_clan/target_clan = target.get_clan()
 		if(!target_clan)
@@ -91,7 +91,7 @@
 			to_chat(owner, span_notice("[target] doesn't like to be pointed at!"))
 	*/
 	if(!get_kindred_splat(target) && !get_ghoul_splat(target) && !get_shifter_splat(target) /*&& !iscathayan(target)*/)
-		to_chat(owner, span_notice("[target] is a feeble worm with no strengths or visible weaknesses, a mere human."))
+		to_chat(owner, span_notice("[target]不过是条孱弱的虫豸，既无长处，也无明显弱点——只是个凡人。"))
 
 
 			/* DARKPACK TODO: Warrior Salubri / Salubri Warrior
@@ -115,12 +115,12 @@
 		if(!signature_clan)
 			continue
 		if(signature_clan != target_clan.id)
-			to_chat(owner, span_warning("[target] has stolen [discipline.name]!"))
+			to_chat(owner, span_warning("[target]窃取了[DISCIPLINE_DISPLAY_NAME(discipline.name)]！"))
 
 //FEAR OF THE VOID BELOW
 /datum/discipline_power/daimonion/fear_of_the_void_below
-	name = "Fear of the Void Below"
-	desc = "Induce fear in a target."
+	name = "深渊恐惧"
+	desc = "在目标心中唤起恐惧。"
 
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -137,14 +137,14 @@
 	// CRIMSON GRID ADD END: DARK THAUMATURGY
 
 /datum/storyteller_roll/fear_of_the_void_below
-	bumper_text = "fear of the void below"
+	bumper_text = "深渊恐惧"
 	applicable_stats = list(STAT_WITS, STAT_INTIMIDATION)
 	roll_output_type = ROLL_FLAG_ROLLER
 	numerical = TRUE // CRIMSON GRID ADD: DARK THAUMATURGY
 
 // CRIMSON GRID ADD: DARK THAUMATURGY
 /datum/storyteller_roll/fear_of_the_void_below_resist
-	bumper_text = "control the beast"
+	bumper_text = "压制心兽"
 	applicable_stats = list(STAT_COURAGE)
 	roll_output_type = NONE
 	numerical = TRUE
@@ -156,7 +156,7 @@
 	fear_of_the_void_below_roll.difficulty = target.st_get_stat(STAT_COURAGE) + 4
 	var/roll = fear_of_the_void_below_roll.st_roll(owner, target)
 	if(roll != ROLL_SUCCESS)
-		to_chat(owner, span_warning("[target] has too much willpower to induce fear into them!"))
+		to_chat(owner, span_warning("[target]的意志太过坚定，无法使其恐惧！"))
 		return FALSE
 	return TRUE
 
@@ -168,25 +168,25 @@
 	fear_of_the_void_below_roll.difficulty = target.st_get_stat(STAT_COURAGE) + 4
 	success_count = SSroll.storyteller_roll_datum(owner, target, /datum/storyteller_roll/fear_of_the_void_below, difficulty = target.st_get_stat(STAT_COURAGE) + 4)
 	if(success_count <= 0)
-		to_chat(owner, span_warning("[target] has too much willpower to induce fear into them!"))
+		to_chat(owner, span_warning("[target]的意志太过坚定，无法使其恐惧！"))
 		return
 	if(get_kindred_splat(target))
 		if(!fear_of_the_void_below_resist)
 			fear_of_the_void_below_resist = new()
 		var/resist_count = SSroll.storyteller_roll_datum(target, owner, /datum/storyteller_roll/fear_of_the_void_below_resist, difficulty = owner.st_get_stat(STAT_PERMANENT_WILLPOWER))
 		if(resist_count > success_count)
-			to_chat(owner, span_warning("You fail to envelop [target]'s mind as they subdue their their beast!"))
+			to_chat(owner, span_warning("[target]压制住了自身的心兽，你未能笼罩其心智！"))
 			return
 	target.apply_status_effect(/datum/status_effect/dread_gaze)
 	target.emote("tremble")
 	target.emote(pick("scream","cry"))
-	to_chat(target, span_warning("Your greatest fear envelops you!"))
+	to_chat(target, span_warning("你最深的恐惧将你吞没！"))
 	switch(success_count)
 		if(1)
 			target.adjust_confusion(3 SECONDS)
 		if(2)
 			GLOB.move_manager.move_away(target, owner, 10, target.cached_multiplicative_slowdown, 1 SCENES)
-			to_chat(target, span_userdanger("R U N !"))
+			to_chat(target, span_userdanger("快 逃！"))
 		if(3 to INFINITY)
 			target.Immobilize(3 SECONDS)
 			if(target.body_position == STANDING_UP)
@@ -196,8 +196,8 @@
 
 //CONFLAGRATION
 /datum/discipline_power/daimonion/conflagration
-	name = "Conflagration"
-	desc = "Draw out the destructive essence of the Beyond."
+	name = "燎原烈火"
+	desc = "引出彼界的毁灭精髓。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -224,8 +224,8 @@
 
 //PSYCHOMANIA
 /datum/discipline_power/daimonion/psychomania
-	name = "Psychomania"
-	desc = "Bring forth the target's greatest fear."
+	name = "恐惧具现"
+	desc = "让目标最深的恐惧化为现实。"
 
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
@@ -239,7 +239,7 @@
 	var/datum/storyteller_roll/psychomania/psychomania_roll
 
 /datum/storyteller_roll/psychomania
-	bumper_text = "psychomania"
+	bumper_text = "恐惧具现"
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/discipline_power/daimonion/psychomania/pre_activation_checks(mob/living/target)
@@ -263,10 +263,10 @@
 	var/roll = psychomania_roll.st_roll(target, owner)
 
 	if(roll != ROLL_SUCCESS)
-		to_chat(owner, span_cult("[target] will suffer greatly."))
+		to_chat(owner, span_cult("[target]将饱受折磨。"))
 		return TRUE
 
-	to_chat(owner, span_warning("[target] is too pure to manifest their fears!"))
+	to_chat(owner, span_warning("[target]的心灵太过纯洁，无法使其恐惧具现！"))
 	return FALSE
 
 /datum/discipline_power/daimonion/psychomania/activate(mob/living/target)
@@ -282,7 +282,7 @@
 		kindred_splat.clan.psychomania_effect(target, owner)
 		return
 
-	to_chat(target, span_cult("SOMETHING IS COMING, WHAT IS IT?!!"))
+	to_chat(target, span_cult("有什么东西过来了，那究竟是什么？！！"))
 	var/obj/effect/client_image_holder/baali_demon/demon = new(get_turf(target), list(target))
 	RegisterSignal(demon, COMSIG_BAALI_DEMON_REACHED_TARGET, PROC_REF(on_demon_contact))
 	return
@@ -294,8 +294,8 @@
 
 //CONDEMNATION
 /datum/discipline_power/daimonion/condemnation
-	name = "Condemnation"
-	desc = "Condemn a soul to suffering."
+	name = "定罪"
+	desc = "判处一个灵魂受难之刑。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE
@@ -308,7 +308,7 @@
 	frenzy_usable = FALSE
 
 /datum/storyteller_roll/condemnation
-	bumper_text = "condemnation"
+	bumper_text = "定罪"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_OCCULT)
 	roll_output_type = ROLL_FLAG_ROLLER
 
@@ -316,7 +316,7 @@
 	. = ..()
 
 	if(target.has_status_effect(/datum/status_effect/condemnation))
-		to_chat(owner, span_warning("They are already damned!"))
+		to_chat(owner, span_warning("对方已经受到诅咒！"))
 		return
 
 	var/datum/splat/vampire/kindred/kindred_splat = get_kindred_splat(owner)
@@ -326,7 +326,7 @@
 			if(kindred_splat.generation <= curse.genrequired)
 				LAZYSET(available_curses, curse.name, curse_type)
 
-	var/chosen_curse_name = tgui_input_list(owner, "What curse shall befall the damned?", "Curse Selection", available_curses)
+	var/chosen_curse_name = tgui_input_list(owner, "要让受罚者承受何种诅咒？", "选择诅咒", available_curses)
 	if(!chosen_curse_name)
 		return
 
@@ -338,7 +338,7 @@
 	condemnation_roll.difficulty = target.st_get_stat(STAT_TEMPORARY_WILLPOWER)
 	var/roll = condemnation_roll.st_roll(owner, target)
 	if(roll != ROLL_SUCCESS)
-		to_chat(owner, span_warning("You fail to pierce their mind and the target remains free of your curse."))
+		to_chat(owner, span_warning("你未能侵入对方的心智，目标逃过了你的诅咒。"))
 		//not sure if target should get a to_chat?
 		return
 

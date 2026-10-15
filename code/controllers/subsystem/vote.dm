@@ -203,7 +203,7 @@ SUBSYSTEM_DEF(vote)
 	// No valid vote found? No vote
 	if(!istype(to_vote))
 		if(vote_initiator)
-			to_chat(vote_initiator, span_warning("Invalid voting choice."))
+			to_chat(vote_initiator, span_warning("无效的投票选项。"))
 		return FALSE
 
 	// Vote can't be initiated in our circumstances? No vote
@@ -230,8 +230,8 @@ SUBSYSTEM_DEF(vote)
 
 	log_vote(to_display)
 	to_chat(world, custom_boxed_message("purple_box center", span_infoplain(vote_font("[span_bold(to_display)]<br>\
-		Type <b>vote</b> or click <a href='byond://winset?command=vote'>here</a> to place your votes.\n\
-		You have [DisplayTimeText(duration)] to vote."))))
+		输入 <b>vote</b> 或点击<a href='byond://winset?command=vote'>此处</a>投票。\n\
+		你有 [DisplayTimeText(duration)] 的时间投票。"))))
 
 	// And now that it's going, give everyone a voter action
 	for(var/client/new_voter as anything in GLOB.clients)
@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(vote)
 	// Even if it's forced we can't vote before we're set up
 	if(!MC_RUNNING(init_stage))
 		if(vote_initiator)
-			to_chat(vote_initiator, span_warning("You cannot start a vote now, the server is not done initializing."))
+			to_chat(vote_initiator, span_warning("服务器尚未完成初始化，现在无法发起投票。"))
 		return FALSE
 
 	if(forced)
@@ -267,12 +267,12 @@ SUBSYSTEM_DEF(vote)
 	var/next_allowed_time = last_vote_time + CONFIG_GET(number/vote_delay)
 	if(next_allowed_time > world.time)
 		if(vote_initiator)
-			to_chat(vote_initiator, span_warning("A vote was initiated recently. You must wait [DisplayTimeText(next_allowed_time - world.time)] before a new vote can be started!"))
+			to_chat(vote_initiator, span_warning("刚刚发起过投票，必须等待 [DisplayTimeText(next_allowed_time - world.time)] 才能发起新投票！"))
 		return FALSE
 
 	if(current_vote)
 		if(vote_initiator)
-			to_chat(vote_initiator, span_warning("There is already a vote in progress! Please wait for it to finish."))
+			to_chat(vote_initiator, span_warning("已有投票正在进行！请等待其结束。"))
 		return FALSE
 
 	return TRUE
@@ -441,10 +441,10 @@ SUBSYSTEM_DEF(vote)
 	voting -= user.client?.ckey
 
 /// Mob level verb that allows players to vote on the current vote.
-GAME_VERB(/mob, vote, "Vote", "OOC")
+GAME_VERB(/mob, vote, "投票", "OOC")
 
 	if(!SSvote.initialized)
-		to_chat(usr, span_notice("<i>Voting is not set up yet!</i>"))
+		to_chat(usr, span_notice("<i>投票系统尚未就绪！</i>"))
 		return
 
 	SSvote.ui_interact(usr)

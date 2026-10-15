@@ -61,7 +61,7 @@
 	return TRUE
 
 /datum/preference_middleware/jobs/get_constant_data()
-	var/list/data = list()
+	var/list/data = list("display_names" = GLOB.localized_job_titles)
 
 	var/list/departments = list()
 	var/list/jobs = list()

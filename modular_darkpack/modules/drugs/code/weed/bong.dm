@@ -1,6 +1,6 @@
 /obj/item/bong
-	name = "bong"
-	desc = "Technically known as a water pipe."
+	name = "水烟壶"
+	desc = "严格来说，这是一种用水过滤烟雾的烟具。"
 	icon = 'modular_darkpack/modules/drugs/icons/items.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/drugs/icons/onfloor.dmi')
 	icon_state = "bulbulator"
@@ -40,14 +40,14 @@
 /obj/item/bong/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if((istype(tool, /obj/item/food/grown) || istype(tool, /obj/item/food/drug)))
 		if(packeditem)
-			to_chat(user, span_warning("It is already packed!"))
+			to_chat(user, span_warning("里面已经装好烟料了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(istype(tool, /obj/item/food/grown) && !HAS_TRAIT(tool, TRAIT_DRIED))
-			to_chat(user, span_warning("It has to be dried first!"))
+			to_chat(user, span_warning("得先把它弄干！"))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You stuff [tool] into [src]."))
+		to_chat(user, span_notice("你把[tool]塞进[src]。"))
 		bong_hits = max_hits
 		packeditem = tool.name
 		update_name()
@@ -61,7 +61,7 @@
 		if(!lighting_text)
 			return NONE
 		if(bong_hits <= 0)
-			to_chat(user, span_warning("Nothing to smoke!"))
+			to_chat(user, span_warning("没有可抽的东西！"))
 			return ITEM_INTERACT_BLOCKING
 		light(lighting_text)
 		return ITEM_INTERACT_SUCCESS
@@ -69,10 +69,10 @@
 /obj/item/bong/attack_self(mob/user)
 	var/turf/location = get_turf(user)
 	if(lit)
-		user.visible_message(span_notice("[user] puts out [src]."), span_notice("You put out [src]."))
+		user.visible_message(span_notice("[user]熄灭了[src]。"), span_notice("你熄灭了[src]。"))
 		put_out()
 	else if(!lit && bong_hits > 0)
-		to_chat(user, span_notice("You empty [src] onto [location]."))
+		to_chat(user, span_notice("你把[src]里的东西倒在[location]上。"))
 		new /obj/effect/decal/cleanable/ash(location)
 		empty_out()
 	return
@@ -84,13 +84,13 @@
 	if(!packeditem || !lit)
 		return ITEM_INTERACT_BLOCKING
 	interacting_with.visible_message(
-		span_notice("[user] starts [interacting_with == user ? "taking a hit from [src]." : "forcing [interacting_with] to take a hit from [src]!"]"),
-		"[interacting_with == user ? span_notice("You start taking a hit from [src].") : span_danger("[user] starts forcing you to take a hit from [src]!")]"
+		span_notice("[user]开始[interacting_with == user ? "对着[src]吸一口。" : "强迫[interacting_with]对着[src]吸一口！"]"),
+		"[interacting_with == user ? span_notice("你开始对着[src]吸一口。") : span_danger("[user]开始强迫你对着[src]吸一口！")]"
 	)
 	playsound(src, 'modular_darkpack/modules/drugs/sounds/heatdam.ogg', 50, TRUE)
 	if(!do_after(user, 4 SECONDS, src))
 		return ITEM_INTERACT_BLOCKING
-	to_chat(interacting_with, span_notice("You finish taking a hit from [src]."))
+	to_chat(interacting_with, span_notice("你对着[src]吸完了一口。"))
 	if(reagents.total_volume)
 		reagents.trans_to(interacting_with, reagent_transfer_per_use, methods = INHALE, ignore_stomach = TRUE)
 		bong_hits--
@@ -106,7 +106,7 @@
 			playsound(interacting_with, pick('modular_darkpack/modules/drugs/sounds/lungbust_cough1.ogg','modular_darkpack/modules/drugs/sounds/lungbust_cough2.ogg'), 50, TRUE)
 			interacting_living.emote("cough")
 	if(bong_hits <= 0)
-		to_chat(interacting_with, span_warning("Out of uses!"))
+		to_chat(interacting_with, span_warning("已经抽完了！"))
 		put_out()
 		empty_out()
 	return ITEM_INTERACT_SUCCESS
@@ -118,7 +118,7 @@
 		icon_state = icon_on
 		return
 	lit = TRUE
-	name = "lit [initial(name)]"
+	name = "点燃的[initial(name)]"
 	set_light_on(TRUE)
 
 	if(reagents.spark_act(0, NONE, list()) & SPARK_ACT_DESTRUCTIVE)

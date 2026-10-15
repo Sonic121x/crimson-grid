@@ -3,7 +3,7 @@
 	faction = FACTION_CITY
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "your faith"
+	supervisors = "你的信仰"
 	config_tag = "PRIEST"
 	outfit = /datum/outfit/job/vampire/priest
 	job_flags = CITY_JOB_FLAGS
@@ -19,7 +19,7 @@
 	allowed_clans = list(VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_BANU_HAQIM_VIZIER) //Each have pretty big religious influences, so!
 	maximal_generation = 11
 	maximum_immortal_age = 100
-	description = "Be the shepherd of the flock in " + CITY_NAME + ", lead them to salvation, piety and righteousness."
+	description = "牧养旧金山的信众，引领他们走向救赎、虔诚与正义。"
 
 	known_contacts = list(
 		JOB_PRIEST,

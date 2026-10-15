@@ -26,9 +26,9 @@
 /obj/item/bodypart/arm/left/fera
 	// limb_id = SPECIES_FERA
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("claw")
-	unarmed_attack_verbs_continuous = list("claws")
-	appendage_noun = "paw"
+	unarmed_attack_verbs = list("爪击")
+	unarmed_attack_verbs_continuous = list("爪击")
+	appendage_noun = "爪子"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_bite.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -39,9 +39,9 @@
 /obj/item/bodypart/arm/right/fera
 	// limb_id = SPECIES_FERA
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("claw")
-	unarmed_attack_verbs_continuous = list("claws")
-	appendage_noun = "paw"
+	unarmed_attack_verbs = list("爪击")
+	unarmed_attack_verbs_continuous = list("爪击")
+	appendage_noun = "爪子"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_bite.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -67,7 +67,7 @@
 
 // Specificly to restrict use of tools... because that was moved to the brain..
 /obj/item/organ/brain/fera
-	name = "exotic brain"
+	name = "异种大脑"
 	organ_traits = list(TRAIT_LITERATE, TRAIT_CAN_STRIP)
 
 /obj/item/organ/brain/fera/get_attacking_limb(mob/living/carbon/human/target)
@@ -76,7 +76,7 @@
 	return ..()
 
 /obj/item/organ/tongue/fera
-	name = "exotic tongue"
+	name = "异种舌头"
 	languages_native = list(/datum/language/garou_tongue, /datum/language/primal_tongue)
 	disliked_foodtypes = GROSS | CLOTH | BUGS
 	toxic_foodtypes = TOXIC | CHOCOLATE

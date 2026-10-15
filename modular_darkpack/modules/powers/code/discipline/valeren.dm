@@ -1,11 +1,11 @@
 /datum/discipline/valeren
 	name = "Valeren"
-	desc = {"The warrior's path of Valeren, used by the Salubri antitribu to read and exploit weakness in their enemies.
-● Sense Vitality: Perception + Empathy (difficulty 7)
-●● Anesthetic Touch: Willpower (difficulty 8 if unwilling)
-●●● Burning Touch: Passive
-●●●● Armor of Caine's Fury: Stamina + Melee (difficulty 7)
-●●●●● Vengeance of Samiel: Passive"}
+	desc = {"勇战术的战士之道，萨鲁布里逆族用它洞察并利用敌人的弱点。
+● 生命感知：感知 + 共情（难度 7）
+●● 麻醉之触：意志力（目标不自愿时难度为 8）
+●●● 灼烧之触：被动
+●●●● 该隐怒甲：耐力 + 近战（难度 7）
+●●●●● 萨米尔的复仇：被动"}
 	icon_state = "valeren"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/valeren
@@ -22,15 +22,15 @@
 	desc = "Valeren power description"
 
 /datum/storyteller_roll/sense_vitality
-	bumper_text = "sense vitality"
+	bumper_text = "生命感知"
 	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
 	difficulty = 7
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/discipline_power/valeren/sense_vitality
-	name = "Sense Vitality"
-	desc = "Allows you to determine the vitality of a target."
+	name = "生命感知"
+	desc = "感知目标的生命状况。"
 	level = 1
 	check_flags = DISC_CHECK_CAPABLE
 	target_type = TARGET_HUMAN | TARGET_SELF
@@ -62,28 +62,28 @@
 	var/blood_volume = target.get_blood_volume(apply_modifiers = TRUE)
 	switch(blood_volume)
 		if(BLOOD_VOLUME_EXCESS to INFINITY)
-			return "Their veins are engorged to the point of rupture."
+			return "对方的血管胀得几乎破裂。"
 		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
-			return "They are heavily overloaded with blood."
+			return "对方体内的血液严重过量。"
 		if(BLOOD_VOLUME_SAFE to BLOOD_VOLUME_MAXIMUM)
-			return "Their blood volume is healthy."
+			return "对方的血容量正常。"
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			return "Their blood is lower than normal."
+			return "对方的血容量低于正常水平。"
 		if(BLOOD_VOLUME_RISKY to BLOOD_VOLUME_OKAY)
-			return "Their blood volume is dangerously low."
+			return "对方的血容量已低至危险水平。"
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_RISKY)
-			return "Dangerously low blood."
+			return "血量低至危险水平。"
 		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			return "They are nearly void of blood altogether. Death comes for them soon without immediate intervention."
+			return "对方几乎流尽了鲜血。若不立即施救，很快就会死亡。"
 		else
-			return "They are completely exsanguinated."
+			return "对方的鲜血已经流尽。"
 
 /datum/discipline_power/valeren/sense_vitality/proc/damage_severity(damage)
 	if(damage < 30)
-		return "some"
+		return "轻度"
 	if(damage < 50)
-		return "moderate"
-	return "heavy"
+		return "中度"
+	return "重度"
 
 /datum/discipline_power/valeren/sense_vitality/ui_state(mob/user)
 	return GLOB.always_state
@@ -116,14 +116,14 @@
 	msg_mental = ""
 
 	// on one success, identify their splat
-	var/creature_type = "a mortal"
+	var/creature_type = "凡人"
 	if(get_kindred_splat(target))
-		creature_type = "kindred"
+		creature_type = "血族"
 	else if(get_ghoul_splat(target))
-		creature_type = "a ghoul"
+		creature_type = "血仆"
 	else if(isavatar(target) || isobserver(target)) // because salubri spend all their time in the clinic anyway. they'll use this on ghosts
-		creature_type = "a wraith"
-	msg_creature = "[target] is [creature_type]."
+		creature_type = "怨灵"
+	msg_creature = "[target]是[creature_type]。"
 
 	// on two successes, identify their damage
 	if(successes >= 2)
@@ -134,20 +134,20 @@
 		var/agg = target.get_agg_loss()
 		var/list/damage_parts = list()
 		if(brute > 0)
-			damage_parts += "[damage_severity(brute)] bruising"
+			damage_parts += "[damage_severity(brute)]瘀伤"
 		if(burn > 0)
-			damage_parts += "[damage_severity(burn)] burns"
+			damage_parts += "[damage_severity(burn)]烧伤"
 		if(tox > 0)
-			damage_parts += "[damage_severity(tox)] toxin damage"
+			damage_parts += "[damage_severity(tox)]毒素伤害"
 		if(oxy > 0)
-			damage_parts += "[damage_severity(oxy)] oxygen deprivation"
+			damage_parts += "[damage_severity(oxy)]缺氧"
 		if(agg > 0)
-			damage_parts += "[damage_severity(agg)] supernatural wounds"
-		msg_damage = length(damage_parts) ? "They bear [english_list(damage_parts)]." : "They appear uninjured."
+			damage_parts += "[damage_severity(agg)]超自然创伤"
+		msg_damage = length(damage_parts) ? "对方存在[english_list(damage_parts, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]。" : "对方看起来没有受伤。"
 
 	// on three successes, detect their bloodpool, if any exists
 	if(successes >= 3)
-		msg_blood = "[blood_read(target)] [round(target.bloodpool / target.maxbloodpool * 100)]% of Blood Pool remaining."
+		msg_blood = "[blood_read(target)]血池剩余 [round(target.bloodpool / target.maxbloodpool * 100)]%。"
 
 	// on four, display any diseases they might have
 	if(successes >= 4)
@@ -156,16 +156,16 @@
 			var/list/disease_names = list()
 			for(var/datum/disease/D in diseases)
 				disease_names += D.name
-			msg_disease = "Detected [english_list(disease_names)] in their blood."
+			msg_disease = "在对方血液中检测到[english_list(disease_names, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]。"
 		else
-			msg_disease = "Found no diseases in their blood."
+			msg_disease = "未在对方血液中发现疾病。"
 		var/list/mental_conditions = list()
 		if(target.has_quirk(/datum/quirk/insanity))
-			mental_conditions += "insanity"
+			mental_conditions += "精神错乱"
 		if(target.has_quirk(/datum/quirk/darkpack/derangement))
-			mental_conditions += "an incurable derangement"
+			mental_conditions += "无法治愈的精神紊乱"
 		if(length(mental_conditions))
-			msg_mental = "[english_list(mental_conditions)] clouds their mind."
+			msg_mental = "[english_list(mental_conditions, nothing_text = "无", and_text = "和", comma_text = "、", final_comma_text = "")]蒙蔽了对方的心智。"
 
 	ui_interact(owner)
 	to_chat(owner, span_notice("[msg_creature] \n[msg_damage] \n[msg_blood] \n[msg_disease] \n[msg_mental]"))
@@ -174,18 +174,18 @@
 	. = ..()
 
 /datum/storyteller_roll/anesthetic_touch
-	bumper_text = "anesthetic touch"
+	bumper_text = "麻醉之触"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
 
 /datum/storyteller_roll/anesthetic_touch/unwilling
-	bumper_text = "anesthetic touch (unwilling)"
+	bumper_text = "麻醉之触（非自愿）"
 	difficulty = 8
 
 /datum/discipline_power/valeren/anesthetic_touch
-	name = "Anesthetic Touch"
-	desc = "Soothe your patient's pain, or place a mortal into peaceful slumber."
+	name = "麻醉之触"
+	desc = "抚平患者的痛苦，或使凡人安然入睡。"
 	level = 2
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
 	target_type = TARGET_LIVING
@@ -218,8 +218,8 @@
 /datum/discipline_power/valeren/anesthetic_touch/activate(mob/living/target)
 	. = ..()
 	var/list/choices = list(
-		"Soothe Pain" = icon('icons/mob/actions/actions_spells.dmi', "statue"),
-		"Put To Sleep" = icon('icons/mob/actions/actions_spells.dmi', "blind"),
+		"Soothe Pain" = localized_radial_choice(icon('icons/mob/actions/actions_spells.dmi', "statue"), "缓解疼痛"),
+		"Put To Sleep" = localized_radial_choice(icon('icons/mob/actions/actions_spells.dmi', "blind"), "使其入睡"),
 	)
 	var/chosen_option = show_radial_menu(owner, target, choices, radius = 38, require_near = TRUE)
 	switch(chosen_option)
@@ -229,7 +229,7 @@
 			addtimer(CALLBACK(src, PROC_REF(end_soothe_pain), target), (successes TURNS) + soothe_duration_length)
 		if("Put To Sleep")
 			if(get_kindred_splat(target))
-				to_chat(owner, span_warning("You can't put a Kindred to sleep with this power!"))
+				to_chat(owner, span_warning("你无法用这种能力使血族入睡！"))
 				return TRUE
 			target.SetSleeping(sleep_duration_length + (successes TURNS)) // 50 seconds + successes in turns
 			target.adjust_blood_pool(1) // restores a BP to the target, but if this gets abused, maybe make this depend on successes
@@ -240,8 +240,8 @@
 	REMOVE_TRAIT(target, TRAIT_ANALGESIA, type)
 
 /datum/discipline_power/valeren/burning_touch
-	name = "Burning Touch"
-	desc = "Channel supernatural fire through your hands, inflicting searing pain on anyone you grab, lasting 30 seconds. The burning does not cause damage but overwhelms the senses, disrupts concentration, and makes using Disciplines extremely difficult."
+	name = "灼烧之触"
+	desc = "通过双手引导超自然火焰，使被你抓住的人承受持续 30 秒的灼痛。灼烧不会造成伤害，但会压倒感官、扰乱专注，使施展律能变得极其困难。"
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE | DISC_CHECK_FREE_HAND
 	target_type = TARGET_LIVING
@@ -259,12 +259,12 @@
 		owner.do_attack_animation(target, ATTACK_EFFECT_MECHFIRE)
 
 /datum/storyteller_roll/burning_touch_resist
-	bumper_text = "resist burning pain"
+	bumper_text = "抵抗灼痛"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
 
 /datum/storyteller_roll/burning_touch_focus
-	bumper_text = "focus through burning pain"
+	bumper_text = "忍受灼痛保持专注"
 	applicable_stats = list(STAT_TEMPORARY_WILLPOWER)
 	spammy_roll = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
@@ -278,17 +278,17 @@
 	var/datum/storyteller_roll/burning_touch_resist/resist_roll
 	var/datum/storyteller_roll/burning_touch_focus/focus_roll
 	var/list/pain_messages = list(
-		"It burns!",
-		"It hurts!",
-		"Dear god, make it stop!",
-		"FIRE! FIRE!",
-		"Stop, please, STOP!",
-		"My skin is on fire!",
-		"I can't think! It hurts so much!",
-		"Let go, let GO!",
-		"It's in my bones!",
-		"I can't breathe through the pain!",
-		"Why won't it stop?!",
+		"好烫！",
+		"好痛！",
+		"天哪，让它停下来！",
+		"着火了！着火了！",
+		"停下，求求你，停下！",
+		"我的皮肤在燃烧！",
+		"我没法思考！太痛了！",
+		"放手，放开我！",
+		"连骨头里都在烧！",
+		"我痛得喘不过气了！",
+		"为什么还不停下来？！",
 	)
 
 /datum/status_effect/burning_touch/on_apply()
@@ -317,7 +317,7 @@
 	SIGNAL_HANDLER
 	var/success = focus_roll.st_roll(source, source)
 	if(!success)
-		to_chat(source, span_userdanger("Burning agony overwhelms your concentration. You cannot focus enough to use your Disciplines!"))
+		to_chat(source, span_userdanger("灼烧的剧痛打散了你的注意力。你无法集中精神施展律能！"))
 		return POWER_PREVENT_ACTIVATE
 
 /datum/status_effect/burning_touch/tick(seconds_between_ticks)
@@ -325,20 +325,20 @@
 	playsound(get_turf(owner), SFX_SIZZLE, 80, TRUE)
 
 /atom/movable/screen/alert/status_effect/burning_touch
-	name = "Burning Touch"
-	desc = "Your body burns with supernatural fire! Using Disciplines requires a Willpower roll at difficulty 6 to focus through the pain."
+	name = "灼烧之触"
+	desc = "你的身体正被超自然火焰灼烧！施展律能需要进行难度为 6 的意志力检定，才能忍受痛苦保持专注。"
 	icon_state = "fire"
 
 /datum/storyteller_roll/armor_of_caines_fury
-	bumper_text = "armor of caine's fury"
+	bumper_text = "该隐怒甲"
 	applicable_stats = list(STAT_STAMINA, STAT_MELEE)
 	difficulty = 7
 	numerical = TRUE
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
 
 /datum/discipline_power/valeren/armor_of_caines_fury
-	name = "Armor of Caine's Fury"
-	desc = "The Salubri antitribu is surrounded by a shining, crimson halo. This phantom armor protects the vampire against most physical injury, as well as against Rötschreck."
+	name = "该隐怒甲"
+	desc = "萨鲁布里逆族周身环绕着闪耀的猩红光环。这副幻影护甲能抵御大多数物理伤害，也能抵抗恐惧狂乱。"
 	level = 4
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
 	cooldown_length = 1 SCENES
@@ -438,8 +438,8 @@
 
 // this is basically just potence 5 with stat bonuses, used potence as a baseline because of the 'makes for significant damage' wording in v20 above
 /datum/discipline_power/valeren/vengeance_of_samiel
-	name = "Vengeance of Samiel"
-	desc = "The Salubri antitribu strikes their foe with super-human accuracy and strength, as their third eye opens and changes to a furious, icy blue. Some Furies invoke the names of ancient Salubri warriors, while others simply close their normal eyes and let Samiel guide their hands."
+	name = "萨米尔的复仇"
+	desc = "萨鲁布里逆族睁开第三只眼，使其化作满含怒意的冰蓝色，并以超人的精准与力量打击敌人。有些狂怒者会呼唤古代萨鲁布里战士之名，另一些则闭上双眼，任由萨米尔引导自己的双手。"
 	level = 5
 	check_flags = DISC_CHECK_CAPABLE
 	toggled = TRUE

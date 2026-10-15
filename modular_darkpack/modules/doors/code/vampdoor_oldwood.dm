@@ -1,5 +1,5 @@
 /obj/structure/vampdoor/oldwood // Six paneled wooden door with peeling green paint
-	name = "old wooden door"
+	name = "旧木门"
 	icon_state = "oldwood-1"
 	base_icon_state = "oldwood"
 	burnable = TRUE

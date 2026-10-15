@@ -35,9 +35,9 @@
 	}
 
 /mob/living/basic/pet/dog/wolf
-	name = "wolf"
+	name = "狼"
 	icon_state = "wolf1"
-	desc = "That's a big, scary wolf. Might be best to steer clear."
+	desc = "一头高大而吓人的狼。最好离它远点。"
 	base_icon_state = "wolf"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/garou_forms/wolf.dmi'
 	var/random_wolf_color = TRUE
@@ -62,9 +62,9 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	melee_attack_cooldown = 1.2 SECONDS
 
-	attack_verb_continuous = "bites"
-	attack_verb_simple = "bite"
-	death_message = "snarls its last and perishes."
+	attack_verb_continuous = "撕咬"
+	attack_verb_simple = "撕咬"
+	death_message = "发出最后一声低吼，倒地死去。"
 
 	attack_sound = 'sound/items/weapons/bite.ogg'
 	move_force = MOVE_FORCE_WEAK
@@ -93,9 +93,9 @@
 	var/datum/splat/werewolf/wolp_splat = get_werewolf_splat(user)
 	if(istype(wolp_splat?.auspice, /datum/subsplat/werewolf/auspice/garou/philodox))
 		if(wolf_type == TYPE_KINFOLK)
-			. += span_purple("On closer inspection, they appear to be kin.")
+			. += span_purple("仔细观察后，你发现它似乎是眷属。")
 		if(HAS_TRAIT(src, TRAIT_WYRMTAINTED))
-			. += span_warning("They are strongly wyrm-tainted.")
+			. += span_warning("它受到了严重的妖蛆污染。")
 
 
 /mob/living/basic/pet/dog/wolf/add_obey_commands()
@@ -151,7 +151,7 @@
 	wolf_type = TYPE_KINFOLK
 
 /mob/living/basic/pet/dog/wolf/kinfolk/spiral
-	name = "rotten wolf"
+	name = "腐败之狼"
 	// real_name = "tainted kinfolk"
 	icon_state = "wolfspiral1"
 	base_icon_state = "wolfspiral"

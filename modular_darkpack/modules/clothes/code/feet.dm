@@ -5,8 +5,8 @@
 //SHOES
 
 /obj/item/clothing/shoes/vampire
-	name = "shoes"
-	desc = "Comfortable-looking shoes."
+	name = "鞋子"
+	desc = "一双看起来很舒适的鞋。"
 	icon = 'modular_darkpack/modules/clothes/icons/clothing.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/worn.dmi'
 	icon_state = "shoes"
@@ -24,8 +24,8 @@
 	icon_state = "shoes_white"
 
 /obj/item/clothing/shoes/vampire/jackboots
-	name = "jackboots"
-	desc = "Robust-looking boots."
+	name = "军靴"
+	desc = "一双看起来结实耐用的靴子。"
 	icon_state = "jackboots"
 
 /obj/item/clothing/shoes/vampire/jackboots/Initialize(mapload)
@@ -34,8 +34,8 @@
 	create_storage(storage_type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/vampire/jackboots/high
-	name = "high boots"
-	desc = "High boots. What else did you expect?"
+	name = "高筒靴"
+	desc = "高筒靴。你还指望是什么？"
 	icon_state = "tall_boots"
 
 /obj/item/clothing/shoes/vampire/jackboots/punk
@@ -45,48 +45,48 @@
 	icon_state = "jackboots_work"
 
 /obj/item/clothing/shoes/vampire/sneakers
-	name = "sneakers"
-	desc = "Sport-looking sneakers."
+	name = "运动鞋"
+	desc = "一双颇有运动风格的鞋。"
 	icon_state = "sneakers"
 
 /obj/item/clothing/shoes/vampire/sneakers/red
 	icon_state = "sneakers_red"
 
 /obj/item/clothing/shoes/vampire/blackfur
-	name = "black fur boots"
-	desc = "A furry pair of black and white boots"
+	name = "黑色毛皮靴"
+	desc = "一双毛茸茸的黑白双色靴子。"
 	icon_state = "furboots_black"
 
 /obj/item/clothing/shoes/vampire/brownfur
-	name = "brown fur boots"
-	desc = "A furry pair of brown boots"
+	name = "棕色毛皮靴"
+	desc = "一双毛茸茸的棕色靴子。"
 	icon_state = "furboots_brown"
 
 /obj/item/clothing/shoes/vampire/pumped
-	name = "knee-high sneakers"
-	desc = "Sneakers from the popular brand Converts"
+	name = "及膝运动鞋"
+	desc = "来自人气品牌‘康维兹’的运动鞋。"
 	icon_state = "pumped_up_kicks"
 
 /obj/item/clothing/shoes/vampire/heels
-	name = "heels"
-	desc = "Rich-looking heels."
+	name = "高跟鞋"
+	desc = "一双看起来很昂贵的高跟鞋。"
 	icon_state = "heels"
 
 /obj/item/clothing/shoes/vampire/heels/red
 	icon_state = "heels_red"
 
 /obj/item/clothing/shoes/vampire/businessscaly
-	name = "scaly shoes"
-	desc = "Shoes with scales."
+	name = "鳞纹鞋"
+	desc = "带有鳞片纹理的鞋。"
 	icon_state = "scales_shoes"
 
 /obj/item/clothing/shoes/vampire/businessblack
-	name = "black shoes"
-	desc = "Classic black shoes."
+	name = "黑色鞋子"
+	desc = "经典的黑色鞋子。"
 	icon_state = "business_shoes"
 
 /obj/item/clothing/shoes/vampire/businesstip
-	name = "metal tip shoes"
-	desc = "Shoes with a metal tip."
+	name = "金属包头鞋"
+	desc = "鞋头包有金属的鞋。"
 	icon_state = "metal_shoes"
 

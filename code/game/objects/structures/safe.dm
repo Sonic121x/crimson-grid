@@ -11,8 +11,8 @@ FLOOR SAFES
 
 //SAFES
 /obj/structure/safe
-	name = "safe"
-	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and burglar resistant.\"" // DARKPACK EDIT CHANGE
+	name = "保险柜"
+	desc = "一大块嵌着密码转盘的金属。转盘上的小字写着：\"斯卡伯勒军械——双锁轮保险柜，保证防铝热剂、防爆、防盗。\"" // DARKPACK EDIT CHANGE
 	icon = 'modular_darkpack/modules/decor/icons/safes.dmi' // DARKPACK EDIT CHANGE - (MS FURNITURE UPDATE)
 	icon_state = "safe"
 	anchored = TRUE
@@ -52,7 +52,7 @@ FLOOR SAFES
 
 	var/static/list/tool_behaviors = list(
 		TOOL_WRENCH = list(
-			SCREENTIP_CONTEXT_LMB = "Reset lock",
+			SCREENTIP_CONTEXT_LMB = "重设密码锁",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
@@ -80,7 +80,7 @@ FLOOR SAFES
 
 /obj/structure/safe/examine(mob/user)
 	. = ..()
-	. += span_notice("The locking mechanism gears are <b>wrenched</b> in place.")
+	. += span_notice("锁具齿轮已用螺栓固定，可用<b>扳手</b>调整。")
 
 /obj/structure/safe/update_icon_state()
 	//uses the same icon as the captain's spare safe (therefore lockable storage) so keep it in line with that
@@ -89,20 +89,20 @@ FLOOR SAFES
 
 /obj/structure/safe/wrench_act(mob/living/user, obj/item/tool)
 	if(!open)
-		balloon_alert(user, "must be open!")
+		balloon_alert(user, "必须先打开！")
 		return ITEM_INTERACT_BLOCKING
 
-	balloon_alert(user, "resetting lock...")
-	to_chat(user, span_notice("You begin resetting the lock for [src]. You'll need to set [number_of_tumblers] numbers."))
+	balloon_alert(user, "正在重设密码锁……")
+	to_chat(user, span_notice("你开始重设[src]的密码锁，需要设置[number_of_tumblers]个数字。"))
 
 	var/list/new_tumblers = list()
 	for(var/tumbler_index in 1 to number_of_tumblers)
-		var/input_value = tgui_input_number(user, "Set tumbler #[tumbler_index] (0-99):", "Set Lock", 0, 99, 0)
+		var/input_value = tgui_input_number(user, "设置第[tumbler_index]个锁轮（0至99）：", "设置密码锁", 0, 99, 0)
 		if(isnull(input_value))
-			balloon_alert(user, "reset cancelled!")
+			balloon_alert(user, "已取消重设！")
 			return ITEM_INTERACT_BLOCKING
 		if(!user.can_perform_action(src))
-			balloon_alert(user, "reset interrupted!")
+			balloon_alert(user, "重设被打断了！")
 			return ITEM_INTERACT_BLOCKING
 		new_tumblers.Add(input_value)
 
@@ -114,8 +114,8 @@ FLOOR SAFES
 	current_tumbler_index = 1
 	dial = 0
 	tool.play_tool_sound(src)
-	to_chat(user, span_notice("You successfully reset the lock for [src]. The new combination is: [tumblers.Join("-")]."))
-	balloon_alert(user, "lock set!")
+	to_chat(user, span_notice("你成功重设了[src]的密码锁。新密码组合为：[tumblers.Join("-")]。"))
+	balloon_alert(user, "密码锁已设置！")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/safe/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -124,22 +124,22 @@ FLOOR SAFES
 
 	if(!open)
 		if(!istype(tool, /obj/item/clothing/neck/stethoscope))
-			to_chat(user, span_warning("You can't put [tool] into the safe while it is closed!"))
+			to_chat(user, span_warning("保险柜关着，不能把[tool]放进去！"))
 			return ITEM_INTERACT_BLOCKING
 
 		attack_hand(user)
 		return ITEM_INTERACT_SUCCESS
 
 	if(tool.w_class + space > maxspace)
-		to_chat(user, span_warning("[tool] won't fit in [src]."))
+		to_chat(user, span_warning("[src]里放不下[tool]。"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!user.transferItemToLoc(tool, src))
-		to_chat(user, span_warning("\The [tool] is stuck to your hand, you cannot put it in the safe!"))
+		to_chat(user, span_warning("[tool]黏在你的手上，无法放进保险柜！"))
 		return ITEM_INTERACT_BLOCKING
 
 	space += tool.w_class
-	to_chat(user, span_notice("You put [tool] in [src]."))
+	to_chat(user, span_notice("你把[tool]放进了[src]。"))
 	return ITEM_INTERACT_SUCCESS
 
 
@@ -151,11 +151,11 @@ FLOOR SAFES
 		explosion_count++
 		switch(explosion_count)
 			if(1)
-				desc = initial(desc) + "\nIt looks a little banged up."
+				desc = initial(desc) + "\n看起来有点磕碰损伤。"
 			if(2)
-				desc = initial(desc) + "\nIt's pretty heavily damaged."
+				desc = initial(desc) + "\n它受损相当严重。"
 			if(3)
-				desc = initial(desc) + "\nThe lock seems to be broken."
+				desc = initial(desc) + "\n锁似乎坏了。"
 
 		return TRUE
 
@@ -209,9 +209,9 @@ FLOOR SAFES
 	switch(action)
 		if("open")
 			if(!check_unlocked() && !open && !broken)
-				to_chat(user, span_warning("You cannot open [src], as its lock is engaged!"))
+				to_chat(user, span_warning("[src]上着锁，无法打开！"))
 				return
-			to_chat(user, span_notice("You [open ? "close" : "open"] [src]."))
+			to_chat(user, span_notice("你[open ? "关上" : "打开"]了[src]。"))
 			open = !open
 			update_appearance()
 			return TRUE
@@ -219,7 +219,7 @@ FLOOR SAFES
 			if(open)
 				return
 			if(broken)
-				to_chat(user, span_warning("The dial will not turn, as the mechanism is destroyed!"))
+				to_chat(user, span_warning("锁具机构已被破坏，转盘无法转动！"))
 				return
 			var/ticks = text2num(params["num"])
 			for(var/iterate in 1 to ticks)
@@ -230,17 +230,17 @@ FLOOR SAFES
 					current_tumbler_index = 1
 
 				if(!invalid_turn && dial == tumblers[current_tumbler_index])
-					notify_user(user, canhear, list("tink", "krink", "plink"), ticks, iterate)
+					notify_user(user, canhear, list("叮", "铿", "叮啷"), ticks, iterate)
 					current_tumbler_index++
 				else
-					notify_user(user, canhear, list("clack", "scrape", "clank"), ticks, iterate)
+					notify_user(user, canhear, list("咔嗒", "刮擦", "哐啷"), ticks, iterate)
 			check_unlocked()
 			return TRUE
 		if("turnleft")
 			if(open)
 				return
 			if(broken)
-				to_chat(user, span_warning("The dial will not turn, as the mechanism is destroyed!"))
+				to_chat(user, span_warning("锁具机构已被破坏，转盘无法转动！"))
 				return
 			var/ticks = text2num(params["num"])
 			for(var/iterate in 1 to ticks)
@@ -251,10 +251,10 @@ FLOOR SAFES
 					current_tumbler_index = 1
 
 				if(!invalid_turn && dial == tumblers[current_tumbler_index])
-					notify_user(user, canhear, list("tonk", "krunk", "plunk"), ticks, iterate)
+					notify_user(user, canhear, list("咚", "咯隆", "扑通"), ticks, iterate)
 					current_tumbler_index++
 				else
-					notify_user(user, canhear, list("click", "chink", "clink"), ticks, iterate)
+					notify_user(user, canhear, list("咔哒", "锵", "叮当"), ticks, iterate)
 			check_unlocked()
 			return TRUE
 		if("retrieve")
@@ -284,7 +284,7 @@ FLOOR SAFES
 		return TRUE
 	if(current_tumbler_index > number_of_tumblers)
 		locked = FALSE
-		visible_message(span_boldnotice("[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!"))
+		visible_message(span_boldnotice("[pick("嘣", "崩", "嘣嗡", "咣", "咯咣")]！"))
 		return TRUE
 	locked = TRUE
 	return FALSE
@@ -296,7 +296,7 @@ FLOOR SAFES
 	if(!canhear)
 		return
 	if(current_tick == 2)
-		to_chat(user, span_italics("The sounds from [src] are too fast and blend together."))
+		to_chat(user, span_italics("[src]发出的声音太快，全混在了一起。"))
 	if(total_ticks == 1 || prob(SOUND_CHANCE))
 		balloon_alert(user, pick(sounds))
 
@@ -306,7 +306,7 @@ FLOOR SAFES
 
 //FLOOR SAFES
 /obj/structure/safe/floor
-	name = "floor safe"
+	name = "地板保险柜"
 	icon_state = "floorsafe"
 	density = FALSE
 	layer = LOW_OBJ_LAYER

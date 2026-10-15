@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/odious_chalice
-	true_name = "Odious Chalice"
-	true_desc = "Stores blood from every attack."
+	true_name = "憎恶之杯"
+	true_desc = "储存每次攻击汲取的鲜血。"
 	icon_state = "o_chalice"
 	var/stored_blood = 0
 	var/blood_cap = 10
@@ -11,7 +11,7 @@
 /obj/item/occult_artifact/vampire/odious_chalice/examine(mob/user)
 	. = ..()
 	if(identified)
-		. += "[src] contains [stored_blood] blood points..."
+		. += "[src]中储存着[stored_blood]血点……"
 
 /obj/item/occult_artifact/vampire/odious_chalice/grant_powers()
 	. = ..()
@@ -70,7 +70,7 @@
 	stored_blood = min(stored_blood + 1, blood_cap)
 	if(COOLDOWN_FINISHED(src, chalice_alert_cooldown))
 		//rather spammy. 1 scene cooldown
-		balloon_alert(user, "the chalice drinks...")
+		balloon_alert(user, "杯子正在饮血……")
 		COOLDOWN_START(src, chalice_alert_cooldown, 1 SCENES)
 
 /obj/item/occult_artifact/vampire/odious_chalice/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)

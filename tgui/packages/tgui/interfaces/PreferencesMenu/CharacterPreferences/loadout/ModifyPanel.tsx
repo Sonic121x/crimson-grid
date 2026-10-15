@@ -103,7 +103,7 @@ function LoadoutModifyButtons(props: ButtonsProps) {
       <Stack.Item>
         <LabeledList>
           {!!modifyItemDimmer.reskins && (
-            <LabeledList.Item label="Styles" verticalAlign="middle">
+            <LabeledList.Item label="款式" verticalAlign="middle">
               <Flex wrap width="100%">
                 {modifyItemDimmer.reskins.map((reskin) => (
                   <Flex.Item key={reskin.tooltip} mr={1} mb={1}>
@@ -131,7 +131,7 @@ function LoadoutModifyButtons(props: ButtonsProps) {
                         />
                       ) : (
                         // Should never happen, hopefully
-                        <Box>{reskin.name}</Box>
+                        <Box>{reskin.tooltip || reskin.name}</Box>
                       )}
                     </Button>
                   </Flex.Item>
@@ -233,7 +233,7 @@ export function LoadoutModifyDimmer(props: DimmerProps) {
                 act('close_greyscale_menu');
               }}
             >
-              Done
+              完成
             </Button>
           </Stack>
         </Stack.Item>

@@ -1,13 +1,13 @@
 //Clanbook: Brujah Revised (69)
 /datum/quirk/darkpack/uncontrollable
 	name = "Uncontrollable"
-	desc = {"Rage and passion constantly war in the soul of a
-		volatile Brujah. Perhaps you were ill tempered before
-		the Embrace, or perhaps your Brujah lineage awakened
-		some latent fury. In any case, even more so than your
-		clanmates, you are prone to frenzy. Difficulties to
-		resist frenzy are always 10 for this character. Prepare
-		for a short, hellish ride."}
+	desc = {"在暴躁的布鲁赫灵魂中，怒火与激情
+		永不停息地交战。也许你在初拥之前就
+		脾气恶劣，也许是布鲁赫的血脉唤醒了
+		潜藏的愤怒。无论如何，你比其他
+		族人更容易陷入狂乱。你抵抗
+		狂乱的难度始终为 10。准备迎接
+		一段短暂而地狱般的旅程吧。"}
 	value = -5
 	mob_trait = TRAIT_UNCONTROLLABLE
 	icon = FA_ICON_HEART_CRACK

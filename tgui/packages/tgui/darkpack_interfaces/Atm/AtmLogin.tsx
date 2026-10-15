@@ -12,17 +12,17 @@ export const AtmLogin = (props) => {
     act('login', { bank_pin: entered_code });
   };
   return (
-    <Section title="Please enter your code">
+    <Section title="请输入银行卡密码">
       <LabeledList>
-        <LabeledList.Item label="code">
+        <LabeledList.Item label="密码">
           <Input
             value={entered_code}
-            placeholder="Enter code here"
+            placeholder="在此输入密码"
             onChange={setEnteredCode}
           />
         </LabeledList.Item>
         <LabeledList.Item>
-          <Button onClick={handleLogin}>Log In</Button>
+          <Button onClick={handleLogin}>登录</Button>
         </LabeledList.Item>
       </LabeledList>
     </Section>

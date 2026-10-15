@@ -1,4 +1,4 @@
-/// How long it takes for a werewolf's Veil to naturally repair
+#define FERA_DISPLAY_NAME(FERA_NAME) (GLOB.localized_fera_names[FERA_NAME] ? GLOB.localized_fera_names[FERA_NAME] : FERA_NAME)
 // #define UMBRA_VEIL_COOLDOWN 15 MINUTES
 /// How long it takes for a werewolf to regenerate a blood point
 // #define FERA_BP_REGEN 60 SECONDS // I cant find a source to this.

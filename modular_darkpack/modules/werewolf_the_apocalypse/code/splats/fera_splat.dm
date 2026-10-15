@@ -30,7 +30,7 @@
 			rage = min(permanent_rage, rage+amount)
 			if(sound)
 				SEND_SOUND(owner, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/rage_increase.ogg', volume = 50))
-			to_chat(owner, span_userdanger("<b>RAGE INCREASES</b>"))
+			to_chat(owner, span_userdanger("<b>怒火上升</b>"))
 		else
 			return FALSE
 	if(amount < 0)
@@ -38,7 +38,7 @@
 			rage = max(0, rage+amount)
 			if(sound)
 				SEND_SOUND(owner, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/rage_decrease.ogg', volume = 50))
-			to_chat(owner, span_userdanger("<b>RAGE DECREASES</b>"))
+			to_chat(owner, span_userdanger("<b>怒火下降</b>"))
 		else
 			return FALSE
 
@@ -55,7 +55,7 @@
 			gnosis = clamp(gnosis + amount, 0, permanent_gnosis)
 			if(sound)
 				SEND_SOUND(owner, sound('modular_darkpack/modules/deprecated/sounds/humanity_gain.ogg', volume = 50))
-			to_chat(owner, span_boldnotice("<b>GNOSIS INCREASES</b>"))
+			to_chat(owner, span_boldnotice("<b>灵悟上升</b>"))
 		else
 			return FALSE
 	if(amount < 0)
@@ -63,7 +63,7 @@
 			gnosis = clamp(gnosis + amount, 0, permanent_gnosis)
 			if(sound)
 				SEND_SOUND(owner, sound('modular_darkpack/modules/werewolf_the_apocalypse/sounds/rage_decrease.ogg', volume = 50))
-			to_chat(owner, span_boldnotice("<b>GNOSIS DECREASES</b>"))
+			to_chat(owner, span_boldnotice("<b>灵悟下降</b>"))
 		else
 			return FALSE
 

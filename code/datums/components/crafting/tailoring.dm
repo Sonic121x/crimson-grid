@@ -120,7 +120,7 @@
  */
 
 /datum/crafting_recipe/fannypack
-	name = "Fannypack"
+	name = "腰包"
 	result = /obj/item/storage/belt/fannypack
 	reqs = list(/obj/item/stack/sheet/cloth = 2,
 				/obj/item/stack/sheet/leather = 1)
@@ -128,7 +128,7 @@
 	category = CAT_CONTAINERS
 
 /datum/crafting_recipe/grass_sheath
-	name = "Grass Sabre Sheath"
+	name = "草编军刀鞘"
 	result = /obj/item/storage/belt/sheath/grass_sabre
 	reqs = list(/obj/item/food/grown/grass = 4,
 				/obj/item/food/grown/grass/fairy = 2)
@@ -239,7 +239,7 @@
 	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
  */
 /datum/crafting_recipe/ghostsheet
-	name = "Ghost Sheet"
+	name = "幽灵床单"
 	result = /obj/item/clothing/suit/costume/ghost_sheet
 	time = 0.5 SECONDS
 	tool_behaviors = list(TOOL_WIRECUTTER)
@@ -297,7 +297,7 @@
 	category = CAT_CLOTHING
  */
 /datum/crafting_recipe/kittyears
-	name = "Kitty Ears"
+	name = "猫耳"
 	result = /obj/item/clothing/head/costume/kitty/genuine
 	time = 1 SECONDS
 	reqs = list(
@@ -307,7 +307,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/bonearmor
-	name = "Bone Armor"
+	name = "骨甲"
 	result = /obj/item/clothing/suit/armor/bone
 	time = 3 SECONDS
 	reqs = list(
@@ -380,7 +380,7 @@
 	category = CAT_CLOTHING
  */
 /datum/crafting_recipe/bracers
-	name = "Bone Bracers"
+	name = "骨护臂"
 	result = /obj/item/clothing/gloves/bracer
 	time = 2 SECONDS
 	reqs = list(
@@ -390,7 +390,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/skullhelm
-	name = "Skull Helmet"
+	name = "颅骨头盔"
 	result = /obj/item/clothing/head/helmet/skull
 	time = 3 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 4)
@@ -438,7 +438,7 @@
 	category = CAT_CLOTHING
  */
 /datum/crafting_recipe/mummy
-	name = "Mummification Bandages (Mask)"
+	name = "木乃伊绷带（面罩）"
 	result = /obj/item/clothing/mask/mummy
 	time = 1 SECONDS
 	tool_paths = list(/obj/item/nullrod/egyptian)
@@ -446,12 +446,12 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mummy/body
-	name = "Mummification Bandages (Body)"
+	name = "木乃伊绷带（身体）"
 	result = /obj/item/clothing/under/costume/mummy
 	reqs = list(/obj/item/stack/sheet/cloth = 5)
 
 /datum/crafting_recipe/chaplain_hood
-	name = "Follower Hoodie"
+	name = "信徒连帽衫"
 	result = /obj/item/clothing/suit/hooded/chaplain_hoodie
 	time = 1 SECONDS
 	tool_paths = list(
@@ -463,7 +463,7 @@
 	blacklist_result = NEVER_BLACKLIST_RESULT //the resulting hoodie can be used to craft other hoodies.
 
 /datum/crafting_recipe/flower_garland
-	name = "Flower Garland"
+	name = "鲜花花环"
 	result = /obj/item/clothing/head/costume/garland
 	time = 1 SECONDS
 	reqs = list(
@@ -474,7 +474,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/poppy_crown
-	name = "Poppy Crown"
+	name = "罂粟花冠"
 	result = /obj/item/clothing/head/costume/garland/poppy
 	time = 1 SECONDS
 	reqs = list(
@@ -484,7 +484,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lily_crown
-	name = "Lily Crown"
+	name = "百合花冠"
 	result = /obj/item/clothing/head/costume/garland/lily
 	time = 1 SECONDS
 	reqs = list(
@@ -494,7 +494,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/sunflower_crown
-	name = "Sunflower Crown"
+	name = "向日葵花冠"
 	result = /obj/item/clothing/head/costume/garland/sunflower
 	time = 1 SECONDS
 	reqs = list(
@@ -504,7 +504,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/rainbow_bunch_crown
-	name = "Rainbow Flower Crown"
+	name = "彩虹花冠"
 	result = /obj/item/clothing/head/costume/garland/rainbowbunch
 	time = 1 SECONDS
 	reqs = list(
@@ -514,7 +514,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/pillow_suit
-	name = "pillow suit"
+	name = "枕头服"
 	result = /obj/item/clothing/suit/pillow_suit
 	time = 2 SECONDS
 	reqs = list(
@@ -524,7 +524,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/pillow_hood
-	name = "pillow hood"
+	name = "枕头兜帽"
 	result = /obj/item/clothing/head/pillow_hood
 	tool_behaviors = list(TOOL_WIRECUTTER, TOOL_KNIFE)
 	time = 2 SECONDS
@@ -535,7 +535,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/shark_costume
-	name = "shark costume"
+	name = "鲨鱼装扮服"
 	result = /obj/item/clothing/suit/hooded/shark_costume
 	time = 2 SECONDS
 	reqs = list(
@@ -545,7 +545,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/shork_costume
-	name = "shork costume"
+	name = "怪鲨装扮服"
 	result = /obj/item/clothing/suit/hooded/shork_costume
 	time = 2 SECONDS
 	tool_behaviors = list(TOOL_WIRECUTTER)
@@ -556,7 +556,7 @@
 
 
 /datum/crafting_recipe/sturdy_shako
-	name = "Sturdy Shako"
+	name = "坚固筒形军帽"
 	result = /obj/item/clothing/head/hats/hos/shako
 	tool_behaviors = list(TOOL_WELDER, TOOL_KNIFE)
 	time = 5 SECONDS
@@ -582,7 +582,7 @@
 	category = CAT_CLOTHING
  */
 /datum/crafting_recipe/paper_hat
-	name = "Paper Hat"
+	name = "纸帽"
 	result = /obj/item/clothing/head/costume/paper_hat
 	time = 5 SECONDS
 	reqs = list(
@@ -644,7 +644,7 @@
 	return HAS_TRAIT(user, TRAIT_BALLOON_SUTRA)
  */
 /datum/crafting_recipe/press_armor
-	name = "press armor vest"
+	name = "记者防弹背心"
 	result = /obj/item/clothing/suit/armor/vest/press
 	time = 2 SECONDS
 	tool_paths = list(/obj/item/clothing/accessory/press_badge)
@@ -654,7 +654,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/press_helmet
-	name = "press helmet vest"
+	name = "记者头盔"
 	result = /obj/item/clothing/head/helmet/press
 	time = 2 SECONDS
 	tool_paths = list(/obj/item/clothing/accessory/press_badge)
@@ -664,7 +664,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/press_vest
-	name = "press vest"
+	name = "记者背心"
 	result = /obj/item/clothing/suit/hazardvest/press
 	time = 2 SECONDS
 	tool_paths = list(/obj/item/clothing/accessory/press_badge)
@@ -674,7 +674,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/press_fedora
-	name = "press fedora"
+	name = "记者软呢帽"
 	result = /obj/item/clothing/head/fedora/beige/press
 	time = 2 SECONDS
 	tool_paths = list(/obj/item/clothing/accessory/press_badge)
@@ -684,7 +684,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/jonkler
-	name = "gamer's wig and mask"
+	name = "游戏玩家的假发与面具"
 	result = /obj/item/clothing/mask/gas/jonkler
 	time = 10 SECONDS
 	tool_paths = list(/obj/item/toy/crayon/green)

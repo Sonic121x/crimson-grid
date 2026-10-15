@@ -1,6 +1,6 @@
 /datum/action/cooldown/power/gift/aura_of_confidence
-	name = "Aura of Confidence"
-	desc = "The werewolf projects an aura of superiority, preventing attempts to find flaws or read auras."
+	name = "自信灵光"
+	desc = "狼人散发出高人一等的气场，阻止他人探查弱点或读取灵光。"
 	button_icon_state = "aura_of_confidence"
 	rank = 1
 
@@ -18,14 +18,14 @@
 
 
 /datum/storyteller_roll/gift/fatal_flaw
-	bumper_text = "Fatal Flaw"
+	bumper_text = "致命弱点"
 	applicable_stats = list(STAT_PERCEPTION, STAT_EMPATHY)
 	numerical = TRUE
 
 
 /datum/action/cooldown/power/gift/fatal_flaw
-	name = "Fatal Flaw"
-	desc = "The Shadow Lord can spy a target's weakness, gaining an advantage in combat."
+	name = "致命弱点"
+	desc = "暗影领主洞察目标的弱点，从而在战斗中取得优势。"
 	button_icon_state = "fatal_flaw"
 	rank = 1
 	click_to_activate = TRUE
@@ -51,7 +51,7 @@
 		return TRUE
 
 	living_owner?.apply_status_effect(/datum/status_effect/fatal_flaw, target)
-	to_chat(owner, span_notice("You study [target] and discover a weakness granting you a bonus dice to attacks."))
+	to_chat(owner, span_notice("你仔细观察[target]，发现一处弱点，攻击时可获得额外骰子。"))
 
 	return TRUE
 

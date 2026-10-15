@@ -12,7 +12,7 @@
 	/// Minimum Generation
 	var/minimum_generation
 	/// Unique failure message on joining the round (in case someone joins with an incompatible quirk on their savefile for some reason)
-	var/failure_message = "One of the quirks you've selected hasn't applied - your character is ineligible to use it!"
+	var/failure_message = "你选择的一项特质未能生效：你的角色不符合使用条件！"
 
 /datum/quirk/darkpack/add_to_holder(mob/living/new_holder, quirk_transfer = FALSE, client/client_source, unique = TRUE, announce = TRUE)
 	if(forbidden_splats)
@@ -105,7 +105,7 @@
 		open_backpack = TRUE
 
 	if(notify_player)
-		LAZYADD(where_items_spawned, span_boldnotice("You have \a [quirk_item] [where]. [flavour_text]"))
+		LAZYADD(where_items_spawned, span_boldnotice("[list(LOCATION_LPOCKET = "你左侧口袋里", LOCATION_RPOCKET = "你右侧口袋里", LOCATION_BACKPACK = "你背包里", LOCATION_HANDS = "你手里", LOCATION_GLOVES = "你双手上", LOCATION_EYES = "你眼前", LOCATION_MASK = "你脸上", LOCATION_HEAD = "你头上", LOCATION_NECK = "你颈上", LOCATION_ID = "你身份卡槽里", "at your feet" = "你脚边")[where] || where]有[quirk_item]。[flavour_text]"))
 
 /datum/quirk/darkpack/item_quirk/post_add()
 	if(open_backpack)

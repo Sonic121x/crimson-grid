@@ -1,5 +1,5 @@
 /datum/martial_art/jungle_arts
-	name = "Jungle Arts"
+	name = "丛林搏击术"
 	id = MARTIALART_JUNGLEARTS
 	pacifist_style = TRUE
 
@@ -24,13 +24,13 @@
 			attacker.do_attack_animation(defender, ATTACK_EFFECT_CLAW)
 			attacker.emote("spin")
 			defender.visible_message(
-				span_danger("[attacker]'s tail [atk_verb] [defender] down to the ground!"),
-				span_userdanger("Your body twists as you're [atk_verb] to the ground by [attacker]'s tail!"),
-				span_hear("You hear a snap, followed by a thud!"),
+				span_danger("[attacker]的尾巴将[defender]拖倒在地！"),
+				span_userdanger("[attacker]的尾巴将你拖倒在地，你的身体随之扭转！"),
+				span_hear("你听到一声脆响，随后是重物落地的闷响！"),
 				null,
 				attacker,
 			)
-			to_chat(attacker, span_danger("You latch your tail to [defender], [atk_verb] them to the ground!"))
+			to_chat(attacker, span_danger("你用尾巴缠住[defender]，将其拖倒在地！"))
 			defender.apply_damage(rand(5, 10), attacker.get_attack_type())
 			playsound(attacker, 'sound/items/weapons/whip.ogg', 50, TRUE, -1)
 			defender.Knockdown(2 SECONDS)
@@ -45,13 +45,13 @@
 			atk_verb = pick("whipped", "flogged", "lashed")
 			attacker.do_attack_animation(defender, ATTACK_EFFECT_CLAW)
 			defender.visible_message(
-				span_danger("[attacker]'s tail [atk_verb] [defender] in one quick motion!"),
-				span_userdanger("You feel a sharp sting as you're [atk_verb] by [attacker]!"),
-				span_hear("You hear a sharp whipping noise!"),
+				span_danger("[attacker]的尾巴迅速[list("whipped" = "抽打", "flogged" = "鞭打", "lashed" = "猛抽")[atk_verb]]了[defender]！"),
+				span_userdanger("你被[attacker][list("whipped" = "抽打", "flogged" = "鞭打", "lashed" = "猛抽")[atk_verb]]，感到一阵剧烈的刺痛！"),
+				span_hear("你听到一声尖锐的鞭响！"),
 				null,
 				attacker,
 			)
-			to_chat(attacker, span_danger("In one motion, you [atk_verb] [defender] quickly!"))
+			to_chat(attacker, span_danger("你动作利落地[list("whipped" = "抽打", "flogged" = "鞭打", "lashed" = "猛抽")[atk_verb]]了[defender]！"))
 			defender.apply_damage(rand(10, 15), attacker.get_attack_type())
 			playsound(attacker, 'sound/items/weapons/whip.ogg', 50, TRUE, -1)
 			defender.drop_all_held_items()
@@ -60,18 +60,18 @@
 
 		else
 			atk_verb = pick("chomp", "gnaw", "chew")
-			if(defender.check_block(attacker, 0, "[attacker]'s [atk_verb]", UNARMED_ATTACK))
+			if(defender.check_block(attacker, 0, "[attacker]的[list("chomp" = "猛咬", "gnaw" = "啃咬", "chew" = "嚼咬")[atk_verb]]", UNARMED_ATTACK))
 				return MARTIAL_ATTACK_FAIL
 
 			attacker.do_attack_animation(defender, ATTACK_EFFECT_BITE)
 			defender.visible_message(
-				span_danger("[attacker] [atk_verb]s [defender] violently!"),
-				span_userdanger("You're viciously [atk_verb]ed by [attacker]!"),
-				span_hear("You hear a violent gnawing sound!"),
+				span_danger("[attacker]凶猛地[list("chomp" = "猛咬", "gnaw" = "啃咬", "chew" = "嚼咬")[atk_verb]]着[defender]！"),
+				span_userdanger("[attacker]凶狠地[list("chomp" = "猛咬", "gnaw" = "啃咬", "chew" = "嚼咬")[atk_verb]]着你！"),
+				span_hear("你听到猛烈的啃咬声！"),
 				null,
 				attacker,
 			)
-			to_chat(attacker, span_danger("You [atk_verb] [defender] with vicious force!"))
+			to_chat(attacker, span_danger("你凶狠地[list("chomp" = "猛咬", "gnaw" = "啃咬", "chew" = "嚼咬")[atk_verb]]着[defender]！"))
 			defender.apply_damage(rand(10, 20), damagetype = BRUTE, sharpness = SHARP_POINTY, wound_bonus = 50)
 			playsound(attacker, 'sound/items/weapons/bite.ogg', 50, TRUE, -1)
 			if(HAS_TRAIT(attacker, TRAIT_PACIFISM))

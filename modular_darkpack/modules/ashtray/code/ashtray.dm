@@ -1,6 +1,6 @@
 /obj/item/storage/ashtray
-	name = "ashtray"
-	desc = "A small bowl for holding and disposing of smokestuffs."
+	name = "烟灰缸"
+	desc = "用于放置和处理烟草制品的小碟子。"
 	icon = 'modular_darkpack/modules/ashtray/icons/ashtray.dmi'
 	icon_state = "ashtray"
 	base_icon_state = "ashtray"
@@ -30,21 +30,21 @@
 	. = ..()
 
 	if(!recolored)
-		var/option_select = tgui_alert(user, "Choose an option", "[src]", list("Dump", "Recolor", "Don't ask again"))
+		var/option_select = tgui_alert(user, "请选择操作", "[src]", list("倒空", "重新着色", "不再询问"))
 		switch(option_select)
-			if("Recolor")
-				var/input_color = input(user, "Choose a Color.","[src]",color) as color
+			if("重新着色")
+				var/input_color = input(user, "请选择颜色。","[src]",color) as color
 
 				var/list/skin_hsv = rgb2hsv(input_color)
 				if(skin_hsv[3] < 20)
-					to_chat(user, span_warning("A color that dark on an object like this? Surely not..."))
+					to_chat(user, span_warning("给这种东西涂这么暗的颜色？还是算了吧……"))
 					return
 
 				color = input_color
 				recolored = TRUE
-			if("Don't ask again")
+			if("不再询问")
 				recolored = TRUE
-			if("Dump")
+			if("倒空")
 				dump_ashtray(user)
 	else
 		dump_ashtray(user)
@@ -54,11 +54,11 @@
 	var/ciggie_butts = 0
 
 	if(!contents.len)
-		to_chat(user, span_warning("You dump [src] out onto the ground. Too bad it has nothing in it."))
+		to_chat(user, span_warning("你把[src]朝地上倒了倒，可惜里面什么也没有。"))
 		return
 
-	user.visible_message(span_notice("[user] dumps [src] out onto the ground."), \
-		span_notice("You dump [src] out onto the ground."))
+	user.visible_message(span_notice("[user]把[src]中的东西倒在地上。"), \
+		span_notice("你把[src]中的东西倒在地上。"))
 	for(var/obj/item/cigbutt/butt in contents)
 		ciggie_butts += 1
 		qdel(butt)
@@ -90,9 +90,9 @@
 
 
 /datum/loadout_item/pocket_items/ashtray
-	name = "Ashtray"
+	name = "烟灰缸"
 	item_path = /obj/item/storage/ashtray
 
 /datum/loadout_item/pocket_items/ashtray/get_item_information()
 	. = ..()
-	.[FA_ICON_PALETTE] = "Recolorable"
+	.[FA_ICON_PALETTE] = "可重新着色"

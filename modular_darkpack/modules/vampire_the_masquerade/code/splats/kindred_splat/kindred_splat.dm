@@ -151,7 +151,7 @@
 		else if(HAS_TRAIT(owner, TRAIT_NEEDS_BLOOD))
 			var/atom/nearby_blood = get_closest_atom(/atom, owner.get_blood_frenzy_targets(), owner)
 			if(nearby_blood)
-				owner.trigger_kindred_frenzy(nearby_blood, 4, 0, "The hunger")
+				owner.trigger_kindred_frenzy(nearby_blood, 4, 0, "饥渴")
 				COOLDOWN_START(src, frenzy_roll_cooldown, 1 SCENES)
 
 		COOLDOWN_START(src, frenzy_target_check_cooldown, 1 TURNS)
@@ -193,7 +193,7 @@
 	if(new_stat < SOFT_CRIT)
 		return
 
-	to_chat(source, span_warning("You can feel yourself slipping into Torpor. You can use succumb to immediately sleep..."))
+	to_chat(source, span_warning("你感觉自己正陷入长眠。可以使用“放弃抵抗”（succumb）立即沉睡……"))
 	addtimer(CALLBACK(src, PROC_REF(slip_into_torpor), source), 2 MINUTES)
 
 /datum/splat/vampire/kindred/proc/slip_into_torpor(mob/living/carbon/human/kindred)
@@ -244,16 +244,16 @@
 			return
 		if(10 to 50)
 			kindred.rot_body(1) //skin takes on a weird colouration
-			kindred.visible_message(span_notice("[kindred]'s skin loses some of its colour."))
+			kindred.visible_message(span_notice("[kindred]的皮肤褪去了些许血色。"))
 		if(50 to 100)
 			kindred.rot_body(2) //looks slightly decayed
-			kindred.visible_message(span_notice("[kindred]'s skin rapidly decays."))
+			kindred.visible_message(span_notice("[kindred]的皮肤迅速腐烂。"))
 		if(100 to 150)
 			kindred.rot_body(3) //looks very decayed
-			kindred.visible_message(span_warning("[kindred]'s body rapidly decomposes!"))
+			kindred.visible_message(span_warning("[kindred]的身体迅速腐朽！"))
 		if(150 to 200)
 			kindred.rot_body(4) //mummified skeletonised corpse
-			kindred.visible_message(span_warning("[kindred]'s body rapidly skeletonises!"))
+			kindred.visible_message(span_warning("[kindred]的身体迅速化为白骨！"))
 		if(200 to INFINITY) //turn to ash
 			playsound(kindred, 'modular_darkpack/modules/vampire_the_masquerade/sounds/burning_death.ogg', 80, TRUE)
 			kindred.dust(just_ash = TRUE, drop_items = TRUE, force = TRUE)

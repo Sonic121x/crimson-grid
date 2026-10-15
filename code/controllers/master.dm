@@ -315,7 +315,7 @@ ADMIN_VERB(cmd_controller_view_ui, R_SERVER|R_DEBUG, "Controller Overview", "Vie
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, span_boldannounce("The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
+		to_chat(world, span_boldannounce("主控制器发生故障，需要重新初始化所有系统。"))
 		Initialize(20, TRUE, FALSE)
 
 // Please don't stuff random bullshit here,

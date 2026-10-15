@@ -148,10 +148,10 @@
 /// Select the sect, called from [/datum/component/religious_tool/proc/AttemptActions]
 /datum/component/religious_tool/proc/select_sect(mob/living/user, path)
 	if(user.mind.holy_role != HOLY_ROLE_HIGHPRIEST)
-		to_chat(user, span_warning("You are not the high priest, and therefore cannot select a religious sect."))
+		to_chat(user, span_warning("你不是大祭司，无法选择教派。"))
 		return
 	if(!user.can_perform_action(parent, FORBID_TELEKINESIS_REACH))
-		to_chat(user,span_warning("You cannot select a sect at this time."))
+		to_chat(user,span_warning("你现在无法选择教派。"))
 		return
 	set_new_religious_sect(text2path(path))
 
@@ -159,15 +159,15 @@
 /datum/component/religious_tool/proc/perform_rite(mob/living/user, path)
 	if(user.mind.holy_role < HOLY_ROLE_PRIEST)
 		if(user.mind.holy_role == HOLY_ROLE_DEACON)
-			to_chat(user, span_warning("You are merely a deacon of [GLOB.deity], and therefore cannot perform rites."))
+			to_chat(user, span_warning("你只是[GLOB.deity]的执事，无法举行仪式。"))
 		else
-			to_chat(user, span_warning("You are not holy, and therefore cannot perform rites."))
+			to_chat(user, span_warning("你没有神职，无法举行仪式。"))
 		return
 	if(rite_types_allowlist && !is_path_in_list(path, rite_types_allowlist))
-		to_chat(user, span_warning("This cannot perform that kind of rite."))
+		to_chat(user, span_warning("无法用它举行这种仪式。"))
 		return
 	if(!user.can_perform_action(parent, FORBID_TELEKINESIS_REACH))
-		to_chat(user,span_warning("You are not close enough to perform the rite."))
+		to_chat(user,span_warning("你离得太远，无法举行仪式。"))
 		return
 	//we have a rite already, but we want to do a new one.
 	if(performing_rite && !ispath(performing_rite.type, path))
@@ -239,9 +239,9 @@
 	var/list/item_names = list()
 	for(var/atom/sac_type as anything in easy_access_sect.desired_items)
 		var/append = easy_access_sect.desired_items[sac_type]
-		var/entry = "[initial(sac_type.name)]s [append]"
+		var/entry = "[initial(sac_type.name)][append ? "（[append]）" : ""]"
 		item_names += entry
-	return english_list(item_names)
+	return english_list(item_names, and_text = "和", comma_text = "、", final_comma_text = "")
 
 /**
  * Appends to examine so the user knows it can be used for religious purposes.
@@ -259,12 +259,12 @@
 
 	if(!can_i_see)
 		return
-	examine_list += span_notice("Use a [catalyst_type::name] to interact with this.")
+	examine_list += span_notice("使用[catalyst_type::name]与它互动。")
 	if(isnull(easy_access_sect))
 		if(operation_flags & RELIGION_TOOL_SECTSELECT)
-			examine_list += span_notice("This looks like it can be used to select a sect.")
+			examine_list += span_notice("它似乎可以用来选择教派。")
 			return
 	if(operation_flags & RELIGION_TOOL_SACRIFICE)//this can be moved around if things change but usually no rites == no sacrifice
-		examine_list += span_notice("Desired items can be used on this to increase favor.")
+		examine_list += span_notice("在此献上神祇喜爱的物品可以增加神恩。")
 	if(easy_access_sect.rites_list && operation_flags & RELIGION_TOOL_INVOKE)
-		examine_list += span_notice("You can invoke rites from this.")
+		examine_list += span_notice("你可以通过它举行仪式。")

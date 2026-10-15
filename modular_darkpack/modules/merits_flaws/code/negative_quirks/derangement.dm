@@ -1,4 +1,4 @@
-
+GLOBAL_LIST_INIT(localized_derangement_phrases, list("Evil crouches" = "邪恶正蹲伏着", "Death" = "死亡", "DIE!" = "去死！", "I smell a rancid grave" = "我闻到一座腐臭坟墓的气息", "Rustling robes of the Reaper" = "死神的长袍沙沙作响", "All are blind whose eyes are closed" = "闭上双眼的人，全都看不见", "The drove is a terrible mistress" = "群兽是可怕的女主人", "Wishes and words sprout from the same seed" = "心愿与话语从同一颗种子萌发", "A dark light from your death" = "你的死亡透出一道幽暗的光", "Hemlock for the deceivers" = "给欺骗者献上毒芹", "It has two mouths to lick from" = "它有两张嘴可以舔舐", "Deep of the Atlantic, dark, dreaming, sleeping" = "大西洋深处，黑暗，梦境，沉眠", "Can't see, can't see! Where have my eyes gone to?" = "看不见，看不见！我的眼睛去哪儿了？", "Heloise said you. Cranberry sauce. Hotel foxtrot" = "爱洛伊丝说了你。蔓越莓酱。旅馆狐步舞", "Stop doing that. Mother shan't be too pleased. None too pleased" = "别再那样了。母亲会不高兴的。非常不高兴", "Those lips bleed a putrid poison" = "那双唇淌着腐臭的毒液", "Rat tails, cat tails, coat tails, all tales" = "鼠尾，猫尾，燕尾，全是谎话的尾巴", "It's not fair! I wanted to" = "这不公平！我也想要", "Pennies for your eyes in its pockets" = "它口袋里的铜板，是用来盖住你双眼的", "Why is it troubled?" = "它为什么烦恼？", "Ask about the free arsenic" = "问问那免费送的砒霜", "Blood brings the vicious beast" = "鲜血引来了凶恶的心兽", "I see daggers hang on his breath" = "我看见匕首悬在他的吐息上", "Bone round in melody and word layed in rain" = "白骨在旋律里打转，话语被搁在雨中", "Cemetery runoff congealing at the door" = "墓地流出的污水凝结在门边", "Maggots love you. Trust me" = "蛆虫爱你。相信我", "Mast lay shrouded and the moon is melting" = "桅杆裹着裹尸布，月亮正在融化", "Try the corpse in the oven with peppers and fur" = "尝尝烤箱里的尸体吧，配着辣椒和皮毛", "Souls draped in rotten tatters and Father dances in the dark" = "灵魂披着腐烂的破布，父亲在黑暗中起舞", "Make the tallow from the fat of a hangman" = "拿绞刑刽子手的脂肪炼油", "Bent like a calf for the butcher" = "像待宰的小牛一样蜷伏", "You're in for it now" = "这下有你受的了", "They're coming" = "他们来了", "It casts a crooked shadow" = "它投下扭曲的影子", "Elkabo, elkabo, pixy queen where all is green" = "埃尔卡博，埃尔卡博，小妖精女王所在之处皆是翠绿", "It's a tangle of asps" = "那是一团纠缠的毒蛇", "Sealed with the kiss of swine" = "以猪的亲吻封缄", "A trick with two tongues" = "两条舌头耍的把戏", "The very thought falls to the flame" = "连这个念头也坠入火焰"))
 #define FLOOR_DISAPPEAR 3 SECONDS
 
 // associative list used by dementation and the derangement quirk
@@ -47,11 +47,11 @@ GLOBAL_LIST_INIT(derangement_phrases,list(
 
 /datum/quirk/darkpack/derangement
 	name = "Derangement"
-	desc = "Suffer from a permanent, incurable derangement that alters your perception."
+	desc = "你患有永久且无法治愈的精神紊乱，感知会因此改变。"
 	icon = FA_ICON_HOUSE_MEDICAL_CIRCLE_EXCLAMATION
-	gain_text = span_hypnophrase("You feel off...")
-	lose_text = span_notice("You start to feel normal again...")
-	medical_record_text = "Patient suffers from a treatment-resistant mental illness."
+	gain_text = span_hypnophrase("你觉得有些不对劲……")
+	lose_text = span_notice("你开始觉得自己恢复正常了……")
+	medical_record_text = "患者患有难治性精神疾病。"
 	value = -3
 	hardcore_value = 6
 	quirk_flags = QUIRK_PROCESSES
@@ -147,12 +147,12 @@ GLOBAL_LIST_INIT(derangement_phrases,list(
 		return
 
 	var/obj/speaker = pick_weight(objects)
-	var/speech = spooky_font_replace(pick(audible_hallucinations))
+	var/speech = pick(audible_hallucinations)
 	var/language = hallucinator.get_random_understood_language()
-	var/message = hallucinator.compose_message(speaker, language, speech)
+	var/message = hallucinator.compose_message(speaker, language, spooky_font_replace(GLOB.localized_derangement_phrases[speech] || speech))
 	hallucinator.playsound_local(hallucinator, audible_hallucinations[speech], vol = 20, vary = TRUE)
 	if(hallucinator.client.prefs.read_preference(/datum/preference/toggle/see_rc_emotes))
-		hallucinator.create_chat_message(speaker, language, speech, spans = list("italics"))
+		hallucinator.create_chat_message(speaker, language, spooky_font_replace(GLOB.localized_derangement_phrases[speech] || speech), spans = list("italics"))
 	to_chat(hallucinator, span_cult_italic(message))
 
 	return TRUE
@@ -204,8 +204,8 @@ GLOBAL_LIST_INIT(derangement_phrases,list(
 /obj/effect/client_image_holder/hallucination/your_mother/malk
 	gender = FEMALE
 	image_icon = 'icons/mob/simple/simple_human.dmi'
-	name = "your mother"
-	desc = "... but, that can't be her, can it?"
+	name = "你的母亲"
+	desc = "……但，那不可能是她吧？"
 	image_state = ""
 
 // the random hallucination type will store overrides and extensions of basegame hallucinations, as well as untouched basegame hallucinations like eyes_in_the_dark
@@ -224,6 +224,6 @@ GLOBAL_LIST_INIT(derangement_phrases,list(
 	if(QDELETED(src) || QDELETED(hallucinator) || QDELETED(bleeding_bodypart))
 		return
 
-	to_chat(hallucinator, span_warning("The blood doesn't stop flowing from my injury, yet it doesn't seem to hurt..."))
+	to_chat(hallucinator, span_warning("我的伤口血流不止，却好像一点也不疼……"))
 
 #undef FLOOR_DISAPPEAR

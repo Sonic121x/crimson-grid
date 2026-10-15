@@ -21,9 +21,9 @@
 #define POSITIVE_INSTABILITY_MAJOR 35
 
 /datum/mutation
-	var/name = "mutation"
+	var/name = "突变"
 	/// Description of the mutation
-	var/desc = "A mutation."
+	var/desc = "一种突变。"
 	/// Is this mutation currently locked?
 	var/locked = FALSE
 	/// Quality of the mutation
@@ -228,14 +228,14 @@
 	valid_chrom_list.Cut()
 
 	if(can_chromosome == CHROMOSOME_NEVER)
-		valid_chrom_list += "none"
+		valid_chrom_list += "无"
 		return
 
 	if(stabilizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
-		valid_chrom_list += "Stabilizer"
+		valid_chrom_list += "稳定型"
 	if(synchronizer_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
-		valid_chrom_list += "Synchronizer"
+		valid_chrom_list += "协调型"
 	if(power_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
-		valid_chrom_list += "Power"
+		valid_chrom_list += "强化型"
 	if(energy_coeff != MUTATION_COEFFICIENT_UNMODIFIABLE)
-		valid_chrom_list += "Energetic"
+		valid_chrom_list += "节能型"

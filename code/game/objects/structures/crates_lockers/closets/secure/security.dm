@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/captains
-	name = "captain's locker"
+	name = "船长储物柜"
 	icon_state = "cap"
 	req_access = list(ACCESS_CAPTAIN)
 
@@ -21,7 +21,7 @@
 	new /obj/item/storage/photo_album/captain(src)
 
 /obj/structure/closet/secure_closet/hop
-	name = "head of personnel's locker"
+	name = "人事主管储物柜"
 	icon_state = "hop"
 	req_access = list(ACCESS_HOP)
 
@@ -49,7 +49,7 @@
 	new /obj/item/storage/photo_album/hop(src)
 
 /obj/structure/closet/secure_closet/hos
-	name = "head of security's locker"
+	name = "安保主管储物柜"
 	icon_state = "hos"
 	req_access = list(ACCESS_HOS)
 
@@ -79,7 +79,7 @@
 	new /obj/item/storage/photo_album/hos(src)
 
 /obj/structure/closet/secure_closet/warden
-	name = "warden's locker"
+	name = "典狱长储物柜"
 	icon_state = "warden"
 	req_access = list(ACCESS_ARMORY)
 
@@ -104,7 +104,7 @@
 	new /obj/item/gun/ballistic/shotgun/automatic/combat/compact(src)
 
 /obj/structure/closet/secure_closet/security
-	name = "security officer's locker"
+	name = "安保员储物柜"
 	icon_state = "sec"
 	req_access = list(ACCESS_BRIG)
 
@@ -153,7 +153,7 @@
 	new /obj/item/encryptionkey/headset_med(src)
 
 /obj/structure/closet/secure_closet/detective
-	name = "\improper detective's cabinet"
+	name = "\improper 侦探储物柜"
 	icon_state = "cabinet"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
@@ -178,7 +178,7 @@
 	new /obj/item/clothing/head/fedora/inspector_hat(src)
 
 /obj/structure/closet/secure_closet/injection
-	name = "lethal injections locker"
+	name = "死刑注射用品柜"
 	req_access = list(ACCESS_ARMORY)
 
 /obj/structure/closet/secure_closet/injection/PopulateContents()
@@ -187,7 +187,7 @@
 		new /obj/item/reagent_containers/syringe/lethal/execution(src)
 
 /obj/structure/closet/secure_closet/brig
-	name = "brig locker"
+	name = "禁闭室储物柜"
 	anchored = TRUE
 	req_one_access = list(ACCESS_BRIG)
 	var/id = null
@@ -196,14 +196,14 @@
 	req_one_access = COMMON_ACCESS
 
 /obj/structure/closet/secure_closet/brig/genpop
-	name = "genpop storage locker"
-	desc = "Used for storing the belongings of genpop's tourists visiting the locals."
+	name = "普通监区储物柜"
+	desc = "为来到普通监区拜访当地居民的“游客”存放随身物品。"
 	access_choices = FALSE
 	paint_jobs = null
 
 /obj/structure/closet/secure_closet/brig/genpop/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Right-click</b> with a Security-level ID to reset [src]'s registered ID.")
+	. += span_notice("手持具有安保权限的身份证<b>右键点击</b>，可重置[src]绑定的身份证。")
 
 /obj/structure/closet/secure_closet/brig/genpop/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!secure || !istype(tool, /obj/item/card/id))
@@ -212,9 +212,9 @@
 	if(!isnull(id_card))
 		return ITEM_INTERACT_BLOCKING
 
-	say("Prisoner ID linked to locker.")
+	say("囚犯身份证已绑定至储物柜。")
 	id_card = WEAKREF(tool)
-	name = "genpop storage locker - [astype(tool, /obj/item/card/id/advanced/prisoner).registered_name]"
+	name = "普通监区储物柜 - [astype(tool, /obj/item/card/id/advanced/prisoner).registered_name]"
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/closet/secure_closet/brig/genpop/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
@@ -226,7 +226,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/closet/secure_closet/brig/genpop/proc/clear_access()
-	say("Authorized ID detected. Unlocking locker and resetting ID.")
+	say("检测到授权身份证。正在解锁储物柜并重置绑定。")
 	locked = FALSE
 	id_card = null
 	name = initial(name)
@@ -234,7 +234,7 @@
 
 /obj/structure/closet/secure_closet/evidence
 	anchored = TRUE
-	name = "secure evidence closet"
+	name = "安全证物柜"
 	req_one_access = list(ACCESS_ARMORY, ACCESS_DETECTIVE)
 
 /obj/structure/closet/secure_closet/brig/PopulateContents()
@@ -245,7 +245,7 @@
 	new /obj/item/clothing/shoes/sneakers/orange( src )
 
 /obj/structure/closet/secure_closet/courtroom
-	name = "courtroom locker"
+	name = "法庭储物柜"
 	req_access = list(ACCESS_COURT)
 
 /obj/structure/closet/secure_closet/courtroom/PopulateContents()
@@ -262,16 +262,16 @@
 
 /obj/structure/closet/secure_closet/contraband/armory
 	anchored = TRUE
-	name = "contraband locker"
+	name = "违禁品柜"
 	req_access = list(ACCESS_ARMORY)
 
 /obj/structure/closet/secure_closet/contraband/heads
-	name = "contraband locker"
+	name = "违禁品柜"
 	req_access = list(ACCESS_COMMAND)
 	anchored = TRUE
 
 /obj/structure/closet/secure_closet/armory1
-	name = "armory armor locker"
+	name = "军械库护甲柜"
 	icon_state = "armory"
 	req_access = list(ACCESS_ARMORY)
 
@@ -291,7 +291,7 @@
 	new /obj/item/clothing/suit/hooded/ablative(src)
 
 /obj/structure/closet/secure_closet/armory2
-	name = "armory ballistics locker"
+	name = "军械库实弹武器柜"
 	icon_state = "tac"
 	icon_door = "armory_shotgun"
 	req_access = list(ACCESS_ARMORY)
@@ -307,7 +307,7 @@
 		new /obj/item/gun/ballistic/shotgun/riot(src)
 
 /obj/structure/closet/secure_closet/armory3
-	name = "armory energy gun locker"
+	name = "军械库能量武器柜"
 	icon_state = "tac"
 	icon_door = "armory_energy"
 	req_access = list(ACCESS_ARMORY)
@@ -326,7 +326,7 @@
 		new /obj/item/gun/energy/laser(src)
 
 /obj/structure/closet/secure_closet/tac
-	name = "armory tac locker"
+	name = "军械库战术装备柜"
 	icon_state = "tac"
 	req_access = list(ACCESS_ARMORY)
 
@@ -338,7 +338,7 @@
 	new /obj/item/clothing/suit/armor/bulletproof(src)
 
 /obj/structure/closet/secure_closet/labor_camp_security
-	name = "labor camp security locker"
+	name = "劳改营安保储物柜"
 	icon_state = "sec"
 	req_access = list(ACCESS_SECURITY)
 

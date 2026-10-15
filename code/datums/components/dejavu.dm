@@ -5,9 +5,9 @@
 	dupe_mode = COMPONENT_DUPE_ALLOWED
 
 	///message sent when dejavu rewinds
-	var/rewind_message = "You remember a time not so long ago..."
+	var/rewind_message = "你回想起不久前的一刻……"
 	///message sent when dejavu is out of rewinds
-	var/no_rewinds_message = "But the memory falls out of your reach."
+	var/no_rewinds_message = "但那段记忆已变得遥不可及。"
 
 	/// The turf the parent was on when this components was applied, they get moved back here after the duration
 	var/turf/starting_turf
@@ -83,7 +83,7 @@
 	//comes after healing so new limbs comically drop to the floor
 	if(starting_turf)
 		if(!check_teleport_valid(parent, starting_turf))
-			to_chat(parent, span_warning("For some reason, your head aches and fills with mental fog when you try to think of where you were... It feels like you're now going against some dull, unstoppable universal force."))
+			to_chat(parent, span_warning("不知为何，当你试图回想自己先前的位置时，便感到头痛欲裂、思绪混沌……仿佛正在对抗某种沉闷而不可阻挡的宇宙之力。"))
 		else
 			var/atom/movable/master = parent
 			master.forceMove(starting_turf)
@@ -135,15 +135,15 @@
 
 ///differently themed dejavu for modsuits.
 /datum/component/dejavu/timeline
-	rewind_message = "Your suit rewinds, pulling you through spacetime!"
-	no_rewinds_message = "\"Rewind complete. You have arrived at: 10 seconds ago.\""
+	rewind_message = "你的服装启动回溯，将你拉过时空！"
+	no_rewinds_message = "\"回溯完成。你已抵达：10 秒之前。\""
 
 /datum/component/dejavu/timeline/rewind()
 	playsound(get_turf(parent), 'sound/items/modsuit/rewinder.ogg', 50, TRUE)
 	return ..()
 
 /datum/component/dejavu/wizard
-	rewind_message = "Your temporal ward activated, pulling you through spacetime!"
+	rewind_message = "你的时间结界已激活，将你拉过时空！"
 
 /datum/component/dejavu/wizard/rewind()
 	playsound(get_turf(parent), 'sound/items/modsuit/rewinder.ogg', 50, TRUE)

@@ -12,7 +12,7 @@
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 
 /obj/structure/stairs
-	name = "stairs"
+	name = "楼梯"
 	icon = 'modular_darkpack/master_files/icons/obj/stairs.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "stairs"
 	base_icon_state = "stairs"
@@ -330,7 +330,7 @@
 	for(var/mob/living/guy in falling_movables)
 		if(!can_fall_down_stairs(guy))
 			continue
-		to_chat(guy, span_warning("You fall down [src]!"))
+		to_chat(guy, span_warning("你从[src]上滚了下去！"))
 		on_fall(guy)
 	. |= FALL_INTERCEPTED | FALL_NO_MESSAGE | FALL_RETAIN_PULL
 
@@ -368,8 +368,8 @@
 	return TRUE
 
 /obj/structure/stairs_frame
-	name = "stairs frame"
-	desc = "Everything you need to call something a staircase, aside from the stuff you actually step on."
+	name = "楼梯框架"
+	desc = "楼梯该有的都有了，就差脚下要踩的那些东西。"
 	icon = 'modular_darkpack/master_files/icons/obj/stairs.dmi' // DARKPACK EDIT CHANGE
 	icon_state = "stairs_frame"
 	density = FALSE
@@ -381,8 +381,8 @@
 	var/frame_stack_amount = 10
 
 /obj/structure/stairs_frame/wood
-	name = "wooden stairs frame"
-	desc = "Everything you need to build a staircase, minus the actual stairs. This one is made of wood."
+	name = "木制楼梯框架"
+	desc = "造楼梯需要的都有了，就差真正的台阶。这副框架是木制的。"
 	frame_stack = /obj/item/stack/sheet/mineral/wood
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
@@ -393,12 +393,12 @@
 /obj/structure/stairs_frame/examine(mob/living/carbon/human/user)
 	. = ..()
 	if(anchored)
-		. += span_notice("The frame is anchored and can be made into proper stairs with 10 sheets of material.")
+		. += span_notice("框架已固定，添加10块材料板即可建成楼梯。")
 	else
-		. += span_notice("The frame will need to be secured with a wrench before it can be completed.")
+		. += span_notice("需要先用扳手固定框架，才能继续施工。")
 
 /obj/structure/stairs_frame/wrench_act(mob/living/user, obj/item/used_tool)
-	user.balloon_alert_to_viewers("securing stairs frame", "securing frame")
+	user.balloon_alert_to_viewers("正在固定楼梯框架", "正在固定框架")
 	used_tool.play_tool_sound(src)
 	if(!used_tool.use_tool(src, user, 3 SECONDS))
 		return TRUE
@@ -411,7 +411,7 @@
 	return TRUE
 
 /obj/structure/stairs_frame/wrench_act_secondary(mob/living/user, obj/item/used_tool)
-	to_chat(user, span_notice("You start disassembling [src]..."))
+	to_chat(user, span_notice("你开始拆解[src]……"))
 	used_tool.play_tool_sound(src)
 	if(!used_tool.use_tool(src, user, 3 SECONDS))
 		return TRUE
@@ -426,20 +426,20 @@
 	if(!isstack(tool))
 		return NONE
 	if(!anchored)
-		user.balloon_alert(user, "secure the frame first!")
+		user.balloon_alert(user, "先固定框架！")
 		return ITEM_INTERACT_BLOCKING
 
 	var/obj/item/stack/material = tool
 	if(material.stairs_type)
 		if(material.get_amount() < 10)
-			to_chat(user, span_warning("You need ten [material.name] sheets to do this!"))
+			to_chat(user, span_warning("你需要10块[material.name]才能施工！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(locate(/obj/structure/stairs) in loc)
-			to_chat(user, span_warning("There's already stairs built here!"))
+			to_chat(user, span_warning("这里已经有楼梯了！"))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You start adding [material] to [src]..."))
+		to_chat(user, span_notice("你开始往[src]上安装[material]……"))
 		if(!do_after(user, 10 SECONDS, target = src) || !material.use(10) || (locate(/obj/structure/table) in loc))
 			return ITEM_INTERACT_BLOCKING
 
@@ -448,14 +448,14 @@
 
 	if(istype(material, /obj/item/stack/sheet))
 		if(material.get_amount() < 10)
-			to_chat(user, span_warning("You need ten sheets to do this!"))
+			to_chat(user, span_warning("你需要10块材料板才能施工！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(locate(/obj/structure/stairs) in loc)
-			to_chat(user, span_warning("There's already stairs built here!"))
+			to_chat(user, span_warning("这里已经有楼梯了！"))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You start adding [material] to [src]..."))
+		to_chat(user, span_notice("你开始往[src]上安装[material]……"))
 		if(!do_after(user, 10 SECONDS, target = src) || !material.use(10) || (locate(/obj/structure/table) in loc))
 			return ITEM_INTERACT_BLOCKING
 

@@ -1,6 +1,6 @@
 /obj/item/retractor
-	name = "retractor"
-	desc = "Retracts stuff."
+	name = "拉钩"
+	desc = "用来牵开组织。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "retractor"
 	worn_icon = "retractor"
@@ -30,8 +30,8 @@
 	icon_angle = 45
 
 /obj/item/hemostat
-	name = "hemostat"
-	desc = "You think you have seen this before."
+	name = "止血钳"
+	desc = "你觉得自己以前见过这东西。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "hemostat"
 	worn_icon = "hemostat"
@@ -43,8 +43,8 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb_continuous = list("attacks", "pinches")
-	attack_verb_simple = list("attack", "pinch")
+	attack_verb_continuous = list("攻击", "夹击")
+	attack_verb_simple = list("攻击", "夹击")
 	tool_behaviour = TOOL_HEMOSTAT
 	toolspeed = 1
 	/// How this looks when placed in a surgical tray
@@ -63,8 +63,8 @@
 	icon_angle = 45
 
 /obj/item/cautery
-	name = "cautery"
-	desc = "This stops bleeding."
+	name = "烧灼器"
+	desc = "用来止血。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "cautery"
 	worn_icon = "cautery"
@@ -76,8 +76,8 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = SURGICAL_TOOL
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb_continuous = list("burns")
-	attack_verb_simple = list("burn")
+	attack_verb_continuous = list("灼烧")
+	attack_verb_simple = list("灼烧")
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
 	heat = 500
@@ -88,7 +88,7 @@
 	return surgical_tray_overlay
 
 /obj/item/cautery/ignition_effect(atom/ignitable_atom, mob/user)
-	return span_rose("[user] touches the end of [src] to \the [ignitable_atom], igniting it with a puff of smoke.")
+	return span_rose("[user]将[src]的末端碰到[ignitable_atom]上，冒出一缕烟，将其点燃。")
 
 /obj/item/cautery/augment
 	desc = "A heated element that cauterizes wounds."
@@ -156,8 +156,8 @@
 	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
 
 /obj/item/surgicaldrill
-	name = "surgical drill"
-	desc = "You can drill using this item. You dig?"
+	name = "手术钻"
+	desc = "你可以用它钻孔。够深入吧？"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "drill"
 	inhand_icon_state = "drill"
@@ -171,8 +171,8 @@
 	force = 15
 	demolition_mod = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("drills")
-	attack_verb_simple = list("drill")
+	attack_verb_continuous = list("钻击")
+	attack_verb_simple = list("钻击")
 	tool_behaviour = TOOL_DRILL
 	toolspeed = 1
 	sharpness = SHARP_POINTY
@@ -189,7 +189,7 @@
 	return surgical_tray_overlay
 
 /obj/item/surgicaldrill/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] rams [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]把[src]猛地戳进自己的胸口！看起来是想自杀！"))
 	addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, gib), DROP_ALL_REMAINS), 2.5 SECONDS)
 	user.SpinAnimation(3, 10)
 	playsound(user, 'sound/machines/juicer.ogg', 20, TRUE)
@@ -206,8 +206,8 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel
-	name = "scalpel"
-	desc = "Cut, cut, and once more cut."
+	name = "手术刀"
+	desc = "切，切，再切。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "scalpel"
 	worn_icon = "scalpel"
@@ -224,8 +224,8 @@
 	throw_speed = 3
 	throw_range = 5
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
-	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯开", "切碎", "切割")
+	attack_verb_simple = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯开", "切碎", "切割")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SCALPEL
@@ -253,7 +253,7 @@
 	return surgical_tray_overlay
 
 /obj/item/scalpel/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is slitting [user.p_their()] [pick("wrists", "throat", "stomach")] with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正用[src]割开自己的[pick("手腕", "喉咙", "腹部")]！看起来是想自杀！"))
 	return BRUTELOSS
 
 /obj/item/scalpel/cyborg
@@ -266,8 +266,8 @@
 	toolspeed = 0.5
 
 /obj/item/circular_saw
-	name = "circular saw"
-	desc = "For heavy duty cutting."
+	name = "圆锯"
+	desc = "用于高强度切割。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "saw"
 	inhand_icon_state = "saw"
@@ -284,8 +284,8 @@
 	throw_speed = 2
 	throw_range = 5
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*5, /datum/material/glass = SHEET_MATERIAL_AMOUNT*3)
-	attack_verb_continuous = list("attacks", "slashes", "saws", "cuts")
-	attack_verb_simple = list("attack", "slash", "saw", "cut")
+	attack_verb_continuous = list("攻击", "劈砍", "锯割", "切割")
+	attack_verb_simple = list("攻击", "劈砍", "锯割", "切割")
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
@@ -325,8 +325,8 @@
 
 
 /obj/item/surgical_drapes
-	name = "surgical drapes"
-	desc = "Medlane brand surgical drapes provide optimal safety and infection control." // DARKPACK EDIT CHANGE
+	name = "手术铺巾"
+	desc = "美德兰牌手术铺巾提供出色的安全保障与感染防护。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "surgical_drapes"
 	worn_icon = "drapes"
@@ -334,8 +334,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	inhand_icon_state = "drapes"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb_continuous = list("slaps")
-	attack_verb_simple = list("slap")
+	attack_verb_continuous = list("拍打")
+	attack_verb_simple = list("拍打")
 	drop_sound = SFX_CLOTH_DROP
 	pickup_sound = SFX_CLOTH_PICKUP
 	gender = PLURAL
@@ -608,8 +608,8 @@
 	return BRUTELOSS
 
 /obj/item/bonesetter
-	name = "bonesetter"
-	desc = "For setting things right."
+	name = "正骨器"
+	desc = "用来让一切回归正位。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bonesetter"
 	inhand_icon_state = "bonesetter"
@@ -635,8 +635,8 @@
 	icon_angle = 45
 
 /obj/item/blood_filter
-	name = "blood filter"
-	desc = "For filtering the blood."
+	name = "血液过滤器"
+	desc = "用于过滤血液。"
 	icon = 'icons/obj/medical/surgery_tools.dmi'
 	icon_state = "bloodfilter"
 	inhand_icon_state = "bloodfilter"

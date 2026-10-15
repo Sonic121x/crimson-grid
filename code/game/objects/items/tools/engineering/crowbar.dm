@@ -1,6 +1,6 @@
 /obj/item/crowbar
-	name = "pocket crowbar"
-	desc = "A small crowbar. This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
+	name = "便携撬棍"
+	desc = "小撬棍。这件顺手的工具用途广泛，可以撬起地砖或打开断电的门。"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar"
 	inhand_icon_state = "crowbar"
@@ -19,8 +19,8 @@
 	drop_sound = 'sound/items/handling/tools/crowbar_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/crowbar_pickup.ogg'
 
-	attack_verb_continuous = list("attacks", "bashes", "batters", "bludgeons", "whacks")
-	attack_verb_simple = list("attack", "bash", "batter", "bludgeon", "whack")
+	attack_verb_continuous = list("攻击", "猛砸", "殴打", "重击", "敲打")
+	attack_verb_simple = list("攻击", "猛砸", "殴打", "重击", "敲打")
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 1
 	armor_type = /datum/armor/item_crowbar
@@ -36,7 +36,7 @@
 	AddElement(/datum/element/falling_hazard, damage = force, wound_bonus = wound_bonus, hardhat_safety = TRUE, crushes = FALSE, impact_sound = hitsound)
 
 /obj/item/crowbar/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is beating [user.p_them()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正用[src]拼命殴打自己！看起来是想自杀！"))
 	playsound(loc, 'sound/items/weapons/genhit.ogg', 50, TRUE, -1)
 	return BRUTELOSS
 
@@ -73,8 +73,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/crowbar/hammer
-	name = "claw hammer"
-	desc = "It's a heavy hammer with a pry bar on the back of its head. Nails aren't common in space, but this tool can still be used as a weapon or a crowbar."
+	name = "羊角锤"
+	desc = "沉重的锤子，锤头背面带有撬爪。太空中虽然不常见钉子，但它仍能当作武器或撬棍使用。"
 	force = 11
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/weapons/hammer.dmi'

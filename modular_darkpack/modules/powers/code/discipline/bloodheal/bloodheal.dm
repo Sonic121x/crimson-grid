@@ -3,14 +3,14 @@
 
 /datum/discipline/bloodheal
 	name = "Bloodheal"
-	desc = {"Use the power of your Vitae to mend your flesh.
-● Bloodheal: Stamina + Survival (difficulty 8) - roll only on interrupted cast"}
+	desc = {"借助血粹的力量修复血肉。
+● 血疗术：耐力 + 生存（难度 8）——仅在施术被打断时掷骰"}
 	icon_state = "bloodheal"
 	power_type = /datum/discipline_power/bloodheal
 	selectable = FALSE
 
 /datum/storyteller_roll/bloodheal
-	bumper_text = "Bloodheal"
+	bumper_text = "血疗术"
 	difficulty = 8
 	applicable_stats = list(STAT_STAMINA, STAT_SURVIVAL)
 	roll_output_type = ROLL_FLAG_ROLLER
@@ -53,16 +53,16 @@
 	if(!bloodheal_roll)
 		bloodheal_roll = new()
 	var/roll_result = bloodheal_roll.st_roll(owner, src)
-	to_chat(owner, span_warning("You break your concentration..."))
+	to_chat(owner, span_warning("你的专注被打断了……"))
 	switch(roll_result)
 		if(ROLL_SUCCESS)
-			to_chat(owner, span_notice("But you succeed in mending your wounds."))
+			to_chat(owner, span_notice("但你仍成功修复了伤口。"))
 			return TRUE
 		if(ROLL_FAILURE)
-			to_chat(owner, span_warning("And fail to harness your blood."))
+			to_chat(owner, span_warning("你没能掌控血液的力量。"))
 			return FALSE
 		if(ROLL_BOTCH)
-			to_chat(owner, span_danger("And worsen your wounds."))
+			to_chat(owner, span_danger("你的伤势反而加重了。"))
 			owner.adjust_blood_pool(-1)
 			owner.apply_damage(1 TTRPG_DAMAGE, BRUTE)
 			return FALSE
@@ -116,8 +116,8 @@
 	//healing too quickly attracts attention
 	if (violates_masquerade)
 		owner.visible_message(
-			span_warning("[owner]'s wounds heal with unnatural speed!"),
-			span_warning("Your wounds visibly heal with unnatural speed!")
+			span_warning("[owner]的伤口以超乎常理的速度愈合！"),
+			span_warning("你的伤口正以肉眼可见的异常速度愈合！")
 		)
 
 	//update UI
@@ -152,8 +152,8 @@
 
 //BLOODHEAL 1
 /datum/discipline_power/bloodheal/one
-	name = "Minor Bloodheal"
-	desc = "Slowly mend your undead flesh."
+	name = "初级血疗术"
+	desc = "缓慢修复你的不死之躯。"
 
 	level = 1
 	vitae_cost = 1
@@ -162,8 +162,8 @@
 
 //BLOODHEAL 2
 /datum/discipline_power/bloodheal/two
-	name = "Bloodheal"
-	desc = "Mend your undead flesh."
+	name = "血疗术"
+	desc = "修复你的不死之躯。"
 
 	level = 2
 	vitae_cost = 2
@@ -172,8 +172,8 @@
 
 //BLOODHEAL 3
 /datum/discipline_power/bloodheal/three
-	name = "Quick Bloodheal"
-	desc = "Mend your undead flesh with unnatural speed."
+	name = "迅速血疗术"
+	desc = "以超乎常理的速度修复你的不死之躯。"
 
 	level = 3
 	vitae_cost = 3
@@ -182,8 +182,8 @@
 
 //BLOODHEAL 4
 /datum/discipline_power/bloodheal/four
-	name = "Major Bloodheal"
-	desc = "Heal even the most grievous wounds in short order."
+	name = "强力血疗术"
+	desc = "即使伤势极其严重，也能在短时间内治愈。"
 
 	level = 4
 	vitae_cost = 4
@@ -192,8 +192,8 @@
 
 //BLOODHEAL 5
 /datum/discipline_power/bloodheal/five
-	name = "Greater Bloodheal"
-	desc = "Regrow entire bodyparts without breaking a sweat."
+	name = "高等血疗术"
+	desc = "轻而易举地再生完整肢体。"
 
 	level = 5
 	vitae_cost = 5
@@ -202,8 +202,8 @@
 
 //BLOODHEAL 6
 /datum/discipline_power/bloodheal/six
-	name = "Grand Bloodheal"
-	desc = "Regrow entire bodyparts without breaking a sweat."
+	name = "宏大血疗术"
+	desc = "轻而易举地再生完整肢体。"
 
 	level = 6
 	vitae_cost = 6
@@ -212,8 +212,8 @@
 
 //BLOODHEAL 7
 /datum/discipline_power/bloodheal/seven
-	name = "Grand Bloodheal"
-	desc = "Reconstitute your body from near nothing."
+	name = "宏大血疗术"
+	desc = "即使身体几乎荡然无存，也能重新构筑。"
 
 	level = 7
 	vitae_cost = 7
@@ -222,8 +222,8 @@
 
 //BLOODHEAL 8
 /datum/discipline_power/bloodheal/eight
-	name = "Godlike Bloodheal"
-	desc = "On the edge of Final Death, let your blood explode outwards and recreate you."
+	name = "神迹血疗术"
+	desc = "在终亡边缘，让血液向外迸发，重塑你的身躯。"
 
 	level = 8
 	vitae_cost = 8
@@ -232,8 +232,8 @@
 
 //BLOODHEAL 9
 /datum/discipline_power/bloodheal/nine
-	name = "Surpassing Bloodheal"
-	desc = "Even as a titanic beast, you could restore your physical form in short order."
+	name = "超凡血疗术"
+	desc = "即便化身庞然巨兽，你也能迅速恢复肉身。"
 
 	level = 9
 	vitae_cost = 9
@@ -242,8 +242,8 @@
 
 //BLOODHEAL 10
 /datum/discipline_power/bloodheal/ten
-	name = "Ascended Bloodheal"
-	desc = "So long as you have access to blood, you cannot die. Your curse will not allow it."
+	name = "升华血疗术"
+	desc = "只要还能获得血液，你就不会死去。你的诅咒不容许死亡。"
 
 	level = 10
 	vitae_cost = 10

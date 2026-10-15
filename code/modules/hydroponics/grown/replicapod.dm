@@ -2,11 +2,11 @@
 
 // Yes, i'm talking about cabbage, baby! No, just kidding, but cabbages are the precursor to replica pods, so they are here as well.
 /obj/item/seeds/cabbage
-	name = "cabbage seed pack"
-	desc = "These seeds grow into cabbages."
+	name = "卷心菜种子包"
+	desc = "这些种子能长成卷心菜。"
 	icon_state = "seed-cabbage"
 	species = "cabbage"
-	plantname = "Cabbages"
+	plantname = "卷心菜"
 	product = /obj/item/food/grown/cabbage
 	lifespan = 50
 	endurance = 25
@@ -23,8 +23,8 @@
 
 /obj/item/food/grown/cabbage
 	seed = /obj/item/seeds/cabbage
-	name = "cabbage"
-	desc = "Ewwwwwwwwww. Cabbage."
+	name = "卷心菜"
+	desc = "呃——卷心菜。"
 	icon_state = "cabbage"
 	foodtypes = VEGETABLES
 	wine_power = 20

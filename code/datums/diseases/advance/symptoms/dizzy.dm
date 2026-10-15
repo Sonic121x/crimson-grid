@@ -9,8 +9,8 @@
 
 /datum/symptom/dizzy // Not the egg
 	name = "Dizziness"
-	desc = "The virus causes inflammation of the vestibular system, leading to bouts of dizziness."
-	illness = "Motion Sickness"
+	desc = "病毒导致前庭系统发炎，引发阵发性眩晕。"
+	illness = "晕动症"
 	stealth = 1
 	resistance = 1
 	stage_speed = 3
@@ -22,8 +22,8 @@
 	symptom_cure = /datum/reagent/medicine/haloperidol
 	cure_color = "yellow"
 	threshold_descs = list(
-		"Transmission 6" = "Also causes druggy vision.",
-		"Stealth 4" = "The symptom remains hidden until active.",
+		"传播力 6" = "还会引发吸毒般的视觉异常。",
+		"隐蔽性 4" = "症状在发作前难以察觉。",
 	)
 	var/suppress_warning = FALSE
 
@@ -44,9 +44,9 @@
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("You feel dizzy.", "Your head spins.")]"))
+				to_chat(M, span_warning("[pick("你感到眩晕。", "你感到天旋地转。")]"))
 		else
-			to_chat(M, span_userdanger("A wave of dizziness washes over you!"))
+			to_chat(M, span_userdanger("一阵强烈的眩晕感袭来！"))
 			M.adjust_dizzy_up_to(40 SECONDS, 80 SECONDS)
 			if(power >= 2)
 				M.set_drugginess(60 SECONDS)

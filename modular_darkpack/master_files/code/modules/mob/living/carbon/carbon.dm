@@ -27,7 +27,7 @@
 
 	var/resist_type = "Remove"
 	if(!isnull(I.cuff_break_strength_needed))
-		resist_type = tgui_alert(src, "Remove your restraints, or try to break them?", "[I]", list("Remove", "Break"))
+		resist_type = list("解开" = "Remove", "挣断" = "Break")[tgui_alert(src, "要解开束缚，还是尝试将其挣断？", "[I]", list("解开", "挣断"))]
 
 	switch(resist_type)
 		if("Remove")
@@ -51,7 +51,7 @@
 					cuff_resist(I, null, INSTANT_CUFFBREAK)
 				else
 					playsound(src, 'sound/effects/jingle.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-					visible_message(span_warning("[src] is trying to wiggle out of [I]!"))
+					visible_message(span_warning("[src]正扭动身体，试图挣脱[I]！"))
 		if("Break")
 			var/missing_strength =  I.cuff_break_strength_needed - st_get_stat(STAT_STRENGTH)
 			if(missing_strength > 0)
@@ -69,7 +69,7 @@
 					*/
 					else
 						playsound(src, 'sound/effects/jingle.ogg', 40, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-						visible_message(span_warning("[src] aggressively wrenches against [I]!"))
+						visible_message(span_warning("[src]正拼命扯动[I]！"))
 				qdel(roll)
 			else
 				playsound(src, 'sound/effects/rock/rocktap3.ogg', 40, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)

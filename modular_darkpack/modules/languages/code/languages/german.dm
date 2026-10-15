@@ -1,6 +1,6 @@
 /datum/language/german
 	name = "German"
-	desc = "A precise and powerful language spoken in Germany and beyond."
+	desc = "一种严谨而有力的语言，通行于德国及其他地区。"
 	key = "g"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 30

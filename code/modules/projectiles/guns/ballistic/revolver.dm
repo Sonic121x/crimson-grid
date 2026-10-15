@@ -57,7 +57,7 @@
 		if(play_click)
 			playsound(src, 'sound/items/weapons/gun/general/ballistic_click.ogg', fire_sound_volume, vary_fire_sound, frequency = click_frequency_to_use)
 
-GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "Spin Chamber", null)
+GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 	spin_chamber(usr)
 
 /obj/item/gun/ballistic/revolver/verb/spin_chamber(mob/living/user)
@@ -71,8 +71,8 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "Spin Chamber", null)
 
 	if(do_spin())
 		playsound(usr, SFX_REVOLVER_SPIN, 30, FALSE)
-		visible_message(span_notice("[user] spins [src]'s chamber."), span_notice("You spin [src]'s chamber."))
-		balloon_alert(user, "chamber spun")
+		visible_message(span_notice("[user]转动了[src]的弹巢。"), span_notice("你转动了[src]的弹巢。"))
+		balloon_alert(user, "已转动弹巢")
 	else
 		verbs -= /obj/item/gun/ballistic/revolver/verb/spin
 
@@ -94,12 +94,12 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "Spin Chamber", null)
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
 	var/live_ammo = get_ammo(FALSE, FALSE)
-	. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
-	. += span_notice("It can be spun with [EXAMINE_HINT("alt-click")].")
+	. += "其中有[live_ammo ? live_ammo : "0"]发实弹。"
+	. += span_notice("可以[EXAMINE_HINT("Alt点击")]转动弹巢。")
 
 /obj/item/gun/ballistic/revolver/ignition_effect(atom/A, mob/user)
 	if(last_fire && last_fire + 15 SECONDS > world.time)
-		return span_rose("[user] touches the end of [src] to \the [A], using the residual heat to ignite it in a puff of smoke. What a badass.")
+		return span_rose("[user]把[src]的枪口抵在[A]上，用余热将其点燃，冒出一缕烟。真够酷的。")
 
 /obj/item/gun/ballistic/revolver/c38
 	name = "\improper .38 revolver"

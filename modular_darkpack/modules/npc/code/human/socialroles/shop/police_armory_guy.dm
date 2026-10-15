@@ -4,13 +4,13 @@
 	suits =  list(/obj/item/clothing/suit/vampire/vest)
 	hats = list(/obj/item/clothing/head/vampire/police)
 	random_phrases = list(
-		"Did you get clearance for that?",
-		"Good God. Are you arresting an elephant?",
-		"Do I smell alcohol, Officer?",
-		"Hows the ol' ball and chain?",
-		"Captain said I'm on desk duty til the RED news people stop coming by about that thing I did.",
-		"You definitely don't need that if you're on traffic duty. Not my problem!",
-		"Fresh out of the evidence locker!",
-		"Heard we're getting missiles next month.",
-		"We'll be dropping out of the sky from helicopters soon enough.",
+		"领那个拿到批准了吗？",
+		"我的天，你是要去逮捕大象吗？",
+		"警官，我怎么闻到酒味了？",
+		"家里那位管得还严吗？",
+		"警监说，红色新闻的人不再为我干的那件事找上门之前，我都得坐办公室。",
+		"要是执勤指挥交通，你肯定用不上那个。不过不关我的事！",
+		"刚从证物柜里拿出来的！",
+		"听说下个月要给咱们配导弹。",
+		"用不了多久，咱们就能从直升机上从天而降了。",
 	)

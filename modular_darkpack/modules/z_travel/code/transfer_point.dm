@@ -3,7 +3,7 @@ GLOBAL_LIST_EMPTY(unallocted_transfer_points)
 /obj/transfer_point_vamp
 	icon = 'modular_darkpack/modules/z_travel/icons/z_travel.dmi'
 	icon_state = "matrix_go"
-	name = "transfer point"
+	name = "传送点"
 	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(unallocted_transfer_points)
 
 // Use inside the umbra. visible
 /obj/transfer_point_vamp/umbral
-	name = "portal"
+	name = "传送门"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
 	icon_state = "portal"
 	plane = ABOVE_LIGHTING_PLANE
@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(unallocted_transfer_points)
 
 // Use in the base map/outside the umbra. Invisible
 /obj/transfer_point_vamp/umbral/exit
-	name = "umbral exit"
+	name = "影界出口"
 	invisibility = INVISIBILITY_OBSERVER
 	density = FALSE
 	one_way = TRUE
@@ -114,7 +114,7 @@ GLOBAL_LIST_EMPTY(unallocted_transfer_points)
 
 // PLEASE PLEASE dont use this if you could just use real stairs instead or map the area sanely.
 /obj/transfer_point_vamp/stairs
-	name = "stairs"
+	name = "楼梯"
 	icon_state = "stairs"
 	icon = 'modular_darkpack/master_files/icons/obj/stairs.dmi'
 

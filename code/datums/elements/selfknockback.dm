@@ -45,7 +45,7 @@ clamping the Knockback_Force value below. */
 	var/target_angle = get_angle(attacktarget, usertarget)
 	var/move_target = get_ranged_target_turf(usertarget, angle2dir(target_angle), knockback_force)
 	usertarget.throw_at(move_target, knockback_force, knockback_speed)
-	usertarget.visible_message(span_warning("[usertarget] gets thrown back by the force of \the [I] impacting \the [attacktarget]!"), span_warning("The force of \the [I] impacting \the [attacktarget] sends you flying!"))
+	usertarget.visible_message(span_warning("[I]撞上[attacktarget]的反作用力将[usertarget]向后震飞！"), span_warning("[I]撞上[attacktarget]的反作用力将你震飞了！"))
 
 /datum/element/selfknockback/proc/Projectile_SelfKnockback(obj/projectile/proj)
 	SIGNAL_HANDLER

@@ -117,9 +117,9 @@ SUBSYSTEM_DEF(points_of_interest)
 		// Add the ghost/dead tag to the end of dead mob POIs.
 		if(append_dead_role && target_mob.stat == DEAD)
 			if(isobserver(target_mob))
-				name += " \[ghost\]"
+				name += " \[幽灵\]"
 			else
-				name += " \[dead\]"
+				name += " \[已死亡\]"
 
 		pois[name] = target_mob
 

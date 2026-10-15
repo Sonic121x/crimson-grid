@@ -1,8 +1,8 @@
 // Closets for specific jobs
 
 /obj/structure/closet/gmcloset
-	name = "formal closet"
-	desc = "It's a storage unit for formal clothing."
+	name = "正装柜"
+	desc = "用于存放正式服装的储物柜。"
 	icon_door = "bar_wardrobe"
 
 /obj/structure/closet/gmcloset/PopulateContents()
@@ -24,8 +24,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/chefcloset
-	name = "chef's closet"
-	desc = "It's a storage unit for food service garments and mousetraps."
+	name = "厨师储物柜"
+	desc = "用于存放餐饮工作服和捕鼠夹的储物柜。"
 	icon_door = "chef_wardrobe"
 
 /obj/structure/closet/chefcloset/PopulateContents()
@@ -45,8 +45,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/jcloset
-	name = "custodial closet"
-	desc = "It's a storage unit for janitorial clothes and gear."
+	name = "清洁用品柜"
+	desc = "用于存放清洁工服装和装备的储物柜。"
 	icon_door = "jani_wardrobe"
 
 /obj/structure/closet/jcloset/PopulateContents()
@@ -69,8 +69,8 @@
 
 
 /obj/structure/closet/lawcloset
-	name = "legal closet"
-	desc = "It's a storage unit for courtroom apparel and items."
+	name = "法律用品柜"
+	desc = "用于存放法庭服饰和用品的储物柜。"
 	icon_door = "law_wardrobe"
 
 /obj/structure/closet/lawcloset/PopulateContents()
@@ -96,8 +96,8 @@
 	new /obj/item/clothing/accessory/lawyers_badge(src)
 
 /obj/structure/closet/wardrobe/chaplain_black
-	name = "chapel wardrobe"
-	desc = "It's a storage unit for religious attire." // DARKPACK EDIT CHANGE
+	name = "礼拜堂衣柜"
+	desc = "用于存放宗教服饰的储物柜。" // DARKPACK EDIT CHANGE
 	icon_door = "chap_wardrobe"
 
 /obj/structure/closet/wardrobe/chaplain_black/PopulateContents()
@@ -115,7 +115,7 @@
 	return
 
 /obj/structure/closet/wardrobe/red
-	name = "security wardrobe"
+	name = "安保衣柜"
 	icon_door = "sec_wardrobe"
 
 /obj/structure/closet/wardrobe/red/PopulateContents()
@@ -135,7 +135,7 @@
 	return
 
 /obj/structure/closet/wardrobe/cargotech
-	name = "cargo wardrobe"
+	name = "货运衣柜"
 	icon_door = "cargo_wardrobe"
 
 /obj/structure/closet/wardrobe/cargotech/PopulateContents()
@@ -149,7 +149,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/wardrobe/atmospherics_yellow
-	name = "atmospherics wardrobe"
+	name = "大气衣柜"
 	icon_door = "atmos_wardrobe"
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/PopulateContents()
@@ -167,7 +167,7 @@
 	return
 
 /obj/structure/closet/wardrobe/engineering_yellow
-	name = "engineering wardrobe"
+	name = "工程衣柜"
 	icon_door = "engi_wardrobe"
 
 /obj/structure/closet/wardrobe/engineering_yellow/PopulateContents()
@@ -186,7 +186,7 @@
 	return
 
 /obj/structure/closet/wardrobe/white/medical
-	name = "medical doctor's wardrobe"
+	name = "医生衣柜"
 	icon_door = "med_wardrobe"
 
 /obj/structure/closet/wardrobe/white/medical/PopulateContents()
@@ -209,7 +209,7 @@
 	return
 
 /obj/structure/closet/wardrobe/robotics_black
-	name = "robotics wardrobe"
+	name = "机器人学家衣柜"
 	icon_door = "robo_wardrobe"
 
 /obj/structure/closet/wardrobe/robotics_black/PopulateContents()
@@ -229,7 +229,7 @@
 
 
 /obj/structure/closet/wardrobe/chemistry_white
-	name = "chemistry wardrobe"
+	name = "化学衣柜"
 	icon_door = "chem_wardrobe"
 
 /obj/structure/closet/wardrobe/chemistry_white/PopulateContents()
@@ -247,7 +247,7 @@
 
 
 /obj/structure/closet/wardrobe/genetics_white
-	name = "genetics wardrobe"
+	name = "遗传学衣柜"
 	icon_door = "gen_wardrobe"
 
 /obj/structure/closet/wardrobe/genetics_white/PopulateContents()
@@ -264,7 +264,7 @@
 
 
 /obj/structure/closet/wardrobe/virology_white
-	name = "virology wardrobe"
+	name = "病毒学衣柜"
 	icon_door = "viro_wardrobe"
 
 /obj/structure/closet/wardrobe/virology_white/PopulateContents()
@@ -281,7 +281,7 @@
 	return
 
 /obj/structure/closet/wardrobe/science_white
-	name = "science wardrobe"
+	name = "科研衣柜"
 	icon_door = "sci_wardrobe"
 
 /obj/structure/closet/wardrobe/science_white/PopulateContents()
@@ -300,7 +300,7 @@
 	return
 
 /obj/structure/closet/wardrobe/botanist
-	name = "botanist wardrobe"
+	name = "植物学家衣柜"
 	icon_door = "botany_wardrobe"
 
 /obj/structure/closet/wardrobe/botanist/PopulateContents()
@@ -317,7 +317,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/structure/closet/wardrobe/curator
-	name = "treasure hunting wardrobe"
+	name = "寻宝衣柜"
 	icon_door = "curator_wardrobe"
 
 /obj/structure/closet/wardrobe/curator/PopulateContents()

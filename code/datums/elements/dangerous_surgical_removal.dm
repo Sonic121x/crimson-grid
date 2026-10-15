@@ -34,10 +34,10 @@
 	if(surgical && source.organ_flags & (ORGAN_FAILING|ORGAN_EMP))
 		return
 	if(user?.Adjacent(source))
-		source.audible_message("[source] explodes on [user]'s face!")
+		source.audible_message("[source]在[user]脸前炸开了！")
 		user.take_bodypart_damage(15)
 	else
-		source.audible_message("[source] explodes into tiny pieces!")
+		source.audible_message("[source]炸成了细小的碎片！")
 
 	explosion(source, light_impact_range = 1, explosion_cause = source)
 	qdel(source)

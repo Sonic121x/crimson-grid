@@ -40,13 +40,13 @@
 /datum/component/candela_node/proc/on_examine(atom/movable/source, mob/viewer, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("[source.p_Theyre()] a \"Candela\" mining navigation node, capable of syncronizing various prospecting machinery and equipment, and repelling hostile fauna.")
+	examine_list += span_notice("这是“烛光”采矿导航节点，能够同步各类勘探机械与设备，并驱赶敌对动物。")
 	if (power_flags & CANDELA_NETWORK_BOOSTED)
-		examine_list += span_notice("[source.p_They()] additionally act[source.p_s()] as an energy booster for the network, [power_flags & CANDELA_NETWORK_POWERED ? "keeping all connected beacons and equipment active and " : ""]increasing ore vent outputs.")
+		examine_list += span_notice("它还为网络提供能量增幅，[power_flags & CANDELA_NETWORK_POWERED ? "维持所有已连接信标和设备的运行，并" : ""]提高矿脉喷口的产量。")
 	else if (power_flags & CANDELA_NETWORK_POWERED)
-		examine_list += span_notice("[source.p_They()] additionally act[source.p_s()] as a power source for the network, keeping all connected beacons and equipment active.")
+		examine_list += span_notice("它还为网络供能，维持所有已连接信标和设备的运行。")
 	else
-		examine_list += span_notice("The network is currently [(network.powered & CANDELA_NETWORK_POWERED) ? "fully operational[(network.powered & CANDELA_NETWORK_BOOSTED) ? " and overclocked" : ""]" : "missing a power source"].")
+		examine_list += span_notice("网络目前[(network.powered & CANDELA_NETWORK_POWERED) ? "运转正常[(network.powered & CANDELA_NETWORK_BOOSTED) ? "，且已超频" : ""]" : "缺少能源供应"]。")
 
 /datum/component/candela_node/proc/on_item_interaction(atom/movable/source, mob/living/user, obj/item/tool, list/modifiers)
 	SIGNAL_HANDLER
@@ -56,7 +56,7 @@
 
 	var/obj/item/stack/candela_beacon/beacon = tool
 	beacon.handler.set_network(network, src)
-	beacon.balloon_alert(user, "network linked!")
+	beacon.balloon_alert(user, "已连接网络！")
 	return ITEM_INTERACT_SUCCESS
 
 /datum/component/candela_node/proc/on_module_used(atom/movable/source, obj/item/mod/module/module)
@@ -70,7 +70,7 @@
 		return NONE
 
 	spool.handler.set_network(network, src)
-	spool.mod.wearer.balloon_alert(spool.mod.wearer, "network linked!")
+	spool.mod.wearer.balloon_alert(spool.mod.wearer, "已连接网络！")
 	return COMPONENT_INTERRUPT_MODULE_USE
 
 /datum/component/candela_node/proc/set_network(datum/mining_beacon_network/new_network, merging = FALSE, update = TRUE, separating = FALSE)
@@ -460,4 +460,4 @@ GLOBAL_LIST_EMPTY(mining_beacon_networks)
 
 	for (var/datum/candela_item_handler/handler as anything in all_handlers)
 		handler.set_network(null)
-	source.balloon_alert(source, "connection lost!")
+	source.balloon_alert(source, "连接中断！")

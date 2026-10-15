@@ -1,7 +1,7 @@
 // TODO: Repath these to remove keys. They have no real relation to them.
 /obj/item/vamp/keys/hack
-	name = "\improper lockpick"
-	desc = "These can open some doors. Illegally...<br>Looking at a door with these in your hand should give you an estimate of the lock strength and start to case the building if applicable."
+	name = "\improper 撬锁工具"
+	desc = "能打开某些门，不过是非法的……<br>手持此工具查看门，可以估算门锁的强度；如果建筑支持踩点，还会开始侦察。"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "hack"
 	item_flags = NOBLUDGEON

@@ -108,15 +108,15 @@
 /datum/symptom/proc/OnRemove(datum/disease/advance/A)
 	return
 
-/**
- * Returns a list for all of the traits of this symptom.
- *
- *
- * @returns {list} symptom - The desired symptoms as a list.
- */
+/proc/localized_symptom_name(symptom_name)
+	var/base_name = endswith(symptom_name, " (neutered)") ? copytext(symptom_name, 1, -11) : symptom_name
+	var/display_name = list("Facial Hypertrichosis" = "面部多毛症", "Anticoagulant" = "抗凝血", "Hypertension" = "高血压", "Chills" = "寒战", "Choking" = "气道阻塞", "Acute respiratory distress syndrome" = "急性呼吸窘迫综合征", "Confusion" = "意识混乱", "Cough" = "咳嗽", "Deafness" = "耳聋", "Disfiguration" = "毁容", "Dizziness" = "眩晕", "Fever" = "发热", "Spontaneous Combustion" = "自燃", "Alkali perspiration" = "碱性排汗", "Necrotizing Fasciitis" = "坏死性筋膜炎", "Autophagocytosis Necrosis" = "自噬性坏死", "Dormant DNA Activator" = "休眠基因激活", "Hallucigen" = "致幻", "Headache" = "头痛", "Starlight Condensation" = "星光凝聚", "Toxolysis" = "化学分解", "Metabolic Boost" = "代谢加速", "Nocturnal Regeneration" = "暗处再生", "Regenerative Coma" = "再生性昏迷", "Tissue Hydration" = "水合修复", "Plasma Fixation" = "等离子固定", "Radioactive Resonance" = "辐射共振", "Aggressive Healing" = "侵入性愈合", "Mutated Regeneration" = "突变再生", "Itching" = "瘙痒", "Narcolepsy" = "发作性睡病", "Self-Respiration" = "自主供氧", "Mind Restoration" = "心智修复", "Sensory Restoration" = "感官修复", "Alopecia" = "脱毛症", "Polyvitiligo" = "多彩皮肤症", "Sneezing" = "喷嚏", "Necrotic Metabolism" = "坏死代谢", "Inorganic Biology" = "无机生物适应", "Thermoregulation" = "体温调节", "Viral self-adaptation" = "病毒自适应", "Viral evolutionary acceleration" = "病毒进化加速", "Hyphema" = "前房积血", "Voice Change" = "变声", "Vomiting" = "呕吐", "Nebula Vomiting" = "星云呕吐", "Weight Loss" = "体重下降", "Eternal Youth" = "青春永驻")[base_name] || base_name
+	return "[display_name][base_name != symptom_name ? "（已失活）" : ""]"
+/proc/localized_symptom_cure(datum/reagent/cure_type)
+	return cure_type ? (list(/datum/reagent/medicine/c2/tirimol = "眠氧宁", /datum/reagent/toxin/bonehurtingjuice = "骨痛汁", /datum/reagent/medicine/leporazine = "恒温嗪", /datum/reagent/medicine/mannitol = "甘露醇", /datum/reagent/acetaldehyde = "乙醛", /datum/reagent/inverse/penthrite = "再搏素", /datum/reagent/medicine/synaptizine = "突触嗪", /datum/reagent/medicine/psicodine = "安神定", /datum/reagent/consumable/frostoil = "冰霜油", /datum/reagent/medicine/haloperidol = "氟哌啶醇", /datum/reagent/consumable/milk = "牛奶", /datum/reagent/drug/space_drugs = "太空毒品", /datum/reagent/medicine/ondansetron = "昂丹司琼", /datum/reagent/medicine/omnizine = "全能嗪", /datum/reagent/medicine/earthsblood = "大地之血", /datum/reagent/barbers_aid = "生发助剂", /datum/reagent/water/salt = "盐水", /datum/reagent/medicine/spaceacillin = "太空西林", /datum/reagent/medicine/oculine = "明目灵", /datum/reagent/inverse/healing/convermol = "肺膜素", /datum/reagent/medicine/diphenhydramine = "苯海拉明")[cure_type] || cure_type::name) : "无"
 /datum/symptom/proc/get_symptom_data()
 	var/list/data = list()
-	data["name"] = name
+	data["name"] = localized_symptom_name(name)
 	data["desc"] = desc
 	data["stealth"] = stealth
 	data["resistance"] = resistance
@@ -127,9 +127,9 @@
 	data["threshold_desc"] = threshold_descs
 	if(symptom_cure)
 		var/datum/reagent/cure = symptom_cure
-		data["symptom_cure"] = cure.name
+		data["symptom_cure"] = localized_symptom_cure(cure)
 	else
-		data["symptom_cure"] = "Nothing"
+		data["symptom_cure"] = "无"
 	data["cure_color"] = cure_color
 	return data
 

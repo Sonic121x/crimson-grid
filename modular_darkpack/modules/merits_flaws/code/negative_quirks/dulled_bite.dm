@@ -1,14 +1,14 @@
 /datum/quirk/darkpack/dulled_bite
 	name = "Dulled Bite"
-	desc = "For some reason your fangs never developed fully, or they may not have manifested at all. When feeding, you need to find some other method of making the blood flow. A number of Caitiff and high Generation vampires often manifest this Flaw."
+	desc = "不知为何，你的獠牙始终发育不全，甚至可能根本没有长出。进食时，你必须另想办法让血液流出来。一些无氏族者和高世代吸血鬼常有这一缺陷。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 481)
 	value = -2
 	mob_trait = TRAIT_DULLFANGS
-	gain_text = span_notice("Your fangs feel dull.")
-	lose_text = span_notice("Your fangs feel sharp.")
+	gain_text = span_notice("你觉得自己的獠牙变钝了。")
+	lose_text = span_notice("你觉得自己的獠牙变锋利了。")
 	allowed_splats = list(SPLAT_KINDRED)
 	icon = FA_ICON_TEETH
-	failure_message = "Your fangs feel sharp."
+	failure_message = "你觉得自己的獠牙变锋利了。"
 	quirk_flags = QUIRK_HIDE_FROM_SCAN //CRIMSON GRID EDIT ADD | PR: MAKE MEDICAL RECORDS NOT MASQ BREACHY | CHANGE: ADDED THIS TO PREVENT IT FROM BEING SEEN IN COMS
 
 /datum/status_effect/dull_fangs // Applied when pliers are used on vampires without the dulled bite quirk.
@@ -19,8 +19,8 @@
 	alert_type = /atom/movable/screen/alert/status_effect/dull_fangs
 
 /atom/movable/screen/alert/status_effect/dull_fangs
-	name = "Pulled Teeth"
-	desc = "Your canines have been yanked out!"
+	name = "牙齿被拔除"
+	desc = "你的犬齿被拔掉了！"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "default"
 

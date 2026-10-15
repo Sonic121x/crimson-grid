@@ -1,5 +1,5 @@
 /datum/crafting_recipe/paperframes
-	name = "Paper Frames"
+	name = "纸框"
 	time = 1 SECONDS
 	reqs = list(
 		/obj/item/stack/sheet/mineral/wood = 5,
@@ -11,7 +11,7 @@
 	requirements_mats_blacklist = list(/obj/item/stack/sheet/mineral/wood)
 
 /datum/crafting_recipe/rib
-	name = "Colossal Rib"
+	name = "巨型肋骨"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 10,
 		/datum/reagent/fuel/oil = 5,
@@ -21,7 +21,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/skull
-	name = "Skull Carving"
+	name = "颅骨雕刻"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 6,
 		/datum/reagent/fuel/oil = 5,
@@ -31,7 +31,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/halfskull
-	name = "Cracked Skull Carving"
+	name = "开裂颅骨雕刻"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 3,
 		/datum/reagent/fuel/oil = 5,
@@ -41,7 +41,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/firecabinet
-	name = "Fire Axe Cabinet"
+	name = "消防斧柜"
 	result = /obj/item/wallframe/fireaxecabinet
 	time = 8 SECONDS
 	reqs = list(
@@ -64,7 +64,7 @@
 	category = CAT_STRUCTURE
  */
 /datum/crafting_recipe/manucrate
-	name = "Manufacturing Storage Unit"
+	name = "制造系统储物单元"
 	result = /obj/machinery/power/manufacturing/storagebox
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER)
 	time = 6 SECONDS
@@ -110,7 +110,7 @@
  */
 
 /datum/crafting_recipe/secure_safe
-	name = "Secure safe"
+	name = "安全保险箱"
 	result = /obj/item/wallframe/secure_safe
 	reqs = list(
 		/obj/item/stack/sheet/plasteel = 10,
@@ -130,7 +130,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/vault
-	name = "Vault"
+	name = "保险柜"
 	result = /obj/structure/safe/open
 	reqs = list(
 		/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
@@ -153,7 +153,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND
 
 /datum/crafting_recipe/vault_floor
-	name = "Floor Vault"
+	name = "地板保险柜"
 	result = /obj/structure/safe/floor/open
 	reqs = list(
 		/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
@@ -173,7 +173,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND
 
 /datum/crafting_recipe/tripwire_post
-	name = "Tripwire Post"
+	name = "绊线桩"
 	result = /obj/structure/tripwire/post
 	reqs = list(
 		/obj/item/stack/rods = 3,

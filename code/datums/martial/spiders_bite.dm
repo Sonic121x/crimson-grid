@@ -1,7 +1,7 @@
 /datum/martial_art/spiders_bite
-	name = "Spider's Bite"
+	name = "蛛咬术"
 	id = MARTIALART_SPIDERSBITE
-	help_verb = "Recall Teachings"
+	help_verb = "回忆传授的招式"
 	grab_damage_modifier = 10
 	grab_escape_chance_modifier = -20
 	/// REF() to the last mob we kicked
@@ -49,9 +49,9 @@
 	if(isnull(weapon) || !target.dropItemToGround(weapon))
 		return
 	source.visible_message(
-		span_warning("[source] knocks [target]'s [weapon.name] out of [target.p_their()] hands with a kick!"),
-		span_notice("You channel the flow of gravity and knock [target]'s [weapon.name] out of [target.p_their()] hands with a kick!"),
-		span_hear("You hear a thud, followed by a clatter."),
+		span_warning("[source]一脚踢飞了[target]手中的[weapon.name]！"),
+		span_notice("你顺应重力流转，一脚踢飞了[target]手中的[weapon.name]！"),
+		span_hear("你听到一声闷响，随后是物品落地的碰撞声。"),
 	)
 
 /datum/martial_art/spiders_bite/get_prefered_attacking_limb(mob/living/martial_artist, mob/living/target)
@@ -63,9 +63,9 @@
 /datum/martial_art/spiders_bite/get_style_help()
 	. = list()
 
-	. += span_info("<b><i>You retreat inward and recall the Spider Clan's techniques...</i></b>\n\
-		&bull; Remember, <b>Many Legged Spider</b>: Unarmed attacks against staggered opponents will always be kicks - granting you greater accuracy and damage.\n\
-		&bull; Remember, <b>Jump and Climb</b>: Right clicking on throw mode will perform a tackle which is far far less likely to fail.\n\
-		&bull; Remember, <b>Flow of Gravity</b>: Kicking opponents will have a chance to knock their weapons to the floor. The chance increases for each sequential kick.\n\
-		&bull; Remember, <b>Wrap in Web</b>: Your grabs will be harder to escape from.")
+	. += span_info("<b><i>你收敛心神，回忆蜘蛛氏族的招式……</i></b>\n\
+		&bull; 谨记，<b>多足之蛛</b>：对踉跄状态的对手进行徒手攻击时，总会使出踢击，获得更高的准确度和伤害。\n\
+		&bull; 谨记，<b>腾跃攀援</b>：投掷模式下右键点击可使出擒抱冲撞，成功率大幅提高。\n\
+		&bull; 谨记，<b>重力流转</b>：踢击对手有机会将其武器踢落在地。连续踢中同一目标会提高这一概率。\n\
+		&bull; 谨记，<b>蛛网缠缚</b>：你的抓取更难挣脱。")
 	return .

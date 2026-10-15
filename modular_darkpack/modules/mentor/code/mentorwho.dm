@@ -4,11 +4,11 @@
  * Please keep parity with that if possible.
  * Already in escape menu, once Admin tab gets removed, remove this with it.
  */
-GAME_VERB(/client, mentorwho, "Mentorwho", ADMIN_CATEGORY_MENTOR)
+GAME_VERB(/client, mentorwho, "在线导师", ADMIN_CATEGORY_MENTOR)
 
 	var/list/lines = list()
 	var/payload_string = generate_mentorwho_string()
-	var/header = "Current Mentors"
+	var/header = "当前在线导师"
 
 	lines += payload_string
 
@@ -55,7 +55,7 @@ GAME_VERB(/client, mentorwho, "Mentorwho", ADMIN_CATEGORY_MENTOR)
 		if(GLOB.deadmins[mentor_client.ckey])
 			continue
 
-		returnable_list += "• [mentor_client] is a Mentor"
+		returnable_list += "• [mentor_client]：导师"
 
 	return returnable_list
 

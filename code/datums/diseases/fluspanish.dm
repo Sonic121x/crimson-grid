@@ -1,15 +1,15 @@
 /datum/disease/fluspanish
-	name = "Spanish inquisition Flu"
+	name = "西班牙宗教裁判所流感"
 	max_stages = 3
-	spread_text = "Airborne"
-	cure_text = /datum/reagent/medicine/spaceacillin::name + " or common Flu antibodies"
+	spread_text = "空气传播"
+	cure_text = "太空西林或普通流感抗体"
 	cures = list(/datum/reagent/medicine/spaceacillin)
 	cure_chance = 5
-	agent = "1nqu1s1t10n Flu Virion"
+	agent = "1nqu1s1t10n型流感病毒粒子"
 	viable_mobtypes = list(/mob/living/carbon/human)
 	spreading_modifier = 0.75
-	desc = "An adaptation of the common flu, slightly more dangerous in nature. \
-		If left untreated the subject will burn to death for being a heretic."
+	desc = "普通流感的一种变体，危险性略高。\
+		若不治疗，患者会以异端之名被活活烧死。"
 	severity = DISEASE_SEVERITY_DANGEROUS
 	required_organ = ORGAN_SLOT_LUNGS
 
@@ -32,7 +32,7 @@
 			if(SPT_PROB(2.5, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(0.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You're burning in your own skin!"))
+				to_chat(affected_mob, span_danger("你感到自己的皮肉正在燃烧！"))
 				affected_mob.take_bodypart_damage(0, 5, updating_health = FALSE)
 
 		if(3)
@@ -42,5 +42,5 @@
 			if(SPT_PROB(2.5, seconds_per_tick))
 				affected_mob.emote("cough")
 			if(SPT_PROB(2.5, seconds_per_tick))
-				to_chat(affected_mob, span_danger("You're burning in your own skin!"))
+				to_chat(affected_mob, span_danger("你感到自己的皮肉正在燃烧！"))
 				affected_mob.take_bodypart_damage(0, 5, updating_health = FALSE)

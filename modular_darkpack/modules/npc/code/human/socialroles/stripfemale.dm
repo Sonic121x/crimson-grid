@@ -88,46 +88,46 @@
 	backpacks = list()
 
 	female_phrases = list(
-		"No touching~.",
-		"Like what you see?",
-		"Wanna play?",
-		"He-he.",
-		"Want a private dance?...",
-		"Sit and rest.",
-		"Do you like this?",
-		"Ahh..."
+		"不许乱摸哦～",
+		"看得满意吗？",
+		"想玩玩吗？",
+		"嘻嘻。",
+		"想看一场私人舞蹈吗？……",
+		"坐下歇歇吧。",
+		"喜欢这样吗？",
+		"啊……"
 	)
 	neutral_phrases = list(
-		"No touching~.",
-		"Like what you see?",
-		"Wanna play?",
-		"He-he.",
-		"Want a private dance?...",
-		"Sit and rest.",
-		"Do you like this?",
-		"Ahh..."
+		"不许乱摸哦～",
+		"看得满意吗？",
+		"想玩玩吗？",
+		"嘻嘻。",
+		"想看一场私人舞蹈吗？……",
+		"坐下歇歇吧。",
+		"喜欢这样吗？",
+		"啊……"
 	)
 	random_phrases = list(
-		"No touching~.",
-		"Like what you see?",
-		"Wanna play?",
-		"He-he.",
-		"Want a private dance?...",
-		"Sit and rest.",
-		"Do you like this?",
-		"Ahh..."
+		"不许乱摸哦～",
+		"看得满意吗？",
+		"想玩玩吗？",
+		"嘻嘻。",
+		"想看一场私人舞蹈吗？……",
+		"坐下歇歇吧。",
+		"喜欢这样吗？",
+		"啊……"
 	)
 	answer_phrases = list(
-		"That'll cost...",
-		"He-he-he.",
-		"Twenty bucks.",
-		"Sure you do..."
+		"那可得加钱……",
+		"嘻嘻嘻。",
+		"二十美元。",
+		"当然，你肯定想……"
 	)
 	help_phrases = list(
-		"Oh God!",
-		"Ahhh!!",
-		"I'm just a stripper!",
-		"Stop!",
-		"Help me!",
-		"Help!"
+		"天哪！",
+		"啊啊啊！！",
+		"我只是个跳脱衣舞的！",
+		"住手！",
+		"救救我！",
+		"救命！"
 	)

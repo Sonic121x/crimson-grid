@@ -1,6 +1,6 @@
 /datum/job/vampire/harpy
 	title = JOB_HARPY
-	description = "You are an expert on the nightlife of Cainite society. Acting as one of the chief advisors on all things related to boons and diplomacy, the Prince defers quite the amount of judgement to you. Don't squander it."
+	description = "你深谙该隐后裔的夜间社交。身为恩惠债与外交事务的主要顾问之一，亲王交给你相当大的裁决权。别辜负这份信任。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 3

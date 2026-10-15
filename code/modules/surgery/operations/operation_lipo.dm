@@ -1,7 +1,7 @@
 /datum/surgery_operation/limb/lipoplasty
-	name = "excise excess fat"
-	rnd_name = "Lipoplasty (Excise Fat)"
-	desc = "Remove excess fat from a patient's body."
+	name = "切除多余脂肪"
+	rnd_name = "脂肪成形术（切除脂肪）"
+	desc = "清除患者体内多余的脂肪。"
 	operation_flags = OPERATION_NOTABLE | OPERATION_AFFECTS_MOOD
 	implements = list(
 		TOOL_SAW = 1,
@@ -23,7 +23,7 @@
 	any_surgery_states_blocked = SURGERY_VESSELS_UNCLAMPED
 
 /datum/surgery_operation/limb/lipoplasty/get_any_tool()
-	return "Any sharp edged item"
+	return "任何边缘锋利的物品"
 
 /datum/surgery_operation/limb/lipoplasty/get_default_radial_image()
 	return image(/obj/item/food/meat/slab/human)

@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/key_of_alamut
-	true_name = "Key of Alamut"
-	true_desc = "Decreases incoming damage."
+	true_name = "阿拉穆特之钥"
+	true_desc = "降低受到的伤害。"
 	icon_state = "k_alamut"
 	research_value = 30
 

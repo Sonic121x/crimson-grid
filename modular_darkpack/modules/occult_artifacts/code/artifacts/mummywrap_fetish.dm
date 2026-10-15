@@ -1,6 +1,6 @@
 /obj/item/occult_artifact/vampire/mummywrap_fetish
-	true_name = "Mummywrap Fetish"
-	true_desc = "Passive health regeneration."
+	true_name = "裹尸布灵器"
+	true_desc = "被动恢复生命。"
 	icon_state = "m_fetish"
 	var/last_regen = 0
 	research_value = 10

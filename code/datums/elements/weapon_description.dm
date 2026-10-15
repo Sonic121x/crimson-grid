@@ -39,7 +39,7 @@
 	SIGNAL_HANDLER
 
 	if(item.force >= 5 || item.throwforce >= 5 || item.override_notes || item.offensive_notes || attached_proc) /// Only show this tag for items that could feasibly be weapons, shields, or those that have special notes
-		examine_texts += span_notice("<a href='byond://?src=[REF(item)];examine=1'>See combat information.</a>")
+		examine_texts += span_notice("<a href='byond://?src=[REF(item)];examine=1'>查看战斗信息。</a>")
 
 /**
  *
@@ -74,25 +74,25 @@
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
 		if (source.get_sharpness() & SHARP_EDGED)
-			readout += "It's sharp and could cause bleeding wounds."
+			readout += "刃口锋利，可能造成流血伤口。"
 		if (source.get_sharpness() & SHARP_POINTY)
-			readout += "It's pointy and could cause piercing wounds."
+			readout += "尖端锐利，可能造成穿刺伤口。"
 		// DARKPACK EDIT ADD START - STORYTELLER_STATS
-		readout += "It has an attack difficulty of [span_warning("[source.attack_difficulty]")] and uses [source.st_attack_ability::name]+[source.st_attack_attribute::name] to attack."
-		readout += "It has a dice bonus of [span_warning("[FORCE_TO_DICE_POOL_UNROUNDED(source.force)]")] and uses [source.st_damage_stat::name] for damage."
+		readout += "攻击难度为[span_warning("[source.attack_difficulty]")]，攻击检定使用[source.st_attack_ability::name]+[source.st_attack_attribute::name]。"
+		readout += "骰池加值为[span_warning("[FORCE_TO_DICE_POOL_UNROUNDED(source.force)]")]，伤害检定使用[source.st_damage_stat::name]。"
 		// DARKPACK EDIT ADD END
 		// Make sure not to divide by 0 on accident
 		if(source.force > 0)
-			readout += "It takes about [span_warning("[HITS_TO_CRIT(source.force)] melee hit\s")] to take down an enemy."
+			readout += "大约需要[span_warning("[HITS_TO_CRIT(source.force)]次近战命中")]才能击倒一个敌人。"
 		else
-			readout += "It does not deal noticeable melee damage."
+			readout += "不会造成明显的近战伤害。"
 
 		if(source.throwforce > 0)
-			readout += "It takes about [span_warning("[HITS_TO_CRIT(source.throwforce)] throwing hit\s")] to take down an enemy."
+			readout += "大约需要[span_warning("[HITS_TO_CRIT(source.throwforce)]次投掷命中")]才能击倒一个敌人。"
 		else
-			readout += "It does not deal noticeable throwing damage."
+			readout += "不会造成明显的投掷伤害。"
 		if(source.armour_penetration > 0 || source.block_chance > 0)
-			readout += "It has [span_warning("[weapon_tag_convert(source.armour_penetration)]")] armor-piercing capability and [span_warning("[weapon_tag_convert(source.block_chance)]")] blocking capability."
+			readout += "穿甲能力：[span_warning("[weapon_tag_convert(source.armour_penetration)]")]；格挡能力：[span_warning("[weapon_tag_convert(source.block_chance)]")]。"
 	// Custom manual notes
 	if(source.offensive_notes)
 		readout += source.offensive_notes
@@ -117,14 +117,14 @@
 /datum/element/weapon_description/proc/weapon_tag_convert(tag_val)
 	switch(tag_val)
 		if(0)
-			return "NO"
+			return "无"
 		if(1 to 25)
-			return "LITTLE"
+			return "较弱"
 		if(26 to 50)
-			return "AVERAGE"
+			return "一般"
 		if(51 to 75)
-			return "ABOVE-AVERAGE"
+			return "较强"
 		if(76 to INFINITY)
-			return "EXCELLENT"
+			return "出色"
 		else
-			return "WEIRD"
+			return "异常"

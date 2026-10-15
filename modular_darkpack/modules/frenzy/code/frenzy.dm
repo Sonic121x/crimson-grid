@@ -13,12 +13,12 @@
 	log_combat(src, (src || target), "has frenzied on because of \"[source]\" on")
 
 	if(fleeing)
-		to_chat(src, span_danger("FLEE."))
-		src.balloon_alert(src, "flee!")
+		to_chat(src, span_danger("快逃。"))
+		src.balloon_alert(src, "快逃！")
 		apply_status_effect(/datum/status_effect/frenzy/flee, target)
 	else
-		to_chat(src, span_bolddanger("FRENZY."))
-		src.balloon_alert(src, "frenzy!")
+		to_chat(src, span_bolddanger("狂乱。"))
+		src.balloon_alert(src, "狂乱！")
 		if(get_kindred_splat(src))
 			apply_status_effect(/datum/status_effect/frenzy/vampire_hunger, target)
 		else
@@ -40,12 +40,12 @@
 
 /datum/storyteller_roll/frenzy
 	abstract_type = /datum/storyteller_roll/frenzy
-	bumper_text = "frenzy"
+	bumper_text = "狂乱"
 	roll_output_type = ROLL_FLAG_ROLLER|ROLL_FLAG_TARGET
 	numerical = TRUE
 
 /datum/storyteller_roll/frenzy/rotschreck
-	bumper_text = "rotschrek"
+	bumper_text = "恐惧狂乱"
 	applicable_stats = list(STAT_COURAGE)
 
 // CRIMSON EDIT ADD START - Calm Heart Rotschreck
@@ -100,7 +100,7 @@
 	addtimer(CALLBACK(src, PROC_REF(trigger_rotschreck), fire, difficulty, successes), 1 TURNS)
 
 
-/mob/living/proc/trigger_kindred_frenzy(atom/target, difficulty = 6, successes = 0, flavor_text = "Something")
+/mob/living/proc/trigger_kindred_frenzy(atom/target, difficulty = 6, successes = 0, flavor_text = "某种刺激")
 	if(IS_UNCONSCIOUS(src))
 		return
 	if(!get_kindred_splat(src))
@@ -112,7 +112,7 @@
 	frenzy_roll.difficulty = difficulty
 	var/frenzy_result = frenzy_roll.st_roll(src, target)
 	if(frenzy_result <= 0)
-		to_chat(src, span_userdanger("[flavor_text] sends you into a frenzy!"))
+		to_chat(src, span_userdanger("[flavor_text]让你陷入狂乱！"))
 		var/victim = get_closest_atom(/atom, get_frenzy_victims(), src)
 		if(!victim)
 			victim = src
@@ -121,7 +121,7 @@
 
 	successes += frenzy_result
 	if(successes >= 5)
-		to_chat(src, span_green("[flavor_text] almost drives you into frenzy but you steel your nerves and it subsides!"))
+		to_chat(src, span_green("[flavor_text]几乎让你陷入狂乱，但你强自镇定，压下了冲动！"))
 		return
 
 	addtimer(CALLBACK(src, PROC_REF(trigger_kindred_frenzy), target, difficulty, successes, flavor_text), 1 TURNS)
@@ -142,7 +142,7 @@
 	return frenzy_result
 
 
-GAME_VERB_PROC_DESC(/mob/living/carbon/human, manual_frenzy_roll, "Manual Frenzy Roll", "Trigger a roll for a frenzy", null)
+GAME_VERB_PROC_DESC(/mob/living/carbon/human, manual_frenzy_roll, "手动狂乱检定", "进行一次狂乱检定", null)
 	VERB_ARG_TYPED(AM, VERB_ARG_TYPE_MOB, VERB_ARG_SOURCE_VIEW, /mob/living)
 
 	if(!istype(AM))
@@ -156,7 +156,7 @@ GAME_VERB_PROC_DESC(/mob/living/carbon/human, manual_frenzy_roll, "Manual Frenzy
 		trigger_kindred_frenzy(AM)
 
 // Used by the berserker merit. or possibly even for that one vampire thing of riding the frenzy in future?
-GAME_VERB_PROC_DESC(/mob/living/carbon/human, manual_frenzy, "Manual Frenzy", "Enter a frenzy at will", null)
+GAME_VERB_PROC_DESC(/mob/living/carbon/human, manual_frenzy, "主动狂乱", "主动进入狂乱状态", null)
 	VERB_ARG_TYPED(AM, VERB_ARG_TYPE_MOB, VERB_ARG_SOURCE_VIEW, /mob/living)
 
 	if(!istype(AM))

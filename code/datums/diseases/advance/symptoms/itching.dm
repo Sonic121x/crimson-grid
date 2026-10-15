@@ -8,8 +8,8 @@
 */
 /datum/symptom/itching
 	name = "Itching"
-	desc = "The virus irritates the skin, causing itching."
-	illness = "Discrete Itching"
+	desc = "病毒刺激皮肤，引发瘙痒。"
+	illness = "零星瘙痒"
 	stealth = 0
 	resistance = 3
 	stage_speed = 3
@@ -19,8 +19,8 @@
 	symptom_delay = 15
 	var/scratch = FALSE
 	threshold_descs = list(
-		"Transmission 6" = "Increases frequency of itching.",
-		"Stage Speed 7" = "The host will scratch itself when itching, causing superficial damage.",
+		"传播力 6" = "提高瘙痒频率。",
+		"发展速度 7" = "宿主会在瘙痒时抓挠自己，造成表皮损伤。",
 	)
 	///emote cooldowns
 	COOLDOWN_DECLARE(itching_cooldown)

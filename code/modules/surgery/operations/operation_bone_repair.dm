@@ -1,8 +1,8 @@
 // Surgical analog to manual dislocation treatment
 /datum/surgery_operation/limb/repair_dislocation
-	name = "reset dislocation"
-	desc = "Reset a dislocated bone in a patient's limb. \
-		Similar to the field procedure, but quicker and safer due to being performed in a controlled environment."
+	name = "复位脱臼关节"
+	desc = "为患者肢体中脱位的骨骼复位。\
+		与现场处理类似，但在受控环境中进行，因此更快、更安全。"
 	operation_flags = OPERATION_PRIORITY_NEXT_STEP | OPERATION_NO_PATIENT_REQUIRED | OPERATION_AFFECTS_MOOD | OPERATION_STANDING_ALLOWED | OPERATION_IGNORE_CLOTHES
 	implements = list(
 		TOOL_BONESET = 1,
@@ -21,7 +21,7 @@
 	return image(/obj/item/bonesetter)
 
 /datum/surgery_operation/limb/repair_dislocation/all_required_strings()
-	return list("the limb must be dislocated") + ..()
+	return list("肢体必须存在脱臼") + ..()
 
 /datum/surgery_operation/limb/repair_dislocation/state_check(obj/item/bodypart/limb)
 	for(var/datum/wound/blunt/bone/bone_wound in limb.wounds)
@@ -66,8 +66,8 @@
 	limb.receive_damage(25, damage_source = tool)
 
 /datum/surgery_operation/limb/repair_hairline
-	name = "repair hairline fracture"
-	desc = "Mend a hairline fracture in a patient's bone."
+	name = "修复骨裂"
+	desc = "修复患者骨骼上的细小裂纹。"
 	operation_flags = OPERATION_PRIORITY_NEXT_STEP | OPERATION_NO_PATIENT_REQUIRED
 	implements = list(
 		TOOL_BONESET = 1,
@@ -89,7 +89,7 @@
 	return image(/obj/item/bonesetter)
 
 /datum/surgery_operation/limb/repair_hairline/all_required_strings()
-	return list("the limb must have a hairline fracture") + ..()
+	return list("肢体必须存在骨裂") + ..()
 
 /datum/surgery_operation/limb/repair_hairline/state_check(obj/item/bodypart/limb)
 	if(!(locate(/datum/wound/blunt/bone/severe) in limb.wounds))
@@ -119,8 +119,8 @@
 	)
 
 /datum/surgery_operation/limb/reset_compound
-	name = "reset compound fracture"
-	desc = "Reset a compound fracture in a patient's bone, preparing it for proper healing."
+	name = "复位开放性骨折"
+	desc = "为患者的开放性骨折复位，为正常愈合做好准备。"
 	operation_flags = OPERATION_PRIORITY_NEXT_STEP | OPERATION_NO_PATIENT_REQUIRED
 	implements = list(
 		TOOL_BONESET = 1,

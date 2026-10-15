@@ -1,2 +1,2 @@
 /world
-	name = CITY_NAME
+	name = "旧金山"

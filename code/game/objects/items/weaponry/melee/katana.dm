@@ -12,8 +12,8 @@
 	throwforce = 10
 	w_class = WEIGHT_CLASS_BULKY
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
-	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯裂", "剁砍", "切割")
+	attack_verb_simple = list("攻击", "劈砍", "切削", "撕扯", "撕裂", "扯裂", "剁砍", "切割")
 	block_chance = 50
 	block_sound = 'sound/items/weapons/parry.ogg'
 	pickup_sound = 'sound/items/unsheath.ogg'
@@ -21,8 +21,8 @@
 	max_integrity = 200
 	armor_type = /datum/armor/item_katana
 	resistance_flags = FIRE_PROOF
-	var/list/alt_continuous = list("stabs", "pierces", "impales")
-	var/list/alt_simple = list("stab", "pierce", "impale")
+	var/list/alt_continuous = list("刺击", "穿刺", "贯穿")
+	var/list/alt_simple = list("刺击", "穿刺", "贯穿")
 
 /obj/item/katana/Initialize(mapload)
 	. = ..()
@@ -40,7 +40,7 @@
 	acid = 50
 
 /obj/item/katana/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is slitting [user.p_their()] stomach open with [src]! It looks like [user.p_theyre()] trying to commit seppuku!"))
+	user.visible_message(span_suicide("[user]正在用[src]剖开自己的腹部！看起来是在切腹自尽！"))
 	return BRUTELOSS
 
 /obj/item/katana/cursed //used by wizard events, see the tendril_loot.dm file for the miner one

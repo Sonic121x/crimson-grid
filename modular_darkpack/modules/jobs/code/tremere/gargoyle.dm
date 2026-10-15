@@ -14,7 +14,7 @@
 
 	tgui_icon = FA_ICON_HILL_ROCKSLIDE
 
-	description = "You serve the local Chantry as either a guard dog, enforcer, or scout, a shock troop for the Mages of Clan Tremere. You serve the Tremere still, despise most of your kind being freed long ago, whether thats out of duty, mental enslavement, or having nowhere else to go. Among your Masters you are a second class citizen - yet you remain. Guard the Chantry and the Masters as your people always have."
+	description = "你为本地秘所看守门户、执行命令或侦察，是睿魔尔氏族法师麾下的突击战力。尽管大多数同族早已获得自由，你仍效忠睿魔尔，或出于责任，或遭受精神奴役，或只是无处可去。在主人眼中你低人一等，却仍留在这里。像你的同族历来所做的那样，守护秘所和主人。"
 	maximal_generation = 8 // Crimson Grid Edit - Lock Adjustments - Was 9
 	maximum_immortal_age = 842 // Crimson Grid Edit - Lock Adjustments - Gargoyles were first made in 1167 after all - Was 200
 	minimum_masquerade = 3

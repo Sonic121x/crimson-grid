@@ -10,7 +10,7 @@
 	category = CAT_TOOLS
  */
 /datum/crafting_recipe/bonfire
-	name = "Bonfire"
+	name = "篝火"
 	time = 6 SECONDS
 	reqs = list(/obj/item/grown/log = 5)
 	parts = list(/obj/item/grown/log = 5) //Will be returned if the bonfire is dismantled
@@ -20,7 +20,7 @@
 	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/boneshovel
-	name = "Serrated Bone Shovel"
+	name = "锯齿骨铲"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 4,
 		/datum/reagent/fuel/oil = 5,
@@ -31,7 +31,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/lasso
-	name = "Bone Lasso"
+	name = "骨套索"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 1,
 		/obj/item/stack/sheet/sinew = 5,
@@ -40,7 +40,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/ipickaxe
-	name = "Improvised Pickaxe"
+	name = "简易镐"
 	reqs = list(
 		/obj/item/crowbar = 1,
 		/obj/item/knife = 1,
@@ -50,7 +50,7 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/bandage
-	name = "Makeshift Bandage"
+	name = "简易绷带"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 		/datum/reagent/medicine/c2/libital = 10,
@@ -111,7 +111,7 @@
 	return FALSE
  */
 /datum/crafting_recipe/makeshift_radio_jammer
-	name = "Makeshift Radio Jammer"
+	name = "简易无线电干扰器"
 	result = /obj/item/jammer/makeshift
 	reqs = list(
 		/obj/item/universal_scanner = 1,
@@ -121,8 +121,8 @@
 	category = CAT_TOOLS
 
 /datum/crafting_recipe/jaws_of_recovery
-	name = "Modified Jaws of Recovery"
-	desc = "This one acts like regular jaws of life, letting you pry any door and doesn't announce doors you're prying open."
+	name = "改装医疗救援钳"
+	desc = "这把钳子能像普通救援钳一样撬开任何门，也不会播报你正在撬开的门。"
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER)
 	result = /obj/item/crowbar/power/paramedic/silent
@@ -137,7 +137,7 @@
 	return ..()
 
 /datum/crafting_recipe/lantern
-	name = "Lantern"
+	name = "提灯"
 	result = /obj/item/flashlight/lantern
 	reqs = list(
 		/obj/item/flashlight/flare/candle = 1,

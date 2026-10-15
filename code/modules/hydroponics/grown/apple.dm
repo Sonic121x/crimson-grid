@@ -1,10 +1,10 @@
 // Apple
 /obj/item/seeds/apple
-	name = "apple seed pack"
-	desc = "These seeds grow into apple trees."
+	name = "苹果种子包"
+	desc = "这些种子能长成苹果树。"
 	icon_state = "seed-apple"
 	species = "apple"
-	plantname = "Apple Tree"
+	plantname = "苹果树"
 	product = /obj/item/food/grown/apple
 	lifespan = 55
 	endurance = 35
@@ -32,8 +32,8 @@
 
 /obj/item/food/grown/apple
 	seed = /obj/item/seeds/apple
-	name = "apple"
-	desc = "It's a little piece of Eden."
+	name = "苹果"
+	desc = "一小块伊甸园的馈赠。"
 	icon_state = "apple"
 	foodtypes = FRUIT
 	tastes = list("apple" = 1)
@@ -48,21 +48,21 @@
 /obj/item/food/grown/apple/examine(mob/user)
 	. = ..()
 	if(!found_worm && !isobserver(user) && appleworm)
-		balloon_alert(user, "there is a hole in this [src.name]!")
+		balloon_alert(user, "这个[src.name]上有个洞！")
 		found_worm = TRUE
-		desc = "It's a little piece of Eden. Serpent not included, contains a worm as a replacement."
+		desc = "一小块伊甸园的馈赠。没附带蛇，倒是有条虫子充数。"
 
 /obj/item/food/grown/apple/attack_self(mob/user)
 	if(!appleworm)
 		return
-	balloon_alert(user, "pulling out [appleworm.name]...")
+	balloon_alert(user, "正在拉出[appleworm.name]……")
 	if(!do_after(user, 5 SECONDS, target = src))
 		return
 	appleworm.forceMove(drop_location())
 	appleworm = null
 	tastes = list("apple" = 1)
 	var/datum/component/edible/ediblecomponent = IS_EDIBLE(src)
-	desc = "It's a little piece of Eden. The [pick("serpent", "worm", "extra protein", "friendly neighbor")] is gone."
+	desc = "一小块伊甸园的馈赠。[pick("蛇", "虫子", "额外的蛋白质", "友好的邻居")]已经不在了。"
 	if(!ediblecomponent)
 		return
 	ediblecomponent.foodtypes &= ~(GROSS | MEAT | BUGS)
@@ -70,13 +70,13 @@
 /obj/item/food/grown/apple/proc/on_consume(mob/living/eater)
 	if(!ishuman(eater) && !appleworm)
 		return
-	to_chat(eater, span_alert("That apple was wormy!"))
+	to_chat(eater, span_alert("那个苹果里有虫子！"))
 
 /obj/item/food/grown/apple/juice_typepath()
 	return /datum/reagent/consumable/applejuice
 
 /obj/item/food/grown/apple/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/appleslice, 5, 20, screentip_verb = "Slice", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/appleslice, 5, 20, screentip_verb = "切片", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/grown/apple/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -110,11 +110,11 @@
 
 // Gold Apple
 /obj/item/seeds/apple/gold
-	name = "golden apple seed pack"
-	desc = "These seeds grow into golden apple trees. Good thing there are no firebirds in space."
+	name = "金苹果种子包"
+	desc = "这些种子能长成金苹果树。幸好太空里没有火鸟。"
 	icon_state = "seed-goldapple"
 	species = "goldapple"
-	plantname = "Golden Apple Tree"
+	plantname = "金苹果树"
 	product = /obj/item/food/grown/apple/gold
 	maturation = 10
 	production = 10
@@ -128,8 +128,8 @@
 
 /obj/item/food/grown/apple/gold
 	seed = /obj/item/seeds/apple/gold
-	name = "golden apple"
-	desc = "Emblazoned upon the apple is the word 'Kallisti'."
+	name = "金苹果"
+	desc = "苹果上刻着‘献给最美者’。"
 	icon_state = "goldapple"
 	distill_reagent = null
 	wine_power = 50

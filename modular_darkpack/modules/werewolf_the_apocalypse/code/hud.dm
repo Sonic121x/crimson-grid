@@ -19,7 +19,7 @@
 
 
 /atom/movable/screen/auspice
-	name = "auspice"
+	name = "月相"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/werewolf_ui.dmi'
 	icon_state = "auspice_bar"
 	screen_loc = UI_LIVING_AUSPICE
@@ -36,9 +36,9 @@
 /atom/movable/screen/auspice/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_LMB] = "Check Moon"
+	context[SCREENTIP_CONTEXT_LMB] = "查看月相"
 	if(COOLDOWN_FINISHED(src, force_rage_cd))
-		context[SCREENTIP_CONTEXT_RMB] = "Gain Rage"
+		context[SCREENTIP_CONTEXT_RMB] = "获得怒火"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -63,10 +63,10 @@
 		return TRUE
 
 	if(!clicker.visible_to_sky())
-		to_chat(clicker, span_warning("You need to be outside to look at the moon!"))
+		to_chat(clicker, span_warning("你需要到室外才能观察月亮！"))
 		return
 
-	to_chat(clicker, span_notice("The phase of the Moon is a [get_moon_state()]."))
+	to_chat(clicker, span_notice("当前月相为[list(MOON_NEW = "新月", MOON_WAXING_CRESENT = "盈眉月", MOON_FIRST_QUARTER = "上弦月", MOON_WAXING_GIBBOUS = "盈凸月", MOON_FULL = "满月", MOON_WANING_GIBBOUS = "亏凸月", MOON_LAST_QUARTER = "下弦月", MOON_WANING_CRESCENT = "残月")[get_moon_state()]]。"))
 
 	if(looked_at_moon)
 		return
@@ -107,7 +107,7 @@
 	hud_used.screen_objects[HUD_MOB_RAGE_AND_GNOSIS]?.update_icon()
 
 /atom/movable/screen/rage_and_gnosis
-	name = "rage and gnosis"
+	name = "怒火与灵悟"
 	icon = 'modular_darkpack/modules/werewolf_the_apocalypse/icons/hud_meters.dmi'
 	icon_state = "rage0"
 	screen_loc = UI_LIVING_RAGE_AND_GNOSIS
@@ -180,19 +180,19 @@
 	var/datum/splat/werewolf/shifter/shifting = get_shifter_splat(user)
 
 	if(left_click_transform && (left_click_transform in shifting.transformation_list))
-		context[SCREENTIP_CONTEXT_LMB] = "Shift to [left_click_transform::name]"
+		context[SCREENTIP_CONTEXT_LMB] = "变为[left_click_transform::name]"
 		if(left_click_transform != shifting.get_breed_form_species())
-			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Shift using rage"
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = "消耗怒火变形"
 	if(right_click_transform && (right_click_transform in shifting.transformation_list))
-		context[SCREENTIP_CONTEXT_RMB] = "Shift to [right_click_transform::name]"
+		context[SCREENTIP_CONTEXT_RMB] = "变为[right_click_transform::name]"
 		if(right_click_transform != shifting.get_breed_form_species())
-			context[SCREENTIP_CONTEXT_CTRL_RMB] = "Shift using rage"
+			context[SCREENTIP_CONTEXT_CTRL_RMB] = "消耗怒火变形"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
 
 /atom/movable/screen/fera_transform/homid
-	name = "homid form"
+	name = "人类形态"
 	icon_state = "homid"
 	screen_loc = UI_LIVING_TRANSFORM_HOMID
 	left_click_transform = /datum/species/human/shifter/homid
@@ -200,14 +200,14 @@
 
 
 /atom/movable/screen/fera_transform/war
-	name = "war form"
+	name = "战斗形态"
 	icon_state = "war"
 	screen_loc = UI_LIVING_TRANSFORM_WAR
 	left_click_transform = /datum/species/human/shifter/war
 
 
 /atom/movable/screen/fera_transform/feral
-	name = "feral form"
+	name = "野兽形态"
 	icon_state = "feral"
 	screen_loc = UI_LIVING_TRANSFORM_FERAL
 	left_click_transform = /datum/species/human/shifter/feral

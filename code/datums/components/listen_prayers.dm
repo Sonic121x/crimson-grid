@@ -10,7 +10,7 @@
 	///The action that the owner can use to ignore the prayers
 	var/datum/action/innate/listen_prayers/toggle
 	///The description we give to the instance of the listen_prayers toggle.
-	var/toggle_desc = "Allows you to listen to prayers"
+	var/toggle_desc = "让你能够聆听祈祷"
 
 /datum/component/listen_prayers/Initialize(datum/callback/pre_prayer_callback, deity_name, toggle_desc)
 	if(!istype(parent, /datum/mind))
@@ -58,7 +58,7 @@
 		return
 	prayer_type = arguments[ARG_PRAYER_TYPE]
 	symbol = arguments[ARG_PRAYER_SYMBOL]
-	message = "[icon2html(arguments[ARG_PRAYER_SYMBOL], mind.current.client)]<b><font color=[GLOB.prayer_type_to_font_color[prayer_type]]>[prayer_type]: </font></b> [span_notice(arguments[ARG_PRAYER_MSG])]"
+	message = "[icon2html(arguments[ARG_PRAYER_SYMBOL], mind.current.client)]<b><font color=[GLOB.prayer_type_to_font_color[prayer_type]]>[list(DEFAULT_PRAYER = "祈祷", CULT_PRAYER = "教徒祈祷", HERETIC_PRAYER = "异端祈祷", CHAPLAIN_PRAYER = "牧师祈祷", SPIRITUAL_PRAYER = "虔信者祈祷", EVIL_PRAYER = "邪恶祈祷", SANTA_NAUGHTY_PRAYER = "祈祷（淘气）")[prayer_type] || prayer_type]：</font></b> [span_notice(arguments[ARG_PRAYER_MSG])]"
 	to_chat(mind.current, custom_boxed_message(GLOB.prayer_type_to_message_box[prayer_type], message))
 	SEND_SOUND(mind.current, sound('sound/effects/pray.ogg'))
 	if(deity_name)
@@ -69,7 +69,7 @@
 	name = "Listen Prayers"
 	button_icon = 'icons/hud/actions.dmi'
 	button_icon_state = "pray"
-	desc = "Allows you to eavesdrop on prayers from the world around you."
+	desc = "让你能够偷听周围世界传来的祈祷。"
 	active = TRUE
 
 /datum/action/innate/listen_prayers/Destroy()
@@ -82,11 +82,11 @@
 /datum/action/innate/listen_prayers/Activate()
 	active = TRUE
 	REMOVE_TRAIT(owner, TRAIT_DONT_HEAR_PRAYERS, ACTION_TRAIT)
-	to_chat(owner, span_green("You are ready to listen to prayers once again."))
+	to_chat(owner, span_green("你准备好再次聆听祈祷了。"))
 	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
 
 /datum/action/innate/listen_prayers/Deactivate()
 	active = FALSE
 	ADD_TRAIT(owner, TRAIT_DONT_HEAR_PRAYERS, ACTION_TRAIT)
-	to_chat(owner, span_green("You stop listening to prayers."))
+	to_chat(owner, span_green("你不再聆听祈祷了。"))
 	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)

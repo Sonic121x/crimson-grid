@@ -1,6 +1,6 @@
 /obj/machinery/bitcoin_miner
-	name = "bitcoin miner"
-	desc = "It's a rig designed to mine cryptocurrency with a monitor connected to it.\nIt has an output for withdrawing the cash obtained from mining, somehow."
+	name = "比特币矿机"
+	desc = "一套用于挖掘加密货币的设备，连接着一台显示器。\n它居然还有个出钞口，能把挖矿收益直接变成现金。"
 	icon = 'modular_darkpack/modules/bitcoinminer/icons/bitcoinminer.dmi'
 	icon_state = "miner_off"
 	density = TRUE
@@ -29,12 +29,12 @@
 /obj/machinery/bitcoin_miner/examine(mob/user)
 	. = ..()
 	if(active && in_range(user, src))
-		. += span_notice("It currently has [money_stored / 222] BTC converted into $[money_stored]") // division by 222 to replicate 2015 BTC prices
-		. += span_notice("<i>Alt+Click</i> to turn \the [src] off.")
+		. += span_notice("当前有[money_stored / 222] BTC，已兑换为$[money_stored]。") // division by 222 to replicate 2015 BTC prices
+		. += span_notice("<i>Alt+单击</i>关闭[src]。")
 	if(starting)
-		. += span_notice("It appears to be starting.")
+		. += span_notice("它似乎正在启动。")
 	if(!active && !starting)
-		. += span_notice("It appears to be off.")
+		. += span_notice("它似乎处于关闭状态。")
 
 /obj/machinery/bitcoin_miner/proc/toggle_on(mob/user)
 	starting = TRUE
@@ -62,9 +62,9 @@
 		new /obj/item/stack/dollar(drop_location(), money_to_spawn)
 		money_stored -= money_to_spawn
 		playsound(src, 'sound/machines/eject.ogg', 30)
-		to_chat(user, span_notice("You withdraw [MONEY_SYMBOL][money_to_spawn] from \the [src]!"))
+		to_chat(user, span_notice("你从[src]中取出了[MONEY_SYMBOL][money_to_spawn]！"))
 	else
-		to_chat(user, span_notice("The balance is empty!"))
+		to_chat(user, span_notice("余额为零！"))
 
 /obj/machinery/bitcoin_miner/interact(mob/user)
 	. = ..()
@@ -73,10 +73,10 @@
 
 	if(!active)
 		if(starting)
-			to_chat(user, span_warning("\the [src] is starting!"))
+			to_chat(user, span_warning("[src]正在启动！"))
 			return
-		if(tgui_alert(user, "Would you like to turn \the [src] on?", "Mining", list("Yes", "No")) == "Yes")
-			to_chat(user, span_notice("You turn \the [src] on."))
+		if(tgui_alert(user, "你要启动[src]吗？", "挖矿", list("是", "否")) == "是")
+			to_chat(user, span_notice("你启动了[src]。"))
 			toggle_on(user)
 	else
 		dump_loot(user)
@@ -87,6 +87,6 @@
 		return
 
 	if(active)
-		if(tgui_alert(user, "Would you like to turn \the [src] off?", "Mining", list("Yes", "No")) == "Yes")
-			to_chat(user, span_notice("You turn \the [src] off."))
+		if(tgui_alert(user, "你要关闭[src]吗？", "挖矿", list("是", "否")) == "是")
+			to_chat(user, span_notice("你关闭了[src]。"))
 			toggle_off()

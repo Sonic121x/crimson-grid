@@ -403,7 +403,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
             </Stack.Item>
             <Stack.Item grow ml="1em">
               <LabeledList>
-                <LabeledList.Item verticalAlign="middle" label="Hex">
+                <LabeledList.Item verticalAlign="middle" label="色值">
                   <Input
                     fluid
                     value={rgb2hexstring({ r, g, b, a }, false)}
@@ -415,7 +415,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                   />
                 </LabeledList.Item>
                 <LabeledList.Divider />
-                <LabeledList.Item verticalAlign="middle" label="H">
+                <LabeledList.Item verticalAlign="middle" label="色相">
                   <PickerComponentRow
                     markerColor={hsva2hslString({ h, s: 1, v: 1, a: 1 })}
                     backgroundImage="linear-gradient(to right in hsl longer hue, red, red)"
@@ -430,7 +430,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                     }}
                   />
                 </LabeledList.Item>
-                <LabeledList.Item verticalAlign="middle" label="S">
+                <LabeledList.Item verticalAlign="middle" label="饱和度">
                   <PickerComponentRow
                     markerColor={hsva2hslString({ h, s, v: 1, a: 1 })}
                     backgroundImage={`linear-gradient(to right, ${hsva2hslString({ h, s: 0, v: 1 })}, ${hsva2hslString({ h, s: 1, v: 1 })})`}
@@ -448,7 +448,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                     }}
                   />
                 </LabeledList.Item>
-                <LabeledList.Item verticalAlign="middle" label="V">
+                <LabeledList.Item verticalAlign="middle" label="明度">
                   <PickerComponentRow
                     markerColor={hsva2hslString({ h, s, v, a: 1 })}
                     whiteMarkerBorder={v < 0.5}
@@ -468,7 +468,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                   />
                 </LabeledList.Item>
                 <LabeledList.Divider />
-                <LabeledList.Item verticalAlign="middle" label="R">
+                <LabeledList.Item verticalAlign="middle" label="红">
                   <PickerComponentRow
                     markerColor={`rgb(${r}, 0, 0)`}
                     whiteMarkerBorder={r < 128}
@@ -484,7 +484,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                     }}
                   />
                 </LabeledList.Item>
-                <LabeledList.Item verticalAlign="middle" label="G">
+                <LabeledList.Item verticalAlign="middle" label="绿">
                   <PickerComponentRow
                     markerColor={`rgb(0, ${g}, 0)`}
                     whiteMarkerBorder={g < 128}
@@ -500,7 +500,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                     }}
                   />
                 </LabeledList.Item>
-                <LabeledList.Item verticalAlign="middle" label="B">
+                <LabeledList.Item verticalAlign="middle" label="蓝">
                   <PickerComponentRow
                     markerColor={`rgb( 0, 0, ${b})`}
                     whiteMarkerBorder={b < 128}
@@ -519,7 +519,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
                 {alpha && (
                   <>
                     <LabeledList.Divider />
-                    <LabeledList.Item verticalAlign="middle" label="A">
+                    <LabeledList.Item verticalAlign="middle" label="不透明度">
                       <PickerComponentRow
                         markerColor={`rgba(${r}, ${g}, ${b}, ${a})`}
                         whiteMarkerBorder={Math.max(v, 1 - a) < 0.5}
@@ -554,7 +554,7 @@ export const ColorPicker = (props: ColorPickerProps) => {
       return (
         <Section {...rest}>
           <LabeledList>
-            <LabeledList.Item verticalAlign="middle" label="V">
+            <LabeledList.Item verticalAlign="middle" label="明度">
               <PickerComponentRow
                 markerColor={hsva2hslString({ h, s, v, a: 1 })}
                 whiteMarkerBorder={v < 0.5}

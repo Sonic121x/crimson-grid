@@ -1,8 +1,8 @@
 /obj/item/occult_artifact/werewolf/dagger_of_retribution
-	name = "iron knife"
-	desc = "A crude knife wrought from iron."
-	true_name = "dagger of retribution"
-	true_desc = "An ugly iron dagger imbued with a vengeance-spirit."
+	name = "铁刀"
+	desc = "一把粗糙的铁制小刀。"
+	true_name = "复仇短匕"
+	true_desc = "一把丑陋的铁匕首，寄宿着复仇之灵。"
 	worn_icon = 'modular_darkpack/modules/weapons/icons/worn_melee.dmi'
 	worn_icon_state = "knife"
 	icon_state = "dagger"
@@ -15,8 +15,8 @@
 	throw_speed = 3
 	throw_range = 6
 	throwforce = 10
-	attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("劈砍", "切割", "撕裂", "划伤", "扯裂", "剁砍", "割伤")
+	attack_verb_simple = list("劈砍", "切割", "撕裂", "划伤", "扯裂", "剁砍", "割伤")
 	hitsound = 'sound/items/weapons/slash.ogg'
 	sharpness = SHARP_EDGED
 	slot_flags = ITEM_SLOT_BELT
@@ -43,15 +43,15 @@
 
 /obj/item/occult_artifact/werewolf/dagger_of_retribution/identify()
 	. = ..()
-	say("I am [spirit_name]... That which is lost will be found...")
+	say("我是[spirit_name]……失落之物，终将寻回……")
 
 /obj/item/occult_artifact/werewolf/dagger_of_retribution/examine(mob/user)
 	. = ..()
 	if(identified)
-		. += span_nicegreen("Concentrate on a lost item while holding the dagger; the weapon will gently tug in the direction of the item until you reclaim it.")
-		. += span_purple("Imbued with [spirit_name].")
+		. += span_nicegreen("握住匕首，集中精神想着遗失的物品；它会轻轻将你牵向物品所在的方向，直到你将其取回。")
+		. += span_purple("其中寄宿着[spirit_name]。")
 		if(bound_item)
-			. += span_purple("Bound to [bound_item].")
+			. += span_purple("已与[bound_item]绑定。")
 			if(iscarbon(loc))
 				var/mob/living/carbon/C = loc
 
@@ -59,9 +59,9 @@
 				var/obj/item/offhand = C.get_inactive_held_item()
 
 				if(mainhand == src || offhand == src)
-					. += span_notice("It's tugging you to the [angle2text(targets_angle())]")
+					. += span_notice("它正将你牵向[list("north" = "北方", "south" = "南方", "east" = "东方", "west" = "西方", "northeast" = "东北方", "southeast" = "东南方", "northwest" = "西北方", "southwest" = "西南方")[angle2text(targets_angle())]]。")
 
-		. += span_notice("<br/>Bind an item by <b>CLICK</b>ing on it with [src]. Unbind [src] by right clicking it.")
+		. += span_notice("<br/>手持[src]<b>点击</b>物品即可绑定。右键点击[src]可解除绑定。")
 
 
 
@@ -86,12 +86,12 @@
 
 	if(!istype(interacting_with, /obj)) // is it an object?
 		if(!istype(interacting_with, /turf))
-			to_chat(user, span_warning("[src] refuses to be bound to [interacting_with]!"))
+			to_chat(user, span_warning("[src]拒绝与[interacting_with]绑定！"))
 			return ITEM_INTERACT_BLOCKING
 		return NONE
 
 	if(bound_item) // do we have an item bound to us already?
-		to_chat(user, span_warning("[src] is already bound to [bound_item]!"))
+		to_chat(user, span_warning("[src]已经与[bound_item]绑定了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	// We are clicking on an object, we're on the right intent, and we're not bound.
@@ -104,7 +104,7 @@
 	RegisterSignal(bound_item, COMSIG_QDELETING, PROC_REF(stop_live_tracking))
 
 	if(bound_item && user)
-		to_chat(user, span_notice("[src] starts tugging you towards [bound_item]."))
+		to_chat(user, span_notice("[src]开始将你牵向[bound_item]。"))
 
 /obj/item/occult_artifact/werewolf/dagger_of_retribution/proc/stop_live_tracking(mob/user)
 	if(!bound_item)
@@ -116,7 +116,7 @@
 		bound_item = null
 
 	if(user)
-		to_chat(user, span_warning("[src] stops tugging."))
+		to_chat(user, span_warning("[src]停止了牵引。"))
 
 	var/matrix/M = matrix(0, MATRIX_ROTATE)
 	animate(src, transform = M, time = 5, loop = 0)
@@ -160,7 +160,7 @@
 /obj/item/occult_artifact/werewolf/dagger_of_retribution/attack_self_secondary(mob/user, modifiers)
 	. = ..()
 	if(bound_item)
-		to_chat(user, span_warning("You start to unbind [bound_item] from [src]."))
+		to_chat(user, span_warning("你开始解除[bound_item]与[src]的绑定。"))
 
 		if(do_after(user, 3 SECONDS, src))
 			stop_live_tracking(user)

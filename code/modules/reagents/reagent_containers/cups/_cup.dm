@@ -120,19 +120,19 @@
 		if(DOING_INTERACTION_WITH_TARGET(user, target_mob))
 			return ITEM_INTERACT_BLOCKING
 		target_mob.visible_message(
-			span_danger("[user] attempts to feed [target_mob] something from [src]."),
-			span_userdanger("[user] attempts to feed you something from [src]."),
+			span_danger("[user]试图把[src]里的东西喂给[target_mob]。"),
+			span_userdanger("[user]试图把[src]里的东西喂给你。"),
 		)
 		if(!do_after(user, 3 SECONDS, target_mob))
 			return ITEM_INTERACT_BLOCKING
 		if(!reagents || !reagents.total_volume)
 			return ITEM_INTERACT_BLOCKING // The drink might be empty after the delay, such as by spam-feeding
 		target_mob.visible_message(
-			span_danger("[user] feeds [target_mob] something from [src]."),
-			span_userdanger("[user] feeds you something from [src]."),
+			span_danger("[user]把[src]里的东西喂给了[target_mob]。"),
+			span_userdanger("[user]把[src]里的东西喂给了你。"),
 		)
 		if(target_mob.is_blind())
-			to_chat(target_mob, span_notice("You feel someone feed you something."))
+			to_chat(target_mob, span_notice("你感觉有人喂了你什么东西。"))
 		log_combat(user, target_mob, "fed", reagents.get_reagent_log_string())
 
 	else
@@ -140,19 +140,19 @@
 			if(DOING_INTERACTION_WITH_TARGET(user, user))
 				return ITEM_INTERACT_BLOCKING
 			user.visible_message(
-				span_notice("[user] attempts to drink from [src]."),
+				span_notice("[user]试着喝[src]里的饮料。"),
 				ignored_mobs = list(user),
 			)
-			to_chat(user, span_notice("You attempt to drink from [src]."))
+			to_chat(user, span_notice("你试着喝[src]里的饮料。"))
 			if(!do_after(user, 1.25 SECONDS, user))
 				return ITEM_INTERACT_BLOCKING
 			if(!reagents || !reagents.total_volume)
 				return ITEM_INTERACT_BLOCKING
 			user.visible_message(
-				span_notice("[user] drinks from [src]."),
+				span_notice("[user]喝着[src]里的饮料。"),
 				ignored_mobs = list(user),
 			)
-		to_chat(user, span_notice("You swallow a gulp of [src]."))
+		to_chat(user, span_notice("你喝下了一大口[src]里的饮料。"))
 
 	SEND_SIGNAL(src, COMSIG_GLASS_DRANK, target_mob, user)
 	var/fraction = min(gulp_size / reagents.total_volume, 1)

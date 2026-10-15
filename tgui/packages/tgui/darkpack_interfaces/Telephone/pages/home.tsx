@@ -208,18 +208,18 @@ export const browser_home = `
 	<div class="dot"></div>
 </div>
 <div class="page-wrapper">
-	<h1 style="text-align: center;">Welcome to EndBrowser!</h1>
+	<h1 style="text-align: center;">欢迎使用安德浏览器！</h1>
     <hr />
-	<h2 style="text-align: center;">Recommended Websites</h2>
+	<h2 style="text-align: center;">推荐网站</h2>
 	<ul>
 		<li><strong>www.gooble.com</strong> <br>
-        Gooble Search Engine</li>
+        咕博搜索引擎</li>
 		<li><strong>www.endbook.com</strong> <br>
-        EndBook Social Network</li>
+        安德社交网络</li>
 		<li><strong>www.endron-international.com</strong> <br>
-        Endron International Official Website</li>
+        安德隆国际官方网站</li>
 	</ul>
-	<p style="text-align: center; font-style: italic; font-size: 0.8em;">© EndBrowser v1.0.1</p>
+	<p style="text-align: center; font-style: italic; font-size: 0.8em;">© 安德浏览器 v1.0.1</p>
 </div>
 `
 

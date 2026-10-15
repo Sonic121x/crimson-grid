@@ -1,6 +1,6 @@
 /datum/language/latin
 	name = "Latin"
-	desc = "An ancient and complex language once spoken by the rulers of empires."
+	desc = "一种古老而复杂的语言，曾被帝国的统治者使用。"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "l"
 	space_chance = 33

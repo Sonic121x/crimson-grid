@@ -3,21 +3,21 @@
 	alert_type = /atom/movable/screen/alert/status_effect/day_time_notif
 
 /atom/movable/screen/alert/status_effect/day_time_notif
-	name = "The sun is out"
-	desc = "God, you must be tired..."
+	name = "太阳升起了"
+	desc = "天啊，你一定累坏了……"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "asleep"
 
 /atom/movable/screen/alert/status_effect/day_time_notif/examine(mob/user)
 	. = ..()
-	. += span_notice("You are currently [user.visible_to_sky() ? "visible" : "not visible"] to the sun.")
+	. += span_notice("你目前[user.visible_to_sky() ? "暴露在阳光下" : "没有暴露在阳光下"]。")
 	if(get_kindred_splat(user))
 //CRIMSON GRID EDIT ADD PR: Humanity 10 Vamps can walk under the Sun CHANGE: Made it clearer if you can walk under the sun or not.
 		var/mob/living/kindred = user
 		if(!kindred.is_enlightenment() && (kindred.st_get_stat(STAT_MORALITY)>=10))
-			. += span_green("Your dedication perserves you. For this few minutes the Sun shall not sear you")
+			. += span_green("你的坚守庇护着你。在这短短几分钟里，阳光不会灼伤你。")
 		else
-			. += span_warning("The sun will sear your flesh and bring final death.")
+			. += span_warning("阳光会灼烧你的血肉，带来终亡。")
 //CRIMSON GRID EDIT END
 /datum/status_effect/sunlight_burning
 	id = "sunlight_burning"
@@ -36,7 +36,7 @@
 	if(CONFIG_GET(flag/humanity_sunlight_resistance) && !owner.is_enlightenment() && (owner.st_get_stat(STAT_MORALITY) >= 10))
 		return FALSE
 
-	to_chat(owner, span_danger("THE SUN SEARS YOUR FLESH"))
+	to_chat(owner, span_danger("阳光正在灼烧你的血肉！"))
 	return TRUE
 
 /datum/status_effect/sunlight_burning/tick(seconds_per_tick)
@@ -71,8 +71,8 @@
 
 
 /atom/movable/screen/alert/status_effect/sunlight_burning
-	name = "YOU ARE BURNING FROM THE SUN"
-	desc = "Get inside!"
+	name = "你正在遭受阳光灼烧"
+	desc = "快躲进室内！"
 	icon = 'modular_darkpack/modules/deprecated/icons/hud/screen_alert.dmi'
 	icon_state = "fire"
 

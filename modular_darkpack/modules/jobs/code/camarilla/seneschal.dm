@@ -1,6 +1,6 @@
 /datum/job/vampire/clerk
 	title = JOB_SENESCHAL
-	description = "You are the right hand man or woman of the most powerful vampire in the city. The Camarilla trusts you to run the city, even in their stead."
+	description = "你是城中最有权势的吸血鬼的左膀右臂。密党信任你治理这座城市，必要时甚至代其执政。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

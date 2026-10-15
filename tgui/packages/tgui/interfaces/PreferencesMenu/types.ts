@@ -132,7 +132,7 @@ export type Job = {
 export type Quirk = {
   description: string;
   icon: string;
-  name: string;
+  name: string; display_name?: string;
   value: number;
   customizable: boolean;
   customization_options?: string[];
@@ -285,7 +285,7 @@ export type PreferencesMenuData = {
 };
 
 export type ServerData = {
-  jobs: {
+  jobs: { display_names: Record<string, string>;
     departments: Record<string, Department>;
     jobs: Record<string, Job>;
     jobs_sorted: string[];

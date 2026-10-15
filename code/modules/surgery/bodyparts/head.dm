@@ -1,6 +1,6 @@
 /obj/item/bodypart/head
 	name = BODY_ZONE_HEAD
-	desc = "Didn't make sense not to live for fun, your brain gets smart but your head gets dumb."
+	desc = "活着不找乐子可没道理，脑子变聪明了，脑袋却变傻了。"
 	icon = 'icons/mob/human/bodyparts.dmi'
 	icon_state = "default_human_head"
 	max_damage = LIMB_MAX_HP_CORE
@@ -163,10 +163,10 @@
 
 /obj/item/bodypart/head/drop_organs(mob/user, violent_removal)
 	if(user)
-		user.visible_message(span_warning("[user] saws [src] open and pulls out a brain!"), span_notice("You saw [src] open and pull out a brain."))
+		user.visible_message(span_warning("[user]锯开[src]，掏出了一颗大脑！"), span_notice("你锯开[src]，掏出了一颗大脑。"))
 	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in src
 	if(brain && violent_removal && prob(90)) //ghetto surgery can damage the brain.
-		to_chat(user, span_warning("[brain] was damaged in the process!"))
+		to_chat(user, span_warning("[brain]在这个过程中受损了！"))
 		brain.set_organ_damage(brain.maxHealth)
 	return ..()
 

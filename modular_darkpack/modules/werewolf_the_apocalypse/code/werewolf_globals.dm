@@ -1,4 +1,4 @@
-/// Current phase of the moon, randomly chosen
+GLOBAL_LIST_INIT(localized_fera_names, list("Ronin" = "浪人", "Black Furies" = "黑怒之女", "Bone Gnawers" = "啃骨者", "Children of Gaia" = "盖亚之子", "Fianna" = "芬尼安", "Galestalkers" = "逐风者", "Get of Fenris" = "芬里斯之裔", "Uktena" = "乌克提纳", "Glass Walkers" = "玻璃行者", "Red Talons" = "赤爪", "Shadow Lords" = "暗影领主", "Silent Striders" = "寂静行者", "Silver Fangs" = "银牙", "Stargazers" = "观星者", "Black Spiral Dancers" = "黑螺旋舞者", "Ragabash" = "新月诡术者", "Theurge" = "弦月祭司", "Philodox" = "半月仲裁者", "Ahroun" = "满月战士", "Galliard" = "盈月诗人", "Stolen Moon" = "失窃之月", "Garou Homid" = "狼人·人裔", "Lupus" = "狼裔", "Crinos" = "天生战斗形态", "Corax Homid" = "渡鸦变形者·人裔", "Corvid" = "鸦裔"))
 GLOBAL_VAR_INIT(moon_state, null)
 
 /proc/get_moon_state()

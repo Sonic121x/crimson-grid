@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(territorial_type_choices, init_territorial_type_choices())
 
 /datum/preference/choiced/territorial/init_possible_values()
 	return GLOB.territorial_type_choices
-
+/datum/preference/choiced/territorial/compile_constant_data() { . = ..(); .["display_names"] = localized_preference_choices(get_choices(), GLOB.localized_darkpack_area_names); }
 /datum/preference/choiced/territorial/create_default_value()
 	return /area/vtm/outside/financialdistrict::name
 
@@ -34,15 +34,15 @@ GLOBAL_LIST_INIT(territorial_type_choices, init_territorial_type_choices())
 
 /datum/quirk/darkpack/territorial
 	name = "Territorial"
-	desc = "You are extremely territorial, and can only feed in one particular area. You react with hostility if another vampire enters your territory without your notice - and if they feed without your permission, violence is sure to break out, as they're taking your food and resources. You are reluctant to leave your territory unless necessary. Your territory is the only area where you may feed."
+	desc = "你的领地意识极强，只能在某个特定区域进食。其他吸血鬼若未经告知进入你的领地，你会抱以敌意；若未经许可就在此进食，冲突更是不可避免，因为他们正在夺走你的食物和资源。除非必要，你不愿离开自己的领地。你只能在领地内进食。"
 	ttrpg_sources = list(/datum/source_book/vtm20 = 486)
 	value = -2
 	mob_trait = TRAIT_VAMPIRE_TERRITORIAL
-	gain_text = span_notice("You need to protect your hunting grounds, your herd, your territory.")
-	lose_text = span_notice("Who cares where anyone feeds, anyways?")
+	gain_text = span_notice("你必须保护自己的猎场、血源人群和领地。")
+	lose_text = span_notice("谁会在乎别人在什么地方进食呢？")
 	allowed_splats = list(SPLAT_KINDRED)
 	icon = FA_ICON_MAP_LOCATION_DOT
-	failure_message = "Who cares where anyone feeds, anyways?"
+	failure_message = "谁会在乎别人在什么地方进食呢？"
 	var/territory
 	quirk_flags = QUIRK_HIDE_FROM_SCAN //CRIMSON GRID EDIT ADD | PR: MAKE MEDICAL RECORDS NOT MASQ BREACHY | CHANGE: ADDED THIS TO PREVENT IT FROM BEING SEEN IN COMS
 

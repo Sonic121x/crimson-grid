@@ -179,7 +179,7 @@ const EditableCanvas = (props: EditableCanvasProps) => {
                       checked={showGrid}
                       onClick={() => setShowGrid(!showGrid)}
                     >
-                      Show Grid
+                      显示网格
                     </Button.Checkbox>
                   </Stack.Item>
                   <Stack.Item>
@@ -202,8 +202,8 @@ const EditableCanvas = (props: EditableCanvasProps) => {
                 </ZoomListener>
               </Stack.Item>
               <Stack.Item basis={0} width="100%" textAlign="center">
-                <Button.Confirm onClick={() => act('finalize')}>
-                  Finalize
+                <Button.Confirm confirmContent="确认完成？" onClick={() => act('finalize')}>
+                  完成画作
                 </Button.Confirm>
               </Stack.Item>
             </Stack>
@@ -269,7 +269,7 @@ const FinalizedCanvas = (props: FinalizedCanvasProps) => {
               </Box>
               <Box italic>{medium}</Box>
               <Box italic>
-                {patron && `Sponsored by ${patron}`}
+                {patron && `由${patron}赞助`}
                 <Button
                   icon="hand-holding-usd"
                   color="transparent"

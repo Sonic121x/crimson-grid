@@ -10,11 +10,11 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 0.9 // fails around 16.5 minutes, lungs are one of the last organs to die (of the ones we have)
 
-	low_threshold_passed = span_warning("You feel short of breath.")
-	high_threshold_passed = span_warning("You feel some sort of constriction around your chest as your breathing becomes shallow and rapid.")
-	now_fixed = span_warning("Your lungs seem to once again be able to hold air.")
-	low_threshold_cleared = span_info("You can breathe normally again.")
-	high_threshold_cleared = span_info("The constriction around your chest loosens as your breathing calms down.")
+	low_threshold_passed = span_warning("你感到气短。")
+	high_threshold_passed = span_warning("你感到胸口发紧，呼吸变得浅而急促。")
+	now_fixed = span_warning("你的肺似乎又能容纳空气了。")
+	low_threshold_cleared = span_info("你又能正常呼吸了。")
+	high_threshold_cleared = span_info("你的呼吸平稳下来，胸口的紧缩感也减轻了。")
 
 	cell_line = CELL_LINE_ORGAN_LUNGS
 	cells_minimum = 1
@@ -389,12 +389,12 @@
 	if (freon_pp > gas_stimulation_min)
 		breather.reagents.add_reagent(/datum/reagent/freon, 1)
 	if (prob(freon_pp))
-		to_chat(breather, span_alert("Your mouth feels like it's burning!"))
+		to_chat(breather, span_alert("你的嘴里像着了火一样！"))
 	if (freon_pp > 40)
 		breather.emote("gasp")
 		breather.adjust_fire_loss(15)
 		if (prob(freon_pp / 2))
-			to_chat(breather, span_alert("Your throat closes up!"))
+			to_chat(breather, span_alert("你的喉咙收紧了！"))
 			breather.set_silence_if_lower(6 SECONDS)
 	else
 		breather.adjust_fire_loss(freon_pp / 4)
@@ -414,7 +414,7 @@
 	// Euphoria side-effect.
 	if(healium_pp > gas_stimulation_min)
 		if(prob(15))
-			to_chat(breather, span_alert("Your head starts spinning and your lungs burn!"))
+			to_chat(breather, span_alert("你开始头晕目眩，肺部灼痛！"))
 			healium_euphoria = EUPHORIA_ACTIVE
 			breather.emote("gasp")
 	else
@@ -475,11 +475,11 @@
 			// At lower pp, give out a little warning
 			breather.clear_mood_event("smell")
 			if(prob(5))
-				to_chat(breather, span_notice("There is an unpleasant smell in the air."))
+				to_chat(breather, span_notice("空气中有一股难闻的气味。"))
 		if(5 to 15)
 			//At somewhat higher pp, warning becomes more obvious
 			if(prob(15))
-				to_chat(breather, span_warning("You smell something horribly decayed inside this room."))
+				to_chat(breather, span_warning("你闻到房间里有东西散发出浓烈的腐臭。"))
 				breather.add_mood_event("smell", /datum/mood_event/disgust/bad_smell)
 		if(15 to 30)
 			//Small chance to vomit. By now, people have internals on anyway

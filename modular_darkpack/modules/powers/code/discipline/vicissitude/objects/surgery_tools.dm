@@ -19,8 +19,8 @@
 	retract_sound =  'modular_darkpack/modules/powers/sounds/vicissitude.ogg'
 
 /obj/item/retractor/augment/vicissitude
-	name = "retracting appendage"
-	desc = "A pair of prehensile pincers."
+	name = "牵开附肢"
+	desc = "一对能够抓握的钳肢。"
 	icon_state = "retractor_vic"
 	inhand_icon_state = "clamps_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -28,8 +28,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/hemostat/augment/vicissitude
-	name = "hemostatic pincers"
-	desc = "A pair of thin appendages that were once fingers, secreting a hemostatic fluid from the tips."
+	name = "止血钳肢"
+	desc = "一对由手指变成的细长附肢，尖端会分泌止血液。"
 	icon_state = "hemostat_vic"
 	inhand_icon_state = "clamps_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -37,8 +37,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/cautery/augment/vicissitude
-	name = "chemical cautery"
-	desc = "A specialized organ drooling a chemical package that releases an extreme amount of heat, very quickly."
+	name = "化学烧灼器官"
+	desc = "一种特化器官，会流出能在极短时间内释放大量热量的化学混合物。"
 	icon_state = "cautery_vic"
 	inhand_icon_state = "cautery_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -46,8 +46,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/surgicaldrill/augment/vicissitude
-	name = "surgical fang"
-	desc = "A spiral fang that bores into the flesh with reckless glee."
+	name = "手术钻牙"
+	desc = "一颗螺旋状尖牙，肆意欢快地钻入血肉。"
 	icon_state = "drill_vic"
 	inhand_icon_state = "drill_vic"
 	hitsound = 'sound/effects/wounds/blood2.ogg'
@@ -56,8 +56,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/scalpel/augment/vicissitude
-	name = "scalpel claw"
-	desc = "An altered nail, adjusted to make fine incisions."
+	name = "手术刀爪"
+	desc = "一片经过改造的指甲，能切出精细的切口。"
 	icon_state = "scalpel_vic"
 	inhand_icon_state = "scalpel_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -65,8 +65,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/circular_saw/augment/vicissitude
-	name = "circular jaw"
-	desc = "A spinning disc of teeth, screaming, as it bites through the flesh."
+	name = "环形锯颚"
+	desc = "由牙齿组成的旋转圆盘，尖啸着咬穿血肉。"
 	icon_state = "saw_vic"
 	inhand_icon_state = "saw_vic"
 	hitsound = 'sound/effects/wounds/blood2.ogg'
@@ -75,8 +75,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/surgical_drapes/vicissitude
-	name = "skin drape"
-	desc = "A stretch of skin, sweating out antibiotics and disinfectants, to provide a sterile-ish environment to work in."
+	name = "皮肤手术巾"
+	desc = "一片展开的皮肤，渗出抗生素和消毒剂，为手术提供一个大致无菌的环境。"
 	icon_state = "surgical_drapes_vic"
 	inhand_icon_state = "drapes_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -84,8 +84,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/bonesetter/augment/vicissitude
-	name = "bonesetting appendage"
-	desc = "A pair of organic clamps for setting bones."
+	name = "接骨附肢"
+	desc = "一对用于接骨的有机钳肢。"
 	icon_state = "bone setter_vic"
 	inhand_icon_state = "clamps_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -93,8 +93,8 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/blood_filter/augment/vicissitude
-	name = "filtering organ"
-	desc = "A specialised set of organs capable of filtering blood non-harmfully."
+	name = "过滤器官"
+	desc = "一组能够安全过滤血液的特化器官。"
 	icon_state = "bone-gel_vic"
 	inhand_icon_state = "clamps_vic"
 	lefthand_file = 'modular_darkpack/modules/powers/icons/righthand.dmi'
@@ -102,15 +102,15 @@
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 
 /obj/item/healthanalyzer/vicissitude
-	name = "synaptic tendrils"
-	desc = "A set of sensory tendrils that swiftly assess the health conditions of a patient"
+	name = "突触触须"
+	desc = "一组能迅速评估患者健康状况的感知触须。"
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "hivenode"
 	scanpower = SCANPOWER_ADVANCED
 
 /obj/item/shockpaddles/cyborg/vicissitude
-	name = "electrocyte stack"
-	desc = "A stack of electrocyte cells - they take too long to recharge for combat uses, but are able to produce powerful shocks."
+	name = "电细胞簇"
+	desc = "一簇发电细胞，能产生强烈电击，但充电时间太长，不适合用于战斗。"
 	icon = 'modular_darkpack/modules/powers/icons/fleshcrafting_surgery_tools.dmi'
 	icon_state = "shockpaddles0"
 	inhand_icon_state = "syndiepaddles0"

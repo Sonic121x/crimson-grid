@@ -1,11 +1,11 @@
 /datum/discipline/visceratika
 	name = "Visceratika"
-	desc = {"The Discipline of Visceratika is the exclusive possession of the Gargoyle bloodline and is an extension of their natural affinity for stone, earth, and things made thereof.
-● Skin of the Chameleon: Passive
-●● Scry the Hearthstone: Perception + Awareness
-●●● Bond with the Mountain: Passive
-●●●● Armor of Terra: No roll - always active
-●●●●● Flow Within the Mountain: Passive"}
+	desc = {"岩肤术是石像鬼血系独有的律能，源于他们对岩石、大地及其造物的天生亲和。
+● 变色龙之肤：被动
+●● 炉石窥探：感知 + 灵觉
+●●● 山岩融合：被动
+●●●● 大地之甲：无需掷骰——始终生效
+●●●●● 山中潜行：被动"}
 	icon_state = "visceratika"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/visceratika
@@ -26,8 +26,8 @@
 
 //SKIN OF THE CHAMELEON
 /datum/discipline_power/visceratika/skin_of_the_chameleon
-	name = "Skin of the Chameleon"
-	desc = "Change your skin to become a reasonable fascimile of whatever your surroundings are, allowing you increased stealth."
+	name = "变色龙之肤"
+	desc = "让皮肤模仿周围环境，使你更易隐匿身形。"
 	level = 1
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
 	cooldown_length = 2 SCENES
@@ -58,8 +58,8 @@
 
 //SCRY THE HEARTHSTONE
 /datum/discipline_power/visceratika/scry_the_hearthstone
-	name = "Scry the Hearthstone"
-	desc = "Sense the exact locations of everyone within a structure."
+	name = "炉石窥探"
+	desc = "感知建筑内所有人的准确位置。"
 	willpower_cost = 1
 
 	level = 2
@@ -70,7 +70,7 @@
 	frenzy_usable = FALSE
 
 /datum/storyteller_roll/scry_the_hearthstone
-	bumper_text = "scry the hearthstone"
+	bumper_text = "炉石窥探"
 	applicable_stats = list(STAT_PERCEPTION, STAT_AWARENESS)
 	roll_output_type = ROLL_FLAG_ROLLER
 
@@ -88,7 +88,7 @@
 	var/area/in_area = get_area(owner)
 	if (in_area.outdoors)
 		if (alert)
-			to_chat(owner, span_warning("You can only use [name] indoors!"))
+			to_chat(owner, span_warning("你只能在室内使用[name]！"))
 		return FALSE
 
 /datum/discipline_power/visceratika/scry_the_hearthstone/pre_activation_checks()
@@ -110,12 +110,12 @@
 		if (get_area(player) != monitoring_area)
 			continue
 
-		to_chat(owner, "- [GET_GUESTBOOK_NAME(owner, player)] is [get_relative_location_description(player)].")
+		to_chat(owner, "- [GET_GUESTBOOK_NAME(owner, player)]位于[get_relative_location_description(player)]。")
 		RegisterSignal(player, COMSIG_EXIT_AREA, PROC_REF(on_target_exit_area))
 		found_anyone = TRUE
 
 	if (!found_anyone)
-		to_chat(owner, span_notice("You don't sense anyone interesting in the area."))
+		to_chat(owner, span_notice("你没有感知到这片区域内有值得留意的人。"))
 
 	ADD_TRAIT(owner, TRAIT_THERMAL_VISION, DISCIPLINE_TRAIT(type))
 	owner.update_sight()
@@ -130,9 +130,9 @@
 /datum/discipline_power/visceratika/scry_the_hearthstone/proc/get_relative_location_description(mob/living/target)
 	var/distance = get_dist(owner, target)
 	if (distance == 0)
-		return "close to you"
+		return "你身旁"
 	else
-		return "[distance] [distance == 1 ? "yard" : "yards"] [dir2text(get_dir(owner, target))]"
+		return "你[list("north" = "北", "south" = "南", "east" = "东", "west" = "西", "northeast" = "东北", "northwest" = "西北", "southeast" = "东南", "southwest" = "西南")[dir2text(get_dir(owner, target))]]方[distance]码处"
 
 /datum/discipline_power/visceratika/scry_the_hearthstone/proc/on_target_exit_area(mob/living/source, area/old_area)
 	SIGNAL_HANDLER
@@ -140,7 +140,7 @@
 	if (!active)
 		return
 
-	to_chat(owner, span_warning("[GET_GUESTBOOK_NAME(owner, source)] left your monitored area [get_relative_location_description(source)]."))
+	to_chat(owner, span_warning("[GET_GUESTBOOK_NAME(owner, source)]离开了你监视的区域，位于[get_relative_location_description(source)]。"))
 	UnregisterSignal(source, COMSIG_EXIT_AREA)
 
 /datum/discipline_power/visceratika/scry_the_hearthstone/proc/on_area_entered(area/source, atom/movable/arrived, area/old_area)
@@ -154,13 +154,13 @@
 	if (!GET_CLIENT(entering_mob))
 		return
 
-	to_chat(owner, span_warning("[GET_GUESTBOOK_NAME(owner, entering_mob)] entered your monitored area [get_relative_location_description(entering_mob)]."))
+	to_chat(owner, span_warning("[GET_GUESTBOOK_NAME(owner, entering_mob)]进入了你监视的区域，位于[get_relative_location_description(entering_mob)]。"))
 	RegisterSignal(entering_mob, COMSIG_EXIT_AREA, PROC_REF(on_target_exit_area))
 
 /datum/discipline_power/visceratika/scry_the_hearthstone/proc/on_caster_exit_area(mob/living/source, area/old_area)
 	SIGNAL_HANDLER
 
-	to_chat(owner, span_warning("You lose your connection to the stone as you leave the area."))
+	to_chat(owner, span_warning("离开这片区域后，你与岩石的联系中断了。"))
 	try_deactivate()
 
 /datum/discipline_power/visceratika/scry_the_hearthstone/deactivate(atom/target, direct)
@@ -175,8 +175,8 @@
 
 //BOND WITH THE MOUNTAIN
 /datum/discipline_power/visceratika/bond_with_the_mountain
-	name = "Bond with the Mountain"
-	desc = "Merge with your surroundings and become difficult to see."
+	name = "山岩融合"
+	desc = "与周围环境融为一体，让人难以发现你。"
 
 	level = 3
 	check_flags = DISC_CHECK_CONSCIOUS | DISC_CHECK_CAPABLE
@@ -196,7 +196,7 @@
 		break
 
 	if(!stone_turf)
-		to_chat(owner, span_warning("You must be adjacent to a stone surface to bond with the mountain."))
+		to_chat(owner, span_warning("你必须紧邻石面才能施展山岩融合。"))
 		return FALSE
 	return TRUE
 
@@ -204,10 +204,10 @@
 	. = ..()
 
 	exit_turf = WEAKREF(get_turf(owner))
-	to_chat(owner, span_notice("You begin to sink into the stone..."))
+	to_chat(owner, span_notice("你开始沉入岩石之中……"))
 
 	if(!do_after(owner, 2 TURNS))
-		to_chat(owner, span_warning("Your bond with the nearby stone is interrupted!"))
+		to_chat(owner, span_warning("你与附近岩石的融合被打断了！"))
 		exit_turf = null
 		return FALSE
 
@@ -235,8 +235,8 @@
 
 //ARMOR OF TERRA
 /datum/discipline_power/visceratika/armor_of_terra
-	name = "Armor of Terra"
-	desc = "This power requires no roll and is always active. Your stony skin has hardened to the point where nearly all damage against you is lessened."
+	name = "大地之甲"
+	desc = "这项能力无需掷骰，始终生效。你的岩质皮肤变得极其坚硬，几乎所有伤害都会减轻。"
 
 	level = 4
 	check_flags = NONE
@@ -260,14 +260,14 @@
 	. = ..()
 
 	if (alert)
-		to_chat(owner, span_danger("[name] is a passive ability. The effects are already active!"))
+		to_chat(owner, span_danger("[name]是被动能力，效果已经生效！"))
 
 	return FALSE
 
 //FLOW WITHIN THE MOUNTAIN
 /datum/discipline_power/visceratika/flow_within_the_mountain
-	name = "Flow Within the Mountain"
-	desc = "Merge with solid stone, and move through it without disturbing it."
+	name = "山中潜行"
+	desc = "融入坚实的岩石，在其中穿行而不扰动岩体。"
 
 	level = 5
 	check_flags = DISC_CHECK_CONSCIOUS
@@ -284,7 +284,7 @@
 		return .
 
 	if(!HAS_TRAIT(owner, TRAIT_BOND_WITHIN_THE_MOUNTAIN))
-		to_chat(owner, span_notice("You must cast Bond with the Mountain before using Flow within the Mountain"))
+		to_chat(owner, span_notice("你必须先施展山岩融合，才能使用山中潜行。"))
 		return FALSE
 
 /datum/discipline_power/visceratika/flow_within_the_mountain/activate()

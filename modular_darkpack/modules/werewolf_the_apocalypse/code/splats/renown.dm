@@ -10,9 +10,9 @@
 
 	renown[attribute] = new_amount
 	if(amount < 0)
-		to_chat(owner, span_userdanger("You feel [get_negative_emotion(attribute)]!"))
+		to_chat(owner, span_userdanger("你感到[get_negative_emotion(attribute)]！"))
 	else if(amount > 0)
-		to_chat(owner, span_bold("You feel [get_positive_emotion(attribute)]!"))
+		to_chat(owner, span_bold("你感到[get_positive_emotion(attribute)]！"))
 
 	switch(attribute)
 		if(RENOWN_HONOR)
@@ -24,7 +24,7 @@
 
 	renown_rank = auspice_rank_check()
 	if(old_rank != renown_rank)
-		to_chat(owner, span_boldnotice("You are now a [fera_rank_name(renown_rank, id)]."))
+		to_chat(owner, span_boldnotice("你现在的位阶是[fera_rank_name(renown_rank, id)]。"))
 
 	// Not acctually used ANYWHERE rn. Its super easy to just calculate it from our renown anyway.
 	// owner.write_preference_midround(/datum/preference/numeric/fera_rank, renown_rank)
@@ -33,29 +33,29 @@
 /datum/splat/werewolf/proc/get_negative_emotion(attribute)
 	switch(attribute)
 		if(RENOWN_HONOR)
-			return "ashamed"
+			return "羞愧"
 
 		if(RENOWN_GLORY)
-			return "humiliated"
+			return "屈辱"
 
 		if(RENOWN_WISDOM)
-			return "foolish"
+			return "自己很愚蠢"
 
-	return "unsure"
+	return "茫然"
 
 /datum/splat/werewolf/proc/get_positive_emotion(attribute)
 	switch(attribute)
 
 		if(RENOWN_HONOR)
-			return "vindicated"
+			return "自己得到了认可"
 
 		if(RENOWN_GLORY)
-			return "brave"
+			return "勇气倍增"
 
 		if(RENOWN_WISDOM)
-			return "clever"
+			return "头脑敏锐"
 
-	return "confident"
+	return "自信"
 
 
 /datum/splat/werewolf/proc/auspice_rank_check()
@@ -69,34 +69,34 @@
 		if(SPLAT_CORAX)
 			switch(rank)
 				if(RANK_CUB)
-					return "fledgling"
+					return "雏鸦"
 				if(RANK_CLIATH)
-					return "oviculum"
+					return "初羽"
 				if(RANK_FOSTERN)
-					return "neocornix"
+					return "新鸦"
 				if(RANK_ADREN)
-					return "ales"
+					return "展翼"
 				if(RANK_ATHRO)
-					return "volucris"
+					return "翔羽"
 				if(RANK_ELDER)
-					return "corvus"
+					return "鸦长"
 				if(RANK_LEGEND)
-					return "grey eminence"
+					return "灰羽贤者"
 		else
 			switch(rank)
 				if(RANK_CUB)
-					return "cub" // in lowercase so that \a might function during the character examine
+					return "幼崽" // in lowercase so that \a might function during the character examine
 				if(RANK_CLIATH)
-					return "cliath"
+					return "幼徒"
 				if(RANK_FOSTERN)
-					return "fostern"
+					return "同伴"
 				if(RANK_ADREN)
-					return "adren"
+					return "贤者"
 				if(RANK_ATHRO)
-					return "athro"
+					return "导师"
 				if(RANK_ELDER)
-					return "elder"
+					return "长老"
 				if(RANK_LEGEND)
-					return "legend"
+					return "传奇"
 
 #undef MAX_RENOWN

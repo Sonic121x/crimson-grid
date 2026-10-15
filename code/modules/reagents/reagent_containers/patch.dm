@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/applicator/patch
-	name = "patch"
-	desc = "A chemical patch for touch based applications."
+	name = "药贴"
+	desc = "通过皮肤接触给药的药贴。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "bandaid_blank"
 	inhand_icon_state = null
@@ -20,11 +20,11 @@
 	var/obj/item/bodypart/affecting = carbon_eater.get_bodypart(check_zone(user.zone_selected))
 
 	if(!affecting)
-		to_chat(user, span_warning("The limb is missing!"))
+		to_chat(user, span_warning("这条肢体已经缺失了！"))
 		return FALSE
 
 	if(!IS_ORGANIC_LIMB(affecting))
-		to_chat(user, span_notice("Medicine won't work on an inorganic limb!"))
+		to_chat(user, span_notice("药物对非有机肢体不起作用！"))
 		return FALSE
 
 	return TRUE
@@ -175,14 +175,14 @@
 	transfer_per_second = /obj/item/reagent_containers/applicator/patch::volume
 
 /obj/item/reagent_containers/applicator/patch/libital
-	name = "libital patch (brute)"
-	desc = "A pain reliever. Does minor liver damage. Diluted with Granibitaluri."
+	name = "愈伤宁药贴（外伤）"
+	desc = "止痛药。会造成轻微肝脏损伤。以微伤宁稀释。"
 	list_reagents = list(/datum/reagent/medicine/c2/libital = 2, /datum/reagent/medicine/granibitaluri = 8) //10 iterations
 	icon_state = "bandaid_brute"
 
 /obj/item/reagent_containers/applicator/patch/aiuri
-	name = "aiuri patch (burn)"
-	desc = "Helps with burn injuries. Does minor eye damage. Diluted with Granibitaluri."
+	name = "愈烫宁药贴（烧伤）"
+	desc = "有助于治疗烧伤。会造成轻微眼部损伤。以微伤宁稀释。"
 	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 2, /datum/reagent/medicine/granibitaluri = 8)
 	icon_state = "bandaid_burn"
 
@@ -192,8 +192,8 @@
 	list_reagents = list(/datum/reagent/toxin/fentanyl = 2)
 
 /obj/item/reagent_containers/applicator/patch/synthflesh
-	name = "synthflesh patch"
-	desc = "Helps with brute and burn injuries. Slightly toxic. Three patches applied can restore a corpse husked by burns."
+	name = "合成血肉药贴"
+	desc = "有助于治疗外伤和烧伤，有轻微毒性。敷用三片可以恢复被烧焦的尸体。"
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 20)
 	list_reagents_purity = 1
 	icon_state = "bandaid_both"
@@ -210,7 +210,7 @@
 	var/mob/living/carbon/carbies = eater
 	if(HAS_TRAIT_FROM(carbies, TRAIT_HUSK, BURN) && carbies.get_fire_loss() > UNHUSK_DAMAGE_THRESHOLD * 2.5)
 		// give them a warning if the mob is a husk but synthflesh won't unhusk yet
-		carbies.visible_message(span_boldwarning("[carbies]'s burns need to be repaired first before synthflesh will unhusk it!"))
+		carbies.visible_message(span_boldwarning("必须先治疗[carbies]的烧伤，合成血肉才能修复焦化状态！"))
 
 /obj/item/reagent_containers/applicator/patch/ondansetron
 	name = "ondansetron patch"

@@ -79,10 +79,10 @@
 
 	var/less_input_message
 	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
-		less_input_message = " - Notice: Observer freelook is currently disabled."
+		less_input_message = "——注意：目前已禁用旁观者自由视角。"
 	// Don't convert this to tgui please, it's way too important
-	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", "Yes", "No")
-	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
+	var/this_is_like_playing_right = alert(usr, "确定要旁观吗？这样你将无法参与本回合！[less_input_message]", "旁观", "是", "否")
+	if(QDELETED(src) || !src.client || this_is_like_playing_right != "是")
 		ready = PLAYER_NOT_READY
 		return FALSE
 
@@ -91,11 +91,11 @@
 
 	observer.started_as_observer = TRUE
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, span_notice("Now teleporting."))
+	to_chat(src, span_notice("正在传送。"))
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"))
+		to_chat(src, span_notice("传送失败，请向管理员求助。"))
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 
 	observer.PossessByPlayer(key)
@@ -109,7 +109,7 @@
 
 	observer.update_appearance()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-	deadchat_broadcast(" has observed.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
+	deadchat_broadcast("开始旁观。", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
 	QDEL_NULL(mind)
 	qdel(src)
 	return TRUE
@@ -117,46 +117,46 @@
 /proc/get_job_unavailable_error_message(retval, jobtitle)
 	switch(retval)
 		if(JOB_AVAILABLE)
-			return "[jobtitle] is available."
+			return "[JOB_DISPLAY_NAME(jobtitle)]当前可选。"
 		if(JOB_UNAVAILABLE_GENERIC)
-			return "[jobtitle] is unavailable."
+			return "[JOB_DISPLAY_NAME(jobtitle)]当前不可选。"
 		if(JOB_UNAVAILABLE_BANNED)
-			return "You are currently banned from [jobtitle]."
+			return "你目前被禁止担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_PLAYTIME)
-			return "You do not have enough relevant playtime for [jobtitle]."
+			return "你的相关游玩时长不足，无法担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
-			return "Your account is not old enough for [jobtitle]."
+			return "你的账号注册时间未达到[JOB_DISPLAY_NAME(jobtitle)]的要求。"
 		if(JOB_UNAVAILABLE_SLOTFULL)
-			return "[jobtitle] is already filled to capacity."
+			return "[JOB_DISPLAY_NAME(jobtitle)]的名额已满。"
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
-			return "[jobtitle] is not compatible with some antagonist role assigned to you."
+			return "[JOB_DISPLAY_NAME(jobtitle)]与你获分配的某个对抗角色冲突。"
 		if(JOB_UNAVAILABLE_AGE)
-			return "Your character is not old enough for [jobtitle]."
+			return "你的角色年龄未达到[JOB_DISPLAY_NAME(jobtitle)]的要求。"
 		// DARKPACK EDIT START
 		if(JOB_UNAVAILABLE_SPLAT)
-			return "You can't play [jobtitle] as this splat. (This can include human)"
+			return "你不能以当前族类担任[JOB_DISPLAY_NAME(jobtitle)]。（人类也属于族类）"
 		if(JOB_UNAVAILABLE_SPLAT_SLOTS)
-			return "[jobtitle] doesn't have any free splat slots for you. (This can include human)"
+			return "[JOB_DISPLAY_NAME(jobtitle)]没有适合你当前族类的空缺名额。（人类也属于族类）"
 		if(JOB_UNAVAILABLE_WHITELIST)
-			return "You aren't whitelisted for [jobtitle]."
+			return "你不在[JOB_DISPLAY_NAME(jobtitle)]的白名单中。"
 		if(JOB_UNAVAILABLE_KINDRED_AGE_MIN)
-			return "Your character is too young for [jobtitle]."
+			return "你的角色过于年轻，无法担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_KINDRED_AGE_MAX)
-			return "Your character is too old for [jobtitle]."
+			return "你的角色年龄过大，无法担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_KINDRED_GENERATION_MIN)
-			return "Your character's generation is too high for [jobtitle]."
+			return "你的角色世代数过高，无法担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_KINDRED_GENERATION_MAX)
-			return "Your character's generation is too low for [jobtitle]."
+			return "你的角色世代数过低，无法担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		if(JOB_UNAVAILABLE_KINDRED_CLAN)
-			return "Your character's clan is incompatible for [jobtitle]."
+			return "你的角色氏族不符合[JOB_DISPLAY_NAME(jobtitle)]的要求。"
 		if(JOB_UNAVAILABLE_FERA_TRIBE)
-			return "Your character's tribe is incompatible for [jobtitle]."
+			return "你的角色部族不符合[JOB_DISPLAY_NAME(jobtitle)]的要求。"
 		if(JOB_UNAVAILABLE_FERA_AUSPICE)
-			return "Your character's auspice is incompatible for [jobtitle]."
+			return "你的角色月相不符合[JOB_DISPLAY_NAME(jobtitle)]的要求。"
 		// DARKPACK EDIT END
 		// CRIMSON EDIT ADD START
 		if(JOB_UNAVAILABLE_DONATOR)
-			return "You need to be a donator to have play as [jobtitle]."
+			return "你需要拥有赞助者资格才能担任[JOB_DISPLAY_NAME(jobtitle)]。"
 		// CRIMSON EDIT ADD END
 
 
@@ -188,7 +188,7 @@
 	// Check that they're picking someone new for new character respawning
 	if(CONFIG_GET(flag/allow_respawn) == RESPAWN_FLAG_NEW_CHARACTER)
 		if("[client.prefs.default_slot]" in persistent_client.joined_as_slots)
-			tgui_alert(usr, "You already have played this character in this round!")
+			tgui_alert(usr, "你在本回合已经扮演过这个角色了！")
 			return FALSE
 
 	var/error = IsJobUnavailable(rank)
@@ -198,7 +198,7 @@
 
 	if(SSshuttle.arrivals)
 		if(SSshuttle.arrivals.damaged && CONFIG_GET(flag/arrivals_shuttle_require_safe_latejoin))
-			tgui_alert(usr,"The arrivals shuttle is currently malfunctioning! You cannot join.")
+			tgui_alert(usr,"入站穿梭机发生故障！你现在无法加入。")
 			return FALSE
 
 		if(CONFIG_GET(flag/arrivals_shuttle_require_undocked))
@@ -211,7 +211,7 @@
 	var/datum/job/job = SSjob.get_job(rank)
 
 	if(!SSjob.assign_role(src, job, TRUE))
-		tgui_alert(usr, "There was an unexpected error putting you into your requested job. If you cannot join with any job, you should contact an admin.")
+		tgui_alert(usr, "分配所选职业时发生意外错误。如果所有职业都无法加入，请联系管理员。")
 		return FALSE
 
 	var/latejoin_period = CEILING(STATION_TIME_PASSED() / (5 MINUTES), 5)
@@ -367,8 +367,8 @@
 	var/has_antags = length(client.prefs.be_special) > 0
 	if(client.prefs.job_preferences.len == 0)
 		if(warn)
-			to_chat(src, span_danger("You have no jobs enabled, along with return to lobby if job is unavailable. \
-				This makes you ineligible for any round start role, please update your job preferences."))
+			to_chat(src, span_danger("你没有启用任何职业，却选择了无可用职业时返回大厅。\
+				这会使你无法获分配任何开局角色，请调整职业偏好。"))
 		ready = PLAYER_NOT_READY
 		if(has_antags)
 			log_admin("[src.ckey] has no jobs enabled, return to lobby if job is unavailable enabled and [client.prefs.be_special.len] \
@@ -404,17 +404,17 @@
 	add_verb(client, /client/verb/fix_tgui_panel)
 
 ///Resets the Lobby Menu HUD, recreating and reassigning it to the new player
-GAME_VERB_PROC(/mob/dead/new_player, reset_menu_hud, "Reset Lobby Menu HUD", "OOC")
+GAME_VERB_PROC(/mob/dead/new_player, reset_menu_hud, "重置大厅菜单 HUD", "OOC")
 	var/mob/dead/new_player/new_player = usr
 	if(!COOLDOWN_FINISHED(new_player, reset_hud_cooldown))
-		to_chat(new_player, span_warning("You must wait <b>[DisplayTimeText(COOLDOWN_TIMELEFT(new_player, reset_hud_cooldown))]</b> before resetting the Lobby Menu HUD again!"))
+		to_chat(new_player, span_warning("你必须等待 <b>[DisplayTimeText(COOLDOWN_TIMELEFT(new_player, reset_hud_cooldown))]</b> 才能再次重置大厅菜单 HUD！"))
 		return
 	if(!new_player?.client)
 		return
 	COOLDOWN_START(new_player, reset_hud_cooldown, RESET_HUD_INTERVAL)
 	qdel(new_player.hud_used)
 	create_mob_hud()
-	to_chat(new_player, span_info("Lobby Menu HUD reset. You may reset the HUD again in <b>[DisplayTimeText(RESET_HUD_INTERVAL)]</b>."))
+	to_chat(new_player, span_info("大厅菜单 HUD 已重置。<b>[DisplayTimeText(RESET_HUD_INTERVAL)]</b> 后可以再次重置。"))
 	hud_used.show_hud(hud_used.hud_version)
 
 ///Auto deadmins an admin when they click to toggle the ready button or join game button in the menu

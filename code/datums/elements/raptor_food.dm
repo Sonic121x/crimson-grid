@@ -48,19 +48,19 @@
 
 	// Only personality or color probability effects, or just pure negatives
 	if (strognest_effect == 0)
-		examine_list += span_notice("You reckon this would have unique effects on your raptor's offspring if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会对它的后代产生独特的影响……")
 		return
 
 	if (strognest_effect == attack_modifier)
-		examine_list += span_notice("You reckon this would have make your raptor's offspring stronger if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会让它的后代力量更强……")
 	else if (strognest_effect == health_modifier)
-		examine_list += span_notice("You reckon this would have make your raptor's offspring tougher if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会让它的后代更加健壮……")
 	else if (strognest_effect == speed_modifier)
-		examine_list += span_notice("You reckon this would have make your raptor's offspring faster if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会让它的后代跑得更快……")
 	else if (strognest_effect == ability_modifier)
-		examine_list += span_notice("You reckon this would have make your raptor's offspring more capable if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会让它后代的特殊能力更强……")
 	else if (strognest_effect == growth_modifier)
-		examine_list += span_notice("You reckon this would have make your raptor's offspring grow faster if you fed it to them...")
+		examine_list += span_notice("你觉得把这个喂给迅猛龙，会让它的后代成长得更快……")
 
 /datum/element/raptor_food/proc/on_eaten(obj/item/source, mob/living/eater, mob/living/feeder)
 	SIGNAL_HANDLER

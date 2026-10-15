@@ -15,8 +15,8 @@
 		unbind(owner)
 
 /obj/item/occult_artifact
-	name = "unidentified occult fetish"
-	desc = "Who knows what secrets it could contain..."
+	name = "未鉴定的神秘灵器"
+	desc = "谁知道其中藏着怎样的秘密……"
 	icon_state = "arcane"
 	icon = 'modular_darkpack/modules/occult_artifacts/icons/artifacts.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/occult_artifacts/icons/artifacts_onfloor.dmi')
@@ -71,7 +71,7 @@
 		var/list/artifacts = user.get_all_contents_type(type)
 		for(var/obj/item/occult_artifact/other_artifact in artifacts)
 			if(other_artifact.owner == user) // We already have a trinket bound. Please dont stack.
-				to_chat(user, span_danger("This excess copy of an artifact is made inert by the same resonances of the current copies held."))
+				to_chat(user, span_danger("你已持有同类遗物，相同的共鸣使这件多余的遗物失去了效力。"))
 				return
 	owner = user
 
@@ -111,23 +111,23 @@
 		return
 
 	if(identified)
-		to_chat(user, span_notice("This artifact is already identified."))
+		to_chat(user, span_notice("这件遗物已经鉴定过了。"))
 		return
 
 	var/mob/living/artifact_identifier = user
 	if(artifact_identifier.st_get_stat(STAT_OCCULT) < 3)
-		to_chat(artifact_identifier, span_warning("What is this thing? Some kind of yard sale item?"))
+		to_chat(artifact_identifier, span_warning("这是什么东西？从旧货摊上淘来的玩意儿？"))
 		return
 
 	if(!can_be_identified_without_ritual)
-		to_chat(artifact_identifier, span_warning("You've seen some occult artifacts, trinkets, and powerful relics, but this, you've either never seen it before, or it's power can only be awakened by few..."))
+		to_chat(artifact_identifier, span_warning("你见过一些神秘遗物、饰品和强大的古物，但眼前这件，要么是你从未见过的东西，要么只有极少数人才能唤醒其中的力量……"))
 		return
 
 	if(!can_be_used_by(artifact_identifier))
-		to_chat(artifact_identifier, span_warning("There's a presence inside of this object that refuses to cooperate with you."))
+		to_chat(artifact_identifier, span_warning("这件物品中寄宿的存在拒绝与你合作。"))
 		return
 
-	to_chat(artifact_identifier, span_cult("You might have seen this before in an occult text. You start identifying it..."))
+	to_chat(artifact_identifier, span_cult("你或许曾在某本神秘学典籍中见过它。你开始进行鉴定……"))
 	if(!do_after(artifact_identifier, 1 TURNS, src))
 		return
 
@@ -136,9 +136,9 @@
 	var/roll = identify_roll.st_roll(user, src)
 	if(roll == ROLL_SUCCESS)
 		identify(artifact_identifier)
-		to_chat(artifact_identifier, span_cult("You successfully identify [src]!"))
+		to_chat(artifact_identifier, span_cult("你成功鉴定了[src]！"))
 	else
-		to_chat(artifact_identifier, span_warning("You stop examining [src]."))
+		to_chat(artifact_identifier, span_warning("你停止了对[src]的研究。"))
 
 
 /obj/effect/spawner/random/occult

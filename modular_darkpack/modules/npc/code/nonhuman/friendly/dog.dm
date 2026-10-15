@@ -1,7 +1,7 @@
 /mob/living/basic/pet/dog/darkpack
-	name = "dog"
+	name = "狗"
 	icon_state = "dog1"
-	desc = "That's an ouppy."
+	desc = "一只小狗狗。"
 	base_icon_state = "dog"
 	icon = 'modular_darkpack/master_files/icons/mobs/simple/pets.dmi'
 	var/random_dog_color = TRUE

@@ -12,13 +12,13 @@ path/left/color_name {\
 
 //Icons by -Jay- (hyphenjayhyphen) 7/30/25
 /obj/structure/chair/sofa/city_bench
-	name = "bench"
+	name = "长椅"
 	has_armrest = FALSE
 	icon_state = null
 	icon = 'modular_darkpack/modules/decor/icons/bench.dmi'
 
 /obj/structure/chair/sofa/city_bench/wood
-	desc = "A comfy wooden bench."
+	desc = "舒适的木制长椅。"
 	icon_state = "wood"
 
 /obj/structure/chair/sofa/city_bench/wood/left
@@ -28,8 +28,8 @@ path/left/color_name {\
 	icon_state = "wood_right"
 
 /obj/structure/chair/sofa/city_bench/metal
-	name = "metal bench"
-	desc = "An uncomfortable metal bench."
+	name = "金属长椅"
+	desc = "坐着不舒服的金属长椅。"
 	icon_state = "metal"
 
 /obj/structure/chair/sofa/city_bench/metal/left

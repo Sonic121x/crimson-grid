@@ -1,11 +1,11 @@
 /datum/discipline/serpentis
 	name = "Serpentis"
-	desc = {"Act like a cobra, get the powers to stun targets with your gaze and your tongue, praise the mummy traditions and spread them to your childe. Violates Masquerade.
-● The Eyes of the Serpent: Passive
-●● The Tongue of the Asp: Strength (difficulty 6)
-●●● The Skin of the Adder: Passive
-●●●● The Form of the Cobra: Passive
-●●●●● The Heart of Darkness: Passive"}
+	desc = {"如眼镜蛇般行动，以目光和长舌制服目标，尊崇木乃伊的传统，并将其传授给你的子嗣。违反避世戒律。
+● 蛇之瞳：被动
+●● 毒蛇之舌：力量（难度 6）
+●●● 蝰蛇之肤：被动
+●●●● 眼镜蛇形态：被动
+●●●●● 黑暗之心：被动"}
 	icon_state = "serpentis"
 	clan_restricted = TRUE
 	power_type = /datum/discipline_power/serpentis
@@ -19,8 +19,8 @@
 
 //THE EYES OF THE SERPENT
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent
-	name = "The Eyes of the Serpent"
-	desc = "Gain the hypnotic eyes of the serpent, and immobilise all who look into them."
+	name = "蛇之瞳"
+	desc = "获得蛇类催眠般的双眼，让所有与你对视的人无法动弹。"
 
 	level = 1
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_SEE
@@ -51,26 +51,26 @@
 	SIGNAL_HANDLER
 	var/mob/living/target = source
 	release_target(target)
-	to_chat(owner, span_warning("Your concentration is broken as [target] is attacked!"))
-	to_chat(target, span_warning("The mental hold on you breaks as you're attacked!"))
+	to_chat(owner, span_warning("[target]遭到攻击，打断了你的专注！"))
+	to_chat(target, span_warning("你遭到攻击，施加在你心灵上的控制随之解除！"))
 
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent/proc/release_target(mob/living/target)
 	UnregisterSignal(target, list(COMSIG_ATOM_ATTACKBY, COMSIG_MOB_ITEM_ATTACK, COMSIG_PROJECTILE_PREHIT))
-	to_chat(target, span_danger("You feel your concentration become your own once more, able to look away from the commanding gaze."))
+	to_chat(target, span_danger("你重新掌控了自己的注意力，终于能从那威严的目光中移开视线。"))
 	REMOVE_TRAIT(target, TRAIT_IMMOBILIZED, DISCIPLINE_TRAIT(type))
 
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent/can_activate_untargeted(alert)
 	. = ..()
 	if (owner?.is_eyes_covered())
 		if (alert)
-			to_chat(owner, span_warning("You cannot use [name] with your eyes covered!"))
+			to_chat(owner, span_warning("眼睛被遮住时，你无法使用[name]！"))
 		. = FALSE
 	return .
 
 /datum/discipline_power/serpentis/the_eyes_of_the_serpent/activate(mob/living/target)
 	. = ..()
 	target.face_atom(owner)
-	target.visible_message(span_hypnophrase("<b>[owner] hypnotizes [target] with [owner.p_their()] eyes!</b>"), span_warning("<b>[owner] hypnotizes you! You can't seem to move or look away...</b>"))
+	target.visible_message(span_hypnophrase("<b>[owner]用双眼催眠了[target]！</b>"), span_warning("<b>[owner]催眠了你！你似乎无法移动，也无法移开目光……</b>"))
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.remove_overlay(POWERS_LAYER)
@@ -88,8 +88,8 @@
 
 //THE TONGUE OF THE ASP
 /datum/discipline_power/serpentis/the_tongue_of_the_asp
-	name = "The Tongue of the Asp"
-	desc = "Lengthen your tongue and strike your enemies with it, draining their blood."
+	name = "毒蛇之舌"
+	desc = "伸长舌头攻击敌人，吸取其鲜血。"
 	level = 2
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
 	target_type = TARGET_LIVING
@@ -106,7 +106,7 @@
 	. = ..()
 	if (owner?.is_mouth_covered())
 		if (alert)
-			to_chat(owner, span_warning("You cannot use [name] with your mouth covered!"))
+			to_chat(owner, span_warning("嘴部被遮住时，你无法使用[name]！"))
 		. = FALSE
 	return .
 
@@ -129,8 +129,8 @@
 
 //THE SKIN OF THE ADDER
 /datum/discipline_power/serpentis/the_skin_of_the_adder
-	name = "The Skin of the Adder"
-	desc = "Become like a snake and harden your skin into scales."
+	name = "蝰蛇之肤"
+	desc = "变得如蛇一般，让皮肤硬化为鳞片。"
 	level = 3
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING
 	toggled = TRUE
@@ -145,8 +145,8 @@
 /datum/discipline_power/serpentis/the_skin_of_the_adder/activate()
 	. = ..()
 	//this needs a sprite
-	choice = tgui_alert(owner, "How do you manifest the scales along your body?", "Scales", list("Subtle", "Obvious"))
-	if(choice == "Obvious")
+	choice = tgui_alert(owner, "你想让身上的鳞片以何种方式显现？", "鳞片", list("隐蔽", "明显"))
+	if(choice == "明显")
 		owner.st_add_stat_mod(STAT_INTIMIDATION, 2, "Serpentis") // 'reduce intimidation difficulties by two' placeholder
 		owner.st_add_stat_mod(STAT_STAMINA, 3, "Serpentis") // 'reduces all soak difficulty to 5' placeholder
 		ADD_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, DISCIPLINE_TRAIT(type))
@@ -161,7 +161,7 @@
 
 /datum/discipline_power/serpentis/the_skin_of_the_adder/deactivate()
 	. = ..()
-	if(choice == "Obvious")
+	if(choice == "明显")
 		owner.st_remove_stat_mod(STAT_INTIMIDATION, 2, "Serpentis")
 		owner.st_remove_stat_mod(STAT_STAMINA, 3, "Serpentis")
 		REMOVE_TRAIT(owner, TRAIT_MASQUERADE_VIOLATING_FACE, DISCIPLINE_TRAIT(type))
@@ -173,8 +173,8 @@
 
 //THE FORM OF THE COBRA
 /datum/discipline_power/serpentis/the_form_of_the_cobra
-	name = "The Form of the Cobra"
-	desc = "Become a huge, black cobra and eviscerate your enemies."
+	name = "眼镜蛇形态"
+	desc = "化为巨大的黑色眼镜蛇，将敌人开膛破肚。"
 	level = 4
 	check_flags = DISC_CHECK_IMMOBILE | DISC_CHECK_CAPABLE | DISC_CHECK_LYING
 	vitae_cost = 1
@@ -212,8 +212,8 @@
 	owner.do_jitter_animation(3 SECONDS)
 
 /datum/action/cooldown/spell/shapeshift/cobra
-	name = "Cobra"
-	desc = "Take on the shape a beast."
+	name = "眼镜蛇"
+	desc = "化身为野兽。"
 	button_icon = 'modular_darkpack/modules/vampire_the_masquerade/icons/vampire_clans.dmi'
 	button_icon_state = "setite"
 	background_icon = 'modular_darkpack/master_files/icons/mob/actions/backgrounds.dmi'
@@ -227,8 +227,8 @@
 	/mob/living/basic/cobra/typhon)
 
 /mob/living/basic/cobra
-	name = "cobra form"
-	desc = "Hssssss..."
+	name = "眼镜蛇形态"
+	desc = "嘶嘶嘶……"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x48.dmi'
 	icon_state = "cobra"
 	icon_living = "cobra"
@@ -238,14 +238,14 @@
 	health = 300
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "劈砍"
+	attack_verb_simple = "劈砍"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 	pixel_w = -8
 
 /mob/living/basic/cobra/typhon
-	name = "Typhonic beast"
-	desc = "A massive supernatural jackal with long, spiked ears, a hard, forked tail and a long snout."
+	name = "堤丰巨兽"
+	desc = "一头巨大的超自然胡狼，长着尖长的双耳、坚硬分叉的尾巴和细长的口鼻。"
 	icon = 'modular_darkpack/modules/deprecated/icons/icons.dmi'
 	icon_state = "protean4"
 	icon_living = "protean4"
@@ -259,8 +259,8 @@
 
 //THE HEART OF DARKNESS
 /datum/discipline_power/serpentis/the_heart_of_darkness
-	name = "The Heart of Darkness"
-	desc = "Remove your heart and place it in an urn to protect it from stakes and Diablerie."
+	name = "黑暗之心"
+	desc = "取出自己的心脏，置于瓮中，使其免遭木桩与血噬的威胁。"
 
 	level = 5
 	check_flags = DISC_CHECK_CAPABLE | DISC_CHECK_IMMOBILE | DISC_CHECK_LYING | DISC_CHECK_FREE_HAND
@@ -299,8 +299,8 @@
 		urn = null
 
 /obj/item/urn
-	name = "organ urn"
-	desc = "Stores some precious organs..."
+	name = "脏器瓮"
+	desc = "存放着珍贵的脏器……"
 	icon = 'modular_darkpack/modules/powers/icons/serpentis.dmi'
 	icon_state = "urn"
 	var/mob/living/own

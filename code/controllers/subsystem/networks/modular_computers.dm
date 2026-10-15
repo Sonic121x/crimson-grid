@@ -79,30 +79,30 @@ SUBSYSTEM_DEF(modular_computers)
 
 	///pda message code here
 	var/static/list/promo_messages = list(
-		"A new discount has dropped for %GOODY: %DISCOUNT.",
-		"Check this new offer out: %GOODY, now %DISCOUNT off.",
-		"Now on sales: %GOODY, at %DISCOUNT discount!",
-		"This item is now on sale (%DISCOUNT off): %GOODY.",
-		"Would you look at that! A %DISCOUNT discount on %GOODY!",
-		"Exclusive offer for %GOODY. Only %DISCOUNT! Get it now:",
-		"%GOODY is now %DISCOUNT off.",
-		"*RING* A new discount has dropped: %GOODY, %DISCOUNT off.",
-		"%GOODY - %DISCOUNT off."
+		"%GOODY推出新优惠：降价%DISCOUNT。",
+		"快看这项新优惠：%GOODY，现降价%DISCOUNT。",
+		"现正促销：%GOODY，降价%DISCOUNT！",
+		"这件商品正在促销（降价%DISCOUNT）：%GOODY。",
+		"快看！%GOODY降价%DISCOUNT！",
+		"%GOODY专享优惠，立减%DISCOUNT！立即抢购：",
+		"%GOODY现降价%DISCOUNT。",
+		"*叮铃* 新优惠来啦：%GOODY，降价%DISCOUNT。",
+		"%GOODY——降价%DISCOUNT。"
 	)
 	var/static/list/code_messages = list(
-		"Here's the code",
-		"Use this code to redeem it",
-		"Open the app to redeem it",
-		"Code",
-		"Redeem it now",
-		"Buy it now",
+		"优惠码如下",
+		"使用此码兑换优惠",
+		"打开应用兑换优惠",
+		"优惠码",
+		"立即兑换",
+		"立即购买",
 	)
 
 	var/chosen_promo_message = replacetext(replacetext(pick(promo_messages), "%GOODY", pack_name), "%DISCOUNT", "[chosen_discount*100]%")
 	var/datum/signal/subspace/messaging/tablet_message/signal = new(announcement_system, list(
-		"fakename" = "Coupon Master",
-		"fakejob" = "Goodies Promotion",
-		"message" = "[chosen_promo_message] [pick(code_messages)]: [coupon_code][expires_in ? " (EXPIRES IN [uppertext(DisplayTimeText(expires_in))])" : ""].",
+		"fakename" = "优惠券大师",
+		"fakejob" = "好物促销",
+		"message" = "[chosen_promo_message] [pick(code_messages)]：[coupon_code][expires_in ? "（[DisplayTimeText(expires_in)]后过期）" : ""]。",
 		"targets" = targets,
 		"automated" = TRUE,
 	))
@@ -147,7 +147,7 @@ SUBSYSTEM_DEF(modular_computers)
 /datum/controller/subsystem/modular_computers/proc/add_log(log_string)
 	var/list/log_text = list()
 	log_text += "\[[round_timestamp()]\]"
-	log_text += "*SYSTEM* - "
+	log_text += "*系统* - "
 	log_text += log_string
 	log_string = log_text.Join()
 
@@ -162,7 +162,7 @@ SUBSYSTEM_DEF(modular_computers)
  */
 /datum/controller/subsystem/modular_computers/proc/purge_logs()
 	modpc_logs = list()
-	add_log("-!- LOGS DELETED BY SYSTEM OPERATOR -!-")
+	add_log("-!- 系统操作员已删除日志 -!-")
 
 /**
  * Returns a name which a /datum/picture can be assigned to.

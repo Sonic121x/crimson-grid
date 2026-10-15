@@ -404,8 +404,8 @@
 
 //Mime
 /obj/item/clothing/head/beret
-	name = "beret"
-	desc = "A beret, a mime's favorite headwear."
+	name = "贝雷帽"
+	desc = "一顶贝雷帽，默剧演员最爱的帽子。"
 	dog_fashion = /datum/dog_fashion/head/beret
 	icon = 'icons/map_icons/clothing/head/beret.dmi'
 	icon_state = "/obj/item/clothing/head/beret"

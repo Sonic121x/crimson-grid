@@ -32,7 +32,7 @@
 
 	maximal_generation = 9
 	maximum_immortal_age = 200
-	description = "Offer strip club services. Some of your clientele may be... Unusual, but you are either addicted to vampire bites, or bribed to listen little and say even less."
+	description = "在脱衣舞俱乐部为客人服务。有些客人可能……不太寻常。不过，你要么沉迷于吸血鬼的噬咬，要么收了封口费，少听、少说就好。"
 	minimum_masquerade = 3
 
 /datum/outfit/job/vampire/club_worker

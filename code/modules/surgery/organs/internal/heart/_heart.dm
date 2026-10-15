@@ -1,6 +1,6 @@
 /obj/item/organ/heart
 	name = "heart"
-	desc = "I feel bad for the heartless bastard who lost this."
+	desc = "真替那个丢了这东西的没心肝混蛋感到难过。"
 	icon_state = "heart-on"
 	base_icon_state = "heart"
 
@@ -10,13 +10,13 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = 2.5 * STANDARD_ORGAN_DECAY //designed to fail around 6 minutes after death
 
-	low_threshold_passed = span_info("Prickles of pain appear then die out from within your chest...")
-	high_threshold_passed = span_warning("Something inside your chest hurts, and the pain isn't subsiding. You notice yourself breathing far faster than before.")
-	now_fixed = span_info("Your heart begins to beat again.")
-	high_threshold_cleared = span_info("The pain in your chest has died down, and your breathing becomes more relaxed.")
+	low_threshold_passed = span_info("你的胸口隐隐刺痛，随后又消退了……")
+	high_threshold_passed = span_warning("你的胸口里面有什么地方疼个不停。你发现自己的呼吸比之前急促得多。")
+	now_fixed = span_info("你的心脏重新开始跳动。")
+	high_threshold_cleared = span_info("胸口的疼痛消退了，你的呼吸也变得平缓。")
 
-	attack_verb_continuous = list("beats", "thumps")
-	attack_verb_simple = list("beat", "thump")
+	attack_verb_continuous = list("拍打", "重击")
+	attack_verb_simple = list("拍打", "重击")
 
 	// Love is stored in the heart.
 	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 5, /datum/reagent/love = 2.5)
@@ -65,8 +65,8 @@
 
 	if(!beating)
 		user.visible_message(
-			span_notice("[user] squeezes [src] to make it beat again!"),
-			span_notice("You squeeze [src] to make it beat again!"),
+			span_notice("[user]挤压[src]，使其重新跳动！"),
+			span_notice("你挤压[src]，使其重新跳动！"),
 		)
 		Restart()
 		addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 8 SECONDS)

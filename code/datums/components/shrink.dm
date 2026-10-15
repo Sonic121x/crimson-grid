@@ -23,8 +23,8 @@
 		if(iscarbon(living))
 			var/mob/living/carbon/carbon = living
 			carbon.unequip_everything()
-			carbon.visible_message(span_warning("[carbon]'s belongings fall off of [carbon.p_them()] as [carbon.p_they()] shrink down!"),
-			span_userdanger("Your belongings fall away as everything grows bigger!"))
+			carbon.visible_message(span_warning("[carbon]的身体缩小了，随身物品纷纷掉落！"),
+			span_userdanger("周围的一切都变大了，你的随身物品纷纷掉落！"))
 		if(!living.GetComponent(/datum/component/squashable))
 			newsquash = living.AddComponent( \
 				/datum/component/squashable, \
@@ -34,8 +34,8 @@
 			)
 	else
 		parent_atom.set_density(FALSE) // this is handled by the UNDENSE trait on mobs
-	parent_atom.visible_message(span_warning("[parent_atom] shrinks down to a tiny size!"),
-	span_userdanger("Everything grows bigger!"))
+	parent_atom.visible_message(span_warning("[parent_atom]缩得小小的！"),
+	span_userdanger("周围的一切都变大了！"))
 	if(shrink_time >= 0) // negative shrink time is permanent
 		QDEL_IN(src, shrink_time)
 

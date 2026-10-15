@@ -1,6 +1,6 @@
 /obj/item/clothing/head/wig
-	name = "wig"
-	desc = "A bunch of hair without a head attached."
+	name = "假发"
+	desc = "一团没有连着脑袋的头发。"
 	icon = 'icons/mob/human/human_face.dmi'   // default icon for all hairs
 	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	icon_state = "hair_vlong"
@@ -50,13 +50,13 @@
 	hair_overlay.overlays += emissive_blocker(hair_overlay.icon, hair_overlay.icon_state, src, alpha = hair_overlay.alpha)
 
 /obj/item/clothing/head/wig/attack_self(mob/user)
-	var/new_style = tgui_input_list(user, "Select a hairstyle", "Wig Styling", SSaccessories.hairstyles_list - "Bald")
-	var/newcolor = adjustablecolor ? tgui_color_picker(usr,"","Choose Color",color) : null
+	var/new_style = localized_accessory_input(user, "选择发型", "假发造型", SSaccessories.hairstyles_list - "Bald")
+	var/newcolor = adjustablecolor ? tgui_color_picker(usr,"","选择颜色",color) : null
 	if(!user.can_perform_action(src))
 		return
 	if(new_style && new_style != hairstyle)
 		hairstyle = new_style
-		user.visible_message(span_notice("[user] changes \the [src]'s hairstyle to [new_style]."), span_notice("You change \the [src]'s hairstyle to [new_style]."))
+		user.visible_message(span_notice("[user]将[src]的发型改为[localized_accessory_names(list(new_style))[new_style]]。"), span_notice("你将[src]的发型改为[localized_accessory_names(list(new_style))[new_style]]。"))
 	if(newcolor && newcolor != color) // only update if necessary
 		add_atom_colour(newcolor, FIXED_COLOUR_PRIORITY)
 	update_appearance()
@@ -71,11 +71,11 @@
 	if(target.head)
 		var/obj/item/clothing/head = target.head
 		if((head.flags_inv & HIDEHAIR) && !istype(head, /obj/item/clothing/head/wig))
-			to_chat(user, span_warning("You can't get a good look at [target.p_their()] hair!"))
+			to_chat(user, span_warning("你无法看清对方的头发！"))
 			return ITEM_INTERACT_BLOCKING
 	var/obj/item/bodypart/head/noggin = target.get_bodypart(BODY_ZONE_HEAD)
 	if(!noggin)
-		to_chat(user, span_warning("[target.p_They()] have no head!"))
+		to_chat(user, span_warning("对方没有头！"))
 		return ITEM_INTERACT_BLOCKING
 
 	var/selected_hairstyle = null
@@ -89,7 +89,7 @@
 		selected_hairstyle_color = "[target.hair_color]"
 
 	if(selected_hairstyle)
-		to_chat(user, span_notice("You adjust the [src] to look just like [target.name]'s [selected_hairstyle]."))
+		to_chat(user, span_notice("你调整[src]，使其与[target.name]的[localized_accessory_names(list(selected_hairstyle))[selected_hairstyle]]发型一模一样。"))
 		add_atom_colour(selected_hairstyle_color, FIXED_COLOUR_PRIORITY)
 		hairstyle = selected_hairstyle
 		update_appearance()
@@ -101,8 +101,8 @@
 	. = ..()
 
 /obj/item/clothing/head/wig/natural
-	name = "natural wig"
-	desc = "A bunch of hair without a head attached. This one changes color to match the hair of the wearer. Nothing natural about that."
+	name = "自然假发"
+	desc = "一团没有连着脑袋的头发。它会改变颜色，与佩戴者的发色一致。这可一点也不自然。"
 	color = COLOR_WHITE
 	adjustablecolor = FALSE
 	custom_price = PAYCHECK_COMMAND

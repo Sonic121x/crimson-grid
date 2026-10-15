@@ -2,8 +2,8 @@
  * Shower Curtains
  */
 /obj/structure/curtain
-	name = "curtain"
-	desc = "Contains less than 1% mercury."
+	name = "帘子"
+	desc = "汞含量低于1%。"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "bathroom-open"
 	color = "#ACD1E9" //Default color, didn't bother hardcoding other colors, mappers can and should easily change it.
@@ -45,7 +45,7 @@
 /obj/structure/curtain/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/toy/crayon))
 		return NONE
-	color = tgui_color_picker(user, "", "Choose Color", color)
+	color = tgui_color_picker(user, "", "选择颜色", color)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/curtain/wrench_act(mob/living/user, obj/item/tool)
@@ -58,10 +58,10 @@
 	if(anchored)
 		return TRUE
 
-	user.visible_message(span_warning("[user] cuts apart [src]."),
-		span_notice("You start to cut apart [src]."), span_hear("You hear cutting."))
+	user.visible_message(span_warning("[user]正在剪开[src]。"),
+		span_notice("你开始剪开[src]。"), span_hear("你听到了剪切声。"))
 	if(I.use_tool(src, user, 50, volume=100) && !anchored)
-		to_chat(user, span_notice("You cut apart [src]."))
+		to_chat(user, span_notice("你剪开了[src]。"))
 		deconstruct()
 
 	return TRUE

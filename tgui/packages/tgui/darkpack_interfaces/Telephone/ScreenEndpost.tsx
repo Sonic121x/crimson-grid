@@ -26,9 +26,9 @@ const convertTo12Hour = (timeStr: string) => {
     if (!timeStr || !timeStr.includes(':')) return timeStr || '';
     const [hourStr, minute] = timeStr.split(':');
     const hour = parseInt(hourStr, 10);
-    const period = hour >= 12 ? 'PM' : 'AM';
+    const period = hour >= 12 ? '下午' : '上午';
     const displayHour = hour % 12 || 12;
-    return `${displayHour}:${minute} ${period}`;
+    return `${period} ${displayHour}:${minute}`;
     };
 
 
@@ -82,14 +82,14 @@ return (
                     style={{ cursor: 'pointer' }}
                 />
                 </Box>
-                <Stack.Item grow>EndPost</Stack.Item>
+                <Stack.Item grow>安德快讯</Stack.Item>
             {(data as any).show_endpost_registration && !composing ? (
                 <Button
                     onClick={() => act('endpost_registration')}
                     color="transparent"
                     textColor="#fff"
                 >
-                    📝{username ? `Re-` : ``}Register
+                    📝{username ? `重新` : ``}注册
                 </Button>
             ) : `${username}`}
                 {!composing && (
@@ -98,7 +98,7 @@ return (
                         color="transparent"
                         textColor="#fff"
                     >
-                        + New EndPost
+                        + 发布快讯
                     </Button>
                 )}
             </Stack>
@@ -111,14 +111,14 @@ return (
                 <Stack vertical>
                     <Stack.Item mb={1}>
                         <Box ml={1} fontSize="0.85em" color={username ? '#2e7d32' : '#d32f2f'}>
-                            {username ? `Posting as: ${username}` : 'Registration required before posting'}
+                            {username ? `发布身份：${username}` : '注册后才能发布'}
                         </Box>
                     </Stack.Item>
 
                     <Stack.Item mb={-3} grow mr={2} ml={2}>
 
                         <textarea
-                            placeholder="Posts are deleted after 24hrs"
+                            placeholder="帖子会在 24 小时后删除"
                             value={body}
                             onChange={(e) => setBody(e.target.value.slice(0, 140))}
                             maxLength={140}
@@ -144,7 +144,7 @@ return (
                     {submitted ? (
                         <Stack.Item>
                             <Box color="#2e7d32" fontSize="0.9em">
-                                ✓ EndPosted!
+                                ✓ 已发布！
                             </Box>
                         </Stack.Item>
                     ) : (
@@ -157,13 +157,13 @@ return (
                                     ml={2}
                                     mb={2}
                                 >
-                                    EndPost
+                                    发布
                                 </Button>
                                 <Button
                                     onClick={() => setComposing(false)} color="gray"
                                     mb={2}
                                 >
-                                    Cancel
+                                    取消
                                 </Button>
                             </Stack>
                         </Stack.Item>
@@ -178,7 +178,7 @@ return (
         }}>
             {posts.length === 0 ? (
                 <Box p={2} textAlign="center" color="#999">
-                    No EndPosts yet... Post one!
+                    暂无快讯……来发一条吧！
                 </Box>
             ) : (
                 <Stack vertical mb={10}>

@@ -16,27 +16,27 @@
 	AddComponent(/datum/component/selling, 5, "neck", FALSE)
 
 /obj/item/clothing/neck/vampire/scarf
-	name = "black scarf"
-	desc = "Provides protection against cold."
+	name = "黑色围巾"
+	desc = "可抵御寒冷。"
 	icon_state = "scarf"
 
 /obj/item/clothing/neck/vampire/scarf/red
-	name = "red scarf"
+	name = "红色围巾"
 	icon_state = "scarf_red"
 
 /obj/item/clothing/neck/vampire/scarf/blue
-	name = "blue scarf"
+	name = "蓝色围巾"
 	icon_state = "scarf_blue"
 
 /obj/item/clothing/neck/vampire/scarf/green
-	name = "green scarf"
+	name = "绿色围巾"
 	icon_state = "scarf_green"
 
 /obj/item/clothing/neck/vampire/scarf/white
-	name = "white scarf"
+	name = "白色围巾"
 	icon_state = "scarf_white"
 
 /obj/item/clothing/neck/vampire/prayerbeads
-	name = "prayer beads"
-	desc = "These beads are used for prayer."
+	name = "念珠"
+	desc = "用于祈祷的珠串。"
 	icon_state = "beads"

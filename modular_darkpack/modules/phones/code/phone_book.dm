@@ -1,6 +1,6 @@
 /obj/item/phone_book
-	name = "phone book"
-	desc = "See the actual numbers in the city."
+	name = "电话簿"
+	desc = "查看城里的现有电话号码。"
 	icon_state = "phonebook"
 	icon = 'modular_darkpack/modules/phones/icons/phone.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/phones/icons/phone_onfloor.dmi')

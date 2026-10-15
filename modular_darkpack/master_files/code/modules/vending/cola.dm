@@ -31,8 +31,8 @@
 
 // Bloodlines Refrence
 /obj/machinery/vending/cola/starkist
-	name = "\improper 13 Vitamins Vendor"
-	desc = "13 stimulants in every bottle!!!"
+	name = "\improper 13维生素售货机"
+	desc = "每瓶含有13种兴奋剂！！！"
 	icon_state = "thirteen"
 	light_mask = "front_cola-light-mask"
 	light_color = COLOR_YELLOW
@@ -51,13 +51,13 @@
 
 // Bloodlines Refrence
 /obj/machinery/vending/cola/pwr_game
-	name = "\improper Liquid Demon Seed Vendor"
-	desc = "Slobber it DOWN!!"
+	name = "\improper 液态魔种售货机"
+	desc = "大口灌下去！！"
 	icon_state = "demon_seed"
 	light_mask = "front_cola-light-mask"
 
 /obj/machinery/vending/cola/shamblers
-	name = "\improper Yumco Vendor"
+	name = "\improper 美味公司售货机"
 	icon_state = "yumco"
 	light_mask = "yumco-light-mask"
 	light_color = COLOR_YELLOW

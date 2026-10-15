@@ -20,7 +20,7 @@
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/update_choices()
 	for(var/i in choices)
-		choices[i] = icon('modular_darkpack/modules/powers/icons/shapeshifting_radial.dmi', i)
+		choices[i] = localized_radial_choice(icon('modular_darkpack/modules/powers/icons/shapeshifting_radial.dmi', i), list(CHANGE_HAIR = "改变头发", CHANGE_BEARD = "改变胡须", CHANGE_SEX = "改变性别", CHANGE_NAME = "改变姓名", CHANGE_EYES = "改变眼睛", CHANGE_RACE = "改变肤色", CHANGE_HEIGHT = "改变身高")[i])
 
 /datum/action/cooldown/mob_cooldown/shapeshift/Activate(atom/target)
 	. = ..()
@@ -49,7 +49,7 @@
 			if(CHANGE_HEIGHT)
 				change_height(target)
 	else
-		to_chat(owner, span_danger("You need to have a firm grip on [target]!"))
+		to_chat(owner, span_danger("你必须牢牢抓住[target]！"))
 		return TRUE
 
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -57,7 +57,7 @@
 	return display_radial_menu(target)
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_sex(mob/living/carbon/human/target)
-	var/chosen_sex = tgui_input_list(owner, "Choose a gender.", "Confirmation", list("Male", "Female", "Plural", "Neuter"))
+	var/chosen_sex = tgui_input_list(owner, "选择性别。", "确认", list("男性", "女性", "复数称谓", "中性"))
 	if(!chosen_sex)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -65,37 +65,37 @@
 	if(!do_after(owner, delay = 1 TURNS, target = target))
 		return FALSE
 	switch(chosen_sex)
-		if("Male")
+		if("男性")
 			target.gender = MALE
-		if("Female")
+		if("女性")
 			target.gender = FEMALE
-		if("Plural")
+		if("复数称谓")
 			target.gender = PLURAL
-		if("Neuter")
+		if("中性")
 			target.gender = NEUTER
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the gender of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]性别的改变。"))
 
-	var/chosen_physique = tgui_input_list(owner, "Alter physique as well?", "Confirmation", list("Masculine", "Feminine"))
+	var/chosen_physique = tgui_input_list(owner, "也要改变体型吗？", "确认", list("男性体型", "女性体型"))
 	if(!chosen_physique)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
 		return FALSE
 	if(!do_after(owner, delay = 1 TURNS, target = target))
 		return FALSE
-	target.physique = (chosen_physique == "Masculine") ? MALE : FEMALE
+	target.physique = (chosen_physique == "男性体型") ? MALE : FEMALE
 	target.dna.update_ui_block(/datum/dna_block/identity/gender)
 	target.update_body(is_creating = TRUE) // or else physique won't change properly
 	target.update_appearance(UPDATE_OVERLAYS) //(hulk male/female)
 	target.update_clothing(ITEM_SLOT_ICLOTHING) // update gender shaped clothing
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the physique of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]体型的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_eyes(mob/living/carbon/human/target)
-	var/new_eye_color = input(owner, "Choose a eye color", "Eye Color", target.eye_color_left) as color|null
+	var/new_eye_color = input(owner, "选择眼睛颜色", "眼睛颜色", target.eye_color_left) as color|null
 	if(!new_eye_color)
 		return TRUE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -107,11 +107,11 @@
 	target.update_body()
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the eye color of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]眼睛颜色的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_beard(mob/living/carbon/human/target)
-	var/new_style = tgui_input_list(owner, "Select a facial hairstyle", "Grooming", SSaccessories.facial_hairstyles_list)
+	var/new_style = localized_accessory_input(owner, "选择胡须样式", "仪容修整", SSaccessories.facial_hairstyles_list)
 	if(!new_style)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -121,9 +121,9 @@
 	target.set_facial_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the facial style of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]胡须样式的改变。"))
 
-	var/new_face_color = input(owner, "Choose a facial hair color", "Hair Color", target.facial_hair_color) as color|null
+	var/new_face_color = input(owner, "选择胡须颜色", "胡须颜色", target.facial_hair_color) as color|null
 	if(!new_face_color)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -134,11 +134,11 @@
 	target.dna.update_ui_block(/datum/dna_block/identity/facial_color)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the facial hair color of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]胡须颜色的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_hair(mob/living/carbon/human/target)
-	var/new_style = tgui_input_list(owner, "Select a hairstyle", "Grooming", SSaccessories.hairstyles_list)
+	var/new_style = localized_accessory_input(owner, "选择发型", "仪容修整", SSaccessories.hairstyles_list)
 	if(!new_style)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -148,9 +148,9 @@
 	target.set_hairstyle(new_style, update = TRUE)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the hair style of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]发型的改变。"))
 
-	var/new_hair_color = input(owner, "Choose a hair color", "Hair Color", target.hair_color) as color|null
+	var/new_hair_color = input(owner, "选择发色", "头发颜色", target.hair_color) as color|null
 	if(!new_hair_color)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -161,11 +161,11 @@
 	target.dna.update_ui_block(/datum/dna_block/identity/hair_color)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the hair color of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]发色的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_name(mob/living/carbon/human/target)
-	var/newname = sanitize_name(tgui_input_text(owner, "Who are we again?", "Name change", target.real_name, MAX_NAME_LEN))
+	var/newname = sanitize_name(tgui_input_text(owner, "我们又叫什么来着？", "更改姓名", target.real_name, MAX_NAME_LEN))
 	if(!newname || newname == target.real_name)
 		return FALSE
 	if(!IN_GIVEN_RANGE(owner, target, range))
@@ -179,7 +179,7 @@
 		target.mind.name = newname
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the name of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]姓名的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_race(mob/living/carbon/human/target)
@@ -188,7 +188,7 @@
 		var/skin_tone_name = GLOB.skin_tone_names[skin_tone]
 		skin_tones[skin_tone_name] = skin_tone
 
-	var/new_s_tone = tgui_input_list(owner, "Choose a skin tone", "Race change", skin_tones)
+	var/new_s_tone = tgui_input_list(owner, "选择肤色", "更改肤色", skin_tones)
 	new_s_tone = skin_tones[new_s_tone]
 	if(!new_s_tone)
 		return FALSE
@@ -202,19 +202,19 @@
 	target.update_appearance(UPDATE_OVERLAYS)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the race of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]肤色的改变。"))
 	return TRUE
 
 /datum/action/cooldown/mob_cooldown/shapeshift/proc/change_height(mob/living/carbon/human/target)
 	var/list/heights = list(
-		"Taller" = HUMAN_HEIGHT_TALLER,
-		"Tall" = HUMAN_HEIGHT_TALL,
-		"Average" = HUMAN_HEIGHT_MEDIUM,
-		"Short" = HUMAN_HEIGHT_SHORT,
-		"Shorter" = HUMAN_HEIGHT_SHORTEST,
+		"很高" = HUMAN_HEIGHT_TALLER,
+		"高" = HUMAN_HEIGHT_TALL,
+		"中等" = HUMAN_HEIGHT_MEDIUM,
+		"矮" = HUMAN_HEIGHT_SHORT,
+		"很矮" = HUMAN_HEIGHT_SHORTEST,
 		)
 
-	var/new_height = tgui_input_list(owner, "Choose a height", "Height change", heights)
+	var/new_height = tgui_input_list(owner, "选择身高", "更改身高", heights)
 	new_height = heights[new_height]
 	if(!new_height)
 		return FALSE
@@ -225,7 +225,7 @@
 	target.set_mob_height(new_height)
 	SEND_SIGNAL(owner, COMSIG_MASQUERADE_VIOLATION)
 	playsound(target, 'modular_darkpack/modules/powers/sounds/vicissitude.ogg', 50, TRUE)
-	to_chat(owner, span_notice("You finish altering the height of [target]."))
+	to_chat(owner, span_notice("你完成了对[target]身高的改变。"))
 	return TRUE
 
 #undef CHANGE_HAIR

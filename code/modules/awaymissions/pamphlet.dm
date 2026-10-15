@@ -1,58 +1,58 @@
 /obj/item/paper/pamphlet
-	name = "pamphlet"
+	name = "宣传册"
 	icon_state = "pamphlet"
 	show_written_words = FALSE
 
 /obj/item/paper/pamphlet/radstorm
-	name = "pamphlet - \'Radstorm Safety Measures and How to Not Become Monkey\'"
-	default_raw_text = "Has your station's preemptive radstorm safety alarm gone off and you don't see a nearby maintenance hatch to escape to? Never fear, for NT truly thinks of everything! \
-		Several public-access shelters have been installed around the upper station with express purpose of protecting your fragile meaty bits from becoming the next medical disaster! \
-		Please see subsection 4.3 V2-3 in your employee handbook for appropriate procedures to deal with excessive radiation damage if you do not make it to a shelter in time."
+	name = "宣传册——《辐射风暴防护措施及如何避免变成猴子》"
+	default_raw_text = "空间站的辐射风暴预警响了，你却找不到附近可供躲避的维护舱口？别怕，纳诺传讯真的考虑到了一切！ \
+		空间站上层各处已设有多座公共避难所，专门保护你脆弱的血肉之躯，免得它成为下一场医疗灾难！ \
+		如果你没能及时进入避难所，请查阅员工手册第4.3节V2-3小节，了解应对过量辐射损伤的正确流程。"
 
 
 /obj/item/paper/pamphlet/violent_video_games
-	name = "pamphlet - \'Violent Video Games and You\'"
-	desc = "A pamphlet encouraging the reader to maintain a balanced lifestyle and take care of their mental health, while still enjoying video games in a healthy way. You probably don't need this..."
-	default_raw_text = "They don't make you kill people. There, we said it. Now get back to work!"
+	name = "宣传册——《暴力电子游戏与你》"
+	desc = "一本鼓励读者保持均衡生活、关照心理健康，同时以健康方式享受电子游戏的宣传册。你大概用不着这个……"
+	default_raw_text = "电子游戏不会让你杀人。好了，我们说完了。现在回去工作！"
 
 /obj/item/paper/pamphlet/gateway
-	default_raw_text = "<b>Welcome to the Nanotrasen Gateway project...</b><br>\
-			Congratulations! If you're reading this, you and your superiors have decided that you're \
-			ready to commit to a life spent colonising the rolling hills of far away worlds. You \
-			must be ready for a lifetime of adventure, a little bit of hard work, and an award \
-			winning dental plan- but that's not all the Nanotrasen Gateway project has to offer.<br>\
-			<br>Because we care about you, we feel it is only fair to make sure you know the risks \
-			before you commit to joining the Nanotrasen Gateway project. All away destinations have \
-			been fully scanned by a Nanotrasen expeditionary team, and are certified to be 100% safe. \
-			We've even left a case of space beer along with the basic materials you'll need to expand \
-			Nanotrasen's operational area and start your new life.<br><br>\
-			<b>Gateway Operation Basics</b><br>\
-			All Nanotrasen approved Gateways operate on the same basic principals. They operate off \
-			area equipment power as you would expect, and without this supply, it cannot safely function, \
-			causinng it to reject all attempts at operation.<br><br>\
-			Once it is correctly setup, and once it has enough power to operate, the Gateway will begin \
-			searching for an output location. The amount of time this takes is variable, but the Gateway \
-			interface will give you an estimate accurate to the minute. Power loss will not interrupt the \
-			searching process. Influenza will not interrupt the searching process. Temporal anomalies \
-			may cause the estimate to be inaccurate, but will not interrupt the searching process.<br><br> \
-			<b>Life On The Other Side</b><br>\
-			Once you have traversed the Gateway, you may experience some disorientation. Do not panic. \
-			This is a normal side effect of travelling vast distances in a short period of time. You should \
-			survey the immediate area, and attempt to locate your complimentary case of space beer. Our \
-			expeditionary teams have ensured the complete safety of all away locations, but in a small \
-			number of cases, the Gateway they have established may not be immediately obvious. \
-			Do not panic if you cannot locate the return Gateway. Begin colonisation of the destination. \
-			<br><br><b>A New World</b><br>\
-			As a participant in the Nanotrasen Gateway Project, you will be on the frontiers of space. \
-			Though complete safety is assured, participants are advised to prepare for inhospitable \
-			environs."
+	default_raw_text = "<b>欢迎参加纳诺传讯传送门计划……</b><br>\
+			恭喜！如果你正在阅读这份宣传册，就说明你和你的上级已经认定，\
+			你已准备好将毕生投入遥远世界的殖民事业，在起伏的群山间开拓新天地。\
+			请为一生的冒险、少许辛勤劳动和屡获殊荣的牙科保险计划做好准备——\
+			但纳诺传讯传送门计划能提供的远不止这些。<br>\
+			<br>因为我们关心你，所以我们认为，应当在你决定加入\
+			纳诺传讯传送门计划之前，让你充分了解风险。所有远征目的地\
+			均已由纳诺传讯探险队全面扫描，并获认证为百分之百安全。\
+			我们甚至留下了一箱太空啤酒，以及你拓展纳诺传讯业务范围、\
+			开启新生活所需的基本物资。<br><br>\
+			<b>传送门操作基础</b><br>\
+			所有纳诺传讯认证的传送门均基于同一基本原理运行。正如你所料，\
+			它们依靠区域设备电力运转。没有这项供电，传送门便无法安全工作，\
+			因此会拒绝一切操作尝试。<br><br>\
+			完成正确设置并获得足够电力后，传送门就会开始\
+			搜索出口位置。搜索所需时间不固定，但传送门\
+			界面会给出精确到分钟的估计。断电不会中断\
+			搜索过程，流感也不会中断搜索过程。时间异常\
+			可能使估计不准确，但不会中断搜索过程。<br><br> \
+			<b>另一边的生活</b><br>\
+			穿过传送门后，你可能会有些迷失方向。不要惊慌。\
+			这是短时间内跨越遥远距离的正常副作用。你应该\
+			查看周边环境，并寻找免费赠送的那箱太空啤酒。\
+			我们的探险队已确保所有远征地点绝对安全，但在少数\
+			情况下，他们建立的传送门可能不那么显眼。\
+			如果找不到回程传送门，请不要惊慌。开始殖民目的地即可。\
+			<br><br><b>一个新世界</b><br>\
+			作为纳诺传讯传送门计划的参与者，你将身处太空边疆。\
+			尽管安全已有充分保障，仍建议参与者\
+			做好应对恶劣环境的准备。"
 
 /obj/item/paper/pamphlet/cybernetics
-	name = "pamphlet - 'Synthman's Cybernetic Starter Gear!'"
-	default_raw_text = "Join the Body Modder Revolution today! We are offering FREE SAMPLES of the latest and greatest \
-		cybernetic augments by Synthman Co. to you in this rare exclusive offer! With this letter, you are being gifted a \
-		special limited edition choice NTSDA-certified grade-A cybernetic implant, FREE OF CHARGE! Build up your body to \
-		GREATNESS with Synthman's new exclusive line of cybernetic products! Become greater, stronger, and BETTER today!"
+	name = "宣传册——《合成人公司的义体入门装备！》"
+	default_raw_text = "今天就加入身体改造革命！合成人公司最新、最出色的义体强化产品，\
+		现在以难得的独家优惠为你提供免费样品！随信附赠\
+		一件精选限量版、通过NTSDA认证的A级义体植入物，完全免费！用合成人公司的\
+		全新独家义体产品系列打造卓越躯体！今天就变得更伟大、更强壮、更优秀！"
 	var/obj/item/organ/heart/cybernetic/sample
 
 /obj/item/paper/pamphlet/cybernetics/Initialize(mapload)
@@ -62,7 +62,7 @@
 
 /obj/item/paper/pamphlet/cybernetics/update_desc(updates)
 	. = ..()
-	desc = "A pamphlet encouraging the reader to implant themselves.[sample ? " Has an attached \"sample\"..." : ""]"
+	desc = "一本鼓励读者为自己安装植入物的宣传册。[sample ? "附带一件\"样品\"……" : ""]"
 
 /obj/item/paper/pamphlet/cybernetics/Destroy()
 	QDEL_NULL(sample)
@@ -76,6 +76,6 @@
 
 /obj/item/paper/pamphlet/cybernetics/attack_self(mob/user, modifiers)
 	. = ..()
-	to_chat(user, span_notice("As you read the pamphlet, a free sample falls out!"))
+	to_chat(user, span_notice("你翻阅宣传册时，一件免费样品掉了出来！"))
 	sample.forceMove(drop_location())
 	playsound(sample, 'sound/misc/splort.ogg', 50, vary = TRUE)

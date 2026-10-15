@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 import type { ServerData } from './types';
 
 export const ServerPrefs = createContext<ServerData | undefined>({
-  jobs: {
+  jobs: { display_names: {}, // KUKU：提供职业中文名称映射的空默认值，与共享数据类型一致
     departments: {},
     jobs: {},
     jobs_sorted: [],

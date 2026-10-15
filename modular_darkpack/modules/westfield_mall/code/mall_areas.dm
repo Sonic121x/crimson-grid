@@ -3,7 +3,7 @@
 	outdoors = TRUE
 	icon_state = "outside"
 	icon = 'modular_darkpack/modules/westfield_mall/icons/mall_areas.dmi'
-
+/area/vtm/westfield_mall/Initialize(mapload) { GLOB.localized_darkpack_area_names += list("Mall Exterior" = "购物中心外部", "Westfield Drive Skatepark" = "韦斯特菲尔德大道滑板公园", "Westfield Mall" = "韦斯特菲尔德购物中心", "Beralta Skateshop" = "贝拉尔塔滑板店", "Staff Only Area" = "员工专用区", "Staff Only Area, Floor -1" = "员工专用区－地下一层", "Staff Only Area, Floor 2" = "员工专用区－二层", "Staff Only Area, Roof" = "员工专用区－屋顶", "Parking Lot" = "停车场", "Subterranean Parking Lot" = "地下停车场", "\improper Public Restroom" = "\improper 公共卫生间", "Penzera Foodcourt at Westfield" = "韦斯特菲尔德彭泽拉美食广场", "Combination Gummaguts Bubway Bacotell" = "咕玛肚、巴布威与巴可特尔联合餐厅", "Beffley's Green Grocer" = "贝夫利蔬果店", "Lick Ur Chops Deli and Butcher" = "垂涎欲滴熟食肉铺", "Master Controller Arcade" = "主控游戏厅", "Paqadube Smokestuff and Tobacco" = "帕卡杜布烟具烟草店", "Snarshals Clothing and Fabric" = "斯纳歇尔服装布料店", "Westfield Management" = "韦斯特菲尔德管理处", "Silchester & Thorne Body Art" = "西尔切斯特与索恩身体艺术工作室", "Noble's Books" = "诺布尔书店", "Nottingham's Pet Emporium" = "诺丁汉宠物百货", "Custodial Office" = "保洁办公室", "Matrak Self-Defence" = "马特拉克防身术道馆", "Absolute Cinema" = "绝对影院", "Transistor Town Hobbyist Electronics" = "晶体管小镇电子爱好者商店", "Bianchi Banking Westfield Branch" = "比安基银行韦斯特菲尔德分行", "Trout Expert Store" = "鳟鱼专家商店", "Glamour Games" = "迷魅游戏店", "Rosie Confections" = "罗茜糖果店", "The Drawn Line" = "线条美术用品店", "Groundskeeping Garage" = "园林维护车库", "Venture Law LLC" = "开拓法律事务有限公司", "Forest Cave" = "森林洞穴", "Logging Facility" = "伐木设施"); return ..(); }
 /area/vtm/westfield_mall/skatepark
 	name = "Westfield Drive Skatepark"
 	icon_state = "skatepark"

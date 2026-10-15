@@ -392,89 +392,89 @@
 
 /// Prints the users mood, sanity, and moodies to chat
 /datum/mood/proc/print_mood(mob/user)
-	var/msg = "[span_info("<EM>My current mental status:</EM>")]<br>"
+	var/msg = "[span_info("<EM>我当前的精神状态：</EM>")]<br>"
 
 	if(!HAS_TRAIT(src, TRAIT_NOHUNGER))
-		msg += span_notice("My hunger: ")
+		msg += span_notice("我的饥饿程度：")
 		var/nutrition = mob_parent.nutrition
 		switch(nutrition)
 			if(NUTRITION_LEVEL_FULL to INFINITY)
-				msg += "[span_info("I'm completely stuffed!")]<br>"
+				msg += "[span_info("我吃撑了！")]<br>"
 			if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
-				msg += "[span_info("I'm well fed!")]<br>"
+				msg += "[span_info("我吃得很饱！")]<br>"
 			if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-				msg += "[span_info("I'm not hungry.")]<br>"
+				msg += "[span_info("我不饿。")]<br>"
 			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
-				msg += "[span_info("I could use a bite to eat.")]<br>"
+				msg += "[span_info("我想吃点东西。")]<br>"
 			if(NUTRITION_LEVEL_VERY_HUNGRY to NUTRITION_LEVEL_HUNGRY)
-				msg += "[span_warning("I'm feeling hungry.")]<br>"
+				msg += "[span_warning("我觉得饿了。")]<br>"
 			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_VERY_HUNGRY)
-				msg += "[span_warning("I feel quite hungry.")]<br>"
+				msg += "[span_warning("我很饿。")]<br>"
 			if(0 to NUTRITION_LEVEL_STARVING)
-				msg += "[span_boldwarning("I'm starving!")]<br>"
+				msg += "[span_boldwarning("我快饿死了！")]<br>"
 
 	var/drunkness = mob_parent.get_drunk_amount()
 	if(drunkness >= 1)
-		msg += span_notice("My current drunkenness: ")
+		msg += span_notice("我当前的醉酒程度：")
 		switch(drunkness)
 			if(1 to 10)
-				msg += "[span_info("I'm feeling a little tipsy.")]<br>"
+				msg += "[span_info("我感觉有些微醺。")]<br>"
 			if(11 to 21)
-				msg += "[span_info("I'm feeling a bit drunk.")]<br>"
+				msg += "[span_info("我有点醉了。")]<br>"
 			if(21 to 41)
-				msg += "[span_info("I'm feeling quite drunk.")]<br>"
+				msg += "[span_info("我醉得不轻。")]<br>"
 			if(41 to 61)
-				msg += "[span_info("I'm feeling very drunk.")]<br>"
+				msg += "[span_info("我醉得厉害。")]<br>"
 			if(61 to 81)
-				msg += "[span_warning("I'm feeling like a mess.")]<br>"
+				msg += "[span_warning("我已经醉得一塌糊涂了。")]<br>"
 			if(81 to INFINITY)
-				msg += "[span_boldwarning("I'm completely wasted.")]<br>"
+				msg += "[span_boldwarning("我已经烂醉如泥了。")]<br>"
 
 	if (HAS_TRAIT(mob_parent, TRAIT_APATHETIC))
-		msg += span_notice("My mood: [span_grey("I don't feel anything.")]<br>")
+		msg += span_notice("我的心情：[span_grey("我什么感觉也没有。")]<br>")
 	else
-		msg += span_notice("My current sanity: ") //Long term
+		msg += span_notice("我当前的理智状态：") //Long term
 		switch(sanity)
 			if(SANITY_GREAT to INFINITY)
-				msg += "[span_boldnicegreen("My mind feels like a temple!")]<br>"
+				msg += "[span_boldnicegreen("我的内心如圣殿般宁静！")]<br>"
 			if(SANITY_NEUTRAL to SANITY_GREAT)
-				msg += "[span_nicegreen("I have been feeling great lately!")]<br>"
+				msg += "[span_nicegreen("我最近感觉棒极了！")]<br>"
 			if(SANITY_DISTURBED to SANITY_NEUTRAL)
-				msg += "[span_nicegreen("I have felt quite decent lately.")]<br>"
+				msg += "[span_nicegreen("我最近感觉挺不错。")]<br>"
 			if(SANITY_UNSTABLE to SANITY_DISTURBED)
-				msg += "[span_warning("I'm feeling a little bit unhinged...")]<br>"
+				msg += "[span_warning("我感觉自己有点失常了……")]<br>"
 			if(SANITY_CRAZY to SANITY_UNSTABLE)
-				msg += "[span_warning("I'm freaking out!!")]<br>"
+				msg += "[span_warning("我要崩溃了！！")]<br>"
 			if(SANITY_INSANE to SANITY_CRAZY)
-				msg += "[span_boldwarning("AHAHAHAHAHAHAHAHAHAH!!")]<br>"
+				msg += "[span_boldwarning("啊哈哈哈哈哈哈哈哈哈哈！！")]<br>"
 
-		msg += span_notice("My current mood: ") //Short term
+		msg += span_notice("我当前的心情：") //Short term
 		switch(mood_level)
 			if(MOOD_LEVEL_SAD4)
-				msg += "[span_boldwarning("I wish I was dead!")]<br>"
+				msg += "[span_boldwarning("我真希望自己死了！")]<br>"
 			if(MOOD_LEVEL_SAD3)
-				msg += "[span_boldwarning("I feel terrible...")]<br>"
+				msg += "[span_boldwarning("我感觉糟透了……")]<br>"
 			if(MOOD_LEVEL_SAD2)
-				msg += "[span_boldwarning("I feel very upset.")]<br>"
+				msg += "[span_boldwarning("我很难过。")]<br>"
 			if(MOOD_LEVEL_SAD1)
-				msg += "[span_warning("I'm a bit sad.")]<br>"
+				msg += "[span_warning("我有点伤心。")]<br>"
 			if(MOOD_LEVEL_NEUTRAL)
-				msg += "[span_grey("I'm alright.")]<br>"
+				msg += "[span_grey("我还好。")]<br>"
 			if(MOOD_LEVEL_HAPPY1)
-				msg += "[span_nicegreen("I feel pretty okay.")]<br>"
+				msg += "[span_nicegreen("我感觉还不错。")]<br>"
 			if(MOOD_LEVEL_HAPPY2)
-				msg += "[span_boldnicegreen("I feel pretty good.")]<br>"
+				msg += "[span_boldnicegreen("我感觉很好。")]<br>"
 			if(MOOD_LEVEL_HAPPY3)
-				msg += "[span_boldnicegreen("I feel amazing!")]<br>"
+				msg += "[span_boldnicegreen("我感觉棒极了！")]<br>"
 			if(MOOD_LEVEL_HAPPY4)
-				msg += "[span_boldnicegreen("I love life!")]<br>"
+				msg += "[span_boldnicegreen("我热爱生活！")]<br>"
 
 	var/list/additional_lines = list()
 	SEND_SIGNAL(user, COMSIG_CARBON_MOOD_CHECK, additional_lines)
 	if (length(additional_lines))
 		msg += "[additional_lines.Join("<br>")]<br>"
 
-	msg += "[span_notice("Moodlets:")]<br>"//All moodlets
+	msg += "[span_notice("心情影响：")]<br>"//All moodlets
 	if(mood_events.len)
 		for(var/category in mood_events)
 			var/datum/mood_event/event = mood_events[category]
@@ -493,13 +493,13 @@
 				if(MOOD_HAPPY2 to INFINITY)
 					msg += "[span_boldnicegreen(event.description)]<br>"
 	else
-		msg += "&bull; [span_grey("I don't have much of a reaction to anything right now.")]<br>"
+		msg += "&bull; [span_grey("我现在对什么都没太大反应。")]<br>"
 
 	if(LAZYLEN(mob_parent.personalities))
-		msg += span_notice("You know yourself to be [mob_parent.get_parsonality_string()].<br>")
+		msg += span_notice("你了解自己的性格：[mob_parent.get_parsonality_string()]。<br>")
 
 	if(LAZYLEN(mob_parent.quirks))
-		msg += span_notice("You have these quirks: [mob_parent.get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
+		msg += span_notice("你具有以下特质：[mob_parent.get_quirk_string(FALSE, CAT_QUIRK_ALL)]。")
 
 	to_chat(user, boxed_message(msg))
 

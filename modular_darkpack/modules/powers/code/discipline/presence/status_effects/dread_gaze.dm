@@ -11,6 +11,6 @@
 	owner.st_add_stat_mod(STAT_DEXTERITY, -4)	//Nukes your dex temporarily
 
 /atom/movable/screen/alert/status_effect/dread_gaze
-	name = "Overwhelming Dread"
-	desc = "That person- that THING is a monster! I don't stand a chance!"
+	name = "压倒性的恐惧"
+	desc = "那个人——那个东西是个怪物！我毫无胜算！"
 	icon_state = "hypnosis"

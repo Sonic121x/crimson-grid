@@ -75,16 +75,16 @@
 #define COMPONENT_PRINTER (1<<10)
 
 GLOBAL_LIST_INIT(build_types_to_string, list(
-	"[IMPRINTER]" = "Circuit Imprinter",
-	"[PROTOLATHE]" = "Protolathe",
-	"[AUTOLATHE]" = "Autolathe",
-	"[MECHFAB]" = "Exosuit Fabricator",
-	"[BIOGENERATOR]" = "Biogenerator",
-	"[LIMBGROWER]" = "Limb Grower",
-	"[SMELTER]" = "Smelter",
-	"[AWAY_LATHE]" = "Off-Grid Protolathe",
-	"[AWAY_IMPRINTER]" = "Off-Grid Circuit Imprinter",
-	"[COMPONENT_PRINTER]" = "Component Printer",
+	"[IMPRINTER]" = "电路蚀刻机",
+	"[PROTOLATHE]" = "原型制造机",
+	"[AUTOLATHE]" = "自动车床",
+	"[MECHFAB]" = "机甲制造机",
+	"[BIOGENERATOR]" = "生物质加工机",
+	"[LIMBGROWER]" = "肢体培育器",
+	"[SMELTER]" = "熔炼炉",
+	"[AWAY_LATHE]" = "离网原型制造机",
+	"[AWAY_IMPRINTER]" = "离网电路蚀刻机",
+	"[COMPONENT_PRINTER]" = "组件打印机",
 ))
 
 #define HYPERTORUS_INACTIVE 0 // No or minimal energy

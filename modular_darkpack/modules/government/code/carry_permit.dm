@@ -1,6 +1,6 @@
 /obj/item/card/carry_permit
-	name = "concealed carry permit"
-	desc = "A permit allowing it's holder to carry concealed firearms in public - authorized by the local police department."
+	name = "隐蔽携枪许可证"
+	desc = "由当地警察局签发的许可证，允许持证人在公共场所隐蔽携带枪支。"
 	icon = 'modular_darkpack/modules/government/icons/docs.dmi'
 	icon_state = "weapons"
 	worn_icon_state = ""

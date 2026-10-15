@@ -1,8 +1,8 @@
 #define DONUT_SPRINKLE_CHANCE 30
 
 /obj/item/food/donut
-	name = "donut"
-	desc = "Goes great with robust coffee."
+	name = "甜甜圈"
+	desc = "搭配浓香咖啡再合适不过。"
 	icon = 'icons/obj/food/donuts.dmi'
 	abstract_type = /obj/item/food/donut
 	inhand_icon_state = "donut1"
@@ -16,7 +16,7 @@
 	var/decorated_icon = "donut_homer"
 	var/is_decorated = FALSE
 	var/extra_reagent = null
-	var/decorated_adjective = "sprinkled"
+	var/decorated_adjective = "撒糖珠的"
 	crafting_complexity = FOOD_COMPLEXITY_2
 	custom_price = 1 // DARKPACK EDIT ADD - ECONOMY
 
@@ -43,7 +43,7 @@
 	if(is_decorated || !decorated_icon)
 		return
 	is_decorated = TRUE
-	name = "[decorated_adjective] [name]"
+	name = "[decorated_adjective][name]"
 	icon_state = decorated_icon //delish~!
 	inhand_icon_state = "donut2"
 	reagents.add_reagent(/datum/reagent/consumable/sprinkles, 1)
@@ -64,8 +64,8 @@
 	icon_state = "donut"
 
 /obj/item/food/donut/chaos
-	name = "chaos donut"
-	desc = "Like life, it never quite tastes the same."
+	name = "混沌甜甜圈"
+	desc = "就像生活一样，每次尝起来都不太一样。"
 	icon_state = "donut_chaos"
 	bite_consumption = 10
 	tastes = list("donut" = 3, "chaos" = 1)
@@ -90,8 +90,8 @@
 	reagents.add_reagent(extra_reagent, 3)
 
 /obj/item/food/donut/meat
-	name = "meat donut"
-	desc = "Tastes as gross as it looks."
+	name = "肉馅甜甜圈"
+	desc = "吃起来和看上去一样恶心。"
 	icon_state = "donut_meat"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -105,8 +105,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/donut/berry
-	name = "pink donut"
-	desc = "Goes great with a soy latte."
+	name = "粉红甜甜圈"
+	desc = "搭配豆奶拿铁再合适不过。"
 	icon_state = "donut_pink"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -118,8 +118,8 @@
 	decorated_icon = "donut_homer"
 
 /obj/item/food/donut/trumpet
-	name = "spaceman's donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "太空人甜甜圈"
+	desc = "搭配一烧杯冰凉的玛尔克奶再合适不过。"
 	icon_state = "donut_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -131,8 +131,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/apple
-	name = "apple donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "苹果甜甜圈"
+	desc = "搭配一小杯肉桂甜酒再合适不过。"
 	icon_state = "donut_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -145,8 +145,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/caramel
-	name = "caramel donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "焦糖甜甜圈"
+	desc = "搭配一杯热可可再合适不过。"
 	icon_state = "donut_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -158,8 +158,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/choco
-	name = "chocolate donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "巧克力甜甜圈"
+	desc = "搭配一杯温牛奶再合适不过。"
 	icon_state = "donut_choc"
 	foodtypes = JUNKFOOD|GRAIN|DAIRY|FRIED|SUGAR|BREAKFAST|CHOCOLATE //DARKPACK EDIT CHANGE: Chocolate
 	food_reagents = list(
@@ -173,8 +173,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/blumpkin
-	name = "blumpkin donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "蓝南瓜甜甜圈"
+	desc = "搭配一杯舒心的醉蓝南瓜再合适不过。"
 	icon_state = "donut_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -188,8 +188,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/bungo
-	name = "bungo donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "邦果甜甜圈"
+	desc = "搭配一玻璃罐嬉皮之乐再合适不过。"
 	icon_state = "donut_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -201,8 +201,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/matcha
-	name = "matcha donut"
-	desc = "Goes great with a cup of tea."
+	name = "抹茶甜甜圈"
+	desc = "搭配一杯茶再合适不过。"
 	icon_state = "donut_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -214,8 +214,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/laugh
-	name = "sweet pea donut"
-	desc = "Goes great with a bottle of Bastion Bourbon!"
+	name = "香豌豆甜甜圈"
+	desc = "搭配一瓶堡垒波本威士忌再合适不过！"
 	icon_state = "donut_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -229,8 +229,8 @@
 //////////////////////JELLY DONUTS/////////////////////////
 
 /obj/item/food/donut/jelly
-	name = "jelly donut"
-	desc = "You jelly?"
+	name = "果酱甜甜圈"
+	desc = "馋了？酸了？"
 	icon_state = "jelly"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -255,15 +255,15 @@
 	decorated_icon = "jelly_homer"
 
 /obj/item/food/donut/jelly/berry
-	name = "pink jelly donut"
-	desc = "Goes great with a soy latte."
+	name = "粉红果酱甜甜圈"
+	desc = "搭配豆奶拿铁再合适不过。"
 	icon_state = "jelly_pink"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/berryjuice = 3, /datum/reagent/consumable/sprinkles = 1, /datum/reagent/consumable/nutriment/vitamin = 1) //Extra sprinkles to reward frosting.
 	decorated_icon = "jelly_homer"
 
 /obj/item/food/donut/jelly/trumpet
-	name = "spaceman's jelly donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "太空人果酱甜甜圈"
+	desc = "搭配一烧杯冰凉的玛尔克奶再合适不过。"
 	icon_state = "jelly_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -276,8 +276,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/apple
-	name = "apple jelly donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "苹果果酱甜甜圈"
+	desc = "搭配一小杯肉桂甜酒再合适不过。"
 	icon_state = "jelly_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -290,8 +290,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/caramel
-	name = "caramel jelly donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "焦糖果酱甜甜圈"
+	desc = "搭配一杯热可可再合适不过。"
 	icon_state = "jelly_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -304,8 +304,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/choco
-	name = "chocolate jelly donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "巧克力果酱甜甜圈"
+	desc = "搭配一杯温牛奶再合适不过。"
 	icon_state = "jelly_choc"
 	foodtypes = JUNKFOOD|GRAIN|DAIRY|FRIED|SUGAR|BREAKFAST|FRUIT|CHOCOLATE //DARKPACK EDIT CHANGE: Chocolate
 	food_reagents = list(
@@ -320,8 +320,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/blumpkin
-	name = "blumpkin jelly donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "蓝南瓜果酱甜甜圈"
+	desc = "搭配一杯舒心的醉蓝南瓜再合适不过。"
 	icon_state = "jelly_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -336,8 +336,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/bungo
-	name = "bungo jelly donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "邦果果酱甜甜圈"
+	desc = "搭配一玻璃罐嬉皮之乐再合适不过。"
 	icon_state = "jelly_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -350,8 +350,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/matcha
-	name = "matcha jelly donut"
-	desc = "Goes great with a cup of tea."
+	name = "抹茶果酱甜甜圈"
+	desc = "搭配一杯茶再合适不过。"
 	icon_state = "jelly_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -364,8 +364,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/laugh
-	name = "sweet pea jelly donut"
-	desc = "Goes great with a bottle of Bastion Bourbon!"
+	name = "香豌豆果酱甜甜圈"
+	desc = "搭配一瓶堡垒波本威士忌再合适不过！"
 	icon_state = "jelly_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -379,8 +379,8 @@
 //////////////////////////SLIME DONUTS/////////////////////////
 
 /obj/item/food/donut/jelly/slimejelly
-	name = "jelly donut"
-	desc = "You jelly?"
+	name = "果酱甜甜圈"
+	desc = "馋了？酸了？"
 	abstract_type = /obj/item/food/donut/jelly/slimejelly
 	extra_reagent = /datum/reagent/toxin/slimejelly
 	foodtypes = GRAIN|DAIRY|JUNKFOOD|SUGAR|FRIED|BREAKFAST|TOXIC
@@ -389,8 +389,8 @@
 	icon_state = "jelly"
 
 /obj/item/food/donut/jelly/slimejelly/berry
-	name = "pink jelly donut"
-	desc = "Goes great with a soy latte."
+	name = "粉红果酱甜甜圈"
+	desc = "搭配豆奶拿铁再合适不过。"
 	icon_state = "jelly_pink"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -402,8 +402,8 @@
 	foodtypes = parent_type::foodtypes|FRUIT
 
 /obj/item/food/donut/jelly/slimejelly/trumpet
-	name = "spaceman's jelly donut"
-	desc = "Goes great with a cold beaker of malk."
+	name = "太空人果酱甜甜圈"
+	desc = "搭配一烧杯冰凉的玛尔克奶再合适不过。"
 	icon_state = "jelly_purple"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -416,8 +416,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/slimejelly/apple
-	name = "apple jelly donut"
-	desc = "Goes great with a shot of cinnamon schnapps."
+	name = "苹果果酱甜甜圈"
+	desc = "搭配一小杯肉桂甜酒再合适不过。"
 	icon_state = "jelly_green"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -431,8 +431,8 @@
 	foodtypes = parent_type::foodtypes|FRUIT
 
 /obj/item/food/donut/jelly/slimejelly/caramel
-	name = "caramel jelly donut"
-	desc = "Goes great with a mug of hot coco."
+	name = "焦糖果酱甜甜圈"
+	desc = "搭配一杯热可可再合适不过。"
 	icon_state = "jelly_beige"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -445,8 +445,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/choco
-	name = "chocolate jelly donut"
-	desc = "Goes great with a glass of warm milk."
+	name = "巧克力果酱甜甜圈"
+	desc = "搭配一杯温牛奶再合适不过。"
 	icon_state = "jelly_choc"
 	foodtypes = JUNKFOOD|GRAIN|DAIRY|FRIED|SUGAR|BREAKFAST|TOXIC|CHOCOLATE //DARKPACK EDIT CHANGE: Chocolate
 	food_reagents = list(
@@ -461,8 +461,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/donut/jelly/slimejelly/blumpkin
-	name = "blumpkin jelly donut"
-	desc = "Goes great with a mug of soothing drunken blumpkin."
+	name = "蓝南瓜果酱甜甜圈"
+	desc = "搭配一杯舒心的醉蓝南瓜再合适不过。"
 	icon_state = "jelly_blue"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -477,8 +477,8 @@
 	foodtypes = parent_type::foodtypes|VEGETABLES
 
 /obj/item/food/donut/jelly/slimejelly/bungo
-	name = "bungo jelly donut"
-	desc = "Goes great with a mason jar of hippie's delight."
+	name = "邦果果酱甜甜圈"
+	desc = "搭配一玻璃罐嬉皮之乐再合适不过。"
 	icon_state = "jelly_yellow"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -491,8 +491,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/matcha
-	name = "matcha jelly donut"
-	desc = "Goes great with a cup of tea."
+	name = "抹茶果酱甜甜圈"
+	desc = "搭配一杯茶再合适不过。"
 	icon_state = "jelly_olive"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -505,8 +505,8 @@
 	is_decorated = TRUE
 
 /obj/item/food/donut/jelly/slimejelly/laugh
-	name = "sweet pea jelly donut"
-	desc = "Goes great with a bottle of Bastion Bourbon!"
+	name = "香豌豆果酱甜甜圈"
+	desc = "搭配一瓶堡垒波本威士忌再合适不过！"
 	icon_state = "jelly_laugh"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,

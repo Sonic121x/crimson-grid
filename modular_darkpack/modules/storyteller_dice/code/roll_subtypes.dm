@@ -12,24 +12,24 @@
 
 // Combat
 /datum/storyteller_roll/attack
-	bumper_text = "attack"
+	bumper_text = "攻击"
 	spammy_roll = TRUE
 	alert_prefix = "⚔"
 	applicable_stats = list(STAT_DEXTERITY, STAT_BRAWL)
 
 /datum/storyteller_roll/attack/punch
-	bumper_text = "attack (punch)"
+	bumper_text = "攻击（拳击）"
 
 /datum/storyteller_roll/attack/bite
-	bumper_text = "attack (bite)"
+	bumper_text = "攻击（啃咬）"
 	difficulty = 5
 
 /datum/storyteller_roll/attack/kick
-	bumper_text = "attack (kick)"
+	bumper_text = "攻击（踢击）"
 	difficulty = 7
 
 /datum/storyteller_roll/attack/claw
-	bumper_text = "attack (claw)"
+	bumper_text = "攻击（爪击）"
 
 // Cant tell wether this is meant to be to land or for damage dice.
 /datum/storyteller_roll/attack/claw/using_difficulty(mob/living/roller, atom/target)
@@ -38,12 +38,12 @@
 		. -= 1
 
 /datum/storyteller_roll/attack/sweep
-	bumper_text = "attack (sweep)"
+	bumper_text = "攻击（扫腿）"
 	difficulty = 8
 
 
 /datum/storyteller_roll/damage
-	bumper_text = "damage"
+	bumper_text = "伤害"
 	numerical = TRUE
 	spammy_roll = TRUE
 	// Ok listen I know this is just an emoji but it looks fine ingame.
@@ -52,7 +52,7 @@
 	applicable_stats = list(STAT_STRENGTH)
 
 /datum/storyteller_roll/damage/punch
-	bumper_text = "damage (punch)"
+	bumper_text = "伤害（拳击）"
 
 /datum/storyteller_roll/damage/punch/using_bonus(mob/living/roller, atom/target, bonus_added)
 	. = ..()
@@ -62,15 +62,15 @@
 		. += 2
 
 /datum/storyteller_roll/damage/bite
-	bumper_text = "damage (bite)"
+	bumper_text = "伤害（啃咬）"
 	bonus = 1
 
 /datum/storyteller_roll/damage/kick
-	bumper_text = "damage (kick)"
+	bumper_text = "伤害（踢击）"
 	bonus = 1
 
 /datum/storyteller_roll/damage/claw
-	bumper_text = "damage (claw)"
+	bumper_text = "伤害（爪击）"
 	bonus = 2
 
 /datum/storyteller_roll/damage/claw/using_bonus(mob/living/roller, atom/target, bonus_added)
@@ -89,7 +89,7 @@
 	applicable_stats = list(STAT_STRENGTH)
 
 /datum/storyteller_roll/shooting
-	bumper_text = "shooting"
+	bumper_text = "射击"
 	applicable_stats = list(STAT_DEXTERITY, STAT_FIREARMS)
 	reroll_cooldown = 1 TURNS
 	numerical = TRUE
@@ -116,12 +116,12 @@
 
 // Physical Feats
 /datum/storyteller_roll/lockpick
-	bumper_text = "lockpicking"
+	bumper_text = "撬锁"
 	reroll_cooldown = 1 SCENES
 	applicable_stats = list(STAT_DEXTERITY, STAT_LARCENY)
 
 /datum/storyteller_roll/bash_door
-	bumper_text = "bash door"
+	bumper_text = "破门"
 	reroll_cooldown = 1 SCENES
 	applicable_stats = list(STAT_STRENGTH)
 
@@ -131,19 +131,19 @@
 		. += 2
 
 /datum/storyteller_roll/grappling
-	bumper_text = "grappling"
+	bumper_text = "擒抱"
 	applicable_stats = list(STAT_STRENGTH, STAT_BRAWL)
 	numerical = TRUE
 	spammy_roll = TRUE
 
 /datum/storyteller_roll/grappled
-	bumper_text = "resisting"
+	bumper_text = "挣扎"
 	applicable_stats = list(STAT_STRENGTH, STAT_BRAWL)
 	numerical = TRUE
 	spammy_roll = TRUE
 
 /datum/storyteller_roll/climbing
-	bumper_text = "climbing"
+	bumper_text = "攀爬"
 	applicable_stats = list(STAT_DEXTERITY, STAT_ATHLETICS)
 
 /datum/storyteller_roll/climbing/using_difficulty(mob/living/roller, atom/target)
@@ -153,21 +153,21 @@
 
 // Mental Feats
 /datum/storyteller_roll/investigation
-	bumper_text = "investigation"
+	bumper_text = "调查"
 	applicable_stats = list(STAT_PERCEPTION, STAT_INVESTIGATION)
 	roll_output_type = ROLL_FLAG_ROLLER
 
 
 // Made up shittttt
 /datum/storyteller_roll/identify_occult
-	bumper_text = "identify"
+	bumper_text = "鉴定"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_OCCULT)
 	reroll_cooldown = 1 SCENES
 	difficulty = 8
 
 
 /datum/storyteller_roll/slip_restraints
-	bumper_text = "slip restraints"
+	bumper_text = "脱出束缚"
 	applicable_stats = list(STAT_DEXTERITY, STAT_STEALTH)
 	// reroll_cooldown = 1 TURNS
 	difficulty = 8
@@ -179,7 +179,7 @@
 
 // Based on `Feats of Strength` WTA pg. 270
 /datum/storyteller_roll/restraint_break
-	bumper_text = "breaking restraints"
+	bumper_text = "破坏束缚"
 	applicable_stats = list(STAT_PERMANENT_WILLPOWER)
 	// reroll_cooldown = 1 TURNS
 	difficulty = 9

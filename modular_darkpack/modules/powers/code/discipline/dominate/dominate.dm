@@ -2,12 +2,12 @@
 
 /datum/discipline/dominate
 	name = "Dominate"
-	desc = {"Suppresses will of your targets and forces them to obey you, if their will is not more powerful than yours.
-● Command: Manipulation + Intimidation
-●● Mesmerize: Manipulation + Leadership
-●●● The Forgetful Mind: Wits + Subterfuge
-●●●● Conditioning: Charisma + Leadership
-●●●●● Possession: Charisma + Intimidation"}
+	desc = {"压制目标的意志；只要对方的意志不比你强，就能迫使其服从。
+● 号令：操控 + 威吓
+●● 催眠：操控 + 领导
+●●● 遗忘之心：机敏 + 诡诈
+●●●● 心智驯化：魅力 + 领导
+●●●●● 附身：魅力 + 威吓"}
 	icon_state = "dominate"
 	power_type = /datum/discipline_power/dominate
 	var/list/botched_targets //a lazylist of weakrefs
@@ -37,22 +37,22 @@
 			if("snap")
 				target.SetSleeping(0)
 				target.dir = get_dir(target, owner)
-				target.emote("me", 1, "faces towards <b>[owner]</b> attentively.", TRUE)
-				to_chat(target, span_danger("ATTENTION"))
+				target.emote("me", 1, "专注地面向<b>[owner]</b>。", TRUE)
+				to_chat(target, span_danger("注意！"))
 			if("snap2")
 				target.dir = get_dir(target, owner)
 				target.Immobilize(50)
-				target.emote("me",1,"flinches in response to <b>[owner]'s</b> snapping.", TRUE)
-				to_chat(target, span_danger("HALT"))
+				target.emote("me",1,"听到<b>[owner]</b>的响指，猛地一颤。", TRUE)
+				to_chat(target, span_danger("停下！"))
 			if("snap3")
 				target.Knockdown(50)
 				target.Immobilize(80)
-				target.emote("me",1,"'s knees buckle under the weight of their body.",TRUE)
+				target.emote("me",1,"的双膝承受不住身体的重量，弯了下去。",TRUE)
 				target.do_jitter_animation(0.1 SECONDS)
-				to_chat(target, span_danger("DROP"))
+				to_chat(target, span_danger("倒下！"))
 			if("whistle")
 				target.apply_status_effect(STATUS_EFFECT_AWE, owner)
-				to_chat(target, span_danger("HITHER"))
+				to_chat(target, span_danger("过来！"))
 
 
 /datum/discipline_power/dominate
@@ -75,7 +75,7 @@
 
 	//dominate compels the target to have their gaze absolutely entrapped by the dominator
 	dominate_target.face_atom(owner)
-	to_chat(dominate_target, span_danger("You find yourself completely entranced by the stare of [owner]. You can't bring yourself to look away, call for help, or even attempt resistance. Pray that someone comes to save you by dragging or pushing you away."))
+	to_chat(dominate_target, span_danger("你完全陷入了[owner]的凝视之中，无法移开目光、呼救，甚至无力尝试抵抗。只能祈祷有人来将你拖走或推开，救你脱身。"))
 	owner.face_atom(dominate_target)
 	addtimer(CALLBACK(dominate_target, TYPE_PROC_REF(/mob/living/carbon/human, post_dominate_checks), dominate_target), 2 SECONDS)
 	return TRUE
@@ -86,7 +86,7 @@
 	var/datum/discipline/dominate/parent_disc = discipline
 
 	if(HAS_TRAIT(owner, TRAIT_NO_EYE_CONTACT))
-		to_chat(owner, span_warning("You are unable to make eye contact!"))
+		to_chat(owner, span_warning("你无法与对方对视！"))
 		return FALSE
 
 	//someone has botched a dominate against this human
@@ -97,7 +97,7 @@
 				LAZYREMOVE(parent_disc.botched_targets, ref)
 				continue
 			if(botched == target)
-				to_chat(owner, span_warning("Your previous botched attempt has made [target] resistant to your Dominate for the rest of the night."))
+				to_chat(owner, span_warning("你之前的大失败使[target]在今夜余下的时间内能够抵抗你的支配术。"))
 				return FALSE
 
 	//automatically succeed against my conditioned servant
@@ -163,18 +163,18 @@
 	//i've botched so now this person is immune to dominate for the rest of the round
 	if(mypower < 0)
 		LAZYADD(parent_disc.botched_targets, WEAKREF(target))
-		to_chat(owner, span_warning("Your Dominate attempt has botched! [target] is now resistant to your Dominate for the rest of the night."))
+		to_chat(owner, span_warning("你的支配术出现了大失败！[target]在今夜余下的时间内能够抵抗你的支配术。"))
 		return FALSE
 
 	var/datum/splat/vampire/kindred/owner_splat = get_kindred_splat(owner)
 	var/datum/splat/vampire/kindred/target_splat = get_kindred_splat(target)
 	if(target_splat)
 		if(owner_splat.generation > target_splat.generation)
-			to_chat(owner, span_warning("You fail to dominate [target], as their blood is more potent than yours!"))
+			to_chat(owner, span_warning("你无法支配[target]，对方的血液力量比你的更强！"))
 			return FALSE
 
 	if(HAS_TRAIT(target, TRAIT_MERIT_UNTAMABLE))
-		to_chat(owner, span_warning("You fail to dominate [target], they are an untamable beast!"))
+		to_chat(owner, span_warning("你无法支配[target]，那是一头无法驯服的野兽！"))
 		return FALSE
 
 	if(numerical == TRUE)
@@ -198,12 +198,12 @@
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/target = source
 	release_target(target)
-	to_chat(owner, span_warning("Your concentration is broken as [target] is attacked!"))
-	to_chat(target, span_warning("The mental hold on you breaks as you're attacked!"))
+	to_chat(owner, span_warning("[target]遭到攻击，打断了你的专注！"))
+	to_chat(target, span_warning("你遭到攻击，施加在你心灵上的控制随之解除！"))
 
 /datum/discipline_power/dominate/proc/release_target(mob/living/carbon/human/target)
 	UnregisterSignal(target, list(COMSIG_ATOM_ATTACKBY, COMSIG_MOB_ITEM_ATTACK, COMSIG_PROJECTILE_PREHIT))
-	to_chat(target, span_danger("You feel your concentration become your own once more, able to look away from the commanding gaze."))
+	to_chat(target, span_danger("你重新掌控了自己的注意力，终于能从那威严的目光中移开视线。"))
 	REMOVE_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_GENERIC)
 
 /mob/living/carbon/human/proc/post_dominate_checks(mob/living/carbon/human/dominate_target)
@@ -211,8 +211,8 @@
 
 //COMMAND
 /datum/discipline_power/dominate/command
-	name = "Command"
-	desc = "Speak one word and force others to obey."
+	name = "号令"
+	desc = "说出一个词，迫使他人服从。"
 	level = 1
 	check_flags = DISC_CHECK_SPEAK|DISC_CHECK_SEE|DISC_CHECK_DIRECT_SEE
 	target_type = TARGET_HUMAN
@@ -226,55 +226,55 @@
 /datum/discipline_power/dominate/command/proc/get_success_message(successes)
 	switch(successes)
 		if(1)
-			return "mild vigor and short duration"
+			return "力度轻微、持续短暂"
 		if(2)
-			return "normal compulsion"
+			return "通常程度的强迫"
 		if(3)
-			return "moderate vigor and extended duration"
+			return "力度适中、持续较久"
 		if(4)
-			return "great vigor and long duration"
+			return "力度强烈、持续长久"
 		if(5)
-			return "supernatural vigor"
+			return "超自然的强迫力量"
 		else
-			return "immediate and vigorous completion"
+			return "立即而坚决地执行"
 
 /datum/discipline_power/dominate/command/pre_activation_checks(mob/living/carbon/human/target)
 
-	custom_command = tgui_input_text(owner, "Dominate Command", "What is your command?", encode = FALSE)
+	custom_command = tgui_input_text(owner, "支配号令", "你的命令是什么？", encode = FALSE)
 	owner.say(custom_command)
 
 	successes = dominate_check(owner, target, list(STAT_MANIPULATION, STAT_INTIMIDATION), numerical = TRUE)
 	if(successes > 0)
 		var/command_strength = get_success_message(successes)
-		to_chat(owner, span_notice("You have the power to Command your target with [command_strength]!"))
+		to_chat(owner, span_notice("你能对目标施加号令，效果为：[command_strength]！"))
 		var/mob/living/carbon/human/conditioner = target.conditioner?.resolve()
 		if(owner != conditioner)
 			//V20 Dominate 'Command' section
 			if(length(splittext(custom_command, " ")) > 1)
-				to_chat(owner, span_warning("Commands must be only ONE word!"))
+				to_chat(owner, span_warning("命令只能包含一个词，不能有空格！"))
 				return FALSE
 		if(!custom_command)
 			return FALSE
 		return TRUE
 
-	to_chat(owner, span_warning("[target] has resisted your domination!"))
-	to_chat(target, span_warning("[owner] intensely stares at you."))
+	to_chat(owner, span_warning("[target]抵抗了你的支配！"))
+	to_chat(target, span_warning("[owner]紧紧地盯着你。"))
 	do_cooldown(TRUE)
 	return FALSE
 
 /datum/discipline_power/dominate/command/activate(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(owner, span_warning("You've successfully dominated [target]'s mind!"))
+	to_chat(owner, span_warning("你成功支配了[target]的心灵！"))
 	log_combat(owner, target, "Dominated with Command: [custom_command]")
 	to_chat(target, span_big("[custom_command]"))
 	var/command_strength = get_success_message(successes)
-	to_chat(target, span_warning("[owner] has successfully dominated your mind with [successes] successes. You feel compelled to [custom_command] with [command_strength]."))
+	to_chat(target, span_warning("[owner]以[successes]个成功数支配了你的心灵。你被迫执行“[custom_command]”，效果为：[command_strength]。"))
 	SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 
 // MESMERIZE
 /datum/discipline_power/dominate/mesmerize
-	name = "Mesmerize"
-	desc = "Plant a hypnotic suggestion in a target's head that will repeatedly echo in their mind."
+	name = "催眠"
+	desc = "在目标脑海中植入催眠暗示，使其在思绪中反复回响。"
 	level = 2
 	check_flags = DISC_CHECK_SPEAK|DISC_CHECK_SEE|DISC_CHECK_DIRECT_SEE
 	target_type = TARGET_HUMAN
@@ -289,24 +289,24 @@
 /datum/discipline_power/dominate/mesmerize/pre_activation_checks(mob/living/carbon/human/target)
 	//you can't mesmerize someone already mesmerized
 	if(HAS_TRAIT(target, TRAIT_MESMERIZED))
-		to_chat(owner, span_warning("[target] is already under a hypnotic suggestion!"))
+		to_chat(owner, span_warning("[target]已经受到催眠暗示的影响！"))
 		return FALSE
 
 	if(pulse_active)
-		to_chat(owner, span_warning("You already have an active mesmerization!"))
+		to_chat(owner, span_warning("你已经有一个正在生效的催眠！"))
 		return FALSE
 
 	var/successes = dominate_check(owner, target, list(STAT_MANIPULATION, STAT_LEADERSHIP), numerical = TRUE)
 	if(successes > 0)
-		custom_message = tgui_input_text(owner, "Hypnotic Suggestion", "What hypnotic message will echo in their mind?", encode = FALSE)
+		custom_message = tgui_input_text(owner, "催眠暗示", "要让什么催眠暗示在对方脑海中回响？", encode = FALSE)
 		if(!custom_message)
 			return FALSE
 		pulse_interval = successes
 		return TRUE
 	pulse_interval = 0
 
-	to_chat(owner, span_warning("[target] has resisted your domination!"))
-	to_chat(target, span_warning("[owner] intensely stares at you."))
+	to_chat(owner, span_warning("[target]抵抗了你的支配！"))
+	to_chat(target, span_warning("[owner]紧紧地盯着你。"))
 
 	do_cooldown(cooldown_length)
 	return FALSE
@@ -314,13 +314,13 @@
 /datum/discipline_power/dominate/mesmerize/activate(mob/living/carbon/human/target)
 	. = ..()
 	if(!immobilize_target(target, 10 SECONDS))
-		to_chat(owner, span_warning("You have broken concentration with [target] while implanting your hypnosis!"))
+		to_chat(owner, span_warning("向[target]植入催眠暗示时，你的专注被打断了！"))
 		return
 	target.throw_alert("mesmerize", /atom/movable/screen/alert/mesmerize)
 	log_combat(owner, target, "Dominated with Mesmerize: [custom_message]")
-	to_chat(owner, span_warning("You've successfully planted a hypnotic suggestion in [target]'s mind!"))
+	to_chat(owner, span_warning("你成功在[target]的脑海中植入了催眠暗示！"))
 	owner.say(custom_message)
-	to_chat(target, span_info("An urging, subconcious thought has entered your mind. Youre not sure how this happened - but it keeps pulsing, forcing your conscious thought to bend toward it."))
+	to_chat(target, span_info("一个催促你的念头潜入了你的潜意识。你不明白它从何而来，但它不断涌现，迫使你清醒时的思绪向它靠拢。"))
 	to_chat(target, span_hypnophrase(custom_message))
 	SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 	current_target_ref = WEAKREF(target)
@@ -355,7 +355,7 @@
 	//once its pulsed 5 times, end the mesmerization. we don't need people seeing 'shit yourself' every minute til roundend.
 	if(pulse_count >= 5)
 		REMOVE_TRAIT(target, TRAIT_MESMERIZED, TRAIT_GENERIC)
-		to_chat(target, span_notice("The hypnotic suggestion's pulsing fades, either taking root, or fading silently as your concious slowly returns to its natural state."))
+		to_chat(target, span_notice("催眠暗示不再反复涌现，或已扎根，或随着你的意识逐渐恢复正常而悄然消散。"))
 		cleanup_mesmerization()
 		return
 
@@ -370,7 +370,7 @@
 	pulse_active = FALSE
 	REMOVE_TRAIT(current_target, TRAIT_MESMERIZED, TRAIT_GENERIC)
 	to_chat(current_target, span_hypnophrase("<font size='4'><b>[custom_message]</b></font>"))
-	to_chat(current_target, span_notice("The hypnotic suggestion's pulsing fades, either taking root, or fading silently as your concious slowly returns to its natural state."))
+	to_chat(current_target, span_notice("催眠暗示不再反复涌现，或已扎根，或随着你的意识逐渐恢复正常而悄然消散。"))
 	current_target.clear_alert("mesmerize")
 	cleanup_mesmerization()
 
@@ -386,8 +386,8 @@
 	end_action_ref = null
 
 /datum/action/vampire/end_mesmerization
-	name = "End Mesmerization"
-	desc = "Forcibly end your active mesmerization effect."
+	name = "终止催眠"
+	desc = "强制结束你正在维持的催眠效果。"
 	button_icon_state = "dominate"
 	var/datum/discipline_power/dominate/mesmerize/linked_power
 
@@ -407,8 +407,8 @@
 
 // THE FORGETFUL MIND
 /datum/discipline_power/dominate/the_forgetful_mind
-	name = "The Forgetful Mind"
-	desc = "Invade a person's mind and recreate their memories."
+	name = "遗忘之心"
+	desc = "侵入一个人的心灵，重塑其记忆。"
 	level = 3
 	check_flags = DISC_CHECK_SPEAK|DISC_CHECK_SEE|DISC_CHECK_DIRECT_SEE
 	target_type = TARGET_HUMAN
@@ -421,49 +421,49 @@
 /datum/discipline_power/dominate/the_forgetful_mind/proc/get_success_message(successes)
 	switch(successes)
 		if(1)
-			return "a single memory is permanently removed, and no alteration takes its place, leaving a void for the true memory to bubble up with the right circumstances"
+			return "可以永久移除一段记忆，但无法用新记忆替代；留下的空白可能让真实记忆在适当的情境下重新浮现"
 		if(2)
-			return "multiple memories may be permanently removed, but not altered, leaving a void for the true memories to potentially re-emerge with intense recollection"
+			return "可以永久移除多段记忆，但无法改写；留下的空白可能让真实记忆在竭力回想时重新浮现"
 		if(3)
-			return "multiple memories may be permanently altered or removed, but without careful and precise alteration, the true memories may crawl forth much later"
+			return "可以永久改写或移除多段记忆，但若改写不够细致准确，真实记忆可能在很久以后重新浮现"
 		if(4)
-			return "deep and intense alterations or removals may take place in the memory, changing entire events or conversations with great strength"
+			return "可以对记忆进行深入而强力的改写或移除，彻底改变整件事情或整段对话的记忆"
 		if(5 to INFINITY)
-			return "entire periods of life may be completely restructured or otherwise as the subconcious completely collapses"
+			return "潜意识完全瓦解，可以彻底重构整段人生经历或进行其他改动"
 
 /datum/discipline_power/dominate/the_forgetful_mind/pre_activation_checks(mob/living/carbon/human/target)
 
 	successes = dominate_check(owner, target, list(STAT_WITS, STAT_SUBTERFUGE), numerical = TRUE)
 	if(successes > 0)
 		var/mindwipe_strength = get_success_message(successes)
-		to_chat(owner, span_notice("Your hypnotic glare captures [target] to the point where [mindwipe_strength]"))
-		custom_memory = tgui_input_text(owner, "Memory Alteration", "What memory will you implant or alter?", encode = FALSE)
+		to_chat(owner, span_notice("你的催眠凝视俘获了[target]，效果为：[mindwipe_strength]。"))
+		custom_memory = tgui_input_text(owner, "改写记忆", "你要植入或改写什么记忆？", encode = FALSE)
 		if(!custom_memory)
 			return FALSE
 		return TRUE
-	to_chat(owner, span_warning("[target] has resisted your domination!"))
-	to_chat(target, span_warning("[owner] intensely stares at you."))
+	to_chat(owner, span_warning("[target]抵抗了你的支配！"))
+	to_chat(target, span_warning("[owner]紧紧地盯着你。"))
 	do_cooldown(cooldown_length)
 	return FALSE
 
 /datum/discipline_power/dominate/the_forgetful_mind/activate(mob/living/carbon/human/target)
 	. = ..()
 	if(!immobilize_target(target, 10 SECONDS))
-		to_chat(owner, span_danger("Youve broken concentration with [target] and your Domination fails..."))
+		to_chat(owner, span_danger("你对[target]的专注被打断，支配失败了……"))
 		return
 	log_combat(owner, target, "Dominated with The Forgetful Mind: [custom_memory]")
-	to_chat(owner, span_warning("You've successfully invaded [target]'s mind and altered their memories!"))
+	to_chat(owner, span_warning("你成功侵入了[target]的心灵，改写了其记忆！"))
 	owner.say(custom_memory, forced = FALSE, bubble_type = SPEECH_BUBBLE_TYPE)
 	to_chat(target, span_hypnophrase(custom_memory))
 	SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 	SEND_SIGNAL(target, COMSIG_ALL_MASQUERADE_REINFORCE)
 	var/mindwipe_strength = get_success_message(successes)
-	to_chat(target, span_warning("[owner] has successfully dominated your mind with [successes] success[successes == 1 ? "" : "es"]. Their hypnotism is so strong that [mindwipe_strength]"))
+	to_chat(target, span_warning("[owner]以[successes]个成功数支配了你的心灵。其催眠力量达到了这样的程度：[mindwipe_strength]。"))
 
 // CONDITIONING
 /datum/discipline_power/dominate/conditioning
-	name = "Conditioning"
-	desc = "Break a person's mind over time and bend them to your will."
+	name = "心智驯化"
+	desc = "逐渐摧毁一个人的心智，使其服从你的意志。"
 	level = 4
 	check_flags = DISC_CHECK_SPEAK|DISC_CHECK_SEE|DISC_CHECK_DIRECT_SEE
 	target_type = TARGET_HUMAN
@@ -475,28 +475,28 @@
 
 	var/roll_success = dominate_check(owner, target, list(STAT_CHARISMA, STAT_LEADERSHIP))
 	if(!roll_success)
-		to_chat(owner, span_warning("[target]'s mind has resisted your domination!"))
+		to_chat(owner, span_warning("[target]的心灵抵抗了你的支配！"))
 		do_cooldown(cooldown_length)
 	return roll_success
 
 /datum/discipline_power/dominate/conditioning/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.dir = get_dir(target, owner)
-	to_chat(target, span_danger("LOOK AT ME"))
-	owner.say("Look at me.")
+	to_chat(target, span_danger("看着我！"))
+	owner.say("看着我。")
 	if(!immobilize_target(target, 20 SECONDS))
-		to_chat(owner, span_warning("Your concentration was broken!"))
-		to_chat(target, span_notice("The oppressive mental presence suddenly withdraws."))
+		to_chat(owner, span_warning("你的专注被打断了！"))
+		to_chat(target, span_notice("那压迫心灵的力量突然退去了。"))
 		return
 	target.conditioner = WEAKREF(owner)
 	target.throw_alert("conditioning", /atom/movable/screen/alert/conditioning)
-	to_chat(target, span_hypnophrase("Your mind is filled with thoughts surrounding [owner]. Their every word and gesture carries immense weight to you."))
+	to_chat(target, span_hypnophrase("你的脑海中满是关于[owner]的念头。对方的一言一行对你而言都无比重要。"))
 	SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 
 // POSSESSION
 /datum/discipline_power/dominate/possession
-	name = "Possession"
-	desc = "Take full control of your target's mind and body."
+	name = "附身"
+	desc = "完全掌控目标的心灵与身体。"
 	level = 5
 	check_flags = DISC_CHECK_SPEAK|DISC_CHECK_SEE|DISC_CHECK_DIRECT_SEE
 	target_type = TARGET_HUMAN
@@ -507,43 +507,43 @@
 /datum/discipline_power/dominate/possession/pre_activation_checks(mob/living/carbon/human/target)
 
 	if(get_kindred_splat(target) || get_garou_splat(target)) // DARKPACK TODO: reimplement Kuei-Jin
-		to_chat(owner, span_warning("You cannot possess [get_kindred_splat(target) ? "another kindred" : "this creature - the beast within resists"]!"))
+		to_chat(owner, span_warning("[get_kindred_splat(target) ? "你无法附身于另一名血族" : "你无法附身于这个生物——其内在的野兽正在抵抗"]！"))
 		return FALSE
 
 	if(target.possessed)
-		to_chat(owner, span_warning("This mortal is already possessed!"))
+		to_chat(owner, span_warning("这个凡人已经被附身了！"))
 		return FALSE
 
 	var/roll_success = dominate_check(owner, target, list(STAT_CHARISMA, STAT_INTIMIDATION))
 	if(!roll_success)
-		to_chat(owner, span_warning("[target] has resisted your domination!"))
-		to_chat(target, span_warning("[owner] intensely stares at you."))
+		to_chat(owner, span_warning("[target]抵抗了你的支配！"))
+		to_chat(target, span_warning("[owner]紧紧地盯着你。"))
 		do_cooldown(cooldown_length)
 	return roll_success
 
 /datum/discipline_power/dominate/possession/activate(mob/living/carbon/human/target)
 	. = ..()
 	target.dir = get_dir(target, owner)
-	to_chat(target, span_danger("Your body freezes as an overwhelming presence invades your mind..."))
+	to_chat(target, span_danger("一股压倒性的力量侵入你的心灵，你的身体僵住了……"))
 
-	to_chat(owner, span_warning("You begin weaving your consciousness into [target]'s mind..."))
+	to_chat(owner, span_warning("你开始将自己的意识融入[target]的心灵……"))
 
 	if(!immobilize_target(target, 30 SECONDS))
-		to_chat(owner, span_warning("Your concentration was broken!"))
-		to_chat(target, span_notice("The oppressive mental presence suddenly withdraws."))
+		to_chat(owner, span_warning("你的专注被打断了！"))
+		to_chat(target, span_notice("那压迫心灵的力量突然退去了。"))
 		return
 	var/datum/possession_controller/controller = new(owner, target, src)
 	active_possession = WEAKREF(controller)
-	to_chat(owner, span_warning("You have seized control of [target]'s body!"))
-	to_chat(target, span_danger("Your consciousness is violently displaced as another mind takes control!"))
+	to_chat(owner, span_warning("你夺取了[target]身体的控制权！"))
+	to_chat(target, span_danger("另一个心灵夺取了控制权，你的意识被粗暴地挤了出去！"))
 	target.possessed = TRUE
 	log_combat(owner, target, "Possessed via Dominate Possession")
 	SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 
 //AUTONOMIC MASTERY
 /datum/discipline_power/dominate/autonomic_mastery
-	name = "Autonomic Mastery"
-	desc = "Control the Autonomic Systems of a target."
+	name = "自主神经掌控"
+	desc = "控制目标的自主神经系统。"
 
 	level = 6
 
@@ -564,32 +564,32 @@
 
 /datum/discipline_power/dominate/autonomic_mastery/activate(mob/living/carbon/human/target)
 	. = ..()
-	to_chat(owner, span_warning("You've successfully dominated [target]'s bodily functions!"))
-	var/list/orders = list("Sleep", "Wake", "Heart Attack", "Revive")
-	var/order = tgui_input_list(owner, "Select a Command","Command Selection", orders)
+	to_chat(owner, span_warning("你成功支配了[target]的身体机能！"))
+	var/list/orders = list("入睡", "醒来", "心脏病发作", "复苏")
+	var/order = tgui_input_list(owner, "选择一个命令","选择命令", orders)
 	if(!order)
 		return
 	switch(order)
-		if("Sleep")
-			owner.say("Sleep")
+		if("入睡")
+			owner.say("睡吧")
 			target.Sleeping(200)
-			to_chat(target, span_danger("You feel suddenly exhausted"))
+			to_chat(target, span_danger("你突然感到筋疲力尽。"))
 			SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
-		if("Wake")
-			owner.say("Wake")
+		if("醒来")
+			owner.say("醒来")
 			target.SetSleeping(0)
-			to_chat(target, span_danger("You feel suddenly energetic"))
+			to_chat(target, span_danger("你突然感到精力充沛。"))
 			SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
-		if("Heart Attack")
-			owner.say("Die")
+		if("心脏病发作")
+			owner.say("死去")
 			target.adjust_stamina_loss(60, FALSE)
 			target.set_heartattack(TRUE)
-			to_chat(target, span_danger("You feel a terrible pain in your chest!"))
+			to_chat(target, span_danger("你的胸口传来一阵剧痛！"))
 			SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
-		if("Revive")
-			owner.say("Live")
+		if("复苏")
+			owner.say("活过来")
 			target.set_heartattack(FALSE)
-			to_chat(target, span_danger("You feel your heart pound!"))
+			to_chat(target, span_danger("你感到心脏猛烈地跳动起来！"))
 			target.revive()
 			SEND_SOUND(target, sound('modular_darkpack/modules/powers/sounds/dominate.ogg'))
 

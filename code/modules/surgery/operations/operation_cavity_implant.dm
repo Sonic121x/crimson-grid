@@ -1,6 +1,6 @@
 /datum/surgery_operation/limb/prepare_cavity
-	name = "widen chest cavity"
-	desc = "Widen a patient's chest cavity to allow for implanting of larger items."
+	name = "扩张胸腔"
+	desc = "扩张患者的胸腔，以便植入更大的物品。"
 	implements = list(
 		TOOL_RETRACTOR = 1,
 		TOOL_CROWBAR = 1.5,
@@ -35,8 +35,8 @@
 	limb.add_surgical_state(SURGERY_CAVITY_WIDENED)
 
 /datum/surgery_operation/limb/undo_prepare_cavity
-	name = "close chest cavity"
-	desc = "Reset a patient's chest cavity."
+	name = "闭合胸腔"
+	desc = "将患者的胸腔恢复原状。"
 	implements = list(
 		TOOL_RETRACTOR = 1,
 		TOOL_CROWBAR = 1.5,
@@ -70,8 +70,8 @@
 	limb.remove_surgical_state(SURGERY_CAVITY_WIDENED)
 
 /datum/surgery_operation/limb/cavity_implant
-	name = "cavity implant"
-	desc = "Implant an item into a patient's body cavity."
+	name = "体腔植入"
+	desc = "将一件物品植入患者的体腔。"
 	operation_flags = OPERATION_NOTABLE
 	implements = list(
 		/obj/item = 1,
@@ -155,8 +155,8 @@
 
 
 /datum/surgery_operation/limb/undo_cavity_implant
-	name = "remove cavity implant"
-	desc = "Remove an item from a body cavity."
+	name = "取出体腔植入物"
+	desc = "从体腔中取出一件物品。"
 	implements = list(
 		IMPLEMENT_HAND = 1,
 		TOOL_HEMOSTAT = 2,

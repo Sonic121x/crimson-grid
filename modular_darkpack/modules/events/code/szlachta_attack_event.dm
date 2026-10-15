@@ -20,8 +20,8 @@
 	announce_chance = 75
 
 /datum/round_event/szlachta/announce(fake)
-	var/endpost_szlachta_author = pick("thesupernaturalguy71", "mhaley71", "justplumbin92", "illuminati_truther777", "satanwatch_now")
-	var/endpost_szlachta_post = pick("saw something soooo weird... :) new video coming soon on my channel", "just had the most terrifying moment of my life. saw some kind of monster.", "Yeap, whatever I saw, I'm just goin' right the fuck home.", "(the post has an extremely blurry image attached of what looks to be some kind monster. is it photoshopped?)")
+	var/endpost_szlachta_author = pick("超自然老哥71", "M海莉71", "水管工而已92", "光明会真相者777", "撒旦观察进行时")
+	var/endpost_szlachta_post = pick("看到了个超——级古怪的东西…… :) 新视频很快就会发到我的频道", "刚经历了这辈子最恐怖的一刻。看到了一种怪物。", "行吧，不管那是什么，老子现在就回家。", "（帖子附着一张极其模糊的照片，看起来像是某种怪物。是修图造假的吗？）")
 	endpost_announce(endpost_szlachta_post, endpost_szlachta_author)
 
 /datum/round_event/szlachta/start()

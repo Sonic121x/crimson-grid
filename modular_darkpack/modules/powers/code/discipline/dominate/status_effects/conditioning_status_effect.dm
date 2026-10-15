@@ -1,4 +1,4 @@
 /atom/movable/screen/alert/conditioning
-	name = "Conditioned"
-	desc = "Your mind has been broken and conditioned to obey."
+	name = "心智驯化"
+	desc = "你的心智已被摧毁，驯化为唯命是从的状态。"
 	icon_state = "hypnosis"

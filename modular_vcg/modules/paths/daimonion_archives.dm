@@ -6,22 +6,22 @@
 	pixel_w = -16
 	pixel_z = -16
 	owner_needed = FALSE
-	desc = "Use your demonic knowledge to ask for favors of Infernal. "
-	name = "Infernal Rune"
+	desc = "用你的恶魔学识向炼狱诸魔祈求恩宠。"
+	name = "炼狱符文"
 
 	products_list = list(
 	// SPELLBOOKS
-	new /datum/data/vending_product("Path of Pain Spellbook (Level I)",	/obj/item/path_spellbook/path_of_pain/level1,	130),
-	new /datum/data/vending_product("Path of Pain Spellbook (Level II)",	/obj/item/path_spellbook/path_of_pain/level2,	180),
-	new /datum/data/vending_product("Path of Pain Spellbook (Level III)",	/obj/item/path_spellbook/path_of_pain/level3,	210),
-	new /datum/data/vending_product("Path of Pain Spellbook (Level IV)",	/obj/item/path_spellbook/path_of_pain/level4,	240),
-	new /datum/data/vending_product("Path of Pain Spellbook (Level V)",	/obj/item/path_spellbook/path_of_pain/level5,	270),
+	new /datum/data/vending_product("痛苦之道法术书（I 级）",	/obj/item/path_spellbook/path_of_pain/level1,	130),
+	new /datum/data/vending_product("痛苦之道法术书（II 级）",	/obj/item/path_spellbook/path_of_pain/level2,	180),
+	new /datum/data/vending_product("痛苦之道法术书（III 级）",	/obj/item/path_spellbook/path_of_pain/level3,	210),
+	new /datum/data/vending_product("痛苦之道法术书（IV 级）",	/obj/item/path_spellbook/path_of_pain/level4,	240),
+	new /datum/data/vending_product("痛苦之道法术书（V 级）",	/obj/item/path_spellbook/path_of_pain/level5,	270),
 
-	new /datum/data/vending_product("Fires of Inferno Spellbook (Level I)",	/obj/item/path_spellbook/fires_of_inferno/level1,	130),
-	new /datum/data/vending_product("Fires of Inferno Spellbook (Level II)",	/obj/item/path_spellbook/fires_of_inferno/level2,	180),
-	new /datum/data/vending_product("Fires of Inferno Spellbook (Level III)",	/obj/item/path_spellbook/fires_of_inferno/level3,	210),
-	new /datum/data/vending_product("Fires of Inferno Spellbook (Level IV)",	/obj/item/path_spellbook/fires_of_inferno/level4,	240),
-	new /datum/data/vending_product("Fires of Inferno Spellbook (Level V)",	/obj/item/path_spellbook/fires_of_inferno/level5, 270),
+	new /datum/data/vending_product("炼狱之火法术书（I 级）",	/obj/item/path_spellbook/fires_of_inferno/level1,	130),
+	new /datum/data/vending_product("炼狱之火法术书（II 级）",	/obj/item/path_spellbook/fires_of_inferno/level2,	180),
+	new /datum/data/vending_product("炼狱之火法术书（III 级）",	/obj/item/path_spellbook/fires_of_inferno/level3,	210),
+	new /datum/data/vending_product("炼狱之火法术书（IV 级）",	/obj/item/path_spellbook/fires_of_inferno/level4,	240),
+	new /datum/data/vending_product("炼狱之火法术书（V 级）",	/obj/item/path_spellbook/fires_of_inferno/level5, 270),
 
 	/* Commented out until these have been added
 	new /datum/data/vending_product("Taking of Spirit Spellbook (Level I)",	/obj/item/path_spellbook/taking_of_spirit/level1,	130),
@@ -32,20 +32,20 @@
 	*/
 	// ARTIFACTS
 	// Lower tier artifacts
-	new /datum/data/vending_product("Weekapaug Thistle", /obj/item/occult_artifact/vampire/weekapaug_thistle, 75),
-	new /datum/data/vending_product("Mummywrap Fetish", /obj/item/occult_artifact/vampire/mummywrap_fetish, 70),
-	new /datum/data/vending_product("Galdjum", /obj/item/occult_artifact/vampire/galdjum, 70),
-	new /datum/data/vending_product("Bloodstar", /obj/item/occult_artifact/vampire/bloodstar, 70),
+	new /datum/data/vending_product("威卡帕格蓟", /obj/item/occult_artifact/vampire/weekapaug_thistle, 75),
+	new /datum/data/vending_product("裹尸布灵器", /obj/item/occult_artifact/vampire/mummywrap_fetish, 70),
+	new /datum/data/vending_product("加尔朱姆", /obj/item/occult_artifact/vampire/galdjum, 70),
+	new /datum/data/vending_product("血星", /obj/item/occult_artifact/vampire/bloodstar, 70),
 
 	// Mid tier artifacts
-	new /datum/data/vending_product("Fae Charm", /obj/item/occult_artifact/vampire/fae_charm, 120),
-	new /datum/data/vending_product("Daimonori", /obj/item/occult_artifact/vampire/daimonori, 120),
-	new /datum/data/vending_product("Key of Alamut", /obj/item/occult_artifact/vampire/key_of_alamut, 130),
-	new /datum/data/vending_product("Heart of Eliza", /obj/item/occult_artifact/vampire/heart_of_eliza, 140),
-	new /datum/data/vending_product("Bloodstone", /obj/item/occult_artifact/vampire/bloodstone, 140),
+	new /datum/data/vending_product("妖精护符", /obj/item/occult_artifact/vampire/fae_charm, 120),
+	new /datum/data/vending_product("戴蒙诺里", /obj/item/occult_artifact/vampire/daimonori, 120),
+	new /datum/data/vending_product("阿拉穆特之钥", /obj/item/occult_artifact/vampire/key_of_alamut, 130),
+	new /datum/data/vending_product("伊莱莎之心", /obj/item/occult_artifact/vampire/heart_of_eliza, 140),
+	new /datum/data/vending_product("血石", /obj/item/occult_artifact/vampire/bloodstone, 140),
 
 	// High tier artifacts
-	new /datum/data/vending_product("Odious Chalice", /obj/item/occult_artifact/vampire/odious_chalice, 180),
+	new /datum/data/vending_product("憎恶之杯", /obj/item/occult_artifact/vampire/odious_chalice, 180),
 
 )
 
@@ -83,10 +83,10 @@
 				var/spawn_point = sacrificed_human.mind.assigned_role.get_roundstart_spawn_point()
 				if(spawn_point)
 					if(HAS_TRAIT_FROM(sacrificed_human, TRAIT_AURA_OF_INFERNO, DAIMONION_TRAIT))
-						to_chat(sacrificed_human, span_userdanger("YOUR SOUL IS DRAGGED INTO THE INFERNAL PLANE!"))
+						to_chat(sacrificed_human, span_userdanger("你的灵魂被拖入了炼狱位面！"))
 						sacrificed_human.dust(drop_items = TRUE)
 						continue
-					to_chat(sacrificed_human, span_userdanger("SOMETHING TEARS AT YOUR SOUL! THE PAIN!"))
+					to_chat(sacrificed_human, span_userdanger("有什么正在撕扯你的灵魂！好痛！"))
 					sacrificed_human.forceMove(spawn_point)
 					ADD_TRAIT(sacrificed_human, TRAIT_AURA_OF_INFERNO, DAIMONION_TRAIT)
 					SEND_SIGNAL(sacrificed_human, COMSIG_MOB_UPDATE_AURA)
@@ -98,7 +98,7 @@
 					sacrificed_human.dust(drop_items = TRUE)
 				sacrifice = TRUE
 			if(upset)
-				to_chat(human_user, span_warning("THE INFERNAL DESIRE ONLY MINDFUL BEINGS!"))
+				to_chat(human_user, span_warning("炼狱诸魔只渴求拥有心智的生灵！"))
 				human_user.adjust_fire_stacks(1, overwrite_color = COLOR_VERY_DARK_LIME_GREEN)
 			if(sacrifice || upset)
 				playsound(get_turf(src), 'sound/effects/magic/demon_dies.ogg', 100, TRUE)
@@ -109,8 +109,8 @@
 
 /obj/structure/retail/occult/baali/proc/on_wake_up(mob/living/carbon/human/sacrificed_human)
 	sacrificed_human.SetSleeping(0)
-	to_chat(sacrificed_human, span_warning("The pain fades, but you feel hollow. You won't survive a second time."))
-	to_chat(sacrificed_human, span_userdanger("YOU CANNOT REMEMBER WHO TOOK YOU, WHERE YOU WERE, OR ANYTHING THAT LED TO THIS MOMENT."))
+	to_chat(sacrificed_human, span_warning("痛苦逐渐消退，但你感到内心空洞。再来一次，你就活不成了。"))
+	to_chat(sacrificed_human, span_userdanger("你不记得是谁带走了你，也不记得身处何地，更不记得此前发生过什么。"))
 
 // BaaliSpellbookVendor.jsx in tgui/interfaces
 /obj/structure/retail/occult/baali/proc/interface_interact(mob/user, datum/tgui/ui)
@@ -130,7 +130,7 @@
 		.["user"]["has_privileges"] = has_purchase_privileges(human_user)
 	else
 		.["user"]["points"] = 0
-		.["user"]["name"] = "Unknown"
+		.["user"]["name"] = "未知"
 		.["user"]["has_daimonion"] = FALSE
 		.["user"]["has_privileges"] = FALSE
 
@@ -165,18 +165,18 @@
 	var/datum/data/vending_product/prize = locate(params["ref"]) in products_list
 	var/current_stock = prize.amount
 	if(current_stock <= 0)
-		to_chat(usr, span_alert("Error: [prize.name] is out of stock!"))
+		to_chat(usr, span_alert("错误：[prize.name]已售罄！"))
 		return
 
 	if(prize.price > human_user.infernal_favor)
-		to_chat(usr, span_alert("Error: Insufficient amount of favor for [prize.name]! You need [prize.price] favor."))
+		to_chat(usr, span_alert("错误：恩宠不足，无法购买[prize.name]！你需要[prize.price]点恩宠。"))
 		return
 
 	human_user.infernal_favor -= prize.price
 
 	prize.amount -= 1
 
-	to_chat(usr, span_notice("The infernal rune emanates demonic energies as it materializes [prize.name]!"))
+	to_chat(usr, span_notice("炼狱符文涌出恶魔能量，[prize.name]随之显现！"))
 	new prize.product_path(loc)
 	return TRUE
 
@@ -192,7 +192,7 @@
 		var/mob/living/carbon/human/human_user = user
 
 		if(artifact.research_value <= 0)
-			to_chat(user, span_warning("The Infernal find no value in this artifact."))
+			to_chat(user, span_warning("炼狱诸魔认为这件遗物毫无价值。"))
 			return ITEM_INTERACT_BLOCKING
 
 		human_user.infernal_favor += artifact.research_value
@@ -219,11 +219,11 @@
 			/obj/item/path_spellbook/taking_of_spirit/level5)) */
 
 		if(artifact.research_value >= 20)
-			to_chat(user, span_nicegreen("The Infernal hungrily consume the powerful artifact, granting you [artifact.research_value] favor and adding it to their collection!"))
+			to_chat(user, span_nicegreen("炼狱诸魔贪婪地吞下这件强大的遗物，将其纳入收藏，并赐予你[artifact.research_value]点恩宠！"))
 		else if(artifact.research_value >= 10)
-			to_chat(user, span_notice("The Infernal absorb the artifact's essence, granting you [artifact.research_value] favor and storing its knowledge."))
+			to_chat(user, span_notice("炼狱诸魔吸收了遗物的精华，保存其中的知识，并赐予你[artifact.research_value]点恩宠。"))
 		else
-			to_chat(user, span_notice("The Infernal reluctantly accept the minor artifact, granting you [artifact.research_value] favor and filing it away."))
+			to_chat(user, span_notice("炼狱诸魔勉强收下这件不起眼的遗物，将其收存，并赐予你[artifact.research_value]点恩宠。"))
 
 		qdel(artifact)
 		return ITEM_INTERACT_SUCCESS
@@ -241,7 +241,7 @@
 
 		increment_stock(spellbook.type)
 
-		to_chat(user, span_notice("The Infernal accept your spellbook, granting you [research_reward] favor and adding its knowledge to the collection."))
+		to_chat(user, span_notice("炼狱诸魔收下了你的法术书，将其中的知识纳入收藏，并赐予你[research_reward]点恩宠。"))
 
 		qdel(spellbook)
 		return ITEM_INTERACT_SUCCESS

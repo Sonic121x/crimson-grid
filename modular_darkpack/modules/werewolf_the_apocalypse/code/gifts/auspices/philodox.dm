@@ -1,7 +1,7 @@
 
 /datum/action/cooldown/power/gift/resist_pain
-	name = "Resist Pain"
-	desc = "Through force of will, the Philodox is able to ignore the pain of his wounds and continue acting normally."
+	name = "抵抗疼痛"
+	desc = "半月仲裁者凭借意志忽略伤口的疼痛，继续正常行动。"
 	button_icon_state = "resist_pain"
 	rank = 1
 	willpower_cost = 1
@@ -22,14 +22,14 @@
 /datum/status_effect/resist_pain/on_apply()
 	. = ..()
 
-	to_chat(owner, span_notice("You feel your skin thickening..."))
+	to_chat(owner, span_notice("你感到皮肤正在变厚……"))
 	owner.add_traits(list(TRAIT_NOSOFTCRIT, TRAIT_ANALGESIA), GIFT_TRAIT)
 	owner.add_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 
 /datum/status_effect/resist_pain/on_remove()
 	owner.remove_traits(list(TRAIT_NOSOFTCRIT, TRAIT_ANALGESIA), GIFT_TRAIT)
 	owner.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
-	to_chat(owner, span_warning("Your skin is thin again..."))
+	to_chat(owner, span_warning("你的皮肤又变薄了……"))
 
 	return ..()
 
@@ -45,41 +45,41 @@
 	roll_output_type = ROLL_FLAG_ROLLER
 
 /datum/action/cooldown/power/gift/scent_of_the_true_form
-	name = "Scent Of The True Form"
-	desc = "This Gift allows the Garou to determine the true nature of a person."
+	name = "真形之嗅"
+	desc = "此天赋让狼人辨明一个人的真实本质。"
 	button_icon_state = "scent_of_the_true_form"
 	click_to_activate = TRUE
 	rank = 1
 	var/static/list/wyld_descriptors = list(
-		"ozone",
-		"euphoria",
-		"flowers",
-		"an unseen breeze",
-		"petrichor",
-		"the calm after a thunderstorm",
-		"a primal ocean",
-		"the anticipation of limitless possibility"
+		"臭氧",
+		"欣喜若狂",
+		"鲜花",
+		"无形微风",
+		"雨后泥土",
+		"雷雨后的宁静",
+		"原始海洋",
+		"对无限可能的期待"
 	)
 	var/static/list/weaver_descriptors = list(
-		"sound patterns",
-		"cleaning fluid",
-		"hand sanitizer",
-		"a spider\'s web",
-		"silken thread",
-		"metal",
-		"a sudden drain of energy",
-		"flashing lights",
-		"alarms and sirens"
+		"规律声响",
+		"清洁剂",
+		"洗手液",
+		"蛛网",
+		"丝线",
+		"金属",
+		"骤然流失的能量",
+		"闪烁灯光",
+		"警报与汽笛"
 	)
 	var/static/list/wyrm_descriptors = list(
-		"rot",
-		"decay",
-		"fear",
-		"an animal that died in fear",
-		"depression",
-		"hopelessness",
-		"pain",
-		"lengethening shadows"
+		"腐烂",
+		"衰败",
+		"恐惧",
+		"在恐惧中死去的动物",
+		"消沉",
+		"绝望",
+		"痛苦",
+		"不断拉长的阴影"
 	)
 
 /datum/action/cooldown/power/gift/scent_of_the_true_form/set_click_ability(mob/on_who)
@@ -90,7 +90,7 @@
 	if(!isliving(target))
 		return
 	if(!(target in range(3, owner)))
-		to_chat(owner, span_warning("You can't smell [target] from here."))
+		to_chat(owner, span_warning("你在这里闻不到[target]的气味。"))
 		return
 
 	. = ..()
@@ -108,7 +108,7 @@
 				secondary_descriptor = "[pick(weaver_descriptors)]"
 			if(TRIBE_BLACK_SPIRAL_DANCERS)
 				secondary_descriptor = "[pick(wyrm_descriptors)]"
-		to_chat(owner, span_purple("[victim] smells like kin[secondary_descriptor ? "...<br>...and of [secondary_descriptor]." : "."]"))
+		to_chat(owner, span_purple("[victim]散发着同类的气息[secondary_descriptor ? "……<br>……还带着[secondary_descriptor]的气息。" : "。"]"))
 	else
 		var/successes = SSroll.storyteller_roll_datum(owner, null, /datum/storyteller_roll/gift/scent_of_the_true_form, bonus = PRIMAL_URGE_PLACEHOLDER)
 		// CRIMSON EDIT ADD START - true_form oversuccess fix
@@ -117,14 +117,14 @@
 		// CRIMSON EDIT ADD END - true_form oversuccess fix
 		switch(successes)
 			if(0)
-				to_chat(owner, span_purple("You can't exactly tell what [victim] smells like."))
+				to_chat(owner, span_purple("你无法准确辨别[victim]的气味。"))
 			if(1)
-				to_chat(owner, span_purple("[victim] smells mundane."))
+				to_chat(owner, span_purple("[victim]的气息很平凡。"))
 			if(2 to 3)
 				if(get_kindred_splat(victim))
-					to_chat(owner, span_purple("[victim] smells of [HAS_TRAIT(victim, TRAIT_HIDDEN_WYRMTAINT) ? pick(wyld_descriptors) : pick(wyrm_descriptors)]")) // CRIMSON EDIT CHANGE - ORIGINAL: to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
+					to_chat(owner, span_purple("[victim]散发着[HAS_TRAIT(victim, TRAIT_HIDDEN_WYRMTAINT) ? pick(wyld_descriptors) : pick(wyrm_descriptors)]的气息。")) // CRIMSON EDIT CHANGE - ORIGINAL: to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
 				if(get_shifter_splat(victim) && !get_garou_splat(victim))
-					to_chat(owner, span_purple("They smell of kin, but not Garou."))
+					to_chat(owner, span_purple("对方有同类的气息，但并非狼人。"))
 //				if(ishungrydead(victim))
 //					to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
 //				if(ischangeling(victim))
@@ -134,14 +134,14 @@
 //				if(ismummy(victim))
 //					to_chat(owner, span_purple("[victim] smells of [pick(wyld_descriptors)]"))
 				else
-					to_chat(owner, span_purple("[victim] smells mundane."))
+					to_chat(owner, span_purple("[victim]的气息很平凡。"))
 			if(4)
 				if(get_kindred_splat(victim))
-					to_chat(owner, span_purple("[victim] smells of [HAS_TRAIT(victim, TRAIT_HIDDEN_WYRMTAINT) ? pick(wyld_descriptors) : pick(wyrm_descriptors)]")) // CRIMSON EDIT CHANGE - ORIGINAL: to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
+					to_chat(owner, span_purple("[victim]散发着[HAS_TRAIT(victim, TRAIT_HIDDEN_WYRMTAINT) ? pick(wyld_descriptors) : pick(wyrm_descriptors)]的气息。")) // CRIMSON EDIT CHANGE - ORIGINAL: to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
 				if(get_ghoul_splat(victim))
-					to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
+					to_chat(owner, span_purple("[victim]散发着[pick(wyrm_descriptors)]的气息。"))
 				if(get_shifter_splat(victim) && !get_garou_splat(victim))
-					to_chat(owner, span_purple("They smell of kin, but not Garou."))
+					to_chat(owner, span_purple("对方有同类的气息，但并非狼人。"))
 //				if(isfomor(victim))
 //					to_chat(owner, span_purple("[victim] smells of [pick(wyrm_descriptors)]"))
 //				if(ischangeling(victim))
@@ -153,7 +153,7 @@
 //				if(ismage(victim))
 //					to_chat(owner, span_purple("[victim] smells of pure energy."))
 				else
-					to_chat(owner, span_purple("[victim] smells mundane."))
+					to_chat(owner, span_purple("[victim]的气息很平凡。"))
 
 	caster.emote("sniff")
 
@@ -162,8 +162,8 @@
 
 
 /datum/action/cooldown/power/gift/truth_of_gaia
-	name = "Truth Of Gaia"
-	desc = "As judges of the Litany, Philodox have the ability to sense whether others have spoken truth or falsehood."
+	name = "盖亚之真"
+	desc = "作为律诫的裁决者，半月仲裁者能够感知他人的话语是真是假。"
 	button_icon_state = "truth_of_gaia"
 	click_to_activate = TRUE
 	rank = 1
@@ -187,14 +187,14 @@
 	SEND_SOUND(target, sound('sound/effects/magic/clockwork/invoke_general.ogg', volume = 50)) // LOOK OUT! A WEREWOLF IS SMELLING YOU!
 
 	ASYNC
-		var/response_w = tgui_input_list(target, "Does your character believe your last statement is the truth?", name, list("Yes", "No", "Not sure"))
+		var/response_w = tgui_input_list(target, "你的角色认为自己刚才所说的是真话吗？", name, list("是", "否", "不确定"))
 		switch(response_w)
-			if("Yes")
-				to_chat(owner, span_notice("[target]'s scent bares the aroma of truthfulness."))
-			if("No") // Lying!
-				to_chat(owner, span_notice("[target]'s scent bares the aroma of deceit."))
+			if("是")
+				to_chat(owner, span_notice("[target]的气味中透着诚实。"))
+			if("否") // Lying!
+				to_chat(owner, span_notice("[target]的气味中透着欺骗。"))
 			else // Dunno
-				to_chat(owner, span_notice("[target]'s scent is uncertain. You can't determine the truth one way or the other."))
+				to_chat(owner, span_notice("[target]的气息犹疑不定，你无法判断真假。"))
 
 	StartCooldown()
 	return TRUE

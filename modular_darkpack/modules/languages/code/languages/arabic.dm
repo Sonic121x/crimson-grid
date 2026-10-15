@@ -1,6 +1,6 @@
 /datum/language/arabic
 	name = "Arabic"
-	desc = "A lyrical language known across the Middle East."
+	desc = "一种富有韵律、通行于中东的语言。"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "a"
 	space_chance = 30

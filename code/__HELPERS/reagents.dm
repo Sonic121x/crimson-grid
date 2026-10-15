@@ -1,7 +1,7 @@
 ///Helper to ensure a constant is applied regardless of reagent metabolization rate to get 100% effect
 ///Use for parent reagent types when subtypes alter metabolization rates
 #define METABOLIZE_FREE_CONSTANT(value)((value * REAGENTS_METABOLISM) / metabolization_rate)
-
+GLOBAL_LIST_INIT(localized_food_ingredient_names, list(/datum/reagent/consumable/milk = "牛奶", /datum/reagent/consumable/ice = "冰", /datum/reagent/consumable/vanilla = "香草", /datum/reagent/consumable/coco = "可可粉", /datum/reagent/consumable/berryjuice = "浆果汁", /datum/reagent/consumable/ethanol/singulo = "奇点鸡尾酒", /datum/reagent/consumable/lemonjuice = "柠檬汁", /datum/reagent/consumable/caramel = "焦糖", /datum/reagent/consumable/banana = "香蕉汁", /datum/reagent/consumable/cream = "奶油", /datum/reagent/consumable/orangejuice = "橙汁", /datum/reagent/consumable/peachjuice = "桃汁", /datum/reagent/consumable/cherryjelly = "樱桃果冻", /datum/reagent/consumable/flour = "面粉", /datum/reagent/consumable/sugar = "糖", /datum/reagent/consumable/korta_flour = "科塔坚果粉"))
 /proc/chem_recipes_do_conflict(datum/chemical_reaction/r1, datum/chemical_reaction/r2)
 	//We have to check to see if either is competitive so can ignore it (competitive reagents are supposed to conflict)
 	if((r1.reaction_flags & REACTION_COMPETITIVE) || (r2.reaction_flags & REACTION_COMPETITIVE))
@@ -191,7 +191,7 @@
 /proc/reagent_paths_list_to_text(list/reagents, addendum)
 	var/list/temp = list()
 	for(var/datum/reagent/R as anything in reagents)
-		temp |= initial(R.name)
+		temp |= GLOB.localized_food_ingredient_names[R] || initial(R.name)
 	if(addendum)
 		temp += addendum
-	return jointext(temp, ", ")
+	return jointext(temp, "、")

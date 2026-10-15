@@ -433,13 +433,13 @@
 	min_val = 0
 
 /datum/config_entry/string/soft_popcap_message
-	default = "Be warned that the server is currently serving a high number of users, consider using alternative game servers."
+	default = "请注意，服务器当前人数较多，建议考虑其他游戏服务器。"
 
 /datum/config_entry/string/hard_popcap_message
-	default = "The server is currently serving a high number of users, You cannot currently join. You may wait for the number of living crew to decline, observe, or find alternative servers."
+	default = "服务器当前人数较多，你暂时无法加入。你可以等待存活船员人数减少、进行旁观，或寻找其他服务器。"
 
 /datum/config_entry/string/extreme_popcap_message
-	default = "The server is currently serving a high number of users, find alternative servers."
+	default = "服务器当前人数较多，请寻找其他服务器。"
 
 /datum/config_entry/flag/byond_member_bypass_popcap
 
@@ -451,7 +451,7 @@
 /datum/config_entry/flag/panic_bunker_interview
 
 /datum/config_entry/string/panic_bunker_message
-	default = "Sorry but the server is currently not accepting connections from never before seen players."
+	default = "抱歉，服务器目前不接受首次连接的玩家。"
 
 /datum/config_entry/number/notify_new_player_age // how long do we notify admins of a new player
 	min_val = -1
@@ -535,7 +535,7 @@
 	min_val = 0
 
 /datum/config_entry/string/client_warn_message
-	default = "Your version of byond may have issues or be blocked from accessing this server in the future."
+	default = "你使用的 BYOND 版本可能存在问题，或在将来被禁止连接此服务器。"
 
 /datum/config_entry/flag/client_warn_popup
 
@@ -544,7 +544,7 @@
 	min_val = 500
 
 /datum/config_entry/string/client_error_message
-	default = "Your version of byond is too old, may have issues, and is blocked from accessing this server."
+	default = "你使用的 BYOND 版本过旧，可能存在问题，已被禁止连接此服务器。"
 
 /datum/config_entry/number/client_error_build
 	default = null
@@ -699,7 +699,7 @@
 	default = ""
 
 /datum/config_entry/string/urgent_ahelp_user_prompt
-	default = "There are no admins currently on. Do not press the button below if your ahelp is a joke, a request or a question. Use it only for cases of obvious grief."
+	default = "目前没有管理员在线。如果你的管理员求助内容是玩笑、请求或问题，请勿点击下方按钮。仅在遇到明显蓄意破坏行为时使用此按钮。"
 
 /datum/config_entry/string/urgent_adminhelp_webhook_url
 

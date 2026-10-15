@@ -29,7 +29,7 @@ const FakeCallingControls = (props) => {
             </Stack.Item>
           </Stack>
         </Box>
-        Speaker
+        免提
       </Box>
       {/* Mute */}
       <Box>
@@ -50,7 +50,7 @@ const FakeCallingControls = (props) => {
             </Stack.Item>
           </Stack>
         </Box>
-        Mute
+        麦克风静音
       </Box>
       {/* Keypad */}
       <Box>
@@ -61,7 +61,7 @@ const FakeCallingControls = (props) => {
             </Stack.Item>
           </Stack>
         </Box>
-        Keypad
+        拨号键盘
       </Box>
       {/* Hold call */}
       <Box>
@@ -82,7 +82,7 @@ const FakeCallingControls = (props) => {
             </Stack.Item>
           </Stack>
         </Box>
-        Hold call
+        通话保持
       </Box>
     </Box>
   );
@@ -98,7 +98,7 @@ export const ScreenCalling = (props) => {
     <Stack fill vertical className="Telephone__PhoneScreen">
       <Stack.Item>
         <Box mt={2} ml={2}>
-          Calling...
+          正在拨号……
         </Box>
       </Stack.Item>
       <Stack.Item height={15}>
@@ -150,7 +150,7 @@ export const ScreenInCall = (props) => {
     <Stack fill vertical className="Telephone__PhoneScreen">
       <Stack.Item>
         <Box mt={2} ml={2}>
-          {phone_ringing ? 'Call From' : 'Online'}
+          {phone_ringing ? '来电' : '通话中'}
         </Box>
       </Stack.Item>
       <Stack.Item height={15}>

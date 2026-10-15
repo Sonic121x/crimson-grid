@@ -1,6 +1,6 @@
 /datum/action/cooldown/power/gift/sense_wyrm
-	name = "Sense Wyrm"
-	desc = "This Gift allows the werewolf to trace the location of all wyrm-tainted entities within the area."
+	name = "感知妖蛆"
+	desc = "此天赋让狼人追踪附近所有受妖蛆污染者的位置。"
 	button_icon_state = "sense_wyrm"
 	rank = 1
 	var/list/navigation_images = list()

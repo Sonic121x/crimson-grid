@@ -36,7 +36,7 @@
 		ingredient_type = CUSTOM_INGREDIENT_TYPE_EDIBLE,
 		max_ingredients = MAX_ATOM_OVERLAYS - 3, // The cap is >= MAX_ATOM_OVERLAYS so we reserve 2 for top /bottom of item + 1 to stay under cap
 		datum/component/ingredients_holder/processed_holder, //when processing a holder, the results receive their own comps, but need the ingredient names and filling passed down
-		screentip_verb = "Add",
+		screentip_verb = "添加",
 )
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -57,7 +57,7 @@
 
 	ingredient_names = processed_holder.ingredient_names
 	custom_name = processed_holder.custom_name
-	atom_parent.name = "[custom_adjective()] [custom_name] [atom_parent.name]"
+	atom_parent.name = "[custom_adjective()][custom_name][atom_parent.name]"
 	for(var/fillcol in processed_holder.filling_colors)
 		apply_fill(fillcol)
 
@@ -100,9 +100,9 @@
 
 	var/atom/atom_parent = parent
 
-	examine_list += "It [LAZYLEN(ingredient_names) \
-		? "contains [english_list(ingredient_names)] making a [custom_adjective()]-sized [initial(atom_parent.name)]" \
-		: "does not contain any ingredients"]."
+	examine_list += "它[LAZYLEN(ingredient_names) \
+		? "含有[english_list(ingredient_names, and_text = "和", comma_text = "、", final_comma_text = "")]，做成了[custom_adjective()]的[initial(atom_parent.name)]" \
+		: "还没有加入任何配料"]。"
 
 //// Proc that checks if an ingredient is valid or not, returning false if it isnt and true if it is.
 /datum/component/ingredients_holder/proc/valid_ingredient(obj/ingredient)
@@ -123,13 +123,13 @@
 
 	if (!valid_ingredient(ingredient))
 		if (ingredient.is_drainable()) // For stuff like adding flour from a flour sack into a bowl, we handle the transfer of the reagent elsewhere, but we shouldn't regard it beyond some user feedback.
-			attacker.balloon_alert(attacker, "transferring...")
+			attacker.balloon_alert(attacker, "正在转移……")
 			return
-		attacker.balloon_alert(attacker, "doesn't go on that!")
+		attacker.balloon_alert(attacker, "不能加到这里！")
 		return
 
 	if (LAZYLEN(ingredient_names) >= max_ingredients)
-		attacker.balloon_alert(attacker, "too full!")
+		attacker.balloon_alert(attacker, "已经放不下了！")
 		return COMPONENT_NO_AFTERATTACK
 
 	if(!attacker.transferItemToLoc(ingredient, parent))
@@ -212,14 +212,14 @@
 
 	handle_reagents(ingredient)
 
-	LAZYADD(ingredient_names, "\a [ingredient.name]")
+	LAZYADD(ingredient_names, "[ingredient.name]")
 	if(isitem(atom_parent))
 		var/obj/item/item_parent = atom_parent
 		if(ingredient.w_class > item_parent.w_class)
 			item_parent.update_weight_class(ingredient.w_class)
 	if(!custom_name)
 		set_custom_name(ingredient)
-	atom_parent.name = "[custom_adjective()] [custom_name] [initial(atom_parent.name)]"
+	atom_parent.name = "[custom_adjective()][custom_name][initial(atom_parent.name)]"
 	SEND_SIGNAL(atom_parent, COMSIG_ATOM_CUSTOMIZED, ingredient)
 	SEND_SIGNAL(ingredient, COMSIG_ITEM_USED_AS_INGREDIENT, atom_parent)
 
@@ -243,15 +243,15 @@
 /datum/component/ingredients_holder/proc/custom_adjective()
 	switch(LAZYLEN(ingredient_names))
 		if (0 to 2)
-			return "small"
+			return "小份"
 		if (3 to 5)
-			return "standard"
+			return "标准份"
 		if (6 to 8)
-			return "big"
+			return "大份"
 		if (8 to 11)
-			return "ridiculous"
+			return "超大份"
 		if (12 to INFINITY)
-			return "monstrous"
+			return "巨无霸"
 
 
 ///Gives the type of custom food (based on what the first ingredient was).
@@ -309,12 +309,12 @@
 	if (isnull(held_item) || !valid_ingredient(held_item))
 		return NONE
 
-	context[SCREENTIP_CONTEXT_LMB] = "[screentip_verb] [held_item]"
+	context[SCREENTIP_CONTEXT_LMB] = "[screentip_verb][held_item]"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
 /// Clear refs if our food "goes away" somehow
 /datum/component/ingredients_holder/proc/food_exited(datum/source, atom/movable/gone)
 	SIGNAL_HANDLER
-	LAZYREMOVE(ingredient_names, "\a [gone.name]")
+	LAZYREMOVE(ingredient_names, "[gone.name]")
 	handle_materials(gone, remove = TRUE)
