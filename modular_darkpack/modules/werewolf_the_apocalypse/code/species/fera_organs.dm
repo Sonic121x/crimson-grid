@@ -26,9 +26,9 @@
 /obj/item/bodypart/arm/left/fera
 	// limb_id = SPECIES_FERA
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("claw")
-	unarmed_attack_verbs_continuous = list("claws")
-	appendage_noun = "paw"
+	unarmed_attack_verbs = list("爪击")
+	unarmed_attack_verbs_continuous = list("爪击")
+	appendage_noun = "爪子"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_bite.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -39,9 +39,9 @@
 /obj/item/bodypart/arm/right/fera
 	// limb_id = SPECIES_FERA
 	unarmed_sharpness = SHARP_EDGED
-	unarmed_attack_verbs = list("claw")
-	unarmed_attack_verbs_continuous = list("claws")
-	appendage_noun = "paw"
+	unarmed_attack_verbs = list("爪击")
+	unarmed_attack_verbs_continuous = list("爪击")
+	appendage_noun = "爪子"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'modular_darkpack/modules/werewolf_the_apocalypse/sounds/werewolf_bite.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'

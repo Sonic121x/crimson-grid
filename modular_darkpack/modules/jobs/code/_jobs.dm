@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(localized_job_titles, list("Citizen" = "市民", "Unassigned" =
 
 /datum/job/vampire/unassigned
 	title = JOB_ORDINARY_CITIZEN
-	rpg_title = "Peasant"
+	rpg_title = "农民"
 
 
 /// Returns information pertaining to this job's radio.

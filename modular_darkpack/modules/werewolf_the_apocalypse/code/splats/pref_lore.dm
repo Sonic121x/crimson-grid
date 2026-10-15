@@ -7,7 +7,7 @@
 
 // note - we have unused desc vars on splats
 /datum/splat/werewolf/kinfolk/get_splat_description()
-	return "眷属，也被称为 Gallain 或 Kin，是与变形者有血缘关系的人类或野生动物。他们不会轻易陷入谵妄，但自身并不具备变形能力。"
+	return "眷属，是与变形者有血缘关系的人类或野生动物。他们不会轻易陷入谵妄，但自身并不具备变形能力。"
 
 /datum/splat/werewolf/kinfolk/get_splat_lore()
 	return list(

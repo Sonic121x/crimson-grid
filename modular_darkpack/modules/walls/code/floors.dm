@@ -1,5 +1,5 @@
 /turf/open/floor/plating/concrete
-	name = "concrete"
+	name = "混凝土地面"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "concrete1"
 	footstep = FOOTSTEP_SIDEWALK
@@ -10,7 +10,7 @@
 	icon_state = "concrete[rand(1, 4)]"
 
 /turf/open/floor/plating/asphalt
-	name = "asphalt"
+	name = "沥青地面"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "asphalt1"
 	footstep = FOOTSTEP_ASPHALT
@@ -32,7 +32,7 @@
 		new /obj/effect/turf_decal/asphalt(src)
 
 /turf/open/floor/plating/sidewalkalt
-	name = "sidewalk"
+	name = "人行道"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "sidewalk_alt"
 	footstep = FOOTSTEP_SIDEWALK
@@ -50,7 +50,7 @@
 			heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/floor/plating/sidewalk
-	name = "sidewalk"
+	name = "人行道"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "sidewalk1"
 	var/number_of_variations = 3
@@ -85,7 +85,7 @@
 	base_icon_state = "sidewalk_old"
 
 /turf/open/floor/plating/roofwalk
-	name = "roof"
+	name = "屋顶"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "roof"
 	footstep = FOOTSTEP_SIDEWALK
@@ -107,12 +107,12 @@
 	blocks_air = 1
 
 /turf/open/floor/plating/roofwalk/cobblestones
-	name = "cobblestones"
+	name = "鹅卵石路面"
 
 //OTHER TURFS
 
 /turf/open/floor/plating/granite
-	name = "granite"
+	name = "花岗岩地面"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "granite"
 	footstep = FOOTSTEP_SIDEWALK
@@ -122,7 +122,7 @@
 	icon_state = "granite-black"
 
 /turf/open/floor/plating/rough
-	name = "rough floor"
+	name = "粗糙地面"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "rough"
 	footstep = FOOTSTEP_SIDEWALK
@@ -136,7 +136,7 @@
 	icon_state = "cave[rand(1, 7)]"
 
 /turf/open/floor/plating/stone
-	name = "rough floor"
+	name = "粗糙地面"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "stone"
 	footstep = FOOTSTEP_SIDEWALK
@@ -150,7 +150,7 @@
 	icon_state = "stone[rand(1, 7)]"
 
 /turf/open/floor/plating/grate
-	name = "grate"
+	name = "格栅地板"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "lattice_new"
 	footstep = FOOTSTEP_CATWALK
@@ -192,7 +192,7 @@
 			heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/misc/dirt/rails
-	name = "rails"
+	name = "铁轨"
 	icon_state = "dirt_rails"
 
 /turf/open/misc/dirt/rails/Initialize(mapload)
@@ -207,7 +207,7 @@
 			heavyfootstep = FOOTSTEP_SNOW
 
 /turf/open/misc/beach/vamp
-	name = "sand"
+	name = "沙地"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "sand1"
 	footstep = FOOTSTEP_SAND
@@ -228,7 +228,7 @@
 			heavyfootstep = FOOTSTEP_SNOW
 
 /turf/closed/indestructible/elevatorshaft
-	name = "elevator shaft"
-	desc = "Floors, floors, floors..."
+	name = "电梯井"
+	desc = "一层又一层，又一层……"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "black"

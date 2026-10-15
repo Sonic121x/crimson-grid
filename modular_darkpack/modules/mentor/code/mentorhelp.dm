@@ -1,12 +1,12 @@
 //Make this null once Stat panel (Admin tab) is kill.
-GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
+GAME_VERB(/client, mentorhelp, "导师求助", ADMIN_CATEGORY_MENTOR)
 	if(prefs.muted & MUTE_ADMINHELP)
 		to_chat(src,
 			type = MESSAGE_TYPE_MODCHAT,
-			html = "<span class='danger'>Error: MentorPM: You are muted from Mentorhelps. (muted).</span>",
+			html = "<span class='danger'>导师私信错误：你已被禁言，无法向导师求助。</span>",
 			confidential = TRUE)
 		return
-	var/msg = tgui_input_text(src, "Ask a question about game mechanics", "Mentorhelp", max_length = MAX_MESSAGE_LEN)
+	var/msg = tgui_input_text(src, "请提出有关游戏机制的问题", "导师求助", max_length = MAX_MESSAGE_LEN)
 	//Cleans the input message
 	if(!msg)
 		return
@@ -28,7 +28,7 @@ GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
 	//Also show it to person Mhelping
 	to_chat(usr,
 		type = MESSAGE_TYPE_MODCHAT,
-		html = "<font color='purple'><span class='mentornotice'>PM to-<b>Mentors</b>:</span> <span class='message linkify'>[msg]</span></font>",
+		html = "<font color='purple'><span class='mentornotice'>发给<b>导师</b>的私信：</span> <span class='message linkify'>[msg]</span></font>",
 		confidential = TRUE)
 
 	GLOB.mentor_requests.mentorhelp(src, msg)
@@ -40,7 +40,7 @@ GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
 	var/ckey
 
 	if(!whom)
-		return "*null*"
+		return "*空值*"
 
 	if(istype(whom, /client))
 		chosen_client = whom
@@ -59,7 +59,7 @@ GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
 		if(chosen_client)
 			user = chosen_client.mob
 	else
-		return "*invalid*"
+		return "*无效对象*"
 
 	. = ""
 
@@ -71,16 +71,16 @@ GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
 			. += "<a href='byond://?_src_=mentor;mentor_msg=[ckey];[MentorHrefToken(TRUE)]'>"
 
 		if(chosen_client && chosen_client.holder && chosen_client.holder.fakekey)
-			. += "Administrator"
+			. += "管理员"
 		else
 			. += key
 		if(!chosen_client)
-			. += "\[DC\]"
+			. += "\[已断线\]"
 
 		if(include_link != null)
 			. += "</a>"
 	else
-		. += "*no key*"
+		. += "*无账号名*"
 
 	if(include_follow)
 		. += " (<a href='byond://?_src_=mentor;mentor_follow=[REF(user)];[MentorHrefToken(TRUE)]'>F</a>)"

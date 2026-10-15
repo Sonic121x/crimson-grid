@@ -2,8 +2,8 @@
 	applicable_stats = list(STAT_PERCEPTION, STAT_OCCULT)
 
 /obj/minespot
-	name = "safe umbral tether"
-	desc = "Connects the parts of Penumbra together."
+	name = "安全的影界纽带"
+	desc = "连接半影界各片区域的纽带。"
 	icon = 'modular_darkpack/modules/umbra/icons/umbra.dmi'
 	icon_state = "tile1"
 	plane = GAME_PLANE
@@ -19,14 +19,14 @@
 
 /obj/minespot/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Uncover", rmb_text = "Mark")
+	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "揭开", rmb_text = "标记")
 	color = "#8e8e8e"
 	icon_state = "tile[rand(1, 16)]"
 
 /obj/minespot/examine(mob/user)
 	. = ..()
 	if(!bomb && uncovered)
-		. += "There are [amount_of_bombs] nearby"
+		. += "附近有[amount_of_bombs]处陷阱。"
 
 /obj/minespot/proc/uncover(mob/living/user)
 	if(uncovered || marked)
@@ -42,12 +42,12 @@
 		var/roll_result = perc_roll.st_roll(user, src)
 		switch(roll_result)
 			if(ROLL_SUCCESS)
-				to_chat(user, span_revenwarning("Close... but the spirits do not punish you for this one."))
+				to_chat(user, span_revenwarning("好险……不过，灵体这次没有惩罚你。"))
 			if(ROLL_FAILURE)
-				to_chat(user, span_revendanger("Too close... Your mind feels uneasy from that."))
+				to_chat(user, span_revendanger("太冒险了……这让你心神不宁。"))
 				user.adjust_agg_loss(5)
 			if(ROLL_BOTCH)
-				to_chat(user, span_revendanger("THE SPIRITS PUNISH YOU FOR THAT ONE."))
+				to_chat(user, span_revendanger("灵体为此降下了惩罚！"))
 				user.adjust_agg_loss(25)
 		return
 	amount_of_bombs = nearby_mines()
@@ -103,7 +103,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/minespot/playable
-	name = "umbral tether"
+	name = "影界纽带"
 
 /obj/minespot/playable/Initialize(mapload)
 	. = ..()
@@ -111,5 +111,5 @@
 		bomb = TRUE
 
 /obj/minespot/playable/dangerous
-	name = "unforgiving umbral tether"
+	name = "无情的影界纽带"
 	dangerous = TRUE

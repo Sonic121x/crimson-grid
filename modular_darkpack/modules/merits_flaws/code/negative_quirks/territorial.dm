@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(territorial_type_choices, init_territorial_type_choices())
 
 /datum/preference/choiced/territorial/init_possible_values()
 	return GLOB.territorial_type_choices
-
+/datum/preference/choiced/territorial/compile_constant_data() { . = ..(); .["display_names"] = localized_preference_choices(get_choices(), GLOB.localized_darkpack_area_names); }
 /datum/preference/choiced/territorial/create_default_value()
 	return /area/vtm/outside/financialdistrict::name
 

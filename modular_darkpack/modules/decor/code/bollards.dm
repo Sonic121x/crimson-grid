@@ -1,11 +1,11 @@
 /obj/structure/fluff/bollard
-	name = "bollard"
-	desc = "For stopping large things but not small things."
+	name = "防撞柱"
+	desc = "挡得住大东西，挡不住小东西。"
 	icon = 'modular_darkpack/modules/decor/icons/bollards.dmi'
 	icon_state = "yellow"
 
 /obj/structure/fluff/bollard/dual
-	name = "bollards"
+	name = "防撞柱"
 	icon_state = "yellow_dual"
 
 /obj/structure/fluff/bollard/grey

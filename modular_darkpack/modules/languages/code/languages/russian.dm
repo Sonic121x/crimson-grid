@@ -1,6 +1,6 @@
 /datum/language/russian
 	name = "Russian"
-	desc = "The language of Mother Russia."
+	desc = "俄罗斯母亲的语言。"
 	key = "r"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 40

@@ -98,50 +98,50 @@
 	)
 
 	female_phrases = list(
-		"What do you need?",
-		"Do you need something?",
-		"Do I really need to answer?",
-		"I'm late.",
-		"Pervert...",
-		"Can't speak right now.",
-		"Buy yourself a watch",
-		"Hey.",
-		"Go away."
+		"你想要什么？",
+		"有什么事吗？",
+		"我非得回答吗？",
+		"我要迟到了。",
+		"变态……",
+		"现在没空说话。",
+		"自己买块表去。",
+		"嘿。",
+		"走开。"
 	)
 	neutral_phrases = list(
-		"What do you need?",
-		"Do you need something?",
-		"Do I really need to answer?",
-		"I'm late.",
-		"Pervert...",
-		"Can't speak right now.",
-		"Buy yourself a watch",
-		"Hey.",
-		"Go away."
+		"你想要什么？",
+		"有什么事吗？",
+		"我非得回答吗？",
+		"我要迟到了。",
+		"变态……",
+		"现在没空说话。",
+		"自己买块表去。",
+		"嘿。",
+		"走开。"
 	)
 	random_phrases = list(
-		"Hey, fatso!",
-		"I miss my beer...",
-		"What's up?",
-		"Heyyyyy.",
-		"Do I know you?",
-		"There's something wrong with this city, you know?",
-		"Oh, wow."
+		"嘿，胖子！",
+		"想喝我的啤酒了……",
+		"怎么了？",
+		"嘿——。",
+		"我认识你吗？",
+		"你知道吗，这座城有点不对劲。",
+		"哦，哇。"
 	)
 	answer_phrases = list(
-		"I'm trying...",
-		"Crazy.",
-		"Things aren't good, baby.",
-		"You mixed me up with someone else.",
-		"Yeah, exactly.",
-		"Okay...",
-		"Fine."
+		"我在努力……",
+		"疯了。",
+		"情况不妙啊，宝贝。",
+		"你认错人了。",
+		"对，就是这样。",
+		"好吧……",
+		"行。"
 	)
 	help_phrases = list(
-		"Oh God!",
-		"Go away!!",
-		"What the heck is happening?!",
-		"Stop!",
-		"Someone, help!",
-		"Mommy!"
+		"天哪！",
+		"走开！！",
+		"到底发生什么事了？！",
+		"住手！",
+		"来人啊，救命！",
+		"妈妈！"
 	)

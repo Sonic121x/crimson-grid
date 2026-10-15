@@ -1,6 +1,6 @@
 /obj/effect/vip_barrier
-	name = "Basic Check Point"
-	desc = "Not a real checkpoint."
+	name = "基础检查点"
+	desc = "并非真正的检查点。"
 	icon = 'modular_darkpack/modules/vip_areas/icons/barrier.dmi'
 	icon_state = "camarilla_blocking"
 
@@ -104,11 +104,11 @@
 /obj/effect/vip_barrier/proc/handle_social_bypass(mob/living/carbon/human/user, mob/bouncer, used_badge = FALSE, used_stat = STAT_EMPATHY)
 
 	if(user.get_face_name() == "Unknown")
-		to_chat(user, span_notice("They won't talk to someone they can't look in the eye."))
+		to_chat(user, span_notice("对方不愿与你交谈，除非能看清你的面容。"))
 		return
 
 	if(check_entry_permission_base(user))
-		to_chat(user, span_notice("...But you are already allowed entry."))
+		to_chat(user, span_notice("……可是你已经获准进入了。"))
 		return
 
 	//handle block list babies
@@ -137,24 +137,24 @@
 
 	if(!bypass_roll)
 		bypass_roll = new()
-		bypass_roll.bumper_text = "persuade guard"
+		bypass_roll.bumper_text = "说服守卫"
 
 	var/verbage
 	bypass_roll.difficulty = involved_social_roll
 	bypass_roll.applicable_stats = list(STAT_CHARISMA)
 	if(used_stat == STAT_INTIMIDATION)
-		verbage = "intimidate"
+		verbage = "威吓"
 		bypass_roll.applicable_stats += used_stat
 	else
-		verbage = "persuade"
+		verbage = "说服"
 		bypass_roll.applicable_stats += used_stat
 
 	if(bypass_roll.st_roll(user, src) == ROLL_SUCCESS)
-		to_chat(user, span_notice("You manage to [verbage] your way past the guards."))
+		to_chat(user, span_notice("你通过[verbage]成功让守卫放行。"))
 		linked_perm.allow_list += user.get_face_name()
 		return
 
-	to_chat(user, span_notice("The guards turn you away, taking note of you as they do."))
+	to_chat(user, span_notice("守卫拒绝让你进入，并记住了你的样子。"))
 	linked_perm.block_list += user.name
 	if(identify_cop(user, used_badge))
 		linked_perm.notify_guard_police_denial(user)

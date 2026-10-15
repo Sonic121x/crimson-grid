@@ -11,8 +11,8 @@
 
 //------------SHOES------------
 /obj/item/clothing/shoes/vampire/darkpack_ert
-	name = "shoes"
-	desc = "Comfortable-looking shoes."
+	name = "鞋子"
+	desc = "看起来很舒服的鞋子。"
 	icon = 'modular_darkpack/modules/ert/icons/clothing.dmi'
 	worn_icon = 'modular_darkpack/modules/ert/icons/worn.dmi'
 	icon_state = "ftboots"
@@ -22,8 +22,8 @@
 	brand = "pentex"
 
 /obj/item/clothing/shoes/vampire/darkpack_ert/firstteam
-	name = "\improper First team boots"
-	desc = "Pitch-black boots with hard, industrial laces."
+	name = "\improper 第一小队战靴"
+	desc = "漆黑的战靴，配着结实的工业级鞋带。"
 	armor_type = /datum/armor/shoes_jackboots
 
 //------------GLOVES------------
@@ -37,8 +37,8 @@
 	brand = "pentex"
 
 /obj/item/clothing/gloves/vampire/darkpack_ert/firstteam
-	name = "\improper First Team gloves"
-	desc = "Provides protection from the good, the bad and the ugly."
+	name = "\improper 第一小队手套"
+	desc = "为你抵挡好人、坏人和丑八怪。"
 	body_parts_covered = HANDS
 	armor_type = /datum/armor/gloves_combat
 
@@ -52,8 +52,8 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/onfloor.dmi')
 
 /obj/item/clothing/head/vampire/darkpack_ert/firstteam_helmet
-	name = "\improper First Team helmet"
-	desc = "A black helmet with two, green-glowing eye-pieces that seem to stare through your soul."
+	name = "\improper 第一小队头盔"
+	desc = "黑色头盔，两片泛着绿光的目镜仿佛能看穿你的灵魂。"
 	armor_type = /datum/armor/first_team
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
 	visor_flags_inv = HIDEFACE|HIDESNOUT
@@ -83,8 +83,8 @@
 
 
 /obj/item/clothing/suit/vampire/darkpack_ert/firstteam_armor
-	name = "\improper First Team Armoured Vest"
-	desc = "A strong looking, armoured-vest with a large '1' engraved onto the breast."
+	name = "\improper 第一小队防弹背心"
+	desc = "看起来十分坚固的防弹背心，胸前刻着硕大的“1”字。"
 	inhand_icon_state = null
 	armor_type = /datum/armor/first_team
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -96,8 +96,8 @@
 //------------SUIT------------
 
 /obj/item/clothing/under/vampire/darkpack_ert
-	name = "\improper First Team uniform"
-	desc = "A completely blacked out uniform with a large '1' symbol sewn onto the shoulder-pad."
+	name = "\improper 第一小队制服"
+	desc = "通体漆黑的制服，肩垫上缝着硕大的“1”字。"
 	icon_state = "ftuni"
 	has_sensor = NO_SENSORS
 	random_sensor = FALSE
@@ -111,8 +111,8 @@
 	AddComponent(/datum/component/selling, 100, "undersuit", FALSE)
 
 /obj/item/clothing/under/vampire/darkpack_ert/firstteam_uniform
-	name = "First Team uniform"
-	desc = "A completely blacked out uniform with a large '1' symbol sewn onto the shoulder-pad."
+	name = "第一小队制服"
+	desc = "通体漆黑的制服，肩垫上缝着硕大的“1”字。"
 	armor_type = /datum/armor/clothing_under/security_head_of_security
 	brand = "pentex"
 
@@ -124,15 +124,15 @@
 
 //------------Weapons------------/obj/item/ammo_casing/vampire/c12gvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 /obj/item/ammo_box/darkpack/c556/bale //DONT EVER PUT THIS IN A MAP
-	name = "balefire ammo box (5.56)"
+	name = "邪焰弹药盒（5.56）"
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/onfloor.dmi')
 	icon_state = "556box-bale"
 	ammo_type = /obj/item/ammo_casing/vampire/c556mm/bale
 
 /obj/item/ammo_casing/vampire/c556mm/bale
-	name = "green 5.56mm bullet casing"
-	desc = "A modified 5.56mm bullet casing."
+	name = "绿色5.56毫米弹壳"
+	desc = "经过改装的5.56毫米弹壳。"
 	caliber = CALIBER_556NATO
 	projectile_type = /obj/projectile/bullet/darkpack/vamp556mm/bale
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
@@ -163,17 +163,17 @@
 	var/datum/splat/vampire/shot_vampire_splat = get_vampire_splat(target)
 	if(shot_vampire_splat)
 		if(target.bloodpool <= 0)
-			to_chat(target, span_warning("Only ash remains in my veins!"))
+			to_chat(target, span_warning("我的血管里只剩下灰烬了！"))
 			target.apply_damage(dice TTRPG_DAMAGE, BURN)
 			return
 		target.adjust_blood_pool(-bloodloss)
 		playsound(target, 'modular_darkpack/modules/ert/sounds/balefire.ogg', rand(10,15), TRUE)
-		to_chat(target, span_warning("Green flames errupt from the bullets impact, boiling your blood!"))
+		to_chat(target, span_warning("子弹命中处喷出绿色火焰，将你的血液烧得沸腾！"))
 
 
 /obj/item/ammo_casing/vampire/c12g/f12g
-	name = "Frag-12g shell casing"
-	desc = "A 12g explosive shell casing."
+	name = "Frag-12型12号口径爆炸弹弹壳"
+	desc = "12号口径爆炸霰弹的弹壳。"
 	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/projectile/bullet/darkpack/f12g
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
@@ -183,7 +183,7 @@
 //	brand = "fullforce" // TODO: implement the rest of the non-top 21 pentex subsids
 
 /obj/projectile/bullet/darkpack/f12g
-	name = "12g explosive slug"
+	name = "12号口径爆炸独头弹"
 	damage = 60
 	armour_penetration = 50
 	exposed_wound_bonus = 10
@@ -196,7 +196,7 @@
 	return BULLET_ACT_HIT
 
 /obj/item/ammo_box/darkpack/f12g //DO NOT DISTRIBUTE NORMALLY
-	name = "ammo box (f12g)"
+	name = "弹药盒（Frag-12型12号口径爆炸弹）"
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/onfloor.dmi')
 	icon_state = "12box_frag"
@@ -205,7 +205,7 @@
 //	brand = "fullforce" // TODO: implement the rest of the non-top 21 pentex subsids
 
 /obj/item/ammo_box/magazine/darkpack/px66f
-	name = "\improper PX66F magazine (5.56mm)"
+	name = "\improper PX66F弹匣（5.56毫米）"
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'
@@ -219,7 +219,7 @@
 //	brand = "fullforce" // TODO: implement the rest of the non-top 21 pentex subsids
 
 /obj/item/ammo_box/magazine/darkpack/px249f
-	name = "\improper PX249F box magazine (5.56mm)"
+	name = "\improper PX249F弹箱（5.56毫米）"
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'
@@ -233,14 +233,14 @@
 //	brand = "fullforce" // TODO: implement the rest of the non-top 21 pentex subsids
 
 /obj/item/ammo_box/magazine/internal/px12r
-	name = "shotgun internal magazine"
+	name = "霰弹枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	caliber = CALIBER_SHOTGUN
 	max_ammo = 8
 	masquerade_violating = FALSE
 
 /obj/item/ammo_box/magazine/darkpack/mk23
-	name = "\improper automatic pistol magazine (.45 ACP)"
+	name = "\improper 自动手枪弹匣（.45 ACP）"
 	icon = 'modular_darkpack/modules/ert/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/onfloor.dmi')
 	inhand_icon_state = null
@@ -252,18 +252,18 @@
 	brand = "herculean"
 
 /obj/item/ammo_box/magazine/darkpack/mk23/silver
-	name = "automatic pistol magazine (.45 ACP Silver)"
+	name = "自动手枪弹匣（.45 ACP银弹）"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp/silver
 	brand = "herculean"
 
 /obj/item/ammo_box/magazine/darkpack/mk23/hp
-	name = "automatic pistol magazine (.45 ACP HP)"
+	name = "自动手枪弹匣（.45 ACP空尖弹）"
 	ammo_type = /obj/item/ammo_casing/vampire/c45acp/HP
 	brand = "herculean"
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/mk23_socom
-	name = "\improper Mark 23 SOCOM Pistol"
-	desc = "A specialized .45 ACP Pistol featuring an integrated supressor and laser sight"
+	name = "\improper Mark 23 SOCOM手枪"
+	desc = "特制的.45 ACP口径手枪，集成了消音器和激光瞄准器。"
 	icon = 'modular_darkpack/modules/ert/icons/48x32weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'
@@ -285,8 +285,8 @@
 	brand = "herculean"
 
 /obj/item/gun/ballistic/automatic/darkpack/px66f //DO NOT DISTRIBUTE IN MAPPING
-	name = "\improper PX66F Rifle"
-	desc = "A three-round burst 5.56 death machine, with a Spiral brand below the barrel."
+	name = "\improper PX66F步枪"
+	desc = "一台采用三发点射的5.56毫米死亡机器，枪管下方有一个螺旋标记。"
 	icon = 'modular_darkpack/modules/ert/icons/48x32weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'
@@ -315,8 +315,8 @@
 	AddComponent(/datum/component/automatic_fire, 0.5 SECONDS)
 
 /obj/item/gun/ballistic/shotgun/darkpack/px12r  //DONT DISTRIBUTE IN MAPPING
-	name = "\improper PX12R Breaching Shotgun"
-	desc = "A highly modified 12G Shotgun designed to fire Frag-12 explosive breaching rounds"
+	name = "\improper PX12R破门霰弹枪"
+	desc = "深度改装的12号口径霰弹枪，专为发射Frag-12爆炸破门弹而设计。"
 	icon = 'modular_darkpack/modules/ert/icons/48x32weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'
@@ -339,8 +339,8 @@
 //	brand = "fullforce" // TODO: implement the rest of the non-top 21 pentex subsids
 
 /obj/item/gun/ballistic/automatic/l6_saw/darkpack
-	name = "\improper PX249F Light Machine Gun"
-	desc = "A modified M249 Machine Gun with an engraving of a Hydra on the grip"
+	name = "\improper PX249F轻机枪"
+	desc = "改装的M249机枪，握把上刻着九头蛇。"
 	icon = 'modular_darkpack/modules/ert/icons/48x32weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/ert/icons/righthand.dmi'
 	righthand_file = 'modular_darkpack/modules/ert/icons/lefthand.dmi'

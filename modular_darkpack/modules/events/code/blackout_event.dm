@@ -19,7 +19,7 @@
 	announce_when = 5
 
 /datum/round_event/blackout/announce(fake)
-	endpost_announce("Rolling blackouts are impacting your area due to inclement weather. City workers are delayed due to widespread outages across the city.")
+	endpost_announce("恶劣天气导致您所在地区轮流停电。由于全市大范围断电，市政人员的抢修工作有所延误。")
 
 /datum/round_event/blackout/start()
 	for(var/obj/fusebox/F in GLOB.fuseboxes)

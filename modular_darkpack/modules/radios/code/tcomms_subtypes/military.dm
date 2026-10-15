@@ -1,5 +1,5 @@
 /obj/machinery/telecomms/allinone/military
-	name = "military telecommunications mainframe"
-	desc = "A mainframe that allows for the processing of priority military telecommunications."
+	name = "军用通信主机"
+	desc = "用于处理优先军事通信的主机。"
 	freq_listening = list(FREQ_MILITARY)
 	syndicate = TRUE

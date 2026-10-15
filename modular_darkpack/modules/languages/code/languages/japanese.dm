@@ -1,6 +1,6 @@
 /datum/language/japanese
 	name = "Japanese"
-	desc = "A language spoken in the land of the rising sun."
+	desc = "日出之国使用的语言。"
 	key = "j"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 20

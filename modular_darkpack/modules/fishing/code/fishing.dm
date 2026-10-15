@@ -7,8 +7,8 @@
 	//eatsound = 'modular_darkpack/modules/food/sounds/eat.ogg'
 
 /obj/item/fish/darkpack/shark
-	name = "leopard shark"
-	desc = "Often found in groups foraging for clams, crabs, shrimp, and worms in intertidal mudflats found along the west coast, these sharks are rarely found bigger than 2 meters."
+	name = "豹纹鲨"
+	desc = "这种鲨鱼常成群出没于西海岸潮间带泥滩，觅食蛤蜊、螃蟹、虾和蠕虫，体长很少超过2米。"
 	icon_state = "shark"
 	icon = 'modular_darkpack/modules/fishing/icons/fish48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/fishing/icons/fish_onfloor.dmi')
@@ -35,8 +35,8 @@
 	AddComponent(/datum/component/selling, 150, "fish", FALSE)
 
 /obj/item/fish/darkpack/tuna
-	name = "bluefin tuna"
-	desc = "The mighty tuna fuels a robust fishing economy."
+	name = "蓝鳍金枪鱼"
+	desc = "强壮的金枪鱼支撑着兴旺的渔业经济。"
 	icon = 'modular_darkpack/modules/fishing/icons/fish48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/fishing/icons/fish_onfloor.dmi')
 	icon_state = "bluefin_tuna"
@@ -60,8 +60,8 @@
 	AddComponent(/datum/component/selling, 250, "fish", FALSE)
 
 /obj/item/fish/darkpack/catfish
-	name = "channel catfish"
-	desc = "The channel cat loves to eat snails, crabs, bugs, algae, nuts, even small birds or mammals it can get its mouth on."
+	name = "斑点叉尾鮰"
+	desc = "斑点叉尾鮰爱吃螺类、螃蟹、昆虫、藻类和坚果，甚至连能吞下的小鸟或小型哺乳动物也不放过。"
 	icon_state = "catfish"
 	fish_id = "darkpack_catfish"
 	required_fluid_type = AQUARIUM_FLUID_FRESHWATER
@@ -82,8 +82,8 @@
 	AddComponent(/datum/component/selling, 75, "fish", FALSE)
 
 /obj/item/fish/darkpack/crab
-	name = "dungeness crab"
-	desc = "An economically important crab prized for its tasty innards."
+	name = "珍宝蟹"
+	desc = "具有重要经济价值的蟹类，以壳内的美味而备受青睐。"
 	icon_state = "crab"
 	fillet_type = /obj/item/food/meat/slab/rawcrab
 	fish_id = "darkpack_crab"
@@ -104,8 +104,8 @@
 	AddComponent(/datum/component/selling, 65, "fish", FALSE)
 
 /obj/item/fish/darkpack/stickleback
-	name = "three-spined stickleback"
-	desc = "A hardy, tiny, prolific little fish. Often used itself for bait."
+	name = "三刺鱼"
+	desc = "体型小巧、生命力顽强、繁殖力旺盛的小鱼，本身也常被用作鱼饵。"
 	icon_state = "stickleback"
 	fish_id = "darkpack_stickleback"
 	required_fluid_type = AQUARIUM_FLUID_ANADROMOUS
@@ -127,8 +127,8 @@
 	AddComponent(/datum/component/selling, 5, "fish", FALSE)
 
 /obj/item/fish/darkpack/anchovy
-	name = "anchovy"
-	desc = "A filter-feeder that travels in schools, which are often netted to be sold in great quantities."
+	name = "鳀鱼"
+	desc = "成群游动的滤食性鱼类，经常被成批网捕出售。"
 	icon_state = "anchovy"
 	fish_id = "darkpack_anchovy"
 	required_fluid_type = AQUARIUM_FLUID_SALTWATER
@@ -150,8 +150,8 @@
 	AddComponent(/datum/component/selling, 10, "fish", FALSE)
 
 /obj/item/fish/darkpack/crappie
-	name = "crappie"
-	desc = "Ironically well-regarded for its flavor."
+	name = "刺盖太阳鱼"
+	desc = "说来讽刺，它的味道倒是颇受好评。"
 	icon_state = "crappie"
 	fish_id = "darkpack_crappie"
 	required_fluid_type = AQUARIUM_FLUID_FRESHWATER
@@ -174,8 +174,8 @@
 
 
 /obj/item/fish/darkpack/trout
-	name = "rainbow trout"
-	desc = "An anadromous fish, meaning it lives normally in the ocean but returns to freshwater to spawn."
+	name = "虹鳟"
+	desc = "一种溯河洄游鱼类，平时生活在海洋中，产卵时返回淡水。"
 	icon_state = "trout"
 	fish_id = "darkpack_trout"
 	required_fluid_type = AQUARIUM_FLUID_ANADROMOUS
@@ -196,8 +196,8 @@
 	AddComponent(/datum/component/selling, 50, "fish", FALSE)
 
 /obj/item/fish/darkpack/eagle_ray
-	name = "bat ray"
-	desc = "Bottom feeders that use their wings to brush sand to expose their prey. Uses its venomous spine for defense. Prized in saltwater aquariums."
+	name = "蝙蝠鳐"
+	desc = "在水底觅食，会用翼状鳍拨开沙子找出猎物，并用毒刺自卫。深受海水水族馆青睐。"
 	icon_state = "eagle_ray"
 	fish_id = "darkpack_eagle_ray"
 	required_fluid_type = AQUARIUM_FLUID_SALTWATER
@@ -218,8 +218,8 @@
 	AddComponent(/datum/component/selling, 200, "fish", FALSE)
 
 /obj/item/fish/darkpack/salmon
-	name = "cherry salmon"
-	desc = "A favorite that's especially abundant in the Pacific Northwest but has become quite rare as of late."
+	name = "樱鳟"
+	desc = "广受欢迎的鱼类，原本在太平洋西北地区尤为丰富，但近来已变得相当稀少。"
 	icon_state = "fish"
 	fish_id = "darkpack_salmon"
 	required_fluid_type = AQUARIUM_FLUID_ANADROMOUS
@@ -239,15 +239,15 @@
 	AddComponent(/datum/component/selling, 70, "fish", FALSE)
 
 /obj/item/food/darkpack/leech
-	name = "leech"
-	desc = "A vile creature that feasts on the blood of other animals."
+	name = "水蛭"
+	desc = "以其他动物的血液为食的可憎生物。"
 	icon_state = "leech"
 	icon = 'modular_darkpack/modules/fishing/icons/fish.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/fishing/icons/fish_onfloor.dmi')
 	w_class = WEIGHT_CLASS_TINY
 
 	bite_consumption = 1
-	tastes = list("slime" = 1, "blood" = 1)
+	tastes = list("黏液" = 1, "血液" = 1)
 	foodtypes = GROSS | MEAT | RAW
 	eat_time = 5
 	food_reagents = list(/datum/reagent/consumable/nutriment/leech = 1)
@@ -257,9 +257,9 @@
 	AddComponent(/datum/component/selling, 1, "fish", FALSE)
 
 /datum/reagent/consumable/nutriment/leech
-	name = "leech guts"
+	name = "水蛭内脏"
 	nutriment_factor = 1 * REAGENTS_METABOLISM
-	taste_description = "copper"
+	taste_description = "铜味"
 
 /datum/reagent/consumable/nutriment/leech/expose_mob(mob/living/exposed_mob, methods=INGEST, reac_volume, show_message, touch_protection)
 	if(get_kindred_splat(exposed_mob))
@@ -278,8 +278,8 @@
 	return ..()
 
 /obj/item/food/darkpack/horn_snail
-	name = "horn snail"
-	desc = "Looks like something's in there!"
+	name = "角螺"
+	desc = "里面好像有东西！"
 	icon = 'modular_darkpack/modules/fishing/icons/fish.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/fishing/icons/fish_onfloor.dmi')
 	icon_state = "horn_snail"
@@ -287,7 +287,7 @@
 	w_class = WEIGHT_CLASS_TINY
 
 	bite_consumption = 1
-	tastes = list("snail" = 1)
+	tastes = list("螺肉" = 1)
 	foodtypes = MEAT | RAW
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/protein = 1)
 
@@ -296,8 +296,8 @@
 	AddComponent(/datum/component/selling, 5, "fish", FALSE)
 
 /obj/item/toy/darkpack/seashell/
-	name = "seashell"
-	desc = "If you put it to your ear, you can hear the ocean! No, wait, that's just the blood in your ears."
+	name = "海贝壳"
+	desc = "把它贴在耳边就能听见大海！不，等等，那只是你耳朵里血液流动的声音。"
 	floor_placeable = TRUE
 
 /obj/item/toy/darkpack/seashell/horn_snail

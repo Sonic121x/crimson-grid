@@ -1,6 +1,6 @@
 /datum/job/vampire/executive
 	title = JOB_PENTEX_EXEC
-	description = "你是" + MAIN_EVIL_COMPANY + "在旧金山的现任高管。在分部负责人的授权下，你的工作是推动生产、拓展业务，而负责人的位子也可以成为你的目标。"
+	description = "你是" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "在旧金山的现任高管。在分部负责人的授权下，你的工作是推动生产、拓展业务，而负责人的位子也可以成为你的目标。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1

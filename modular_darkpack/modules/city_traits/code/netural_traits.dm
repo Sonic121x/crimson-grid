@@ -18,7 +18,7 @@
 	can_revert = FALSE
 
 	darkpack_allowed = TRUE
-	newspaper_message = "The local trash mans union has gone on strike, dont except your trash taken out this week."
+	newspaper_message = "当地环卫工人工会已发起罢工，这周别指望有人来清运垃圾了。"
 	newspaper_chance = 90
 
 /datum/station_trait/empty_trash
@@ -69,5 +69,5 @@
 	trait_to_give = STATION_TRAIT_COSPLAY_CONVENTION
 
 	darkpack_allowed = TRUE
-	newspaper_message = "A \"cosplay\" convention is being run in the local city center."
+	newspaper_message = "本市市中心正在举办一场‘角色扮演’展会。"
 	newspaper_chance = 90

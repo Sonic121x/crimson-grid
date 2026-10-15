@@ -1,6 +1,6 @@
 /datum/job/vampire/affairs
 	title = JOB_PENTEX_AFFAIRS
-	description = "你是" + MAIN_EVIL_COMPANY + "的内务专员。你明白，为毁灭而提出的血腥卑劣要求会招来危机。你的职责是让出色的工作得到认可与奖励，并遏制那些屡屡发生、可能危及潘特克斯整体计划的暴行。"
+	description = "你是" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "的内务专员。你明白，为毁灭而提出的血腥卑劣要求会招来危机。你的职责是让出色的工作得到认可与奖励，并遏制那些屡屡发生、可能危及潘特克斯整体计划的暴行。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 1

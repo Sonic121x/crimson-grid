@@ -1,6 +1,6 @@
 /datum/language/irish
 	name = "Irish"
-	desc = "The melodic language spoken by the Irish."
+	desc = "爱尔兰人使用的语言，音韵优美。"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "I"
 	space_chance = 50

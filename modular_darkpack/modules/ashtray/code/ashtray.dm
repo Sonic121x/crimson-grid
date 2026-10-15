@@ -90,7 +90,7 @@
 
 
 /datum/loadout_item/pocket_items/ashtray
-	name = "Ashtray"
+	name = "烟灰缸"
 	item_path = /obj/item/storage/ashtray
 
 /datum/loadout_item/pocket_items/ashtray/get_item_information()

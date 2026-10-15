@@ -1,5 +1,5 @@
 /datum/crafting_recipe/gaypride
-	name = "gay pride flag"
+	name = "彩虹骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -7,7 +7,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/acepride
-	name = "ace pride flag"
+	name = "无性恋骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -15,7 +15,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/bipride
-	name = "bi pride flag"
+	name = "双性恋骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -23,7 +23,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/lesbianpride
-	name = "lesbian pride flag"
+	name = "女同性恋骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -31,7 +31,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/panpride
-	name = "pan pride flag"
+	name = "泛性恋骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -39,7 +39,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/transpride
-	name = "trans pride flag"
+	name = "跨性别骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -47,7 +47,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/mlm
-	name = "mlm pride flag"
+	name = "男爱男骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -55,7 +55,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/rabies
-	name = "rabies pride flag"
+	name = "狂犬病骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -63,7 +63,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/enby
-	name = "non-binary pride flag"
+	name = "非二元性别骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)
@@ -71,7 +71,7 @@
 	category = CAT_FURNITURE
 
 /datum/crafting_recipe/inter
-	name = "intersex pride flag"
+	name = "间性人骄傲旗"
 	reqs = list(
 		/obj/item/stack/sheet/cloth = 3,
 	)

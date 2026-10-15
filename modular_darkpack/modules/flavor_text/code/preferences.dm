@@ -34,7 +34,7 @@
 	// extension will always be the last entry
 	var/extension = value_split[length(value_split)]
 	if(!(LOWER_TEXT(extension) in valid_extensions))
-		to_chat(usr, span_warning("图片必须使用以下扩展名之一：'[english_list(valid_extensions)]'"))
+		to_chat(usr, span_warning("图片必须使用以下扩展名之一：'[english_list(valid_extensions, and_text = "或", comma_text = "、")]'"))
 		return
 
 	find_index = findtext(value, link_regex)

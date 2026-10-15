@@ -1,6 +1,6 @@
 /obj/effect/looping_sound_emitter
-	name = "sound emitter"
-	desc = "Emits sounds, presumably."
+	name = "音源"
+	desc = "大概是用来发出声音的。"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield2"
 	invisibility = INVISIBILITY_OBSERVER

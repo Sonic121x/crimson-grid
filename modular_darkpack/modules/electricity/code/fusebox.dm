@@ -8,8 +8,8 @@ GLOBAL_LIST_EMPTY(fuseboxes)
 
 // The way this completely bypasses the entire power system is so strange
 /obj/fusebox
-	name = "fuse box"
-	desc = "Power the controlled area with pure electricity."
+	name = "保险丝箱"
+	desc = "以纯粹的电力为所辖区域供能。"
 	icon = 'modular_darkpack/modules/electricity/icons/electricity.dmi'
 	icon_state = "fusebox"
 	base_icon_state = "fusebox"
@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(fuseboxes)
 	update_sound_state()
 
 /datum/storyteller_roll/fusebox_repair
-	bumper_text = "electrical repair"
+	bumper_text = "电气维修"
 	applicable_stats = list(STAT_INTELLIGENCE, STAT_TECHNOLOGY)
 	difficulty = 7
 	numerical = TRUE
@@ -112,7 +112,7 @@ GLOBAL_LIST_EMPTY(fuseboxes)
 
 // transformers (another type of fusebox)
 /obj/fusebox/transformer
-	name = "transformer"
+	name = "变压器"
 	icon_state = "sstation"
 	base_icon_state = "sstation"
 	pixel_y = 0

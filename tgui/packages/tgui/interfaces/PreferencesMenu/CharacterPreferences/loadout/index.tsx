@@ -28,13 +28,13 @@ export function LoadoutPage(props) {
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
 
   const [searchLoadout, setSearchLoadout] = useState('');
-  const [selectedTabName, setSelectedTab] = useState(
-    loadout_tabs?.[0].name || '',
+  const [selectedTab, setSelectedTab] = useState( // KUKU：保存玩家主动选择的装备分类
+    loadout_tabs[0]?.name || '', // KUKU：空分类数组不读取不存在的名称，避免蓝屏
   );
   const [modifyItemDimmer, setModifyItemDimmer] = useState<LoadoutItem | null>(
     null,
   );
-
+  const selectedTabName = selectedTab || loadout_tabs[0]?.name || ''; // KUKU：异步数据到达后默认显示首个装备分类
   if (!serverData) {
     return <NoticeBox>正在加载……</NoticeBox>;
   }

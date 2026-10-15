@@ -1,5 +1,5 @@
 /obj/effect/decal/wallpaper
-	name = "wall paint"
+	name = "墙面涂层"
 	icon = 'modular_darkpack/modules/walls/icons/wallpaper.dmi'
 	icon_state = "wallpaper"
 	plane = GAME_PLANE
@@ -80,7 +80,7 @@
 	icon_state = "wallpaper-club_low"
 
 /obj/effect/decal/wallpaper/paper
-	name = "wallpapers"
+	name = "墙纸"
 	icon_state = "wallpaper-cheap"
 
 /obj/effect/decal/wallpaper/paper/low
@@ -147,7 +147,7 @@
 	icon_state = "wallpaper-dpurple_low"
 
 /obj/effect/decal/wallpaper/stone
-	name = "wall decoration"
+	name = "墙面装饰"
 	icon_state = "wallpaper-stone"
 
 /obj/effect/decal/wallpaper/stone/low
@@ -184,7 +184,7 @@
 	icon_state = "absorbingfoam_low"
 
 /obj/effect/decal/wallpaper/papers
-	name = "papers"
+	name = "纸张"
 	layer = SIGN_LAYER
 
 /obj/effect/decal/wallpaper/papers/random

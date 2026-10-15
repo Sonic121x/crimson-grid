@@ -84,38 +84,38 @@
 	)
 
 	male_phrases = list(
-		"Fuck, shit, daa-amn...",
-		"We're fucked!",
-		"Grubrhggsmm...",
-		"Brrr.",
-		"Drunk..."
+		"操，妈的，该——死……",
+		"我们完蛋了！",
+		"咕噜唔嗯……",
+		"嘶，好冷。",
+		"醉了……"
 	)
 	neutral_phrases = list(
-		"Fuck, shit, daa-amn...",
-		"We're fucked!",
-		"Grubrhggsmm...",
-		"Brrr.",
-		"Drunk..."
+		"操，妈的，该——死……",
+		"我们完蛋了！",
+		"咕噜唔嗯……",
+		"嘶，好冷。",
+		"醉了……"
 	)
 	random_phrases = list(
-		"Fuck, shit, daa-amn...",
-		"We're fucked!",
-		"Grubrhggsmm...",
-		"Brrr.",
-		"Drunk..."
+		"操，妈的，该——死……",
+		"我们完蛋了！",
+		"咕噜唔嗯……",
+		"嘶，好冷。",
+		"醉了……"
 	)
 	answer_phrases = list(
-		"Fuck, shit, daa-amn...",
-		"We're fucked!",
-		"Grubrhggsmm...",
-		"Brrr.",
-		"Drunk..."
+		"操，妈的，该——死……",
+		"我们完蛋了！",
+		"咕噜唔嗯……",
+		"嘶，好冷。",
+		"醉了……"
 	)
 	help_phrases = list(
-		"Aaaugh!",
-		"AAAAHHHH!!",
-		"What da' fuck? WHO'RE YOU?!",
-		"Shit!",
-		"Ass!",
-		"Dick!"
+		"啊呃！",
+		"啊啊啊！！",
+		"搞什么鬼？你是谁？！",
+		"妈的！",
+		"混蛋！",
+		"王八蛋！"
 	)

@@ -1,6 +1,6 @@
 /obj/structure/lectern
-	name = "lectern"
-	desc = "This thing would be great cover if someone threw a pair of shoes at you."
+	name = "讲台"
+	desc = "要是有人朝你扔鞋，这东西会是个不错的掩体。"
 	icon = 'modular_darkpack/modules/decor/icons/lectern.dmi'
 	icon_state = "lectern"
 	density = FALSE
@@ -18,6 +18,6 @@
 		return ITEM_INTERACT_SUCCESS
 
 /obj/structure/lectern/pulpit // TODO: make holy for baali repulsion
-	name = "pulpit"
-	desc = "Like a lectern, but holy."
+	name = "布道台"
+	desc = "跟讲台差不多，只是更神圣。"
 	icon_state = "pulpit"

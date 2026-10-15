@@ -14,7 +14,7 @@
 
 
 /mob/living/basic/pet/cat/darkpack/tzi
-	name = "Gene"
+	name = "吉恩"
 	bloodpool = 5
 	maxbloodpool = 5
 	icon_state = "cat_tzi"
@@ -24,25 +24,25 @@
 	random_cat_color = FALSE
 
 /mob/living/basic/pet/cat/darkpack/cain
-	name = "Cain"
+	name = "该隐"
 	health = 228
 	bloodpool = 10
 	maxbloodpool = 10
 	unique_pet = TRUE
 
 /mob/living/basic/pet/cat/darkpack/autun
-	name = "Autun"
+	name = "奥坦"
 	unique_pet = TRUE
 
 /mob/living/basic/pet/cat/darkpack/don
-	name = "Don"
+	name = "唐恩"
 	unique_pet = TRUE
 
 // Dont ask okay.
 /mob/living/basic/pet/cat/darkpack/sproingus
-	name = "Sproingus"
+	name = "弹弹"
 	unique_pet = TRUE
 
 /mob/living/basic/pet/cat/darkpack/zleeby
-	name = "Zleeby"
+	name = "困困"
 	unique_pet = TRUE

@@ -91,52 +91,52 @@
 	)
 
 	male_phrases = list(
-		"Need something? Or are you just trying to waste my time?",
-		"What's up?",
-		"What'd you say?",
-		"I'm late, my wife is gonna kill me.",
-		"You heard about the new place in town..?",
-		"Can't speak right now.",
-		"Good night I guess?",
-		"Guh...",
-		"I dunno what to say.",
-		"That's all, folks."
+		"有事吗？还是就想浪费我的时间？",
+		"怎么了？",
+		"你说什么？",
+		"我迟到了，我老婆非宰了我不可。",
+		"听说城里新开的那个地方了吗……？",
+		"现在没空说话。",
+		"那就……晚安？",
+		"呃……",
+		"我不知道该说什么。",
+		"就这样了，各位。"
 	)
 	neutral_phrases = list(
-		"What do you need, mate?",
-		"Do you need something?",
-		"Can you repeat what you were saying?",
-		"I'm late, don't interrupt me.",
-		"Check the bar if you want somebody to bother...",
-		"Can't speak right now.",
-		"Goodnight, I guess?",
-		"Guh...",
-		"I dunno what to say.",
-		"That's all, folks."
+		"伙计，你想要什么？",
+		"有什么事吗？",
+		"能再说一遍吗？",
+		"我要迟到了，别打扰我。",
+		"想找人烦的话，就去酒吧看看……",
+		"现在没空说话。",
+		"那就……晚安？",
+		"呃……",
+		"我不知道该说什么。",
+		"就这样了，各位。"
 	)
 	random_phrases = list(
-		"Hey, mate!",
-		"I miss my beer...",
-		"Everything okay?",
-		"Hello.",
-		"Haven't I seen you around before?",
-		"Something wrong here.",
-		"Oooh, dude..."
+		"嘿，伙计！",
+		"想喝我的啤酒了……",
+		"都还好吗？",
+		"你好。",
+		"我以前是不是在附近见过你？",
+		"这里不太对劲。",
+		"哦，伙计……"
 	)
 	answer_phrases = list(
-		"Trying...",
-		"Awesome.",
-		"Bad, mate.",
-		"You picked wrong person.",
-		"Yeah, right.",
-		"O'kaay...",
-		"Nice."
+		"正在努力……",
+		"太棒了。",
+		"不太好，伙计。",
+		"你找错人了。",
+		"对，是啊。",
+		"好——吧……",
+		"不错。"
 	)
 	help_phrases = list(
-		"Oh God!",
-		"Go away!!",
-		"What the hell is happening?!",
-		"Stop!",
-		"Someone, help!",
-		"Mommy!"
+		"天哪！",
+		"走开！！",
+		"这他妈的怎么回事？！",
+		"住手！",
+		"来人啊，救命！",
+		"妈妈！"
 	)

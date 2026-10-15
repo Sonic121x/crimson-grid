@@ -4,14 +4,14 @@
 	requires_friend = TRUE
 
 /obj/structure/ladder/manhole/up
-	name = "ladder"
+	name = "梯子"
 	icon_state = "ladder10"
 	base_icon_state = "ladder"
 	connect_down = FALSE
 	static_appearance = TRUE
 
 /obj/structure/ladder/manhole/down
-	name = "manhole"
+	name = "检修井"
 	icon_state = "manhole_closed"
 	base_icon_state = "manhole"
 	travel_sound = 'modular_darkpack/modules/z_travel/sounds/manhole.ogg'

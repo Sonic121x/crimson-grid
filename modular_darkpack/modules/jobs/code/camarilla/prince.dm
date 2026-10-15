@@ -1,6 +1,6 @@
 /datum/job/vampire/prince
 	title = JOB_PRINCE
-	description = "你是这座城市的最高统治者。你掌握着" + CITY_NAME + "的统治权，你的话就是法律。确保避世戒律得到遵守，自己的地位受到尊重。"
+	description = "你是这座城市的最高统治者。你掌握着旧金山的统治权，你的话就是法律。确保避世戒律得到遵守，自己的地位受到尊重。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_CAMARILLA
 	total_positions = 1

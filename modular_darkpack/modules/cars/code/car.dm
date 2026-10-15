@@ -20,8 +20,8 @@
 	end_sound = 'modular_darkpack/modules/cars/sounds/stop.ogg'
 
 /obj/car_trunk
-	name = "car trunk"
-	desc = "How did this get out of the car."
+	name = "汽车后备箱"
+	desc = "这东西怎么从车里跑出来了。"
 
 /datum/storage/car
 	animated = FALSE
@@ -48,8 +48,8 @@
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 
 /obj/darkpack_car
-	name = "car"
-	desc = "Take me home, country roads..."
+	name = "汽车"
+	desc = "乡间的小路，带我回家……"
 	icon_state = "2"
 	icon = 'modular_darkpack/modules/cars/icons/cars.dmi'
 	anchored = TRUE
@@ -164,7 +164,7 @@
 
 /obj/darkpack_car/click_alt(mob/user)
 	var/list/radial_menu_options = list(
-		"Open Trunk" = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "baggage"),
+		"打开后备箱" = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "baggage"),
 	)
 	var/list/passanger_map = list()
 	for(var/mob/living/guy in (passengers + driver))
@@ -176,26 +176,26 @@
 	if(!pick)
 		return
 
-	if(pick == "Open Trunk")
+	if(pick == "打开后备箱")
 		atom_storage.open_storage(user)
 		return CLICK_ACTION_SUCCESS
 
 	if(locked)
-		to_chat(user, span_warning("[src] is locked!"))
+		to_chat(user, span_warning("[src]锁着！"))
 		return CLICK_ACTION_BLOCKING
 	var/mob/living/occupent = passanger_map[pick]
 	if(!occupent)
 		return CLICK_ACTION_BLOCKING
 
-	user.visible_message(span_warning("[user] begins pulling someone out of [src]!"), \
-		span_warning("You begin pulling [occupent] out of [src]..."))
+	user.visible_message(span_warning("[user]开始把人从[src]里拉出来！"), \
+		span_warning("你开始把[occupent]从[src]里拉出来……"))
 	if(do_after(user, 5 SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
-		user.visible_message(span_warning("[user] has managed to get [occupent] out of [src]."), \
-			span_warning("You've managed to get [occupent] out of [src]."))
+		user.visible_message(span_warning("[user]成功把[occupent]从[src]里拉了出来。"), \
+			span_warning("你成功把[occupent]从[src]里拉了出来。"))
 		empty_occupent(occupent)
 		return CLICK_ACTION_SUCCESS
 	else
-		to_chat(user, span_warning("You've failed to get [occupent] out of [src]."))
+		to_chat(user, span_warning("你没能把[occupent]从[src]里拉出来。"))
 
 /obj/darkpack_car/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/gas_can))
@@ -214,44 +214,44 @@
 			var/gas_to_transfer = min(CAR_TANK_MAX-gas, min(CAR_TANK_MAX, max(1, can_used.stored_gasoline)))
 			can_used.stored_gasoline = max(0, can_used.stored_gasoline-gas_to_transfer)
 			gas = min(CAR_TANK_MAX, gas+gas_to_transfer)
-			to_chat(user, span_notice("You transfer [gas_to_transfer] fuel to [src]."))
+			to_chat(user, span_notice("你给[src]加注了[gas_to_transfer]单位燃油。"))
 			playsound(loc, 'modular_darkpack/master_files/sounds/effects/gas_fill.ogg', 25, TRUE)
 
 /obj/darkpack_car/proc/try_repair(mob/living/user, obj/item/tool)
 	if(atom_integrity >= max_integrity)
-		to_chat(user, span_notice("[src] is already fully repaired."))
+		to_chat(user, span_notice("[src]已经完全修好了。"))
 		return
 
 	var/time_to_repair = (max_integrity - atom_integrity) / 4 //Repair 4hp for every second spent repairing
 	var/start_time = world.time
 
-	user.visible_message(span_notice("[user] begins repairing [src]..."), \
-		span_notice("You begin repairing [src]. Stop at any time to only partially repair it."))
+	user.visible_message(span_notice("[user]开始修理[src]……"), \
+		span_notice("你开始修理[src]。可以随时停止，只完成部分修理。"))
 	if(do_after(user, time_to_repair SECONDS, src, interaction_key = DOAFTER_SOURCE_CAR))
 		atom_integrity = max_integrity
 		playsound(src, 'modular_darkpack/master_files/sounds/effects/repair.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] repairs [src]."), \
-			span_notice("You finish repairing all the dents on [src]."))
+		user.visible_message(span_notice("[user]修理了[src]。"), \
+			span_notice("你修好了[src]上的所有凹痕。"))
 		color = "#ffffff"
 		return TRUE
 	else
 		repair_damage((world.time - start_time) * 2 / 5) //partial repair
 		playsound(src, 'modular_darkpack/master_files/sounds/effects/repair.ogg', 50, TRUE)
-		user.visible_message(span_notice("[user] repairs [src]."), \
-			span_notice("You repair some of the dents on [src]."))
+		user.visible_message(span_notice("[user]修理了[src]。"), \
+			span_notice("你修好了[src]上的部分凹痕。"))
 		color = "#ffffff"
 		return TRUE
 
 /obj/darkpack_car/proc/try_lockpick(mob/living/user, obj/item/tool)
 	if(!locked)
-		to_chat(user, span_warning("The [src] is already unlocked."))
+		to_chat(user, span_warning("[src]已经解锁了。"))
 		return
 	for(var/mob/living/carbon/human/npc/police/P in oviewers(DEFAULT_SIGHT_DISTANCE, src))
 		P.Aggro(user)
 	log_game("[user] tried lockpicking [src]")
 	var/total_lockpicking = user.st_get_stat(STAT_LARCENY)
 	if(CONFIG_GET(flag/punishing_zero_dots) && total_lockpicking < 1)
-		to_chat(user, span_warning("How do I do this...?"))
+		to_chat(user, span_warning("这该怎么弄……？"))
 	if(do_after(user, 1 TURNS, src, interaction_key = DOAFTER_SOURCE_CAR))
 		if(!locked)
 			return
@@ -259,7 +259,7 @@
 		our_roll.difficulty = lockpick_difficulty
 		switch(our_roll.st_roll(user, src, using_item = tool))
 			if(ROLL_SUCCESS)
-				to_chat(user, span_notice("You've managed to open [src]'s lock."))
+				to_chat(user, span_notice("你成功撬开了[src]的锁。"))
 				playsound(src, 'modular_darkpack/modules/cars/sounds/open.ogg', 50, TRUE)
 				locked = FALSE
 				if(initial(access) == "none") //Stealing a car with no keys assigned to it is basically robbing a random person and not an organization
@@ -268,24 +268,24 @@
 						SEND_SIGNAL(H, COMSIG_PATH_HIT, -1, 6, FALSE)
 				return TRUE
 			if(ROLL_FAILURE)
-				to_chat(user, span_warning("You've failed to open [src]'s lock."))
+				to_chat(user, span_warning("你没能撬开[src]的锁。"))
 				return
 			if(ROLL_BOTCH)
-				to_chat(user, span_warning("Your lockpick broke!"))
+				to_chat(user, span_warning("你的开锁工具断了！"))
 				qdel(tool)
 				if(COOLDOWN_FINISHED(src, beep_cooldown))
 					playsound(src, 'modular_darkpack/modules/cars/sounds/signal.ogg', 50, FALSE)
 					COOLDOWN_START(src, beep_cooldown, 7 SECONDS)
 				return
 	else
-		to_chat(user, span_warning("You've failed to open [src]'s lock."))
+		to_chat(user, span_warning("你没能撬开[src]的锁。"))
 		return
 
 /obj/darkpack_car/proc/try_keys(mob/living/user, obj/item/vamp/keys/key_used)
 	if(key_used.accesslocks)
 		for(var/i in key_used.accesslocks)
 			if(i == access)
-				to_chat(user, span_notice("You [locked ? "open" : "close"] [src]'s lock."))
+				to_chat(user, span_notice("你[locked ? "解锁" : "锁上"]了[src]。"))
 				playsound(src, 'modular_darkpack/modules/cars/sounds/open.ogg', 50, TRUE)
 				locked = !locked
 				return TRUE
@@ -328,25 +328,25 @@
 /obj/darkpack_car/examine(mob/user)
 	. = ..()
 	if(user.loc == src)
-		. += "<b>Gas</b>: [gas]/[CAR_TANK_MAX]"
+		. += "<b>燃油</b>：[gas]/[CAR_TANK_MAX]"
 
 	if(broken)
-		. += span_notice("It appears to be broken.")
+		. += span_notice("它似乎坏了。")
 	var/healthpercent = (atom_integrity/max_integrity) * 100
 	switch(healthpercent)
 		if(75 to 99)
-			. += "It's slightly dented..."
+			. += "它有些轻微凹痕……"
 		if(50 to 74)
-			. += "It has some major dents..."
+			. += "它有几处明显凹痕……"
 		if(25 to 50)
-			. += "It's heavily damaged..."
+			. += "它损坏严重……"
 		if(0 to 25)
-			. += span_warning("It's falling apart!")
+			. += span_warning("它快散架了！")
 
 	if(locked)
-		. += span_warning("It's locked.")
+		. += span_warning("它锁着。")
 	if(driver || length(passengers))
-		. += span_notice("\nYou see the following people inside:")
+		. += span_notice("\n你看到车内有以下人员：")
 		for(var/mob/living/rider in src)
 			. += span_notice("* [rider]")
 
@@ -386,30 +386,30 @@
 		return
 
 	if(locked)
-		to_chat(user, span_warning("[src] is locked."))
+		to_chat(user, span_warning("[src]锁着。"))
 		return
 
 	if(driver && (length(passengers) >= max_passengers))
-		to_chat(dropped, span_warning("There's no space left for you in [src]."))
+		to_chat(dropped, span_warning("[src]里已经没有你的位置了。"))
 		return
 
 	var/list/radial_menu_options = list()
 	if(!driver)
-		radial_menu_options["Driver Seat"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "driver")
+		radial_menu_options["驾驶座"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "driver")
 	if(passengers.len < max_passengers)
-		radial_menu_options["Passanger Seat"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "passanger")
+		radial_menu_options["乘客座"] = icon('modular_darkpack/modules/cars/icons/car_actions.dmi', "passanger")
 	var/pick = show_radial_menu(user, src, radial_menu_options, require_near = TRUE)
 	if(!pick)
 		return
 
-	visible_message(span_notice("[dropped] begins entering [src]..."), \
-		span_notice("You begin entering [src]..."))
+	visible_message(span_notice("[dropped]开始进入[src]……"), \
+		span_notice("你开始进入[src]……"))
 	if(do_after(user, 1 SECONDS, dropped, interaction_key = DOAFTER_SOURCE_CAR))
-		if(pick == "Driver Seat" && driver_enter(dropped))
+		if(pick == "驾驶座" && driver_enter(dropped))
 			return
-		else if(pick == "Passanger Seat" && passenger_enter(dropped))
+		else if(pick == "乘客座" && passenger_enter(dropped))
 			return
-	to_chat(dropped, span_warning("You fail to enter [src]."))
+	to_chat(dropped, span_warning("你没能进入[src]。"))
 	return
 
 /obj/darkpack_car/proc/driver_enter(mob/living/user)
@@ -434,8 +434,8 @@
 // Please only call via driver_enter or passanger_enter
 /obj/darkpack_car/proc/enter_car(mob/living/user)
 	user.forceMove(src)
-	visible_message(span_notice("[user] enters [src]."), \
-		span_notice("You enter [src]."))
+	visible_message(span_notice("[user]进入了[src]。"), \
+		span_notice("你进入了[src]。"))
 	playsound(src, 'modular_darkpack/master_files/sounds/effects/door/door.ogg', 50, TRUE)
 
 //Dump out all living from the car
@@ -467,7 +467,7 @@
 	else if(length(exit_alt))
 		dumpe.Move(get_step(dumpe, pick(exit_alt)))
 
-	to_chat(dumpe, span_notice("You exit [src]."))
+	to_chat(dumpe, span_notice("你离开了[src]。"))
 	if(dumpe?.client)
 		dumpe.client.pixel_x = 0
 		dumpe.client.pixel_y = 0
@@ -559,7 +559,7 @@
 	if(gas <= 0)
 		stop_engine()
 		if(driver)
-			to_chat(driver, span_warning("No fuel in the tank!"))
+			to_chat(driver, span_warning("油箱没油了！"))
 	if(!on || !driver)
 		speed_in_pixels = (speed_in_pixels < 0 ? -1 : 1) * max(abs(speed_in_pixels) - 15, 0)
 		if(speed_in_pixels == 0 && !light_on)

@@ -1,5 +1,5 @@
 /obj/structure/vampdoor/simple // Green metal door
-	name = "simple door"
+	name = "简易门"
 	icon_state = "cam-1"
 	base_icon_state = "cam"
 	bash_difficulty = 7

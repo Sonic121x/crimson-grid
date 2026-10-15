@@ -1,12 +1,12 @@
 /obj/effect/decal/snow_overlay
-	name = "snow"
+	name = "积雪"
 	icon = 'modular_darkpack/modules/decor/icons/decals.dmi'
 	icon_state = "snow_overlay"
 	alpha = 200
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/decal/coastline
-	name = "water"
+	name = "水"
 	icon = 'modular_darkpack/modules/decor/icons/decals.dmi'
 	icon_state = "coastline"
 
@@ -14,7 +14,7 @@
 	icon_state = "coastline_corner"
 
 /obj/effect/decal/shadow
-	name = "shadow"
+	name = "阴影"
 	icon = 'modular_darkpack/modules/decor/icons/decals.dmi'
 	icon_state = "shadow"
 
@@ -31,7 +31,7 @@
 	icon_state = "shadow_low"
 
 /obj/effect/decal/support
-	name = "support"
+	name = "支撑柱"
 	icon = 'modular_darkpack/modules/decor/icons/decals.dmi'
 	icon_state = "support"
 
@@ -39,7 +39,7 @@
 	return FALSE
 
 /obj/effect/decal/rugs
-	name = "rugs"
+	name = "地毯"
 	icon = 'modular_darkpack/modules/decor/icons/decals.dmi'
 	icon_state = "rugs"
 

@@ -1,8 +1,8 @@
 #define DOAFTER_SOURCE_MATRIX "doafter_matrix"
 
 /turf/closed/indestructible/the_matrix
-	name = "matrix"
-	desc = "Suicide is no exit..."
+	name = "退场通道"
+	desc = "自杀不是离开的办法……"
 	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
 	icon_state = "matrix"
 
@@ -15,8 +15,8 @@
 	return TRUE
 
 /obj/the_matrix
-	name = "matrix (depricated)"
-	desc = "Suicide is no exit... This is an old evil version, please contact a mapper to replace this with a turf one if you are reading this"
+	name = "退场通道（已弃用）"
+	desc = "自杀不是离开的办法……这是存在问题的旧版本；如果你看到这段说明，请联系地图维护者，将其替换为地形版本。"
 	icon = 'modular_darkpack/modules/matrix/icons/matrix.dmi'
 	icon_state = "matrix"
 	layer = ABOVE_NORMAL_TURF_LAYER

@@ -13,20 +13,20 @@
 	start_when = 1
 	announce_when = 3
 	var/static/list/announcement_messages = list(
-		"Due to a recent power fluctuation, some Bianchi Bank customers may find their accounts to reflect an incorrect balance.",
-		"Unfortunately, a recent banking error has affected a few Bianchi Bank customers in the Bay Area.",
-		"A server crash at Bianchi Bank has resulted in bank balances reflecting the wrong amount.",
-		"Bianchi Bank sadly announces that cutting-edge financial instruments have been revealed to be fraudulent, as tens of thousands of account holders savings are wiped out in seconds.",
+		"由于近期电力波动，部分比安基银行客户可能会发现账户余额显示有误。",
+		"很遗憾，近期的一次银行业务差错影响了湾区少数比安基银行客户。",
+		"比安基银行服务器崩溃，导致银行账户余额显示错误。",
+		"比安基银行遗憾地宣布，前沿金融产品被揭露为骗局，数万名储户的积蓄在几秒内化为乌有。",
 	)
 
 /datum/round_event/financial_crisis/announce(fake)
-	var/chosen_announcement = "[pick(announcement_messages)] Customers are encouraged to contact the branch during normal business hours between 8:00am and 5:00pm, Monday through Friday."
-	endpost_announce("[chosen_announcement]", "BianchiBank")
+	var/chosen_announcement = "[pick(announcement_messages)] 请客户于周一至周五上午8:00至下午5:00的正常营业时间联系分行。"
+	endpost_announce("[chosen_announcement]", "比安基银行")
 
 /datum/round_event/financial_crisis/start()
 	for(var/account_id in SSeconomy.bank_accounts_by_id)
 		var/datum/bank_account/bank = SSeconomy.bank_accounts_by_id[account_id]
 		if(!istype(bank, /datum/bank_account))
 			continue
-		bank.adjust_money(-(round(bank.account_balance * (rand(85, 95) / 100))), "Financial Crisis") // leaves them with 5-15% of their savings
+		bank.adjust_money(-(round(bank.account_balance * (rand(85, 95) / 100))), "金融危机") // leaves them with 5-15% of their savings
 

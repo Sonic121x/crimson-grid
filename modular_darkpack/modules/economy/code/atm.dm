@@ -65,7 +65,7 @@
 	data["inserted_cash"] = inserted_cash
 	if(logged_account)
 		data["account_balance"] = logged_account.account_balance
-		data["account_holder"] = logged_account.account_holder
+		data["account_holder"] = logged_account.account_holder == "Unassigned" ? "未分配" : logged_account.account_holder
 		data["account_id"] = logged_account.account_id
 		data["bank_pin"] = logged_account.bank_pin
 	else
@@ -104,7 +104,7 @@
 			return TRUE
 		if("deposit")
 			if(inserted_cash > 0)
-				logged_account.adjust_money(inserted_cash, "ATM: Deposit")
+				logged_account.adjust_money(inserted_cash, "自动取款机：存款")
 				to_chat(usr, span_notice("你已向银行卡存入[inserted_cash] [MONEY_NAME]。当前余额为[logged_account.account_balance] [MONEY_NAME]。"))
 				total_stored_cash += inserted_cash
 				inserted_cash = 0
@@ -129,7 +129,7 @@
 		amount -= drop_amount
 		total_stored_cash -= drop_amount
 		amount_drawn += drop_amount
-	logged_account.adjust_money(-amount_drawn, "ATM: Withdraw")
+	logged_account.adjust_money(-amount_drawn, "自动取款机：取款")
 
 /obj/machinery/atm/proc/dump_cash()
 	while(total_stored_cash > 0)

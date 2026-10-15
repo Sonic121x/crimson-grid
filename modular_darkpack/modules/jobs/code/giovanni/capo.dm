@@ -58,11 +58,11 @@
 	return ..()
 
 /datum/memory/key/bank_vault_code/get_names()
-	return list("The bank vault code is [remembered_code].")
+	return list("银行金库的密码是[remembered_code]。")
 
 /datum/memory/key/bank_vault_code/get_starts()
 	return list(
-		"[protagonist_name] blurts out [remembered_code], then looks nervous. Were they supposed to say that...?"
+		"[protagonist_name]脱口说出了[remembered_code]，随后显得很紧张。这话是不是不该说出来……？"
 	)
 
 /datum/job/vampire/capo/after_spawn(mob/living/spawned, client/player_client)

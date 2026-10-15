@@ -1,6 +1,6 @@
 /obj/item/battering_ram
-	name = "battering ram"
-	desc = "WE CALL THIS A DIFFICULTY TWEAK"
+	name = "破门锤"
+	desc = "我们管这叫难度微调！"
 	icon = 'modular_darkpack/modules/battering_ram/icons/battering_ram.dmi'
 	icon_state = "battering_ram"
 	inhand_icon_state = "battering_ram"

@@ -24,18 +24,18 @@
 	var/alist/defaults = get_default_player_whitelists()
 	for(var/key, bool in defaults)
 		if(!(key in player_whitelists))
-			to_chat(parent, span_boldnotice("New whitelist key added to whitelists: [key] [bool ? "TRUE": "FALSE"]."))
+			to_chat(parent, span_boldnotice("已新增白名单项：[key]，状态：[bool ? "启用": "禁用"]。"))
 			player_whitelists[key] = bool
 
 	for(var/key in saved)
 		if(!(key in defaults))
-			to_chat(parent, span_boldnotice("Bad whitelist key has been removed from whitelists"))
+			to_chat(parent, span_boldnotice("已移除无效的白名单项。"))
 			player_whitelists[key] = null
 
 	if(discipline_trusted && !player_whitelists[WHITELIST_TRUSTED]) // backwards compatibility
 		player_whitelists[WHITELIST_TRUSTED] = TRUE
 		if(!isnull(parent))
-			to_chat(parent, span_boldnotice("Great news! Your existing trusted status was successfully migrated to the new splat whitelist system."))
+			to_chat(parent, span_boldnotice("好消息！你原有的受信任资格已成功迁移至新的族类白名单系统。"))
 
 	discipline_trusted = player_whitelists[WHITELIST_TRUSTED]
 	// WHITELIST

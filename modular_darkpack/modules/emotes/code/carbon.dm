@@ -1,7 +1,7 @@
 /datum/emote/living/carbon/clap
 	key = "clap"
 	key_third_person = "claps"
-	message = "claps."
+	message = "鼓起了掌。"
 	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
@@ -21,7 +21,7 @@
 /datum/emote/living/carbon/clap1
 	key = "clap1"
 	key_third_person = "claps once"
-	message = "claps once."
+	message = "拍了一下手。"
 	emote_type = EMOTE_AUDIBLE
 	hands_use_check = TRUE
 	vary = TRUE
@@ -39,7 +39,7 @@
 /datum/emote/living/carbon/sweatdrop
 	key = "sweatdrop"
 	key_third_person = "sweatdrops"
-	message = "sweats."
+	message = "冒出了汗。"
 	emote_type = EMOTE_VISIBLE
 	vary = TRUE
 

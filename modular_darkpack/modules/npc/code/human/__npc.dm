@@ -207,7 +207,7 @@
 	if(source)
 		addtimer(CALLBACK(src, PROC_REF(face_atom), source), rand(0.3 SECONDS, 0.7 SECONDS))
 
-	var/phrase = "Wow."
+	var/phrase = "哇。"
 	if (prob(50))
 		phrase = pick(socialrole?.neutral_phrases)
 	else
@@ -259,17 +259,17 @@
 	last_grab = world.time
 
 /mob/living/carbon/human/npc/ghoulificate(mob/owner)
-	deadchat_broadcast(span_ghostalert("[owner] is ghoulificating [src]."), owner, src)
+	deadchat_broadcast(span_ghostalert("[owner]正在将[src]转化为血仆。"), owner, src)
 
 	AddComponent(\
 		/datum/component/ghost_direct_control,\
 		ban_type = ROLE_GHOUL,\
 		poll_candidates = TRUE,\
-		role_name = "[owner]'s ghoul",\
+		role_name = "[owner]的血仆",\
 		poll_length = 30 SECONDS,\
-		poll_question = "Do you want to play as [owner]'s ghoul?",\
+		poll_question = "你想扮演[owner]的血仆吗？",\
 
-		assumed_control_message = "You are now [owner]'s ghoul!",\
+		assumed_control_message = "你现在是[owner]的血仆了！",\
 		after_assumed_control = CALLBACK(src, PROC_REF(ghoul_player_controlled), owner)\
 	)
 

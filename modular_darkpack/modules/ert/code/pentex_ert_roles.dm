@@ -1,34 +1,34 @@
 /datum/antagonist/ert/darkpack/pentex/leader
-	name = "Squad Leader"
+	name = "小队队长"
 	outfit = /datum/outfit/job/vampire/ert/pentex
-	role = "Sergeant"
+	role = "中士"
 
 /datum/antagonist/ert/darkpack/pentex/medic
-	name = "Field Medic"
+	name = "战地医护员"
 	outfit = /datum/outfit/job/vampire/ert/pentex/medic
-	role = "Field Medic"
+	role = "战地医护员"
 
 /datum/antagonist/ert/darkpack/pentex/exterminator
-	name = "Exterminator"
+	name = "歼灭者"
 	outfit = /datum/outfit/job/vampire/ert/pentex/exterminator
-	role = "Exterminator"
+	role = "歼灭者"
 
 /datum/antagonist/ert/darkpack/pentex/specialist
-	name = "Breaching Specialist"
+	name = "破门专家"
 	outfit = /datum/outfit/job/vampire/ert/pentex/specialist
-	role = "Specialist"
+	role = "专家"
 
 /datum/antagonist/ert/darkpack/pentex/budget_leader
-	name = "Evaluation Officer"
+	name = "评估专员"
 	outfit = /datum/outfit/job/vampire/ert/pentex_budget
-	role = "Evaluation Officer"
+	role = "评估专员"
 
 /datum/antagonist/ert/darkpack/pentex/budget_intern
-	name = "Unpaid Intern"
+	name = "无薪实习生"
 	outfit = /datum/outfit/job/vampire/ert/pentex_budget/intern
-	role = "Intern"
+	role = "实习生"
 
 /datum/antagonist/ert/darkpack/pentex/budget_medic
-	name = "Unpaid Intern Medic"
+	name = "无薪实习医护员"
 	outfit = /datum/outfit/job/vampire/ert/pentex_budget/medic
-	role = "Medical Intern"
+	role = "医护实习生"

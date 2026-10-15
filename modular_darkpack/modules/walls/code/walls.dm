@@ -49,8 +49,8 @@
 		comp.setup_perimeter(src)
 
 /turf/closed/wall/vampwall
-	name = "old brick wall"
-	desc = "A huge chunk of old bricks used to separate rooms."
+	name = "旧砖墙"
+	desc = "一面用旧砖砌成的厚实墙壁，用于分隔房间。"
 	icon = 'modular_darkpack/modules/walls/icons/walls.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
@@ -75,7 +75,7 @@
 // CRIMSON EDIT ADD START - Welders no longer deconstruct city walls
 /turf/closed/wall/vampwall/try_decon(obj/item/I, mob/user)
 	if(I.tool_behaviour == TOOL_WELDER)
-		to_chat(user, span_warning("The wall is too solid to cut through."))
+		to_chat(user, span_warning("墙壁太坚固，无法切开。"))
 	return FALSE
 // CRIMSON EDIT ADD END - Welders no longer deconstruct city walls
 
@@ -94,18 +94,18 @@
 			if(living_user.can_z_move(UP, user_turf, above_turf, ZMOVE_STAIRS_FLAGS, user))
 				climb_wall(user, above_turf)
 			else
-				to_chat(user, span_warning("You can't climb there!"))
+				to_chat(user, span_warning("你无法爬到那里！"))
 
 /turf/closed/wall/vampwall/proc/climb_wall(mob/living/user, turf/above_turf)
 	if(user.body_position != STANDING_UP)
 		return
 	if(above_turf && istype(above_turf, /turf/open/openspace))
-		to_chat(user, span_notice("You start climbing up..."))
+		to_chat(user, span_notice("你开始向上攀爬……"))
 		add_fingerprint(user)
 
 		var/result = do_after(user, 1 TURNS, src)
 		if(!result || HAS_TRAIT(user, LEANING_TRAIT))
-			to_chat(user, span_notice("You were interrupted and failed to climb up."))
+			to_chat(user, span_notice("你的攀爬被打断了，没能爬上去。"))
 			return
 
 		//(Botch, slip and take damage), (Fail, fail to climb), (Success, climb up successfully)
@@ -115,17 +115,17 @@
 		switch(roll)
 			if(ROLL_BOTCH)
 				user.ZImpactDamage(loc, 1)
-				to_chat(user, span_warning("You slip while climbing!"))
+				to_chat(user, span_warning("你在攀爬时滑落了！"))
 				return
 			if(ROLL_FAILURE)
-				to_chat(user, span_warning("You fail to climb up."))
+				to_chat(user, span_warning("你没能爬上去。"))
 				return
 			else
 				user.zMove(UP, above_turf)
 				var/turf/forward_turf = get_step(user.loc, user.dir)
 				if(forward_turf && !forward_turf.density)
 					user.forceMove(forward_turf)
-					to_chat(user, span_notice("You climb up successfully."))
+					to_chat(user, span_notice("你成功爬了上去。"))
 
 /turf/closed/wall/vampwall/ex_act(severity, target)
 	return
@@ -161,14 +161,14 @@
 		QDEL_NULL(wall_frill)
 
 /turf/closed/wall/vampwall/rich
-	name = "rich-looking wall"
-	desc = "A huge chunk of expensive bricks used to separate rooms."
+	name = "华丽的墙壁"
+	desc = "一面用昂贵砖块砌成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/rich/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/rich/frill.dmi'
 
 /turf/closed/wall/vampwall/rich/old
-	name = "old rich-looking wall"
-	desc = "A huge chunk of old bricks used to separate rooms."
+	name = "陈旧的华丽墙壁"
+	desc = "一面用旧砖砌成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/rich_old/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/rich_old/frill.dmi'
 
@@ -177,8 +177,8 @@
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/brick_old/frill.dmi'
 
 /turf/closed/wall/vampwall/junk
-	name = "junk brick wall"
-	desc = "A huge chunk of dirty bricks used to separate rooms."
+	name = "破旧砖墙"
+	desc = "一面用脏砖砌成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/junk/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/junk/frill.dmi'
 
@@ -187,105 +187,105 @@
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/junk_alt/frill.dmi'
 
 /turf/closed/wall/vampwall/market
-	name = "concrete wall"
-	desc = "A huge chunk of concrete used to separate rooms."
+	name = "混凝土墙"
+	desc = "一面厚实的混凝土墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/market/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/market/frill.dmi'
 
 /turf/closed/wall/vampwall/old
-	name = "old brick wall"
-	desc = "A huge chunk of old bricks used to separate rooms."
+	name = "旧砖墙"
+	desc = "一面用旧砖砌成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/old/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/old/frill.dmi'
 
 /turf/closed/wall/vampwall/painted
-	name = "painted brick wall"
-	desc = "A huge chunk of painted bricks used to separate rooms."
+	name = "涂漆砖墙"
+	desc = "一面涂过漆的厚实砖墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/painted/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/painted/frill.dmi'
 
 /turf/closed/wall/vampwall/brick
-	name = "brick wall"
-	desc = "A huge chunk of bricks used to separate rooms."
+	name = "砖墙"
+	desc = "一面厚实的砖墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/brick/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/brick/frill.dmi'
 
 /turf/closed/wall/vampwall/redbrick
-	name = "red brick wall"
-	desc = "A huge chunk of red bricks used to separate rooms."
+	name = "红砖墙"
+	desc = "一面用红砖砌成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/red_brick/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/red_brick/frill.dmi'
 
 /turf/closed/wall/vampwall/city
-	name = "wall"
-	desc = "A huge chunk of concrete and bricks used to separate rooms."
+	name = "墙壁"
+	desc = "一面用混凝土和砖块筑成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/city/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/city/frill.dmi'
 
 /turf/closed/wall/vampwall/metal
-	name = "metal wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	name = "金属墙"
+	desc = "一面厚实的金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/metal/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/metal/frill.dmi'
 
 /turf/closed/wall/vampwall/metal/reinforced
-	name = "reinforced metal wall"
-	desc = "A huge chunk of reinforced metal used to separate rooms."
+	name = "加固金属墙"
+	desc = "一面厚实的加固金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/metal_reinforced/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/metal_reinforced/frill.dmi'
 
 /turf/closed/wall/vampwall/metal/alt
-	name = "metal wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	name = "金属墙"
+	desc = "一面厚实的金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/metal_alt/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/metal_alt/frill.dmi'
 
 /turf/closed/wall/vampwall/metal/glass
-	name = "metal wall"
-	desc = "A huge chunk of metal used to separate rooms."
+	name = "金属墙"
+	desc = "一面厚实的金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/metal_glass/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/metal_glass/frill.dmi'
 	opacity = FALSE
 
 /turf/closed/wall/vampwall/bar
-	name = "dark brick wall"
-	desc = "A huge chunk of bricks used to separate rooms."
+	name = "深色砖墙"
+	desc = "一面厚实的砖墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/bar/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/bar/frill.dmi'
 
 /turf/closed/wall/vampwall/wood
-	name = "wood wall"
-	desc = "A huge chunk of dirty logs used to separate rooms."
+	name = "木墙"
+	desc = "一面用脏木料筑成的厚实墙壁，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/wood/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/wood/frill.dmi'
 
 /turf/closed/wall/vampwall/rust
-	name = "rusty wall"
-	desc = "A huge chunk of rusty metal used to separate rooms."
+	name = "锈蚀的墙壁"
+	desc = "一面厚实的锈蚀金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/rust/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/rust/frill.dmi'
 
 /turf/closed/wall/vampwall/dirtywood
-	name = "dirty wood wall"
-	desc = "A huge chunk of brown metal used to separate rooms."
+	name = "脏木墙"
+	desc = "一面厚实的棕色金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/wood_dirty/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/wood_dirty/frill.dmi'
 
 /turf/closed/wall/vampwall/green
-	name = "green wall"
-	desc = "A huge chunk of green metal used to separate rooms."
+	name = "绿色墙壁"
+	desc = "一面厚实的绿色金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/green/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/green/frill.dmi'
 
 /turf/closed/wall/vampwall/rustbad
-	name = "rusty wall"
-	desc = "A huge chunk of rusty metal used to separate rooms."
+	name = "锈蚀的墙壁"
+	desc = "一面厚实的锈蚀金属墙，用于分隔房间。"
 	icon = 'icons/obj/smooth_structures/darkpack/wall/rustbad/wall.dmi'
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/rustbad/frill.dmi'
 
 /turf/closed/wall/vampwall/rock
-	name = "rock wall"
-	desc = "A huge chunk of rocks separating whole territory."
+	name = "岩壁"
+	desc = "一大片岩石构成的屏障，将整片区域隔开。"
 	//icon = 'icons/obj/smooth_structures/darkpack/wall/rock/wall.dmi'
 	icon = 'modular_darkpack/modules/walls/icons/rock_wall.dmi' // Unfortuante case where its autocutting is a bit lacking so I manually edit it.
 	frill_icon = 'icons/obj/smooth_structures/darkpack/wall/rock/frill.dmi'

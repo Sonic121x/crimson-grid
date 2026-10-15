@@ -1,6 +1,6 @@
 /mob/living/basic/crinos_beast
-	name = "wolf-like beast"
-	desc = "The peak of abominations damage. Unbelievably deadly..."
+	name = "狼形凶兽"
+	desc = "畸怪之中的杀戮巅峰，致命得令人难以置信……"
 	icon = 'modular_darkpack/modules/npc/icons/werewolf.dmi'
 	icon_state = "beast_crinos"
 	base_icon_state = "beast_crinos"
@@ -19,8 +19,8 @@
 	melee_damage_lower = 35
 	melee_damage_upper = 35
 
-	attack_verb_continuous = "slashes"
-	attack_verb_simple = "slash"
+	attack_verb_continuous = "挥砍"
+	attack_verb_simple = "挥砍"
 	attack_sound = 'sound/items/weapons/slash.ogg'
 
 	pixel_w = -8

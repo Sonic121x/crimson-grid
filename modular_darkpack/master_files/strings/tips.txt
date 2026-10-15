@@ -1,71 +1,71 @@
-@You can <i>italicize</i>, <b>embolden</b> or <u>underline</u> portions of your messages by enclosing them with |, + or _ respectively. You can also avoid this by adding backslashes (they won't show in the message) before these characters.
-A "Scene" in game represents 3 minutes.
-A "Turn" in game represents 5 seconds.
-A thrown glass of water can make a slippery tile, allowing you to slow down your pursuers in a pinch.
-ATMs can be smashed with a high force weapon for whatever cash is inside of them.
-As a Baron, you lead the individualistic kindred of the city. You are still part of the Camarilla, but you have more sway here. San Francisco is an Anarch domain.
-As a Bruiser, you hang out with the Baron and support him in his rebellious troublemaking.
-As a Chantry Regent, your objectives are to lead the Tremere of San Francisco and keep the Chantry secure, as well as hunt down any who would steal your clan's secrets.
-As a Dealer, you hold a powerful domain. You can make deals with whomever you want - but boons are always worth more than money.
-As a Hound, your objectives are to enforce the Traditions and the Camarilla's rule of the city.
-As a Hunter, your objectives are to Hunt abnormal beings and night creatures in City.
-As a Primogen, your objectives are to represent your clan in the city, and make sure they are organized and loyal enough to keep you in power.
-As a Prince, your objectives are to rule Camarilla and the City. Follow all Six Traditions of Kindred and decide how to fight global dangers. Don't forget to call on the Primogens if you need some help.
-As a Sabbat member, you must fight the enemies of the Dark Father - servants of the vile Antediluvians.
-As a Seneschal, your objectives are to help Prince make any business in the City. You are his right hand man, and he expects you to deal with matters beneath him.
-As a Sheriff, your objectives are to protect Masquerade in the City. Speak with Camarilla's agents and decide the best technique to liquidate Masquerade breaches and breachers.
-As a Taxi Driver, your objectives are to drive. Real human being.
-As an Archivist, your objectives are to protect Tremere knowledge and the Chantry.
-Basketball requires focus. If you don't click on your target (player or hoop) you are more likely to miss.
-Basketball requires skill. Spinning drains stamina, reduces accuracy, but gives resistance from disarm. Use it to dunk!
-Basketball requires stamina. The more you have, the less likely your ball will be stolen and the more likely you can steal from another player.
-Basketball requires strategy. The direction both players are facing affects disarms so having your back to another player that is trying to steal is ideal.
-Basketball requires teamwork. Passing the ball with LMB is instant and costs no stamina.
-Blood quality depends on the power or lifestyle of a creature. Vampire blood satisfies the most, after that lupine blood, then the wealthy, then the poor, then animals, and so on.
-Boots can store items like knives or lighters.
-Boots can store items like knives or lighters.
-Cars use gasoline; you can buy more at a gas station. This can be used in the production of molotovs, as well.
-Diablerie lowers your generation by one, if your victim's is lower than yours. Diablerie is one of the vilest deeds imaginable, and any kindred who learn of this will seek your permanent death.
-Discipline levels can be changed with Right-Click.
-Don't be afraid to ask for help, whether from your peers or from admins.
-Duffle bags can hold two large whitelisted items that bypass their normal item weight restriction.
-Followers of Set, also known as Ministry, can avoid diablerie and staking by moving their heart to an urn.
-Ghouls are weaker than kindred, and require vitae instead of mortal blood. But they also are immune to humanity and can learn any clan's disciplines to level 1.
-Gun casings leave forensic evidence that can trace back to your firearm unless preventative measures are taken.
-Holding alt and left clicking a tile will allow you to see its contents in the top right window pane, which is much faster than holding shift and right clicking.
-Hovering over a dice roll with reveal what stats were used for rolls.
-Human players can use the "Report a Masquerade violation" button in people's examine text to report any weird supernatural stuff they shouldn't be seeing, like vampires feeding or punching people across a room.
-If you are a mortal and do drugs, kindred can experience the same high by drinking your blood.
-If you ever find yourself lost, look for a city map, use the navigate verb or button. Or just ask for directions.
-If you have a high enough strength, jumping in combat mode will create a shockwave.
-If you're bleeding, you can apply pressure to the limb by grabbing yourself while targeting the bleeding limb. This will slow you down and take up a hand, but it'll slow down how fast you lose blood. Note this won't help the bleeding clot any faster.
-If you're using hotkey mode, you can stop pulling things using H.
-Laying down will help slow down bloodloss. Death will halt it entirely.
-Lower generation vampires have access to stronger abilities, at the cost of requiring more blood to be sated.
-Magical artifacts need to be identified in order to be used. The Tremere, Garou, or those with a tremendously high Occult skill can identify them.
-Most things have special interactions with right, alt, shift, and control click. Experiment!
-Pool tables can be interacted with and let you play a mock game of billiards.
-The Malkavian hivemind allows you to send any message, except images.
-The resist button will allow you to resist out of handcuffs, being buckled to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
-There are 36 turns in a scene.
-To destroy any firearm's serial number, right-click it with a screwdriver in hand.
-To use Thaumaturgy properly you should get an Arcane Tome. Some of them spawn in Chantry. Lasombra can also learn Abyss Mysticism by crafting a tome after reaching Obtenebration at level 5.
-Tzimisce can upgrade your body with flesh and blood. Or they can turn you into a chair. Take this risk at your own judgement.
-Vampires are hard to kill, but can be immobilized by driving a stake into their heart.
-When in doubt about technical issues, clear your cache (byond launcher > cogwheel > preferences > game prefs), update your BYOND, and relog.
-With high enough strength, you can attempt to bash down a door, but failing can injure you.
-You can bloodbond people as a kindred. To do so - grab them and force them to swallow your vitae with Give Vitae ability. Bloodbonds strengthen the victim's emotions towards you and create an obsession.
-You can board up windows by left-clicking a window with planks in hand.
-You can board up windows by left-clicking a window with planks in hand.
-You can conceal your satchel by Alt + Right-clicking it.
-You can find a lockpick on certain NPCs and at the black market or hardware store. Dexterity and larceny assist in your chances to succeed, and doors have varying difficulty.
-You can find and publish your phone number on your phone.
-You can jump around by pressing MMB. You can even jump over railings while standing next to them.
-You can make a ghoul by bloodbonding a non-playable character. If there are any ghosts that want to play a ghoul - they will take over the ghouled NPC.
-You can right click someone with wire cutters, jaws of life, and box cutters to instantly snap cablecuffs or zipties. The jaws can even instantly break handcuffs!
-You can send announcements as the Prince by using your computer. Other kindred can see it on other computers too.
-You can set off a sprinkler by attacking it with any item that would light a cigarette.
-You can use :L / .L or :R / .R to speak through an item being held in your left or right hand respectively. This allows you to talk into a city-bounced radio without manually turning on its microphone!
-You don't need to have your keys in your hand to unlock a door. Just right-click.
-Your firearm stat dramatically improves your ability to control recoil.
-♪ Hey, have you ever tried appending the % character before your messages when speaking in-game? ♫
+@你可以分别用|、+或_包住消息中的文字，使其显示为<i>斜体</i>、<b>粗体</b>或<u>下划线</u>。在这些符号前加反斜杠即可避免格式转换，反斜杠本身不会出现在消息中。
+游戏中的一个“场景”代表3分钟。
+游戏中的一个“回合”代表5秒。
+扔出一杯水能让地面变滑，危急时可用来拖慢追兵。
+用威力足够大的武器砸开自动取款机，就能拿走里面的现金。
+作为男爵，你领导着这座城市中崇尚个人自由的血族。你仍属于密党，但在这里拥有更大的影响力。旧金山是自由派的领地。
+作为打手，你跟随男爵，支持他那些叛逆的捣乱行动。
+作为秘所摄政，你的目标是领导旧金山的睿魔尔、守护秘所安全，并追捕任何企图窃取氏族秘密的人。
+作为供货商，你掌握着一片强大的领地。你可以与任何人做交易——但恩惠债永远比金钱更有价值。
+作为猎犬，你的目标是执行传统戒律，维护密党对这座城市的统治。
+作为猎人，你的目标是猎杀城中的异常存在和暗夜生物。
+作为元老，你的目标是在城中代表自己的氏族，确保成员组织有序、足够忠诚，让你稳坐权位。
+作为亲王，你的目标是统治密党和城市。遵守血族的六大传统戒律，决定如何应对全局性威胁。需要帮助时，别忘了召集元老。
+作为魔宴同盟成员，你必须对抗黑暗之父的敌人——那些卑劣上古者的仆从。
+作为总管，你的目标是帮助亲王处理城中事务。你是他的左膀右臂，他指望你处理那些不值得他亲自过问的事。
+作为治安官，你的目标是维护城中的避世戒律。与密党的代理人沟通，决定如何妥善处理违戒事件和违戒者。
+作为出租车司机，你的目标就是开车。一个真正的人。
+作为档案员，你的目标是保护睿魔尔的知识和秘所。
+打篮球需要专注。若没有点中目标（玩家或篮筐），就更容易投偏。
+打篮球需要技巧。转身会消耗体力、降低准度，但能抵抗抢断。用它来扣篮吧！
+打篮球需要体力。体力越充沛，就越不容易被抢断，也越容易从其他玩家手里抢到球。
+打篮球需要策略。双方的朝向都会影响抢断，所以最好背对试图抢球的对手。
+打篮球需要团队合作。用鼠标左键传球会立即完成，而且不消耗体力。
+血液品质取决于生物的力量或生活方式。吸血鬼的血最能满足饥渴，其次是狼人的血，再依次是富人、穷人、动物等。
+靴子里可以藏小刀或打火机之类的物品。
+靴子里可以藏小刀或打火机之类的物品。
+汽车使用汽油，你可以在加油站购买。汽油也能用来制作燃烧瓶。
+如果受害者的世代比你低，血噬会让你的世代降低一代。血噬是最卑劣的恶行之一，任何得知此事的血族都会谋求你的终死。
+右键点击可以调整律能等级。
+不要害怕求助，无论对象是其他玩家还是管理员。
+行李袋可容纳两件豁免清单内的大型物品，它们不受通常的物品重量限制。
+瑟泰信徒，也称圣职会成员，可以将心脏移入瓮中，避免遭受血噬和木桩穿心。
+血仆比血族弱，需要的是血粹而非凡人的鲜血。但他们不受人性机制影响，且能将任意氏族的律能学到1级。
+除非提前采取防范措施，否则弹壳会留下能追溯到你枪械的取证线索。
+按住Alt并左键点击地格，就能在右上角窗格查看其中的物品，比按住Shift再右键点击快得多。
+将鼠标悬停在掷骰结果上，可以查看本次掷骰使用了哪些属性。
+人类玩家可以使用人物查看文字中的“举报违反避世戒律”按钮，报告那些本不该看见的诡异超自然现象，比如吸血鬼进食，或一拳把人打到房间另一头。
+如果你是凡人并吸食了毒品，血族喝下你的血也会产生同样的快感。
+迷路时，可以找一张城市地图，使用导航指令或按钮，或者直接向人问路。
+力量足够高时，在战斗模式下跳跃会产生冲击波。
+如果你正在流血，可以选中流血的肢体并抓住自己，进行按压止血。这会拖慢移动速度并占用一只手，但能减慢失血。注意，这并不会加快血液凝固。
+使用快捷键模式时，按H可以停止拖拽。
+躺下有助于减缓失血。死亡则会让失血彻底停止。
+低世代吸血鬼能使用更强大的能力，代价是需要更多鲜血才能满足饥渴。
+魔法遗物必须先鉴定才能使用。睿魔尔、狼人或神秘学技能极高的人都能鉴定它们。
+许多物品在右键点击，或按住Alt、Shift、Ctrl点击时会有特殊互动。试试看！
+你可以与台球桌互动，模拟打一局台球。
+魔卡维的蜂巢意识可以发送任何消息，除了图片。
+“挣扎”按钮可以让你尝试挣脱手铐、椅子或床上的束缚、上锁的储物柜等。被困住时，就试试挣扎！
+一个场景包含36个回合。
+手持螺丝刀右键点击枪械，可以破坏其序列号。
+想要正确使用血魔法，你应该准备一本奥术典籍，秘所里会生成一些。勒森布拉在暗影术达到5级后，还能制作典籍来学习深渊秘术。
+茨密希可以用血肉强化你的身体，也可能把你变成椅子。是否冒这个险，请自行判断。
+吸血鬼很难杀死，但用木桩刺穿心脏可以让他们无法动弹。
+遇到不明技术问题时，清理缓存（BYOND启动器 > 齿轮 > preferences > game prefs），更新BYOND，然后重新登录。
+力量足够高时，你可以尝试撞开门，但失败可能导致受伤。
+血族可以对他人施加血缚：抓住对方，使用“赐予血粹”能力，强迫其吞下你的血粹。血缚会强化受害者对你的感情，使其陷入痴迷。
+手持木板左键点击窗户，可以将其封住。
+手持木板左键点击窗户，可以将其封住。
+按住Alt并右键点击挎包，可以将它隐藏。
+某些NPC身上、黑市或五金店里可以找到开锁器。敏捷和盗窃技能能提高成功率，不同的门开锁难度也不同。
+你可以在手机上查看并公开自己的电话号码。
+按鼠标中键即可跳跃。站在栏杆旁时，你甚至能跳过去。
+对NPC施加血缚可以将其变成血仆。如果有幽灵想扮演血仆，就会接管这个被转化的NPC。
+手持剪线钳、液压救援钳或美工刀右键点击他人，可以立刻剪断电缆手铐或扎带。液压救援钳甚至能立即破坏手铐！
+亲王可以通过自己的电脑发布公告。其他血族也能在别的电脑上看到。
+用任何能点燃香烟的物品攻击喷淋头，都能将其启动。
+分别使用:L / .L或:R / .R，可以通过左手或右手持有的物品说话。这样就能对着城市中继无线电讲话，无需手动打开麦克风！
+开门时不用把钥匙拿在手里。右键点击就行。
+枪械属性能大幅提高你控制后坐力的能力。
+♪ 嘿，你试过在游戏里说话时，在消息前加上%符号吗？♫

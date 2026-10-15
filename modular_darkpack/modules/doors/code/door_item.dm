@@ -1,6 +1,6 @@
 /obj/item/shield/door
-	name = "\improper door"
-	desc = "It opens and closes."
+	name = "\improper 门"
+	desc = "能开也能关。"
 	icon_state = "door"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	lefthand_file = 'modular_darkpack/modules/deprecated/icons/lefthand.dmi'
@@ -12,6 +12,6 @@
 	throw_range = 3
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = NONE
-	attack_verb_continuous = list("shoves", "bashes")
-	attack_verb_simple = list("shove", "bash")
+	attack_verb_continuous = list("推撞", "猛砸")
+	attack_verb_simple = list("推撞", "猛砸")
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)

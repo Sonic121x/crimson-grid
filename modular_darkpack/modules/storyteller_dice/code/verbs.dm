@@ -9,20 +9,20 @@ GAME_VERB(/mob/living, do_roll_dice_custom, "自定义掷骰", null)
 	roll_dice_custom()
 
 /mob/living/proc/roll_dice_custom(atom/movable/roll_target)
-	var/list/allowed_stats = list()
+	var/list/allowed_stats = list(); var/list/stat_labels = list()
 	for(var/stat_path, dots_in in storyteller_stats)
 		var/datum/st_stat/stat = stat_path
 		if(!ispath(stat))
 			continue
 		if(stat == stat::abstract_type)
 			continue
-		allowed_stats += stat
+		allowed_stats += stat; stat_labels += "[stat::name]"
 		//allowed_stats[stat] = "[stat::name]: [dots_in]"
-	var/list/stats_to_use = tgui_input_checkboxes(usr, "选择本次检定使用的属性。", "选择属性", allowed_stats, min_checked = 0, max_checked = 5)
+	var/list/stats_to_use = tgui_input_checkboxes(usr, "选择本次检定使用的属性。", "选择属性", stat_labels, min_checked = 0, max_checked = 5)
 	var/list/output_stats = list()
 	if(length(stats_to_use))
 		for(var/list/stat as anything in stats_to_use)
-			output_stats += text2path(stat[1])
+			output_stats += allowed_stats[stat[2]]
 
 	var/bonus_dice = tgui_input_number(usr, "输入额外骰子的数量。", "骰子", 0, 20, -20)
 	if(isnull(bonus_dice))

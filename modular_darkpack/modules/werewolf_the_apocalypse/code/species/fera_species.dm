@@ -19,7 +19,7 @@
 /datum/species/human/shifter
 	abstract_type = /datum/species/human/shifter
 	name = "Fera"
-	plural_form = "Fera"
+	plural_form = "变形者"
 	id = SPECIES_FERA
 	species_language_holder = /datum/language_holder/garou
 	var/mob_pixel_w

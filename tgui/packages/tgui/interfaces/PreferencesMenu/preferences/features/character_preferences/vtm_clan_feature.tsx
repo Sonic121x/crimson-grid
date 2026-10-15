@@ -8,8 +8,8 @@ import {
 
 export const clan_mark: FeatureChoiced = {
   name: '印记',
-  component: (props: FeatureValueProps<string, string>) => {
-    return <FeatureExternalInput {...props} />;
+  component: (props: FeatureValueProps<string, string, { display_names?: Record<string, string> }>) => {
+    return <FeatureExternalInput {...props} value={props.serverData?.display_names?.[props.value] ?? props.value} serverData={undefined} />;
   },
 };
 

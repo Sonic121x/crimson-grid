@@ -1,6 +1,6 @@
 /obj/item/holosign_creator/police_tape
-	name = "police barrier tape roll"
-	desc = "A roll of police tape used to block off crime scenes from the public."
+	name = "警戒带卷"
+	desc = "一卷警用警戒带，用来封锁犯罪现场，防止公众进入。"
 	icon = 'modular_darkpack/master_files/icons/obj/devices/tool.dmi'
 	icon_state = "police_tape"
 	custom_materials = null
@@ -14,4 +14,4 @@
 	if(LAZYLEN(signs))
 		for(var/obj/structure/holosign/hologram as anything in signs)
 			qdel(hologram)
-		balloon_alert(user, "tape cleared")
+		balloon_alert(user, "已收起警戒带")

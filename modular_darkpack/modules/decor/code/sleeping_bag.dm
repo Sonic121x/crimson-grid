@@ -2,8 +2,8 @@
 // Largely copied from medical beds, snowflaked here to avoid overlapping functionality
 
 /obj/structure/bed/sleeping_bag
-	name = "sleeping bag"
-	desc = "Some know it as a bedroll."
+	name = "睡袋"
+	desc = "也有人把它叫作铺盖卷。"
 	icon_state = "bedroll" // Sprites by @Major00
 	max_integrity = 25
 	integrity_failure = 0.35
@@ -19,16 +19,16 @@
 /obj/structure/bed/sleeping_bag/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	if(!isnull(foldable_type) && !has_buckled_mobs())
-		context[SCREENTIP_CONTEXT_RMB] = "Roll up"
+		context[SCREENTIP_CONTEXT_RMB] = "卷起"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bed/sleeping_bag/examine(mob/user)
 	. = ..()
 	if(anchored)
-		. += span_notice("It's stuck to the ground.")
+		. += span_notice("它被固定在地上了。")
 	else if(!isnull(foldable_type))
-		. += span_notice("You can fold it up with a Right-click.")
+		. += span_notice("右键点击即可将其收起。")
 
 /obj/structure/bed/sleeping_bag/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -39,15 +39,15 @@
 	if(has_buckled_mobs())
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-	user.visible_message(span_notice("[user] rolls up [src]."), span_notice("You roll up [src]."))
+	user.visible_message(span_notice("[user]卷起了[src]。"), span_notice("你卷起了[src]。"))
 	var/obj/structure/bed/sleeping_bag/folding_bed = new foldable_type(get_turf(src))
 	user.put_in_hands(folding_bed)
 	qdel(src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/sleeping_bag
-	name = "sleeping bag"
-	desc = "A rolled up bed that can be carried around. A bedroll if you will."
+	name = "睡袋"
+	desc = "可以卷起来随身携带的床铺，也就是所谓的铺盖卷。"
 	icon = 'modular_darkpack/master_files/icons/obj/bed.dmi'
 	icon_state = "bedroll_inv"
 	inhand_icon_state = "bedroll"

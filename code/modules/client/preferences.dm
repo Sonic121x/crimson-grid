@@ -193,8 +193,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return data
 
 /datum/preferences/ui_static_data(mob/user)
-	var/list/data = list()
-
+	var/static/list/server_preferences // KUKU：缓存全服共用的角色创建常量，避免每次打开都重新生成
+	var/list/data = list("server_preferences" = server_preferences || (server_preferences = get_asset_datum(/datum/asset/json/preferences):generate())) // KUKU：随界面静态数据下发职业、族类、装备及特质，避免独立资源下载失败导致空白
 	data["character_preview_view"] = character_preview_view.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
@@ -304,15 +304,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (!istype(requested_preference))
 				return FALSE
 
-			var/default_value = read_preference(requested_preference.type)
+			var/default_value = read_preference(requested_preference.type); var/list/display_names = istype(requested_preference, /datum/preference/external_choiced/clan_mark) ? requested_preference.compile_constant_data()["display_names"] : list(); var/list/display_choices = list(); for(var/choice in requested_preference.get_choices(src)) { display_choices[display_names[choice] || choice] = choice }
 
 			// Yielding
-			var/new_value = tgui_input_list(usr, "Set Preference Option", "Set Preference", requested_preference.get_choices(src), default_value)
+			var/new_value = tgui_input_list(usr, "选择偏好设置选项", "设置偏好", assoc_to_keys(display_choices), display_names[default_value] || default_value)
 
 			if (!new_value)
 				return FALSE
 
-			if (!update_preference(requested_preference, new_value))
+			if (!update_preference(requested_preference, display_choices[new_value]))
 				return FALSE
 
 			return TRUE

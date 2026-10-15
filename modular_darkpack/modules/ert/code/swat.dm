@@ -1,19 +1,19 @@
 /datum/antagonist/ert/darkpack/swat/leader
-	name = "SWAT Lieutenant"
+	name = "特警警督"
 	outfit = /datum/outfit/job/vampire/swat_lieutenant
-	role = "SWAT Lieutenant"
+	role = "特警警督"
 
 /datum/antagonist/ert/darkpack/swat/medic
-	name = "SWAT Field Medic"
+	name = "特警战地医护员"
 	outfit = /datum/outfit/job/vampire/swat_medic
-	role = "SWAT Field Medic"
+	role = "特警战地医护员"
 
 /datum/antagonist/ert/darkpack/swat/rifleman
-	name = "SWAT Rifleman"
+	name = "特警步枪手"
 	outfit = /datum/outfit/job/vampire/swat_rifleman
-	role = "SWAT Rifleman"
+	role = "特警步枪手"
 
 /datum/antagonist/ert/darkpack/swat/negotiations
-	name = "SWAT Negotiations Expert"
+	name = "特警谈判专家"
 	outfit = /datum/outfit/job/vampire/swat_negotiator
-	role = "SWAT Negotiations Expert"
+	role = "特警谈判专家"

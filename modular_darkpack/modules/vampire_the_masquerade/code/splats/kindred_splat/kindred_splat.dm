@@ -244,16 +244,16 @@
 			return
 		if(10 to 50)
 			kindred.rot_body(1) //skin takes on a weird colouration
-			kindred.visible_message(span_notice("[kindred]'s skin loses some of its colour."))
+			kindred.visible_message(span_notice("[kindred]的皮肤褪去了些许血色。"))
 		if(50 to 100)
 			kindred.rot_body(2) //looks slightly decayed
-			kindred.visible_message(span_notice("[kindred]'s skin rapidly decays."))
+			kindred.visible_message(span_notice("[kindred]的皮肤迅速腐烂。"))
 		if(100 to 150)
 			kindred.rot_body(3) //looks very decayed
-			kindred.visible_message(span_warning("[kindred]'s body rapidly decomposes!"))
+			kindred.visible_message(span_warning("[kindred]的身体迅速腐朽！"))
 		if(150 to 200)
 			kindred.rot_body(4) //mummified skeletonised corpse
-			kindred.visible_message(span_warning("[kindred]'s body rapidly skeletonises!"))
+			kindred.visible_message(span_warning("[kindred]的身体迅速化为白骨！"))
 		if(200 to INFINITY) //turn to ash
 			playsound(kindred, 'modular_darkpack/modules/vampire_the_masquerade/sounds/burning_death.ogg', 80, TRUE)
 			kindred.dust(just_ash = TRUE, drop_items = TRUE, force = TRUE)

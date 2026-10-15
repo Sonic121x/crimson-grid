@@ -121,8 +121,8 @@
 	base_icon_state = "12"
 
 /obj/item/ammo_casing/vampire/c12g/silver
-	name = "12g silver shell casing"
-	desc = "A 12g silver shell casing."
+	name = "12号银弹弹壳"
+	desc = "一枚12号银弹弹壳。"
 	icon_state = "s12"
 	base_icon_state = "s12"
 	projectile_type = /obj/projectile/bullet/shotgun_slug/vamp/silver
@@ -146,8 +146,8 @@
 	base_icon_state = "12i"
 
 /obj/item/ammo_casing/vampire/c12g/buck/incendiary
-	name = "12g dragon's breath shell casing"
-	desc = "An incendiary 12g shell casing."
+	name = "12号龙息弹弹壳"
+	desc = "一枚12号燃烧弹弹壳。"
 	projectile_type = /obj/projectile/bullet/darkpack/dragonsbreath
 	pellets = 6		//Decresed due to damage output + firestacks
 	variance = 25
@@ -175,12 +175,12 @@
 	base_icon_state = "762"
 
 /obj/item/ammo_casing/vampire/c762x51mm/incendiary
-	name = "7.62x51mm tracer bullet casing"
+	name = "7.62x51mm曳光弹弹壳"
 	projectile_type = /obj/projectile/bullet/darkpack/vamp762x51mm/incendiary
 
 /obj/item/ammo_casing/vampire/c762x51mm/silver
-	name = "7.62x51mm silver bullet casing"
-	desc = "A 762x51mm silver bullet casing."
+	name = "7.62x51mm银弹弹壳"
+	desc = "一枚7.62x51mm银弹弹壳。"
 	projectile_type = /obj/projectile/bullet/darkpack/vamp762x51mm/silver
 	icon_state = "s762"
 	base_icon_state = "s762"
@@ -198,8 +198,8 @@
 	AddElement(/datum/element/caseless)
 
 /obj/item/ammo_casing/vampire/c75/silver
-	name = ".75 silver cartrige"
-	desc = "A .75 musket cartridge containing a musket ball, made in pure silver, and gunpowder."
+	name = ".75银弹火枪弹药包"
+	desc = "一个.75口径火枪弹药包，内含纯银圆弹和火药。"
 	projectile_type = /obj/projectile/bullet/darkpack/vamp75/silver
 	icon_state = "scartridge"
 	base_icon_state = "scartridge"

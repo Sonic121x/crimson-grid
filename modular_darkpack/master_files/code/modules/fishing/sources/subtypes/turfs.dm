@@ -48,7 +48,7 @@
 	)
 
 /datum/fish_source/sewer
-	catalog_description = "Sewage"
+	catalog_description = "污水"
 	fish_table = list(
 		FISHING_DUD = 20,
 		/obj/effect/spawner/random/trash/garbage = 35,
@@ -69,7 +69,7 @@
 	fishing_difficulty = FISHING_DEFAULT_DIFFICULTY + 15
 
 /datum/fish_source/blood
-	catalog_description = "Blood Pool"
+	catalog_description = "血池"
 	fish_table = list(
 		FISHING_DUD = 10,
 		/obj/item/food/darkpack/leech = 20,
@@ -82,7 +82,7 @@
 	fishing_difficulty = FISHING_DEFAULT_DIFFICULTY + 30
 
 /datum/fish_source/acid
-	catalog_description = "Acid"
+	catalog_description = "酸液"
 	fish_table = list(
 		FISHING_DUD = 30,
 		/obj/item/stack/sheet/bone = 10,

@@ -1,6 +1,6 @@
 /datum/language/welsh
 	name = "Welsh"
-	desc = "The flowing language spoken by the Welsh."
+	desc = "威尔士人使用的语言，流畅婉转。"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	key = "W"
 	space_chance = 30

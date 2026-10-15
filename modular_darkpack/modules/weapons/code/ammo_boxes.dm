@@ -25,8 +25,8 @@
 	max_ammo = 100
 
 /obj/item/ammo_box/darkpack/c9mm/moonclip // Speedloader, technically.
-	name = "ammo clip (9mm)"
-	desc = "a 3 round clip to hold 9mm rounds. For once, calling it a clip is accurate."
+	name = "弹夹（9mm）"
+	desc = "可容纳3发9mm子弹的弹夹。这回叫它弹夹总算没叫错。"
 	icon_state = "9moonclip"
 	max_ammo = 3
 	w_class = WEIGHT_CLASS_TINY
@@ -65,7 +65,7 @@
 
 // .50 AE
 /obj/item/ammo_box/darkpack/c50ae
-	name = "ammo box (.50 AE)"
+	name = "弹药盒（.50 AE）"
 	icon_state = "50box"	//placeholder, needs new box
 	ammo_type = /obj/item/ammo_casing/vampire/c50ae
 	max_ammo = 40
@@ -118,7 +118,7 @@
 	max_ammo = 30
 
 /obj/item/ammo_box/darkpack/c12g/silver
-	name = "silver ammo box (12g)"
+	name = "弹药盒（12号银弹）"
 	icon_state = "12box_silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/silver
 	max_ammo = 30
@@ -145,13 +145,13 @@
 //	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck/silver
 
 /obj/item/ammo_box/darkpack/c12g/buck/incendiary
-	name = "ammo box (12g, Dragon's Breath)"
+	name = "弹药盒（12号，龙息弹）"
 	icon_state = "12box_dragon"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g/buck/incendiary
 
 // Crossbow Bolt
 /obj/item/ammo_box/darkpack/arrows
-	name = "ammo box (arrows)"
+	name = "弹药盒（弩箭）"
 	icon_state = "arrows"
 	ammo_type = /obj/item/ammo_casing/caseless/bolt
 	max_ammo = 30
@@ -164,23 +164,23 @@
 	max_ammo = 80
 
 /obj/item/ammo_box/darkpack/c762x51mm/incendiary
-	name = "incendiary ammo box (7.62x51)"
+	name = "燃烧弹盒（7.62x51）"
 	icon_state = "762box-incendiary"
 	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm/incendiary
 
 /obj/item/ammo_box/darkpack/c762x51mm/incendiary
-	name = "silver ammo box (7.62x51)"
+	name = "弹药盒（7.62x51银弹）"
 	icon_state = "762box-silver"
 	ammo_type = /obj/item/ammo_casing/vampire/c762x51mm/silver
 
 // .75 Ball
 /obj/item/ammo_box/darkpack/c75
-	name = "cartriage bag (.75 ball)"
+	name = "弹药袋（.75圆弹）"
 	icon_state = "cartridge_bag"
 	ammo_type = /obj/item/ammo_casing/vampire/c75
 	max_ammo = 5
 
 /obj/item/ammo_box/darkpack/c75/silver
-	name = "cartriage bag (.75 silver ball)"
+	name = "弹药袋（.75银制圆弹）"
 	ammo_type = /obj/item/ammo_casing/vampire/c75/silver
 

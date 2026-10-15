@@ -1,18 +1,18 @@
 /turf/open/water/river
-	name = "river"
+	name = "河流"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "ocean"
 	baseturfs = /turf/open/water/river
 
 /turf/open/water/beach/vamp
-	name = "ocean"
+	name = "海洋"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "ocean"
 	baseturfs = /turf/open/water/beach/vamp
 
 /turf/open/water/beach/vamp/deep
-	name = "deep water"
-	desc = "Don't forget your life jacket."
+	name = "深水"
+	desc = "别忘了穿救生衣。"
 	immerse_overlay = "immerse_deep"
 	baseturfs = /turf/open/water/beach/vamp/deep
 	is_swimming_tile = TRUE
@@ -20,8 +20,8 @@
 
 //Make a pr to TG eventually adding acid from shiptest mabye.
 /turf/open/water/acid
-	name = "goop"
-	desc = "highly acidic goop. Please dont stand in this."
+	name = "酸性黏液"
+	desc = "酸性极强的黏液。请别站在里面。"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "acid"
 	light_color = "#1b7c4c"
@@ -45,7 +45,7 @@
 			return TRUE
 		burnt_mob.apply_damage(damage_modifer * 1 TTRPG_DAMAGE, AGGRAVATED)
 		burnt_mob.apply_damage(damage_modifer * 2 TTRPG_DAMAGE, TOX)
-		to_chat(burnt_mob, span_warning("Your flesh burns!"))
+		to_chat(burnt_mob, span_warning("你的血肉遭到了灼烧！"))
 		return TRUE
 
 /turf/open/water/acid/process(seconds_per_tick)
@@ -55,15 +55,15 @@
 		acid_burn(burnt_guy)
 
 /turf/open/water/acid/weak
-	name = "weak goop"
-	desc = "heavily diluted acidic goop."
+	name = "稀酸黏液"
+	desc = "经过大量稀释的酸性黏液。"
 	damage_modifer = 0.25
 
 
 //Code mostly taken from /obj/crystal_mass
 /turf/open/water/bloodwave
 	gender = PLURAL
-	name = "blood"
+	name = "鲜血"
 	icon = 'modular_darkpack/modules/walls/icons/floors.dmi'
 	icon_state = "blood"
 	light_color = COLOR_MAROON

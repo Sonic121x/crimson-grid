@@ -9,8 +9,8 @@
  * Credit due to johnfulpwillard who contributed code to monkestation #2239 and cannibalhunter who authored the PR.
  */
 /obj/item/bodycam_upgrade
-	name = "body camera"
-	desc = "A body camera device attachable to most outerwear. There's an instructions tag if you look a little closer..."
+	name = "随身摄像头"
+	desc = "一种可安装在大多数外套上的随身摄像设备。仔细看看，还能找到一张说明标签……"
 	icon = 'modular_darkpack/modules/bodycameras/icons/bodycamera.dmi'
 	icon_state = "bodycamera"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/bodycameras/icons/bodycamera_onfloor.dmi')
@@ -25,8 +25,8 @@
 
 /obj/item/bodycam_upgrade/examine_more(mob/user)
 	. = ..()
-	. += list(span_notice("You can use [name] on any outerwear to install it, automatically turning on if the outerwear is equipped."))
-	. += list(span_notice("Once installed, you can use a [EXAMINE_HINT("badge")] to turn the camera on and off."))
+	. += list(span_notice("你可以对外套使用[name]来安装它；安装在身上穿着的外套上时，它会自动开启。"))
+	. += list(span_notice("安装后，可以用[EXAMINE_HINT("警徽")]来开关摄像头。"))
 
 /obj/item/bodycam_upgrade/Destroy(force)
 	if(!isnull(builtin_bodycamera))
@@ -39,13 +39,13 @@
 		return NONE
 	var/obj/item/interacting_item = interacting_with
 	if(!(interacting_item.slot_flags & ITEM_SLOT_OCLOTHING))
-		user.balloon_alert(user, "only fits on suits!")
+		user.balloon_alert(user, "只能安装在外套上！")
 		return ITEM_INTERACT_BLOCKING
 	if(interacting_item.item_flags & (ABSTRACT|DROPDEL)) //things like changeling suits don't get body cameras.
-		user.balloon_alert(user, "cannot attach!")
+		user.balloon_alert(user, "无法安装！")
 		return ITEM_INTERACT_BLOCKING
 	if(!ismob(interacting_with.loc))
-		user.balloon_alert(user, "must be wearing item!")
+		user.balloon_alert(user, "必须先穿上衣物！")
 		return ITEM_INTERACT_BLOCKING
 	if(install_camera(interacting_item, user))
 		return ITEM_INTERACT_SUCCESS
@@ -55,7 +55,7 @@
 	var/obj/item/bodycam_upgrade/existing_upgrade = locate() in installing_into.contents
 	if(existing_upgrade)
 		//this is where your mouse is, so more likely where you're looking.
-		installing_into.balloon_alert(user, "camera already installed!")
+		installing_into.balloon_alert(user, "已经装有摄像头！")
 		playsound(installing_into, 'sound/machines/buzz/buzz-two.ogg', 20, TRUE, -1)
 		return FALSE
 	installing_into.add_overlay(equipped_overlay)
@@ -99,9 +99,9 @@
 	if(!builtin_bodycamera)
 		builtin_bodycamera = new(loc) //made in the vest it's located in.
 	else
-		builtin_bodycamera.c_tag = "-Body Camera: [(user.real_name)]"
+		builtin_bodycamera.c_tag = "-随身摄像头：[(user.real_name)]"
 	if(user)
-		user.balloon_alert(user, "bodycamera activated")
+		user.balloon_alert(user, "随身摄像头已开启")
 		playsound(loc, 'sound/machines/beep/beep.ogg', get_clamped_volume(), TRUE, -1)
 	builtin_bodycamera.network = network //sync the network of the camera to us, the upgrade.
 	builtin_bodycamera.camera_enabled = TRUE
@@ -115,7 +115,7 @@
 ///Turns the camera off. Will be silent if 'user' is null.
 /obj/item/bodycam_upgrade/proc/turn_off(mob/user)
 	if(user)
-		user.balloon_alert(user, "bodycamera deactivated")
+		user.balloon_alert(user, "随身摄像头已关闭")
 		playsound(loc, 'sound/machines/beep/beep.ogg', get_clamped_volume(), TRUE, -1)
 	if(builtin_bodycamera)
 		builtin_bodycamera.camera_enabled = FALSE
@@ -144,7 +144,7 @@
  */
 /obj/item/bodycam_upgrade/proc/on_examine_more(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_notice("It has [name] installed. You can toggle it with a [EXAMINE_HINT("badge")] or remove it with a [EXAMINE_HINT("screwdriver")].")
+	examine_list += span_notice("它装有[name]。你可以用[EXAMINE_HINT("警徽")]开关摄像头，或用[EXAMINE_HINT("螺丝刀")]将其拆下。")
 
 /**
  * Screwdriver act

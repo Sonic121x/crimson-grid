@@ -24,9 +24,9 @@
 	prepared_to_jump = !prepared_to_jump
 
 	if(prepared_to_jump)
-		to_chat(source, span_notice("You prepare to jump."))
+		to_chat(source, span_notice("你做好了跳跃准备。"))
 	else
-		to_chat(source, span_notice("You are not prepared to jump anymore."))
+		to_chat(source, span_notice("你取消了跳跃准备。"))
 
 
 //Ensures that a jump can actually be performed
@@ -77,7 +77,7 @@
 		return
 
 	if(!COOLDOWN_FINISHED(src, jump_cooldown))
-		to_chat(jumper, span_notice("You can't jump so soon!"))
+		to_chat(jumper, span_notice("还不能再次跳跃！"))
 		return
 
 	INVOKE_ASYNC(src, PROC_REF(jump), jumper, target)
@@ -127,11 +127,11 @@
 	if(jumper.combat_mode && get_dist(jumper.loc, target) <= 3 && strength >= 8 && COOLDOWN_FINISHED(src, jump_boom_cooldown)) //CRIMSON GRID EDIT - Reworks the Implimentation of stun jumps - Original: if(jumper.combat_mode && get_dist(jumper.loc, target) <= 3 && strength >= 8)
 		addtimer(CALLBACK(src, PROC_REF(jump_boom), jumper),(distance * 0.5))
 		COOLDOWN_START(src, jump_boom_cooldown, JUMP_BOOM_COOLDOWN) //CRMISON GRID ADDITION - Reworks the implimentation of stun jumps
-		jumper.visible_message(span_danger("[jumper] takes a mighty leap that shatters \the [adjusted_target] where they land!"))
+		jumper.visible_message(span_danger("[jumper]奋力一跃，落地时震碎了脚下的[adjusted_target]！"))
 		jumper.adjust_stamina_loss(20)
 	else
 		jumper.adjust_stamina_loss(10)
-		jumper.visible_message(span_danger("[jumper] jumps towards [adjusted_target]."))
+		jumper.visible_message(span_danger("[jumper]朝[adjusted_target]跳去。"))
 
 	var/turf/start_T = get_turf(jumper.loc) //Get the start and target tile for the descriptors
 	var/turf/end_T = get_turf(adjusted_target)

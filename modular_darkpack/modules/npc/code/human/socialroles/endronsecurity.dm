@@ -74,23 +74,23 @@
 	masks = list(/obj/item/clothing/mask/gas/explorer)
 
 	neutral_phrases = list(
-		"No loitering.",
-		"I get paid to keep people like you out of here.",
-		"I could go for some wolf-meat right about now.",
-		"Like the uniform?",
-		"Hey, catch me later, I'll buy you a beer."
+		"禁止逗留。",
+		"我拿工资就是为了不让你这种人进去。",
+		"这会儿还真想吃点狼肉。",
+		"喜欢这身制服吗？",
+		"嘿，晚点来找我，我请你喝啤酒。"
 	)
 	random_phrases = list(
-		"It's been a real quiet night.",
-		"My brothers and father work for Endron, too."
+		"今晚真安静。",
+		"我兄弟和我爸也在安德隆上班。"
 	)
-	answer_phrases = list("I need some coffee.")
+	answer_phrases = list("我得喝点咖啡。")
 	help_phrases = list(
-		"It's go time!",
-		"Stop right there!!",
-		"Drop your weapon!",
-		"Freeze!!",
-		"Not just a mall cop, you know!"
+		"该动手了！",
+		"站住！！",
+		"放下武器！",
+		"不许动！！",
+		"告诉你，我可不只是个商场保安！"
 	)
 
 /datum/socialrole/endronexecsecurity
@@ -169,23 +169,23 @@
 	masks = list(/obj/item/clothing/mask/gas/sechailer)
 
 	neutral_phrases = list(
-		"No loitering.",
-		"I get paid to keep people like you out of here.",
-		"I could go for some wolf-meat right about now.",
-		"Like the uniform?",
-		"Hey, catch me later, I'll buy you a beer."
+		"禁止逗留。",
+		"我拿工资就是为了不让你这种人进去。",
+		"这会儿还真想吃点狼肉。",
+		"喜欢这身制服吗？",
+		"嘿，晚点来找我，我请你喝啤酒。"
 	)
 	random_phrases = list(
-		"It's been a real quiet night.",
-		"My brothers and father work for Endron, too."
+		"今晚真安静。",
+		"我兄弟和我爸也在安德隆上班。"
 	)
-	answer_phrases = list("I need some coffee.")
+	answer_phrases = list("我得喝点咖啡。")
 	help_phrases = list(
-		"It's go time!",
-		"Stop right there!!",
-		"Drop your weapon!",
-		"Freeze!!",
-		"Not just a mall cop, you know!"
+		"该动手了！",
+		"站住！！",
+		"放下武器！",
+		"不许动！！",
+		"告诉你，我可不只是个商场保安！"
 	)
 
 /datum/socialrole/endronsecurity
@@ -264,21 +264,21 @@
 	masks = list(/obj/item/clothing/mask/vampire/balaclava)
 
 	neutral_phrases = list(
-		"No loitering.",
-		"I get paid to keep people like you out of here.",
-		"I could go for some wolf-meat right about now.",
-		"Like the uniform?",
-		"Hey, catch me later, I'll buy you a beer."
+		"禁止逗留。",
+		"我拿工资就是为了不让你这种人进去。",
+		"这会儿还真想吃点狼肉。",
+		"喜欢这身制服吗？",
+		"嘿，晚点来找我，我请你喝啤酒。"
 	)
 	random_phrases = list(
-		"It's been a real quiet night.",
-		"My brothers and father work for Endron, too."
+		"今晚真安静。",
+		"我兄弟和我爸也在安德隆上班。"
 	)
-	answer_phrases = list("I need some coffee.")
+	answer_phrases = list("我得喝点咖啡。")
 	help_phrases = list(
-		"It's go time!",
-		"Stop right there!!",
-		"Drop your weapon!",
-		"Freeze!!",
-		"Not just a mall cop, you know!"
+		"该动手了！",
+		"站住！！",
+		"放下武器！",
+		"不许动！！",
+		"告诉你，我可不只是个商场保安！"
 	)

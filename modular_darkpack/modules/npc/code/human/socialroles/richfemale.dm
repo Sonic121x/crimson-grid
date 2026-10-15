@@ -63,28 +63,28 @@
 	)
 
 	female_phrases = list(
-		"Whaddya want, I'm busy!",
-		"Excuse me, do you know the way to the pyramid?",
-		"...What?",
-		"I'm going somewhere important, not like you'd get it.",
-		"Get lost, filthy hobo...",
-		"Get lost, peasant...",
-		"You been to the bar tonight? It's a good place for hobos like you...",
-		"Stop doing that, imbecile."
+		"想干什么？我忙着呢！",
+		"打扰一下，你知道金字塔怎么走吗？",
+		"……什么？",
+		"我要去个重要的地方，说了你也不懂。",
+		"滚远点，脏兮兮的流浪汉……",
+		"滚远点，穷鬼……",
+		"今晚去过酒吧了吗？挺适合你这种流浪汉的……",
+		"别再那样了，白痴。"
 	)
 	neutral_phrases = list(
-		"Did you ask something?",
-		"Excuse me?",
-		"What?",
-		"I'm going somewhere important.",
-		"Get lost, peasant...",
-		"Whaa-aat...",
-		"Stop doing that, imbecile."
+		"你刚才问什么了？",
+		"你说什么？",
+		"什么？",
+		"我要去个重要的地方。",
+		"滚远点，穷鬼……",
+		"什——么……",
+		"别再那样了，白痴。"
 	)
 	help_phrases = list(
-		"What in the god damn?!",
-		"Go away or I will call the cops!!",
-		"What is happening?!",
-		"Stop doing this!",
-		"Someone, call the ambulance!"
+		"这他妈的怎么回事？！",
+		"走开，不然我就报警了！！",
+		"发生什么事了？！",
+		"快住手！",
+		"来人啊，叫救护车！"
 	)

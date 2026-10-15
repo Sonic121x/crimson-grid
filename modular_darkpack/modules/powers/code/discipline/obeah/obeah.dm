@@ -301,10 +301,10 @@
 	if(!carbon_target)
 		return
 	var/obj/item/organ/brain/target_brain = carbon_target.get_organ_by_type(/obj/item/organ/brain)
-	var/list/gotten_traumas = target_brain.traumas
+	var/list/gotten_traumas = target_brain.traumas; var/list/trauma_choices = gotten_traumas?.Copy() || list(); for(var/choice_index in 1 to length(trauma_choices)) { trauma_choices[choice_index] = trauma_choices[choice_index] == "Derangement" ? "精神紊乱" : trauma_choices[choice_index] }
 	if(carbon_target.has_quirk(/datum/quirk/darkpack/derangement))
-		gotten_traumas += "Derangement"
-	var/chosen_derangement = tgui_input_list(owner, "选择要治愈的创伤", "脑部创伤", gotten_traumas)
+		gotten_traumas += "Derangement"; trauma_choices += "精神紊乱"
+	var/chosen_derangement = tgui_input_list(owner, "选择要治愈的创伤", "脑部创伤", trauma_choices); chosen_derangement = chosen_derangement == "精神紊乱" ? "Derangement" : chosen_derangement
 	if(!chosen_derangement)
 		to_chat(owner, span_notice("你未能找到任何创伤。"))
 		return

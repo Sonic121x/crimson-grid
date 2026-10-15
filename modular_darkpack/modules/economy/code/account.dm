@@ -6,7 +6,7 @@
 	if(!paycheck_amount)
 		return FALSE
 	log_econ("[paycheck_amount] [MONEY_NAME] were given to [src.account_holder]'s account from income.")
-	adjust_money(paycheck_amount, "Paycheck")
+	adjust_money(paycheck_amount, "工资")
 	bank_card_talk("当前账户余额为[MONEY_SYMBOL][account_balance]。")
 	return TRUE
 

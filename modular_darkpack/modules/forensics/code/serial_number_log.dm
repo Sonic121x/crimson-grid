@@ -10,11 +10,11 @@
 /obj/effect/mapping_helpers/serial_number_log/LateInitialize()
 	. = ..()
 	var/area/our_area = get_area(src)
-	var/text = "Armoury Firearm Serial Numbers - Master List \n"
+	var/text = "军械库枪械序列号总表 \n"
 	for(var/obj/item/gun/ballistic/firearm in our_area.contents)
 		if(firearm.serial_type)
 			text += "[firearm.serial_type] - [firearm.name] \n"
-	new /obj/item/paper(get_turf(src), text, "Armoury log")
+	new /obj/item/paper(get_turf(src), text, "军械库记录")
 
 // Changed version of 'delete_after_roundstart' from landmarks. This is done to stop errors or constantly adding guns that are left in the area to a sheet.
 /obj/effect/mapping_helpers/serial_number_log/proc/after_round_start()

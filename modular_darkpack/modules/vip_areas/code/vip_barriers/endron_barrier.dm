@@ -1,6 +1,6 @@
 /obj/effect/vip_barrier/endron
-	name = "\improper " + MAIN_EVIL_COMPANY + " checkpoint"
-	desc = "There's an employees only sign here."
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "检查点"
+	desc = "这里有块“仅限员工”的告示牌。"
 	protected_zone_id = "endron"
 	social_roll_difficulty = 7
 

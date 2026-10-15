@@ -1,6 +1,6 @@
 /datum/job/vampire/pentex_sec
 	title = JOB_PENTEX_SEC
-	description = "你是" + MAIN_EVIL_COMPANY + "在旧金山的现任安保人员。在安保主管指挥下，你负责阻止好事者闯入厂区、拘拿违约者，并协助主管应对危及公司资产的威胁。"
+	description = "你是" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "在旧金山的现任安保人员。在安保主管指挥下，你负责阻止好事者闯入厂区、拘拿违约者，并协助主管应对危及公司资产的威胁。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 2

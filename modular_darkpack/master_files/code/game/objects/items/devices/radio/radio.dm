@@ -6,4 +6,4 @@
 
 /obj/item/radio/examine(mob/user)
 	. = ..()
-	. += radio_network ? span_notice("Connected to [radio_network] using ID: [radio_id].") : span_warning("Not connected to any network.")
+	. += radio_network ? span_notice("已连接至[darkpack_radio_network_name(radio_network)]，使用的编号为：[radio_id]。") : span_warning("未连接至任何网络。")

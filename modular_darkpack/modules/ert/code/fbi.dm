@@ -1,19 +1,19 @@
 /datum/antagonist/ert/darkpack/fbi/leader
-	name = "FBI SWAT Lieutenant"
+	name = "联邦调查局特警警督"
 	outfit = /datum/outfit/job/vampire/fbi_lieutenant
-	role = "FBI SWAT Lieutenant"
+	role = "联邦调查局特警警督"
 
 /datum/antagonist/ert/darkpack/fbi/medic
-	name = "FBI SWAT Field Medic"
+	name = "联邦调查局特警战地医护员"
 	outfit = /datum/outfit/job/vampire/fbi_medic
-	role = "FBI SWAT Field Medic"
+	role = "联邦调查局特警战地医护员"
 
 /datum/antagonist/ert/darkpack/fbi/rifleman
-	name = "FBI SWAT Rifleman"
+	name = "联邦调查局特警步枪手"
 	outfit = /datum/outfit/job/vampire/fbi_rifleman
-	role = "FBI SWAT Rifleman"
+	role = "联邦调查局特警步枪手"
 
 /datum/antagonist/ert/darkpack/fbi/marksman
-	name = "FBI SWAT Marksman"
+	name = "联邦调查局特警精确射手"
 	outfit = /datum/outfit/job/vampire/fbi_marksman
-	role = "FBI SWAT Marksman"
+	role = "联邦调查局特警精确射手"

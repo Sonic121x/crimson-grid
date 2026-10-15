@@ -135,7 +135,7 @@
 			to_chat(hit_person, span_danger("弹丸的冲击力把你打翻在地！"))
 
 /obj/projectile/bullet/shotgun_slug/vamp/silver
-	name = "12g silver shotgun slug"
+	name = "12号霰弹枪银制独头弹"
 	armour_penetration = 10
 
 /obj/projectile/bullet/shotgun_slug/vamp/silver/on_hit(atom/target, blocked = 0, pierce_hit)
@@ -169,7 +169,7 @@
 		M.Stun(4)
 
 /obj/projectile/bullet/darkpack/dragonsbreath
-	name = "12g shotgun incendiary pellet"
+	name = "12号霰弹枪燃烧弹丸"
 	damage = 6
 	damage_type = BURN
 	range = 22 //range of where you can see + one screen after
@@ -228,7 +228,7 @@
 		M.ignite_mob()
 
 /obj/projectile/bullet/darkpack/vamp762x51mm/silver
-	name = "7.62x51mm silver bullet"
+	name = "7.62x51mm银弹"
 	armour_penetration = 20
 
 /obj/projectile/bullet/darkpack/vamp762x51mm/silver/on_hit(atom/target, blocked = FALSE, pierce_hit)
@@ -243,7 +243,7 @@
 	wound_bonus = 5
 
 /obj/projectile/bullet/darkpack/vamp75/silver
-	name = ".75 silver ball"
+	name = ".75银制圆弹"
 	armour_penetration = 0
 
 /obj/projectile/bullet/darkpack/vamp75/silver/on_hit(atom/target, blocked = FALSE, pierce_hit)

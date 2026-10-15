@@ -1,6 +1,6 @@
 /obj/item/storage/belt/police/swat
-	name = "swat belt"
-	desc = "Can hold SWAT gear like handcuffs."
+	name = "特警腰带"
+	desc = "可以收纳手铐等特警装备。"
 	icon_state = "security"
 	inhand_icon_state = "security"
 	worn_icon_state = "security"
@@ -16,8 +16,8 @@
 	new /obj/item/melee/baton/vamp(src)
 
 /obj/item/card/swat
-	name = "Dogtags"
-	desc = "The dogtags of an elite law enforcement officer. It prints the officer's name in case they're captured or killed."
+	name = "身份识别牌"
+	desc = "精锐执法人员的身份识别牌，上面印着姓名，以便被俘或阵亡时辨认身份。"
 	icon = 'modular_darkpack/modules/ert/icons/badges.dmi'
 	icon_state = "dogtags"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/badges_onfloor.dmi')
@@ -25,8 +25,8 @@
 	worn_icon_state = "police_badge"
 
 /obj/item/card/lieutenant
-	name = "Officer Badge"
-	desc = "The shiny badge of an elite law enforcement officer. It shines with golden authority."
+	name = "警官徽章"
+	desc = "精锐执法人员的闪亮徽章，散发着金色的权威光芒。"
 	icon = 'modular_darkpack/modules/ert/icons/badges.dmi'
 	icon_state = "leader"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/badges_onfloor.dmi')
@@ -34,8 +34,8 @@
 	worn_icon_state = "police_badge"
 
 /obj/item/card/first_aid
-	name = "First Aid Officer Card"
-	desc = "The professional laminated card of a field medic. Did you know it's a war crime to specifically target field medics?"
+	name = "急救员证件"
+	desc = "战地医护员的专业塑封证件。你知道专门攻击战地医护人员是战争罪吗？"
 	icon = 'modular_darkpack/modules/ert/icons/badges.dmi'
 	icon_state = "first_aid"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/ert/icons/badges_onfloor.dmi')
@@ -43,8 +43,8 @@
 	worn_icon_state = "grey_id"
 
 /obj/item/clothing/suit/vampire/darkpack_ert/swat_armor
-	name = "\improper SWAT vest"
-	desc = "Highly protective vest marked for SWAT usage. Make sure to throw the flashbang BEFORE you breach the room."
+	name = "\improper 特警防弹背心"
+	desc = "防护性能出色的背心，标明供特警使用。一定要在破门进入房间之前扔出闪光弹。"
 	icon_state = "swatvest"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
@@ -55,12 +55,12 @@
 	clothing_traits = list(TRAIT_BRAWLING_KNOCKDOWN_BLOCKED)
 
 /obj/item/clothing/suit/vampire/darkpack_ert/swat_armor/fbi
-	name = "\improper FBI SWAT vest"
+	name = "\improper 联邦调查局特警防弹背心"
 	icon_state = "fbivest"
 
 /obj/item/clothing/head/vampire/darkpack_ert/swat_helmet
-	name = "\improper SWAT Helmet"
-	desc = "Modified SFPD helmet with improved performance. Isnt it great to be on the good side of police militarization?"
+	name = "\improper 特警头盔"
+	desc = "性能有所提升的改装旧金山警察局头盔。享受警察军事化带来的好处，感觉很棒吧？"
 	icon_state = "swathelmet"
 	armor_type = /datum/armor/army_helmet
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR
@@ -69,5 +69,5 @@
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 
 /obj/item/clothing/head/vampire/darkpack_ert/swat_helmet/fbi
-	name = "\improper FBI SWAT Helmet"
+	name = "\improper 联邦调查局特警头盔"
 	icon_state = "fbihelmet"

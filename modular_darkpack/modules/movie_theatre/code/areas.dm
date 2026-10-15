@@ -1,5 +1,5 @@
 /area/vtm/interior/movie_theatre
-	name = "Movie Theatre"
+	name = "电影院"
 	icon_state = "theatre"
 	zone_type = "elysium"
 	fire_controled = TRUE

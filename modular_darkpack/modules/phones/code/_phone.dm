@@ -279,7 +279,7 @@
 	data["time"] = server_timestamp("hh:mm", ic_time = TRUE)
 	data["date"] = server_timestamp("YYYY年MM月DD日", ic_time = TRUE)
 	data["background_url"] = phone_background
-	data["city_name"] = SSmapping.current_map.map_name
+	data["city_name"] = list("San Fangcisco" = "旧金山", "San Francisco" = "旧金山", "Oakland" = "奥克兰", "Westfield Mall" = "韦斯特菲尔德购物中心")[SSmapping.current_map.map_name] || SSmapping.current_map.map_name
 
 	var/list/conversations_list = list()
 	for(var/datum/phone_conversation/convo in conversations)

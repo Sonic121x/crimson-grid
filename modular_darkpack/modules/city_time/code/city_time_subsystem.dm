@@ -31,22 +31,22 @@ SUBSYSTEM_DEF(city_time)
 		first_warning = TRUE
 		shifting_colors = TRUE
 		transition_light("#584d88")
-		to_chat(world, span_ghostalert("The night is ending..."))
+		to_chat(world, span_ghostalert("黑夜即将结束……"))
 
 	if(time_passed > time_till_daytime - 15 MINUTES && !second_warning && !shifting_colors)
 		second_warning = TRUE
 		shifting_colors = TRUE
 		transition_light("#dd80b0")
-		to_chat(world, span_ghostalert("First rays of the sun illuminate the sky..."))
+		to_chat(world, span_ghostalert("第一缕阳光照亮了天空……"))
 
 	if(time_passed > time_till_daytime && !daytime_started && !shifting_colors)
 		daytime_started = TRUE
 		shifting_colors = TRUE
 		transition_light("#faeacb", 1, 0.75)
-		to_chat(world, span_ghostalert("THE NIGHT IS OVER."))
+		to_chat(world, span_ghostalert("黑夜已经结束。"))
 		// Close enough to round end.
 		INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
-		INVOKE_ASYNC(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), /datum/vote/map_vote, vote_initiator_name = "Map Rotation", forced = TRUE)
+		INVOKE_ASYNC(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), /datum/vote/map_vote, vote_initiator_name = "地图轮换", forced = TRUE)
 
 	if(time_passed > time_till_roundend && !roundend_started)
 		roundend_started = TRUE

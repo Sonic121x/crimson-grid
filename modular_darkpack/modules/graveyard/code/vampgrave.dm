@@ -1,7 +1,7 @@
 /obj/vampgrave
 	icon = 'modular_darkpack/modules/graveyard/icons/graves.dmi'
 	icon_state = "grave1"
-	name = "grave"
+	name = "坟墓"
 	plane = GAME_PLANE
 	layer = ABOVE_NORMAL_TURF_LAYER
 	anchored = TRUE
@@ -52,7 +52,7 @@
 	Z.source_grave = src
 	spawned_zombies += Z
 
-	visible_message(span_danger("The ground at [src] stirs as something claws its way out!"))
+	visible_message(span_danger("[src]的泥土翻动起来，有东西正用爪子刨开泥土，往外钻！"))
 
 /obj/vampgrave/proc/randomize_appearance()
 	icon_state = "grave[rand(1, 10)]"
@@ -65,7 +65,7 @@
 
 // Adminbus or testing
 /obj/vampgrave/rapid
-	name = "upturned grave"
+	name = "翻开的坟墓"
 	spawn_interval = 30 SECONDS
 	max_zombies_per_grave = 1
 

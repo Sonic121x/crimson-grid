@@ -1,7 +1,7 @@
 
 /obj/structure/holosign/barrier/police_tape
-	name = "police barrier tape"
-	desc = "A length of fragile police tape used for crowd control and blocking crime scenes. Can only be passed by walking."
+	name = "警戒带"
+	desc = "一段易断的警用警戒带，用于管制人群和封锁犯罪现场。只能以行走模式穿过。"
 	icon = 'modular_darkpack/master_files/icons/effects/holosigns.dmi'
 	icon_state = "barrier_police-0"
 	base_icon_state = "barrier_police"

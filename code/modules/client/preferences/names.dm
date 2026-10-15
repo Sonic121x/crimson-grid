@@ -24,17 +24,17 @@
 
 
 /datum/preference/name/deserialize(input, datum/preferences/preferences)
-	return reject_bad_name("[input]", allow_numbers)
+	return group == "religion" ? permissive_sanitize_name("[input]") : reject_bad_name("[input]", allow_numbers) // KUKU：宗教名称读取时支持中文，保留长度和禁词校验
 
 
 /datum/preference/name/serialize(input)
 	// `is_valid` should always be run before `serialize`, so it should not
 	// be possible for this to return `null`.
-	return reject_bad_name(input, allow_numbers)
+	return group == "religion" ? permissive_sanitize_name(input) : reject_bad_name(input, allow_numbers) // KUKU：宗教名称保存时沿用支持中文的校验规则
 
 
 /datum/preference/name/is_valid(value)
-	return istext(value) && !isnull(reject_bad_name(value, allow_numbers))
+	return istext(value) && !isnull(group == "religion" ? permissive_sanitize_name(value) : reject_bad_name(value, allow_numbers)) // KUKU：允许中文默认神名通过验证，避免角色数据生成中断
 
 
 /// A character's real name

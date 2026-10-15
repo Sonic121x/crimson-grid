@@ -1,5 +1,5 @@
 /obj/structure/vampdoor/woodglass // Wooden door with dual glass panels
-	name = "wooden glass door"
+	name = "嵌玻璃木门"
 	icon_state = "glass-1"
 	base_icon_state = "glass"
 	opacity = FALSE

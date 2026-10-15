@@ -1,6 +1,6 @@
 /obj/structure/bonfire/torch
-	name = "torch"
-	desc = "A stick on fire. Revolutionary."
+	name = "火把"
+	desc = "一根着火的棍子。真是划时代的发明。"
 	icon = 'modular_darkpack/modules/decor/icons/torch.dmi'
 	icon_state = "torch"
 	base_icon_state = "torch"

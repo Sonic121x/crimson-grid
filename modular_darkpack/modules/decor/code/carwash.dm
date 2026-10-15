@@ -9,8 +9,8 @@
 	icon_state = "conveyor"
 */
 /obj/structure/carwash/roller
-	name = "friction brush"
-	desc = "Terrifying for dogs and small children."
+	name = "洗车滚刷"
+	desc = "能把狗和小孩子吓坏。"
 	icon_state = "roller"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/carwash/roller, 0)

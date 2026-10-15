@@ -78,7 +78,7 @@
 		return
 	if(!isnull(registered_account))
 		if(transfer_funds)
-			account?.transfer_money(registered_account, registered_account.account_balance, "Account transfer")
+			account?.transfer_money(registered_account, registered_account.account_balance, "账户转账")
 		clear_account()
 	if(isnull(account))
 		return

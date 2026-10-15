@@ -2,7 +2,7 @@
 // Modular override to make it easier to treat as the default.
 /datum/language/common
 	name = "English"
-	desc = "Lingua franca of the world."
+	desc = "世界通用语言。"
 
 	icon_state = "english"
 

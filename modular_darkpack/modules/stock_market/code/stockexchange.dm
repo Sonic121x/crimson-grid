@@ -1,6 +1,6 @@
 /obj/machinery/computer/stockexchange
-	name = "stock exchange computer"
-	desc = "A console that connects to the galactic stock market. Stocks trading involves substantial risk of loss and is not suitable for every cargo technician."
+	name = "证券交易电脑"
+	desc = "连接银河证券市场的终端。股票交易存在重大亏损风险，并非适合所有货运技师。"
 	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = MAP_SWITCH("oldcomp", "/obj/machinery/computer/pod/old")
 	icon_screen = "stock_computer"

@@ -15,12 +15,12 @@
 //Sugar pills
 
 /datum/reagent/drug/placebatol
-	name = "Placebatol"
+	name = "安慰剂"
 	description = "一种有时会被开进处方的无色无味粉末。也许根本没什么作用……？"
 	//reagent_state = SOLID
 	color = "#f5f5f0"
 	metabolization_rate = REAGENTS_METABOLISM * 0.25
-	taste_description = "sugar" //effectively a sugar pill, but sugar actually has a use
+	taste_description = "糖" //effectively a sugar pill, but sugar actually has a use
 
 /obj/item/reagent_containers/applicator/pill/placebatol
 	name = "处方药片"

@@ -20,8 +20,8 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 
 
 /obj/item/vamp/keys
-	name = "keys"
-	desc = "Those can open some doors."
+	name = "钥匙"
+	desc = "可以打开某些门。"
 	icon = 'modular_darkpack/modules/deprecated/icons/items.dmi'
 	icon_state = "keys"
 	gender = PLURAL
@@ -42,12 +42,12 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 
 //===========================VAMPIRE KEYS===========================
 /obj/item/vamp/keys/camarilla
-	name = "\improper Camarilla keys"
+	name = "\improper 密党钥匙"
 	accesslocks = list(LOCKACCESS_CAMARILLA)
 	color = "#bd3327"
 
 /obj/item/vamp/keys/prince
-	name = "prince's keys"
+	name = "亲王钥匙"
 	accesslocks = list(
 		LOCKACCESS_CAMARILLA,
 		LOCKACCESS_PRINCE,
@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#bd3327"
 
 /obj/item/vamp/keys/sheriff
-	name = "sheriff's keys"
+	name = "治安官钥匙"
 	accesslocks = list(
 		LOCKACCESS_CAMARILLA,
 		LOCKACCESS_PRINCE,
@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#bd3327"
 
 /obj/item/vamp/keys/clerk
-	name = "clerk's keys"
+	name = "总管钥匙"
 	accesslocks = list(
 		LOCKACCESS_CAMARILLA,
 		LOCKACCESS_CLERK,
@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#bd3327"
 
 /obj/item/vamp/keys/camarilla
-	name = "\improper Millenium Tower keys"
+	name = "\improper 千禧大厦钥匙"
 	accesslocks = list(
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_CLERK,
@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#bd3327"
 
 /obj/item/vamp/keys/camarilla/ghoul
-	name = "\improper Millenium Tower Employee keys"
+	name = "\improper 千禧大厦员工钥匙"
 	accesslocks = list(
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_CLERK,
@@ -106,13 +106,13 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#bd3327"
 
 /obj/item/vamp/keys/archive
-	name = "archive keys"
+	name = "档案室钥匙"
 	accesslocks = list(
 		LOCKACCESS_CHANTRY
 	)
 
 /obj/item/vamp/keys/regent
-	name = "very archival keys"
+	name = "高级档案室钥匙"
 	accesslocks = list(
 		LOCKACCESS_CHANTRY,
 		LOCKACCESS_JAZZ_CLUB,
@@ -122,7 +122,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	)
 
 /obj/item/vamp/keys/baron
-	name = "baron keys"
+	name = "男爵钥匙"
 	accesslocks = list(
 		LOCKACCESS_BAR,
 		LOCKACCESS_ANARCH,
@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#434343"
 
 /obj/item/vamp/keys/anarch
-	name = "bar keys"
+	name = "酒吧钥匙"
 	accesslocks = list(
 		LOCKACCESS_BAR,
 		LOCKACCESS_ANARCH,
@@ -141,21 +141,21 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#434343"
 
 /obj/item/vamp/keys/anarch_limited
-	name = "barkeeper keys"
+	name = "酒保钥匙"
 	accesslocks = list(
 		LOCKACCESS_BAR
 	)
 	color = "#434343"
 
 /obj/item/vamp/keys/giovanni
-	name = "mafia keys"
+	name = "黑手党钥匙"
 	accesslocks = list(
 		LOCKACCESS_GIOVANNI,
 		LOCKACCESS_BANK
 	)
 
 /obj/item/vamp/keys/capo
-	name = "capo keys"
+	name = "家主钥匙"
 	accesslocks = list(
 		LOCKACCESS_BANKBOSS,
 		LOCKACCESS_BANK,
@@ -164,13 +164,13 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 
 
 /obj/item/vamp/keys/baali
-	name = "satanic keys"
+	name = "撒旦钥匙"
 	accesslocks = list(
 		LOCKACCESS_BAALI
 	)
 
 /obj/item/vamp/keys/lasombra
-	name = "dark keys"
+	name = "黑暗钥匙"
 	accesslocks = list(
 		LOCKACCESS_LASOMBRA,
 		LOCKACCESS_KIASYD,
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#290355"
 
 /obj/item/vamp/keys/lasombra/primogen
-	name = "really dark keys"
+	name = "极其黑暗的钥匙"
 	accesslocks = list(
 		LOCKACCESS_LASOMBRA,
 		LOCKACCESS_KIASYD,
@@ -194,32 +194,32 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#4b039c"
 
 /obj/item/vamp/keys/daughters
-	name = "eclectic keys"
+	name = "风格杂糅的钥匙"
 	accesslocks = list(
 		LOCKACCESS_DAUGHTERS
 	)
 
 /obj/item/vamp/keys/salubri
-	name = "conspiracy keys"
+	name = "阴谋钥匙"
 	accesslocks = list(
 		LOCKACCESS_SALUBRI
 	)
 
 /obj/item/vamp/keys/old_clan_tzimisce
-	name = "regal keys"
+	name = "尊贵的钥匙"
 	accesslocks = list(
 		LOCKACCESS_OLD_CLAN_TZI
 	)
 
 /obj/item/vamp/keys/malkav
-	name = "insane keys"
+	name = "疯狂钥匙"
 	accesslocks = list(
 		LOCKACCESS_MALK
 	)
 	color = "#8cc4ff"
 
 /obj/item/vamp/keys/malkav/primogen
-	name = "really insane keys"
+	name = "极其疯狂的钥匙"
 	accesslocks = list(
 		LOCKACCESS_MALK_PRIMOGEN,
 		LOCKACCESS_MALK,
@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#2c92ff"
 
 /obj/item/vamp/keys/toreador
-	name = "sexy keys"
+	name = "性感钥匙"
 	accesslocks = list(
 		LOCKACCESS_TOREADOR,
 		"toreador1",
@@ -242,14 +242,14 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#ffa7e6"
 
 /obj/item/vamp/keys/banuhaqim
-	name = "just keys"
+	name = "公正的钥匙"
 	accesslocks = list(
 		LOCKACCESS_BANU
 	)
 	color = "#06053d"
 
 /obj/item/vamp/keys/banuhaqim/primogen
-	name = "really just keys" // lol
+	name = "极其公正的钥匙" // lol
 	accesslocks = list(
 		LOCKACCESS_JAZZ_CLUB,
 		LOCKACCESS_THEATRE,
@@ -258,7 +258,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 		LOCKACCESS_BANU_PRIMOGEN,
 	)
 /obj/item/vamp/keys/toreador/primogen
-	name = "really sexy keys"
+	name = "极其性感的钥匙"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_TOREADOR,
 		LOCKACCESS_TOREADOR,
@@ -271,14 +271,14 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#ff2fc4"
 
 /obj/item/vamp/keys/nosferatu
-	name = "ugly keys"
+	name = "丑陋钥匙"
 	accesslocks = list(
 		LOCKACCESS_NOSFERATU
 	)
 	color = "#93bc8e"
 
 /obj/item/vamp/keys/nosferatu/primogen
-	name = "really ugly keys"
+	name = "极其丑陋的钥匙"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_NOSFERATU,
 		LOCKACCESS_NOSFERATU,
@@ -290,14 +290,14 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#367c31"
 
 /obj/item/vamp/keys/brujah
-	name = "punk keys"
+	name = "朋克钥匙"
 	accesslocks = list(
 		LOCKACCESS_BRUJAH
 	)
 	color = "#ecb586"
 
 /obj/item/vamp/keys/brujah/primogen
-	name = "really punk keys"
+	name = "极其朋克的钥匙"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_BRUJAH,
 		LOCKACCESS_BRUJAH,
@@ -308,7 +308,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#ec8f3e"
 
 /obj/item/vamp/keys/ventrue
-	name = "businessy keys"
+	name = "商务范的钥匙"
 	accesslocks = list(
 		LOCKACCESS_VENTRUE,
 		LOCKACCESS_JAZZ_CLUB
@@ -316,7 +316,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#f6ffa7"
 
 /obj/item/vamp/keys/ventrue/primogen
-	name = "really businessy keys"
+	name = "商务范十足的钥匙"
 	accesslocks = list(
 		LOCKACCESS_PRIMOGEN_VENTRUE,
 		LOCKACCESS_VENTRUE,
@@ -328,34 +328,34 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#e8ff29"
 
 /obj/item/vamp/keys/cappadocian
-	name = "eroded keys"
+	name = "腐蚀的钥匙"
 	accesslocks = list(
 		LOCKACCESS_CAPPADOCIAN
 	)
 	color = "#99620e"
 
 /obj/item/vamp/keys/sabbat
-	name = "dirty keys"
+	name = "脏钥匙"
 	accesslocks = list(
 		LOCKACCESS_SABBAT
 	)
 	color = "#6a2e1d"
 
 /obj/item/vamp/keys/setite
-	name = "setite keys"
+	name = "瑟泰信徒钥匙"
 	accesslocks = list(
 		LOCKACCESS_SETITE
 	)
 
 //===========================CLINIC KEYS===========================
 /obj/item/vamp/keys/clinic
-	name = "clinic keys"
+	name = "诊所钥匙"
 	accesslocks = list(
 		LOCKACCESS_CLINIC
 	)
 
 /obj/item/vamp/keys/clinics_director
-	name = "clinic director keys"
+	name = "诊所主任钥匙"
 	accesslocks = list(
 		LOCKACCESS_CLINIC,
 		LOCKACCESS_DIRECTOR
@@ -363,33 +363,33 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 
 //===========================POLICE KEYS===========================
 /obj/item/vamp/keys/police
-	name = "police keys"
+	name = "警局钥匙"
 	accesslocks = list(
 		LOCKACCESS_POLICE
 	)
 
 /obj/item/vamp/keys/police/federal
-	name = "federal agent keys"
+	name = "联邦探员钥匙"
 	accesslocks = list(
 		LOCKACCESS_POLICE,
 		LOCKACCESS_FEDERAL
 	)
 
 /obj/item/vamp/keys/dispatch
-	name = "dispatcher keys"
+	name = "调度员钥匙"
 	accesslocks = list(
 		LOCKACCESS_DISPATCH
 	)
 
 /obj/item/vamp/keys/police/secure
-	name = "sergeant police keys"
+	name = "警长钥匙"
 	accesslocks = list(
 		LOCKACCESS_POLICE,
 		LOCKACCESS_POLICE_SECURE
 	)
 
 /obj/item/vamp/keys/police/secure/captain
-	name = "police captain keys"
+	name = "警监钥匙"
 	accesslocks = list(
 		LOCKACCESS_DISPATCH,
 		LOCKACCESS_POLICE,
@@ -400,28 +400,28 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 //===========================FERA KEYS===========================
 
 /obj/item/vamp/keys/nps
-	name = "\improper Park Service keys"
+	name = "\improper 公园管理局钥匙"
 	accesslocks = list(
 		LOCKACCESS_PARK_RANGER
 	)
 	color = "#1e7531"
 
 /obj/item/vamp/keys/techstore
-	name = "tech store keys"
+	name = "科技商店钥匙"
 	accesslocks = list(
 		LOCKACCESS_WOLFTECH
 	)
 	color = "#466a72"
 
 /obj/item/vamp/keys/pentex
-	name = "\improper " + MAIN_EVIL_COMPANY + " facility keys"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "设施钥匙"
 	accesslocks = list(
 		LOCKACCESS_PENTEX
 	)
 	color = "#062e03"
 
 /obj/item/vamp/keys/pentex/leader
-	name = "\improper " + MAIN_EVIL_COMPANY + " management keys"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "管理层钥匙"
 	accesslocks = list(
 		LOCKACCESS_PENTEX,
 		LOCKACCESS_PENTEX_LEADER
@@ -429,7 +429,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	color = "#062e03"
 
 /obj/item/vamp/keys/children_of_gaia
-	name = "food pantry keys"
+	name = "食物救济站钥匙"
 	accesslocks = list(
 		LOCKACCESS_COGGIE
 	)
@@ -438,7 +438,7 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 //===========================MISC KEYS===========================
 
 /obj/item/vamp/keys/triads
-	name = "rusty keys"
+	name = "生锈的钥匙"
 	accesslocks = list(
 		LOCKACCESS_TRAID,
 		LOCKACCESS_LAUNDROMAT
@@ -451,52 +451,52 @@ GLOBAL_LIST_INIT(city_door_lock_ids, list())
 	)
 
 /obj/item/vamp/keys/cleaning
-	name = "cleaning keys"
+	name = "保洁钥匙"
 	accesslocks = list(
 		LOCKACCESS_CLEANING
 	)
 
 /obj/item/vamp/keys/church
-	name = "church keys"
+	name = "教堂钥匙"
 	accesslocks = list(
 		LOCKACCESS_CHURCH
 	)
 
 /obj/item/vamp/keys/hunter
-	name = "strange keys"
+	name = "奇怪的钥匙"
 	accesslocks = list(
 		LOCKACCESS_HUNTER
 	)
 
 /obj/item/vamp/keys/kiasyd
-	name = "museum keys"
+	name = "博物馆钥匙"
 	accesslocks = list(
 		LOCKACCESS_KIASYD
 	)
 
 /obj/item/vamp/keys/supply
-	name = "supply keys"
+	name = "货运钥匙"
 	accesslocks = list(
 		LOCKACCESS_SUPPLY
 	)
 	color = "#434343"
 
 /obj/item/vamp/keys/strip
-	name = "strip keys"
+	name = "脱衣舞俱乐部钥匙"
 	accesslocks = list(
 		LOCKACCESS_STRIP
 	)
 
 /obj/item/vamp/keys/taxi
-	name = "taxi keys"
+	name = "出租车钥匙"
 	accesslocks = list(
 		LOCKACCESS_TAXI
 	)
 	color = "#fffb8b"
 
 /obj/item/vamp/keys/apartment
-	name = "apartment keys"
-	desc = "The key to someone's home. Hope it's not lost."
+	name = "公寓钥匙"
+	desc = "某人家的钥匙。希望不是弄丢的。"
 	accesslocks = list(
 		"apartment"
 	)

@@ -6,22 +6,22 @@
 
 /datum/preference/choiced/country_of_origin/init_possible_values()
 	return list(
-		"Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas",
-		"Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso",
-		"Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Democratic Republic of the Congo",
-		"Republic of the Congo", "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Curaçao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor",
-		"Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "Gabon", "Gambia", "Georgia", "Germany",
-		"Ghana", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
-		"Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "North Korea", "South Korea", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia",
-		"Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
-		"Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Northern Mariana Islands",
-		"Norway", "Oman", "Pakistan", "Palau", "State of Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Romania", "Russia",
-		"Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone",
-		"Singapore", "Sint Maarten", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "South Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria",
-		"Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
-		"United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "British Virgin Islands", "U.S. Virgin Islands", "Yemen", "Zambia", "Zimbabwe"
+		"Afghanistan" = "阿富汗", "Albania" = "阿尔巴尼亚", "Algeria" = "阿尔及利亚", "American Samoa" = "美属萨摩亚", "Andorra" = "安道尔", "Angola" = "安哥拉", "Antigua and Barbuda" = "安提瓜和巴布达", "Argentina" = "阿根廷", "Armenia" = "亚美尼亚", "Australia" = "澳大利亚", "Austria" = "奥地利", "Azerbaijan" = "阿塞拜疆", "Bahamas" = "巴哈马",
+		"Bahrain" = "巴林", "Bangladesh" = "孟加拉国", "Barbados" = "巴巴多斯", "Belarus" = "白俄罗斯", "Belgium" = "比利时", "Belize" = "伯利兹", "Benin" = "贝宁", "Bermuda" = "百慕大", "Bhutan" = "不丹", "Bolivia" = "玻利维亚", "Bosnia and Herzegovina" = "波斯尼亚和黑塞哥维那", "Botswana" = "博茨瓦纳", "Brazil" = "巴西", "Brunei" = "文莱", "Bulgaria" = "保加利亚", "Burkina Faso" = "布基纳法索",
+		"Burundi" = "布隆迪", "Cambodia" = "柬埔寨", "Cameroon" = "喀麦隆", "Canada" = "加拿大", "Cape Verde" = "佛得角", "Cayman Islands" = "开曼群岛", "Central African Republic" = "中非共和国", "Chad" = "乍得", "Chile" = "智利", "China" = "中国", "Colombia" = "哥伦比亚", "Comoros" = "科摩罗", "Democratic Republic of the Congo" = "刚果民主共和国",
+		"Republic of the Congo" = "刚果共和国", "Costa Rica" = "哥斯达黎加", "Côte d'Ivoire" = "科特迪瓦", "Croatia" = "克罗地亚", "Cuba" = "古巴", "Curaçao" = "库拉索", "Cyprus" = "塞浦路斯", "Czech Republic" = "捷克共和国", "Denmark" = "丹麦", "Djibouti" = "吉布提", "Dominica" = "多米尼克", "Dominican Republic" = "多米尼加共和国", "East Timor" = "东帝汶",
+		"Ecuador" = "厄瓜多尔", "Egypt" = "埃及", "El Salvador" = "萨尔瓦多", "Equatorial Guinea" = "赤道几内亚", "Eritrea" = "厄立特里亚", "Estonia" = "爱沙尼亚", "Ethiopia" = "埃塞俄比亚", "Faroe Islands" = "法罗群岛", "Fiji" = "斐济", "Finland" = "芬兰", "France" = "法国", "French Polynesia" = "法属波利尼西亚", "Gabon" = "加蓬", "Gambia" = "冈比亚", "Georgia" = "格鲁吉亚", "Germany" = "德国",
+		"Ghana" = "加纳", "Greece" = "希腊", "Greenland" = "格陵兰", "Grenada" = "格林纳达", "Guam" = "关岛", "Guatemala" = "危地马拉", "Guinea" = "几内亚", "Guinea-Bissau" = "几内亚比绍", "Guyana" = "圭亚那", "Haiti" = "海地", "Honduras" = "洪都拉斯", "Hong Kong" = "香港", "Hungary" = "匈牙利", "Iceland" = "冰岛", "India" = "印度", "Indonesia" = "印度尼西亚", "Iran" = "伊朗", "Iraq" = "伊拉克", "Ireland" = "爱尔兰",
+		"Israel" = "以色列", "Italy" = "意大利", "Jamaica" = "牙买加", "Japan" = "日本", "Jordan" = "约旦", "Kazakhstan" = "哈萨克斯坦", "Kenya" = "肯尼亚", "Kiribati" = "基里巴斯", "North Korea" = "朝鲜", "South Korea" = "韩国", "Kosovo" = "科索沃", "Kuwait" = "科威特", "Kyrgyzstan" = "吉尔吉斯斯坦", "Laos" = "老挝", "Latvia" = "拉脱维亚", "Lebanon" = "黎巴嫩", "Lesotho" = "莱索托", "Liberia" = "利比里亚",
+		"Libya" = "利比亚", "Liechtenstein" = "列支敦士登", "Lithuania" = "立陶宛", "Luxembourg" = "卢森堡", "Macedonia" = "马其顿", "Madagascar" = "马达加斯加", "Malawi" = "马拉维", "Malaysia" = "马来西亚", "Maldives" = "马尔代夫", "Mali" = "马里", "Malta" = "马耳他", "Marshall Islands" = "马绍尔群岛", "Mauritania" = "毛里塔尼亚", "Mauritius" = "毛里求斯", "Mexico" = "墨西哥",
+		"Micronesia" = "密克罗尼西亚", "Moldova" = "摩尔多瓦", "Monaco" = "摩纳哥", "Mongolia" = "蒙古", "Montenegro" = "黑山", "Morocco" = "摩洛哥", "Mozambique" = "莫桑比克", "Myanmar" = "缅甸", "Namibia" = "纳米比亚", "Nauru" = "瑙鲁", "Nepal" = "尼泊尔", "Netherlands" = "荷兰", "New Zealand" = "新西兰", "Nicaragua" = "尼加拉瓜", "Niger" = "尼日尔", "Nigeria" = "尼日利亚", "Northern Mariana Islands" = "北马里亚纳群岛",
+		"Norway" = "挪威", "Oman" = "阿曼", "Pakistan" = "巴基斯坦", "Palau" = "帕劳", "State of Palestine" = "巴勒斯坦国", "Panama" = "巴拿马", "Papua New Guinea" = "巴布亚新几内亚", "Paraguay" = "巴拉圭", "Peru" = "秘鲁", "Philippines" = "菲律宾", "Poland" = "波兰", "Portugal" = "葡萄牙", "Puerto Rico" = "波多黎各", "Qatar" = "卡塔尔", "Romania" = "罗马尼亚", "Russia" = "俄罗斯",
+		"Rwanda" = "卢旺达", "Saint Kitts and Nevis" = "圣基茨和尼维斯", "Saint Lucia" = "圣卢西亚", "Saint Vincent and the Grenadines" = "圣文森特和格林纳丁斯", "Samoa" = "萨摩亚", "San Marino" = "圣马力诺", "Sao Tome and Principe" = "圣多美和普林西比", "Saudi Arabia" = "沙特阿拉伯", "Senegal" = "塞内加尔", "Serbia" = "塞尔维亚", "Seychelles" = "塞舌尔", "Sierra Leone" = "塞拉利昂",
+		"Singapore" = "新加坡", "Sint Maarten" = "荷属圣马丁", "Slovakia" = "斯洛伐克", "Slovenia" = "斯洛文尼亚", "Solomon Islands" = "所罗门群岛", "Somalia" = "索马里", "South Africa" = "南非", "Spain" = "西班牙", "Sri Lanka" = "斯里兰卡", "Sudan" = "苏丹", "South Sudan" = "南苏丹", "Suriname" = "苏里南", "Swaziland" = "斯威士兰", "Sweden" = "瑞典", "Switzerland" = "瑞士", "Syria" = "叙利亚",
+		"Taiwan" = "台湾", "Tajikistan" = "塔吉克斯坦", "Tanzania" = "坦桑尼亚", "Thailand" = "泰国", "Togo" = "多哥", "Tonga" = "汤加", "Trinidad and Tobago" = "特立尼达和多巴哥", "Tunisia" = "突尼斯", "Turkey" = "土耳其", "Turkmenistan" = "土库曼斯坦", "Tuvalu" = "图瓦卢", "Uganda" = "乌干达", "Ukraine" = "乌克兰", "United Arab Emirates" = "阿拉伯联合酋长国", "United Kingdom" = "英国",
+		"United States" = "美国", "Uruguay" = "乌拉圭", "Uzbekistan" = "乌兹别克斯坦", "Vanuatu" = "瓦努阿图", "Vatican City" = "梵蒂冈", "Venezuela" = "委内瑞拉", "Vietnam" = "越南", "British Virgin Islands" = "英属维尔京群岛", "U.S. Virgin Islands" = "美属维尔京群岛", "Yemen" = "也门", "Zambia" = "赞比亚", "Zimbabwe" = "津巴布韦"
 	)
-
+/datum/preference/choiced/country_of_origin/compile_constant_data() { return ..() + list("display_names" = get_choices()); }
 /datum/preference/choiced/country_of_origin/create_informed_default_value(datum/preferences/preferences)
 	if(prob(90)) //most people are gonna be from the USA
 		return ..()
@@ -162,14 +162,14 @@
 
 /datum/preference/choiced/state_of_origin/init_possible_values()
 	return list(
-		"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-		"Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-		"Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-		"New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-		"South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
-		"District of Columbia", "Puerto Rico", "Guam", "U.S. Virgin Islands", "American Samoa", "Northern Mariana Islands"
+		"Alabama" = "阿拉巴马州", "Alaska" = "阿拉斯加州", "Arizona" = "亚利桑那州", "Arkansas" = "阿肯色州", "California" = "加利福尼亚州", "Colorado" = "科罗拉多州", "Connecticut" = "康涅狄格州", "Delaware" = "特拉华州", "Florida" = "佛罗里达州", "Georgia" = "佐治亚州",
+		"Hawaii" = "夏威夷州", "Idaho" = "爱达荷州", "Illinois" = "伊利诺伊州", "Indiana" = "印第安纳州", "Iowa" = "艾奥瓦州", "Kansas" = "堪萨斯州", "Kentucky" = "肯塔基州", "Louisiana" = "路易斯安那州", "Maine" = "缅因州", "Maryland" = "马里兰州",
+		"Massachusetts" = "马萨诸塞州", "Michigan" = "密歇根州", "Minnesota" = "明尼苏达州", "Mississippi" = "密西西比州", "Missouri" = "密苏里州", "Montana" = "蒙大拿州", "Nebraska" = "内布拉斯加州", "Nevada" = "内华达州", "New Hampshire" = "新罕布什尔州", "New Jersey" = "新泽西州",
+		"New Mexico" = "新墨西哥州", "New York" = "纽约州", "North Carolina" = "北卡罗来纳州", "North Dakota" = "北达科他州", "Ohio" = "俄亥俄州", "Oklahoma" = "俄克拉何马州", "Oregon" = "俄勒冈州", "Pennsylvania" = "宾夕法尼亚州", "Rhode Island" = "罗得岛州", "South Carolina" = "南卡罗来纳州",
+		"South Dakota" = "南达科他州", "Tennessee" = "田纳西州", "Texas" = "得克萨斯州", "Utah" = "犹他州", "Vermont" = "佛蒙特州", "Virginia" = "弗吉尼亚州", "Washington" = "华盛顿州", "West Virginia" = "西弗吉尼亚州", "Wisconsin" = "威斯康星州", "Wyoming" = "怀俄明州",
+		"District of Columbia" = "哥伦比亚特区", "Puerto Rico" = "波多黎各", "Guam" = "关岛", "U.S. Virgin Islands" = "美属维尔京群岛", "American Samoa" = "美属萨摩亚", "Northern Mariana Islands" = "北马里亚纳群岛"
 	)
-
+/datum/preference/choiced/state_of_origin/compile_constant_data() { return ..() + list("display_names" = get_choices()); }
 /datum/preference/choiced/state_of_origin/create_informed_default_value(datum/preferences/preferences)
 	if(prob(80))
 		return ..()
@@ -198,11 +198,11 @@
 
 /datum/preference/choiced/province_of_origin/init_possible_values()
 	return list(
-		"British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario", "Quebec", "New Brunswick",
-		"Nova Scotia", "Prince Edward Island", "Newfoundland and Labrador", "Yukon", "Northwest Territories",
-		"Nunvaut",
+		"British Columbia" = "不列颠哥伦比亚省", "Alberta" = "艾伯塔省", "Saskatchewan" = "萨斯喀彻温省", "Manitoba" = "马尼托巴省", "Ontario" = "安大略省", "Quebec" = "魁北克省", "New Brunswick" = "新不伦瑞克省",
+		"Nova Scotia" = "新斯科舍省", "Prince Edward Island" = "爱德华王子岛省", "Newfoundland and Labrador" = "纽芬兰与拉布拉多省", "Yukon" = "育空地区", "Northwest Territories" = "西北地区",
+		"Nunvaut" = "努纳武特地区",
 	)
-
+/datum/preference/choiced/province_of_origin/compile_constant_data() { return ..() + list("display_names" = get_choices()); }
 /datum/preference/choiced/province_of_origin/create_informed_default_value(datum/preferences/preferences)
 	if(prob(50))
 		return ..()

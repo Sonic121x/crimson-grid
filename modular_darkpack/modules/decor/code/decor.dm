@@ -132,8 +132,8 @@
 	external_trash_chance = 0
 
 /obj/structure/trashbag
-	name = "trash bags"
-	desc = "Enough trashbags to block your way."
+	name = "垃圾袋堆"
+	desc = "堆得足以挡住去路的垃圾袋。"
 	icon = 'modular_darkpack/modules/decor/icons/trash.dmi'
 	icon_state = "garbage1"
 	density = TRUE
@@ -209,7 +209,7 @@
 
 
 /obj/structure/vamproofwall
-	name = "wall"
+	name = "墙壁"
 	icon = 'modular_darkpack/modules/decor/icons/roofwall.dmi'
 	icon_state = "the_wall"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -260,10 +260,10 @@
 	icon_state = "painting3"
 
 /obj/structure/painting/trad
-	name = "chinese traditional ink painting"
+	name = "中国传统水墨画"
 	icon_state = "trad-art1"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
-	desc = "Seems to be ink on a pleasant yellow canvas."
+	desc = "似乎是在柔和的黄色画布上用墨绘成的。"
 	layer = SIGN_LAYER
 
 /obj/structure/painting/trad/second
@@ -273,8 +273,8 @@
 	icon_state = "trad-art3"
 
 /obj/structure/fluff/shrine
-	name = "altar shrine"
-	desc = "An old rustic buddhist shrine, with a red cermaic roof."
+	name = "佛龛"
+	desc = "一座古老质朴的佛龛，顶着红色陶瓦屋顶。"
 	icon = 'modular_darkpack/modules/decor/icons/chinatown.dmi'
 	icon_state = "budshrine"
 	anchored = TRUE
@@ -369,8 +369,8 @@
 	AddElement(/datum/element/climbable)
 
 /obj/structure/pallets
-	name = "pallets"
-	desc = "Great for burning and blocking the player in cheap 2005 FPS games."
+	name = "托盘堆"
+	desc = "在2005年那些廉价的第一人称射击游戏里，特别适合拿来烧，或是挡住玩家的去路。"
 	icon = 'modular_darkpack/modules/decor/icons/alleyway_32x48.dmi'
 	icon_state = "pallets1"
 	layer = ABOVE_ALL_MOB_LAYER
@@ -398,8 +398,8 @@
 	icon_state = "under[rand(1, 2)]"
 
 /obj/cargotrain
-	name = "cargocrate"
-	desc = "It delivers a lot of things."
+	name = "货运集装箱"
+	desc = "运送着许多东西。"
 	icon = 'modular_darkpack/modules/decor/icons/containers.dmi'
 	icon_state = "1"
 	anchored = TRUE
@@ -744,11 +744,11 @@
 	icon_state = "tv_news"
 
 /obj/structure/fluff/tv/nature
-	desc = "A slightly battered looking TV. A documentary about a rabbit named 'Lepix'."
+	desc = "看起来有些破旧的电视机，正在播放一部关于一只名叫‘莱皮克斯’的兔子的纪录片。"
 	icon_state = "tv_nature"
 
 /obj/structure/fluff/tv/analog
-	desc = "A slightly battered looking TV. It might be broken."
+	desc = "看起来有些破旧的电视机。它可能坏了。"
 	icon_state = "tv_analog"
 
 /obj/structure/fluff/tv/order
@@ -776,6 +776,6 @@
 	icon_state = "order[rand(1,4)]"
 
 /obj/structure/projector
-	name = "projector"
+	name = "投影仪"
 	icon = 'icons/obj/machines/stationary_camera.dmi'
 	icon_state = "camera"

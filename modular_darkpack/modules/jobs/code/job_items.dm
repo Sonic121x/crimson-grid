@@ -343,7 +343,7 @@
 	desc = "你热爱户外？很好，现在一大片野外区域都归你照管了。"
 
 /obj/item/card/pentex
-	name = "\improper " + MAIN_EVIL_COMPANY + "员工徽章"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "员工徽章"
 	desc = "恭喜你，打工仔。"
 	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
 	icon_state = "green_id"
@@ -352,21 +352,21 @@
 	worn_icon_state = "green_id"
 
 /obj/item/card/pentex/branch_lead
-	name = "\improper " + MAIN_EVIL_COMPANY + "分部主管徽章"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "分部主管徽章"
 	desc = "我能有多坏呢？"
 
 /obj/item/card/pentex/executive
-	name = "\improper " + MAIN_EVIL_COMPANY + "高管证"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "高管证"
 	desc = "顾客们都在掏钱。"
 
 /obj/item/card/pentex/affairs
-	name = "\improper " + MAIN_EVIL_COMPANY + "内务调查员证"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "内务调查员证"
 	desc = "律师们都在否认。"
 
 /obj/item/card/pentex/secchief
-	name = "\improper " + MAIN_EVIL_COMPANY + "安保主管徽章"
-	desc = "只要没人发现，就不算违法。要是" + MAIN_EVIL_COMPANY + "肯出钱给你买辆坦克就好了。"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "安保主管徽章"
+	desc = "只要没人发现，就不算违法。要是" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "肯出钱给你买辆坦克就好了。"
 
 /obj/item/card/pentex/sec
-	name = "\improper " + MAIN_EVIL_COMPANY + "安保员徽章"
+	name = "\improper " + MAIN_EVIL_COMPANY_DISPLAY_NAME + "安保员徽章"
 	desc = "企业保安，比商场保安高一级，薪水比真正的警察还高。"

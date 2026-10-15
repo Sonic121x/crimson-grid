@@ -19,8 +19,8 @@
 	icon_state = "indus_solo"
 
 /obj/structure/railing/darkpack/sewer
-	name = "guard rail"
-	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
+	name = "护栏"
+	desc = "生锈的护栏，防止你掉进这里的污水里。谢天谢地，还有它挡着。"
 	icon_state = "railings_sewer"
 
 /obj/structure/railing/darkpack/wood

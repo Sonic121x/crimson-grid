@@ -1,6 +1,6 @@
 /datum/job/vampire/employee
 	title = JOB_PENTEX_EMPLOYEE
-	description = "你是" + MAIN_EVIL_COMPANY + "在旧金山的员工。上司们可能有些古怪；夜班时听从安保队与高管的工作安排，别让分部负责人或内务部门盯上你的问题。"
+	description = "你是" + MAIN_EVIL_COMPANY_DISPLAY_NAME + "在旧金山的员工。上司们可能有些古怪；夜班时听从安保队与高管的工作安排，别让分部负责人或内务部门盯上你的问题。"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	faction = FACTION_PENTEX
 	total_positions = 3

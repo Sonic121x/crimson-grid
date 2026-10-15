@@ -1,24 +1,24 @@
 /datum/socialrole/shop/garden //community garden
 	neutral_phrases = list(
-		"Would you like to buy something?",
-		"Everything is non-invasive and climate appropriate!",
-		"Sorry, we're out of bags."
+		"想买点什么吗？",
+		"全都是适应本地气候的非入侵品种！",
+		"抱歉，袋子用完了。"
 	)
 	random_phrases = list(
-		"Just let me know when you're ready.",
-		"Next, here, please!",
-		"The tomatoes came in early this year, can you believe it?",
-		"We compost everything. Everything.",
-		"My hands haven't been clean in ten years.",
-		"The bees have been very cooperative lately.",
-		"I've named all the plants...",
-		"We don't use pesticides. The bugs are part of the community.",
-		"This one grew a little funny...",
-		"I've been here since six this morning.",
-		"My therapist says I spend too much time here...",
+		"挑好了就叫我。",
+		"下一位，请到这边来！",
+		"今年番茄提前成熟了，你能信吗？",
+		"我们什么都拿来堆肥。什么都不例外。",
+		"我这双手十年没干净过了。",
+		"蜜蜂最近很配合。",
+		"我给每株植物都起了名字……",
+		"我们不用农药，虫子也是社区的一员。",
+		"这株长得有点怪……",
+		"我从今天早上六点就在这儿了。",
+		"我的心理治疗师说，我待在这里的时间太长了……",
 	)
 	help_phrases = list(
-		"Why would you do that?!",
-		"Take what you want, let me go!",
-		"Someone, get a doctor!"
+		"你为什么要这么做？！",
+		"想要什么拿走就是，放过我！",
+		"来人啊，找医生来！"
 	)

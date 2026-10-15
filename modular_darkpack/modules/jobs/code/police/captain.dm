@@ -19,7 +19,7 @@
 
 	allowed_splats = list(SPLAT_NONE)
 
-	description = "薪水微薄、工作繁重、人手短缺。尽力维持" + CITY_NAME + "的秩序，管好手下的警员。"
+	description = "薪水微薄、工作繁重、人手短缺。尽力维持旧金山的秩序，管好手下的警员。"
 	minimum_masquerade = 0
 
 	known_contacts = list(

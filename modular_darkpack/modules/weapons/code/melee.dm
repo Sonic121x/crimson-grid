@@ -50,7 +50,7 @@
 	AddComponent(/datum/component/selling, 100, "katana", FALSE)
 
 /obj/item/katana/vamp/fire
-	name = "burning katana"
+	name = "燃烧的武士刀"
 	icon_state = "katana_burning"
 	item_flags = DROPDEL
 	obj_flags = NONE
@@ -72,7 +72,7 @@
 		burnt_mob.apply_damage(15, BURN)
 
 /obj/item/katana/vamp/blood
-	name = "bloody katana"
+	name = "鲜血武士刀"
 	color = "#bb0000"
 	item_flags = DROPDEL
 	obj_flags = NONE
@@ -129,7 +129,7 @@
 	AddComponent(/datum/component/selling, 700, "rapier", FALSE)
 
 /obj/item/melee/sabre/vamp/training
-	name = "foam sabre"
+	name = "泡沫军刀"
 	force = 0
 	value = 3
 
@@ -216,8 +216,8 @@
 	AddComponent(/datum/component/selling, 20, "baseball", FALSE)
 
 /obj/item/melee/baseball_bat/vamp/hand
-	name = "ripped arm"
-	desc = "Wow, that was someone's arm."
+	name = "撕下的手臂"
+	desc = "哇，这曾经是某人的手臂。"
 	icon_state = "hand"
 	force = 1 TTRPG_DAMAGE
 	attack_difficulty = 5
@@ -253,7 +253,7 @@
 	custom_price = 85
 
 /obj/item/knife/vamp/lasombra_tentacle
-	name = "shadow tentacle"
+	name = "暗影触须"
 	force = 7
 	armour_penetration = 100
 	block_chance = 0
@@ -289,8 +289,8 @@
 	obj_flags = CONDUCTS_ELECTRICITY
 
 /obj/item/melee/touch_attack/werewolf
-	name = "falling touch"
-	desc = "This is kind of like when you rub your feet on a shag rug so you can zap your friends, only a lot less safe."
+	name = "倒地之触"
+	desc = "有点像在长毛地毯上蹭脚攒出静电，再去电你的朋友，只不过危险得多。"
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	//catchphrase = null
 	//on_use_sound = 'sound/magic/disintegrate.ogg'

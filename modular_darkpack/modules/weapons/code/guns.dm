@@ -20,7 +20,7 @@
 
 //REVOLVERS
 /obj/item/ammo_box/magazine/internal/cylinder/rev44
-	name = "revolver cylinder"
+	name = "左轮弹巢"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44MAG
 	max_ammo = 6
@@ -59,7 +59,7 @@
 	serial_type = "SN"
 
 /obj/item/ammo_box/magazine/internal/cylinder/rev9mm
-	name = "revolver cylinder"
+	name = "左轮弹巢"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm
 	caliber = CALIBER_9MMPARA
 	max_ammo = 6
@@ -209,8 +209,8 @@
 	serial_type = "BH"
 
 /obj/item/gun/ballistic/automatic/pistol/darkpack/beretta/toreador
-	name = "\improper Sword Series S 9mm"
-	desc = "A handgun that has been heavily decorated and customized. The improvements seem almost supernaturally good, you feel like the engravings have given you a tactical advantage."
+	name = "\improper 利剑系列S型9mm手枪"
+	desc = "一把经过精心装饰和深度定制的手枪。这些改进的效果好得近乎超自然，你感觉连雕花都能给你带来战术优势。"
 	icon_state = "beretta_toreador"
 	projectile_damage_multiplier = 2.5
 	fire_sound_volume = 110
@@ -227,7 +227,7 @@
 	custom_price = 200
 
 /obj/item/ammo_box/magazine/semi9mm/toreador
-	name = "custom pistol magazine (9mm)"
+	name = "定制手枪弹匣（9mm）"
 	ammo_type = /obj/item/ammo_casing/vampire/c9mm/silver
 
 //AUTOMATICS
@@ -409,7 +409,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/darkpack556/hunt
-	name = "rifle magazine (5.56mm)"
+	name = "步枪弹匣（5.56mm）"
 	icon_state = "hunt556"
 	max_ammo = 20
 	custom_price = 200
@@ -499,8 +499,8 @@
 	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/gun/ballistic/automatic/darkpack/ak74/sawn
-	name = "sawn-off Kalashnikov's Automatic Rifle 74"
-	desc = "Pretty old, but also easy fireable and cleanable by vodka. This one has had its stock removed and the barrel chopped; it's a miracle it still cycles! Uses 5.45 rounds."
+	name = "锯短卡拉什尼科夫74型自动步枪"
+	desc = "虽然老旧，但操作简单，还能用伏特加清洗。这把的枪托被拆掉了，枪管也被锯短，居然还能正常供弹，真是奇迹！使用5.45弹药。"
 	icon_state = "ak74_sawn"
 	inhand_icon_state = "ak74_sawn"
 	worn_icon_state = "sks"
@@ -577,7 +577,7 @@
 	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/ammo_box/magazine/darkpack762x51fal
-	name = "battle rifle magazine (7.62x51mm)"
+	name = "战斗步枪弹匣（7.62x51mm）"
 	icon = 'modular_darkpack/modules/weapons/icons/ammo.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/ammo_onfloor.dmi')
 	icon_state = "308mag"
@@ -587,8 +587,8 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/gun/ballistic/automatic/darkpack/fal
-	name = "battle rifle"
-	desc = "A hard hitting rifle firing a full power 7.62 cartridge."
+	name = "战斗步枪"
+	desc = "一把使用全威力7.62弹药的强力步枪。"
 	icon = 'modular_darkpack/modules/deprecated/icons/48x32.dmi'
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "fal"
@@ -609,8 +609,8 @@
 	serial_type = "BR"
 
 /obj/item/gun/ballistic/automatic/darkpack/fal/automatic
-	name = "military battle rifle"
-	desc = "A hard hitting rifle firing a full power 7.62 cartridge. This one is a military variant capable of automatic fire."
+	name = "军用战斗步枪"
+	desc = "一把使用全威力7.62弹药的强力步枪。这把是具备全自动射击能力的军用型号。"
 	icon_state = "falgreen"
 	inhand_icon_state = "falgreen"
 	worn_icon_state = "falgreen"
@@ -621,7 +621,7 @@
 	AddComponent(/datum/component/automatic_fire, rof)
 
 /obj/item/ammo_box/magazine/internal/darkpack/lever
-	name = "lever action internal magazine"
+	name = "杠杆式步枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c44
 	caliber = CALIBER_44MAG
 	max_ammo = 13
@@ -660,19 +660,19 @@
 	serial_type = "WN"
 
 /obj/item/ammo_box/magazine/internal/darkpack/lever/sawnoff
-	name = "mares leg lever action internal magazine"
+	name = "马腿式杠杆卡宾枪内置弹仓"
 	max_ammo = 8	//7+1
 
 /obj/item/gun/ballistic/rifle/darkpack/lever/sawnoff
-	name = "mares leg lever action carbine"
-	desc = "A .44 caliber lever action rifle, perfect for casual hunters, reenactors, and urban cowboys. This one has had its barrel and stock sawn down."
+	name = "马腿式杠杆卡宾枪"
+	desc = "一把.44口径杠杆式步枪，非常适合休闲猎人、历史重演爱好者和都市牛仔。这把的枪管和枪托都被锯短了。"
 	icon_state = "lever_sawn"
 	inhand_icon_state = "lever_sawn"
 	w_class = WEIGHT_CLASS_NORMAL
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/darkpack/lever/sawnoff
 
 /obj/item/ammo_box/magazine/internal/vampire/sniper
-	name = "sniper rifle internal magazine"
+	name = "狙击步枪内置弹仓"
 	desc = "Oh god, this shouldn't be here"
 	ammo_type = /obj/item/ammo_casing/vampire/c50
 	caliber = CALIBER_50CAL_BMG
@@ -758,7 +758,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/internal/vampshotgun
-	name = "shotgun internal magazine"
+	name = "霰弹枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	caliber = CALIBER_12G
 	//multiload = FALSE
@@ -788,12 +788,12 @@
 	serial_type = "L"
 
 /obj/item/ammo_box/magazine/internal/vampshotgun/sawnoff
-	name = "sawn-off shotgun internal magazine"
+	name = "锯短霰弹枪内置弹仓"
 	max_ammo = 4
 
 /obj/item/gun/ballistic/shotgun/vampire/sawnoff
-	name = "sawn-off shotgun"
-	desc = "A traditional shotgun that's been shortened.. probably illegally. Sports a three-round tube magazine."
+	name = "锯短霰弹枪"
+	desc = "一把被锯短的传统霰弹枪……这改装恐怕不合法。配有三发管式弹仓。"
 	icon_state = "pomp_sawn"
 	inhand_icon_state = "pomp_sawn"
 	recoil = 10
@@ -802,7 +802,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/vampshotgun/sawnoff
 
 /obj/item/ammo_box/magazine/internal/vampshotgun
-	name = "shotgun internal magazine"
+	name = "霰弹枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	caliber = CALIBER_12G
 	//multiload = FALSE
@@ -855,7 +855,7 @@
 	icon_state = "oil_filter"
 
 /obj/item/ammo_box/magazine/internal/darkpack_dbarrel
-	name = "double barrel internal magazine"
+	name = "双管霰弹枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c12g
 	caliber = CALIBER_12G
 	max_ammo = 2
@@ -962,7 +962,7 @@
 	max_ammo = 2
 
 /obj/item/ammo_box/magazine/internal/vampire/musket
-	name = "musket internal magazine"
+	name = "火枪内置弹仓"
 	ammo_type = /obj/item/ammo_casing/vampire/c75
 	caliber = CALIBER_75BALL
 	max_ammo = 1	//It's a fucking musket
@@ -999,8 +999,8 @@
 	new /obj/effect/particle_effect/fluid/smoke(get_ranged_target_turf(user, user.dir, 1))
 
 /obj/item/gun/ballistic/automatic/darkpack/musket/sawn
-	name = "butchered antique musket"
-	desc = "A antique musket, likely from the mid 19th century that- wh.. why the fuck would you do this to a musket!?"
+	name = "惨遭锯短的古董火枪"
+	desc = "一把可能来自19世纪中期的古董火枪，它……等、等等，你他妈为什么要这样糟蹋一把火枪！？"
 	icon_state = "musket_sawn"
 	inhand_icon_state = "musket_sawn"
 	w_class = WEIGHT_CLASS_NORMAL

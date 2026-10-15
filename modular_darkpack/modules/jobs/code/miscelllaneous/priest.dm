@@ -19,7 +19,7 @@
 	allowed_clans = list(VAMPIRE_CLAN_LASOMBRA, VAMPIRE_CLAN_CAPPADOCIAN, VAMPIRE_CLAN_BANU_HAQIM_VIZIER) //Each have pretty big religious influences, so!
 	maximal_generation = 11
 	maximum_immortal_age = 100
-	description = "牧养" + CITY_NAME + "的信众，引领他们走向救赎、虔诚与正义。"
+	description = "牧养旧金山的信众，引领他们走向救赎、虔诚与正义。"
 
 	known_contacts = list(
 		JOB_PRIEST,

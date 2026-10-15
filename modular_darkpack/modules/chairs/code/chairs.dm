@@ -42,13 +42,13 @@
 /obj/structure/chair/plastic/darkpack
 	icon = 'modular_darkpack/modules/chairs/icons/chairs.dmi'
 	icon_state = "plastic_chair"
-	name = "plastic chair"
+	name = "塑料椅"
 	item_chair = /obj/item/chair/plastic/darkpack
 
 // PLASTIC CHAIR / ITEMS
 
 /obj/item/chair/plastic/darkpack
-	name = "plastic chair"
+	name = "塑料椅"
 	icon = 'modular_darkpack/modules/chairs/icons/chairs.dmi'
 	icon_state = "folded_chair"
 	origin_type = /obj/structure/chair/plastic/darkpack
@@ -165,8 +165,8 @@
 // Tileable booth seats
 
 /obj/structure/chair/sofa/booth_seat
-	name = "booth seat"
-	desc = "A comfy cushioned seat in a booth."
+	name = "卡座座椅"
+	desc = "卡座中舒适的软垫座椅。"
 	has_armrest = FALSE
 	icon = 'modular_darkpack/modules/chairs/icons/dinersofa_tileable.dmi'
 	icon_state = "middle"

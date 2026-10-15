@@ -8,7 +8,7 @@
 	canSmoothWith = null
 
 /obj/structure/lattice/pentex
-	desc = "Looks sturdy enough and made of advanced materials."
+	desc = "采用先进材料制成，看起来相当结实。"
 	icon = 'icons/obj/smooth_structures/darkpack/catwalk_pentex_opaque.dmi'
 
 /obj/structure/lattice/catwalk/borderless

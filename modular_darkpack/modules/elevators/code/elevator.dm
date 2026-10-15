@@ -1,5 +1,5 @@
 /obj/machinery/door/airlock/elevator
-	name = "elevator door"
+	name = "电梯门"
 	icon = 'modular_darkpack/modules/elevators/icons/doorleft.dmi'
 	icon_state = "closed"
 	abstract_type = /obj/machinery/door/airlock/elevator
@@ -32,8 +32,8 @@
 	set_bounds()
 
 /obj/structure/door_assembly/elevator
-	name = "door assembly"
-	base_name = "elevator door"
+	name = "门组件"
+	base_name = "电梯门"
 	icon = 'modular_darkpack/modules/elevators/icons/doorleft.dmi'
 	icon_state = "construction"
 	abstract_type = /obj/structure/door_assembly/elevator
@@ -48,7 +48,7 @@
 	icon = 'modular_darkpack/modules/elevators/icons/doorright.dmi'
 
 /obj/structure/door_assembly/elevator/multi_tile
-	name = "door assembly"
+	name = "门组件"
 	icon = 'modular_darkpack/modules/elevators/icons/doordouble.dmi'
 	airlock_type = /obj/machinery/door/airlock/elevator/multi_tile
 	dir = EAST

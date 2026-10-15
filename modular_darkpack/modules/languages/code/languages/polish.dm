@@ -1,6 +1,6 @@
 /datum/language/polish
 	name = "Polish"
-	desc = "A West Slavic language spoken by people from Poland and its diaspora."
+	desc = "波兰及其海外侨民使用的一种西斯拉夫语言。"
 	key = "P"
 	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 45
