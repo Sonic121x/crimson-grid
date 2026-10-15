@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////KEBABS////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/humankebab
-	name = "Human kebab"
+	name = "人肉串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak/plain/human = 2
@@ -12,7 +12,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/kebab
-	name = "Kebab"
+	name = "烤肉串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak = 2
@@ -21,7 +21,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/tofukebab
-	name = "Tofu kebab"
+	name = "豆腐串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/tofu = 2
@@ -41,7 +41,7 @@
 */
 
 /datum/crafting_recipe/food/fiestaskewer
-	name = "Fiesta Skewer"
+	name = "嘉年华烤串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/grown/chili = 1,
@@ -69,7 +69,7 @@
 ////////////////////////////////////////////////MISC RECIPE's////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/tempehstarter
-	name = "Tempeh starter"
+	name = "天贝发酵料"
 	reqs = list(
 		/obj/item/food/grown/soybeans = 5,
 		/obj/item/seeds/plump = 1
@@ -79,7 +79,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/cornedbeef
-	name = "Corned beef"
+	name = "腌牛肉"
 	reqs = list(
 		/datum/reagent/consumable/salt = 5,
 		/obj/item/food/meat/steak = 1,
@@ -89,7 +89,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/bearsteak
-	name = "Filet migrawr"
+	name = "熊吼菲力"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/manly_dorf = 5,
 		/obj/item/food/meat/steak/bear = 1,
@@ -100,7 +100,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/polar_bear_steak
-	name = "Filet polar migrawr"
+	name = "北极熊吼菲力"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/frosty_dorf = 3,
 		/datum/reagent/consumable/ethanol/blue_blazer = 3,
@@ -111,7 +111,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/stewedsoymeat
-	name = "Stewed soymeat"
+	name = "炖大豆素肉"
 	reqs = list(
 		/obj/item/food/soydope = 2,
 		/obj/item/food/grown/carrotlike/carrot = 1,
@@ -121,7 +121,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/sausage
-	name = "Raw sausage"
+	name = "生香肠"
 	reqs = list(
 		/obj/item/food/raw_meatball = 1,
 		/obj/item/food/meat/rawcutlet = 2
@@ -130,7 +130,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/nugget
-	name = "Chicken nugget"
+	name = "鸡块"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 1
 	)
@@ -138,7 +138,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/rawkhinkali
-	name = "Raw Khinkali"
+	name = "生格鲁吉亚灌汤包"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/garlic = 1,
@@ -148,7 +148,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/meatbun
-	name = "Meat bun"
+	name = "肉包"
 	reqs = list(
 		/datum/reagent/consumable/soysauce = 5,
 		/obj/item/food/bun = 1,
@@ -159,7 +159,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/pigblanket
-	name = "Pig in a Blanket"
+	name = "酥皮香肠卷"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/butterslice = 1,
@@ -169,7 +169,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/ratkebab
-	name = "Rat Kebab"
+	name = "鼠肉串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 1
@@ -178,7 +178,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/doubleratkebab
-	name = "Double Rat Kebab"
+	name = "双份鼠肉串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 2
@@ -187,7 +187,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/ricepork
-	name = "Rice and Pork"
+	name = "猪肉饭"
 	reqs = list(
 		/obj/item/reagent_containers/cup/bowl = 1,
 		/obj/item/food/boiledrice = 1,
@@ -198,7 +198,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/ribs
-	name = "BBQ Ribs"
+	name = "烧烤肋排"
 	reqs = list(
 		/datum/reagent/consumable/bbqsauce = 5,
 		/obj/item/food/meat/steak = 2,
@@ -209,7 +209,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/drake_ribs
-	name = "Drake Ribs"
+	name = "飞龙肋排"
 	reqs = list(
 		/datum/reagent/consumable/guidoferrun = 1,
 		/datum/reagent/consumable/frostoil = 4,
@@ -223,7 +223,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/meatclown
-	name = "Meat Clown"
+	name = "肉小丑"
 	reqs = list(
 		/obj/item/food/meat/steak = 1,
 		/obj/item/food/grown/banana = 1
@@ -232,7 +232,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/lasagna
-	name = "Lasagna"
+	name = "千层面"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 2,
 		/obj/item/food/grown/tomato = 1,
@@ -243,7 +243,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/gumbo
-	name = "Black eyed gumbo"
+	name = "黑眼豆浓汤饭"
 	reqs = list(
 		/obj/item/reagent_containers/cup/bowl = 1,
 		/obj/item/food/boiledrice = 1,
@@ -257,7 +257,7 @@
 
 
 /datum/crafting_recipe/food/fried_chicken
-	name = "Fried Chicken"
+	name = "炸鸡"
 	reqs = list(
 		/obj/item/food/meat/slab/chicken = 1,
 		/datum/reagent/consumable/flour = 5,
@@ -269,7 +269,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/beef_stroganoff
-	name = "Beef Stroganoff"
+	name = "俄式酸奶油炖牛肉"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/milk = 5,
@@ -287,7 +287,7 @@
 	unit_test_spawn_extras = list(/obj/item/food/grown/mushroom/chanterelle = 2) //generic mushrooms
 
 /datum/crafting_recipe/food/beef_wellington
-	name = "Beef Wellington"
+	name = "惠灵顿牛排"
 	reqs = list(
 		/obj/item/food/meat/steak = 1,
 		/obj/item/food/grown/mushroom = 1,
@@ -323,7 +323,7 @@
 */
 
 /datum/crafting_recipe/food/full_roast
-	name = "Roast Chicken Dinner"
+	name = "烤鸡大餐"
 	reqs = list(
 		/obj/item/food/meat/steak/chicken = 2,
 		/obj/item/food/roastparsnip = 1,
@@ -364,7 +364,7 @@
 */
 
 /datum/crafting_recipe/food/full_roast_tofu
-	name = "Meat-Free Roast Dinner"
+	name = "素食烤制大餐"
 	reqs = list(
 		/obj/item/food/tofu = 6,
 		/obj/item/food/roastparsnip = 1,
@@ -383,7 +383,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/full_english
-	name = "Full English Breakfast"
+	name = "全套英式早餐"
 	reqs = list(
 		/obj/item/food/sausage = 1,
 		/obj/item/food/friedegg = 2,
@@ -398,7 +398,7 @@
 	unit_test_spawn_extras = list(/obj/item/food/grown/mushroom/chanterelle = 1) //generic mushrooms
 
 /datum/crafting_recipe/food/envirochow
-	name = "Envirochow"
+	name = "环保口粮"
 	reqs = list(
 		/obj/item/food/meat/slab/corgi = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 5,
@@ -409,7 +409,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/meatloaf
-	name = "Meatloaf"
+	name = "肉糜糕"
 	reqs = list(
 		/obj/item/food/meat/slab = 2,
 		/obj/item/food/grown/onion = 1,
@@ -420,7 +420,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/sweet_and_sour_meatballs
-	name = "Sweet and sour meatballs"
+	name = "糖醋肉丸"
 	reqs = list(
 		/obj/item/food/meatball = 3,
 		/obj/item/food/pineappleslice = 1,
@@ -431,7 +431,7 @@
 	dish_category = DISH_MEAT
 
 /datum/crafting_recipe/food/pineapple_skewer
-	name = "Pineapple skewer"
+	name = "菠萝烤串"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/pineappleslice = 2,
@@ -442,7 +442,7 @@
 	meal_category = MEAL_APPETIZER
 
 /datum/crafting_recipe/food/wendigo_feast
-	name = "Wendigo feast"
+	name = "温迪戈盛宴"
 	reqs = list(
 		/obj/item/food/drake_ribs = 1,
 		/obj/item/food/polar_bear_steak = 1,

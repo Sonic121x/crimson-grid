@@ -25,38 +25,38 @@
 
 /obj/item/stack/wall_filling/examine(mob/user)
 	. = ..()
-	. += span_notice("Use while in your hand to change what type of [src] you want.")
+	. += span_notice("在手中使用[src]可以选择想要的款式。")
 	if(throwforce && !is_cyborg) //do not want to divide by zero or show the message to borgs who can't throw
 		var/damage_value
 		switch(ceil(MAX_LIVING_HEALTH / throwforce)) //throws to crit a human
 			if(1 to 3)
-				damage_value = "superb"
+				damage_value = "极佳"
 			if(4 to 6)
-				damage_value = "great"
+				damage_value = "优秀"
 			if(7 to 9)
-				damage_value = "good"
+				damage_value = "良好"
 			if(10 to 12)
-				damage_value = "fairly decent"
+				damage_value = "尚可"
 			if(13 to 15)
-				damage_value = "mediocre"
+				damage_value = "平庸"
 		if(!damage_value)
 			return
-		. += span_notice("Those could work as a [damage_value] throwing weapon.")
+		. += span_notice("这些东西可以当作威力[damage_value]的投掷武器。")
 
 /obj/item/stack/wall_filling/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if (tool.tool_behaviour != TOOL_WELDER)
 		return ..()
 
 	if(!made_from)
-		to_chat(user, span_warning("You can not reform this!"))
+		to_chat(user, span_warning("你无法重新塑形这块填料！"))
 		stack_trace("A wall filling of type [type] doesn't have its made_from set.")
 		return
 	if(!tool.use_tool(src, user, 0, volume=40))
 		return
 	var/obj/item/new_item = new made_from(user.drop_location(), 2)
-	user.visible_message(span_notice("[user] shaped [src] into [new_item] with [tool]."), \
-		span_notice("You shaped [src] into [new_item] with [tool]."), \
-		span_hear("You hear welding."))
+	user.visible_message(span_notice("[user]用[tool]把[src]重新塑形成了[new_item]。"), \
+		span_notice("你用[tool]把[src]重新塑形成了[new_item]。"), \
+		span_hear("你听到了焊接声。"))
 	var/holding = user.is_holding(src)
 	use(1)
 	if(holding && QDELETED(src))
@@ -94,9 +94,9 @@ GLOBAL_LIST_EMPTY(wall_reskin_lists)
 		wall_reskin_types = wall_reskin_list(wall_reskin_types)
 
 /obj/item/stack/wall_filling/plastitanium
-	name = "plastitanium wall filling"
-	singular_name = "plastitanium wall filler"
-	desc = "A filling for a standard plastitanium wall."
+	name = "等离子钛墙填料"
+	singular_name = "等离子钛墙填料"
+	desc = "标准等离子钛墙使用的填料。"
 	icon_state = "plastitanium-wall-fill"
 	inhand_icon_state = "sheet-plastitanium"
 	mats_per_unit = list(/datum/material/alloy/plastitanium=SHEET_MATERIAL_AMOUNT*2)
@@ -113,32 +113,32 @@ GLOBAL_LIST_EMPTY(wall_reskin_lists)
 	merge_type = /obj/item/stack/wall_filling/plastitanium/basic
 
 /obj/item/stack/wall_filling/plastitanium/survivalpod
-	name = "survival pod wall filling"
-	singular_name = "survival pod wall filler"
+	name = "生存舱墙填料"
+	singular_name = "生存舱墙填料"
 	icon_state = "survivalpod-wall-fill"
-	desc = "A filling for a survival pod wall, often usen for mining in hostile enviroments."
+	desc = "生存舱墙使用的填料，常用于恶劣环境中的采矿作业。"
 	merge_type = /obj/item/stack/wall_filling/plastitanium/survivalpod
 
 /obj/item/stack/wall_filling/plastitanium/pod
-	name = "dark shuttle wall filling"
-	singular_name = "dark shuttle wall filler"
+	name = "深色穿梭机墙填料"
+	singular_name = "深色穿梭机墙填料"
 	icon_state = "pod-wall-fill"
-	desc = "A filling for a dark shuttle wall. Dark mode on."
+	desc = "深色穿梭机墙使用的填料。深色模式已开启。"
 	merge_type = /obj/item/stack/wall_filling/plastitanium/pod
 
 /obj/item/stack/wall_filling/plastitanium/redpod
-	name = "red dark shuttle wall filling"
-	singular_name = "red dark shuttle wall filler"
+	name = "暗红色穿梭机墙填料"
+	singular_name = "暗红色穿梭机墙填料"
 	icon_state = "redpod-wall-fill"
-	desc = "A filling for a red dark shuttle wall. Quite the menacing vibe."
+	desc = "暗红色穿梭机墙使用的填料。颇有威慑感。"
 	merge_type = /obj/item/stack/wall_filling/plastitanium/redpod
 
 
 ///Window-fill. Same, but for windows.
 /obj/item/stack/wall_filling/plastitaniumglass
-	name = "plastitaniumglass window filling"
-	singular_name = "plastitanium window filler"
-	desc = "A filling for a standard plastitanium glass window."
+	name = "等离子钛玻璃窗填料"
+	singular_name = "等离子钛窗填料"
+	desc = "标准等离子钛玻璃窗使用的填料。"
 	icon_state = "plastitanium-window-fill"
 	inhand_icon_state = "sheet-plastitaniumglass"
 	mats_per_unit = list(/datum/material/alloy/plastitaniumglass=SHEET_MATERIAL_AMOUNT*2)
@@ -153,8 +153,8 @@ GLOBAL_LIST_EMPTY(wall_reskin_lists)
 	merge_type = /obj/item/stack/wall_filling/plastitaniumglass/basic
 
 /obj/item/stack/wall_filling/plastitaniumglass/pod
-	name = "pod window filling"
-	singular_name = "pod window filler"
+	name = "舱室窗填料"
+	singular_name = "舱室窗填料"
 	icon_state = "pod-window-fill"
-	desc = "A filling for a elegant yet formidable window. Mostly seen in hostile enviroments."
+	desc = "一种优雅而坚固的窗户填料，多用于恶劣环境。"
 	merge_type = /obj/item/stack/wall_filling/plastitaniumglass/pod

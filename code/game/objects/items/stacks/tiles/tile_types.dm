@@ -4,9 +4,9 @@
  * Allows us to place a turf on a plating.
  */
 /obj/item/stack/tile
-	name = "broken tile"
-	singular_name = "broken tile"
-	desc = "A broken tile. This should not exist."
+	name = "破损地砖"
+	singular_name = "破损地砖"
+	desc = "一块破损的地砖。它本不该存在。"
 	lefthand_file = 'icons/mob/inhands/items/tiles_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/tiles_righthand.dmi'
 	icon = 'icons/obj/tiles.dmi'
@@ -48,23 +48,23 @@
 /obj/item/stack/tile/examine(mob/user)
 	. = ..()
 	if(tile_reskin_types || tile_rotate_dirs)
-		. += span_notice("Use while in your hand to change what type of [src] you want.")
+		. += span_notice("在手中使用[src]可以选择想要的款式。")
 	if(throwforce && !is_cyborg) //do not want to divide by zero or show the message to borgs who can't throw
 		var/damage_value
 		switch(ceil(MAX_LIVING_HEALTH / throwforce)) //throws to crit a human
 			if(1 to 3)
-				damage_value = "superb"
+				damage_value = "极佳"
 			if(4 to 6)
-				damage_value = "great"
+				damage_value = "优秀"
 			if(7 to 9)
-				damage_value = "good"
+				damage_value = "良好"
 			if(10 to 12)
-				damage_value = "fairly decent"
+				damage_value = "尚可"
 			if(13 to 15)
-				damage_value = "mediocre"
+				damage_value = "平庸"
 		if(!damage_value)
 			return
-		. += span_notice("Those could work as a [damage_value] throwing weapon.")
+		. += span_notice("这些东西可以当作威力[damage_value]的投掷武器。")
 
 /**
  * Place our tile on a plating, or replace it.
@@ -92,9 +92,9 @@
 
 //Grass
 /obj/item/stack/tile/grass
-	name = "grass tile"
-	singular_name = "grass floor tile"
-	desc = "A patch of grass like they use on space golf courses."
+	name = "草坪地砖"
+	singular_name = "草坪地砖"
+	desc = "一块草坪，和太空高尔夫球场上用的一样。"
 	icon_state = "tile_grass"
 	inhand_icon_state = "tile-grass"
 	turf_type = /turf/open/floor/grass
@@ -103,9 +103,9 @@
 
 //Hay
 /obj/item/stack/tile/hay
-	name = "hay tile"
-	singular_name = "hay floor tile"
-	desc = "Man, I'm so hungry I could eat a-"
+	name = "干草地砖"
+	singular_name = "干草地砖"
+	desc = "天哪，我饿得能吃下一——"
 	icon_state = "tile_hay"
 	inhand_icon_state = "tile-hay"
 	turf_type = /turf/open/floor/hay
@@ -114,9 +114,9 @@
 
 //Fairygrass
 /obj/item/stack/tile/fairygrass
-	name = "fairygrass tile"
-	singular_name = "fairygrass floor tile"
-	desc = "A patch of odd, glowing blue grass."
+	name = "仙灵草地砖"
+	singular_name = "仙灵草地砖"
+	desc = "一片奇异的草坪，泛着蓝色光芒。"
 	icon_state = "tile_fairygrass"
 	inhand_icon_state = "tile_fairygrass"
 	turf_type = /turf/open/floor/grass/fairy
@@ -125,9 +125,9 @@
 
 //Wood
 /obj/item/stack/tile/wood
-	name = "wood floor tile"
-	singular_name = "wood floor tile"
-	desc = "An easy to fit wood floor tile. Use while in your hand to change what pattern you want."
+	name = "木地板"
+	singular_name = "木地板"
+	desc = "易于安装的木地板。在手中使用可以选择想要的图案。"
 	icon_state = "tile-wood"
 	inhand_icon_state = "tile-wood"
 	turf_type = /turf/open/floor/wood
@@ -142,31 +142,31 @@
 	mats_per_unit = list(/datum/material/wood = HALF_SHEET_MATERIAL_AMOUNT / 2)
 
 /obj/item/stack/tile/wood/parquet
-	name = "parquet wood floor tile"
-	singular_name = "parquet wood floor tile"
+	name = "拼花木地板"
+	singular_name = "拼花木地板"
 	icon_state = "tile-wood_parquet"
 	turf_type = /turf/open/floor/wood/parquet
 	merge_type = /obj/item/stack/tile/wood/parquet
 
 /obj/item/stack/tile/wood/large
-	name = "large wood floor tile"
-	singular_name = "large wood floor tile"
+	name = "大块木地板"
+	singular_name = "大块木地板"
 	icon_state = "tile-wood_large"
 	turf_type = /turf/open/floor/wood/large
 	merge_type = /obj/item/stack/tile/wood/large
 
 /obj/item/stack/tile/wood/tile
-	name = "tiled wood floor tile"
-	singular_name = "tiled wood floor tile"
+	name = "方格木地板"
+	singular_name = "方格木地板"
 	icon_state = "tile-wood_tile"
 	turf_type = /turf/open/floor/wood/tile
 	merge_type = /obj/item/stack/tile/wood/tile
 
 //Bamboo
 /obj/item/stack/tile/bamboo
-	name = "bamboo mat pieces"
-	singular_name = "bamboo mat piece"
-	desc = "A piece of a bamboo mat with a decorative trim."
+	name = "竹席片"
+	singular_name = "竹席片"
+	desc = "一片带装饰包边的竹席。"
 	icon_state = "tile_bamboo"
 	inhand_icon_state = "tile-bamboo"
 	turf_type = /turf/open/floor/bamboo
@@ -182,41 +182,41 @@
 	mats_per_unit = list(/datum/material/bamboo = HALF_SHEET_MATERIAL_AMOUNT / 2)
 
 /obj/item/stack/tile/bamboo/planks
-	name = "bamboo planks tile"
-	singular_name = "planks planks floor tile"
+	name = "竹板地板"
+	singular_name = "竹板地板"
 	icon_state = "tile_bamboo_planks"
 	inhand_icon_state = "tile-grass"
-	desc = "Layer after layer of cut bamboo placed like planks."
+	desc = "一层层切开的竹片，像木板一样铺排。"
 	turf_type = /turf/open/floor/bamboo/planks
 	merge_type = /obj/item/stack/tile/bamboo/planks
 
 /obj/item/stack/tile/bamboo/tatami
-	name = "Tatami with green rim"
-	singular_name = "green tatami floor tile"
+	name = "绿边榻榻米"
+	singular_name = "绿边榻榻米地板"
 	icon_state = "tile_tatami_green"
 	turf_type = /turf/open/floor/bamboo/tatami
 	merge_type = /obj/item/stack/tile/bamboo/tatami
 	tile_rotate_dirs = list(NORTH, EAST, SOUTH, WEST)
 
 /obj/item/stack/tile/bamboo/tatami/purple
-	name = "Tatami with purple rim"
-	singular_name = "purple tatami floor tile"
+	name = "紫边榻榻米"
+	singular_name = "紫边榻榻米地板"
 	icon_state = "tile_tatami_purple"
 	turf_type = /turf/open/floor/bamboo/tatami/purple
 	merge_type = /obj/item/stack/tile/bamboo/tatami/purple
 
 /obj/item/stack/tile/bamboo/tatami/black
-	name = "Tatami with black rim"
-	singular_name = "black tatami floor tile"
+	name = "黑边榻榻米"
+	singular_name = "黑边榻榻米地板"
 	icon_state = "tile_tatami_black"
 	turf_type = /turf/open/floor/bamboo/tatami/black
 	merge_type = /obj/item/stack/tile/bamboo/tatami/black
 
 //Basalt
 /obj/item/stack/tile/basalt
-	name = "basalt tile"
-	singular_name = "basalt floor tile"
-	desc = "Artificially made ashy soil themed on a hostile environment."
+	name = "玄武岩地砖"
+	singular_name = "玄武岩地砖"
+	desc = "模拟恶劣环境、人工制造的灰烬土壤。"
 	icon_state = "tile_basalt"
 	inhand_icon_state = "tile-basalt"
 	turf_type = /turf/open/floor/fakebasalt
@@ -225,9 +225,9 @@
 
 //Carpets
 /obj/item/stack/tile/carpet
-	name = "carpet"
-	singular_name = "carpet tile"
-	desc = "A piece of carpet. It is the same size as a floor tile."
+	name = "地毯"
+	singular_name = "地毯块"
+	desc = "一块地毯，和地砖大小相同。"
 	icon_state = "tile-carpet"
 	inhand_icon_state = "tile-carpet"
 	turf_type = /turf/open/floor/carpet
@@ -241,24 +241,24 @@
 	)
 
 /obj/item/stack/tile/carpet/symbol
-	name = "symbol carpet"
-	singular_name = "symbol carpet tile"
+	name = "符号地毯"
+	singular_name = "符号地毯块"
 	icon_state = "tile-carpet-symbol"
-	desc = "A piece of carpet. This one has a symbol on it."
+	desc = "一块饰有符号的地毯。"
 	turf_type = /turf/open/floor/carpet/lone
 	merge_type = /obj/item/stack/tile/carpet/symbol
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST, SOUTHEAST)
 
 /obj/item/stack/tile/carpet/star
-	name = "star carpet"
-	singular_name = "star carpet tile"
+	name = "星形地毯"
+	singular_name = "星形地毯块"
 	icon_state = "tile-carpet-star"
-	desc = "A piece of carpet. This one has a star on it."
+	desc = "一块饰有星形图案的地毯。"
 	turf_type = /turf/open/floor/carpet/lone/star
 	merge_type = /obj/item/stack/tile/carpet/star
 
 /obj/item/stack/tile/carpet/black
-	name = "black carpet"
+	name = "黑色地毯"
 	icon_state = "tile-carpet-black"
 	inhand_icon_state = "tile-carpet-black"
 	turf_type = /turf/open/floor/carpet/black
@@ -267,7 +267,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/blue
-	name = "blue carpet"
+	name = "蓝色地毯"
 	icon_state = "tile-carpet-blue"
 	inhand_icon_state = "tile-carpet-blue"
 	turf_type = /turf/open/floor/carpet/blue
@@ -276,7 +276,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/cyan
-	name = "cyan carpet"
+	name = "青色地毯"
 	icon_state = "tile-carpet-cyan"
 	inhand_icon_state = "tile-carpet-cyan"
 	turf_type = /turf/open/floor/carpet/cyan
@@ -285,7 +285,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/green
-	name = "green carpet"
+	name = "绿色地毯"
 	icon_state = "tile-carpet-green"
 	inhand_icon_state = "tile-carpet-green"
 	turf_type = /turf/open/floor/carpet/green
@@ -294,7 +294,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/orange
-	name = "orange carpet"
+	name = "橙色地毯"
 	icon_state = "tile-carpet-orange"
 	inhand_icon_state = "tile-carpet-orange"
 	turf_type = /turf/open/floor/carpet/orange
@@ -303,7 +303,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/purple
-	name = "purple carpet"
+	name = "紫色地毯"
 	icon_state = "tile-carpet-purple"
 	inhand_icon_state = "tile-carpet-purple"
 	turf_type = /turf/open/floor/carpet/purple
@@ -312,7 +312,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/red
-	name = "red carpet"
+	name = "红色地毯"
 	icon_state = "tile-carpet-red"
 	inhand_icon_state = "tile-carpet-red"
 	turf_type = /turf/open/floor/carpet/red
@@ -321,7 +321,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/royalblack
-	name = "royal black carpet"
+	name = "皇家黑色地毯"
 	icon_state = "tile-carpet-royalblack"
 	inhand_icon_state = "tile-carpet-royalblack"
 	turf_type = /turf/open/floor/carpet/royalblack
@@ -330,7 +330,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/royalblue
-	name = "royal blue carpet"
+	name = "皇家蓝色地毯"
 	icon_state = "tile-carpet-royalblue"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/royalblue
@@ -339,7 +339,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/executive
-	name = "executive carpet"
+	name = "高管地毯"
 	icon_state = "tile_carpet_executive"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/executive
@@ -347,7 +347,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/stellar
-	name = "stellar carpet"
+	name = "星空地毯"
 	icon_state = "tile_carpet_stellar"
 	inhand_icon_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/stellar
@@ -355,7 +355,7 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/donk
-	name = "\improper Donk Co. promotional carpet"
+	name = "\improper 当克公司宣传地毯"
 	icon_state = "tile_carpet_donk"
 	inhand_icon_state = "tile-carpet-orange"
 	turf_type = /turf/open/floor/carpet/donk
@@ -363,8 +363,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/bear
-	name = "bear fur carpet"
-	desc = "Bear fur stretched out into a carpet for you to walk on."
+	name = "熊皮地毯"
+	desc = "把熊皮摊开做成的地毯，供你踩踏。"
 	icon_state = "tile_carpet_bear"
 	inhand_icon_state = "tile-carpet-bear"
 	turf_type = /turf/open/floor/carpet/bear
@@ -372,8 +372,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/polar_bear
-	name = "polar fur carpet"
-	desc = "Polar bear fur stretched out into a carpet for you to walk on."
+	name = "北极熊皮地毯"
+	desc = "把北极熊皮摊开做成的地毯，供你踩踏。"
 	icon_state = "tile_carpet_bear_polar"
 	inhand_icon_state = "tile-carpet-bear-polar"
 	turf_type = /turf/open/floor/carpet/polar_bear
@@ -381,8 +381,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/moth
-	name = "moth fur carpet"
-	desc = "Moth fur stretched out into a carpet for you to walk on."
+	name = "蛾毛地毯"
+	desc = "把蛾毛铺开做成的地毯，供你踩踏。"
 	icon_state = "tile_carpet_moth"
 	inhand_icon_state = "tile-carpet-moth"
 	turf_type = /turf/open/floor/carpet/moth
@@ -390,8 +390,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/goliath
-	name = "goliath hide carpet"
-	desc = "Goliath hide plates woven together with watcher sinew to make something aproximating a carpet."
+	name = "歌利亚巨兽皮地毯"
+	desc = "用凝视者筋腱把歌利亚巨兽皮甲片编在一起，勉强做成了地毯的样子。"
 	icon_state = "tile_carpet_goliath"
 	inhand_icon_state = "tile-carpet-goliath"
 	turf_type = /turf/open/floor/carpet/goliath
@@ -399,8 +399,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/carp
-	name = "carp scales carpet"
-	desc = "Carpet made with carp scales. A carp carpet. Carp carp carp."
+	name = "鲤鱼鳞地毯"
+	desc = "用鲤鱼鳞制成的地毯。鲤鱼地毯，鲤鱼鲤鱼鲤鱼。"
 	icon_state = "tile_carpet_carp"
 	inhand_icon_state = "tile-carpet-carp"
 	turf_type = /turf/open/floor/carpet/carp
@@ -408,8 +408,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/lizard
-	name = "lizard scales carpet"
-	desc = "Carpet made with lizard scales. Lizards were most likely harmed making this."
+	name = "蜥蜴鳞地毯"
+	desc = "用蜥蜴鳞片制成的地毯。制作过程中多半伤害了蜥蜴。"
 	icon_state = "tile_carpet_lizard"
 	inhand_icon_state = "tile-carpet-lizard"
 	turf_type = /turf/open/floor/carpet/lizard
@@ -417,8 +417,8 @@
 	tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/human
-	name = "human skin carpet"
-	desc = "Carpet made from flayed human skin. Fresh and moist."
+	name = "人皮地毯"
+	desc = "用剥下的人皮制成的地毯，新鲜湿润。"
 	icon_state = "tile_carpet_skin"
 	inhand_icon_state = "tile-carpet-skin"
 	turf_type = /turf/open/floor/carpet/human
@@ -468,9 +468,9 @@
 	amount = 30
 
 /obj/item/stack/tile/carpet/neon
-	name = "neon carpet"
-	singular_name = "neon carpet tile"
-	desc = "A piece of rubbery mat inset with a phosphorescent pattern."
+	name = "霓虹地毯"
+	singular_name = "霓虹地毯块"
+	desc = "嵌有磷光图案的橡胶质地垫。"
 	inhand_icon_state = "tile-neon"
 	turf_type = /turf/open/floor/carpet/neon
 	merge_type = /obj/item/stack/tile/carpet/neon
@@ -507,8 +507,8 @@
 	. += emissive_appearance(icon_file, neon_inhand_icon_state, src, alpha = emissive_alpha)
 
 /obj/item/stack/tile/carpet/neon/simple
-	name = "simple neon carpet"
-	singular_name = "simple neon carpet tile"
+	name = "简约霓虹地毯"
+	singular_name = "简约霓虹地毯块"
 	icon_state = "tile_carpet_neon_simple"
 	neon_icon_state = "tile_carpet_neon_simple_light"
 	neon_inhand_icon_state = "tile-neon-glow"
@@ -530,8 +530,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/white
-	name = "simple white neon carpet"
-	singular_name = "simple white neon carpet tile"
+	name = "简约白色霓虹地毯"
+	singular_name = "简约白色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/white
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/white
 	neon_color = COLOR_WHITE
@@ -551,8 +551,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/black
-	name = "simple black neon carpet"
-	singular_name = "simple black neon carpet tile"
+	name = "简约黑色霓虹地毯"
+	singular_name = "简约黑色霓虹地毯块"
 	neon_icon_state = "tile_carpet_neon_simple_glow"
 	turf_type = /turf/open/floor/carpet/neon/simple/black
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/black
@@ -573,8 +573,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/red
-	name = "simple red neon carpet"
-	singular_name = "simple red neon carpet tile"
+	name = "简约红色霓虹地毯"
+	singular_name = "简约红色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/red
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/red
 	neon_color = COLOR_RED
@@ -594,8 +594,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/orange
-	name = "simple orange neon carpet"
-	singular_name = "simple orange neon carpet tile"
+	name = "简约橙色霓虹地毯"
+	singular_name = "简约橙色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/orange
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/orange
 	neon_color = COLOR_ORANGE
@@ -615,8 +615,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/yellow
-	name = "simple yellow neon carpet"
-	singular_name = "simple yellow neon carpet tile"
+	name = "简约黄色霓虹地毯"
+	singular_name = "简约黄色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/yellow
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/yellow
 	neon_color = COLOR_YELLOW
@@ -636,8 +636,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/lime
-	name = "simple lime neon carpet"
-	singular_name = "simple lime neon carpet tile"
+	name = "简约黄绿色霓虹地毯"
+	singular_name = "简约黄绿色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/lime
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/lime
 	neon_color = COLOR_LIME
@@ -657,8 +657,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/green
-	name = "simple green neon carpet"
-	singular_name = "simple green neon carpet tile"
+	name = "简约绿色霓虹地毯"
+	singular_name = "简约绿色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/green
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/green
 	neon_color = COLOR_GREEN
@@ -678,8 +678,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/teal
-	name = "simple teal neon carpet"
-	singular_name = "simple teal neon carpet tile"
+	name = "简约蓝绿色霓虹地毯"
+	singular_name = "简约蓝绿色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/teal
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/teal
 	neon_color = COLOR_TEAL
@@ -699,8 +699,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/cyan
-	name = "simple cyan neon carpet"
-	singular_name = "simple cyan neon carpet tile"
+	name = "简约青色霓虹地毯"
+	singular_name = "简约青色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/cyan
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/cyan
 	neon_color = COLOR_CYAN
@@ -720,8 +720,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/blue
-	name = "simple blue neon carpet"
-	singular_name = "simple blue neon carpet tile"
+	name = "简约蓝色霓虹地毯"
+	singular_name = "简约蓝色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/blue
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/blue
 	neon_color = COLOR_BLUE
@@ -741,8 +741,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/purple
-	name = "simple purple neon carpet"
-	singular_name = "simple purple neon carpet tile"
+	name = "简约紫色霓虹地毯"
+	singular_name = "简约紫色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/purple
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/purple
 	neon_color = COLOR_PURPLE
@@ -762,8 +762,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/violet
-	name = "simple violet neon carpet"
-	singular_name = "simple violet neon carpet tile"
+	name = "简约紫罗兰色霓虹地毯"
+	singular_name = "简约紫罗兰色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/violet
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/violet
 	neon_color = COLOR_VIOLET
@@ -783,8 +783,8 @@
 	)
 
 /obj/item/stack/tile/carpet/neon/simple/pink
-	name = "simple pink neon carpet"
-	singular_name = "simple pink neon carpet tile"
+	name = "简约粉色霓虹地毯"
+	singular_name = "简约粉色霓虹地毯块"
 	turf_type = /turf/open/floor/carpet/neon/simple/pink
 	merge_type = /obj/item/stack/tile/carpet/neon/simple/pink
 	neon_color = COLOR_LIGHT_PINK
@@ -1065,9 +1065,9 @@
 	amount = 60
 
 /obj/item/stack/tile/fakespace
-	name = "astral carpet"
-	singular_name = "astral carpet tile"
-	desc = "A piece of carpet with a convincing star pattern."
+	name = "星界地毯"
+	singular_name = "星界地毯块"
+	desc = "一块饰有逼真星空图案的地毯。"
 	icon_state = "tile_space"
 	inhand_icon_state = "tile-space"
 	turf_type = /turf/open/floor/fakespace
@@ -1078,9 +1078,9 @@
 	amount = 30
 
 /obj/item/stack/tile/fakepit
-	name = "fake pits"
-	singular_name = "fake pit"
-	desc = "A piece of carpet with a forced perspective illusion of a pit. No way this could fool anyone!"
+	name = "假坑地毯"
+	singular_name = "假坑地毯"
+	desc = "利用强制透视营造深坑错觉的地毯。这怎么可能骗得了人！"
 	icon_state = "tile_pit"
 	inhand_icon_state = "tile-basalt"
 	turf_type = /turf/open/floor/fakepit
@@ -1091,9 +1091,9 @@
 	amount = 30
 
 /obj/item/stack/tile/fakeice
-	name = "fake ice"
-	singular_name = "fake ice tile"
-	desc = "A piece of tile with a convincing ice pattern."
+	name = "仿冰地砖"
+	singular_name = "仿冰地砖"
+	desc = "一块饰有逼真冰面图案的地砖。"
 	icon_state = "tile_ice"
 	inhand_icon_state = "tile-diamond"
 	turf_type = /turf/open/floor/fakeice
@@ -1105,9 +1105,9 @@
 
 //High-traction
 /obj/item/stack/tile/noslip
-	name = "high-traction floor tile"
-	singular_name = "high-traction floor tile"
-	desc = "A high-traction floor tile. It feels rubbery in your hand."
+	name = "高摩擦地砖"
+	singular_name = "高摩擦地砖"
+	desc = "高摩擦地砖，拿在手里有橡胶般的触感。"
 	icon_state = "tile_noslip"
 	inhand_icon_state = "tile-noslip"
 	turf_type = /turf/open/floor/noslip
@@ -1117,27 +1117,27 @@
 	amount = 30
 
 /obj/item/stack/tile/noslip/tram
-	name = "high-traction platform tile"
-	singular_name = "high-traction platform tile"
-	desc = "A titanium-aluminium induction plate that powers the tram."
+	name = "高摩擦站台地砖"
+	singular_name = "高摩擦站台地砖"
+	desc = "为电车提供动力的钛铝感应板。"
 	icon_state = "tile_noslip"
 	inhand_icon_state = "tile-noslip"
 	turf_type = /turf/open/floor/noslip/tram
 	merge_type = /obj/item/stack/tile/noslip/tram
 
 /obj/item/stack/tile/tram
-	name = "tram platform tiles"
-	singular_name = "tram platform"
-	desc = "A tile used for tram platforms."
+	name = "电车站台地砖"
+	singular_name = "电车站台地砖"
+	desc = "用于电车站台的地砖。"
 	icon_state = "darkiron_catwalk"
 	inhand_icon_state = "tile-neon"
 	turf_type = /turf/open/floor/tram
 	merge_type = /obj/item/stack/tile/tram
 
 /obj/item/stack/tile/tram/plate
-	name = "linear induction tram tiles"
-	singular_name = "linear induction tram tile"
-	desc = "A tile with an aluminium plate for tram propulsion."
+	name = "电车直线感应地砖"
+	singular_name = "电车直线感应地砖"
+	desc = "装有铝板的地砖，用于推进电车。"
 	icon_state = "darkiron_plate"
 	inhand_icon_state = "tile-neon"
 	turf_type = /turf/open/floor/tram/plate
@@ -1145,9 +1145,9 @@
 
 //Circuit
 /obj/item/stack/tile/circuit
-	name = "blue circuit tile"
-	singular_name = "blue circuit tile"
-	desc = "A blue circuit tile."
+	name = "蓝色电路地砖"
+	singular_name = "蓝色电路地砖"
+	desc = "一块蓝色电路地砖。"
 	icon_state = "tile_bcircuit"
 	inhand_icon_state = "tile-bcircuit"
 	turf_type = /turf/open/floor/circuit
@@ -1160,9 +1160,9 @@
 	mats_per_unit = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.05, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.05)
 
 /obj/item/stack/tile/circuit/green
-	name = "green circuit tile"
-	singular_name = "green circuit tile"
-	desc = "A green circuit tile."
+	name = "绿色电路地砖"
+	singular_name = "绿色电路地砖"
+	desc = "一块绿色电路地砖。"
 	icon_state = "tile_gcircuit"
 	inhand_icon_state = "tile-gcircuit"
 	turf_type = /turf/open/floor/circuit/green
@@ -1173,9 +1173,9 @@
 	merge_type = /obj/item/stack/tile/circuit/green/anim
 
 /obj/item/stack/tile/circuit/red
-	name = "red circuit tile"
-	singular_name = "red circuit tile"
-	desc = "A red circuit tile."
+	name = "红色电路地砖"
+	singular_name = "红色电路地砖"
+	desc = "一块红色电路地砖。"
 	icon_state = "tile_rcircuit"
 	inhand_icon_state = "tile-rcircuit"
 	turf_type = /turf/open/floor/circuit/red
@@ -1186,9 +1186,9 @@
 	merge_type = /obj/item/stack/tile/circuit/red/anim
 
 /obj/item/stack/tile/plastic
-	name = "plastic tile"
-	singular_name = "plastic floor tile"
-	desc = "A tile of cheap, flimsy plastic flooring."
+	name = "塑料地砖"
+	singular_name = "塑料地砖"
+	desc = "廉价而单薄的塑料地砖。"
 	icon_state = "tile_plastic"
 	inhand_icon_state = "tile-bluespace"
 	mats_per_unit = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT / 2)
@@ -1206,9 +1206,9 @@
 	merge_type = /obj/item/stack/tile/plastic/puzzle
 
 /obj/item/stack/tile/hauntium
-	name = "hauntium tile"
-	singular_name = "hauntium floor tile"
-	desc = "Dead men walking? More like walking over dead men."
+	name = "幽魂金属地砖"
+	singular_name = "幽魂金属地砖"
+	desc = "死人走路？倒不如说是踩着死人走路。"
 	icon_state = "tile_hauntium"
 	inhand_icon_state = "tile-hauntium"
 	mats_per_unit = list(/datum/material/hauntium = HALF_SHEET_MATERIAL_AMOUNT / 2)
@@ -1225,9 +1225,9 @@
 	merge_type = /obj/item/stack/tile/hauntium/tiled
 
 /obj/item/stack/tile/material
-	name = "floor tile"
-	singular_name = "floor tile"
-	desc = "The ground you walk on."
+	name = "地砖"
+	singular_name = "地砖"
+	desc = "你脚下踩着的地面。"
 	throwforce = 10
 	icon_state = "material_tile"
 	inhand_icon_state = "tile"
@@ -1243,9 +1243,9 @@
 	floor?.set_custom_materials(saved_mats_per_unit)
 
 /obj/item/stack/tile/eighties
-	name = "retro tile"
-	singular_name = "retro floor tile"
-	desc = "A stack of floor tiles that remind you of an age of funk. Use in your hand to pick between a black or red pattern."
+	name = "复古地砖"
+	singular_name = "复古地砖"
+	desc = "一摞让你想起放克年代的地砖。在手中使用可以选择黑色或红色图案。"
 	icon_state = "tile_eighties"
 	turf_type = /turf/open/floor/eighties
 	merge_type = /obj/item/stack/tile/eighties
@@ -1258,17 +1258,17 @@
 	amount = 15
 
 /obj/item/stack/tile/eighties/red
-	name = "red retro tile"
-	singular_name = "red retro floor tile"
-	desc = "A stack of REDICAL floor tiles! Use in your hand to pick between a black or red pattern!" //i am so sorry
+	name = "红色复古地砖"
+	singular_name = "红色复古地砖"
+	desc = "一摞红得出格的地砖！在手中使用可以选择黑色或红色图案！" //i am so sorry
 	icon_state = "tile_eightiesred"
 	turf_type = /turf/open/floor/eighties/red
 	merge_type = /obj/item/stack/tile/eighties/red
 
 /obj/item/stack/tile/bronze
-	name = "bronze tile"
-	singular_name = "bronze floor tile"
-	desc = "A clangy tile made of high-quality bronze. Clockwork construction techniques allow the clanging to be minimized."
+	name = "青铜地砖"
+	singular_name = "青铜地砖"
+	desc = "用优质青铜制成、踩上去叮当作响的地砖。发条建造工艺让响声降到了最低。"
 	icon_state = "tile_brass"
 	turf_type = /turf/open/floor/bronze
 	mats_per_unit = list(/datum/material/bronze = HALF_SHEET_MATERIAL_AMOUNT / 2)
@@ -1280,30 +1280,30 @@
 	)
 
 /obj/item/stack/tile/bronze/flat
-	name = "flat bronze tile"
-	singular_name = "flat bronze floor tile"
+	name = "平整青铜地砖"
+	singular_name = "平整青铜地砖"
 	icon_state = "tile_reebe"
 	turf_type = /turf/open/floor/bronze/flat
 	merge_type = /obj/item/stack/tile/bronze/flat
 
 /obj/item/stack/tile/bronze/filled
-	name = "filled bronze tile"
-	singular_name = "filled bronze floor tile"
+	name = "填实青铜地砖"
+	singular_name = "填实青铜地砖"
 	icon_state = "tile_brass_filled"
 	turf_type = /turf/open/floor/bronze/filled
 	merge_type = /obj/item/stack/tile/bronze/filled
 
 /obj/item/stack/tile/bronze/window
-	name = "bronze window tile"
-	singular_name = "bronze window floor tile"
+	name = "青铜窗地砖"
+	singular_name = "青铜窗地砖"
 	icon_state = "tile_glass_bronze"
 	turf_type = /turf/open/floor/glass/bronze
 	merge_type = /obj/item/stack/tile/bronze/window
 
 /obj/item/stack/tile/cult
-	name = "engraved tile"
-	singular_name = "engraved floor tile"
-	desc = "A strange tile made from runed metal. Doesn't seem to actually have any paranormal powers."
+	name = "雕纹地砖"
+	singular_name = "雕纹地砖"
+	desc = "用符文金属制成的奇怪地砖，似乎并没有真正的超自然力量。"
 	icon_state = "tile_cult"
 	turf_type = /turf/open/floor/cult
 	mats_per_unit = list(/datum/material/runedmetal=SMALL_MATERIAL_AMOUNT*5)
@@ -1314,9 +1314,9 @@
 	)
 
 /obj/item/stack/tile/cult/window
-	name = "engraved window tile"
-	singular_name = "engraved window tile"
-	desc = "A strange window tile made from runed metal. Doesn't seem to actually have any paranormal powers."
+	name = "雕纹窗地砖"
+	singular_name = "雕纹窗地砖"
+	desc = "用符文金属制成的奇怪窗地砖，似乎并没有真正的超自然力量。"
 	icon_state = "tile_glass_runic"
 	turf_type = /turf/open/floor/glass/cult
 	mats_per_unit = list(/datum/material/runedmetal=SMALL_MATERIAL_AMOUNT*5)
@@ -1352,9 +1352,9 @@
 
 //Catwalk Tiles
 /obj/item/stack/tile/catwalk_tile //This is our base type, sprited to look maintenance-styled
-	name = "catwalk plating"
-	singular_name = "catwalk plating tile"
-	desc = "Flooring that shows its contents underneath. Engineers love it!"
+	name = "格栅走道底板"
+	singular_name = "格栅走道底板"
+	desc = "能够看见下方物件的地板。工程师的最爱！"
 	icon_state = "maint_catwalk"
 	inhand_icon_state = "tile-catwalk"
 	mats_per_unit = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 1.2)
@@ -1373,40 +1373,40 @@
 	amount = 60
 
 /obj/item/stack/tile/catwalk_tile/iron
-	name = "iron catwalk floor"
-	singular_name = "iron catwalk floor tile"
+	name = "铁制格栅走道地板"
+	singular_name = "铁制格栅走道地板"
 	icon_state = "iron_catwalk"
 	turf_type = /turf/open/floor/catwalk_floor/iron
 
 /obj/item/stack/tile/catwalk_tile/iron_white
-	name = "white catwalk floor"
-	singular_name = "white catwalk floor tile"
+	name = "白色格栅走道地板"
+	singular_name = "白色格栅走道地板"
 	icon_state = "whiteiron_catwalk"
 	turf_type = /turf/open/floor/catwalk_floor/iron_white
 
 /obj/item/stack/tile/catwalk_tile/iron_dark
-	name = "dark catwalk floor"
-	singular_name = "dark catwalk floor tile"
+	name = "深色格栅走道地板"
+	singular_name = "深色格栅走道地板"
 	icon_state = "darkiron_catwalk"
 	turf_type = /turf/open/floor/catwalk_floor/iron_dark
 
 /obj/item/stack/tile/catwalk_tile/titanium
-	name = "titanium catwalk floor"
-	singular_name = "titanium catwalk floor tile"
+	name = "钛制格栅走道地板"
+	singular_name = "钛制格栅走道地板"
 	icon_state = "titanium_catwalk"
 	turf_type = /turf/open/floor/catwalk_floor/titanium
 
 /obj/item/stack/tile/catwalk_tile/iron_smooth //this is the greenish one
-	name = "smooth iron catwalk floor"
-	singular_name = "smooth iron catwalk floor tile"
+	name = "光滑铁制格栅走道地板"
+	singular_name = "光滑铁制格栅走道地板"
 	icon_state = "smoothiron_catwalk"
 	turf_type = /turf/open/floor/catwalk_floor/iron_smooth
 
 // Glass floors
 /obj/item/stack/tile/glass
-	name = "glass floor"
-	singular_name = "glass floor tile"
-	desc = "Glass window floors, to let you see... Whatever that is down there."
+	name = "玻璃地板"
+	singular_name = "玻璃地砖"
+	desc = "玻璃窗式地板，让你看清……下面那些不知是什么的东西。"
 	icon_state = "tile_glass"
 	turf_type = /turf/open/floor/glass
 	inhand_icon_state = "tile-glass"
@@ -1417,9 +1417,9 @@
 	amount = 60
 
 /obj/item/stack/tile/rglass
-	name = "reinforced glass floor"
-	singular_name = "reinforced glass floor tile"
-	desc = "Reinforced glass window floors. These bad boys are 50% stronger than their predecessors!"
+	name = "强化玻璃地板"
+	singular_name = "强化玻璃地砖"
+	desc = "强化玻璃窗式地板。这些好家伙比前代结实50%！"
 	icon_state = "tile_rglass"
 	inhand_icon_state = "tile-rglass"
 	turf_type = /turf/open/floor/glass/reinforced
@@ -1430,44 +1430,44 @@
 	amount = 60
 
 /obj/item/stack/tile/glass/plasma
-	name = "plasma glass floor"
-	singular_name = "plasma glass floor tile"
-	desc = "Plasma glass window floors, for when... Whatever is down there is too scary for normal glass."
+	name = "等离子玻璃地板"
+	singular_name = "等离子玻璃地砖"
+	desc = "等离子玻璃窗式地板，适用于……下面的东西太吓人，普通玻璃让人不放心的时候。"
 	icon_state = "tile_pglass"
 	turf_type = /turf/open/floor/glass/plasma
 	merge_type = /obj/item/stack/tile/glass/plasma
 	mats_per_unit = list(/datum/material/alloy/plasmaglass = SHEET_MATERIAL_AMOUNT * 0.25)
 
 /obj/item/stack/tile/rglass/plasma
-	name = "reinforced plasma glass floor"
-	singular_name = "reinforced plasma glass floor tile"
-	desc = "Reinforced plasma glass window floors, because whatever's downstairs should really stay down there."
+	name = "强化等离子玻璃地板"
+	singular_name = "强化等离子玻璃地砖"
+	desc = "强化等离子玻璃窗式地板，因为下面的东西最好永远待在下面。"
 	icon_state = "tile_rpglass"
 	turf_type = /turf/open/floor/glass/reinforced/plasma
 	merge_type = /obj/item/stack/tile/rglass/plasma
 	mats_per_unit = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.125, /datum/material/alloy/plasmaglass = SHEET_MATERIAL_AMOUNT * 0.25)
 
 /obj/item/stack/tile/glass/titanium
-	name = "titanium glass floor"
-	singular_name = "titanium glass floor tile"
-	desc = "Titanium glass window floors, for when you need something to separate you from the vast void of space."
+	name = "钛玻璃地板"
+	singular_name = "钛玻璃地砖"
+	desc = "钛玻璃窗式地板，用来把你与浩瀚太空隔开。"
 	icon_state = "tile_glass_titanium"
 	turf_type = /turf/open/floor/glass/titatanium
 	merge_type = /obj/item/stack/tile/glass/titanium
 	mats_per_unit = list(/datum/material/alloy/titaniumglass = SHEET_MATERIAL_AMOUNT * 0.25)
 
 /obj/item/stack/tile/glass/plastitanium
-	name = "plastitanium glass floor"
-	singular_name = "plasma glass floor tile"
-	desc = "Plastitatanium glass window floors, for when you don't want lava to burn your feet, but still like to see it."
+	name = "等离子钛玻璃地板"
+	singular_name = "等离子钛玻璃地砖"
+	desc = "等离子钛玻璃窗式地板，让你欣赏熔岩，又不必担心烫伤脚。"
 	icon_state = "tile_glass_plastitanium"
 	turf_type = /turf/open/floor/glass/plastitatanium
 	merge_type = /obj/item/stack/tile/glass/plastitanium
 	mats_per_unit = list(/datum/material/alloy/plastitaniumglass = SHEET_MATERIAL_AMOUNT * 0.25)
 
 /obj/item/stack/tile/stained_glass
-	name = "stained glass floor"
-	singular_name = "stained glass floor tile"
+	name = "彩色玻璃地板"
+	singular_name = "彩色玻璃地砖"
 	desc = "This shouldn't exist."
 	icon_state = null
 	turf_type = /turf/open/floor/glass
@@ -1476,65 +1476,65 @@
 	mats_per_unit = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT * 0.25, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.25,)
 
 /obj/item/stack/tile/stained_glass/red
-	name = "red stained glass floor"
-	singular_name = "red stained glass floor tile"
-	desc = "Glass floor, stained red. Not with blood, hopefuly."
+	name = "红色彩玻地板"
+	singular_name = "红色彩玻地砖"
+	desc = "染红的玻璃地板。希望不是用血染的。"
 	icon_state = "tile_sglass_red"
 	turf_type = /turf/open/floor/glass/stained_red
 	merge_type = /obj/item/stack/tile/stained_glass/red
 
 /obj/item/stack/tile/stained_glass/orange
-	name = "orange stained glass floor"
-	singular_name = "orange stained glass floor tile"
-	desc = "Glass floor, stained orange. Somebody spilled their orange juice?"
+	name = "橙色彩玻地板"
+	singular_name = "橙色彩玻地砖"
+	desc = "染成橙色的玻璃地板。谁把橙汁洒了？"
 	icon_state = "tile_sglass_orange"
 	turf_type = /turf/open/floor/glass/stained_orange
 	merge_type = /obj/item/stack/tile/stained_glass/orange
 
 /obj/item/stack/tile/stained_glass/yellow
-	name = "yellow stained glass floor"
-	singular_name = "yellow stained glass floor tile"
-	desc = "Glass floor, stained yellow. Probably by some mellow fellow."
+	name = "黄色彩玻地板"
+	singular_name = "黄色彩玻地砖"
+	desc = "染成黄色的玻璃地板。大概出自某位性情温和的老兄之手。"
 	icon_state = "tile_sglass_yellow"
 	turf_type = /turf/open/floor/glass/stained_yellow
 	merge_type = /obj/item/stack/tile/stained_glass/yellow
 
 /obj/item/stack/tile/stained_glass/green
-	name = "green stained glass floor"
-	singular_name = "green stained glass floor tile"
-	desc = "Glass floor, stained green. That's what you get when putting liquid uranium at the edge of your table."
+	name = "绿色彩玻地板"
+	singular_name = "绿色彩玻地砖"
+	desc = "染成绿色的玻璃地板。把液态铀放在桌边，就会有这种下场。"
 	icon_state = "tile_sglass_green"
 	turf_type = /turf/open/floor/glass/stained_green
 	merge_type = /obj/item/stack/tile/stained_glass/green
 
 /obj/item/stack/tile/stained_glass/blue
-	name = "blue stained glass floor"
-	singular_name = "blue stained glass floor tile"
-	desc = "Glass floor, stained blue. With tears of someone feeling blue, obviously."
+	name = "蓝色彩玻地板"
+	singular_name = "蓝色彩玻地砖"
+	desc = "染成蓝色的玻璃地板。显然是用忧郁之人的眼泪染成的。"
 	icon_state = "tile_sglass_blue"
 	turf_type = /turf/open/floor/glass/stained_blue
 	merge_type = /obj/item/stack/tile/stained_glass/blue
 
 /obj/item/stack/tile/stained_glass/purple
-	name = "purple stained glass floor"
-	singular_name = "purple stained glass floor tile"
-	desc = "Glass floor, stained purple. It tastes purple, too."
+	name = "紫色彩玻地板"
+	singular_name = "紫色彩玻地砖"
+	desc = "染成紫色的玻璃地板。尝起来也是紫色的。"
 	icon_state = "tile_sglass_purple"
 	turf_type = /turf/open/floor/glass/stained_purple
 	merge_type = /obj/item/stack/tile/stained_glass/purple
 
 /obj/item/stack/tile/stained_glass/white
-	name = "white stained glass floor"
-	singular_name = "white stained glass floor tile"
-	desc = "Glass floor, stained white. Or perhaps it was bleached?"
+	name = "白色彩玻地板"
+	singular_name = "白色彩玻地砖"
+	desc = "染成白色的玻璃地板。也许是漂白的？"
 	icon_state = "tile_sglass_white"
 	turf_type = /turf/open/floor/glass/stained_white
 	merge_type = /obj/item/stack/tile/stained_glass/white
 
 /obj/item/stack/tile/stained_glass/black
-	name = "black stained glass floor"
-	singular_name = "black stained glass floor tile"
-	desc = "Glass floor, stained black. A space squid inked it."
+	name = "黑色彩玻地板"
+	singular_name = "黑色彩玻地砖"
+	desc = "染黑的玻璃地板，是太空鱿鱼喷墨染的。"
 	icon_state = "tile_sglass_black"
 	turf_type = /turf/open/floor/glass/stained_black
 	merge_type = /obj/item/stack/tile/stained_glass/black

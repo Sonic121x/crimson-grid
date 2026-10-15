@@ -1,8 +1,8 @@
 
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 /obj/item/food/watermelonslice
-	name = "watermelon slice"
-	desc = "A slice of watery goodness."
+	name = "西瓜片"
+	desc = "一片水润的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "watermelonslice"
 	food_reagents = list(
@@ -19,8 +19,8 @@
 	return /datum/reagent/consumable/watermelonjuice
 
 /obj/item/food/watermelonmush
-	name = "watermelon mush"
-	desc = "A plop of watery goodness."
+	name = "西瓜泥"
+	desc = "一团水润的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "watermelonpulp"
 	food_reagents = list(
@@ -37,8 +37,8 @@
 	return /datum/reagent/consumable/watermelonjuice
 
 /obj/item/food/holymelonslice
-	name = "holymelon slice"
-	desc = "A slice of holy goodness."
+	name = "圣瓜片"
+	desc = "一片神圣的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "holymelonslice"
 	food_reagents = list(
@@ -55,8 +55,8 @@
 	return /datum/reagent/water/holywater
 
 /obj/item/food/holymelonmush
-	name = "holymelon mush"
-	desc = "A plop of holy goodness."
+	name = "圣瓜泥"
+	desc = "一团神圣的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "holymelonpulp"
 	food_reagents = list(
@@ -73,8 +73,8 @@
 	return /datum/reagent/water/holywater
 
 /obj/item/food/barrelmelonslice
-	name = "barrelmelon slice"
-	desc = "A slice of beery goodness."
+	name = "桶瓜片"
+	desc = "一片啤酒味的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "barrelmelonslice"
 	food_reagents = list(
@@ -91,8 +91,8 @@
 	return /datum/reagent/consumable/ethanol/beer
 
 /obj/item/food/barrelmelonmush
-	name = "barrelmelon mush"
-	desc = "A plop of beery goodness."
+	name = "桶瓜泥"
+	desc = "一团啤酒味的美味。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "barrelmelonpulp"
 	food_reagents = list(
@@ -109,8 +109,8 @@
 	return /datum/reagent/consumable/ethanol/beer
 
 /obj/item/food/appleslice
-	name = "apple slice"
-	desc = "The perfect after-school snack."
+	name = "苹果片"
+	desc = "放学后的完美零食。"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "appleslice"
 	food_reagents = list(
@@ -127,8 +127,8 @@
 	return /datum/reagent/consumable/applejuice
 
 /obj/item/food/hugemushroomslice
-	name = "huge mushroom slice"
-	desc = "A slice from a huge mushroom."
+	name = "巨型蘑菇片"
+	desc = "从巨型蘑菇上切下来的一片。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "hugemushroomslice"
 	food_reagents = list(
@@ -144,21 +144,21 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_WALKING_MUSHROOM, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
 
 /obj/item/food/popcorn
-	name = "popcorn"
-	desc = "Now let's find some cinema."
+	name = "爆米花"
+	desc = "现在找部电影来看吧。"
 	icon_state = "popcorn"
 	trash_type = /obj/item/trash/popcorn
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	bite_consumption = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 	tastes = list("popcorn" = 3, "butter" = 1)
 	foodtypes = JUNKFOOD
-	eatverbs = list("bite", "nibble", "gnaw", "gobble", "chomp")
+	eatverbs = list("咬下", "小口吃下", "啃食", "狼吞虎咽地吃下", "大口嚼下")
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/popcorn/salty
-	name = "salty popcorn"
+	name = "咸味爆米花"
 	icon_state = "salty_popcorn"
-	desc = "Salty popcorn, a classic for all time."
+	desc = "咸味爆米花，永恒的经典。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/salt = 2,
@@ -168,9 +168,9 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/popcorn/caramel
-	name = "caramel popcorn"
+	name = "焦糖爆米花"
 	icon_state = "caramel_popcorn"
-	desc = "Caramel-covered popcorn. Sweet!"
+	desc = "裹着焦糖的爆米花。真甜！"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/caramel = 4,
@@ -181,8 +181,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/soydope
-	name = "soy dope"
-	desc = "Dope from a soy."
+	name = "豆泥"
+	desc = "大豆制成的泥。"
 	icon_state = "soydope"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -194,8 +194,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/badrecipe
-	name = "burned mess"
-	desc = "Someone should be demoted from cook for this."
+	name = "烧焦的一团"
+	desc = "有人该为这东西被撤掉厨师的职务。"
 	icon_state = "badrecipe"
 	food_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	foodtypes = GROSS
@@ -242,8 +242,8 @@
 	return
 
 /obj/item/food/badrecipe/moldy
-	name = "moldy mess"
-	desc = "A rancid, disgusting culture of mold and ants. Somewhere under there, at <i>some point,</i> there was food."
+	name = "发霉的一团"
+	desc = "一团腐臭恶心的霉菌和蚂蚁。在这下面的某个地方，<i>曾几何时</i>还是食物。"
 	food_reagents = list(/datum/reagent/consumable/mold = 30)
 	preserved_food = FALSE
 	ant_attracting = TRUE
@@ -252,17 +252,17 @@
 	stink_particles = /particles/stink
 
 /obj/item/food/badrecipe/moldy/bacteria
-	name = "bacteria rich moldy mess"
-	desc = "Not only is this rancid lump of disgusting bile crawling with insect life, \
-		but it is also teeming with various microscopic cultures. <i>It moves when you're not looking.</i>"
+	name = "细菌滋生的发霉团块"
+	desc = "这团腐臭恶心的烂东西不仅爬满昆虫，\
+		还滋生着各种微生物。<i>你不看它时，它会动。</i>"
 
 /obj/item/food/badrecipe/moldy/bacteria/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2, 4), 25)
 
 /obj/item/food/spidereggs
-	name = "spider eggs"
-	desc = "A cluster of juicy spider eggs. A great side dish for when you care not for your health."
+	name = "蜘蛛卵"
+	desc = "一簇多汁的蜘蛛卵。当你不在乎健康时，它就是上好的配菜。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "spidereggs"
 	food_reagents = list(
@@ -274,8 +274,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spidereggs/processed
-	name = "processed spider eggs"
-	desc = "A cluster of juicy spider eggs. Pops in your mouth without making you sick."
+	name = "处理过的蜘蛛卵"
+	desc = "一簇多汁的蜘蛛卵。在嘴里爆开，却不会让你生病。"
 	icon_state = "spidereggs"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
 	tastes = list("cobwebs" = 1)
@@ -284,8 +284,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/spiderling
-	name = "spiderling"
-	desc = "It's slightly twitching in your hand. Ew..."
+	name = "幼蛛"
+	desc = "它还在你手里微微抽动。呕……"
 	icon = 'icons/mob/simple/arachnoid.dmi'
 	icon_state = "spiderling_dead"
 	food_reagents = list(
@@ -297,8 +297,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/melonfruitbowl
-	name = "melon fruit bowl"
-	desc = "For people who want to experience an explosion of flavour."
+	name = "蜜瓜水果碗"
+	desc = "献给想体验味觉爆炸的人。"
 	icon_state = "melonfruitbowl"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -311,8 +311,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/melonkeg
-	name = "melon keg"
-	desc = "Who knew vodka was a fruit?"
+	name = "西瓜酒桶"
+	desc = "谁知道伏特加原来是种水果？"
 	icon_state = "melonkeg"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 9,
@@ -326,8 +326,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/honeybar
-	name = "honey nut bar"
-	desc = "Oats and nuts compressed together into a bar, held together with a honey glaze."
+	name = "蜂蜜坚果棒"
+	desc = "燕麦和坚果靠蜂蜜糖衣黏合，压成一条。"
 	icon_state = "honeybar"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
@@ -340,8 +340,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/powercrepe
-	name = "powercrepe"
-	desc = "With great power, comes great crepes.  It looks like a pancake filled with jelly but packs quite a punch."
+	name = "强力可丽饼"
+	desc = "能力越大，可丽饼越强。看着像夹果冻的薄饼，打起人来却毫不含糊。"
 	icon_state = "powercrepe"
 	inhand_icon_state = "powercrepe"
 	food_reagents = list(
@@ -355,8 +355,8 @@
 	armour_penetration = 80
 	block_sound = 'sound/items/weapons/parry.ogg'
 	wound_bonus = -50
-	attack_verb_continuous = list("slaps", "slathers")
-	attack_verb_simple = list("slap", "slather")
+	attack_verb_continuous = list("拍打", "糊抹")
+	attack_verb_simple = list("拍打", "糊抹")
 	w_class = WEIGHT_CLASS_BULKY
 	tastes = list("cherry" = 1, "crepe" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
@@ -365,8 +365,8 @@
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.7)
 
 /obj/item/food/branrequests
-	name = "bran requests cereal"
-	desc = "A dry cereal that satiates your requests for bran. Tastes uniquely like raisins and salt."
+	name = "求麸麦片"
+	desc = "满足你对麦麸渴求的干麦片，葡萄干与盐的独特风味。"
 	icon_state = "bran_requests"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -379,8 +379,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/butter
-	name = "stick of butter"
-	desc = "A stick of delicious, golden, fatty goodness."
+	name = "黄油条"
+	desc = "一条金黄、肥美又可口的黄油。"
 	icon_state = "butter"
 	food_reagents = list(/datum/reagent/consumable/nutriment/fat = 6)
 	tastes = list("butter" = 1)
@@ -392,7 +392,7 @@
 /obj/item/food/butter/examine(mob/user)
 	. = ..()
 	if (can_stick)
-		. += span_notice("If you had a rod you could make <b>butter on a stick</b>.")
+		. += span_notice("有根铁杆就能做成<b>黄油串</b>。")
 
 /obj/item/food/butter/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/stack/rods) || !can_stick)
@@ -400,10 +400,10 @@
 
 	var/obj/item/stack/rods/rods = tool
 	if(!rods.use(1))//borgs can still fail this if they have no metal
-		to_chat(user, span_warning("You do not have enough iron to put [src] on a stick!"))
+		to_chat(user, span_warning("你没有足够的铁来把[src]串起来！"))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You stick the rod into the stick of butter."))
+	to_chat(user, span_notice("你把铁杆插进黄油条里。"))
 	user.temporarilyRemoveItemFromInventory(src)
 	var/obj/item/food/butter/on_a_stick/new_item = new(drop_location())
 	if (new_item.IsReachableBy(user))
@@ -412,8 +412,8 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/food/butter/on_a_stick //there's something so special about putting it on a stick.
-	name = "butter on a stick"
-	desc = "delicious, golden, fatty goodness on a stick."
+	name = "黄油串"
+	desc = "串在杆上的金黄肥美好滋味。"
 	icon_state = "butteronastick"
 	trash_type = /obj/item/stack/rods
 	food_flags = FOOD_FINGER_FOOD
@@ -421,11 +421,11 @@
 	can_stick = FALSE
 
 /obj/item/food/butter/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/butterslice, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Slice", sound_to_play = SFX_KNIFE_SLICE)
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/butterslice, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "切片", sound_to_play = SFX_KNIFE_SLICE)
 
 /obj/item/food/butterslice
-	name = "butter slice"
-	desc = "A slice of butter, for your buttering needs."
+	name = "黄油片"
+	desc = "一片黄油，满足你的涂抹需求。"
 	icon_state = "butterslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("butter" = 1)
@@ -433,8 +433,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/onionrings
-	name = "onion rings"
-	desc = "Onion slices coated in batter."
+	name = "洋葱圈"
+	desc = "裹着面糊的洋葱片。"
 	icon_state = "onionrings"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	gender = PLURAL
@@ -444,8 +444,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/pineappleslice
-	name = "pineapple slice"
-	desc = "A sliced piece of juicy pineapple."
+	name = "菠萝片"
+	desc = "切下的一片多汁菠萝。"
 	icon_state = "pineapple_slice"
 	tastes = list("pineapple" = 1)
 	foodtypes = FRUIT | PINEAPPLE
@@ -473,8 +473,8 @@
 	custom_price = 2 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/pesto
-	name = "pesto"
-	desc = "A combination of firm cheese, salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread."
+	name = "罗勒青酱"
+	desc = "由硬质奶酪、盐、香草、大蒜、油和松子混合制成，常用来拌意面、抹披萨或搭配面包。"
 	icon_state = "pesto"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("pesto" = 1)
@@ -483,8 +483,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_4
 
 /obj/item/food/tomato_sauce
-	name = "tomato sauce"
-	desc = "Tomato sauce, perfect for pizza or pasta. Mamma mia!"
+	name = "番茄酱汁"
+	desc = "番茄酱汁，最适合搭配披萨或意面。妈妈咪呀！"
 	icon_state = "tomato_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("tomato" = 1, "herbs" = 1)
@@ -493,8 +493,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bechamel_sauce
-	name = "béchamel sauce"
-	desc = "A classic white sauce common to several European cultures."
+	name = "白酱"
+	desc = "欧洲多种饮食文化中常见的经典白酱。"
 	icon_state = "bechamel_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("cream" = 1)
@@ -503,8 +503,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/roasted_bell_pepper
-	name = "roasted bell pepper"
-	desc = "A blackened, blistered bell pepper. Great for making sauces."
+	name = "烤甜椒"
+	desc = "表皮烤得焦黑起泡的甜椒，很适合做酱。"
 	icon_state = "roasted_bell_pepper"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -516,8 +516,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/pierogi
-	name = "pierogi"
-	desc = "A dumpling made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. This one is filled with a potato and onion mixture."
+	name = "波兰饺子"
+	desc = "用未发酵面皮包住咸馅或甜馅，再下沸水煮熟的饺子。这只包着土豆洋葱馅。"
 	icon_state = "pierogi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -529,8 +529,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/stuffed_cabbage
-	name = "stuffed cabbage"
-	desc = "A savoury mixture of ground meat and rice wrapped in cooked cabbage leaves and topped with a tomato sauce. To die for."
+	name = "酿卷心菜"
+	desc = "熟卷心菜叶包着咸香的肉末米饭馅，再淋上番茄酱汁。美味得要命。"
 	icon_state = "stuffed_cabbage"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -543,8 +543,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/seaweedsheet
-	name = "seaweed sheet"
-	desc = "A dried sheet of seaweed used for making sushi. Use an ingredient on it to start making custom sushi!"
+	name = "海苔片"
+	desc = "用来做寿司的干海苔片。把食材放上去，就能开始制作自选寿司！"
 	icon_state = "seaweedsheet"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -559,8 +559,8 @@
 	AddComponent(/datum/component/ingredients_holder, /obj/item/food/sushi/empty, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 6)
 
 /obj/item/food/seaweedsheet/saltcane
-	name = "dried saltcane sheathe"
-	desc = "A dried sheet of saltcane sheathe can used for making sushi. Use an ingredient on it to start making custom sushi!"
+	name = "干盐蔗叶鞘"
+	desc = "一片可用于做寿司的干盐蔗叶鞘。把食材放上去，就能开始制作自选寿司！"
 	icon_state = "seaweedsheet"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -571,8 +571,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/granola_bar
-	name = "granola bar"
-	desc = "A dried mixture of oats, nuts, fruits, and chocolate condensed into a chewy bar. Makes a great snack while space-hiking."
+	name = "燕麦坚果棒"
+	desc = "燕麦、坚果、水果和巧克力的干混合物压成耐嚼的棒状，是太空徒步时的绝佳零食。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "granola_bar"
 	food_reagents = list(
@@ -613,8 +613,8 @@
 	tastes = list()
 
 /obj/item/food/pacoca
-	name = "paçoca"
-	desc = "A traditional Brazilian treat made of ground peanuts, sugar, and salt compressed into a cylinder."
+	name = "巴西花生酥"
+	desc = "巴西传统点心，将磨碎的花生、糖和盐压成圆柱形。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "pacoca"
 	food_reagents = list(
@@ -628,8 +628,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/pickle
-	name = "pickle"
-	desc = "Slightly shriveled darkish cucumber. Smelling something sour, but incredibly inviting."
+	name = "腌黄瓜"
+	desc = "略微皱缩、颜色发暗的黄瓜，闻起来酸酸的，却格外诱人。"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "pickle"
 	food_reagents = list(
@@ -671,8 +671,8 @@
 	custom_price = 1 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/food/cheese_pierogi
-	name = "cheese pierogi"
-	desc = "A dumpling made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. This one is filled with a potato and cheese mixture."
+	name = "奶酪波兰饺子"
+	desc = "用未发酵面皮包住咸馅或甜馅，再下沸水煮熟的饺子。这只包着土豆奶酪馅。"
 	icon_state = "cheese_pierogi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -684,8 +684,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/meat_pierogi
-	name = "meat pierogi"
-	desc = "A dumpling made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. This one is filled with a potato and meat mixture."
+	name = "肉馅波兰饺子"
+	desc = "用未发酵面皮包住咸馅或甜馅，再下沸水煮熟的饺子。这只包着土豆肉馅。"
 	icon_state = "meat_pierogi"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -699,8 +699,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/stuffed_eggplant
-	name = "stuffed eggplant"
-	desc = "A cooked half of an eggplant, with the insides scooped out and mixed with meat, cheese, and veggies."
+	name = "酿茄子"
+	desc = "半个烤熟的茄子，茄肉挖出后混入肉、奶酪和蔬菜，再填回去。"
 	icon_state = "stuffed_eggplant"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -714,8 +714,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/moussaka
-	name = "moussaka"
-	desc = "A layered Mediterranean dish made of eggplants, mixed veggies, and meat with a topping of bechamel sauce. Sliceable"
+	name = "地中海茄子肉末千层焗"
+	desc = "茄子、混合蔬菜和肉层层铺叠，覆上白酱焗制的地中海菜肴。可以切片。"
 	icon_state = "moussaka"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 30,
@@ -728,11 +728,11 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/moussaka/make_processable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/moussaka_slice, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/moussaka_slice, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "切开")
 
 /obj/item/food/moussaka_slice
-	name = "moussaka slice"
-	desc = "A layered Mediterranean dish made of eggplants, mixed veggies, and meat with a topping of bechamel sauce. Delish!"
+	name = "地中海茄子肉末千层焗片"
+	desc = "茄子、混合蔬菜和肉层层铺叠，覆上白酱焗制的地中海菜肴。真美味！"
 	icon_state = "moussaka_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -745,8 +745,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT / 4)
 
 /obj/item/food/candied_pineapple
-	name = "candied pineapple"
-	desc = "A chunk of pineapple coated in sugar and dried into a chewy treat."
+	name = "糖渍菠萝"
+	desc = "裹糖后风干的菠萝块，成了耐嚼的小点心。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
@@ -764,8 +764,8 @@
 	icon_state = "[base_icon_state]_[rand(1, 3)]"
 
 /obj/item/food/raw_pita_bread
-	name = "raw pita bread"
-	desc = "a sticky disk of raw pita bread."
+	name = "生皮塔饼"
+	desc = "一张黏黏的生皮塔饼。"
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "raw_pita_bread"
 	food_reagents = list(
@@ -784,8 +784,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pita_bread, rand(15 SECONDS, 30 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pita_bread
-	name = "pita bread"
-	desc = "a multi-purposed sweet flatbread of Mediterranean origins."
+	name = "皮塔饼"
+	desc = "源于地中海、用途广泛的香甜薄饼。"
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "pita_bread"
 	food_reagents = list(
@@ -798,8 +798,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/tzatziki_sauce
-	name = "tzatziki sauce"
-	desc = "A garlic-based sauce or dip widely used in Mediterranean and Middle Eastern cuisine. Delicious on its own when dipped with pita bread or vegetables."
+	name = "希腊蒜香酸奶酱"
+	desc = "地中海和中东菜肴中广泛使用的蒜香酱汁，拿皮塔饼或蔬菜直接蘸着吃就很美味。"
 	icon_state = "tzatziki_sauce"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 5,
@@ -811,8 +811,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/tzatziki_and_pita_bread
-	name = "tzatziki and pita bread"
-	desc = "Tzatziki sauce, now with pita bread for dipping. Very healthy and delicious all in one."
+	name = "希腊蒜香酸奶酱配皮塔饼"
+	desc = "希腊蒜香酸奶酱，现在配上皮塔饼蘸食。健康与美味兼备。"
 	icon_state = "tzatziki_and_pita_bread"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -824,8 +824,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/grilled_beef_gyro
-	name = "grilled beef gyro"
-	desc = "A traditional Greek dish of meat wrapped in pita bread with tomato, cabbage, onion, and tzatziki sauce."
+	name = "烤牛肉希腊卷饼"
+	desc = "传统希腊料理，用皮塔饼包住肉、番茄、卷心菜、洋葱和希腊蒜香酸奶酱。"
 	icon_state = "grilled_beef_gyro"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -839,8 +839,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/vegetarian_gyro
-	name = "vegetarian gyro"
-	desc = "A traditional Greek gyro with cucumbers substituted for meat. Still full of intense flavor and very nourishing."
+	name = "素食希腊卷饼"
+	desc = "用黄瓜代替肉的传统希腊卷饼，依旧风味浓郁、营养丰富。"
 	icon_state = "vegetarian_gyro"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -853,8 +853,8 @@
 
 ///Extracted from squids, or any fish with the ink fish trait.
 /obj/item/food/ink_sac
-	name = "ink sac"
-	desc = "the ink sac from some sort of fish or mollusk. It could be canned with a processor."
+	name = "墨囊"
+	desc = "取自某种鱼类或软体动物的墨囊，可以用加工机制成罐头。"
 	icon_state = "ink_sac"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/salt = 5)
 	tastes = list("seafood" = 3)
@@ -874,5 +874,5 @@
 	if(can_splat_on)
 		victim.adjust_temp_blindness_up_to(2.5 SECONDS, 3 SECONDS)
 		victim.adjust_confusion_up_to(2.5 SECONDS, 3 SECONDS)
-	victim.visible_message(span_warning("[victim] is inked by [src]!"), span_userdanger("You've been inked by [src]!"))
+	victim.visible_message(span_warning("[victim]被[src]泼了一身墨汁！"), span_userdanger("你被[src]泼了一身墨汁！"))
 	playsound(victim, SFX_DESECRATION, 50, TRUE)

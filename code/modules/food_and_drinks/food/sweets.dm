@@ -1,8 +1,8 @@
 // Sweets that didn't make it into any other category
 
 /obj/item/food/candy_corn
-	name = "candy corn"
-	desc = "It's a handful of candy corn. Can be stored in a detective's hat."
+	name = "玉米糖"
+	desc = "一把玉米糖，可以藏在侦探帽里。"
 	icon_state = "candy_corn"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -15,16 +15,16 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/candy_corn/prison
-	name = "desiccated candy corn"
-	desc = "If this candy corn were any harder Security would confiscate it for being a potential shiv."
+	name = "干硬玉米糖"
+	desc = "这玉米糖要是再硬一点，安保就会把它当作潜在的自制凶器没收。"
 	force = 1 // the description isn't lying
 	throwforce = 1 // if someone manages to bust out of jail with candy corn god bless them
 	tastes = list("bitter wax" = 1)
 	foodtypes = GROSS
 
 /obj/item/food/candiedapple
-	name = "candied apple"
-	desc = "An apple coated in sugary sweetness."
+	name = "糖苹果"
+	desc = "裹着甜蜜糖衣的苹果。"
 	icon_state = "candiedapple"
 	bite_consumption = 3
 	food_reagents = list(
@@ -38,8 +38,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/mint
-	name = "mint"
-	desc = "It is only wafer thin."
+	name = "薄荷糖"
+	desc = "只有薄薄一片。"
 	icon_state = "mint"
 	bite_consumption = 1
 	food_reagents = list(/datum/reagent/consumable/mintextract = 2)
@@ -48,8 +48,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/ant_candy
-	name = "ant candy"
-	desc = "A colony of ants suspended in hardened sugar. Those things are dead, right?"
+	name = "蚂蚁糖"
+	desc = "一窝蚂蚁封在硬糖里。这些东西已经死了，对吧？"
 	icon_state = "ant_pop"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -65,8 +65,8 @@
 
 // Chocolates
 /obj/item/food/chocolatebar
-	name = "chocolate bar"
-	desc = "Such, sweet, fattening food."
+	name = "巧克力棒"
+	desc = "如此香甜，如此催肥。"
 	icon_state = "chocolatebar"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -80,8 +80,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/virtual_chocolate
-	name = "virtual chocolate bar"
-	desc = "Digital food only gives off the sensation of eating... without any of the nutritional benefits."
+	name = "虚拟巧克力棒"
+	desc = "数字食品只能带来进食的感觉……却没有任何营养。"
 	icon_state = "virtual_chocolate"
 	tastes = list("nothing" = 1)
 	foodtypes = NONE
@@ -89,8 +89,8 @@
 
 
 /obj/item/food/chococoin
-	name = "chocolate coin"
-	desc = "A completely edible but non-flippable festive coin."
+	name = "巧克力硬币"
+	desc = "一枚完全可食用、却不能拿来抛的节庆硬币。"
 	icon_state = "chococoin"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -104,8 +104,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/fudgedice
-	name = "fudge dice"
-	desc = "A little cube of chocolate that tends to have a less intense taste if you eat too many at once."
+	name = "软糖骰子"
+	desc = "一小块方形巧克力，一次吃太多，味道反而会变淡。"
 	icon_state = "chocodice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -120,8 +120,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/chocoorange
-	name = "chocolate orange"
-	desc = "A festive chocolate orange."
+	name = "巧克力橙"
+	desc = "充满节日气氛的巧克力橙。"
 	icon_state = "chocoorange"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -134,8 +134,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bonbon
-	name = "bon bon"
-	desc = "A tiny and sweet chocolate."
+	name = "巧克力糖"
+	desc = "一颗小巧香甜的巧克力。"
 	icon_state = "tiny_chocolate"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 1,
@@ -148,8 +148,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/bonbon/caramel_truffle
-	name = "caramel truffle"
-	desc = "A bite-sized chocolate truffle with a chewy caramel filling."
+	name = "焦糖松露巧克力"
+	desc = "一口大小的松露巧克力，包着有嚼劲的焦糖馅。"
 	icon_state = "caramel_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -159,8 +159,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/bonbon/chocolate_truffle
-	name = "chocolate truffle"
-	desc = "A bite-sized chocolate truffle with a rich chocolate mousse filling."
+	name = "松露巧克力"
+	desc = "一口大小的松露巧克力，包着浓郁的巧克力慕斯馅。"
 	icon_state = "chocolate_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -168,8 +168,8 @@
 	)
 
 /obj/item/food/bonbon/peanut_truffle
-	name = "peanut truffle"
-	desc = "A bite-sized chocolate truffle with crunchy peanuts mixed in."
+	name = "花生松露巧克力"
+	desc = "一口大小的松露巧克力，混着香脆花生。"
 	icon_state = "peanut_truffle"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -180,8 +180,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 
 /obj/item/food/bonbon/peanut_butter_cup
-	name = "peanut butter cup"
-	desc = "An ultra-sweet chocolate treat with a savory peanut butter filling."
+	name = "花生酱巧克力杯"
+	desc = "甜度惊人的巧克力点心，内馅是咸香花生酱。"
 	icon_state = "peanut_butter_cup"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -193,8 +193,8 @@
 
 // Gum
 /obj/item/food/bubblegum
-	name = "bubblegum"
-	desc = "A rubbery strip of gum. Not exactly filling, but it keeps you busy."
+	name = "泡泡糖"
+	desc = "一条弹韧的口香糖。虽然不顶饱，却能让嘴巴忙个不停。"
 	icon_state = "bubblegum"
 	inhand_icon_state = null
 	color = "#E48AB5" // craftable custom gums someday?
@@ -205,7 +205,7 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/bubblegum/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] swallows [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]吞下了[src]！看起来是想自杀！"))
 	qdel(src)
 	return TOXLOSS
 
@@ -214,7 +214,7 @@
 	AddElement(/datum/element/chewable)
 
 /obj/item/food/bubblegum/nicotine
-	name = "nicotine gum"
+	name = "尼古丁口香糖"
 	food_reagents = list(
 		/datum/reagent/drug/nicotine = 10,
 		/datum/reagent/consumable/menthol = 5,
@@ -223,15 +223,15 @@
 	color = "#60A584"
 
 /obj/item/food/bubblegum/happiness
-	name = "\improper HP+ gum"
-	desc = "A rubbery strip of gum. It smells funny."
+	name = "\improper HP+口香糖"
+	desc = "一条弹韧的口香糖。闻起来有点古怪。"
 	food_reagents = list(/datum/reagent/drug/happiness = 15)
 	tastes = list("paint thinner" = 1)
 	color = "#EE35FF"
 
 /obj/item/food/bubblegum/bubblegum
-	name = "bubblegum gum"
-	desc = "A rubbery strip of gum. You don't feel like eating it is a good idea."
+	name = "泡泡糖恶魔口香糖"
+	desc = "一条弹韧的口香糖。你觉得吃它不是个好主意。"
 	color = "#913D3D"
 	food_reagents = list(/datum/reagent/blood = 15)
 	tastes = list("hell" = 1, "people" = 1)
@@ -255,15 +255,15 @@
 	if(prob(15))
 		victim.cause_hallucination(/datum/hallucination/oh_yeah, "bubblegum bubblegum", haunt_them = TRUE)
 	else
-		to_chat(victim, span_warning("[pick("You hear faint whispers.", "You smell ash.", "You feel hot.", "You hear a roar in the distance.")]"))
+		to_chat(victim, span_warning("[pick("你听到微弱的低语。", "你闻到灰烬的气味。", "你感到燥热。", "你听到远处传来咆哮。")]"))
 
 /obj/item/food/bubblegum/bubblegum/suicide_act(mob/living/user)
 	user.say(";[pick(BUBBLEGUM_HALLUCINATION_LINES)]", spans = list(SPAN_COLOSSUS))
 	return ..()
 
 /obj/item/food/gumball
-	name = "gumball"
-	desc = "A colorful, sugary gumball."
+	name = "泡泡糖球"
+	desc = "一颗色彩鲜艳、甜甜的泡泡糖球。"
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "gumball"
 	worn_icon_state = "bubblegum"
@@ -283,8 +283,8 @@
 
 // Lollipop
 /obj/item/food/lollipop
-	name = "lollipop"
-	desc = "A delicious lollipop. Makes for a great Valentine's present."
+	name = "棒棒糖"
+	desc = "美味的棒棒糖，是很棒的情人节礼物。"
 	icon = 'icons/obj/food/lollipop.dmi'
 	icon_state = "lollipop_stick"
 	inhand_icon_state = null
@@ -330,8 +330,8 @@
 	)
 
 /obj/item/food/spiderlollipop
-	name = "spider lollipop"
-	desc = "Still gross, but at least it has a mountain of sugar on it."
+	name = "蜘蛛棒棒糖"
+	desc = "还是很恶心，不过至少裹了一大堆糖。"
 	icon_state = "spiderlollipop"
 	worn_icon_state = "lollipop_stick"
 	food_reagents = list(
@@ -352,8 +352,8 @@
 	AddElement(/datum/element/chewable)
 
 /obj/item/food/swirl_lollipop
-	name = "swirl lollipop"
-	desc = "A massive rainbow swirlled lollipop. Said to contain extra sugar."
+	name = "旋纹棒棒糖"
+	desc = "巨大的彩虹旋纹棒棒糖，据说糖分加量。"
 	icon_state = "swirl_lollipop"
 	worn_icon_state = "lollipop_stick"
 	inhand_icon_state = "swirl_lollipop"

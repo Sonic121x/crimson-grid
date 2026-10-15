@@ -1,6 +1,6 @@
 /obj/item/food/sandwich
-	name = "sandwich"
-	desc = "A grand creation of meat, cheese, bread, and several leaves of lettuce! Arthur Dent would be proud."
+	name = "三明治"
+	desc = "肉、奶酪、面包和几片生菜组成的伟大创作！亚瑟·登特会为此自豪。"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "sandwich"
 	food_reagents = list(
@@ -16,8 +16,8 @@
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/sandwich/cheese
-	name = "cheese sandwich"
-	desc = "A light snack for a warm day. ...but what if you grilled it?"
+	name = "奶酪三明治"
+	desc = "适合暖日的清淡小食。……不过，要是拿去烤一烤呢？"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 7,
 		/datum/reagent/consumable/nutriment/protein = 3,
@@ -33,8 +33,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/sandwich/grilled_cheese, rand(30 SECONDS, 60 SECONDS), TRUE)
 
 /obj/item/food/sandwich/grilled_cheese
-	name = "grilled cheese sandwich"
-	desc = "A warm, melty sandwich that goes perfectly with tomato soup."
+	name = "烤奶酪三明治"
+	desc = "温热的三明治，奶酪融化流淌，与番茄汤堪称绝配。"
 	icon_state = "toastedsandwich"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -49,8 +49,8 @@
 	custom_materials = null
 
 /obj/item/food/sandwich/jelly
-	name = "jelly sandwich"
-	desc = "You wish you had some peanut butter to go with this..."
+	name = "果酱三明治"
+	desc = "真希望有些花生酱来搭配……"
 	icon_state = "jellysandwich"
 	bite_consumption = 3
 	tastes = list("bread" = 1, "jelly" = 1)
@@ -67,8 +67,8 @@
 	foodtypes = GRAIN | FRUIT | SUGAR
 
 /obj/item/food/sandwich/notasandwich
-	name = "not-a-sandwich"
-	desc = "Something seems to be wrong with this, you can't quite figure what. Maybe it's his moustache."
+	name = "这不是三明治"
+	desc = "好像有哪里不对劲，可你说不上来。也许是它的小胡子。"
 	icon_state = "notasandwich"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 6,
@@ -80,8 +80,8 @@
 	custom_materials = null
 
 /obj/item/food/griddle_toast
-	name = "griddle toast"
-	desc = "Thick cut bread, griddled to perfection."
+	name = "香煎吐司"
+	desc = "煎得恰到好处的厚切面包。"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "griddle_toast"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
@@ -92,8 +92,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/butteredtoast
-	name = "buttered toast"
-	desc = "Butter lightly spread over a piece of toast."
+	name = "黄油吐司"
+	desc = "薄薄抹了一层黄油的吐司。"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "butteredtoast"
 	bite_consumption = 3
@@ -108,8 +108,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/jelliedtoast
-	name = "jellied toast"
-	desc = "A slice of toast covered with delicious jam."
+	name = "果酱吐司"
+	desc = "一片涂满美味果酱的吐司。"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "jellytoast"
 	bite_consumption = 3
@@ -128,8 +128,8 @@
 	foodtypes = GRAIN | TOXIC | BREAKFAST
 
 /obj/item/food/twobread
-	name = "two bread"
-	desc = "This seems awfully bitter."
+	name = "双片面包"
+	desc = "这东西似乎苦得厉害。"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "twobread"
 	food_reagents = list(
@@ -143,8 +143,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/hotdog
-	name = "hotdog"
-	desc = "Fresh footlong ready to go down on."
+	name = "热狗"
+	desc = "新鲜出炉的一英尺长热狗，等着你张嘴享用。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "hotdog"
 	bite_consumption = 3
@@ -167,8 +167,8 @@
 	eat_time = 0
 
 /obj/item/food/danish_hotdog
-	name = "danish hotdog"
-	desc = "Appetizing bun, with a sausage in the middle, covered with sauce, fried onion and pickles rings"
+	name = "丹麦热狗"
+	desc = "诱人的面包夹着香肠，上面浇着酱汁，撒着炸洋葱和腌黄瓜圈。"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "danish_hotdog"
 	bite_consumption = 4
@@ -187,8 +187,8 @@
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/sandwich/blt
-	name = "\improper BLT"
-	desc = "A classic bacon, lettuce, and tomato sandwich."
+	name = "\improper 培根生菜番茄三明治"
+	desc = "经典的培根、生菜和番茄三明治。"
 	icon_state = "blt"
 	bite_consumption = 4
 	food_reagents = list(
@@ -202,8 +202,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/sandwich/peanut_butter_jelly
-	name = "peanut butter and jelly sandwich"
-	desc = "A classic PB&J sandwich, just like your mom used to make."
+	name = "花生酱果酱三明治"
+	desc = "经典的花生酱果酱三明治，就像妈妈以前做的一样。"
 	icon_state = "peanut_butter_jelly_sandwich"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -216,8 +216,8 @@
 	custom_materials = null
 
 /obj/item/food/sandwich/peanut_butter_banana
-	name = "peanut butter and banana sandwich"
-	desc = "A peanut butter sandwich with banana slices mixed in, a good high protein treat."
+	name = "花生酱香蕉三明治"
+	desc = "夹入香蕉片的花生酱三明治，是不错的高蛋白小食。"
 	icon_state = "peanut_butter_banana_sandwich"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
@@ -231,8 +231,8 @@
 	custom_materials = null
 
 /obj/item/food/sandwich/philly_cheesesteak
-	name = "philly cheesesteak"
-	desc = "A popular sandwich made of sliced meat, onions, melted cheese in a long hoagie roll. Mouthwatering doesn't even begin to describe it."
+	name = "费城奶酪牛肉三明治"
+	desc = "广受欢迎的三明治，用长面包夹入肉片、洋葱和融化的奶酪。光说垂涎欲滴都不足以形容。"
 	icon_state = "philly_cheesesteak"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,
@@ -245,8 +245,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/sandwich/toast_sandwich
-	name = "toast sandwich"
-	desc = "A piece of buttered toast between two slices of bread. Why would you make this?"
+	name = "吐司三明治"
+	desc = "两片面包中间夹着一片黄油吐司。你为什么要做这个？"
 	icon_state = "toast_sandwich"
 	bite_consumption = 3
 	food_reagents = list(
@@ -259,8 +259,8 @@
 	custom_materials = null
 
 /obj/item/food/sandwich/death
-	name = "death sandwich"
-	desc = "Eat it right, or you die!"
+	name = "死亡三明治"
+	desc = "吃法不对，就得送命！"
 	icon_state = "death_sandwich"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -285,7 +285,7 @@
 		return
 	if(check_liked(user) == FOOD_LIKED)
 		return
-	to_chat(user, span_warning("You imagine yourself eating [src]. You feel a sudden sour taste in your mouth, and a horrible feeling that you've done something wrong."))
+	to_chat(user, span_warning("你想象自己吃下[src]。嘴里突然泛起一股酸味，心中升起一阵做错了什么的可怕预感。"))
 	user.adjust_disgust(33)
 
 // Override for after_eat and check_liked callbacks.
@@ -314,11 +314,11 @@
 	if(check_liked(consumer) == FOOD_LIKED)
 		return
 	// I thought it didn't make sense for it to instantly kill you, so instead enjoy shitloads of toxin damage per bite.
-	balloon_alert(consumer, "ate it wrong!")
+	balloon_alert(consumer, "吃法不对！")
 	consumer.ForceContractDisease(new /datum/disease/death_sandwich_poisoning())
 
 /obj/item/food/sandwich/death/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] starts to shove [src] down [user.p_their()] throat the wrong way. It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]开始用错误的方式将[src]塞进喉咙。看起来是想自杀！"))
 	qdel(src)
 	user.gib()
 	return MANUAL_SUICIDE

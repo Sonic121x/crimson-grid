@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(masquerade)
 		if(!line)
 			continue
 		masquerade_filter += REGEX_QUOTE(line)
-	masquerade_breaching_phrase_regex = masquerade_filter.len ? regex("\\b([jointext(masquerade_filter, "|")])\\b", "i") : null
+	masquerade_breaching_phrase_regex = masquerade_filter.len ? regex("([jointext(masquerade_filter, "|")])", "i") : null
 	RegisterSignal(src, COMSIG_PLAYER_MASQUERADE_REINFORCE, PROC_REF(player_masquerade_reinforce))
 	return SS_INIT_SUCCESS
 

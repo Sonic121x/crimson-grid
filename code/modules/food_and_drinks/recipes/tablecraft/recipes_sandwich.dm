@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////SANDWICHES////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/sandwich
-	name = "Sandwich"
+	name = "三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/grown/cabbage = 1,
@@ -18,7 +18,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/cheese_sandwich
-	name = "Cheese sandwich"
+	name = "奶酪三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/cheese/wedge = 2
@@ -38,7 +38,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/cherrysandwich
-	name = "Jelly sandwich"
+	name = "果酱三明治"
 	reqs = list(
 		/datum/reagent/consumable/cherryjelly = 5,
 		/obj/item/food/breadslice/plain = 2,
@@ -48,7 +48,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/notasandwich
-	name = "Not a sandwich"
+	name = "这不是三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/clothing/mask/fakemoustache = 1
@@ -58,7 +58,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/hotdog
-	name = "Hot dog"
+	name = "热狗"
 	reqs = list(
 		/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/bun = 1,
@@ -69,7 +69,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/danish_hotdog
-	name = "Danish hot dog"
+	name = "丹麦热狗"
 	reqs = list(
 		/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/bun = 1,
@@ -82,7 +82,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/blt
-	name = "BLT"
+	name = "培根生菜番茄三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/meat/bacon = 2,
@@ -93,7 +93,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/peanut_butter_jelly_sandwich
-	name = "Peanut butter and jelly sandwich"
+	name = "花生酱果酱三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/datum/reagent/consumable/peanut_butter = 5,
@@ -104,7 +104,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/peanut_butter_banana_sandwich
-	name = "Peanut butter and banana sandwich"
+	name = "花生酱香蕉三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/datum/reagent/consumable/peanut_butter = 5,
@@ -115,7 +115,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/philly_cheesesteak
-	name = "Philly Cheesesteak"
+	name = "费城奶酪牛肉三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/meat/cutlet = 2,
@@ -126,7 +126,7 @@
 	dish_category = DISH_SANDWICH
 
 /datum/crafting_recipe/food/death_sandwich
-	name = "Death Sandwich"
+	name = "死亡三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/salami = 4,
@@ -138,7 +138,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/toast_sandwich
-	name = "Toast Sandwich"
+	name = "吐司三明治"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 2,
 		/obj/item/food/butteredtoast = 1,

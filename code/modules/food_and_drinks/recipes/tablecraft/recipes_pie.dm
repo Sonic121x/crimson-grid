@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////PIES////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/bananacreampie
-	name = "Banana cream pie"
+	name = "香蕉奶油派"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pie/plain = 1,
@@ -16,7 +16,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/meatpie
-	name = "Meat pie"
+	name = "肉派"
 	reqs = list(
 		/datum/reagent/consumable/blackpepper = 1,
 		/datum/reagent/consumable/salt = 1,
@@ -28,7 +28,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/tofupie
-	name = "Tofu pie"
+	name = "豆腐派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/tofu = 1
@@ -50,7 +50,7 @@
 */
 
 /datum/crafting_recipe/food/cherrypie
-	name = "Cherry pie"
+	name = "樱桃派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/cherries = 1
@@ -61,7 +61,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/berryclafoutis
-	name = "Berry clafoutis"
+	name = "莓果法式烤布丁"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/berries = 1
@@ -72,7 +72,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/bearypie
-	name = "Beary Pie"
+	name = "熊莓派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/berries = 1,
@@ -84,7 +84,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/amanitapie
-	name = "Amanita pie"
+	name = "毒蝇伞派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/mushroom/amanita = 1
@@ -95,7 +95,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/plumppie
-	name = "Plump pie"
+	name = "厚盔菇派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/mushroom/plumphelmet = 1
@@ -105,7 +105,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/applepie
-	name = "Apple pie"
+	name = "苹果派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/apple = 1
@@ -116,7 +116,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/pumpkinpie
-	name = "Pumpkin pie"
+	name = "南瓜派"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -129,7 +129,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/goldenappletart
-	name = "Golden apple tart"
+	name = "金苹果酥粒挞"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -142,7 +142,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/grapetart
-	name = "Grape tart"
+	name = "葡萄挞"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -155,7 +155,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/mimetart
-	name = "Mime tart"
+	name = "默剧挞"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -169,7 +169,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/berrytart
-	name = "Berry tart"
+	name = "莓果挞"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -183,7 +183,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/cocolavatart
-	name = "Chocolate Lava tart"
+	name = "巧克力熔岩挞"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -199,7 +199,7 @@
 	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_MUST_BE_LEARNED
 
 /datum/crafting_recipe/food/blumpkinpie
-	name = "Blumpkin pie"
+	name = "蓝南瓜派"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -212,7 +212,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/dulcedebatata
-	name = "Dulce de batata"
+	name = "红薯冻"
 	reqs = list(
 		/datum/reagent/consumable/vanilla = 5,
 		/datum/reagent/water = 5,
@@ -224,7 +224,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/frostypie
-	name = "Frosty pie"
+	name = "冰霜派"
 	reqs = list(
 		/obj/item/food/pie/plain = 1,
 		/obj/item/food/grown/bluecherries = 1
@@ -235,7 +235,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/baklava
-	name = "Baklava pie"
+	name = "坚果千层酥"
 	reqs = list(
 		/obj/item/food/butterslice = 2,
 		/obj/item/food/tortilla = 4, //Layers
@@ -247,7 +247,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/frenchsilkpie
-	name = "French silk pie"
+	name = "法式丝滑巧克力派"
 	reqs = list(
 		/datum/reagent/consumable/sugar = 5,
 		/obj/item/food/pie/plain = 1,
@@ -260,7 +260,7 @@
 	meal_category = MEAL_DESSERT
 
 /datum/crafting_recipe/food/shepherds_pie
-	name = "Shepherds pie"
+	name = "牧羊人派"
 	reqs = list(
 		/obj/item/food/mashed_potatoes = 1,
 		/obj/item/food/meat/cutlet = 3,

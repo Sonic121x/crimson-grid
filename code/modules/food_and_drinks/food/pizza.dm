@@ -36,19 +36,19 @@
 	. = ..()
 
 	if(istype(held_item) && (held_item.tool_behaviour in cutting_tools))
-		context[SCREENTIP_CONTEXT_LMB] = "Slice"
-		context[SCREENTIP_CONTEXT_RMB] = "Slice apart"
+		context[SCREENTIP_CONTEXT_LMB] = "切片"
+		context[SCREENTIP_CONTEXT_RMB] = "切开分离"
 		return TRUE
 
 	if(sliced)
-		context[SCREENTIP_CONTEXT_LMB] = "Take Slice"
+		context[SCREENTIP_CONTEXT_LMB] = "取一片"
 		return TRUE
 
 /obj/item/food/pizza/examine(mob/user)
 	. = ..()
 	if(isnull(slice_type) || !sliced)
 		return
-	. += span_notice("You can slice this to make it possible to take out slices with an empty hand!")
+	. += span_notice("将它切片后，就能空手取出披萨片！")
 
 /obj/item/food/pizza/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = NONE
@@ -57,7 +57,7 @@
 	if(!sliced)
 		slice(user, tool)
 		return ITEM_INTERACT_SUCCESS
-	user.visible_message(span_notice("[user] seperates [src] into individual slices with [tool]."))
+	user.visible_message(span_notice("[user]用[tool]将[src]分成了独立的披萨片。"))
 	cut_apart()
 	return ITEM_INTERACT_SUCCESS
 
@@ -65,7 +65,7 @@
 	. = NONE
 	if(isnull(slice_type) || !(tool.tool_behaviour in cutting_tools))
 		return
-	visible_message(span_notice("[user] seperates [src] into individual slices with [tool]."))
+	visible_message(span_notice("[user]用[tool]将[src]分成了独立的披萨片。"))
 	cut_apart()
 	return ITEM_INTERACT_SUCCESS
 
@@ -73,7 +73,7 @@
 	. = ..()
 	if(!sliced)
 		return
-	user.visible_message(span_notice("[user] takes a slice of [src]."), span_notice("You take a slice of [src]."))
+	user.visible_message(span_notice("[user]从[src]上取了一片。"), span_notice("你从[src]上取了一片。"))
 	produce_slice(user)
 
 /obj/item/food/pizza/proc/get_slices_filter() //to not repeat code
@@ -85,7 +85,7 @@
 		return
 	tool?.play_tool_sound(src)
 	sliced = TRUE
-	user?.visible_message(span_notice("[user] cuts [src] into 6 slices with [tool]."))
+	user?.visible_message(span_notice("[user]用[tool]将[src]切成了6片。"))
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
 /obj/item/food/pizza/proc/cut_apart()
@@ -130,22 +130,22 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pizzaslice/make_processable()
-	AddElement(/datum/element/processable, TOOL_ROLLINGPIN, /obj/item/stack/sheet/pizza, 1, 1 SECONDS, table_required = TRUE, screentip_verb = "Flatten", sound_to_play = SFX_ROLLING_PIN_ROLLING)
+	AddElement(/datum/element/processable, TOOL_ROLLINGPIN, /obj/item/stack/sheet/pizza, 1, 1 SECONDS, table_required = TRUE, screentip_verb = "擀平", sound_to_play = SFX_ROLLING_PIN_ROLLING)
 
 /obj/item/food/pizza/custom
-	name = "pizza"
-	desc = "A fancy custom pizza."
+	name = "披萨"
+	desc = "一份精致的自制披萨。"
 	icon_state = "pizzamargherita" // Colored by the ingredient_holder component
 	slice_type = /obj/item/food/pizzaslice/custom
 
 /obj/item/food/pizzaslice/custom
-	name = "pizza slice"
-	desc = "A slice of custom fancy pizza."
+	name = "披萨片"
+	desc = "一片精致的自制披萨。"
 	icon_state = "pizzamargheritaslice"
 
 /obj/item/food/pizza/margherita
-	name = "pizza margherita"
-	desc = "The most cheezy pizza in galaxy."
+	name = "玛格丽特披萨"
+	desc = "全银河奶酪味最浓郁的披萨。"
 	icon_state = "pizzamargherita"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -156,11 +156,11 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/margherita
-	boxtag = "Margherita Deluxe"
+	boxtag = "豪华玛格丽特"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/margherita/raw
-	name = "raw pizza margherita"
+	name = "生玛格丽特披萨"
 	icon_state = "pizzamargherita_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -178,8 +178,8 @@
 	)
 
 /obj/item/food/pizzaslice/margherita
-	name = "margherita slice"
-	desc = "A slice of the most cheezy pizza in galaxy."
+	name = "玛格丽特披萨片"
+	desc = "一片全银河奶酪味最浓郁的披萨。"
 	icon_state = "pizzamargheritaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
@@ -190,8 +190,8 @@
 	AddComponent(/datum/component/ingredients_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 12)
 
 /obj/item/food/pizza/meat
-	name = "meatpizza"
-	desc = "Greasy pizza with delicious meat."
+	name = "肉披萨"
+	desc = "油滋滋的披萨，铺满了美味的肉。"
 	icon_state = "meatpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -201,12 +201,12 @@
 	)
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT
 	slice_type = /obj/item/food/pizzaslice/meat
-	boxtag = "Meatlovers' Supreme"
+	boxtag = "肉食至尊"
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/pizza/meat/raw
-	name = "raw meatpizza"
+	name = "生肉披萨"
 	icon_state = "meatpizza_raw"
 	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT | RAW
 	slice_type = null
@@ -215,16 +215,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/meat, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/meat
-	name = "meatpizza slice"
-	desc = "A nutritious slice of meatpizza."
+	name = "肉披萨片"
+	desc = "一片营养丰富的肉披萨。"
 	icon_state = "meatpizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizzaslice/meat/pizzeria //Reward for pizzeria bitrunning domain; not really meant to be eaten but functionality as food still exists for remote tasters and absurdly determined persons.
-	name = "pizzeria meatpizza slice"
-	desc = "An barely nutritious slice of meatpizza from a long-closed pizzeria. It's hard as cardboard and barely seems edible, probably not worth breaking your jaw trying to eat it."
+	name = "老披萨店肉披萨片"
+	desc = "来自一家早已关门的披萨店，几乎没有营养的肉披萨片。它硬得像纸板，看着就难以下咽，大概不值得为了吃它把下巴弄坏。"
 	tastes = list("crust" = 1, "ketchup" = 1, "'cheese'" = 1, "mystery meat" = 1, "glue" = 1)
 	bite_consumption = 0.1
 	food_reagents = list(
@@ -241,13 +241,13 @@
 /obj/item/food/pizzaslice/meat/pizzeria/proc/on_consumed(datum/source, mob/living/eater, mob/feeder)
 	SIGNAL_HANDLER
 
-	to_chat(eater, span_notice("You finally finish eating that piece of trash, and your stomach pains reflect that. Surely there was a better use for this slice of pizza..."))
+	to_chat(eater, span_notice("你终于吃完了那块垃圾，胃痛也随之而来。这片披萨肯定还有更好的用途……"))
 
 	return NONE
 
 /obj/item/food/pizza/mushroom
-	name = "mushroom pizza"
-	desc = "Very special pizza."
+	name = "蘑菇披萨"
+	desc = "一份非常特别的披萨。"
 	icon_state = "mushroompizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 28,
@@ -257,11 +257,11 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/mushroom
-	boxtag = "Mushroom Special"
+	boxtag = "蘑菇特选"
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/pizza/mushroom/raw
-	name = "raw mushroom pizza"
+	name = "生蘑菇披萨"
 	icon_state = "mushroompizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -270,8 +270,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mushroom, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/mushroom
-	name = "mushroom pizza slice"
-	desc = "Maybe it is the last slice of pizza in your life."
+	name = "蘑菇披萨片"
+	desc = "这可能是你这辈子吃的最后一片披萨。"
 	icon_state = "mushroompizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
@@ -279,8 +279,8 @@
 
 
 /obj/item/food/pizza/vegetable
-	name = "vegetable pizza"
-	desc = "No one of Tomatoes Sapiens were harmed during making this pizza."
+	name = "蔬菜披萨"
+	desc = "制作这份披萨的过程中，没有任何番茄智人受到伤害。"
 	icon_state = "vegetablepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -290,11 +290,11 @@
 	tastes = list("crust" = 1, "tomato" = 2, "cheese" = 1, "carrot" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/vegetable
-	boxtag = "Gourmet Vegetable"
+	boxtag = "精选时蔬"
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/pizza/vegetable/raw
-	name = "raw vegetable pizza"
+	name = "生蔬菜披萨"
 	icon_state = "vegetablepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -304,16 +304,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/vegetable, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/vegetable
-	name = "vegetable pizza slice"
-	desc = "A slice of the most green pizza of all pizzas not containing green ingredients."
+	name = "蔬菜披萨片"
+	desc = "在所有不含绿色食材的披萨里，这一片最“绿色”。"
 	icon_state = "vegetablepizzaslice"
 	tastes = list("crust" = 1, "tomato" = 2, "cheese" = 1, "carrot" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/donkpocket
-	name = "donkpocket pizza"
-	desc = "Who thought this would be a good idea?"
+	name = "当克口袋饼披萨"
+	desc = "谁会觉得这是个好主意？"
 	icon_state = "donkpocketpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -325,12 +325,12 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "umami" = 1, "laziness" = 1)
 	foodtypes = GRAIN|VEGETABLES|DAIRY|JUNKFOOD
 	slice_type = /obj/item/food/pizzaslice/donkpocket
-	boxtag = "Bangin' Donk"
+	boxtag = "超赞当克"
 	crafting_complexity = FOOD_COMPLEXITY_3
 	intrinsic_food_materials = list(/datum/material/meat) //default donkpockets do not contain meat but homemade ones do.
 
 /obj/item/food/pizza/donkpocket/raw
-	name = "raw donkpocket pizza"
+	name = "生当克口袋饼披萨"
 	icon_state = "donkpocketpizza_raw"
 	foodtypes = GRAIN|VEGETABLES|DAIRY|JUNKFOOD|RAW
 	slice_type = null
@@ -339,16 +339,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/donkpocket, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/donkpocket
-	name = "donkpocket pizza slice"
-	desc = "Smells like donkpocket."
+	name = "当克口袋饼披萨片"
+	desc = "闻起来像当克口袋饼。"
 	icon_state = "donkpocketpizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "umami" = 1, "laziness" = 1)
 	foodtypes = GRAIN|VEGETABLES|DAIRY|JUNKFOOD
 	intrinsic_food_materials = list(/datum/material/meat) //default donkpockets do not contain meat but homemade ones do.
 
 /obj/item/food/pizza/dank
-	name = "dank pizza"
-	desc = "The hippie's pizza of choice."
+	name = "大麻披萨"
+	desc = "嬉皮士的披萨首选。"
 	icon_state = "dankpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -359,11 +359,11 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "weed" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 	slice_type = /obj/item/food/pizzaslice/dank
-	boxtag = "Fresh Herb"
+	boxtag = "新鲜香草"
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/dank/raw
-	name = "raw dank pizza"
+	name = "生大麻披萨"
 	icon_state = "dankpizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	slice_type = null
@@ -372,15 +372,15 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/dank, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/dank
-	name = "dank pizza slice"
-	desc = "So good, man..."
+	name = "大麻披萨片"
+	desc = "兄弟，太爽了……"
 	icon_state = "dankpizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "weed" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/pizza/sassysage
-	name = "sassysage pizza"
-	desc = "You can almost taste the sassiness."
+	name = "骚气香肠披萨"
+	desc = "你几乎能尝到那股骚气。"
 	icon_state = "sassysagepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -391,12 +391,12 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	slice_type = /obj/item/food/pizzaslice/sassysage
-	boxtag = "Sausage Lovers"
+	boxtag = "香肠爱好者"
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/pizza/sassysage/raw
-	name = "raw sassysage pizza"
+	name = "生骚气香肠披萨"
 	icon_state = "sassysagepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | RAW
 	slice_type = null
@@ -405,16 +405,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/sassysage, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/sassysage
-	name = "sassysage pizza slice"
-	desc = "Deliciously sassy."
+	name = "骚气香肠披萨片"
+	desc = "骚气又美味。"
 	icon_state = "sassysagepizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "meat" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/pizza/pineapple
-	name = "\improper Hawaiian pizza"
-	desc = "The pizza equivalent of Einstein's riddle."
+	name = "\improper 夏威夷披萨"
+	desc = "披萨界的爱因斯坦谜题。"
 	icon_state = "pineapplepizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 20,
@@ -426,12 +426,12 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pineapple" = 2, "ham" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
 	slice_type = /obj/item/food/pizzaslice/pineapple
-	boxtag = "Honolulu Chew"
+	boxtag = "檀香山嚼趣"
 	crafting_complexity = FOOD_COMPLEXITY_4
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/pizza/pineapple/raw
-	name = "raw Hawaiian pizza"
+	name = "生夏威夷披萨"
 	icon_state = "pineapplepizza_raw"
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE | RAW
 	slice_type = null
@@ -440,8 +440,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/pineapple, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/pineapple
-	name = "\improper Hawaiian pizza slice"
-	desc = "A slice of delicious controversy."
+	name = "\improper 夏威夷披萨片"
+	desc = "一片饱受争议的美味。"
 	icon_state = "pineapplepizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pineapple" = 2, "ham" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE
@@ -450,9 +450,9 @@
 // Moldly Pizza
 // Used in cytobiology.
 /obj/item/food/pizzaslice/moldy
-	name = "moldy pizza slice"
-	desc = "This was once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores. \
-		What a bummer! But we should not dwell on the past, only look towards the future."
+	name = "发霉披萨片"
+	desc = "它曾是一片完好的披萨，如今却腐臭地躺在这里，长满了孢子。 \
+		真可惜！不过我们不该沉溺过去，而应展望未来。"
 	icon_state = "moldy_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -465,8 +465,8 @@
 	preserved_food = TRUE
 
 /obj/item/food/pizzaslice/moldy/bacteria
-	name = "bacteria rich moldy pizza slice"
-	desc = "Not only is this once delicious pizza encrusted with a layer of spore-spewing fungus, it also seems to shift and slide when unattended, teeming with new life."
+	name = "富菌发霉披萨片"
+	desc = "这片曾经美味的披萨不仅裹满了喷吐孢子的霉菌，还似乎会在无人注意时自行蠕动，充满了新生命。"
 
 /obj/item/food/pizzaslice/moldy/bacteria/Initialize(mapload)
 	. = ..()
@@ -475,8 +475,8 @@
 // Arnold Pizza
 // Has meme code.
 /obj/item/food/pizza/arnold
-	name = "\improper Arnold pizza"
-	desc = "Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni."
+	name = "\improper 阿诺披萨"
+	desc = "你好，这里是阿诺披萨店。我现在不在，出去宰意式辣香肠了。"
 	icon_state = "arnoldpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
@@ -487,13 +487,13 @@
 	)
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pepperoni" = 2, "9 millimeter bullets" = 2)
 	slice_type = /obj/item/food/pizzaslice/arnold
-	boxtag = "9mm Pepperoni"
+	boxtag = "9毫米意式辣香肠"
 	foodtypes = MEAT|GRAIN|DAIRY|VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_4
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 8, /datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/pizza/arnold/raw
-	name = "raw Arnold pizza"
+	name = "生阿诺披萨"
 	icon_state = "arnoldpizza_raw"
 	foodtypes = MEAT|GRAIN|DAIRY|VEGETABLES|RAW
 	slice_type = null
@@ -510,19 +510,19 @@
 	var/did_the_thing = (left?.dismember() || right?.dismember()) //not all limbs can be removed, so important to check that we did. the. thing.
 	if(!did_the_thing)
 		return
-	to_chat(user, span_userdanger("Maybe I'll give you a pizza, maybe I'll break off your arm.")) //makes the reference more obvious
-	user.visible_message(span_warning("\The [src] breaks off [user]'s arm!"), span_warning("\The [src] breaks off your arm!"))
+	to_chat(user, span_userdanger("也许我会给你一份披萨，也许我会掰断你的胳膊。")) //makes the reference more obvious
+	user.visible_message(span_warning("[src]扯断了[user]的胳膊！"), span_warning("[src]扯断了你的胳膊！"))
 	playsound(user, SFX_DESECRATION, 50, TRUE, -1)
 
 /obj/item/food/proc/i_kill_you(obj/item/item, mob/living/user)
 	if(istype(item, /obj/item/food/pineappleslice))
-		to_chat(user, "<font color='red' size='7'>If you want something crazy like pineapple, I'll kill you.</font>") //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
+		to_chat(user, "<font color='red' size='7'>你要是敢加菠萝这种离谱的东西，我就宰了你。</font>") //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
 		user.investigate_log("has been gibbed by putting pineapple on an arnold pizza.", INVESTIGATE_DEATHS)
 		user.gib(DROP_ALL_REMAINS) //if you want something crazy like pineapple, i'll kill you
 		return TRUE
 
 	if(istype(item, /obj/item/food/grown/mushroom) && iscarbon(user))
-		to_chat(user, span_userdanger("So, if you want mushroom, shut up.")) //not as large as the pineapple text, because you could in theory spam it
+		to_chat(user, span_userdanger("所以，你要是想加蘑菇，就闭嘴。")) //not as large as the pineapple text, because you could in theory spam it
 		var/mob/living/carbon/shutup = user
 		shutup.gain_trauma(/datum/brain_trauma/severe/mute)
 		return TRUE
@@ -540,8 +540,8 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/food/pizzaslice/arnold
-	name = "\improper Arnold pizza slice"
-	desc = "I come over, maybe I give you a pizza, maybe I break off your arm."
+	name = "\improper 阿诺披萨片"
+	desc = "我过来了，也许会给你一份披萨，也许会掰断你的胳膊。"
 	icon_state = "arnoldpizzaslice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "pepperoni" = 2, "9 millimeter bullets" = 2)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT
@@ -559,8 +559,8 @@
 
 // Ant Pizza, now with more ants.
 /obj/item/food/pizzaslice/ants
-	name = "\improper Ant Party pizza slice"
-	desc = "The key to a perfect slice of pizza is not to overdo it with the ants."
+	name = "\improper 蚂蚁派对披萨片"
+	desc = "做出完美披萨片的关键，在于蚂蚁不能放太多。"
 	icon_state = "antpizzaslice"
 	food_reagents = list(
 		/datum/reagent/ants = 5,
@@ -571,8 +571,8 @@
 
 // Ethereal Pizza, for when they want a slice
 /obj/item/food/pizza/energy
-	name = "energy pizza"
-	desc = "You could probably power a RIPLEY with this. You should avoid eating this if you aren't an Ethereal."
+	name = "能量披萨"
+	desc = "这东西大概能给一台里普利机甲供电。如果你不是以太人，最好别吃。"
 	icon_state ="energypizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 18,
@@ -581,12 +581,12 @@
 	tastes = list("pure electricity" = 4, "pizza" = 2)
 	slice_type = /obj/item/food/pizzaslice/energy
 	foodtypes = GRAIN|TOXIC
-	boxtag = "24 Hour Energy"
+	boxtag = "24小时能量"
 	crafting_complexity = FOOD_COMPLEXITY_2
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.4, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/food/pizza/energy/raw
-	name = "raw energy pizza"
+	name = "生能量披萨"
 	icon_state = "energypizza_raw"
 	foodtypes = GRAIN|TOXIC|RAW
 	slice_type = null
@@ -595,16 +595,16 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/energy, rand(70 SECONDS, 80 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizzaslice/energy
-	name = "energy pizza slice"
-	desc = "You're thinking about using this to power your modsuit. You should avoid eating this if you aren't an Ethereal."
+	name = "能量披萨片"
+	desc = "你正考虑用它给模块服供电。如果你不是以太人，最好别吃。"
 	icon_state ="energypizzaslice"
 	tastes = list("pure electricity" = 4, "pizza" = 2)
 	foodtypes = GRAIN|TOXIC
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/raw_meat_calzone
-	name = "raw meat calzone"
-	desc = "A raw calzone, ready to be put in the oven."
+	name = "生肉馅意式馅饼"
+	desc = "一个生的意式馅饼，已经可以放进烤箱了。"
 	icon_state = "raw_calzone"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -621,8 +621,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/meat_calzone, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat_calzone
-	name = "meat calzone"
-	desc = "A calzone filled with cheese, meat, and a tomato sauce. Don't burn your tongue!."
+	name = "肉馅意式馅饼"
+	desc = "塞满奶酪、肉和番茄酱的意式馅饼。小心烫舌头！"
 	icon_state = "meat_calzone"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 8,
@@ -636,8 +636,8 @@
 	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/raw_vegetarian_calzone
-	name = "raw vegetarian calzone"
-	desc = "A raw calzone, ready to be put in the oven."
+	name = "生素食意式馅饼"
+	desc = "一个生的意式馅饼，已经可以放进烤箱了。"
 	icon_state = "raw_calzone"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -652,8 +652,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/vegetarian_calzone, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/vegetarian_calzone
-	name = "vegetarian calzone"
-	desc = "A calzone filled with mixed vegetables and a tomato sauce. A healthier, yet less satisfying alternative."
+	name = "素食意式馅饼"
+	desc = "塞满什锦蔬菜和番茄酱的意式馅饼。更健康，但也没那么过瘾。"
 	icon_state = "vegetarian_calzone"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 10,

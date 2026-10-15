@@ -1,5 +1,5 @@
 /obj/structure/door_assembly
-	name = "airlock assembly"
+	name = "气闸门框"
 	icon = 'icons/obj/doors/airlocks/station/public.dmi'
 	icon_state = "construction"
 	var/overlays_file = 'icons/obj/doors/airlocks/station/overlays.dmi'
@@ -9,7 +9,7 @@
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4)
 	/// Airlock's current construction state
 	var/state = AIRLOCK_ASSEMBLY_NEEDS_WIRES
-	var/base_name = "Airlock"
+	var/base_name = "气闸"
 	var/created_name = null
 	var/mineral = null
 	var/obj/item/electronics/airlock/electronics = null
@@ -35,10 +35,10 @@
 	var/material_amt = 4
 
 /obj/structure/door_assembly/multi_tile
-	name = "large airlock assembly"
+	name = "大型气闸门框"
 	icon = 'icons/obj/doors/airlocks/multi_tile/public/glass.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/multi_tile/public/overlays.dmi'
-	base_name = "large airlock"
+	base_name = "大型气闸"
 	glass_type = /obj/machinery/door/airlock/multi_tile/public/glass
 	airlock_type = /obj/machinery/door/airlock/multi_tile/public/glass
 	dir = EAST
@@ -67,29 +67,29 @@
 	switch(state)
 		if(AIRLOCK_ASSEMBLY_NEEDS_WIRES)
 			if(anchored)
-				. += span_notice("The anchoring bolts are <b>wrenched</b> in place, but the maintenance panel lacks <i>wiring</i>.")
+				. += span_notice("固定螺栓已用<b>扳手拧紧</b>，但维护面板内尚未<i>布线</i>。")
 			else
-				. += span_notice("The assembly is <b>welded together</b>, but the anchoring bolts are <i>unwrenched</i>.")
+				. += span_notice("门框已<b>焊接成型</b>，但固定螺栓尚未<i>拧紧</i>。")
 		if(AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS)
-			. += span_notice("The maintenance panel is <b>wired</b>, but the circuit slot is <i>empty</i>.")
+			. += span_notice("维护面板内已<b>布线</b>，但电路插槽仍是<i>空的</i>。")
 		if(AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
-			. += span_notice("The circuit is <b>connected loosely</b> to its slot, but the maintenance panel is <i>unscrewed and open</i>.")
+			. += span_notice("电路已<b>松松地接入</b>插槽，但维护面板仍<i>敞开且未拧紧螺丝</i>。")
 	if(!mineral && !nomineral && !glass && !noglass)
-		. += span_notice("There are <i>empty</i> slots for glass windows and mineral covers.")
+		. += span_notice("用于安装玻璃窗和矿物外板的插槽仍是<i>空的</i>。")
 	else if(!mineral && !nomineral && glass && !noglass)
-		. += span_notice("There are <i>empty</i> slots for mineral covers.")
+		. += span_notice("用于安装矿物外板的插槽仍是<i>空的</i>。")
 	else if(!glass && !noglass)
-		. += span_notice("There are <i>empty</i> slots for glass windows.")
+		. += span_notice("用于安装玻璃窗的插槽仍是<i>空的</i>。")
 	if(created_name)
-		. += span_notice("There is a small <i>paper</i> placard on the assembly, written on it is '[created_name]'.")
+		. += span_notice("门框上有一张小<i>纸</i>牌，上面写着“[created_name]”。")
 
 /obj/structure/door_assembly/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(anchored && state == AIRLOCK_ASSEMBLY_NEEDS_WIRES && istype(tool, /obj/item/stack/cable_coil))
 		if(!tool.tool_start_check(user, amount=1))
 			return ITEM_INTERACT_BLOCKING
 
-		user.visible_message(span_notice("[user] wires the airlock assembly."), \
-							span_notice("You start to wire the airlock assembly..."))
+		user.visible_message(span_notice("[user]正在为气闸门框布线。"), \
+							span_notice("你开始为气闸门框布线……"))
 		if(!tool.use_tool(src, user, 40, amount=1))
 			return ITEM_INTERACT_BLOCKING
 
@@ -97,16 +97,16 @@
 			return ITEM_INTERACT_BLOCKING
 
 		state = AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS
-		to_chat(user, span_notice("You wire the airlock assembly."))
-		name = "wired airlock assembly"
+		to_chat(user, span_notice("你为气闸门框布好了线。"))
+		name = "已布线的气闸门框"
 		update_name()
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 	if(state == AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS && istype(tool, /obj/item/electronics/airlock))
 		tool.play_tool_sound(src, 100)
-		user.visible_message(span_notice("[user] installs the electronics into the airlock assembly."), \
-							span_notice("You start to install electronics into the airlock assembly..."))
+		user.visible_message(span_notice("[user]正在将电子元件装入气闸门框。"), \
+							span_notice("你开始将电子元件装入气闸门框……"))
 		if(!do_after(user, 4 SECONDS, target = src))
 			return ITEM_INTERACT_BLOCKING
 
@@ -116,9 +116,9 @@
 		if(!user.transferItemToLoc(tool, src))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You install the airlock electronics."))
+		to_chat(user, span_notice("你装好了气闸电子元件。"))
 		state = AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER
-		name = "near finished airlock assembly"
+		name = "即将完工的气闸门框"
 		electronics = tool
 		update_name()
 		update_appearance()
@@ -128,22 +128,22 @@
 		var/obj/item/stack/sheet/sheet = tool
 		if(!glass && (istype(sheet, /obj/item/stack/sheet/rglass) || istype(sheet, /obj/item/stack/sheet/glass)))
 			if(noglass)
-				to_chat(user, span_warning("You cannot add [sheet] to [src]!"))
+				to_chat(user, span_warning("你无法将[sheet]装到[src]上！"))
 				return ITEM_INTERACT_BLOCKING
 			playsound(src, 'sound/items/tools/crowbar.ogg', 100, TRUE)
-			user.visible_message(span_notice("[user] adds [sheet.name] to the airlock assembly."), \
-								span_notice("You start to install [sheet.name] into the airlock assembly..."))
+			user.visible_message(span_notice("[user]正在将[sheet.name]装入气闸门框。"), \
+								span_notice("你开始将[sheet.name]装入气闸门框……"))
 			if(!do_after(user, 4 SECONDS, target = src))
 				return ITEM_INTERACT_BLOCKING
 			if(sheet.get_amount() < 1 || glass)
 				return ITEM_INTERACT_BLOCKING
 			if(sheet.type == /obj/item/stack/sheet/rglass)
-				to_chat(user, span_notice("You install [sheet.name] windows into the airlock assembly."))
+				to_chat(user, span_notice("你在气闸门框中装好了[sheet.name]窗。"))
 				heat_proof_finished = TRUE //reinforced glass makes the airlock heat-proof
-				name = "near finished heat-proofed window airlock assembly"
+				name = "即将完工的耐热玻璃气闸门框"
 			else
-				to_chat(user, span_notice("You install regular glass windows into the airlock assembly."))
-				name = "near finished window airlock assembly"
+				to_chat(user, span_notice("你在气闸门框中装好了普通玻璃窗。"))
+				name = "即将完工的玻璃气闸门框"
 			sheet.use(1)
 			glass = TRUE
 			update_name()
@@ -152,26 +152,26 @@
 
 		if(istype(sheet, /obj/item/stack/sheet/mineral) && sheet.construction_path_type)
 			if(nomineral || mineral)
-				to_chat(user, span_warning("You cannot add [sheet] to [src]!"))
+				to_chat(user, span_warning("你无法将[sheet]装到[src]上！"))
 				return ITEM_INTERACT_BLOCKING
 
 			var/type_path_extension = sheet.construction_path_type
 			var/mineralassembly = text2path("/obj/structure/door_assembly/door_assembly_[type_path_extension]")
 			if(!ispath(mineralassembly))
-				to_chat(user, span_warning("You cannot add [sheet] to [src]!"))
+				to_chat(user, span_warning("你无法将[sheet]装到[src]上！"))
 				return ITEM_INTERACT_BLOCKING
 
 			if(sheet.get_amount() < 2)
-				to_chat(user, span_warning("You need at least two sheets add a mineral cover!"))
+				to_chat(user, span_warning("安装矿物外板至少需要两张板材！"))
 				return ITEM_INTERACT_BLOCKING
 
 			playsound(src, 'sound/items/tools/crowbar.ogg', 100, TRUE)
-			user.visible_message(span_notice("[user] adds [sheet.name] to the airlock assembly."), \
-								span_notice("You start to install [sheet.name] into the airlock assembly..."))
+			user.visible_message(span_notice("[user]正在将[sheet.name]装入气闸门框。"), \
+								span_notice("你开始将[sheet.name]装入气闸门框……"))
 			if(!do_after(user, 4 SECONDS, target = src) || sheet.get_amount() < 2 || mineral)
 				return ITEM_INTERACT_BLOCKING
 
-			to_chat(user, span_notice("You install [type_path_extension] plating into the airlock assembly."))
+			to_chat(user, span_notice("你将[sheet.name]作为外板装在了气闸门框上。"))
 			sheet.use(2)
 			var/obj/structure/door_assembly/replacement_assembly = new mineralassembly(loc)
 
@@ -183,7 +183,7 @@
 				else
 					dropped_glass = new /obj/item/stack/sheet/glass(drop_location())
 				glass = FALSE
-				to_chat(user, span_notice("As you finish, a [dropped_glass.singular_name] falls out of [replacement_assembly]'s frame."))
+				to_chat(user, span_notice("完工时，一块[dropped_glass.singular_name]从[replacement_assembly]中掉了出来。"))
 
 			transfer_assembly_vars(src, replacement_assembly, TRUE)
 			return ITEM_INTERACT_SUCCESS
@@ -199,10 +199,10 @@
 
 	if(mineral)
 		var/obj/item/stack/sheet/mineral/mineral_path = text2path("/obj/item/stack/sheet/mineral/[mineral]")
-		user.visible_message(span_notice("[user] welds the [mineral] plating off the airlock assembly."), span_notice("You start to weld the [mineral] plating off the airlock assembly..."))
+		user.visible_message(span_notice("[user]正在用焊接工具拆下气闸门框上的[initial(mineral_path.name)]外板。"), span_notice("你开始用焊接工具拆下气闸门框上的[initial(mineral_path.name)]外板……"))
 		if(!tool.use_tool(src, user, 40, volume=50))
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You weld the [mineral] plating off."))
+		to_chat(user, span_notice("你用焊接工具拆下了[initial(mineral_path.name)]外板。"))
 		new mineral_path(loc, 2)
 		var/obj/structure/door_assembly/PA = new previous_assembly(loc)
 		transfer_assembly_vars(src, PA)
@@ -211,12 +211,12 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(glass)
-		user.visible_message(span_notice("[user] welds the glass panel out of the airlock assembly."), \
-							span_notice("You start to weld the glass panel out of the airlock assembly..."))
+		user.visible_message(span_notice("[user]正在用焊接工具拆下气闸门框中的玻璃板。"), \
+							span_notice("你开始用焊接工具拆下气闸门框中的玻璃板……"))
 		if(!tool.use_tool(src, user, 40, volume=50))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You weld the glass panel out."))
+		to_chat(user, span_notice("你用焊接工具拆下了玻璃板。"))
 		if(heat_proof_finished)
 			new /obj/item/stack/sheet/rglass(get_turf(src))
 			heat_proof_finished = FALSE
@@ -228,28 +228,28 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(!anchored)
-		user.visible_message(span_warning("[user] disassembles the airlock assembly."), \
-							span_notice("You start to disassemble the airlock assembly..."))
+		user.visible_message(span_warning("[user]正在拆解气闸门框。"), \
+							span_notice("你开始拆解气闸门框……"))
 		if(!tool.use_tool(src, user, 40, volume=50))
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You disassemble the airlock assembly."))
+		to_chat(user, span_notice("你拆解了气闸门框。"))
 		deconstruct(TRUE)
 		return ITEM_INTERACT_SUCCESS
 	// no return NONE at end because it's not possible we end up here
 
 /obj/structure/door_assembly/wrench_act(mob/living/user, obj/item/tool)
 	if(anchored)
-		user.visible_message(span_notice("[user] unsecures the airlock assembly from the floor."), \
-							span_notice("You start to unsecure the airlock assembly from the floor..."), \
-							span_hear("You hear wrenching."))
+		user.visible_message(span_notice("[user]正在松开气闸门框与地板之间的固定。"), \
+							span_notice("你开始松开气闸门框与地板之间的固定……"), \
+							span_hear("你听到了拧动扳手的声音。"))
 		if(!tool.use_tool(src, user, 40, volume=100))
 			return ITEM_INTERACT_BLOCKING
 
 		if(!anchored)
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You unsecure the airlock assembly."))
-		name = "airlock assembly"
+		to_chat(user, span_notice("你松开了气闸门框的固定。"))
+		name = "气闸门框"
 		set_anchored(FALSE)
 		update_name()
 		update_appearance()
@@ -262,12 +262,12 @@
 			break
 
 	if(door_check)
-		to_chat(user, "There is another door here!")
+		to_chat(user, "这里已经有另一扇门了！")
 		return ITEM_INTERACT_BLOCKING
 
-	user.visible_message(span_notice("[user] secures the airlock assembly to the floor."), \
-						span_notice("You start to secure the airlock assembly to the floor..."), \
-						span_hear("You hear wrenching."))
+	user.visible_message(span_notice("[user]正在将气闸门框固定在地板上。"), \
+						span_notice("你开始将气闸门框固定在地板上……"), \
+						span_hear("你听到了拧动扳手的声音。"))
 
 	if(!tool.use_tool(src, user, 40, volume=100))
 		return ITEM_INTERACT_BLOCKING
@@ -275,8 +275,8 @@
 	if(anchored)
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You secure the airlock assembly."))
-	name = "secured airlock assembly"
+	to_chat(user, span_notice("你固定好了气闸门框。"))
+	name = "已固定的气闸门框"
 	set_anchored(TRUE)
 	update_name()
 	update_appearance()
@@ -285,17 +285,17 @@
 /obj/structure/door_assembly/wirecutter_act(mob/living/user, obj/item/tool)
 	if(state != AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS)
 		return ITEM_INTERACT_SKIP_TO_ATTACK
-	user.visible_message(span_notice("[user] cuts the wires from the airlock assembly."), \
-						span_notice("You start to cut the wires from the airlock assembly..."))
+	user.visible_message(span_notice("[user]正在剪除气闸门框中的电线。"), \
+						span_notice("你开始剪除气闸门框中的电线……"))
 
 	if(!tool.use_tool(src, user, 40, volume=100))
 		return ITEM_INTERACT_BLOCKING
 	if(state != AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS)
 		return ITEM_INTERACT_BLOCKING
-	to_chat(user, span_notice("You cut the wires from the airlock assembly."))
+	to_chat(user, span_notice("你剪除了气闸门框中的电线。"))
 	new/obj/item/stack/cable_coil(get_turf(user), 1)
 	state = AIRLOCK_ASSEMBLY_NEEDS_WIRES
-	name = "secured airlock assembly"
+	name = "已固定的气闸门框"
 	update_name()
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
@@ -303,8 +303,8 @@
 /obj/structure/door_assembly/crowbar_act(mob/living/user, obj/item/tool)
 	if(state != AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 		return ITEM_INTERACT_SKIP_TO_ATTACK
-	user.visible_message(span_notice("[user] removes the electronics from the airlock assembly."), \
-						span_notice("You start to remove electronics from the airlock assembly..."))
+	user.visible_message(span_notice("[user]正在拆下气闸门框中的电子元件。"), \
+						span_notice("你开始拆下气闸门框中的电子元件……"))
 
 	if(!tool.use_tool(src, user, 40, volume=100))
 		return ITEM_INTERACT_BLOCKING
@@ -312,9 +312,9 @@
 	if(state != AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You remove the airlock electronics."))
+	to_chat(user, span_notice("你拆下了气闸电子元件。"))
 	state = AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS
-	name = "wired airlock assembly"
+	name = "已布线的气闸门框"
 	var/obj/item/electronics/airlock/ae
 	if (!electronics)
 		ae = new/obj/item/electronics/airlock(loc)
@@ -330,14 +330,14 @@
 	if(state != AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 		return ITEM_INTERACT_SKIP_TO_ATTACK
 
-	user.visible_message(span_notice("[user] finishes the airlock."), \
-						span_notice("You start finishing the airlock..."))
+	user.visible_message(span_notice("[user]正在完成气闸的最后组装。"), \
+						span_notice("你开始完成气闸的最后组装……"))
 	if(!tool.use_tool(src, user, 40, volume=100))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!loc || state != AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 		return ITEM_INTERACT_BLOCKING
-	to_chat(user, span_notice("You finish the airlock."))
+	to_chat(user, span_notice("你完成了气闸的组装。"))
 	finish_door()
 	return ITEM_INTERACT_SUCCESS
 
@@ -396,12 +396,12 @@
 	switch(state)
 		if(AIRLOCK_ASSEMBLY_NEEDS_WIRES)
 			if(anchored)
-				name = "secured "
+				name = "已固定的"
 		if(AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS)
-			name = "wired "
+			name = "已布线的"
 		if(AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
-			name = "near finished "
-	name += "[heat_proof_finished ? "heat-proofed " : ""][glass ? "window " : ""][base_name] assembly"
+			name = "即将完工的"
+	name += "[heat_proof_finished ? "耐热" : ""][glass ? "玻璃" : ""][base_name]门框"
 	return ..()
 
 /obj/structure/door_assembly/proc/transfer_assembly_vars(obj/structure/door_assembly/source, obj/structure/door_assembly/target, previous = FALSE)

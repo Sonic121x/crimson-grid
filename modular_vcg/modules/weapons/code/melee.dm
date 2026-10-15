@@ -26,8 +26,8 @@
 	wound_bonus = 15
 
 /obj/item/fireaxe/vamp/battle
-	name = "battle axe"
-	desc = "For going medieval on someone. A beastly war axe with two heads!"
+	name = "战斧"
+	desc = "用中世纪的方式收拾对手。这是一把凶悍的双刃战斧！"
 	icon = 'modular_vcg/modules/weapons/icons/weapons.dmi'
 	icon_state = "battleaxe0"
 	inhand_icon_state = null

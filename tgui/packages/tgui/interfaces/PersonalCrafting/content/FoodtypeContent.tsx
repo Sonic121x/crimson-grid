@@ -1,8 +1,8 @@
 import { Icon, Stack } from 'tgui-core/components';
 
 import { TYPE_ICONS } from '../constants';
+import { getCraftingLabel } from '../helpers';
 import type { Diet } from '../types';
-
 type Props = {
   craftableCount?: number;
   diet: Diet;
@@ -34,7 +34,7 @@ export function FoodtypeContent(props: Props) {
         <Icon name={TYPE_ICONS[type] || 'circle'} />
       </Stack.Item>
       <Stack.Item grow style={{ textTransform: 'capitalize' }}>
-        {type.toLowerCase()}
+        {type === 'CHOCOLATE' ? '巧克力' : getCraftingLabel(type)}
       </Stack.Item>
       <Stack.Item>
         {type === 'Can Make'

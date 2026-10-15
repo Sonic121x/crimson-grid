@@ -1,8 +1,8 @@
 ////////////////////////////////////////////DONK POCKETS////////////////////////////////////////////
 
 /obj/item/food/donkpocket
-	name = "\improper Donk-pocket"
-	desc = "The food of choice for the seasoned traitor."
+	name = "\improper 当克口袋饼"
+	desc = "老练叛徒的首选食品。"
 	icon_state = "donkpocket"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -32,8 +32,8 @@
 	AddElement(/datum/element/microwavable, warm_type, string_assoc_list(list(/datum/reagent/medicine/omnizine = omnizine_to_add)), bad_recipe = !positive_result)
 
 /obj/item/food/donkpocket/warm
-	name = "warm Donk-pocket"
-	desc = "The heated food of choice for the seasoned traitor."
+	name = "热当克口袋饼"
+	desc = "老练叛徒首选的热食。"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
 		/datum/reagent/consumable/nutriment/protein = 2,
@@ -61,8 +61,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/donkpocket/dank
-	name = "\improper Dank-pocket"
-	desc = "The food of choice for the seasoned botanist."
+	name = "\improper 大麻口袋饼"
+	desc = "老练植物学家的首选食品。"
 	icon_state = "dankpocket"
 	food_reagents = list(
 		/datum/reagent/toxin/lipolicide = 3,
@@ -76,8 +76,8 @@
 	omnizine_to_add = 2
 
 /obj/item/food/donkpocket/warm/dank
-	name = "warm Dank-pocket"
-	desc = "The food of choice for the seasoned botanist."
+	name = "热大麻口袋饼"
+	desc = "老练植物学家的首选食品。"
 	icon_state = "dankpocket"
 	food_reagents = list(
 		/datum/reagent/toxin/lipolicide = 3,
@@ -90,8 +90,8 @@
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/donkpocket/spicy
-	name = "\improper Spicy-pocket"
-	desc = "The classic snack food, now with a heat-activated spicy flair."
+	name = "\improper 香辣口袋饼"
+	desc = "经典零食，加热后便能激发香辣风味。"
 	icon_state = "donkpocketspicy"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -104,8 +104,8 @@
 	omnizine_to_add = 2
 
 /obj/item/food/donkpocket/warm/spicy
-	name = "warm Spicy-pocket"
-	desc = "The classic snack food, now maybe a bit too spicy."
+	name = "热香辣口袋饼"
+	desc = "经典零食，现在可能有点辣过头了。"
 	icon_state = "donkpocketspicy"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -128,8 +128,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/donkpocket/teriyaki
-	name = "\improper Teriyaki-pocket"
-	desc = "An east-asian take on the classic stationside snack."
+	name = "\improper 照烧口袋饼"
+	desc = "空间站经典零食的东亚风味版本。"
 	icon_state = "donkpocketteriyaki"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -142,8 +142,8 @@
 	omnizine_to_add = 2
 
 /obj/item/food/donkpocket/warm/teriyaki
-	name = "warm Teriyaki-pocket"
-	desc = "An east-asian take on the classic stationside snack, now steamy and warm."
+	name = "热照烧口袋饼"
+	desc = "空间站经典零食的东亚风味版本，如今热气腾腾。"
 	icon_state = "donkpocketteriyaki"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -166,8 +166,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/donkpocket/pizza
-	name = "\improper Pizza-pocket"
-	desc = "Delicious, cheesy and surprisingly filling."
+	name = "\improper 披萨口袋饼"
+	desc = "美味、奶酪味浓郁，还出奇地顶饱。"
 	icon_state = "donkpocketpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -180,8 +180,8 @@
 	omnizine_to_add = 2
 
 /obj/item/food/donkpocket/warm/pizza
-	name = "warm Pizza-pocket"
-	desc = "Delicious, cheesy, and even better when hot."
+	name = "热披萨口袋饼"
+	desc = "美味、奶酪味浓郁，热着吃更棒。"
 	icon_state = "donkpocketpizza"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -193,8 +193,8 @@
 	foodtypes = VEGETABLES|GRAIN|DAIRY
 
 /obj/item/food/donkpocket/honk
-	name = "\improper Honk-pocket"
-	desc = "The award-winning donk-pocket that won the hearts of clowns and humans alike."
+	name = "\improper HONK口袋饼"
+	desc = "获奖的当克口袋饼，同时赢得了小丑和人类的喜爱。"
 	icon_state = "donkpocketbanana"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -217,8 +217,8 @@
 	AddElement(/datum/element/microwavable, warm_type, honk_added_reagents, positive_result)
 
 /obj/item/food/donkpocket/warm/honk
-	name = "warm Honk-pocket"
-	desc = "The award-winning donk-pocket, now warm and toasty."
+	name = "热HONK口袋饼"
+	desc = "获奖的当克口袋饼，如今烤得香热可口。"
 	icon_state = "donkpocketbanana"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -232,8 +232,8 @@
 	custom_materials = null
 
 /obj/item/food/donkpocket/berry
-	name = "\improper Berry-pocket"
-	desc = "A relentlessly sweet donk-pocket first created for use in Operation Dessert Storm."
+	name = "\improper 莓果口袋饼"
+	desc = "甜得毫不留情的当克口袋饼，最初为甜点风暴行动研制。"
 	icon_state = "donkpocketberry"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -246,8 +246,8 @@
 	omnizine_to_add = 2
 
 /obj/item/food/donkpocket/warm/berry
-	name = "warm Berry-pocket"
-	desc = "A relentlessly sweet donk-pocket, now warm and delicious."
+	name = "热莓果口袋饼"
+	desc = "甜得毫不留情的当克口袋饼，如今热乎美味。"
 	icon_state = "donkpocketberry"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -259,8 +259,8 @@
 	custom_materials = null
 
 /obj/item/food/donkpocket/gondola
-	name = "\improper Gondola-pocket"
-	desc = "The choice to use real gondola meat in the recipe is controversial, to say the least." //Only a monster would craft this.
+	name = "\improper 冈多拉口袋饼"
+	desc = "使用真正的冈多拉肉做馅，至少可以说，这个决定颇具争议。" //Only a monster would craft this.
 	icon_state = "donkpocketgondola"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -284,8 +284,8 @@
 	AddElement(/datum/element/microwavable, warm_type, gondola_added_reagents, positive_result)
 
 /obj/item/food/donkpocket/warm/gondola
-	name = "warm Gondola-pocket"
-	desc = "The choice to use real gondola meat in the recipe is controversial, to say the least."
+	name = "热冈多拉口袋饼"
+	desc = "使用真正的冈多拉肉做馅，至少可以说，这个决定颇具争议。"
 	icon_state = "donkpocketgondola"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 3,
@@ -298,8 +298,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/donkpocket/deluxe
-	name = "\improper Donk-pocket Deluxe"
-	desc = "Donk Co's latest product. Its recipe is a closely guarded secret."
+	name = "\improper 豪华当克口袋饼"
+	desc = "当克公司的最新产品，配方是严加保密的秘密。"
 	icon_state = "donkpocketdeluxe"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -324,8 +324,8 @@
 	AddElement(/datum/element/microwavable, warm_type, deluxe_added_reagents, positive_result)
 
 /obj/item/food/donkpocket/warm/deluxe
-	name = "warm Donk-pocket Deluxe"
-	desc = "Donk Co's latest product. It's crispy warm and oh-so perfectly toasted. Damn, that's a good looking Donk."
+	name = "热豪华当克口袋饼"
+	desc = "当克公司的最新产品。香脆热乎，火候完美。该死，这当克口袋饼看着真诱人。"
 	icon_state = "donkpocketdeluxe"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -338,8 +338,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/donkpocket/deluxe/nocarb
-	name = "\improper Meat-pocket"
-	desc = "The food of choice for the carnivorous traitor."
+	name = "\improper 纯肉口袋饼"
+	desc = "肉食叛徒的首选食品。"
 	icon_state = "donkpocketdeluxenocarb"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -353,8 +353,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/donkpocket/warm/deluxe/nocarb
-	name = "warm Meat-pocket"
-	desc = "The warm food of choice for the carnivorous traitor."
+	name = "热纯肉口袋饼"
+	desc = "肉食叛徒首选的热食。"
 	icon_state = "donkpocketdeluxenocarb"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -366,8 +366,8 @@
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/donkpocket/deluxe/vegan
-	name = "\improper Donk-roll"
-	desc = "The classic station snack, now with rice! Certified vegan and cruelty free by the Animal Liberation Front."
+	name = "\improper 当克米饭卷"
+	desc = "空间站经典零食，如今加入米饭！获动物解放阵线认证：纯素、无动物虐待。"
 	icon_state = "donkpocketdeluxevegan"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
@@ -381,8 +381,8 @@
 	custom_materials = null
 
 /obj/item/food/donkpocket/warm/deluxe/vegan
-	name = "warm Donk-roll"
-	desc = "The classic station snack, now with rice! It's been fried to perfection."
+	name = "热当克米饭卷"
+	desc = "空间站经典零食，如今加入米饭！煎炸火候恰到好处。"
 	icon_state = "donkpocketdeluxevegan"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
