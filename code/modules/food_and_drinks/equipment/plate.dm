@@ -1,6 +1,6 @@
 /obj/item/plate
-	name = "plate"
-	desc = "Holds food, powerful. Good for morale when you're not eating your spaghetti off of a desk."
+	name = "餐盘"
+	desc = "能盛食物，功能强大。不用趴在办公桌上吃意大利面，心情也会好些。"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "plate"
 	sound_vary = TRUE
@@ -31,10 +31,10 @@
 	if(!IS_EDIBLE(tool))
 		return NONE
 	if(tool.w_class > biggest_w_class)
-		balloon_alert(user, "too big!")
+		balloon_alert(user, "太大了！")
 		return ITEM_INTERACT_BLOCKING
 	if(contents.len >= max_items)
-		balloon_alert(user, "can't fit!")
+		balloon_alert(user, "放不下了！")
 		return ITEM_INTERACT_BLOCKING
 	//Center the icon where the user clicked.
 	if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
@@ -43,7 +43,7 @@
 		return ITEM_INTERACT_BLOCKING
 	tool.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -max_x_offset, max_x_offset)
 	tool.pixel_y = min(text2num(LAZYACCESS(modifiers, ICON_Y)) + placement_offset, max_height_offset)
-	to_chat(user, span_notice("You place [tool] on [src]."))
+	to_chat(user, span_notice("你将[tool]放在[src]上。"))
 	AddToPlate(tool, user)
 	return ITEM_INTERACT_SUCCESS
 
@@ -101,8 +101,8 @@
 	ItemRemovedFromPlate(moved_item)
 
 /obj/item/plate/large
-	name = "buffet plate"
-	desc = "A large plate made for the professional catering industry but also apppreciated by mukbangers and other persons of considerable size and heft."
+	name = "自助餐盘"
+	desc = "专为餐饮业制作的大餐盘，也深受吃播主播及其他大块头食客的喜爱。"
 	icon_state = "plate_large"
 	max_items = 12
 	max_x_offset = 8
@@ -110,8 +110,8 @@
 	biggest_w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/plate/small
-	name = "appetizer plate"
-	desc = "A small plate, perfect for appetizers, desserts or trendy modern cusine."
+	name = "开胃菜盘"
+	desc = "一个小餐盘，适合盛开胃菜、甜点或时髦的现代料理。"
 	icon_state = "plate_small"
 	max_items = 4
 	max_x_offset = 4
@@ -119,14 +119,14 @@
 	biggest_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/plate/iron
-	name = "metal plate"
+	name = "金属餐盘"
 	icon_state = "plate_metal"
-	desc = "Holds food, powerful. Good for morale when you're not eating your spaghetti off of a desk. Made from sturdier iron instead of more fragile ceramic."
+	desc = "能盛食物，功能强大。不用趴在办公桌上吃意大利面，心情也会好些。由更结实的铁制成，比陶瓷耐摔。"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 	fragile = FALSE
 
 /obj/item/plate_shard
-	name = "ceramic shard"
+	name = "陶瓷碎片"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "plate_shard1"
 	base_icon_state = "plate_shard"

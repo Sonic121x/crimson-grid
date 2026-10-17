@@ -7,184 +7,184 @@
 	unique = TRUE   // FALSE - Normal book, TRUE - Should not be treated as normal book, unable to be copied, unable to be modified
 
 /obj/item/book/manual/hydroponics_pod_people
-	name = "The Human Harvest: From Seed to Market"
+	name = "人类丰收：从种子到市场"
 	icon_state ="bookHydroponicsPodPeople"
-	starting_author = "Farmer John" // Whoever wrote the paper or book, can be changed by pen or PC. It is not automatically assigned.
-	starting_title = "The Human Harvest: From Seed to Market"
+	starting_author = "农夫约翰" // Whoever wrote the paper or book, can be changed by pen or PC. It is not automatically assigned.
+	starting_title = "人类丰收：从种子到市场"
 	//book contents below
 	starting_content = "\
-				<h3>Growing Humans</h3>\
+				<h3>种植人类</h3>\
 				\
-				Why would you want to grow humans? Well, I'm expecting most readers to be in the slave trade, but a few might actually\
-				want to revive fallen comrades. Growing pod people is actually quite simple:\
+				你为什么想种人类？我猜大多数读者都在做奴隶买卖，不过也可能有人真的\
+				想复活倒下的战友。种植荚人其实非常简单：\
 				<p>\
 				<ol>\
-				<li>Find a dead person who is in need of revival. </li>\
-				<li>Take a blood sample with a syringe (samples of their blood taken BEFORE they died will also work). </li>\
-				<li>Inject a packet of replica pod seeds (which can be acquired by either mutating cabbages into replica pods (and then harvesting said replica pods) or by purchasing them from certain corporate entities) with the blood sample. </li>\
-				<li>It is imperative to understand that injecting the replica pod plant with blood AFTER it has been planted WILL NOT WORK; you have to inject the SEED PACKET, NOT the TRAY. </li>\
-				<li>Plant the seeds. </li>\
-				<li>Tend to the replica pod's water and nutrition levels until it is time to harvest the podcloned humanoid. </li>\
-				<li>Note that if the corpse's mind (or spirit, or soul, or whatever the hell your local chaplain calls it) is already in a new body or has left this plane of existence entirely, you will just receive seed packets upon harvesting the replica pod plant, not a podperson. </li>\
+				<li>找一名需要复活的死者。 </li>\
+				<li>用注射器采集血样（死前采集的血样也可以使用）。 </li>\
+				<li>将血样注入一包复制荚种子。种子可以通过将卷心菜变异成复制荚后收获取得，也可向某些企业购买。 </li>\
+				<li>务必注意：种下之后再给复制荚植株注血是无效的；必须注入种子包，而不是种植盘。 </li>\
+				<li>种下种子。 </li>\
+				<li>照料复制荚，维持水分与营养，直到可以收获荚生克隆人。 </li>\
+				<li>注意：如果死者的意识（或精神、灵魂，随便当地牧师怎么称呼）已进入新身体，或彻底离开了这个存在位面，收获复制荚时就只能得到种子包，而非荚人。 </li>\
 				</ol>\
-				It really is that easy! Good luck!\
+				就是这么简单！祝你好运！\
 				\
 				"
 
 /obj/item/book/manual/ripley_build_and_repair
-	name = "APLU \"Ripley\" Construction and Operation Manual"
+	name = "APLU\"里普利\"建造与操作手册"
 	icon_state ="book"
-	starting_author = "Weyland-Yutani Corp"
-	starting_title = "APLU \"Ripley\" Construction and Operation Manual"
+	starting_author = "韦兰-汤谷公司"
+	starting_title = "APLU\"里普利\"建造与操作手册"
 	starting_content = "\
 				<center>\
-				<b style='font-size: 12px;'>Weyland-Yutani - Building Better Worlds</b>\
-				<h1>Autonomous Power Loader Unit \"Ripley\"</h1>\
+				<b style='font-size: 12px;'>韦兰-汤谷——建设更好的世界</b>\
+				<h1>自主动力装载机\"里普利\"</h1>\
 				</center>\
-				<h2>Specifications:</h2>\
+				<h2>技术规格：</h2>\
 				<ul>\
-				<li><b>Class:</b> Autonomous Power Loader</li>\
-				<li><b>Scope:</b> Logistics and Construction</li>\
-				<li><b>Weight:</b> 820kg (without operator and with empty cargo compartment)</li>\
-				<li><b>Height:</b> 2.5m</li>\
-				<li><b>Width:</b> 1.8m</li>\
-				<li><b>Top speed:</b> 5km/hour</li>\
-				<li><b>Operation in vacuum/hostile environment:</b> Possible</b>\
-				<li><b>Airtank Volume:</b> 500liters</li>\
-				<li><b>Devices:</b>\
+				<li><b>类别：</b> 自主动力装载机</li>\
+				<li><b>用途：</b> 物流与建造</li>\
+				<li><b>重量：</b> 820千克（不含操作员，货舱为空）</li>\
+				<li><b>高度：</b> 2.5米</li>\
+				<li><b>宽度：</b> 1.8米</li>\
+				<li><b>最高速度：</b> 5千米/小时</li>\
+				<li><b>真空及恶劣环境作业：</b> 支持</b>\
+				<li><b>气罐容积：</b> 500升</li>\
+				<li><b>设备：</b>\
 					<ul>\
-					<li>Hydraulic Clamp</li>\
-					<li>High-speed Drill</li>\
+					<li>液压夹钳</li>\
+					<li>高速钻头</li>\
 					</ul>\
 				</li>\
-				<li><b>Propulsion Device:</b> Power cell powered electro-hydraulic system.</li>\
-				<li><b>Power cell capacity:</b> Varies.</li>\
+				<li><b>驱动装置：</b> 电池供电的电液系统。</li>\
+				<li><b>电池容量：</b> 依配置而定。</li>\
 				</ul>\
 				\
-				<h2>Construction:</h2>\
+				<h2>建造：</h2>\
 				<ol>\
-				<li>Connect all exosuit parts to the chassis frame</li>\
-				<li>Connect all hydraulic fittings and tighten them up with a wrench</li>\
-				<li>Adjust the servohydraulics with a screwdriver</li>\
-				<li>Wire the chassis. (Cable is not included.)</li>\
-				<li>Use the wirecutters to remove the excess cable if needed.</li>\
-				<li>Install the central control module (Not included. Use supplied datadisk to create one).</li>\
-				<li>Secure the mainboard with a screwdriver.</li>\
-				<li>Install the peripherals control module (Not included. Use supplied datadisk to create one).</li>\
-				<li>Secure the peripherals control module with a screwdriver</li>\
-				<li>Install the internal armor plating (Not included due to Nanotrasen regulations. Can be made using 5 iron sheets.)</li>\
-				<li>Secure the internal armor plating with a wrench</li>\
-				<li>Weld the internal armor plating to the chassis</li>\
-				<li>Install the external reinforced armor plating (Not included due to Nanotrasen regulations. Can be made using 5 reinforced iron sheets.)</li>\
-				<li>Secure the external reinforced armor plating with a wrench</li>\
-				<li>Weld the external reinforced armor plating to the chassis</li>\
+				<li>将所有机甲部件连接到底盘框架</li>\
+				<li>连接全部液压接头，并用扳手拧紧</li>\
+				<li>用螺丝刀调整液压伺服系统</li>\
+				<li>为底盘布线。（不附带电缆。）</li>\
+				<li>必要时用剪线钳剪去多余电缆。</li>\
+				<li>安装中央控制模块（不附带。请用随附数据盘制造）。</li>\
+				<li>用螺丝刀固定主板。</li>\
+				<li>安装外围控制模块（不附带。请用随附数据盘制造）。</li>\
+				<li>用螺丝刀固定外围控制模块</li>\
+				<li>安装内部装甲板（依纳诺传讯规定不予附带。可用5块铁板制造。）</li>\
+				<li>用扳手固定内部装甲板</li>\
+				<li>将内部装甲板焊接到底盘上</li>\
+				<li>安装外部强化装甲板（依纳诺传讯规定不予附带。可用5块强化铁板制造。）</li>\
+				<li>用扳手固定外部强化装甲板</li>\
+				<li>将外部强化装甲板焊接到底盘上</li>\
 				\
-				<h2>Operation</h2>\
-				Please consult the Nanotrasen compendium \"Robotics for Dummies\".\
+				<h2>操作</h2>\
+				请参阅纳诺传讯汇编手册《机器人学入门》。\
 			"
 
 /obj/item/book/manual/chef_recipes
-	name = "Chef Recipes"
+	name = "厨师食谱"
 	icon_state = "cooked_book"
-	starting_author = "Lord Frenrir Cageth"
-	starting_title = "Chef Recipes"
+	starting_author = "弗伦里尔·凯格斯勋爵"
+	starting_title = "厨师食谱"
 	starting_content = "\
 				\
-				<h1>Food for Dummies</h1>\
-				Here is a guide on basic food recipes and also how to not poison your customers accidentally.\
+				<h1>烹饪入门</h1>\
+				本指南介绍基础食谱，以及如何避免一不小心毒倒顾客。\
 				\
 				\
-				<h2>Basic ingredients preparation:</h2>\
+				<h2>基础食材准备：</h2>\
 				\
-				<b>Dough:</b> 10u water + 15u flour for simple dough.<br>\
-				6u egg yolk + 12 egg white + 15u flour + 5u sugar for cake batter.<br>\
-				(15u soy milk can be substituted for the eggs.)<br>\
-				Doughs can be transformed by using a knife and rolling pin.<br>\
-				All doughs can be baked.<br>\
-				<b>Bowl:</b> Add recipe ingredients and liquid to make soups.<br>\
-				<b>Meat:</b> Grill it, process it, slice it into grillable cutlets with your knife, or use it raw.<br>\
-				<b>Cheese:</b> Add 5u universal enzyme (catalyst) to milk and soy milk to prepare cheese (sliceable) and tofu.<br>\
-				<b>Rice:</b> Mix 10u rice with 10u water then microwave it.\
+				<b>面团：</b> 10单位水 + 15单位面粉可制成普通面团。<br>\
+				6单位蛋黄 + 12单位蛋白 + 15单位面粉 + 5单位糖可制成蛋糕面糊。<br>\
+				（鸡蛋可用15单位豆奶代替。）<br>\
+				用刀和擀面杖可以改变面团的形状。<br>\
+				所有面团都能烘烤。<br>\
+				<b>碗：</b> 加入食谱要求的原料和液体即可制汤。<br>\
+				<b>肉：</b> 可以烤制、加工、用刀切成可烤的薄肉片，或者直接生用。<br>\
+				<b>奶酪：</b> 分别向牛奶与豆奶加入5单位通用酶（催化剂），可制成能切片的奶酪与豆腐。<br>\
+				<b>米饭：</b> 将10单位大米与10单位水混合，再用微波炉加热。\
 				\
-				<h2>Custom food:</h2>\
-				Add ingredients to a base item to prepare a custom meal.<br>\
-				The bases are:<br>\
-				- bun (burger)<br>\
-				- breadslices(sandwich)<br>\
-				- plain bread<br>\
-				- vanilla cake<br>\
-				- empty bowl (salad)<br>\
-				- bowl with liquid (soup)<br>\
-				- boiled spaghetti<br>\
-				- pizza bread<br>\
-				- iron rod (kebab)<br>\
-				- plain pie<br>\
-				- seaweed sheet(sushi)<br>\
+				<h2>自制料理：</h2>\
+				在基底物品上加入配料，即可准备自制餐点。<br>\
+				可用基底包括：<br>\
+				- 圆面包（汉堡）<br>\
+				- 面包片（三明治）<br>\
+				- 原味面包<br>\
+				- 香草蛋糕<br>\
+				- 空碗（沙拉）<br>\
+				- 装有液体的碗（汤）<br>\
+				- 煮熟的意大利面<br>\
+				- 披萨饼底<br>\
+				- 铁杆（烤肉串）<br>\
+				- 原味派<br>\
+				- 海苔片（寿司）<br>\
 				\
-				<h2>Cooking menu:</h2>\
-				Open the crafting menu and click the cooking tab to see the list of cookable food.\
+				<h2>烹饪菜单：</h2>\
+				打开合成菜单，点击烹饪标签，即可查看可制作的食物清单。\
 				\
-				<h2>Microwave:</h2>\
-				Use it to cook or boil food ingredients (egg, spaghetti, donkpocket, etc...).\
-				It can cook multiple items at once.\
+				<h2>微波炉：</h2>\
+				用于烹煮食材（鸡蛋、意大利面、当克口袋饼等）。\
+				可同时烹饪多件物品。\
 				\
-				<h2>Processor:</h2>\
-				Use it to process certain ingredients (meat into meatballs, doughslice into spaghetti, etc...)\
+				<h2>食品加工机：</h2>\
+				用于加工某些食材（将肉制成肉丸、将面皮制成意大利面等）。\
 				\
-				<h2>Gibber:</h2>\
-				Stuff an animal in it to grind it into meat.\
+				<h2>碎肉机：</h2>\
+				把动物塞进去，就能将它绞成肉。\
 				\
-				<h2>Meat spike:</h2>\
-				Stick an animal on it then begin collecting its meat.\
+				<h2>屠宰架：</h2>\
+				把动物挂上去，再开始取肉。\
 				\
 				\
-				<h2>Example recipes:</h2>\
-				<b>Vanilla Cake</b>: Bake cake base.<br>\
-				<b>Burger:</b> 1 bun + 1 patty<br>\
-				<b>Bread:</b> Bake dough.<br>\
-				<b>Waffles:</b> 2 pastry base<br>\
-				<b>Popcorn:</b> Microwave corn.<br>\
-				<b>Meat Steak:</b> Grill meat.<br>\
-				<b>Meat Pie:</b> 1 plain pie + 1u black pepper + 1u salt + 1 meat steak<br>\
-				<b>Boiled Spagetti:</b> Microwave spaghetti.<br>\
-				<b>Donuts:</b> 1u sugar + 1 pastry base<br>\
-				<b>Fries:</b> Cut and process potato.\
+				<h2>食谱示例：</h2>\
+				<b>香草蛋糕</b>：烘烤蛋糕坯。<br>\
+				<b>汉堡：</b> 1个圆面包 + 1块肉饼<br>\
+				<b>面包：</b> 烘烤面团。<br>\
+				<b>华夫饼：</b> 2份酥皮坯<br>\
+				<b>爆米花：</b> 微波加热玉米。<br>\
+				<b>肉排：</b> 烤肉。<br>\
+				<b>肉派：</b> 1个原味派 + 1单位黑胡椒 + 1单位盐 + 1块肉排<br>\
+				<b>煮意大利面：</b> 微波加热意大利面。<br>\
+				<b>甜甜圈：</b> 1单位糖 + 1份酥皮坯<br>\
+				<b>薯条：</b> 切好土豆，再用食品加工机加工。\
 				\
-				<h2>Sharing your food:</h2>\
-				You can put your meals on your kitchen counter or load them in the snack vending machines.\
+				<h2>分享食物：</h2>\
+				可以把做好的饭菜放在厨房柜台上，或装进零食售货机。\
 				"
 
 /obj/item/book/manual/nuclear
-	name = "Fission Mailed: Nuclear Sabotage 101"
+	name = "裂变失败：核破坏入门"
 	icon_state ="bookNuclear"
-	starting_author = "Syndicate"
-	starting_title = "Fission Mailed: Nuclear Sabotage 101"
+	starting_author = "辛迪加"
+	starting_title = "裂变失败：核破坏入门"
 	starting_content = "\
-			Nuclear Explosives 101:<br>\
-			Hello and thank you for choosing the Syndicate for your nuclear information needs.<br>\
-			Today's crash course will deal with the operation of a Fusion Class Nanotrasen made Nuclear Device.<br>\
-			First and foremost, DO NOT TOUCH ANYTHING UNTIL THE BOMB IS IN PLACE.<br>\
-			Pressing any button on the compacted bomb will cause it to extend and bolt itself into place.<br>\
-			If this is done to unbolt it one must completely log in which at this time may not be possible.<br>\
-			To make the nuclear device functional:<br>\
-			<li>Place the nuclear device in the designated detonation zone.</li>\
-			<li>Extend and anchor the nuclear device from its interface.</li>\
-			<li>Insert the nuclear authorisation disk into slot.</li>\
-			<li>Type numeric authorisation code into the keypad. This should have been provided. Note: If you make a mistake press R to reset the device.\
-			<li>Press the E button to log onto the device.</li>\
-			You now have activated the device. To deactivate the buttons at anytime for example when you've already prepped the bomb for detonation remove the auth disk OR press the R on the keypad.<br>\
-			Now the bomb CAN ONLY be detonated using the timer. Manual detonation is not an option.<br>\
-			Note: Nanotrasen is a pain in the neck.<br>\
-			Toggle off the SAFETY.<br>\
-			Note: You wouldn't believe how many Syndicate Operatives with doctorates have forgotten this step.<br>\
-			So use the - - and + + to set a det time between 5 seconds and 10 minutes.<br>\
-			Then press the timer toggle button to start the countdown.<br>\
-			Now remove the auth. disk so that the buttons deactivate.<br>\
-			Note: THE BOMB IS STILL SET AND WILL DETONATE<br>\
-			Now before you remove the disk if you need to move the bomb you can:<br>\
-			Toggle off the anchor, move it, and re-anchor.<br><br>\
-			Good luck. Remember the order:<br>\
-			<b>Disk, Code, Safety, Timer, Disk, RUN!</b><br>\
-			Intelligence Analysts believe that normal Nanotrasen procedure is for the Captain to secure the nuclear authorisation disk.<br>\
-			Good luck!\
+			核爆装置入门：<br>\
+			你好，感谢选择辛迪加来满足你的核技术信息需求。<br>\
+			今天的速成课将讲解纳诺传讯制造的聚变级核装置的操作。<br>\
+			首先，也是最重要的一点：炸弹就位前，什么都别碰。<br>\
+			按下收拢状态炸弹上的任意按钮，都会使其展开并用螺栓固定在原地。<br>\
+			一旦这样做，必须完整登录才能解除固定，而当时可能不具备登录条件。<br>\
+			要让核装置进入可操作状态：<br>\
+			<li>将核装置放在指定引爆区域。</li>\
+			<li>通过界面展开并固定核装置。</li>\
+			<li>将核认证磁盘插入插槽。</li>\
+			<li>在键盘上输入数字认证码，密码应已提供。注意：输错时按R可重置装置。\
+			<li>按E按钮登录装置。</li>\
+			现在你已经激活装置。任何时候想让按钮失效，例如炸弹准备就绪后，都可以取出认证磁盘，或按键盘上的R。<br>\
+			此时炸弹只能通过计时器引爆，无法手动引爆。<br>\
+			注意：纳诺传讯真是麻烦透顶。<br>\
+			关闭保险。<br>\
+			注意：你绝对想不到有多少拿着博士学位的辛迪加特工忘了这一步。<br>\
+			使用- -和+ +，将引爆时间设为5秒至10分钟。<br>\
+			然后按计时器开关，启动倒计时。<br>\
+			接着取出认证磁盘，让按钮失效。<br>\
+			注意：炸弹仍已设定完毕，依然会引爆。<br>\
+			如果需要移动炸弹，取出磁盘前可以这样做：<br>\
+			解除固定，移动炸弹，再重新固定。<br><br>\
+			祝你好运。牢记顺序：<br>\
+			<b>磁盘、密码、保险、计时器、磁盘，然后快跑！</b><br>\
+			情报分析员认为，纳诺传讯的常规流程是由船长保管核认证磁盘。<br>\
+			祝你好运！\
 			"

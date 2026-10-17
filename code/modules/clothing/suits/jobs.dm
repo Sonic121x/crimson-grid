@@ -111,8 +111,8 @@
 	bio = 50
 
 /obj/item/clothing/suit/apron/chef
-	name = "cook's apron"
-	desc = "A basic, dull, white chef's apron."
+	name = "厨师围裙"
+	desc = "一条普通、单调的白色厨师围裙。"
 	icon_state = "apronchef"
 	inhand_icon_state = null
 	blood_overlay_type = "armor"

@@ -1,6 +1,6 @@
 /datum/quirk/darkpack/forked_tongue
 	name = "Forked Tongue"
-	desc = "You have a forked tongue that makes pronouncing the letter s sound like hissing."
+	desc = "你的舌头末端分叉，发出字母 s 的音时听起来像蛇在嘶鸣。"
 	icon = FA_ICON_S
 	value = -1
 	allowed_splats = list(SPLAT_KINDRED)
@@ -24,16 +24,16 @@
 
 /datum/quirk/darkpack/permafangs/fake
 	name = "Cosmetic Fangs"
-	desc = "You've had your teeth filed or are wearing prosthetics for one reason or another, giving the appearance of fangs in your mouth. Many view your fangs as something exotic or eccentric but a few superstitious may find this more than exotic..."
+	desc = "出于某种原因，你磨尖了牙齿，或戴上了假牙，看上去仿佛长着獠牙。多数人只觉得这很新奇或古怪，但某些迷信的人可能会产生更多联想……"
 	value = -1
-	gain_text = span_notice("Your feel your teeth becoming sharp")
-	lose_text = span_notice("You feel your teeth becoming normal again.")
+	gain_text = span_notice("你感觉牙齿变尖了。")
+	lose_text = span_notice("你感觉牙齿恢复了正常。")
 	allowed_splats = list(SPLAT_NONE, SPLAT_GHOUL)
-	failure_message = "You feel your teeth becoming normal again."
+	failure_message = "你感觉牙齿恢复了正常。"
 
 /datum/quirk/darkpack/homestuck
 	name = "Home Stuck"
-	desc = "Your speech is hard to understand for others."
+	desc = "你的说话方式让别人难以理解。"
 	value = 0
 	icon = FA_ICON_HOUSE_USER
 	allowed_splats = list(SPLAT_KINDRED, SPLAT_GHOUL)
@@ -44,7 +44,7 @@
 
 /datum/quirk/darkpack/ghoul_armblade
 	name = "Armblade"
-	desc = "Through vicissitude, one of your arms has been given a horrifyingly sharp bone blade that is concealed."
+	desc = "塑形术将你的一条手臂改造成了暗藏锋利骨刃的恐怖武器。"
 	value = 5
 	icon = FA_ICON_PERSON_RIFLE
 	allowed_splats = list(SPLAT_GHOUL)

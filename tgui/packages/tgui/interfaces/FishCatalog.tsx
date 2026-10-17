@@ -68,52 +68,52 @@ export const FishCatalog = (props) => {
               title={
                 currentFish
                   ? capitalize(currentFish.name)
-                  : `${sponsored_by} Fish Index`
+                  : `${sponsored_by}鱼类索引`
               }
             >
               {currentFish && (
                 <LabeledList>
-                  <LabeledList.Item label="Description">
+                  <LabeledList.Item label="描述">
                     {currentFish.desc}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Water type">
-                    {currentFish.fluid}
+                  <LabeledList.Item label="水体类型">
+                    {({ Freshwater: '淡水', Saltwater: '海水', 'Sulfuric Water': '硫酸水', Air: '空气', Anadromous: '洄游水体', 'Any Fluid': '任意流体' } as Record<string, string>)[currentFish.fluid] || currentFish.fluid}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Temperature">
-                    {currentFish.temp_min} to {currentFish.temp_max}
+                  <LabeledList.Item label="温度">
+                    {currentFish.temp_min}至{currentFish.temp_max}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Feeding">
+                  <LabeledList.Item label="食物">
                     {currentFish.feed}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Acquisition">
+                  <LabeledList.Item label="获取方式">
                     {currentFish.source}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Average size">
-                    {currentFish.size} cm
+                  <LabeledList.Item label="平均体长">
+                    {currentFish.size}厘米
                   </LabeledList.Item>
-                  <LabeledList.Item label="Average weight">
-                    {currentFish.weight} kiloclam
+                  <LabeledList.Item label="平均重量">
+                    {currentFish.weight}千克
                   </LabeledList.Item>
-                  <LabeledList.Item label="Aquarium Beauty Score">
+                  <LabeledList.Item label="水族箱观赏评分">
                     {currentFish.beauty}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Fishing and Aquarium tips">
+                  <LabeledList.Item label="垂钓与饲养提示">
                     <LabeledList>
-                      <LabeledList.Item label="Fishing locations">
+                      <LabeledList.Item label="垂钓地点">
                         {currentFish.fishing_tips.spots}
                       </LabeledList.Item>
-                      <LabeledList.Item label="Favourite bait">
+                      <LabeledList.Item label="喜爱的鱼饵">
                         {currentFish.fishing_tips.favorite_bait}
                       </LabeledList.Item>
-                      <LabeledList.Item label="Disliked bait">
+                      <LabeledList.Item label="厌恶的鱼饵">
                         {currentFish.fishing_tips.disliked_bait}
                       </LabeledList.Item>
-                      <LabeledList.Item label="Behavior">
+                      <LabeledList.Item label="行为">
                         {currentFish.fishing_tips.traits}
                       </LabeledList.Item>
                     </LabeledList>
                   </LabeledList.Item>
-                  <LabeledList.Item label="Illustration">
+                  <LabeledList.Item label="图示">
                     <Box className={classes(['fish32x32', currentFish.icon])} />
                   </LabeledList.Item>
                 </LabeledList>

@@ -22,8 +22,8 @@
 	song.ui_interact(user)
 
 /obj/item/instrument/piano_synth/headphones
-	name = "headphones"
-	desc = "Unce unce unce unce. Boop!"
+	name = "耳机"
+	desc = "动次打次，动次打次。哔！"
 	icon = 'icons/obj/clothing/accessories.dmi'
 	worn_icon = 'icons/mob/clothing/head/costume.dmi'
 	lefthand_file = 'icons/mob/inhands/clothing/ears_lefthand.dmi'

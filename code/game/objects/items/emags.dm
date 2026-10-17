@@ -96,7 +96,7 @@
 
 /obj/item/card/emagfake
 	name = /obj/item/card/emag::name
-	desc = /obj/item/card/emag::desc + " Closer inspection shows that this card is a poorly made replica, with a \"Donk Co.\" logo stamped on the back."
+	desc = /obj/item/card/emag::desc + "仔细看就会发现，这张卡是粗制滥造的仿品，背面印着\"当克公司\"的标志。"
 	icon = /obj/item/card/emag::icon
 	icon_state = /obj/item/card/emag::icon_state
 	worn_icon_state = /obj/item/card/emag::worn_icon_state
@@ -109,7 +109,7 @@
 
 /obj/item/card/emagfake/attack_self(mob/user) //for assistants with balls of plasteel
 	if(Adjacent(user))
-		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [name]."), span_notice("You show [src]."))
+		user.visible_message(span_notice("[user]向你展示：[icon2html(src, viewers(user))] [name]。"), span_notice("你展示了[src]。"))
 	add_fingerprint(user)
 
 /obj/item/card/emagfake/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -117,7 +117,7 @@
 		playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE, frequency = 2)
 	else if(obj_flags & EMAGGED)
 		log_bomber(user, "triggered", src, "(rigged/emagged)")
-		visible_message(span_boldwarning("[src] begins to heat up!"))
+		visible_message(span_boldwarning("[src]开始发烫！"))
 		playsound(src, 'sound/items/bikehorn.ogg', 100, TRUE, frequency = 0.25)
 		addtimer(CALLBACK(src, PROC_REF(blow_up)), 1 SECONDS, TIMER_DELETE_ME)
 		exploding = TRUE
@@ -126,7 +126,7 @@
 	return ITEM_INTERACT_SKIP_TO_ATTACK // So it does the attack animation.
 
 /obj/item/card/emagfake/proc/blow_up()
-	visible_message(span_boldwarning("[src] explodes!"))
+	visible_message(span_boldwarning("[src]爆炸了！"))
 	explosion(src, light_impact_range = 1, explosion_cause = src)
 	qdel(src)
 
@@ -137,7 +137,7 @@
 	desc = /obj/item/card/emag::desc
 	obj_flags |= EMAGGED
 	if(user)
-		balloon_alert(user, "rigged to blow")
+		balloon_alert(user, "已设为爆炸陷阱")
 		log_bomber(user, "rigged to blow", src, "(emagging)")
 	return TRUE
 

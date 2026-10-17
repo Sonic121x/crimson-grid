@@ -69,19 +69,19 @@
 
 // Carpet
 /obj/item/seeds/grass/carpet
-	name = "carpet seed pack"
-	desc = "These seeds grow into stylish carpet samples."
+	name = "地毯种子包"
+	desc = "这些种子能长成时髦的地毯样品。"
 	icon_state = "seed-carpet"
 	species = "carpet"
-	plantname = "Carpet"
+	plantname = "地毯"
 	product = /obj/item/food/grown/grass/carpet
 	mutatelist = null
 	rarity = 10
 
 /obj/item/food/grown/grass/carpet
 	seed = /obj/item/seeds/grass/carpet
-	name = "carpet"
-	desc = "The textile industry's dark secret."
+	name = "地毯"
+	desc = "纺织业的黑暗秘密。"
 	icon_state = "carpetclump"
 	stacktype = /obj/item/stack/tile/carpet
 	can_distill = FALSE

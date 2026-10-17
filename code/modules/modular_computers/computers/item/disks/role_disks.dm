@@ -103,8 +103,8 @@
  * Science
  */
 /obj/item/disk/computer/ordnance
-	name = "ordnance data disk"
-	desc = "Removable disk used to download ordnance-related tablet apps."
+	name = "军械数据磁盘"
+	desc = "用于下载军械相关平板应用的可移动磁盘。"
 	icon_state = "datadisk5"
 	starting_programs = list(
 		/datum/computer_file/program/signal_commander,

@@ -48,7 +48,7 @@
 	var/mob/living/carbon/human/holder = get_id_holder()
 	if(holder)
 		playsound(holder, 'sound/machines/cryo_warning.ogg', 25, TRUE)
-		holder.balloon_alert(holder, "emergency access: [dept]")
+		holder.balloon_alert(holder, "紧急通行权限：[dept]")
 
 	// Enhanced logging
 	var/access_names = list()
@@ -69,8 +69,8 @@
 	// User feedback before clearing
 	var/mob/living/carbon/human/holder = get_id_holder()
 	if(holder)
-		holder.balloon_alert(holder, "[dept] access expired")
-		to_chat(holder, span_warning("Emergency access to [dept] has expired."))
+		holder.balloon_alert(holder, "[dept]通行权限已到期")
+		to_chat(holder, span_warning("[dept]的紧急通行权限已到期。"))
 
 	// Remove department's temporary access from the main access list
 	var/list/dept_access = reta_temp_access[dept]
@@ -110,8 +110,8 @@
 	// User feedback before clearing
 	var/mob/living/carbon/human/holder = get_id_holder()
 	if(holder)
-		holder.balloon_alert(holder, "emergency access expired")
-		to_chat(holder, span_warning("Emergency access has expired."))
+		holder.balloon_alert(holder, "紧急通行权限已到期")
+		to_chat(holder, span_warning("紧急通行权限已到期。"))
 
 	// Collect all temporary access flags for logging
 	var/list/all_temp_access = list()

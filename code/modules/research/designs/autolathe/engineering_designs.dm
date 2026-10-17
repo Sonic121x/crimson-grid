@@ -55,7 +55,7 @@
 
 
 /datum/design/miniature_power_cell
-	name = "Light Fixture Battery"
+	name = "灯具电池"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/glass =SMALL_MATERIAL_AMOUNT*0.2)
 	build_path = /obj/item/stock_parts/power_store/cell/emergency_light

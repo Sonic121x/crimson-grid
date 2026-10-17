@@ -2,9 +2,9 @@
 
 //These cards certainly won't tell the future, but you can play some nice games with them.
 /obj/item/toy/cards/deck/tarot
-	name = "tarot game deck"
-	desc = "A full 78 card game deck of tarot cards. Complete with 4 suites of 14 cards, and a full suite of trump cards."
-	cardgame_desc = "tarot card reading"
+	name = "塔罗牌组"
+	desc = "一副完整的78张塔罗游戏牌，包含四种花色，每种14张，以及一整套王牌。"
+	cardgame_desc = "塔罗牌占卜"
 	icon_state = "deck_tarot_full"
 	deckstyle = "tarot"
 

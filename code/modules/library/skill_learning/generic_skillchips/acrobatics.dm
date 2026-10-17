@@ -1,12 +1,12 @@
 /obj/item/skillchip/acrobatics
-	name = "old F058UR7 skillchip"
-	desc = "A formerly cutting-edge skillchip that granted the user an advanced, Olympian-level degree of kinesthesics for flipping, spinning, and absolutely nothing else. \
-		It was pulled off the markets shortly after release due to users damaging the chip's integrity from excessive acrobatics, causing deadly malfunctions. It really puts the 'flop' in 'Fosbury Flop'!"
-	skill_name = "Spinesthetics"
-	skill_description = "Allows you to flip and spin at an illegal and dangerous rate."
+	name = "旧款福斯贝里技能芯片"
+	desc = "曾经最尖端的技能芯片，赋予使用者奥运选手级别的翻腾、旋转运动感知能力，除此之外毫无用途。\
+		上市不久便被召回，因为用户过度翻腾会损坏芯片，引发致命故障。这下背越式跳高真成了背运式摔倒！"
+	skill_name = "旋转美学"
+	skill_description = "让你以危险且违法的速度翻腾和旋转。"
 	skill_icon = FA_ICON_WHEELCHAIR_ALT
-	activate_message = span_notice("You suddenly have an extremely advanced and complex sense of how to spin and flip with grace.")
-	deactivate_message = span_notice("Your divine grasp of Spinesthesics disappears entirely.")
+	activate_message = span_notice("你突然对如何优雅地旋转和翻腾有了极其高深复杂的感悟。")
+	deactivate_message = span_notice("你对旋转美学神乎其技的领悟彻底消失了。")
 	custom_premium_price = PAYCHECK_CREW * 4
 	/// set integrity to 1 when mapping for !!FUN!!
 	max_integrity = 100
@@ -57,15 +57,15 @@
 	switch(rand(mintegrity, get_integrity())) // 1 to 100 but gets worse every time
 		// CRIT FAIL
 		if(1)
-			bozo.visible_message(span_userdanger("[bozo]'s head suddenly explodes outwards!"))
+			bozo.visible_message(span_userdanger("[bozo]的头突然向外炸开了！"))
 
 			explosion(bozo, light_impact_range = 2, adminlog = TRUE, explosion_cause = src)
 			// WITNESS THE GORE
 			for(var/mob/living/splashed in view(2, bozo))
 				if(bozo.has_status_effect(/datum/status_effect/grouped/blindness))
-					to_chat(splashed, span_userdanger("You're splashed with something"))
+					to_chat(splashed, span_userdanger("有什么东西溅到了你身上"))
 				else
-					to_chat(splashed, span_userdanger("You are blinded by a shower of blood!"))
+					to_chat(splashed, span_userdanger("飞溅的鲜血遮住了你的视线！"))
 				splashed.Stun(1 SECONDS)
 				splashed.Knockdown(2 SECONDS)
 				splashed.set_eye_blur_if_lower(15 SECONDS)
@@ -92,8 +92,8 @@
 		// last chance to stop
 		if(7 to 9)
 			bozo.visible_message(
-				span_danger("[bozo] seems to short circuit!"),
-				span_userdanger("Your brain short circuits!"),
+				span_danger("[bozo]似乎短路了！"),
+				span_userdanger("你的大脑短路了！"),
 			)
 			// if they're susceptible to electrocution, confuse them
 			if(bozo.electrocute_act(15, bozo, 1, SHOCK_NOGLOVES|SHOCK_NOSTUN))
@@ -112,8 +112,8 @@
 				bozo.adjust_fire_stacks(11 - get_integrity())
 				bozo.ignite_mob()
 				bozo.visible_message(
-					span_danger("[bozo]'s head lights up!"),
-					span_userdanger("Your head hurts so much, it feels like it's on fire!"),
+					span_danger("[bozo]的头着火了！"),
+					span_userdanger("你的头疼得厉害，仿佛烧起来了！"),
 				)
 				ASYNC
 					bozo.emote("scream")
@@ -122,8 +122,8 @@
 				particle_path = /particles/smoke/steam/bad
 			else
 				bozo.visible_message(
-					span_danger("[bozo]'s head starts smoking!"),
-					span_userdanger("Your brain feels like it's on fire!"),
+					span_danger("[bozo]的头开始冒烟了！"),
+					span_userdanger("你感觉大脑正在燃烧！"),
 				)
 
 				// increase smokiness if already smoking
@@ -147,7 +147,7 @@
 		// hey, something isn't right...
 		if(16 to 50)
 			bozo.visible_message(
-				span_warning("[bozo]'s head sparks."),
+				span_warning("[bozo]的头冒出了火花。"),
 			)
 
 			sparks.amount = rand(1, 2)

@@ -184,10 +184,10 @@ GLOBAL_LIST_INIT(stacked_metabolization_effect, init_chemical_side_effects())
 		GLOB.chemical_reactions_list[reaction.type] = reaction
 
 		for(var/datum/reagent/reagent as anything in reaction.required_reagents)
-			reagents += list(list("name" = reagent::name, "id" = reagent))
+			reagents += list(list("name" = reagent::display_name || reagent::name, "id" = reagent))
 
 		for(var/datum/reagent/product as anything in reaction.results)
-			product_names += product::name
+			product_names += product::display_name || product::name
 			product_ids += product
 
 		var/product_name

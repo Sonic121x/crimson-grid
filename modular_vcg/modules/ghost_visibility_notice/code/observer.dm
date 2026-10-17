@@ -6,8 +6,8 @@
 /mob/dead/observer/get_status_tab_items()
 	. = ..()
 	if(!GLOB.observer_default_invisibility)
-		. += "Ghosts visible to the living!"
+		. += "生者可以看见幽灵！"
 	else if (!invisibility)
-		. += "You are visible to the living!"
+		. += "生者可以看见你！"
 	else if (invisibility <= SEE_INVISIBLE_LIVING)
-		. += "You are visibile to most living mobs!"
+		. += "大多数生者可以看见你！"

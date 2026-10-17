@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(localized_food_ingredient_names, list(/datum/reagent/consumable
 /proc/get_chem_id(chem_name)
 	for(var/X in GLOB.chemical_reagents_list)
 		var/datum/reagent/R = GLOB.chemical_reagents_list[X]
-		if(ckey(chem_name) == ckey(LOWER_TEXT(R.name)))
+		if((length(R.display_name) && chem_name == replacetext(LOWER_TEXT(R.display_name), " ", "")) || chem_name == replacetext(LOWER_TEXT(R.name), " ", "") || (length(ckey(chem_name)) && ckey(chem_name) == ckey(LOWER_TEXT(R.name))))
 			return X
 
 /proc/reagent_paths_list_to_text(list/reagents, addendum)

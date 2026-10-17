@@ -1,8 +1,8 @@
 #define CONFUSION_STACK_MAX_MULTIPLIER 2
 
 /obj/item/assembly/flash
-	name = "flash"
-	desc = "A powerful and versatile flashbulb device, with applications ranging from disorienting attackers to acting as visual receptors in robot production."
+	name = "闪光器"
+	desc = "强劲而多用途的闪光装置，既能使攻击者迷失方向，也可用作制造机器人时的视觉感受器。"
 	icon = 'icons/obj/devices/flash.dmi'
 	icon_state = "flash"
 	worn_icon_state = "flash"

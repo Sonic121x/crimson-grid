@@ -1,7 +1,7 @@
 
 /obj/item/gps
-	name = "global positioning system"
-	desc = "Helping lost explorers find their way through the wilds since 1967." // DARKPACK EDIT CHANGE
+	name = "全球定位系统"
+	desc = "自1967年以来，一直帮助迷路的探索者在荒野中找到方向。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/devices/tracker.dmi'
 	icon_state = "gps-c"
 	inhand_icon_state = "electronic"
@@ -42,17 +42,17 @@
 /obj/item/gps/mining
 	icon_state = "gps-m"
 	gpstag = "MINE0"
-	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+	desc = "有助于营救受困或受伤矿工的定位系统。采矿时随身带着一个，也许就能救你一命。"
 
 /obj/item/gps/cyborg
 	icon_state = "gps-b"
 	gpstag = "BORG0"
-	desc = "A mining cyborg internal positioning system. Used as a recovery beacon for damaged cyborg assets, or a collaboration tool for mining teams."
+	desc = "采矿半机械人的内置定位系统，可作为受损半机械人的回收信标，也可供采矿小队协同作业。"
 
 /obj/item/gps/mining/internal
 	icon_state = "gps-m"
 	gpstag = "MINER"
-	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+	desc = "有助于营救受困或受伤矿工的定位系统。采矿时随身带着一个，也许就能救你一命。"
 
 /*
  * GPS for pAIS, which only allows access if it's contained within the user.

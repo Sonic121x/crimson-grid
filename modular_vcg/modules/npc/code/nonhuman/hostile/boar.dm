@@ -1,6 +1,6 @@
 /mob/living/basic/pig/vampire
-	name = "wild boar"
-	desc = "A feral hog that has became invasive."
+	name = "野猪"
+	desc = "一头已经泛滥成灾的野猪。"
 	icon = 'modular_vcg/modules/npc/icons/32x32small.dmi'
 	icon_state = "boar"
 	icon_living = "boar"
@@ -13,7 +13,7 @@
 	exposed_wound_bonus = 15
 	sharpness = SHARP_EDGED
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_emote = list("loudly grunts","squeels", "grunts lowly")
+	speak_emote = list("大声哼叫","尖声嚎叫", "低声哼叫")
 	butcher_results = list(/obj/item/food/meat/slab/grassfed = 3)
 	attack_sound = 'sound/items/weapons/slice.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/goat
@@ -32,7 +32,7 @@
 	if (!COOLDOWN_FINISHED(src, gleam_cooldown))
 		return
 	visible_message(
-		span_danger("[src] gets an hateful-looking gleam in [p_their()] eye."),
+		span_danger("[src]的眼中闪过一丝仇恨的凶光。"),
 	)
 	COOLDOWN_START(src, gleam_cooldown, gleam_delay)
 
@@ -44,7 +44,7 @@
 /datum/emote/boar/oink
 	key = "oink"
 	key_third_person = "oinks"
-	message = "oinks!"
+	message = "哼哼叫着！"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	vary = TRUE
 	sound = SFX_PIG_OINK

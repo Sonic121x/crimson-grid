@@ -80,14 +80,14 @@
 	icon_state = "implantchair"
 
 /obj/structure/showcase/machinery/microwave
-	name = "\improper Nanotrasen-brand microwave"
-	desc = "The famous Nanotrasen-brand microwave, the multi-purpose cooking appliance every station needs! This one appears to be drawn onto a cardboard box."
+	name = "\improper 纳诺传讯牌微波炉"
+	desc = "大名鼎鼎的纳诺传讯牌微波炉，每座空间站都需要的多功能厨具！不过这一台似乎是画在纸箱上的。"
 	icon = 'icons/obj/machines/microwave.dmi'
 	icon_state = "mw_complete"
 
 /obj/structure/showcase/machinery/microwave_engineering
-	name = "\improper Nanotrasen Wave(tm) microwave"
-	desc = "Just when everyone thought Nanotrasen couldn't improve on their famous microwave, this 2563 model features Wave™! A Nanotrasen exclusive, Wave™ allows your PDA to be charged wirelessly through microwave frequencies. Because nothing says 'future' like charging your PDA while overcooking your leftovers. Nanotrasen Wave™ - Multitasking, redefined."
+	name = "\improper 纳诺传讯微波充™微波炉"
+	desc = "就在大家以为纳诺传讯已无法改进这款著名微波炉时，2563款搭载了微波充™！这项纳诺传讯独家技术可通过微波频率为PDA无线充电。一边给PDA充电，一边把剩饭热过头，这才叫未来。纳诺传讯微波充™——重新定义多任务处理。"
 	icon = 'icons/obj/machines/microwave.dmi'
 	icon_state = "engi_mw_complete"
 

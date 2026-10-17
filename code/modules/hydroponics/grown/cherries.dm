@@ -22,8 +22,8 @@
 
 /obj/item/food/grown/cherries
 	seed = /obj/item/seeds/cherry
-	name = "cherries"
-	desc = "Great for toppings!"
+	name = "樱桃"
+	desc = "用来点缀甜品再合适不过！"
 	icon_state = "cherry"
 	gender = PLURAL
 	bite_consumption_mod = 2

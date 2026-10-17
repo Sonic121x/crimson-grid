@@ -1,8 +1,8 @@
 
 /// Aquarium upgrades, can be applied to a basic aquarium to upgrade it into an advanced subtype.
 /obj/item/aquarium_upgrade
-	name = "Aquarium Upgrade"
-	desc = "An upgrade."
+	name = "鱼缸升级套件"
+	desc = "一套升级组件。"
 
 	icon = 'icons/obj/aquarium/supplies.dmi'
 	icon_state = "construction_kit"
@@ -15,29 +15,29 @@
 	if(!HAS_TRAIT(interacting_with, TRAIT_IS_AQUARIUM))
 		return NONE
 	if(upgrade_from_type != interacting_with.type)
-		interacting_with.balloon_alert(user, "wrong kind of aquarium!")
+		interacting_with.balloon_alert(user, "鱼缸类型不匹配！")
 		return ITEM_INTERACT_BLOCKING
-	interacting_with.balloon_alert(user, "upgrading...")
+	interacting_with.balloon_alert(user, "正在升级……")
 	if(!PERFORM_ALL_TESTS(aquarium_upgrade) && !do_after(user, 5 SECONDS, interacting_with))
 		return ITEM_INTERACT_BLOCKING
 	var/atom/movable/upgraded_aquarium = new upgrade_to_type(interacting_with.drop_location())
 	//This should transfer all the fish, reagents and settings from the aquarium component
 	interacting_with.TransferComponents(upgraded_aquarium)
-	upgraded_aquarium.balloon_alert(user, "upgraded")
+	upgraded_aquarium.balloon_alert(user, "升级完成")
 	qdel(src)
 	qdel(interacting_with)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/aquarium_upgrade/bioelec_gen
-	name = "aquarium bioelectricity kit"
-	desc = "All the required components to allow an aquarium to harness energy bioelectric fish."
+	name = "鱼缸生物发电套件"
+	desc = "使鱼缸能够利用发电鱼电能所需的全套组件。"
 	icon_state = "bioelec_kit"
 	upgrade_to_type = /obj/structure/aquarium/bioelec_gen
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 
 /obj/structure/aquarium/bioelec_gen
-	name = "bioelectricity generator"
-	desc = "An unconventional type of generator that boosts and harvests the energy produced by bioelectric fish."
+	name = "生物发电机"
+	desc = "放大并收集发电鱼产生电能的非常规发电机。"
 
 	icon_state = "bioelec_map"
 	base_icon_state = "bioelec"
@@ -56,21 +56,21 @@
 
 /obj/structure/aquarium/bioelec_gen/examine(mob/user)
 	. = ..()
-	. += span_boldwarning("WARNING! WARNING! WARNING!")
-	. += span_warning("The bioelectric potential of the fish inside is magnified to dangerous levels by the generator.")
-	. += span_notice("Tesla coils are required to collect this magnified energy... and you'll want a grounding rod to protect yourself as well.")
+	. += span_boldwarning("警告！警告！警告！")
+	. += span_warning("发电机将缸内鱼类的生物电势放大到了危险水平。")
+	. += span_notice("需要特斯拉线圈收集放大后的电能……最好再用接地棒保护自己。")
 
 /obj/item/aquarium_upgrade/bluespace_tank
-	name = "bluespace fish tank kit"
-	desc = "The required components to upgrade your portable fish tank into bottomless, handheld aquarium."
+	name = "蓝空间便携鱼缸套件"
+	desc = "将便携鱼缸升级为无底手持鱼缸所需的组件。"
 	icon_state = "bluespace_kit"
 	upgrade_from_type = /obj/item/fish_tank
 	upgrade_to_type = /obj/item/fish_tank/bluespace
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 3, /datum/material/titanium = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/fish_tank/bluespace
-	name = "bluespace fish tank"
-	desc = "All the capacity of a bulky room aquarium, squeezed in a bag-sized rectangular cuboid."
+	name = "蓝空间便携鱼缸"
+	desc = "将大型室内鱼缸的容量，压缩在一个手提袋大小的长方体中。"
 	icon_state = "fish_tank_bluespace_map"
 	base_icon_state = "fish_tank_bluespace"
 	w_class = WEIGHT_CLASS_NORMAL

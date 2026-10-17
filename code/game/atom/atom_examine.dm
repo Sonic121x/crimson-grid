@@ -37,20 +37,20 @@
 		if(!(reagent_sigreturn & STOP_GENERIC_REAGENT_EXAMINE))
 			if(reagents.flags & TRANSPARENT)
 				if(reagents.total_volume)
-					. += "It contains <b>[reagents.total_volume]</b> units of various reagents[user_sees_reagents ? ":" : "."]"
+					. += "内含<b>[reagents.total_volume]</b>单位混合试剂[user_sees_reagents ? "：" : "。"]"
 					if(user_sees_reagents || (reagent_sigreturn & ALLOW_GENERIC_REAGENT_EXAMINE)) //Show each individual reagent for detailed examination
 						for(var/datum/reagent/current_reagent as anything in reagents.reagent_list)
-							. += "&bull; [round(current_reagent.volume, CHEMICAL_VOLUME_ROUNDING)] units of [current_reagent.name]"
+							. += "&bull; [current_reagent.display_name || current_reagent.name]：[round(current_reagent.volume, CHEMICAL_VOLUME_ROUNDING)]单位"
 						if(reagents.is_reacting)
-							. += span_warning("It is currently reacting!")
-						. += span_notice("The solution's pH is [round(reagents.ph, 0.01)] and has a temperature of [reagents.chem_temp]K.")
+							. += span_warning("正在发生反应！")
+						. += span_notice("溶液的pH值为[round(reagents.ph, 0.01)]，温度为[reagents.chem_temp]K。")
 				else
-					. += "It contains:<br>Nothing."
+					. += "内含：<br>无。"
 			else if(reagents.flags & AMOUNT_VISIBLE)
 				if(reagents.total_volume)
-					. += span_notice("It has [reagents.total_volume] unit\s left.")
+					. += span_notice("还剩[reagents.total_volume]单位。")
 				else
-					. += span_danger("It's empty.")
+					. += span_danger("里面是空的。")
 
 		if(HAS_TRAIT(user, TRAIT_KEEN_NOSE))
 			var/sniff_text = get_sniff_examine(user)

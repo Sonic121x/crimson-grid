@@ -14,28 +14,28 @@
 	return response["result"]
 
 // Verb to toggle restart notifications
-GAME_VERB_DESC(/client, notify_restart, "Notify Restart", "Notifies you on Discord when the server restarts.", "OOC")
+GAME_VERB_DESC(/client, notify_restart, "重启通知", "服务器重启时通过Discord通知你。", "OOC")
 
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		to_chat(src, span_warning("此功能需要SQL数据库服务正常运行。"))
 		return
 
 	if(!SSplexora) // SS is still starting
-		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account "))
+		to_chat(src, span_notice("服务器仍在启动，请稍后再尝试绑定账号。"))
 		return
 
 	if(!CONFIG_GET(flag/plexora_enabled) || !SSplexora.enabled)
-		to_chat(src, span_warning("This feature requires Plexora to be enabled."))
+		to_chat(src, span_warning("此功能需要启用Plexora服务。"))
 		return
 
 	var/stored_id = SSplexora.lookup_id(ckey)
 	if(!stored_id) // Account is not linked
-		to_chat(src, span_warning("This requires you to link your Discord account with the \"Verify Discord Account\" verb."))
+		to_chat(src, span_warning("请先使用“验证Discord账号”功能绑定你的Discord账号。"))
 		return
 
 	if (!COOLDOWN_FINISHED(src, notify_toggle_cooldown))
-		to_chat(src, span_warning("Notify toggle on cooldown! ([COOLDOWN_TIMELEFT(src, notify_toggle_cooldown) * 0.1]s)"))
+		to_chat(src, span_warning("通知开关仍在冷却中！（[COOLDOWN_TIMELEFT(src, notify_toggle_cooldown) * 0.1]秒）"))
 		return
 
 	COOLDOWN_START(src, notify_toggle_cooldown, 5 SECONDS)
@@ -43,22 +43,22 @@ GAME_VERB_DESC(/client, notify_restart, "Notify Restart", "Notifies you on Disco
 	var/result = SSplexora.notify_signup(ckey)
 
 	if (!result)
-		to_chat(src, span_warning("Failed to toggle your notify status!"))
+		to_chat(src, span_warning("未能切换你的通知状态！"))
 		return
 
 	if (isnum(result))
 		if (result == 404)
-			to_chat(src, "Plexora failed to find your Discord account. This actually shouldn't happen.")
+			to_chat(src, "Plexora未找到你的Discord账号。这通常不应该发生。")
 		else if (result == 400)
-			to_chat(src, "Plexora failed to give a proper response due to SSplexoras request. Make a ticket on the Discord")
+			to_chat(src, "Plexora未能正确响应请求，请在Discord提交求助工单。")
 		else
-			to_chat(src, "Plexora gave an unexpected response ([result]). Uhm... Sorry, it shouldn't be this broken. Make a ticket on the Discord")
+			to_chat(src, "Plexora返回了意外响应（[result]），请在Discord提交求助工单。")
 		return
 
 	if (result == PLEXORA_NOTIFYSIGNUP_ENROLL)
-		to_chat(src, span_notice("You will now be notified when the server restarts"))
+		to_chat(src, span_notice("服务器重启时，你将收到通知。"))
 	else if (result == PLEXORA_NOTIFYSIGNUP_UNENROLL)
-		to_chat(src, span_notice("You will no longer be notified when the server restarts"))
+		to_chat(src, span_notice("服务器重启时，你将不再收到通知。"))
 	else
-		to_chat(src, span_warning("Plexora gave unexpected response, and was unable to toggle your notify status"))
+		to_chat(src, span_warning("Plexora返回了意外响应，未能切换你的通知状态。"))
 		stack_trace("Unexpected response for notify_signup, [result]")

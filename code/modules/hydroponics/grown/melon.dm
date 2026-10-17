@@ -31,7 +31,7 @@
 	if(seed)
 		pulp_count += round(seed.potency / 25)
 
-	user.balloon_alert(user, "scooped out [pulp_count] pulp(s)")
+	user.balloon_alert(user, "挖出了[pulp_count]份瓜瓤")
 	for(var/i in 1 to pulp_count)
 		new pulp_type(user.loc)
 
@@ -42,13 +42,13 @@
 			received_armor = new fire_resistant_chestplate_type
 		else
 			received_armor = new chestplate_type
-		to_chat(user, span_notice("You hollow \the [src] into a helmet with [tool]."))
+		to_chat(user, span_notice("你用[tool]把[src]挖成了头盔。"))
 	else
 		if(seed.resistance_flags & FIRE_PROOF)
 			received_armor = new fire_resistant_helmet_type
 		else
 			received_armor = new helmet_type
-		to_chat(user, span_notice("You hollow \the [src] into a chestplate with [tool]."))
+		to_chat(user, span_notice("你用[tool]把[src]挖成了胸甲。"))
 
 	remove_item_from_storage(user)
 	qdel(src)
@@ -82,8 +82,8 @@
 
 /obj/item/food/grown/melonlike/watermelon
 	seed = /obj/item/seeds/watermelon
-	name = "watermelon"
-	desc = "It's full of watery goodness."
+	name = "西瓜"
+	desc = "饱含清甜多汁的美味。"
 	icon_state = "watermelon"
 	inhand_icon_state = "watermelon"
 	bite_consumption_mod = 2

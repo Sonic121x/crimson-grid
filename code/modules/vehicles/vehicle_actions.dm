@@ -349,8 +349,8 @@
 	SEND_SIGNAL(vehicle_ridden_target, COMSIG_WHEELCHAIR_BELL_RANG, owner)
 
 /datum/action/vehicle/ridden/scooter/skateboard/ollie
-	name = "Ollie"
-	desc = "Get some air! Land on a table to do a gnarly grind."
+	name = "豚跳"
+	desc = "腾空而起！落到桌子上还能来个炫酷的磨板。"
 	button_icon_state = "skateboard_ollie"
 	check_flags = AB_CHECK_CONSCIOUS
 
@@ -371,7 +371,7 @@
 		vehicle.unbuckle_mob(rider)
 		rider.throw_at(landing_turf, 2, 2)
 		rider.Paralyze(40)
-		vehicle.visible_message(span_danger("[rider] misses the landing and falls on [rider.p_their()] face!"))
+		vehicle.visible_message(span_danger("[rider]落地失败，摔了个脸着地！"))
 		return
 	if((locate(/obj/structure/table) in landing_turf) || (locate(/obj/structure/fluff/tram_rail) in landing_turf))
 		if(locate(/obj/structure/fluff/tram_rail) in vehicle.loc.contents)
@@ -394,8 +394,8 @@
 	vehicle.pass_flags &= ~PASSTABLE
 
 /datum/action/vehicle/ridden/scooter/skateboard/kickflip
-	name = "Kickflip"
-	desc = "Kick your board up and catch it."
+	name = "踢翻"
+	desc = "踢起滑板，再将它接住。"
 	button_icon_state = "skateboard_ollie"
 	check_flags = AB_CHECK_CONSCIOUS
 
@@ -413,21 +413,21 @@
 		rider.Paralyze(50)
 		if(prob(15))
 			rider.visible_message(
-				span_danger("[rider] misses the landing and falls on [rider.p_their()] face!)"),
-				span_userdanger("You smack against the board, hard."),
+				span_danger("[rider]落地失败，摔了个脸着地！"),
+				span_userdanger("你重重地撞在了滑板上。"),
 			)
 			rider.emote("scream")
 			rider.adjust_brute_loss(10)  // thats gonna leave a mark
 			return
 		rider.visible_message(
-			span_danger("[rider] misses the landing and falls on [rider.p_their()] face!"),
-			span_userdanger("You fall flat onto the board!"),
+			span_danger("[rider]落地失败，摔了个脸着地！"),
+			span_userdanger("你直挺挺地摔在了滑板上！"),
 		)
 		return
 
 	rider.visible_message(
-		span_notice("[rider] does a sick kickflip and catches [rider.p_their()] board in midair."),
-		span_notice("You do a sick kickflip, catching the board in midair! Stylish."),
+		span_notice("[rider]做了个炫酷的踢翻，在半空中接住了滑板。"),
+		span_notice("你做了个炫酷的踢翻，在半空中接住了滑板！真潇洒。"),
 	)
 	playsound(board, 'sound/vehicles/skateboard_ollie.ogg', 50, vary = TRUE)
 	rider.spin(spintime = 4, speed = 1)

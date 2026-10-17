@@ -4,9 +4,9 @@
 	abstract_type = /obj/item/clothing/head/hats
 
 /obj/item/clothing/head/hats/centhat
-	name = "\improper CentCom hat"
+	name = "\improper 中央指挥部帽"
 	icon_state = "centcom"
-	desc = "It's good to be emperor."
+	desc = "当皇帝真好。"
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor_type = /datum/armor/hats_centhat
@@ -286,8 +286,8 @@
 	icon_state = "delinquent"
 
 /obj/item/clothing/head/hats/intern
-	name = "\improper CentCom Head Intern beancap"
-	desc = "A horrifying mix of beanie and softcap in CentCom green. You'd have to be pretty desperate for power over your peers to agree to wear this."
+	name = "\improper 中央指挥部实习主管针织鸭舌帽"
+	desc = "针织帽与鸭舌帽的可怕混合体，采用中央指挥部的绿色。你得极度渴望凌驾同僚的权力，才肯戴上它。"
 	icon_state = "intern_hat"
 	inhand_icon_state = null
 
@@ -320,9 +320,9 @@
 	inhand_icon_state = null
 
 /obj/item/clothing/head/hats/centcom_cap
-	name = "\improper CentCom commander cap"
+	name = "\improper 中央指挥部指挥官帽"
 	icon_state = "centcom_cap"
-	desc = "Worn by the finest of CentCom commanders. Two faint initials lie inside the lining of the cap."
+	desc = "由中央指挥部最优秀的指挥官佩戴。帽子衬里有两个模糊的姓名首字母。"
 	inhand_icon_state = "that"
 	flags_inv = 0
 	armor_type = /datum/armor/hats_centcom_cap

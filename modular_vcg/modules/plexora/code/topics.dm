@@ -379,7 +379,7 @@
 	usr = mockadmin
 
 	client_mob.forceMove(pick(GLOB.prisonwarp))
-	to_chat(client_mob, span_adminnotice("You have been sent to Prison!"), confidential = TRUE)
+	to_chat(client_mob, span_adminnotice("你被送进了监狱！"), confidential = TRUE)
 
 	log_admin("Discord: [key_name(usr)] has sent [key_name(client_mob)] to Prison!")
 	message_admins("Discord: [key_name_admin(usr)] has sent [key_name_admin(client_mob)] to Prison!")
@@ -403,7 +403,7 @@
 		return list("error" = PLEXORA_ERROR_CLIENTNOTEXIST)
 
 
-	to_chat_immediate(client, span_boldannounce("You have been kicked from the server by [kicker]. Reason: [reason]"))
+	to_chat_immediate(client, span_boldannounce("你已被[kicker]踢出服务器。原因：[reason]"))
 	log_admin("Discord: [kicker] has kicked [key_name(client)] from the server! Reason: [reason]")
 	message_admins("Discord: [kicker] has kicked [key_name_admin(client)] from the server! Reason: [reason]")
 	qdel(client)
@@ -506,20 +506,20 @@
 
 	to_chat(recipient,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<font color='red' size='4'><b>-- Administrator private message --</b></font>",
+		html = "<font color='red' size='4'><b>-- 管理员私信 --</b></font>",
 		confidential = TRUE)
 
 	recipient.receive_ahelp(
-		"<a href='byond://?priv_msg=[stealthkey]'>[adminname]</a>",
+		"<a href='byond://?priv_msg=[stealthkey]'>[stealth ? "管理员" : adminname]</a>",
 		message,
 	)
 
 	to_chat(recipient,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = span_adminsay("<i>Click on the administrator's name to reply.</i>"),
+		html = span_adminsay("<i>点击管理员姓名即可回复。</i>"),
 		confidential = TRUE)
 
-	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>", player_message = "<font color='purple'>PM From [adminname]: [message]</font>")
+	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>", player_message = "<font color='purple'>[stealth ? "管理员" : adminname]的私信：[message]</font>")
 
 	window_flash(recipient, ignorepref = TRUE)
 	// Nullcheck because we run a winset in window flash and I do not trust byond

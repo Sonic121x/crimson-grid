@@ -575,7 +575,7 @@
 				CRASH("Non-admin somehow tried to call remove_endpost")
 			var/post_index = text2num(params["post_index"])
 			if(!post_index)
-				to_chat(user, span_warning("Invalid post index."))
+				to_chat(user, span_warning("无效的帖子编号。"))
 				return FALSE
 			var/list/selected_post = SSphones.endpost_posts[post_index]
 			SSphones.endpost_posts.Cut(post_index, post_index + 1)

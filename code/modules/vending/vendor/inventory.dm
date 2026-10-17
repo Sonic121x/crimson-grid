@@ -158,7 +158,7 @@
 		message_admins("Vending machine exploit attempted by [ADMIN_LOOKUPFLW(user)]!")
 		return
 	if (item_record.amount <= 0)
-		speak("Sold out of [item_record.name].")
+		speak("[item_record.name]已售罄。")
 		flick(icon_deny, src)
 		return
 	if(!all_products_free)
@@ -171,7 +171,7 @@
 			card_used = living_user.get_creditcard(TRUE)
 
 		if(QDELETED(card_used))
-			speak("You do not possess an Credit Card to purchase [item_record.name].")
+			speak("你没有用于购买[item_record.name]的信用卡。")
 			return
 		/*
 		if(age_restrictions && item_record.age_restricted && (!card_used.registered_age || card_used.registered_age < AGE_MINOR))
@@ -193,7 +193,7 @@
 			return
 
 	if(last_shopper != REF(user) || purchase_message_cooldown < world.time)
-		var/vend_response = vend_reply || "Thank you for shopping with [src]!"
+		var/vend_response = vend_reply || "感谢在[src]购物！"
 		speak(vend_response)
 		purchase_message_cooldown = world.time + 5 SECONDS
 		//This is not the best practice, but it's safe enough here since the chances of two people using a machine with the same ref in 5 seconds is fuck low
@@ -211,10 +211,10 @@
 
 	var/sigreturn = SEND_SIGNAL(user, COMSIG_MOB_VENDING_PURCHASE, src, vended_item)
 	if(!(sigreturn & VENDING_NO_PICKUP) && IsReachableBy(user) && user.put_in_hands(vended_item))
-		to_chat(user, span_notice("You take [item_record.name] out of the slot."))
+		to_chat(user, span_notice("你从出货口取出了[item_record.name]。"))
 		vended_item.do_pickup_animation(user, src)
 	else
-		to_chat(user, span_warning("[capitalize(format_text(item_record.name))] falls onto the floor!"))
+		to_chat(user, span_warning("[capitalize(format_text(item_record.name))]掉到了地上！"))
 
 	SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[item_record.product_path]"))
 
@@ -286,7 +286,7 @@
 	// if(discount_check(paying_id_card, premium))
 		// price_to_use = max(round(price_to_use * DEPARTMENT_DISCOUNT), 1) //No longer free, but signifigantly cheaper.
 	if(attempt_charge(src, mob_paying, price_to_use) & COMPONENT_OBJ_CANCEL_CHARGE)
-		speak("You do not possess the funds to purchase [product_to_vend.name].")
+		speak("你的资金不足以购买[product_to_vend.name]。")
 		flick(icon_deny,src)
 		return FALSE
 

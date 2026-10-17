@@ -18,8 +18,8 @@
 
 /obj/item/food/grown/cucumber
 	seed = /obj/item/seeds/cucumber
-	name = "cucumber"
-	desc = "Oblong and green, with pimples, the standard of salads."
+	name = "黄瓜"
+	desc = "细长碧绿，表皮带刺，是沙拉的常见食材。"
 	icon_state = "cucumber"
 	foodtypes = VEGETABLES
 	tastes = list("cucumber" = 1)

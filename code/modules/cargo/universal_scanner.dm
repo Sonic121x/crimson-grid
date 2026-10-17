@@ -1,8 +1,8 @@
 #define PAPER_PER_SHEET 10
 
 /obj/item/universal_scanner
-	name = "universal scanner"
-	desc = "A device used to check objects against Nanotrasen exports database, assign price tags, or ready an item for a custom vending machine."
+	name = "通用扫描仪"
+	desc = "可查询纳诺传讯出口数据库核对物品、设置价签，或为物品上架自定义售货机做好准备。"
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "export scanner"
 	worn_icon_state = "electronic"
@@ -44,7 +44,7 @@
 
 /obj/item/universal_scanner/attack_self(mob/user, modifiers)
 	. = ..()
-	var/choice = show_radial_menu(user, src, scale_mode, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)
+	var/choice = list("出口估价" = "export scanner", "标价" = "price tagger", "分成标签" = "sales tagger")[show_radial_menu(user, src, list("出口估价" = scale_mode["export scanner"], "标价" = scale_mode["price tagger"], "分成标签" = scale_mode["sales tagger"]), custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 36, require_near = TRUE)]
 	if(!choice)
 		return FALSE
 	if(icon_state == "[choice]")
@@ -74,31 +74,31 @@
 	if(scanning_mode == SCAN_SALES_TAG && isidcard(tool))
 		var/obj/item/card/id/potential_acc = tool
 		if(!potential_acc.registered_account)
-			to_chat(user, span_warning("This ID card has no account registered!"))
+			to_chat(user, span_warning("这张身份卡没有登记账户！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(payments_acc == potential_acc.registered_account)
-			to_chat(user, span_notice("ID card already registered."))
+			to_chat(user, span_notice("这张身份卡已登记。"))
 			return ITEM_INTERACT_BLOCKING
 
 		payments_acc = potential_acc.registered_account
 		playsound(src, 'sound/machines/ping.ogg', 40, TRUE)
-		to_chat(user, span_notice("[src] registers the ID card. Tag a wrapped item to create a barcode."))
+		to_chat(user, span_notice("[src]已登记身份卡。给包装好的物品贴标签，即可生成条形码。"))
 		return ITEM_INTERACT_SUCCESS
 
 	if(istype(tool, /obj/item/paper))
 		if (paper_count >= max_paper_count)
-			to_chat(user, span_notice("[src]'s paper supply is full."))
+			to_chat(user, span_notice("[src]的纸张已满。"))
 			return ITEM_INTERACT_BLOCKING
 
 		paper_count += PAPER_PER_SHEET
 		qdel(tool)
 		if (paper_count >= max_paper_count)
 			paper_count = max_paper_count
-			to_chat(user, span_notice("[src]'s paper supply is now full."))
+			to_chat(user, span_notice("[src]的纸张现已补满。"))
 			return ITEM_INTERACT_SUCCESS
 
-		to_chat(user, span_notice("You refill [src]'s paper supply, you have [paper_count] left."))
+		to_chat(user, span_notice("你给[src]补充了纸张，目前剩余[paper_count]份。"))
 		return ITEM_INTERACT_SUCCESS
 
 	return NONE
@@ -107,69 +107,69 @@
 	. = ..()
 	if(scanning_mode == SCAN_SALES_TAG)
 		if(paper_count <= 0)
-			to_chat(user, span_warning("You're out of paper!'."))
+			to_chat(user, span_warning("纸张用完了！"))
 			return
 		if(!payments_acc)
-			to_chat(user, span_warning("You need to swipe [src] with an ID card first."))
+			to_chat(user, span_warning("你需要先用身份卡刷一下[src]。"))
 			return
 		paper_count--
 		playsound(src, 'sound/machines/click.ogg', 40, TRUE)
-		to_chat(user, span_notice("You print a new barcode."))
+		to_chat(user, span_notice("你打印了一张新条形码。"))
 		var/obj/item/barcode/new_barcode = new /obj/item/barcode(src)
 		new_barcode.payments_acc = payments_acc		// The sticker gets the scanner's registered account.
 		new_barcode.cut_multiplier = cut_multiplier		// Also the registered percent cut.
 		user.put_in_hands(new_barcode)
 	if(scanning_mode == SCAN_PRICE_TAG)
 		if(loc != user)
-			to_chat(user, span_warning("You must be holding \the [src] to continue!"))
+			to_chat(user, span_warning("你必须拿着[src]才能继续！"))
 			return
-		var/chosen_price = tgui_input_number(user, "Set price", "Price", new_custom_price)
+		var/chosen_price = tgui_input_number(user, "设置价格", "价格", new_custom_price)
 		if(!chosen_price || QDELETED(user) || QDELETED(src) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH) || loc != user)
 			return
 		new_custom_price = chosen_price
-		to_chat(user, span_notice("[src] will now give things a [new_custom_price] [MONEY_SYMBOL] tag."))
+		to_chat(user, span_notice("[src]现在会为物品标价[new_custom_price][MONEY_SYMBOL]。"))
 
 /obj/item/universal_scanner/item_ctrl_click(mob/user)
 	. = CLICK_ACTION_BLOCKING
 	if(scanning_mode == SCAN_SALES_TAG)
 		payments_acc = null
-		to_chat(user, span_notice("You clear the registered account."))
+		to_chat(user, span_notice("你清除了已登记的账户。"))
 		return CLICK_ACTION_SUCCESS
 
 /obj/item/universal_scanner/click_alt(mob/user)
 	if(!scanning_mode == SCAN_SALES_TAG)
 		return CLICK_ACTION_BLOCKING
-	var/potential_cut = input("How much would you like to pay out to the registered card?","Percentage Profit ([round(cut_min*100)]% - [round(cut_max*100)]%)") as num|null
+	var/potential_cut = input("要向已登记的银行卡支付多少分成？","利润比例（[round(cut_min*100)]% - [round(cut_max*100)]%）") as num|null
 	if(!potential_cut)
 		cut_multiplier = initial(cut_multiplier)
 	cut_multiplier = clamp(round(potential_cut/100, cut_min), cut_min, cut_max)
-	to_chat(user, span_notice("[round(cut_multiplier*100)]% profit will be received if a package with a barcode is sold."))
+	to_chat(user, span_notice("贴有条形码的包裹售出时，将收到[round(cut_multiplier*100)]%的利润分成。"))
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/universal_scanner/examine(mob/user)
 	. = ..()
-	. += span_notice("It has [paper_count]/[max_paper_count] available barcodes. Refill with paper.")
+	. += span_notice("可用条形码：[paper_count]/[max_paper_count]。可用纸张补充。")
 
 	if(scanning_mode == SCAN_SALES_TAG)
-		. += span_notice("Profit split on sale is currently set to [round(cut_multiplier*100)]%. <b>Alt-click</b> to change.")
+		. += span_notice("销售利润分成目前为[round(cut_multiplier*100)]%。<b>Alt单击</b>更改。")
 		if(payments_acc)
-			. += span_notice("<b>Ctrl-click</b> to clear the registered account.")
+			. += span_notice("<b>Ctrl单击</b>清除已登记的账户。")
 
 	if(scanning_mode == SCAN_PRICE_TAG)
-		. += span_notice("The current custom price is set to [new_custom_price] [MONEY_SYMBOL]. <b>Right-click</b> to change.")
+		. += span_notice("当前自定义价格为[new_custom_price][MONEY_SYMBOL]。<b>右键单击</b>更改。")
 
 /obj/item/universal_scanner/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	switch(scanning_mode)
 		if(SCAN_SALES_TAG)
-			context[SCREENTIP_CONTEXT_LMB] = "Tag package"
-			context[SCREENTIP_CONTEXT_ALT_LMB] = "Change price"
-			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Clear target account"
-			context[SCREENTIP_CONTEXT_ALT_LMB] = "Change payout %"
+			context[SCREENTIP_CONTEXT_LMB] = "给包裹贴标签"
+			context[SCREENTIP_CONTEXT_ALT_LMB] = "更改价格"
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = "清除目标账户"
+			context[SCREENTIP_CONTEXT_ALT_LMB] = "更改分成比例"
 		if(SCAN_PRICE_TAG)
-			context[SCREENTIP_CONTEXT_LMB] = "Price item"
-			context[SCREENTIP_CONTEXT_RMB] = "Set price"
+			context[SCREENTIP_CONTEXT_LMB] = "给物品标价"
+			context[SCREENTIP_CONTEXT_RMB] = "设置价格"
 		if(SCAN_EXPORTS)
-			context[SCREENTIP_CONTEXT_LMB] = "Scan for export value"
+			context[SCREENTIP_CONTEXT_LMB] = "扫描出口价值"
 	return CONTEXTUAL_SCREENTIP_SET
 /**
  * Scans an object, target, and provides its export value based on selling to the cargo shuttle, to mob/user.
@@ -180,26 +180,26 @@
 	for(var/exported_datum in report.total_amount)
 		price += report.total_value[exported_datum]
 
-	var/message = "Scanned [target]"
+	var/message = "已扫描[target]"
 	var/warning = FALSE
 	if(length(target.contents))
-		message = "Scanned [target] and its contents"
+		message = "已扫描[target]及其内容物"
 		if(price)
-			message += ", total value: <b>[price]</b> [MONEY_NAME]"
+			message += "，总价值：<b>[price]</b>[MONEY_NAME]"
 		else
-			message += ", no export values"
+			message += "，无出口价值"
 			warning = TRUE
 		if(!report.all_contents_scannable)
-			message += " (Undeterminable value detected, final value may differ)"
-		message += "."
+			message += "（检测到无法确定的价值，最终价值可能有差异）"
+		message += "。"
 	else
 		if(!report.all_contents_scannable)
-			message += ", unable to determine value."
+			message += "，无法确定价值。"
 			warning = TRUE
 		else if(price)
-			message += ", value: <b>[price]</b> [MONEY_NAME]."
+			message += "，价值：<b>[price]</b>[MONEY_NAME]。"
 		else
-			message += ", no export value."
+			message += "，无出口价值。"
 			warning = TRUE
 	if(warning)
 		to_chat(user, span_warning(message))
@@ -214,13 +214,13 @@
 		if(!parcel.sticker)
 			return
 		var/obj/item/barcode/our_code = parcel.sticker
-		to_chat(user, span_notice("Export barcode detected! This parcel, upon export, will pay out to [our_code.payments_acc.account_holder], \
-			with a [our_code.cut_multiplier * 100]% split to them (already reflected in above recorded value)."))
+		to_chat(user, span_notice("检测到出口条形码！此包裹出口后，将向[our_code.payments_acc.account_holder]支付\
+			[our_code.cut_multiplier * 100]%的分成（已计入上述价值）。"))
 
 	if(istype(target, /obj/item/barcode))
 		var/obj/item/barcode/our_code = target
-		to_chat(user, span_notice("Export barcode detected! This barcode, if attached to a parcel, will pay out to [our_code.payments_acc.account_holder], \
-			with a [our_code.cut_multiplier * 100]% split to them."))
+		to_chat(user, span_notice("检测到出口条形码！将其贴在包裹上后，出口时会向[our_code.payments_acc.account_holder]支付\
+			[our_code.cut_multiplier * 100]%的分成。"))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/scan_human = user
@@ -229,23 +229,23 @@
 			var/datum/bank_account/scanner_account = scan_human.get_bank_account()
 
 			if(!istype(get_area(cube), /area/shuttle/supply))
-				to_chat(user, span_warning("Shuttle placement not detected. Handling tip not registered."))
+				to_chat(user, span_warning("未检测到货物已放入穿梭机。未登记搬运小费。"))
 
 			else if(cube.bounty_handler_account)
-				to_chat(user, span_warning("Bank account for handling tip already registered!"))
+				to_chat(user, span_warning("搬运小费的收款账户已登记！"))
 
 			else if(scanner_account)
 				cube.AddComponent(/datum/component/pricetag, list(scanner_account), cube.handler_tip, FALSE)
 
 				cube.bounty_handler_account = scanner_account
-				cube.bounty_handler_account.bank_card_talk("Bank account for [price ? "<b>[price * cube.handler_tip]</b> [MONEY_NAME_SINGULAR] " : ""]handling tip successfully registered.")
+				cube.bounty_handler_account.bank_card_talk("[price ? "<b>[price * cube.handler_tip]</b>[MONEY_NAME_SINGULAR]" : ""]搬运小费的收款账户已成功登记。")
 
 				for(var/datum/bank_account/shareholder in cube.bounty_holder_accounts)
 					if(shareholder != cube.bounty_handler_account) //No need to send a tracking update to the person scanning it
-						shareholder.bank_card_talk("<b>[cube]</b> was scanned in \the <b>[get_area(cube)]</b> by <b>[scan_human] ([scan_human.job])</b>.")
+						shareholder.bank_card_talk("<b>[scan_human]（[scan_human.job]）</b>在<b>[get_area(cube)]</b>扫描了<b>[cube]</b>。")
 
 			else
-				to_chat(user, span_warning("Bank account not detected. Handling tip not registered."))
+				to_chat(user, span_warning("未检测到银行账户。未登记搬运小费。"))
 
 /**
  * Scans an object, target, and sets its custom_price variable to new_custom_price, presenting it to the user.
@@ -254,7 +254,7 @@
 	if(isitem(target))
 		var/obj/item/selected_target = target
 		selected_target.custom_price = new_custom_price
-		to_chat(user, span_notice("You set the price of [selected_target] to [new_custom_price] [MONEY_SYMBOL]."))
+		to_chat(user, span_notice("你将[selected_target]的价格设为[new_custom_price][MONEY_SYMBOL]。"))
 
 /**
  * check_menu: Checks if we are allowed to interact with a radial menu
@@ -270,8 +270,8 @@
 	return TRUE
 
 /obj/item/barcode
-	name = "barcode tag"
-	desc = "A tiny tag, associated with a crewmember's account. Attach to a wrapped item to give that account a portion of the wrapped item's profit."
+	name = "条形码标签"
+	desc = "关联船员账户的小标签。贴在包装好的物品上，即可将其部分销售利润分给该账户。"
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "barcode"
 	w_class = WEIGHT_CLASS_TINY

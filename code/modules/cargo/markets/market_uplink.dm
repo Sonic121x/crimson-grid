@@ -150,8 +150,8 @@
 			selected_item = null
 
 /obj/item/market_uplink/blackmarket
-	name = "\improper Black Market Uplink"
-	desc = "An illegal black market uplink. If command wanted you to have these, they wouldn't have made it so hard to get one."
+	name = "\improper 黑市上行终端"
+	desc = "非法黑市上行终端。指挥层要是愿意让你持有，就不会把获取途径搞得这么困难。"
 	icon = 'icons/obj/devices/blackmarket.dmi'
 	icon_state = "uplink"
 	//The original black market uplink

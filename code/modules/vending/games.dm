@@ -1,12 +1,12 @@
 /obj/machinery/vending/games
-	name = "\improper Good Clean Fun"
-	desc = "Vends things that the Captain and Head of Personnel are probably not going to appreciate you fiddling with instead of your job..."
-	product_ads = "Escape to a fantasy world!;Fuel your gambling addiction!;Ruin your friendships!;Roll for initiative!;Elves and dwarves!;Paranoid computers!;Totally not satanic!;Fun times forever!"
+	name = "\improper 健康好玩"
+	desc = "出售一些小玩意，站长和人事主管大概不希望看见你放着工作不干，却在摆弄这些……"
+	product_ads = "逃入奇幻世界！;助长你的赌瘾！;毁掉你的友谊！;投骰决定先攻！;精灵与矮人！;偏执的电脑！;绝对与撒旦无关！;欢乐永不落幕！"
 	icon_state = "games"
 	panel_type = "panel4"
 	product_categories = list(
 		list(
-			"name" = "Cards",
+			"name" = "纸牌",
 			"icon" = "diamond",
 			"products" = list(
 				/obj/item/toy/cards/deck = 5,
@@ -21,7 +21,7 @@
 			),
 		),
 		list(
-			"name" = "Toys",
+			"name" = "玩具",
 			"icon" = "hat-wizard",
 			"products" = list(
 				/obj/item/toy/captainsaid = 1,
@@ -30,7 +30,7 @@
 			),
 		),
 		list(
-			"name" = "Art",
+			"name" = "美术",
 			"icon" = "palette",
 			"products" = list(
 				/obj/item/storage/crayons = 2,
@@ -47,7 +47,7 @@
 			),
 		),
 		list(
-			"name" = "Fishing",
+			"name" = "钓鱼",
 			"icon" = "fish",
 			"products" = list(
 				/obj/item/storage/toolbox/fishing = 2,
@@ -64,7 +64,7 @@
 			),
 		),
 		list(
-			"name" = "Skillchips",
+			"name" = "技能芯片",
 			"icon" = "floppy-disk",
 			"products" = list(
 				/obj/item/skillchip/appraiser = 2,
@@ -80,7 +80,7 @@
 			),
 		),
 		list(
-			"name" = "Other",
+			"name" = "其他",
 			"icon" = "star",
 			"products" = list(
 				/obj/item/camera = 3,
@@ -119,5 +119,5 @@
 	light_mask = "games-light-mask"
 
 /obj/item/vending_refill/games
-	machine_name = "\improper Good Clean Fun"
+	machine_name = "\improper 健康好玩"
 	icon_state = "refill_games"

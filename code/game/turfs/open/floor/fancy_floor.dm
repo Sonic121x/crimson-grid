@@ -277,8 +277,8 @@
 				set_light(BASALT_LIGHT_RANGE_DIM, BASALT_LIGHT_POWER, LIGHT_COLOR_LAVA)
 
 /turf/open/floor/carpet
-	name = "carpet"
-	desc = "Soft velvet carpeting. Feels good between your toes."
+	name = "地毯"
+	desc = "柔软的天鹅绒地毯，脚趾踩上去很舒服。"
 	icon = 'icons/turf/floors/carpet.dmi'
 	icon_state = "carpet-255"
 	base_icon_state = "carpet"
@@ -297,7 +297,7 @@
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()
-	. += span_notice("There's a <b>small crack</b> on the edge of it.")
+	. += span_notice("边缘有一道<b>小裂缝</b>。")
 
 /turf/open/floor/carpet/Initialize(mapload)
 	. = ..()
@@ -402,7 +402,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_ROYAL_BLUE
 
 /turf/open/floor/carpet/executive
-	name = "executive carpet"
+	name = "行政地毯"
 	icon = 'icons/turf/floors/carpet_executive.dmi'
 	icon_state = "executive_carpet-255"
 	base_icon_state = "executive_carpet"
@@ -411,7 +411,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_EXECUTIVE
 
 /turf/open/floor/carpet/stellar
-	name = "stellar carpet"
+	name = "星空地毯"
 	icon = 'icons/turf/floors/carpet_stellar.dmi'
 	icon_state = "stellar_carpet-255"
 	base_icon_state = "stellar_carpet"
@@ -420,7 +420,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_STELLAR
 
 /turf/open/floor/carpet/donk
-	name = "Donk Co. carpet"
+	name = "当克公司地毯"
 	icon = 'icons/turf/floors/carpet_donk.dmi'
 	icon_state = "donk_carpet-255"
 	base_icon_state = "donk_carpet"
@@ -429,56 +429,56 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_DONK
 
 /turf/open/floor/carpet/bear
-	name = "bear fur carpet"
-	desc = "Bear fur stretched out into a carpet for you to walk on."
+	name = "熊皮地毯"
+	desc = "将熊皮铺展开制成的地毯，可以踩在上面。"
 	icon = 'icons/turf/floors/carpet_bear.dmi'
 	icon_state = "carpet_bear-255"
 	base_icon_state = "carpet_bear"
 	floor_tile = /obj/item/stack/tile/carpet/bear
 
 /turf/open/floor/carpet/polar_bear
-	name = "polar bear fur carpet"
-	desc = "Polar bear fur stretched out into a carpet for you to walk on."
+	name = "北极熊皮地毯"
+	desc = "将北极熊皮铺展开制成的地毯，可以踩在上面。"
 	icon = 'icons/turf/floors/carpet_bearpolar.dmi'
 	icon_state = "carpet_bearpolar-255"
 	base_icon_state = "carpet_bearpolar"
 	floor_tile = /obj/item/stack/tile/carpet/polar_bear
 
 /turf/open/floor/carpet/moth
-	name = "moth carpet"
-	desc = "Moth fur stretched out into a carpet for you to walk on."
+	name = "蛾绒地毯"
+	desc = "将蛾绒铺展开制成的地毯，可以踩在上面。"
 	icon = 'icons/turf/floors/carpet_moth.dmi'
 	icon_state = "carpet_moth-255"
 	base_icon_state = "carpet_moth"
 	floor_tile = /obj/item/stack/tile/carpet/moth
 
 /turf/open/floor/carpet/goliath
-	name = "goliath hide carpet"
-	desc = "Goliath hide plates woven together with watcher sinew to make something aproximating a carpet."
+	name = "歌利亚巨兽皮地毯"
+	desc = "用凝视者筋腱将歌利亚巨兽皮甲片编在一起，勉强算是一张地毯。"
 	icon = 'icons/turf/floors/carpet_goliath.dmi'
 	icon_state = "carpet_goliath-255"
 	base_icon_state = "carpet_goliath"
 	floor_tile = /obj/item/stack/tile/carpet/goliath
 
 /turf/open/floor/carpet/carp
-	name = "carp scales carpet"
-	desc = "Carpet made with carp scales. A carp carpet. Carp carp carp."
+	name = "太空鲤鳞地毯"
+	desc = "用太空鲤鳞做的地毯。鲤鳞毯，鲤毯，鲤鲤鲤。"
 	icon = 'icons/turf/floors/carpet_carp.dmi'
 	icon_state = "carpet_carp-255"
 	base_icon_state = "carpet_carp"
 	floor_tile = /obj/item/stack/tile/carpet/carp
 
 /turf/open/floor/carpet/lizard
-	name = "lizard scales"
-	desc = "Carpet made with lizard scales. Lizards were most likely harmed making this."
+	name = "蜥蜴鳞地毯"
+	desc = "用蜥蜴鳞片做成的地毯。制作过程中很可能有蜥蜴受到伤害。"
 	icon = 'icons/turf/floors/carpet_lizard.dmi'
 	icon_state = "carpet_lizard-255"
 	base_icon_state = "carpet_lizard"
 	floor_tile = /obj/item/stack/tile/carpet/lizard
 
 /turf/open/floor/carpet/human
-	name = "human flesh carpet"
-	desc = "Carpet made from flayed human skin. Fresh and moist."
+	name = "人皮地毯"
+	desc = "用剥下的人皮做成的地毯，新鲜湿润。"
 	icon = 'icons/turf/floors/carpet_skin.dmi'
 	icon_state = "carpet_skin-255"
 	base_icon_state = "carpet_skin"
@@ -555,8 +555,8 @@
 	floor_tile = /obj/item/stack/tile/emissive_test/white
 
 /turf/open/floor/carpet/neon
-	name = "neon carpet"
-	desc = "A rubbery pad inset with a phosphorescent pattern."
+	name = "霓虹地毯"
+	desc = "嵌有磷光图案的橡胶地垫。"
 	icon = 'icons/turf/floors/carpet_black.dmi'
 	icon_state = "carpet_black-255"
 	base_icon_state = "carpet_black"
@@ -579,7 +579,7 @@
 	AddElement(/datum/element/decal, neon_icon || icon, neon_icon_state || base_icon_state, dir, EMISSIVE_PLANE, null, emissive_alpha, null, smoothing_junction)
 
 /turf/open/floor/carpet/neon/simple
-	name = "simple neon carpet"
+	name = "简约霓虹地毯"
 	icon = 'icons/turf/floors/carpet_neon_base.dmi'
 	icon_state = "base-255"
 	base_icon_state = "base"
@@ -600,8 +600,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_NODOTS
 
 /turf/open/floor/carpet/neon/simple/white
-	name = "simple white neon carpet"
-	desc = "A rubbery mat with a inset pattern of white phosphorescent dye."
+	name = "简约白色霓虹地毯"
+	desc = "嵌有白色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_WHITE
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/white
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_WHITE
@@ -618,8 +618,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_WHITE_NODOTS
 
 /turf/open/floor/carpet/neon/simple/black
-	name = "simple black neon carpet"
-	desc = "A rubbery mat with a inset pattern of black phosphorescent dye."
+	name = "简约黑色霓虹地毯"
+	desc = "嵌有黑色磷光染料图案的橡胶地垫。"
 	neon_icon = 'icons/turf/floors/carpet_neon_glow.dmi'
 	neon_icon_state = "glow" // This one also lights up the edges of the lines.
 	neon_color = COLOR_BLACK
@@ -639,8 +639,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLACK_NODOTS
 
 /turf/open/floor/carpet/neon/simple/red
-	name = "simple red neon carpet"
-	desc = "A rubbery mat with a inset pattern of red phosphorescent dye."
+	name = "简约红色霓虹地毯"
+	desc = "嵌有红色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_RED
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/red
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_RED
@@ -657,8 +657,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_RED_NODOTS
 
 /turf/open/floor/carpet/neon/simple/orange
-	name = "simple orange neon carpet"
-	desc = "A rubbery mat with a inset pattern of orange phosphorescent dye."
+	name = "简约橙色霓虹地毯"
+	desc = "嵌有橙色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_ORANGE
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/orange
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_ORANGE
@@ -675,8 +675,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_ORANGE_NODOTS
 
 /turf/open/floor/carpet/neon/simple/yellow
-	name = "simple yellow neon carpet"
-	desc = "A rubbery mat with a inset pattern of yellow phosphorescent dye."
+	name = "简约黄色霓虹地毯"
+	desc = "嵌有黄色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_YELLOW
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/yellow
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_YELLOW
@@ -693,8 +693,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_YELLOW_NODOTS
 
 /turf/open/floor/carpet/neon/simple/lime
-	name = "simple lime neon carpet"
-	desc = "A rubbery mat with a inset pattern of lime phosphorescent dye."
+	name = "简约黄绿色霓虹地毯"
+	desc = "嵌有黄绿色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_LIME
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/lime
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_LIME
@@ -711,8 +711,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_LIME_NODOTS
 
 /turf/open/floor/carpet/neon/simple/green
-	name = "simple green neon carpet"
-	desc = "A rubbery mat with a inset pattern of green phosphorescent dye."
+	name = "简约绿色霓虹地毯"
+	desc = "嵌有绿色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_GREEN
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/green
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_GREEN
@@ -729,8 +729,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_GREEN_NODOTS
 
 /turf/open/floor/carpet/neon/simple/teal
-	name = "simple teal neon carpet"
-	desc = "A rubbery mat with a inset pattern of teal phosphorescent dye."
+	name = "简约蓝绿色霓虹地毯"
+	desc = "嵌有蓝绿色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_TEAL
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/teal
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_TEAL
@@ -747,8 +747,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_TEAL_NODOTS
 
 /turf/open/floor/carpet/neon/simple/cyan
-	name = "simple cyan neon carpet"
-	desc = "A rubbery mat with a inset pattern of cyan phosphorescent dye."
+	name = "简约青色霓虹地毯"
+	desc = "嵌有青色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_CYAN
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/cyan
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_CYAN
@@ -765,8 +765,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_CYAN_NODOTS
 
 /turf/open/floor/carpet/neon/simple/blue
-	name = "simple blue neon carpet"
-	desc = "A rubbery mat with a inset pattern of blue phosphorescent dye."
+	name = "简约蓝色霓虹地毯"
+	desc = "嵌有蓝色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_BLUE
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/blue
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLUE
@@ -783,8 +783,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLUE_NODOTS
 
 /turf/open/floor/carpet/neon/simple/purple
-	name = "simple purple neon carpet"
-	desc = "A rubbery mat with a inset pattern of purple phosphorescent dye."
+	name = "简约紫色霓虹地毯"
+	desc = "嵌有紫色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_PURPLE
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/purple
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE
@@ -801,8 +801,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE_NODOTS
 
 /turf/open/floor/carpet/neon/simple/violet
-	name = "simple violet neon carpet"
-	desc = "A rubbery mat with a inset pattern of violet phosphorescent dye."
+	name = "简约蓝紫色霓虹地毯"
+	desc = "嵌有蓝紫色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_VIOLET
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/violet
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET
@@ -819,8 +819,8 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS
 
 /turf/open/floor/carpet/neon/simple/pink
-	name = "simple pink neon carpet"
-	desc = "A rubbery mat with a inset pattern of pink phosphorescent dye."
+	name = "简约粉色霓虹地毯"
+	desc = "嵌有粉色磷光染料图案的橡胶地垫。"
 	neon_color = COLOR_LIGHT_PINK
 	floor_tile = /obj/item/stack/tile/carpet/neon/simple/pink
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK

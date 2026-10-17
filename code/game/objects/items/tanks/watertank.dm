@@ -162,8 +162,8 @@ GAME_VERB(/obj/item/watertank, toggle_mister_verb, "Toggle Mister", null)
 
 //Security tank
 /obj/item/watertank/pepperspray
-	name = "ANTI-TIDER-2500 suppression backpack"
-	desc = "The ultimate crowd-control device; this tool allows the user to quickly and efficiently pacify groups of hostile targets."
+	name = "反灰潮2500镇压背包"
+	desc = "终极人群控制设备，让使用者迅速而高效地制服成群的敌对目标。"
 	icon = 'icons/obj/service/hydroponics/equipment.dmi'
 	icon_state = "pepperbackpacksec"
 	inhand_icon_state = "pepperbackpacksec"

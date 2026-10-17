@@ -1,6 +1,6 @@
 /obj/machinery/vending/assist
-	name = "\improper Part-Mart"
-	desc = "All the finest of miscellaneous electronics one could ever need! Not responsible for any injuries caused by reckless misuse of parts."
+	name = "\improper 零件超市"
+	desc = "你需要的各种优质电子零件，应有尽有！鲁莽滥用零件造成的伤害概不负责。"
 	icon_state = "parts"
 	icon_deny = "parts-deny"
 	panel_type = "panel10"
@@ -36,12 +36,12 @@
 	)
 
 	refill_canister = /obj/item/vending_refill/assist
-	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
+	product_ads = "只卖精品！;来点工具吧。;最结实的设备。;太空中的顶级装备！"
 	default_price = PAYCHECK_CREW * 0.7 //Default of 35.
 	extra_price = PAYCHECK_CREW
 	payment_department = NO_FREEBIES
 	light_mask = "parts-light-mask"
 
 /obj/item/vending_refill/assist
-	machine_name = "Part-Mart"
+	machine_name = "零件超市"
 	icon_state = "refill_parts"

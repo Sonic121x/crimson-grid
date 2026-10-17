@@ -152,8 +152,8 @@
 	icon_state = "speedspace_ns_[(x + 5*y + (y%2+1)*7)%15+1]"
 
 /turf/open/floor/holofloor/carpet
-	name = "carpet"
-	desc = "Electrically inviting."
+	name = "地毯"
+	desc = "充满电力的诱惑。"
 	icon = 'icons/turf/floors/carpet.dmi'
 	icon_state = "carpet-255"
 	base_icon_state = "carpet"

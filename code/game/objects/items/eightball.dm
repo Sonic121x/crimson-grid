@@ -1,12 +1,12 @@
 /obj/item/toy/eightball
-	name = "magic eightball"
-	desc = "A black ball with a stenciled number eight in white on the side. It seems full of dark liquid.\nThe instructions state that you should ask your question aloud, and then shake."
+	name = "魔法八号球"
+	desc = "一个黑球，侧面印着白色数字八，似乎装满了深色液体。\n说明书要求先大声提出问题，再摇动球体。"
 
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "eightball"
 	w_class = WEIGHT_CLASS_TINY
 
-	verb_say = "rattles"
+	verb_say = "咔嗒作响"
 
 	var/shaking = FALSE
 	var/on_cooldown = FALSE
@@ -16,30 +16,30 @@
 
 	var/static/list/possible_answers = list(
 		"Yes" = list(
-			"It is certain",
-			"It is decidedly so",
-			"Without a doubt",
-			"Yes definitely",
-			"You may rely on it",
-			"As I see it, yes",
-			"Most likely",
-			"Outlook good",
-			"Yes",
-			"Signs point to yes",
+			"这是必然的",
+			"确实如此",
+			"毫无疑问",
+			"是的，绝对是",
+			"你可以放心相信",
+			"在我看来，是的",
+			"很有可能",
+			"前景不错",
+			"是",
+			"种种迹象都表明是",
 		),
 		"Maybe" = list(
-			"Reply hazy try again",
-			"Ask again later",
-			"Better not tell you now",
-			"Cannot predict now",
-			"Concentrate and ask again",
+			"答案模糊，请再试一次",
+			"稍后再问",
+			"现在最好别告诉你",
+			"现在无法预测",
+			"集中精神，再问一次",
 		),
 		"No" = list(
-			"Don't count on it",
-			"My reply is no",
-			"My sources say no",
-			"Outlook not so good",
-			"Very doubtful"
+			"别指望了",
+			"我的回答是否",
+			"我的消息来源说不",
+			"前景不太妙",
+			"非常可疑"
 		),
 	)
 
@@ -63,10 +63,10 @@
 		return
 
 	if(on_cooldown)
-		to_chat(user, span_warning("[src] was shaken recently, it needs time to settle."))
+		to_chat(user, span_warning("[src]刚被摇过，需要时间平静下来。"))
 		return
 
-	user.visible_message(span_notice("[user] starts shaking [src]."), span_notice("You start shaking [src]."), span_hear("You hear shaking and sloshing."))
+	user.visible_message(span_notice("[user]开始摇动[src]。"), span_notice("你开始摇动[src]。"), span_hear("你听到了摇晃和液体晃荡的声音。"))
 
 	shaking = TRUE
 
@@ -96,8 +96,8 @@
 // A broken magic eightball, it only says "YOU SUCK" over and over again.
 
 /obj/item/toy/eightball/broken
-	name = "broken magic eightball"
-	desc = "A black ball with a stenciled number eight in white on the side. It is cracked and seems empty."
+	name = "破损的魔法八号球"
+	desc = "一个黑球，侧面印着白色数字八。球体已经开裂，里面似乎空了。"
 	var/fixed_answer
 
 /obj/item/toy/eightball/broken/Initialize(mapload)
@@ -113,7 +113,7 @@
 /obj/item/toy/eightball/haunted
 	shake_time = 30 SECONDS
 	cooldown_time = 3 MINUTES
-	var/selected_message = "Nothing!"
+	var/selected_message = "没什么！"
 	//these kind of store the same thing but one is easier to work with.
 	var/list/votes = list()
 	var/list/voted = list()
@@ -130,7 +130,7 @@
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/item/toy/eightball/haunted/attack_ghost(mob/user)
 	if(!shaking)
-		to_chat(user, span_warning("[src] is not currently being shaken."))
+		to_chat(user, span_warning("目前没有人在摇动[src]。"))
 		return
 	interact(user)
 	return ..()
@@ -138,13 +138,13 @@
 /obj/item/toy/eightball/haunted/start_shaking(mob/user)
 	// notify ghosts that someone's shaking a haunted eightball
 	// and inform them of the message, (hopefully a yes/no question)
-	selected_message = tgui_input_text(user, "What is your question?", "Eightball", max_length = CHAT_MESSAGE_MAX_LENGTH) || initial(selected_message)
+	selected_message = tgui_input_text(user, "你要问什么问题？", "八号球", max_length = CHAT_MESSAGE_MAX_LENGTH) || initial(selected_message)
 	if (!(src in user.held_items))
 		return FALSE
 	notify_ghosts(
-		"[user.real_name] is shaking [src], hoping to get an answer to \"[selected_message]\"",
+		"[user.real_name]正在摇动[src]，希望得到\"[selected_message]\"的答案",
 		source = src,
-		header = "Magic eightball",
+		header = "魔法八号球",
 		click_interact = TRUE,
 	)
 	return TRUE
@@ -197,7 +197,7 @@
 	data["answers"] = list()
 	for(var/vote in possible_answers)
 		var/list/answer_data = list()
-		answer_data["answer"] = vote
+		answer_data["answer"] = list("Yes" = "是", "Maybe" = "也许", "No" = "否")[vote] || vote
 		answer_data["amount"] = votes[vote]
 		answer_data["selected"] = (voted[user.ckey] == vote)
 
@@ -213,7 +213,7 @@
 
 	switch(action)
 		if("vote")
-			var/selected_answer = params["answer"]
+			var/selected_answer = list("是" = "Yes", "也许" = "Maybe", "否" = "No")[params["answer"]] || params["answer"]
 			if(!(selected_answer in possible_answers))
 				return
 			var/oldvote = voted[user.ckey]

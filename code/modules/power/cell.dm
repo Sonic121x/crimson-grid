@@ -234,8 +234,8 @@
 	connector_type = "slimecore"
 
 /obj/item/stock_parts/power_store/cell/emergency_light
-	name = "miniature power cell"
-	desc = "A tiny power cell with a very low power capacity. Used in light fixtures to power them in the event of an outage."
+	name = "微型电池"
+	desc = "容量极低的小电池，在断电时为灯具供电。"
 	maxcharge = STANDARD_CELL_CHARGE * 0.12 //Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
 	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT*0.2)
 	w_class = WEIGHT_CLASS_TINY

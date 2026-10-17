@@ -16,8 +16,8 @@
 
 /obj/item/food/grown/wheat
 	seed = /obj/item/seeds/wheat
-	name = "wheat"
-	desc = "Sigh... wheat... a-grain?"
+	name = "小麦"
+	desc = "唉……小麦……又是谷物？"
 	gender = PLURAL
 	icon_state = "wheat"
 	bite_consumption_mod = 0.5 // Chewing on wheat grains?

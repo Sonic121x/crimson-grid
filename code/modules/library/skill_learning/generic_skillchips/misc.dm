@@ -1,47 +1,47 @@
 //Contains generic skillchips that are fairly short and simple
 
 /obj/item/skillchip/wine_taster
-	name = "WINE skillchip"
-	desc = "Wine.Is.Not.Equal version 5."
+	name = "酒酒不同技能芯片"
+	desc = "酒酒不同，第5版。"
 	auto_traits = list(TRAIT_WINE_TASTER)
-	skill_name = "Wine Tasting"
-	skill_description = "Recognize wine vintage from taste alone. Never again lack an opinion when presented with an unknown drink."
+	skill_name = "品酒"
+	skill_description = "仅凭味道辨认葡萄酒年份。面对陌生饮品，也能说得头头是道。"
 	skill_icon = "wine-bottle"
-	activate_message = span_notice("You recall wine taste.")
-	deactivate_message = span_notice("Your memories of wine evaporate.")
+	activate_message = span_notice("你回想起了葡萄酒的滋味。")
+	deactivate_message = span_notice("你对葡萄酒的记忆消散了。")
 
 /obj/item/skillchip/bonsai
-	name = "Hedge 3 skillchip"
-	desc = "\"Learn how to trim hedges and potted plants into new shapes. Third edition.\""
+	name = "绿篱3技能芯片"
+	desc = "\"学习把绿篱和盆栽修剪成新造型。第三版。\""
 	auto_traits = list(TRAIT_BONSAI)
-	skill_name = "Hedgetrimming"
-	skill_description = "Trim hedges and potted plants into marvelous new shapes with any old knife. Not applicable to plastic plants."
+	skill_name = "绿篱修剪"
+	skill_description = "随便一把刀，就能把绿篱和盆栽修剪成奇妙的新造型。不适用于塑料植物。"
 	skill_icon = "spa"
-	activate_message = span_notice("Your mind is filled with plant arrangments.")
-	deactivate_message = span_notice("You can't remember what a hedge looks like anymore.")
+	activate_message = span_notice("你的脑海中充满了植物造景。")
+	deactivate_message = span_notice("你再也想不起绿篱长什么样了。")
 
 /obj/item/skillchip/useless_adapter
-	name = "Skillchip adapter"
-	desc = "Yo dawg, heard you like skillchips so we put a skillchip in your skillchip so you can... uuuh..."
-	skill_name = "Useless adapter"
-	skill_description = "Allows you to insert another skillchip into this adapter after it has been inserted into your brain..."
+	name = "技能芯片适配器"
+	desc = "嘿，兄弟，听说你喜欢技能芯片，所以我们给你的技能芯片里又装了个技能芯片，让你可以……呃……"
+	skill_name = "无用适配器"
+	skill_description = "将适配器植入大脑后，可以再往里面插入另一枚技能芯片……"
 	skill_icon = "plug"
-	activate_message = span_notice("You can now activate another chip through this adapter, but you're not sure why you did this...")
-	deactivate_message = span_notice("You no longer have the useless skillchip adapter.")
+	activate_message = span_notice("你现在可以通过适配器启用另一枚芯片，但你不确定自己为什么要这么做……")
+	deactivate_message = span_notice("你不再拥有这个无用的技能芯片适配器。")
 	skillchip_flags = SKILLCHIP_ALLOWS_MULTIPLE
 	// Literally does nothing.
 	complexity = 0
 	slot_use = 0
 
 /obj/item/skillchip/light_remover
-	name = "N16H7M4R3 skillchip"
-	desc = "A skillchip about safe lightbulb removal. Whoever came up with that awful name should be fired."
+	name = "噩梦技能芯片"
+	desc = "一枚传授安全拆卸灯泡知识的技能芯片。想出这个烂名字的人该被开除。"
 	auto_traits = list(TRAIT_LIGHTBULB_REMOVER)
-	skill_name = "Lightbulb Removing"
-	skill_description = "Stop failing taking out lightbulbs today, no gloves needed!"
+	skill_name = "拆卸灯泡"
+	skill_description = "从今天起，拆灯泡再不失手，连手套都不需要！"
 	skill_icon = "lightbulb"
-	activate_message = span_notice("Your feel like your pain receptors are less sensitive to hot objects.")
-	deactivate_message = span_notice("You feel like hot objects could stop you again...")
+	activate_message = span_notice("你感觉自己的痛觉感受器对高温物体没那么敏感了。")
+	deactivate_message = span_notice("你感觉高温物体又能让你望而却步了……")
 
 /obj/item/skillchip/disk_verifier
 	name = "K33P-TH4T-D15K skillchip"
@@ -63,25 +63,25 @@
 	deactivate_message = span_notice("Knowledge of liver damage, heart strain and lung scars fades from your mind.")
 
 /obj/item/skillchip/appraiser
-	name = "GENUINE ID Appraisal Now! skillchip"
-	desc = "The name couldn't be any more desperate and self-explainatory, by skillchip naming standards."
+	name = "即刻鉴定真身份卡！技能芯片"
+	desc = "按技能芯片的命名标准，这名字已经不能更急切、更直白了。"
 	auto_traits = list(TRAIT_ID_APPRAISER)
-	skill_name = "ID Appraisal"
-	skill_description = "Appraise an ID and see if it's issued from centcom, or just a cruddy station-printed one."
+	skill_name = "身份卡鉴定"
+	skill_description = "鉴定身份卡，辨别它是中央指挥部签发的，还是站内粗制滥造的打印品。"
 	skill_icon = "magnifying-glass"
-	activate_message = span_notice("You feel that you can recognize special, minute details on ID cards.")
-	deactivate_message = span_notice("Was there something special about certain IDs?")
+	activate_message = span_notice("你感觉自己能辨认身份卡上独特的微小细节了。")
+	deactivate_message = span_notice("某些身份卡有什么特别之处来着？")
 
 /obj/item/skillchip/sabrage
-	name = "Le S48R4G3 skillchip"
-	desc = "A skillchip faintly smelling of alcohol. Best used in conjuction with a sabre or otherwise a sharp blade."
+	name = "刀开香槟技能芯片"
+	desc = "一枚散发淡淡酒味的技能芯片。最好配合军刀或其他锋利刀刃使用。"
 	auto_traits = list(TRAIT_SABRAGE_PRO)
-	skill_name = "Sabrage Proficiency"
-	skill_description = "Grants the user knowledge of the intricate structure of a champagne bottle's structural weakness at the neck, \
-	improving their proficiency at being a show-off at officer parties."
+	skill_name = "刀开香槟技艺"
+	skill_description = "让使用者了解香槟瓶颈薄弱处的精细结构，\
+	提高其在军官聚会上卖弄的本领。"
 	skill_icon = "bottle-droplet"
-	activate_message = span_notice("You feel a new understanding of champagne bottles and methods on how to remove their corks.")
-	deactivate_message = span_notice("The knowledge of the subtle physics residing inside champagne bottles fades from your mind.")
+	activate_message = span_notice("你对香槟瓶以及开瓶方法有了新的理解。")
+	deactivate_message = span_notice("香槟瓶中微妙的物理学知识从你的脑海中消退了。")
 
 /obj/item/skillchip/brainwashing
 	name = "suspicious skillchip"
@@ -102,23 +102,23 @@
 	. = ..()
 
 /obj/item/skillchip/chefs_kiss
-	name = "K1SS skillchip"
-	desc = "This skillchip faintly smells of apple pie, how lovely. Consult a dietician before use."
+	name = "爱之吻技能芯片"
+	desc = "这枚技能芯片散发着淡淡的苹果派香气，真美好。使用前请咨询营养师。"
 	auto_traits = list(TRAIT_CHEF_KISS)
-	skill_name = "Chef's Kiss"
-	skill_description = "Allows you to kiss food you've created to make them with love."
+	skill_name = "大厨之吻"
+	skill_description = "亲吻自己制作的食物，让它们充满爱。"
 	skill_icon = "cookie"
-	activate_message = span_notice("You recall learning from your grandmother how they baked their cookies with love.")
-	deactivate_message = span_notice("You forget all memories imparted upon you by your grandmother. Were they even your real grandma?")
+	activate_message = span_notice("你回想起祖母教你满怀爱意烘焙饼干的往事。")
+	deactivate_message = span_notice("祖母传授给你的记忆全都消失了。那真的是你的祖母吗？")
 
 /obj/item/skillchip/intj
-	name = "Integrated Intuitive Thinking and Judging skillchip"
+	name = "综合直觉思考与判断技能芯片"
 	auto_traits = list(TRAIT_REMOTE_TASTING)
-	skill_name = "Mental Flavour Calculus"
-	skill_description = "When examining food, you can experience the flavours just as well as if you were eating it."
+	skill_name = "脑内风味演算"
+	skill_description = "查看食物时，无须入口，就能体验它的滋味。"
 	skill_icon = FA_ICON_DRUMSTICK_BITE
-	activate_message = span_notice("You think of your favourite food and realise that you can rotate its flavour in your mind.")
-	deactivate_message = span_notice("You feel your food-based mind palace crumbling...")
+	activate_message = span_notice("你想起最爱的食物，发现自己能在脑海中翻转它的风味。")
+	deactivate_message = span_notice("你感觉由食物构成的思维宫殿正在崩塌……")
 
 /obj/item/skillchip/drunken_brawler
 	name = "F0RC3 4DD1CT10N skillchip"
@@ -131,20 +131,20 @@
 	deactivate_message = span_notice("You suddenly feel a lot safer going around the station sober... ")
 
 /obj/item/skillchip/master_angler
-	name = "Mast-Angl-Er skillchip"
-	desc = "A skillchip brimmed with encyclopedic excerpts and factoids about fishing and fishes."
+	name = "钓鱼大师技能芯片"
+	desc = "一枚装满钓鱼与鱼类百科摘录和趣闻的技能芯片。"
 	auto_traits = list(TRAIT_REVEAL_FISH, TRAIT_EXAMINE_FISHING_SPOT, TRAIT_EXAMINE_FISH, TRAIT_EXAMINE_DEEPER_FISH)
-	skill_name = "Fisherman's Discernment"
-	skill_description = "Lists fishes when examining a fishing spot, gives a hint of whatever thing's biting the hook and more."
+	skill_name = "渔夫慧眼"
+	skill_description = "查看钓点时列出鱼类，提示正在咬钩的东西，还能提供更多信息。"
 	skill_icon = "fish"
-	activate_message = span_notice("You feel the knowledge and passion of several sunbaked, seasoned fishermen burn within you.")
-	deactivate_message = span_notice("You no longer feel like casting a fishing rod by the sunny riverside.")
+	activate_message = span_notice("你感觉几位饱经日晒的老渔夫的知识与热情在体内燃烧。")
+	deactivate_message = span_notice("你不再想在阳光明媚的河畔甩竿垂钓了。")
 
 	actions_types = list(/datum/action/cooldown/fishing_tip)
 
 /datum/action/cooldown/fishing_tip
 	name = "Dispense Fishing Tip"
-	desc = "Recall a pearl of wisdom about fishing."
+	desc = "回想一条钓鱼的至理名言。"
 	button_icon = 'icons/hud/radial_fishing.dmi'
 	button_icon_state = "river"
 	background_icon_state = "bg_default"
@@ -153,7 +153,7 @@
 
 /datum/action/cooldown/fishing_tip/Activate(atom/target_atom)
 	. = ..()
-	send_tip_of_the_round(owner, pick(GLOB.fishing_tips), source = "Ancient fishing wisdom")
+	send_tip_of_the_round(owner, pick(GLOB.fishing_tips), source = "古老的钓鱼智慧")
 
 /obj/item/skillchip/disposals
 	name = "T4RG3T.bin skillchip"

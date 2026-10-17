@@ -3,12 +3,12 @@ GAME_VERB_HIDDEN(/client, wiki, "wiki")
 
 	var/wikiurl = CONFIG_GET(string/wikiurl)
 	if(!wikiurl)
-		to_chat(src, span_danger("The wiki URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置维基地址。"))
 		return
 
 	var/query = tgui_input_text(src,
-		"Type what you want to know about. This will open the wiki in your web browser. Type nothing to go to the main page.",
-		"Wiki",
+		"输入想要查询的内容，即可在浏览器中打开维基。不输入内容则前往首页。",
+		"维基",
 		max_length = MAX_MESSAGE_LEN,
 	)
 	if(isnull(query)) //cancelled out
@@ -22,7 +22,7 @@ GAME_VERB_HIDDEN(/client, forum, "forum")
 
 	var/forumurl = CONFIG_GET(string/forumurl)
 	if(!forumurl)
-		to_chat(src, span_danger("The forum URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置论坛地址。"))
 		return
 	DIRECT_OUTPUT(src, link(forumurl))
 
@@ -30,7 +30,7 @@ GAME_VERB_HIDDEN(/client, rules, "rules")
 
 	var/rulesurl = CONFIG_GET(string/rulesurl)
 	if(!rulesurl)
-		to_chat(src, span_danger("The rules URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置规则页面地址。"))
 		return
 	DIRECT_OUTPUT(src, link(rulesurl))
 
@@ -38,7 +38,7 @@ GAME_VERB_HIDDEN(/client, github, "github")
 
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)
-		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置GitHub地址。"))
 		return
 	DIRECT_OUTPUT(src, link(githuburl))
 
@@ -46,11 +46,11 @@ GAME_VERB_HIDDEN(/client, config, "config")
 
 	var/configurl = CONFIG_GET(string/configurl)
 	if(!configurl)
-		to_chat(src, span_danger("The Config URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置设置页面地址。"))
 		return
 	DIRECT_OUTPUT(src, link(configurl))
 
-GAME_VERB_DESC(/client, reportissue, "report-issue", "Report an issue", null)
+GAME_VERB_DESC(/client, reportissue, "report-issue", "报告问题", null)
 
 	// DARKPACK EDIT CHANGE START
 	// "our" url, all other ones should be upstreams
@@ -59,10 +59,10 @@ GAME_VERB_DESC(/client, reportissue, "report-issue", "Report an issue", null)
 	all_options |= main_url
 
 	if(!all_options || !length(all_options))
-		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
+		to_chat(src, span_danger("服务器尚未配置GitHub地址。"))
 		return
 
-	var/githuburl = tgui_input_list(src, "Choose a codebase to report the issue to", "Choose Codebase", all_options, main_url)
+	var/githuburl = tgui_input_list(src, "选择要向哪个代码库报告问题", "选择代码库", all_options, main_url)
 	if(!githuburl)
 		return
 	// DARKPACK EDIT CHANGE END
@@ -70,14 +70,14 @@ GAME_VERB_DESC(/client, reportissue, "report-issue", "Report an issue", null)
 	var/testmerge_data = GLOB.revdata.testmerge
 	var/has_testmerge_data = (length(testmerge_data) != 0)
 
-	var/message = "This will open the Github issue reporter in your browser. Are you sure?"
+	var/message = "即将在浏览器中打开GitHub问题报告页面，是否继续？"
 	if(has_testmerge_data)
-		message += "<br>The following experimental changes are active and are probably the cause of any new or sudden issues you may experience. If possible, please try to find a specific thread for your issue instead of posting to the general issue tracker:<br>"
+		message += "<br>当前启用了以下实验性改动，新出现的问题可能与之有关。如有对应的讨论帖，请尽量在该帖中报告，而非提交至通用问题跟踪页面：<br>"
 		message += GLOB.revdata.GetTestMergeInfo(FALSE)
 
 	// We still use tg_alert here because some people were concerned that if someone wanted to report that tgui wasn't working
 	// then the report issue button being tgui-based would be problematic.
-	if(tg_alert(src, message, "Report Issue", "Yes", "No") != "Yes")
+	if(tg_alert(src, message, "报告问题", "是", "否") != "是")
 		return
 
 	var/base_link = githuburl + "/issues/new?template=bug_report_form.yml"
@@ -138,7 +138,7 @@ GAME_VERB_HIDDEN(/client, hotkeys_help, "Hotkeys Help")
 GAME_VERB_HIDDEN(/client, emote_panel, "Emote Panel")
 
 	if(!isliving(mob))
-		to_chat(mob, span_notice("You can only use this while you're alive!"))
+		to_chat(mob, span_notice("只有活着时才能使用此功能！"))
 		return
 
 	if(!GLOB.emote_panel)

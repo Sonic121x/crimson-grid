@@ -567,24 +567,24 @@
 	return ..()
 
 /obj/item/paper/lures_instructions
-	name = "instructions paper"
+	name = "使用说明纸"
 	icon_state = "slipfull"
 	show_written_words = FALSE
-	desc = "A piece of grey paper with a how-to for dummies about fishing lures printed on it. Smells cheap."
-	default_raw_text =  "<b>Thank you for buying this set.</b><br>\
-		This a simple non-exhaustive set of instructions on how to use fishing lures, some information may \
-		be slightly incorrect or oversimplified.<br><br>\
+	desc = "印着拟饵傻瓜使用指南的灰纸，闻起来很廉价。"
+	default_raw_text =  "<b>感谢购买本套装。</b><br>\
+		以下是简单而不完整的拟饵使用说明，部分信息可能 \
+		略有偏差或过度简化。<br><br>\
 
-		First and foremost, fishing lures are <b>inedible, artificial baits</b> sturdy enough to not end up being \
-		consumed by the hungry fish. However, they need to be <b>spun at intervals</b> to replicate \
-		the motion of a prey or organic bait and tempt the fish, since a piece of plastic and metal ins't \
-		all that appetitizing by itself. <b>Different lures</b> can be used to catch <b>different fish</b>.<br><br>\
+		首先，拟饵是<b>不可食用的人造鱼饵</b>，足够结实，不会 \
+		被饥饿的鱼吃掉。不过，你需要<b>间隔抽动</b>，模仿 \
+		猎物或活饵的动作来引诱鱼，毕竟塑料和金属本身 \
+		没多大吸引力。<b>不同拟饵</b>可以钓到<b>不同的鱼</b>。<br><br>\
 
-		To help you, each lure comes with a <b>small light</b> diode that's attached to the <b>float</b> of your fishing rod. \
-		A float is basically the thing bobbing up'n'down above the fishing spot. \
-		The light will flash <b>green</b> and a <b>sound</b> cue will be played when the lure is <b>ready</b> to be spun. \
-		Do <b>not</b> spin while the light is still <b>red</b>.<br><br>\
-		That's all, best of luck to your angling journey."
+		为帮助操作，每个拟饵都配有<b>小指示灯</b>，连接在鱼竿的<b>浮漂</b>上。 \
+		浮漂就是钓点上方上下浮动的东西。 \
+		拟饵<b>准备好</b>抽动时，指示灯会闪<b>绿光</b>，并播放<b>声音</b>提示。 \
+		灯仍为<b>红色</b>时，<b>不要</b>抽动。<br><br>\
+		就是这些，祝你垂钓顺利。"
 
 ///A modified mining capsule from the black market and sometimes random loot.
 /obj/item/survivalcapsule/fishing
@@ -684,8 +684,8 @@
 #undef RESCUE_HOOK_FISH_MULTIPLIER
 
 /obj/item/storage/bag/fishing
-	name = "fishing bag"
-	desc = "A vibrant bag for storing caught fish."
+	name = "鱼获袋"
+	desc = "一个色彩鲜艳的袋子，用来存放钓到的鱼。"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "fishing_bag"
 	worn_icon_state = "fishing_bag"

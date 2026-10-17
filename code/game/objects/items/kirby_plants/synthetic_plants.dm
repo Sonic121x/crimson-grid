@@ -1,6 +1,6 @@
 /obj/item/kirbyplants/synthetic
-	name = "plastic potted plant"
-	desc = "A fake, cheap looking, plastic tree. Perfect for people who kill every plant they touch."
+	name = "塑料盆栽"
+	desc = "一棵看着很廉价的塑料假树。最适合种什么死什么的人。"
 	custom_materials = (list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4))
 	trimmable = FALSE
 

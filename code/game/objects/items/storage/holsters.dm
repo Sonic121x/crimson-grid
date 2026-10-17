@@ -19,8 +19,8 @@
 	REMOVE_CLOTHING_TRAIT(user, TRAIT_GUNFLIP)
 
 /obj/item/storage/belt/holster/energy
-	name = "energy shoulder holsters"
-	desc = "A rather plain pair of shoulder holsters with a bit of insulated padding inside. Designed to hold energy weaponry."
+	name = "能量武器肩式枪套"
+	desc = "一副朴素的肩式枪套，内有少量绝缘衬垫，专门收纳能量武器。"
 	storage_type = /datum/storage/holster/energy
 
 /obj/item/storage/belt/holster/energy/thermal

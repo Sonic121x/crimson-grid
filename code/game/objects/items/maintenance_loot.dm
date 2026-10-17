@@ -4,7 +4,7 @@
 //Saw-tier bulky & blunt weapon. A decent bone breaker. Source of lead reagent.
 //Add lead material to this once implemented.
 /obj/item/lead_pipe
-	name = "lead pipe"
+	name = "铅管"
 	icon = 'icons/obj/maintenance_loot.dmi'
 	icon_state = "lead_pipe"
 	inhand_icon_state = "lead_pipe"
@@ -13,8 +13,8 @@
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	//wow, lore
-	desc = "A hefty lead pipe.\nLead is an uncommon sight in this sector after being phased out due to employee health concerns. \
-	\nThose of a more cynical disposition have claimed that the NT lead ban is a scheme to prevent diversion to Syndicate ammunition factories."
+	desc = "一根沉重的铅管。\n出于员工健康考虑，铅已被逐步淘汰，如今在本星区很少见。\
+	\n更愤世嫉俗的人则声称，纳诺传讯禁铅的真正目的，是防止铅料流入辛迪加弹药工厂。"
 	force = 15
 	throwforce = 12
 	throw_range = 4
@@ -32,8 +32,8 @@
 //A good battery early in the shift. Source of lead & sulfuric acid reagents.
 //Add lead material to this once implemented.
 /obj/item/stock_parts/power_store/cell/lead
-	name = "lead-acid battery"
-	desc = "A primitive battery. It is quite large and feels unexpectedly heavy."
+	name = "铅酸电池"
+	desc = "一种原始电池，体积相当大，重量也出乎意料。"
 	icon = 'icons/obj/maintenance_loot.dmi'
 	icon_state = "lead_battery"
 	force = 10 // double the force of a normal cell

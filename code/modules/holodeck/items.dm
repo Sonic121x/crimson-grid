@@ -166,8 +166,8 @@
 	default_raw_text = "Bruises sustained in the holodeck can be healed simply by sleeping."
 
 /obj/vehicle/ridden/scooter/skateboard/pro/holodeck
-	name = "holographic skateboard"
-	desc = "A holographic copy of the EightO brand professional skateboard."
+	name = "全息滑板"
+	desc = "八零牌专业滑板的全息复制品。"
 	instability = 6
 
 /obj/vehicle/ridden/scooter/skateboard/pro/holodeck/pick_up_board() //picking up normal skateboards spawned in the holodeck gets rid of the holo flag, now you cant pick them up.

@@ -21,9 +21,9 @@
 	ADD_TRAIT(src, TRAIT_APC_SHOCKING, INNATE_TRAIT)
 
 /obj/item/kitchen/fork
-	name = "fork"
+	name = "叉子"
 	ONFLOOR_ICON_HELPER('modular_darkpack/master_files/icons/obj/service/kitchen/kitchen.dmi') // DARKPACK EDIT ADD
-	desc = "Pointy."
+	desc = "尖尖的。"
 	icon_state = "fork"
 	inhand_icon_state = "fork"
 	icon_angle = -90
@@ -54,7 +54,7 @@
 	AddElement(/datum/element/eyestab)
 
 /obj/item/kitchen/fork/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] stabs \the [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
+	user.visible_message(span_suicide("[user]把[src]刺进自己的胸口！看起来是想咬自己一口！"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -64,10 +64,10 @@
 
 	if(forkload)
 		if(M == user)
-			M.visible_message(span_notice("[user] eats a delicious forkful of omelette!"))
+			M.visible_message(span_notice("[user]吃下了一叉美味的煎蛋卷！"))
 			M.reagents.add_reagent(forkload.type, 1)
 		else
-			M.visible_message(span_notice("[user] feeds [M] a delicious forkful of omelette!"))
+			M.visible_message(span_notice("[user]给[M]喂了一叉美味的煎蛋卷！"))
 			M.reagents.add_reagent(forkload.type, 1)
 		icon_state = "fork"
 		forkload = null
@@ -91,9 +91,9 @@
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 /obj/item/knife/kitchen
-	name = "kitchen knife"
+	name = "厨刀"
 	ONFLOOR_ICON_HELPER('modular_darkpack/master_files/icons/obj/service/kitchen/kitchen.dmi') // DARKPACK EDIT ADD
-	desc = "A general purpose Chef's Knife made by Cookoff Incorporated. Guaranteed to stay sharp for years to come." // DARKPACK EDIT CHANGE
+	desc = "厨艺对决公司制造的通用厨师刀，保证多年保持锋利。" // DARKPACK EDIT CHANGE
 
 /obj/item/knife/plastic
 	name = "plastic knife"
@@ -160,8 +160,8 @@
 		attack_verb_simple = list("prod", "whiff", "scratch", "poke")
 
 /obj/item/kitchen/rollingpin
-	name = "rolling pin"
-	desc = "Used to knock out the Bartender."
+	name = "擀面杖"
+	desc = "用来敲晕酒保。"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "rolling_pin"
 	worn_icon_state = "rolling_pin"
@@ -183,8 +183,8 @@
 	drop_sound = SFX_ROLLING_PIN_DROP
 
 /obj/item/kitchen/rollingpin/illegal
-	name = "metal rolling pin"
-	desc = "A heavy metallic rolling pin used to bash in those annoying ingredients."
+	name = "金属擀面杖"
+	desc = "沉重的金属擀面杖，用来敲碎那些恼人的食材。"
 	icon_state = "metal_rolling_pin"
 	inhand_icon_state = "metal_rolling_pin"
 	force = 12
@@ -194,14 +194,14 @@
 	exposed_wound_bonus = 14
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]开始用[src]擀平自己的脑袋！看起来是想自杀！"))
 	return BRUTELOSS
 /* Trays  moved to /obj/item/storage/bag */
 
 /obj/item/kitchen/spoon
-	name = "spoon"
+	name = "勺子"
 	ONFLOOR_ICON_HELPER('modular_darkpack/master_files/icons/obj/service/kitchen/kitchen.dmi') // DARKPACK EDIT ADD
-	desc = "Just be careful your food doesn't melt the spoon first."
+	desc = "小心，别让食物先把勺子熔了。"
 	icon_state = "spoon"
 	inhand_icon_state = "spoon"
 	base_icon_state = "spoon"
@@ -240,11 +240,11 @@
 
 /obj/item/kitchen/spoon/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
 	if(target.is_open_container())
-		context[SCREENTIP_CONTEXT_LMB] = "Empty spoonful"
-		context[SCREENTIP_CONTEXT_RMB] = "Grab spoonful"
+		context[SCREENTIP_CONTEXT_LMB] = "倒空勺子"
+		context[SCREENTIP_CONTEXT_RMB] = "舀起一勺"
 		return CONTEXTUAL_SCREENTIP_SET
 	if(isliving(target))
-		context[SCREENTIP_CONTEXT_LMB] = target == user ? "[spoon_sip_size >= reagents.maximum_volume ? "Swallow" : "Taste"] spoonful" : "Give spoonful"
+		context[SCREENTIP_CONTEXT_LMB] = target == user ? "[spoon_sip_size >= reagents.maximum_volume ? "吞下" : "尝一口"]勺中食物" : "喂一勺"
 		return CONTEXTUAL_SCREENTIP_SET
 	return NONE
 
@@ -266,28 +266,28 @@
 
 	if(target_mob.is_mouth_covered(ITEM_SLOT_HEAD) || target_mob.is_mouth_covered(ITEM_SLOT_MASK))
 		if(target_mob == user)
-			target_mob.balloon_alert(user, "can't eat with mouth covered!")
+			target_mob.balloon_alert(user, "嘴被遮住，无法进食！")
 		else
-			target_mob.balloon_alert(user, "[target_mob.p_their()] mouth is covered!")
+			target_mob.balloon_alert(user, "对方的嘴被遮住了！")
 		return TRUE
 
 	if(target_mob == user)
 		user.visible_message(
-			span_notice("[user] scoops a spoonful into [user.p_their()] mouth."),
-			span_notice("You scoop a spoonful into your mouth.")
+			span_notice("[user]往自己嘴里送了一勺。"),
+			span_notice("你往嘴里送了一勺。")
 		)
 
 	else
-		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "Someone" : "[user]"] forces a spoon into your face!"))
-		target_mob.balloon_alert(user, "feeding spoonful...")
+		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "有人" : "[user]"]把勺子硬塞到你面前！"))
+		target_mob.balloon_alert(user, "正在喂食……")
 		if(!do_after(user, 3 SECONDS, target_mob))
-			target_mob.balloon_alert(user, "interrupted!")
+			target_mob.balloon_alert(user, "被打断了！")
 			return TRUE
 
-		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "You are forced to" : "[user] forces you to"] swallow a spoonful of something!"))
+		to_chat(target_mob, span_userdanger("[target_mob.is_blind() ? "你被迫" : "[user]强迫你"]吞下了一勺不明物体！"))
 		user.visible_message(
-			span_danger("[user] scoops a spoonful into [target_mob]'s mouth."),
-			span_notice("You scoop a spoonful into [target_mob]'s mouth.")
+			span_danger("[user]往[target_mob]嘴里送了一勺。"),
+			span_notice("你往[target_mob]嘴里送了一勺。")
 		)
 
 	playsound(target_mob, 'sound/items/drink.ogg', rand(10,50), vary = TRUE)
@@ -307,11 +307,11 @@
 
 	var/amount_given = reagents.trans_to(attacked_atom, reagents.maximum_volume)
 	if(amount_given >= reagents.total_volume)
-		attacked_atom.balloon_alert(user, "spoon emptied")
+		attacked_atom.balloon_alert(user, "勺子已倒空")
 	else if(amount_given > 0)
-		attacked_atom.balloon_alert(user, "spoon partially emptied")
+		attacked_atom.balloon_alert(user, "勺子已倒出一部分")
 	else
-		attacked_atom.balloon_alert(user, "it's full!")
+		attacked_atom.balloon_alert(user, "已经满了！")
 	return TRUE
 
 /obj/item/kitchen/spoon/pre_attack_secondary(atom/attacked_atom, mob/living/user, list/modifiers, list/attack_modifiers)
@@ -327,13 +327,13 @@
 		return SECONDARY_ATTACK_CALL_NORMAL
 
 	if(attacked_atom.reagents.trans_to(src, reagents.maximum_volume))
-		attacked_atom.balloon_alert(user, "grabbed spoonful")
+		attacked_atom.balloon_alert(user, "已舀起一勺")
 	else
-		attacked_atom.balloon_alert(user, "spoon is full!")
+		attacked_atom.balloon_alert(user, "勺子已经满了！")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/kitchen/spoon/plastic
-	name = "plastic spoon"
+	name = "塑料勺"
 	icon_state = "plastic_spoon"
 	inhand_icon_state = "plastic_spoon"
 	force = 0
@@ -352,8 +352,8 @@
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 /obj/item/kitchen/spoon/soup_ladle
-	name = "ladle"
-	desc = "What is a ladle but a comically large spoon?"
+	name = "汤勺"
+	desc = "汤勺不就是一把大得滑稽的勺子吗？"
 	icon_state = "ladle"
 	base_icon_state = "ladle"
 	inhand_icon_state = "spoon"
@@ -367,8 +367,8 @@
 
 /// Tongs, let you pick up and feed people food from further away.
 /obj/item/kitchen/tongs
-	name = "tongs"
-	desc = "So you never have to touch anything with your dirty, unwashed hands."
+	name = "食品夹"
+	desc = "有了它，你就不用拿没洗过的脏手碰东西了。"
 	reach = 2
 	icon_state = "tongs"
 	base_icon_state = "tongs"
@@ -393,7 +393,7 @@
 /obj/item/kitchen/tongs/examine(mob/user)
 	. = ..()
 	if (!isnull(tonged))
-		. += span_notice("It is holding [tonged].")
+		. += span_notice("夹着[tonged]。")
 
 /obj/item/kitchen/tongs/dropped(mob/user, silent)
 	. = ..()
@@ -408,7 +408,7 @@
 		return TRUE
 	if (!COOLDOWN_FINISHED(src, clack_cooldown))
 		return TRUE
-	user.visible_message(span_notice("[user] clacks [user.p_their()] [name] together like a crab. Click clack!"))
+	user.visible_message(span_notice("[user]像螃蟹一样把[name]夹得咔哒作响。咔哒，咔哒！"))
 	click_clack()
 	return TRUE
 
@@ -416,7 +416,7 @@
 /obj/item/kitchen/tongs/proc/drop_tonged()
 	if (isnull(tonged))
 		return
-	visible_message(span_notice("[tonged] falls to the ground!"))
+	visible_message(span_notice("[tonged]掉到了地上！"))
 	var/turf/location = drop_location()
 	tonged.forceMove(location)
 	tonged.do_drop_animation(location)

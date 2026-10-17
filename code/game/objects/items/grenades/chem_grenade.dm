@@ -1,6 +1,6 @@
 /obj/item/grenade/chem_grenade
-	name = "chemical grenade"
-	desc = "A custom made grenade."
+	name = "化学手榴弹"
+	desc = "一枚自制手榴弹。"
 	icon_state = "chemg"
 	base_icon_state = "chemg"
 	inhand_icon_state = "flashbang"
@@ -24,7 +24,7 @@
 	/// How much to scale the reagents by when the grenade detonates. Used by advanced grenades to make them slightly more worthy.
 	var/threatscale = 1
 	/// The description when examining empty casings.
-	var/casedesc = "This basic model accepts both beakers and bottles. It heats contents by 10 K upon ignition."
+	var/casedesc = "这种基础型号可装入烧杯或瓶子，点火时会使内装物升温10 K。"
 	/// Whether or not the grenade is currently acting as a landmine.
 	var/obj/item/assembly/prox_sensor/landminemode = null
 
@@ -53,31 +53,31 @@
 		if (stage == GRENADE_READY || !(length(beakers)))
 			return
 		if (length(beakers) == 2 && beakers[1].name == beakers[2].name)
-			. += span_notice("You see two [beakers[1].name]s inside the grenade.")
+			. += span_notice("你看到手榴弹里装有两个[beakers[1].name]。")
 			return
 
 		for (var/obj/item/beaker as anything in beakers)
-			. += span_notice("You see a [beaker.name] inside the grenade.")
+			. += span_notice("你看到手榴弹里装有一个[beaker.name]。")
 
 	if (!length(beakers))
-		. += span_notice("You scan the grenade, but detect nothing.")
+		. += span_notice("你扫描了手榴弹，未检测到任何物质。")
 		return
 
-	. += span_notice("You scan the grenade and detect the following reagents:")
+	. += span_notice("你扫描了手榴弹，检测到以下试剂：")
 
 	for (var/obj/item/beaker as anything in beakers)
 		for (var/datum/reagent/reagent in beaker.reagents.reagent_list)
-			. += span_notice("[reagent.volume] units of [reagent.name] in \the [beaker].")
+			. += span_notice("[beaker]里有[reagent.volume]单位[reagent.display_name || reagent.name]。")
 
 	if (length(beakers) == 1)
-		. += span_notice("You detect no second beaker in the grenade.")
+		. += span_notice("手榴弹中未检测到第二个烧杯。")
 
 /obj/item/grenade/chem_grenade/update_name(updates)
 	switch (stage)
 		if (GRENADE_EMPTY)
-			name = "[initial(name)] casing"
+			name = "[initial(name)]外壳"
 		if (GRENADE_WIRED)
-			name = "unsecured [initial(name)]"
+			name = "未固定的[initial(name)]"
 		if (GRENADE_READY)
 			name = initial(name)
 	return ..()
@@ -85,9 +85,9 @@
 /obj/item/grenade/chem_grenade/update_desc(updates)
 	switch (stage)
 		if (GRENADE_EMPTY)
-			desc = "A do it yourself [initial(name)]! [initial(casedesc)]"
+			desc = "自己动手制作[initial(name)]！[initial(casedesc)]"
 		if (GRENADE_WIRED)
-			desc = "An unsecured [initial(name)] assembly."
+			desc = "尚未固定的[initial(name)]组件。"
 		if (GRENADE_READY)
 			desc = initial(desc)
 	return ..()
@@ -117,33 +117,33 @@
 
 /obj/item/grenade/chem_grenade/screwdriver_act(mob/living/user, obj/item/tool)
 	if (dud_flags & GRENADE_USED)
-		balloon_alert(user, "resetting trigger...")
+		balloon_alert(user, "正在重置触发器……")
 		if (!do_after(user, 2 SECONDS, src))
 			return ITEM_INTERACT_BLOCKING
 
-		balloon_alert(user, "trigger reset")
+		balloon_alert(user, "触发器已重置")
 		dud_flags &= ~GRENADE_USED
 		return ITEM_INTERACT_SUCCESS
 
 	if (stage == GRENADE_WIRED)
 		if (length(beakers))
 			stage_change(GRENADE_READY)
-			to_chat(user, span_notice("You lock the [initial(name)] assembly."))
+			to_chat(user, span_notice("你固定了[initial(name)]组件。"))
 			tool.play_tool_sound(src, 25)
 			return ITEM_INTERACT_SUCCESS
 
 		if (!landminemode || !(landminemode.scanning || landminemode.timing))
-			to_chat(user, span_warning("You need to add at least one beaker before locking the [initial(name)] assembly!"))
+			to_chat(user, span_warning("至少要装入一个烧杯，才能固定[initial(name)]组件！"))
 			return ITEM_INTERACT_BLOCKING
 
 		landminemode.timing = FALSE
 		landminemode.toggle_scan(FALSE)
-		to_chat(user, span_notice("You disarm \the [landminemode]."))
+		to_chat(user, span_notice("你关闭了[landminemode]。"))
 		tool.play_tool_sound(src, 25)
 		return ITEM_INTERACT_SUCCESS
 
 	if (stage != GRENADE_READY)
-		to_chat(user, span_warning("You need to add a wire!"))
+		to_chat(user, span_warning("你需要接上电线！"))
 		return ITEM_INTERACT_BLOCKING
 
 	det_time = det_time == 5 SECONDS ? 3 SECONDS : 5 SECONDS
@@ -151,7 +151,7 @@
 		landminemode.time = det_time * 0.1 //overwrites the proxy sensor activation timer
 
 	tool.play_tool_sound(src, 25)
-	to_chat(user, span_notice("You modify the time delay. It's set for [DisplayTimeText(det_time)]."))
+	to_chat(user, span_notice("你调整了延时，现在设为[DisplayTimeText(det_time)]。"))
 	return TRUE
 
 /obj/item/grenade/chem_grenade/wirecutter_act(mob/living/user, obj/item/tool)
@@ -160,7 +160,7 @@
 
 	tool.play_tool_sound(src)
 	stage_change(GRENADE_WIRED)
-	to_chat(user, span_notice("You unlock the [initial(name)] assembly."))
+	to_chat(user, span_notice("你松开了[initial(name)]组件。"))
 	return TRUE
 
 /obj/item/grenade/chem_grenade/wrench_act(mob/living/user, obj/item/tool)
@@ -172,10 +172,10 @@
 		wires.detach_assembly(wires.get_wire(1))
 		new /obj/item/stack/cable_coil(get_turf(src), 1)
 		stage_change(GRENADE_EMPTY)
-		to_chat(user, span_notice("You remove the activation mechanism from the [initial(name)] assembly."))
+		to_chat(user, span_notice("你从[initial(name)]组件中拆下了激活装置。"))
 		return ITEM_INTERACT_SUCCESS
 
-	to_chat(user, span_notice("You open the [initial(name)] assembly and remove the payload."))
+	to_chat(user, span_notice("你打开了[initial(name)]组件，取出了内装物。"))
 	for(var/obj/item/beaker as anything in beakers)
 		beaker.forceMove(drop_location())
 		if(!beaker.reagents)
@@ -192,12 +192,12 @@
 	if (stage == GRENADE_EMPTY && istype(item, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/coil = item
 		if (!coil.use(1))
-			to_chat(user, span_warning("You need one length of coil to wire the assembly!"))
+			to_chat(user, span_warning("你需要一段电线才能为组件接线！"))
 			return ITEM_INTERACT_BLOCKING
 
 		det_time = 5 SECONDS // In case the cable_coil was removed and readded.
 		stage_change(GRENADE_WIRED)
-		to_chat(user, span_notice("You rig the [initial(name)] assembly."))
+		to_chat(user, span_notice("你接好了[initial(name)]组件的电线。"))
 		return ITEM_INTERACT_SUCCESS
 
 	if (stage != GRENADE_WIRED)
@@ -207,17 +207,17 @@
 		return NONE
 
 	if(is_type_in_list(item, banned_containers))
-		to_chat(user, span_warning("[src] is too small to fit [item]!")) // this one hits home huh anon?
+		to_chat(user, span_warning("[src]太小，装不下[item]！")) // this one hits home huh anon?
 		return ITEM_INTERACT_BLOCKING
 
 	if (length(beakers) == 2)
-		to_chat(user, span_warning("[src] can not hold more containers!"))
+		to_chat(user, span_warning("[src]装不下更多容器了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	if(!user.transferItemToLoc(item, src))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You add [item] to the [initial(name)] assembly."))
+	to_chat(user, span_notice("你把[item]装进了[initial(name)]组件。"))
 	beakers += item
 	var/reagent_list = pretty_string_from_reagent_list(item.reagents.reagent_list)
 	user.log_message("inserted [item] ([reagent_list]) into [src]", LOG_GAME)
@@ -253,9 +253,9 @@
 		add_fingerprint(user)
 		if (msg)
 			if (landminemode)
-				to_chat(user, span_warning("You prime [src], activating its proximity sensor."))
+				to_chat(user, span_warning("你启动了[src]，激活了它的近距传感器。"))
 			else
-				to_chat(user, span_warning("You prime [src]! [DisplayTimeText(det_time)]!"))
+				to_chat(user, span_warning("你启动了[src]！还有[DisplayTimeText(det_time)]！"))
 
 	active = TRUE
 	update_icon_state()
@@ -534,8 +534,8 @@
 
 
 /obj/item/grenade/chem_grenade/teargas
-	name = "teargas grenade"
-	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
+	name = "催泪瓦斯手榴弹"
+	desc = "用于非致命防暴。内装物处于加压状态，请勿直接吸入。"
 	stage = GRENADE_READY
 
 /obj/item/grenade/chem_grenade/teargas/Initialize(mapload)

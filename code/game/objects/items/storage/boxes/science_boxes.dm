@@ -1,8 +1,8 @@
 // This file contains all boxes used by the Science department and its purpose on the station.
 
 /obj/item/storage/box/swab
-	name = "box of microbiological swabs"
-	desc = "Contains a number of sterile swabs for collecting microbiological samples."
+	name = "微生物采样拭子盒"
+	desc = "内有多支用于采集微生物样本的无菌拭子。"
 	illustration = "swab"
 
 /obj/item/storage/box/swab/PopulateContents()
@@ -10,8 +10,8 @@
 		new /obj/item/swab(src)
 
 /obj/item/storage/box/petridish
-	name = "box of petri dishes"
-	desc = "This box purports to contain a number of high rim petri dishes."
+	name = "培养皿盒"
+	desc = "这盒子声称装有多个高边培养皿。"
 	illustration = "petridish"
 
 /obj/item/storage/box/petridish/PopulateContents()
@@ -19,23 +19,23 @@
 		new /obj/item/petri_dish(src)
 
 /obj/item/storage/box/plumbing
-	name = "box of plumbing supplies"
-	desc = "Contains a small supply of pipes, water recyclers, and iron to connect to the rest of the station."
+	name = "管道用品盒"
+	desc = "内有少量管道、水回收器和铁，用于接入空间站其他部分。"
 
 //Disk boxes
 
 /obj/item/storage/box/disks
-	name = "floppy disk box"
+	name = "软盘盒"
 	illustration = "disk_kit"
-	desc = "A set of 8 Nanotrasen-approved floppy disks in individual packaging."
+	desc = "八张纳诺传讯认证软盘，均为独立包装。"
 
 /obj/item/storage/box/disks/PopulateContents()
 	for(var/i in 1 to 8)
 		new /obj/item/delivery/small/floppy(src)
 
 /obj/item/storage/box/monkeycubes
-	name = "monkey cube box"
-	desc = "Drymate brand monkey cubes. Just add water!"
+	name = "猴子方块盒"
+	desc = "干伴牌猴子方块，加水即用！"
 	icon_state = "monkeycubebox"
 	illustration = null
 	custom_price = PAYCHECK_CREW * 2
@@ -48,17 +48,17 @@
 		new cube_type(src)
 
 /obj/item/storage/box/monkeycubes/syndicate
-	desc = "Waffle Corp. brand monkey cubes. Just add water and a dash of subterfuge!"
+	desc = "华夫公司牌猴子方块，加水和一点阴谋即可！"
 	cube_type = /obj/item/food/monkeycube/syndicate
 
 /obj/item/storage/box/monkeycubes/random
-	name = "monster cube box"
-	desc = "A box containing a bunch of random cubes. Add water and see what you get!"
+	name = "怪物方块盒"
+	desc = "装有一堆随机方块的盒子，加水看看会出来什么！"
 	cube_type = /obj/item/food/monkeycube/random
 
 /obj/item/storage/box/gorillacubes
-	name = "gorilla cube box"
-	desc = "Waffle Corp. brand gorilla cubes. Do not taunt."
+	name = "大猩猩方块盒"
+	desc = "华夫公司牌大猩猩方块，请勿挑衅。"
 	icon_state = "monkeycubebox"
 	illustration = null
 	storage_type = /datum/storage/box/gorilla_cube_box
@@ -68,8 +68,8 @@
 		new /obj/item/food/monkeycube/gorilla(src)
 
 /obj/item/storage/box/stockparts/basic //for ruins where it's a bad idea to give access to an autolathe/protolathe, but still want to make stock parts accessible
-	name = "box of stock parts"
-	desc = "Contains a variety of basic stock parts."
+	name = "机器零件盒"
+	desc = "内有各类基础机器零件。"
 
 /obj/item/storage/box/stockparts/basic/PopulateContents()
 	var/list/items_inside = list(
@@ -82,8 +82,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/stockparts/deluxe
-	name = "box of deluxe stock parts"
-	desc = "Contains a variety of deluxe stock parts."
+	name = "高级机器零件盒"
+	desc = "内有各类高级机器零件。"
 	icon_state = "syndiebox"
 
 /obj/item/storage/box/stockparts/deluxe/PopulateContents()
@@ -97,8 +97,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/rndboards
-	name = "\proper the liberator's legacy"
-	desc = "A box containing a gift for worthy golems."
+	name = "\proper 解放者的遗产"
+	desc = "盒中装有赠予配得上它的魔像的礼物。"
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndboards/PopulateContents()
@@ -108,7 +108,7 @@
 	new /obj/item/circuitboard/computer/rdconsole/unlocked(src)
 
 /obj/item/storage/box/stabilized //every single stabilized extract from xenobiology
-	name = "box of stabilized extracts"
+	name = "稳定提取物盒"
 	icon_state = "syndiebox"
 	storage_type = /datum/storage/box/stabilized
 

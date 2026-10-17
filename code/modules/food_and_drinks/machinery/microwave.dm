@@ -18,8 +18,8 @@
 #define TIER_1_CELL_CHARGE_RATE (0.25 * STANDARD_CELL_CHARGE)
 
 /obj/machinery/microwave
-	name = "microwave oven"
-	desc = "Cooks and boils stuff."
+	name = "微波炉"
+	desc = "用来烹饪和煮东西。"
 	icon = 'icons/obj/machines/microwave.dmi'
 	base_icon_state = ""
 	icon_state = "mw_complete"
@@ -85,8 +85,8 @@
 	var/static/radial_charge = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_charge")
 
 	// we show the button even if the proc will not work
-	var/static/list/radial_options = list("eject" = radial_eject, "cook" = radial_cook, "charge" = radial_charge)
-	var/static/list/ai_radial_options = list("eject" = radial_eject, "cook" = radial_cook, "charge" = radial_charge, "examine" = radial_examine)
+	var/static/list/radial_options = list("取出" = radial_eject, "烹饪" = radial_cook, "充电" = radial_charge)
+	var/static/list/ai_radial_options = list("取出" = radial_eject, "烹饪" = radial_cook, "充电" = radial_charge, "查看" = radial_examine)
 
 /obj/machinery/microwave/Initialize(mapload)
 	. = ..()
@@ -122,34 +122,34 @@
 	. = ..()
 	if(cell_powered)
 		if(!isnull(cell))
-			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Remove cell"
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = "取出电池"
 		else if(held_item && istype(held_item, /obj/item/stock_parts/power_store/cell))
-			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Insert cell"
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = "装入电池"
 
 	if(held_item?.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Unsecure" : "Install/Secure"]"
+		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "松开固定" : "安装／固定"]"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(held_item?.atom_storage)
-		context[SCREENTIP_CONTEXT_RMB] = "Dump contents"
+		context[SCREENTIP_CONTEXT_RMB] = "倒出内容物"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(broken > NOT_BROKEN)
 		if(broken == REALLY_BROKEN && held_item?.tool_behaviour == TOOL_WIRECUTTER)
-			context[SCREENTIP_CONTEXT_LMB] = "Repair"
+			context[SCREENTIP_CONTEXT_LMB] = "修理"
 			return CONTEXTUAL_SCREENTIP_SET
 
 		else if(broken == KINDA_BROKEN && held_item?.tool_behaviour == TOOL_WELDER)
-			context[SCREENTIP_CONTEXT_LMB] = "Repair"
+			context[SCREENTIP_CONTEXT_LMB] = "修理"
 			return CONTEXTUAL_SCREENTIP_SET
 
-	context[SCREENTIP_CONTEXT_LMB] = "Show menu"
+	context[SCREENTIP_CONTEXT_LMB] = "打开菜单"
 
 	if(vampire_charging_capable)
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Change to [vampire_charging_enabled ? "cook" : "charge"]"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "切换为[vampire_charging_enabled ? "烹饪" : "充电"]"
 
 	if(length(ingredients) != 0)
-		context[SCREENTIP_CONTEXT_RMB] = "Start [vampire_charging_enabled ? "charging" : "cooking"]"
+		context[SCREENTIP_CONTEXT_RMB] = "开始[vampire_charging_enabled ? "充电" : "烹饪"]"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
@@ -165,36 +165,36 @@
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
 		if(capacitor.tier >= 2)
 			vampire_charging_capable = TRUE
-			visible_message(span_notice("The [EXAMINE_HINT("Charge Ready")] light on \the [src] flickers to life."))
+			visible_message(span_notice("[src]上的[EXAMINE_HINT("充电就绪")]指示灯闪烁着亮了起来。"))
 			break
 
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(vampire_charging_capable)
-		. += span_info("This model features Wave™: a Nanotrasen exclusive. Our latest and greatest, Wave™ allows your PDA to be charged wirelessly through microwave frequencies! You can Wave-charge your device by placing it inside and selecting the charge mode.")
-		. += span_info("Because nothing says 'future' like charging your PDA while overcooking your leftovers. Nanotrasen Wave™ - Multitasking, redefined.")
+		. += span_info("本机搭载纳诺传讯独家微波充™技术！这项最新尖端技术可通过微波为PDA无线充电。将设备放入炉内，选择充电模式，即可使用微波充。")
+		. += span_info("一边给PDA充电，一边把剩饭热过头，这才叫未来。纳诺传讯微波充™——重新定义多任务处理。")
 
 	if(cell_powered)
-		. += span_notice("This model is wireless, powered by portable cells. [isnull(cell) ? "The cell slot is empty." : "[EXAMINE_HINT("Ctrl-click")] to remove the power cell."]")
+		. += span_notice("本机无需外接电源，使用便携电池供电。[isnull(cell) ? "电池槽是空的。" : "[EXAMINE_HINT("Ctrl点击")]可取出电池。"]")
 
 	if(!operating)
 		if(!operating && vampire_charging_capable)
-			. += span_notice("[EXAMINE_HINT("Alt-click")] to change default mode.")
+			. += span_notice("[EXAMINE_HINT("Alt点击")]可切换默认模式。")
 
-		. += span_notice("[EXAMINE_HINT("Right-click")] to start [vampire_charging_enabled ? "charging" : "cooking"] cycle.")
+		. += span_notice("[EXAMINE_HINT("右键点击")]可开始[vampire_charging_enabled ? "充电" : "烹饪"]。")
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += span_warning("You're too far away to examine [src]'s contents and display!")
+		. += span_warning("你离得太远，无法查看[src]的内容物和显示屏！")
 		return
 	if(operating)
-		. += span_notice("\The [src] is operating.")
+		. += span_notice("[src]正在运行。")
 		return
 
 	if(length(ingredients))
 		if(issilicon(user))
-			. += span_notice("\The [src] camera shows:")
+			. += span_notice("[src]的摄像头画面显示：")
 		else
-			. += span_notice("\The [src] contains:")
+			. += span_notice("[src]内装有：")
 		var/list/items_counts = new
 		for(var/i in ingredients)
 			if(isstack(i))
@@ -204,18 +204,18 @@
 				var/atom/movable/single_item = i
 				items_counts[single_item.name]++
 		for(var/item in items_counts)
-			. += span_notice("- [items_counts[item]]x [item].")
+			. += span_notice("- [item] × [items_counts[item]]。")
 	else
-		. += span_notice("\The [src] is empty.")
+		. += span_notice("[src]是空的。")
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
-		"[span_notice("- Mode: <b>[vampire_charging_enabled ? "Charge" : "Cook"]</b>.")]\n"+\
-		"[span_notice("- Capacity: <b>[max_n_of_items]</b> items.")]\n"+\
-		span_notice("- Power: <b>[efficiency * TIER_1_CELL_CHARGE_RATE]W</b>.")
+		. += "[span_notice("状态显示屏显示：")]\n"+\
+		"[span_notice("- 模式：<b>[vampire_charging_enabled ? "充电" : "烹饪"]</b>。")]\n"+\
+		"[span_notice("- 容量：<b>[max_n_of_items]</b>件物品。")]\n"+\
+		span_notice("- 功率：<b>[efficiency * TIER_1_CELL_CHARGE_RATE]W</b>。")
 
 		if(cell_powered)
-			. += span_notice("- Charge: <b>[isnull(cell) ? "INSERT CELL" : "[round(cell.percent())]%"]</b>.")
+			. += span_notice("- 电量：<b>[isnull(cell) ? "请装入电池" : "[round(cell.percent())]%"]</b>。")
 
 #define MICROWAVE_INGREDIENT_OVERLAY_SIZE 24
 
@@ -330,16 +330,16 @@
 		return NONE
 
 	user.visible_message(
-		span_notice("[user] starts to fix part of [src]."),
-		span_notice("You start to fix part of [src]..."),
+		span_notice("[user]开始修理[src]的一部分。"),
+		span_notice("你开始修理[src]的一部分……"),
 	)
 
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] fixes part of [src]."),
-		span_notice("You fix part of [src]."),
+		span_notice("[user]修好了[src]的一部分。"),
+		span_notice("你修好了[src]的一部分。"),
 	)
 	broken = KINDA_BROKEN // Fix it a bit
 	update_appearance()
@@ -350,16 +350,16 @@
 		return NONE
 
 	user.visible_message(
-		span_notice("[user] starts to fix part of [src]."),
-		span_notice("You start to fix part of [src]..."),
+		span_notice("[user]开始修理[src]的一部分。"),
+		span_notice("你开始修理[src]的一部分……"),
 	)
 
 	if(!tool.use_tool(src, user, 2 SECONDS, amount = 1, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] fixes [src]."),
-		span_notice("You fix [src]."),
+		span_notice("[user]修好了[src]。"),
+		span_notice("你修好了[src]。"),
 	)
 	broken = NOT_BROKEN
 	update_appearance()
@@ -386,13 +386,13 @@
 
 	if(dirty >= MAX_MICROWAVE_DIRTINESS) // The microwave is all dirty so can't be used!
 		if(IS_EDIBLE(item))
-			balloon_alert(user, "it's too dirty!")
+			balloon_alert(user, "太脏了！")
 			return ITEM_INTERACT_BLOCKING
 		return NONE
 
 	if(broken > NOT_BROKEN)
 		if(IS_EDIBLE(item))
-			balloon_alert(user, "it's broken!")
+			balloon_alert(user, "已经坏了！")
 			return ITEM_INTERACT_BLOCKING
 		return NONE
 
@@ -408,31 +408,31 @@
 			update_appearance()
 			return ITEM_INTERACT_BLOCKING
 		cell = item
-		balloon_alert(user, "[swapped ? "swapped" : "inserted"] cell")
+		balloon_alert(user, "已[swapped ? "更换" : "装入"]电池")
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 	if(!anchored)
 		if(IS_EDIBLE(item))
-			balloon_alert(user, "not secured!")
+			balloon_alert(user, "尚未固定！")
 			return ITEM_INTERACT_BLOCKING
 		return NONE
 
 	if(vampire_charging_capable && istype(item, /obj/item/modular_computer) && ingredients.len > 0)
-		balloon_alert(user, "max 1 device!")
+		balloon_alert(user, "最多放一台设备！")
 		return ITEM_INTERACT_BLOCKING
 
 	if(item.w_class <= WEIGHT_CLASS_NORMAL && !user.combat_mode && isnull(item.atom_storage))
 		if(ingredients.len >= max_n_of_items)
-			balloon_alert(user, "it's full!")
+			balloon_alert(user, "已经放满了！")
 			return ITEM_INTERACT_BLOCKING
 		if(!user.transferItemToLoc(item, src))
-			balloon_alert(user, "it's stuck to your hand!")
+			balloon_alert(user, "它粘在你手上了！")
 			return ITEM_INTERACT_BLOCKING
 
 		ingredients += item
 		open(autoclose = 0.6 SECONDS)
-		user.visible_message(span_notice("[user] adds \a [item] to \the [src]."), span_notice("You add [item] to \the [src]."))
+		user.visible_message(span_notice("[user]将[item]放入[src]。"), span_notice("你将[item]放入[src]。"))
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
@@ -449,7 +449,7 @@
 	var/loaded = 0
 	if(!istype(tool, /obj/item/storage/bag/tray))
 		// Non-tray dumping requires a do_after
-		to_chat(user, span_notice("You start dumping out the contents of [tool] into [src]..."))
+		to_chat(user, span_notice("你开始将[tool]里的东西倒入[src]……"))
 		if(!do_after(user, 2 SECONDS, target = tool))
 			return
 
@@ -457,7 +457,7 @@
 		if(!IS_EDIBLE(tray_item))
 			continue
 		if(ingredients.len >= max_n_of_items)
-			balloon_alert(user, "it's full!")
+			balloon_alert(user, "已经放满了！")
 			return
 		if(tool.atom_storage.attempt_remove(tray_item, src))
 			loaded++
@@ -465,7 +465,7 @@
 
 	if(loaded)
 		open(autoclose = 0.6 SECONDS)
-		to_chat(user, span_notice("You insert [loaded] items into \the [src]."))
+		to_chat(user, span_notice("你将[loaded]件物品放入[src]。"))
 		update_appearance()
 
 /obj/machinery/microwave/mouse_drop_receive(obj/item/tool, mob/user, params)
@@ -476,7 +476,7 @@
 /obj/machinery/microwave/attack_hand_secondary(mob/user, list/modifiers)
 	if(user.can_perform_action(src, ALLOW_SILICON_REACH))
 		if(!length(ingredients))
-			balloon_alert(user, "it's empty!")
+			balloon_alert(user, "里面是空的！")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		start_cycle(user)
@@ -488,10 +488,10 @@
 		return NONE
 
 	vampire_charging_enabled = !vampire_charging_enabled
-	balloon_alert(user, "set to [vampire_charging_enabled ? "charge" : "cook"]")
+	balloon_alert(user, "已切换为[vampire_charging_enabled ? "充电" : "烹饪"]")
 	playsound(src, 'sound/machines/beep/twobeep_high.ogg', 50, FALSE)
 	if(HAS_SILICON_ACCESS(user))
-		visible_message(span_notice("[user] sets \the [src] to [vampire_charging_enabled ? "charge" : "cook"]."), blind_message = span_notice("You hear \the [src] make an informative beep!"))
+		visible_message(span_notice("[user]将[src]切换为[vampire_charging_enabled ? "充电" : "烹饪"]模式。"), blind_message = span_notice("你听见[src]发出一声提示音！"))
 	return CLICK_ACTION_SUCCESS
 
 /obj/machinery/microwave/click_ctrl(mob/user)
@@ -500,7 +500,7 @@
 
 	if(cell_powered && !isnull(cell))
 		user.put_in_hands(cell)
-		balloon_alert(user, "removed cell")
+		balloon_alert(user, "已取出电池")
 		cell = null
 		update_appearance()
 		return CLICK_ACTION_SUCCESS
@@ -511,7 +511,7 @@
 	. = ..()
 
 	if(!anchored)
-		balloon_alert(user, "not secured!")
+		balloon_alert(user, "尚未固定！")
 		return
 	if(operating || panel_open || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
@@ -522,7 +522,7 @@
 		if(HAS_AI_ACCESS(user))
 			user.examinate(src)
 		else
-			balloon_alert(user, "it's empty!")
+			balloon_alert(user, "里面是空的！")
 		return
 
 	var/choice = show_radial_menu(user, src, HAS_AI_ACCESS(user) ? ai_radial_options : radial_options, require_near = !HAS_SILICON_ACCESS(user))
@@ -534,15 +534,15 @@
 		return
 
 	switch(choice)
-		if("eject")
+		if("取出")
 			eject()
-		if("cook")
+		if("烹饪")
 			vampire_charging_enabled = FALSE
 			start_cycle(user)
-		if("charge")
+		if("充电")
 			vampire_charging_enabled = TRUE
 			start_cycle(user)
-		if("examine")
+		if("查看")
 			user.examinate(src)
 
 /obj/machinery/microwave/wash(clean_types)
@@ -587,13 +587,13 @@
 		return
 
 	if(wire_disabled)
-		audible_message("[src] buzzes.")
+		audible_message("[src]发出蜂鸣声。")
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		return
 
 	if(cell_powered && cell?.charge < TIER_1_CELL_CHARGE_RATE * efficiency)
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
-		balloon_alert(cooker, "no power draw!")
+		balloon_alert(cooker, "无法获取电力！")
 		return
 
 	if(cooker && HAS_TRAIT(cooker, TRAIT_CURSED) && prob(7))
@@ -631,14 +631,14 @@
 			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 			return
 
-	visible_message(span_notice("\The [src] turns on."), null, span_hear("You hear a microwave humming."))
+	visible_message(span_notice("[src]启动了。"), null, span_hear("你听见微波炉嗡嗡作响。"))
 	operating = TRUE
 	set_light(l_range = 1.5, l_power = 1.2, l_on = TRUE)
 	soundloop.start()
 	update_appearance()
 
 /obj/machinery/microwave/proc/spark()
-	visible_message(span_warning("Sparks fly around [src]!"))
+	visible_message(span_warning("[src]周围火花四溅！"))
 	do_sparks(2, TRUE, src)
 
 /**
@@ -704,7 +704,7 @@
 			for(var/mob/smeller in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src))
 				if(HAS_TRAIT(smeller, TRAIT_ANOSMIA))
 					cant_smell += smeller
-			visible_message(span_danger("You smell a burnt smell coming from [src]!"), ignored_mobs = cant_smell)
+			visible_message(span_danger("你闻到[src]里传出一股焦味！"), ignored_mobs = cant_smell)
 			add_shared_particles(/particles/smoke)
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, remove_shared_particles), /particles/smoke), 10 SECONDS)
 			Shake(duration = 1 SECONDS)
@@ -771,7 +771,7 @@
 	cook_loop(type = MICROWAVE_NORMAL, cycles = 10, cooker = cooker)
 
 /obj/machinery/microwave/proc/muck_finish()
-	visible_message(span_warning("\The [src] gets covered in muck!"))
+	visible_message(span_warning("[src]沾满了污物！"))
 
 	dirty = MAX_MICROWAVE_DIRTINESS
 	dirty_anim_playing = FALSE
@@ -819,7 +819,7 @@
 
 /obj/machinery/microwave/proc/charge(mob/cooker)
 	if(!vampire_charging_capable)
-		balloon_alert(cooker, "needs upgrade!")
+		balloon_alert(cooker, "需要升级！")
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		return
 
@@ -827,14 +827,14 @@
 		return
 
 	if(wire_disabled)
-		audible_message("[src] buzzes.")
+		audible_message("[src]发出蜂鸣声。")
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 		return
 
 	// We should only be charging PDAs
 	for(var/atom/movable/potential_item as anything in ingredients)
 		if(!istype(potential_item, /obj/item/modular_computer))
-			balloon_alert(cooker, "pda only!")
+			balloon_alert(cooker, "只能放PDA！")
 			playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
 			eject()
 			return
@@ -856,7 +856,7 @@
 
 	if(cell_powered && (isnull(cell) || !cell.charge))
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 50, FALSE)
-		balloon_alert(cooker, "no power draw!")
+		balloon_alert(cooker, "无法获取电力！")
 		return
 
 	if(!vampire_charge_amount || !length(ingredients) || vampire_charge_amount < 25)
@@ -904,7 +904,7 @@
 /// Type of microwave that automatically turns it self on erratically. Probably don't use this outside of the holodeck program "Microwave Paradise".
 /// You could also live your life with a microwave that will continously run in the background of everything while also not having any power draw. I think the former makes more sense.
 /obj/machinery/microwave/hell
-	desc = "Cooks and boils stuff. This one appears to be a bit... off."
+	desc = "用来烹饪和煮东西。这台看起来有点……不太对劲。"
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -917,8 +917,8 @@
 		addtimer(CALLBACK(src, PROC_REF(wzhzhzh)), rand(0.5 SECONDS, 3 SECONDS))
 
 /obj/machinery/microwave/engineering
-	name = "wireless microwave oven"
-	desc = "For the hard-working tradesperson who's in the middle of nowhere and just wants to warm up their pastry-based savoury item from an overpriced vending machine."
+	name = "无线微波炉"
+	desc = "专为在荒郊野外辛苦干活的工人准备，好把从高价售货机买来的咸馅酥点热一热。"
 	base_icon_state = "engi_"
 	icon_state = "engi_mw_complete"
 	circuit = /obj/item/circuitboard/machine/microwave/engineering

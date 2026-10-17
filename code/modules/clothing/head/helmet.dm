@@ -207,8 +207,8 @@
 	drop_sound = 'sound/items/handling/helmet/helmet_drop1.ogg'
 
 /obj/item/clothing/head/helmet/blueshirt
-	name = "blue helmet"
-	desc = "A reliable, blue tinted helmet reminding you that you <i>still</i> owe that engineer a beer."
+	name = "蓝色头盔"
+	desc = "一顶可靠的蓝色头盔，提醒你<i>仍然</i>欠那位工程师一杯啤酒。"
 	icon_state = "blueshift"
 	inhand_icon_state = "blueshift_helmet"
 	custom_premium_price = PAYCHECK_COMMAND

@@ -1,5 +1,5 @@
 /obj/item/storage/box/fishing_hooks
-	name = "fishing hook set"
+	name = "鱼钩套装"
 	illustration = "fish"
 	custom_price = PAYCHECK_CREW * 2
 
@@ -14,7 +14,7 @@
 	new /obj/item/fishing_hook/jaws(src)
 
 /obj/item/storage/box/fishing_lines
-	name = "fishing line set"
+	name = "鱼线套装"
 	illustration = "fish"
 	custom_price = PAYCHECK_CREW * 2
 
@@ -29,8 +29,8 @@
 
 ///From the fishing mystery box. It's basically a lazarus and a few bottles of strange reagents.
 /obj/item/storage/box/fish_revival_kit
-	name = "fish revival kit"
-	desc = "Become a fish doctor today. A label on the side indicates that fish require two to ten reagent units to be splashed onto them for revival, depending on size."
+	name = "鱼类复苏套件"
+	desc = "今天就成为鱼医生。侧面标签说明，视体型大小，需要向鱼泼洒2至10单位试剂才能使其复苏。"
 	illustration = "fish"
 
 /obj/item/storage/box/fish_revival_kit/PopulateContents()
@@ -41,8 +41,8 @@
 	new /obj/item/storage/fish_case(src)
 
 /obj/item/storage/box/fishing_lures
-	name = "fishing lures set"
-	desc = "A small tackle box containing all the fishing lures you will ever need to curb randomness."
+	name = "拟饵套装"
+	desc = "小型钓具盒，装有减少钓鱼随机性所需的各类拟饵。"
 	icon_state = "plasticbox"
 	foldable_result = null
 	illustration = "fish"
@@ -56,8 +56,8 @@
 		new type (src)
 
 /obj/item/storage/box/aquarium_props
-	name = "aquarium props box"
-	desc = "All you need to make your aquarium look good."
+	name = "鱼缸装饰盒"
+	desc = "美化鱼缸所需的一切。"
 	illustration = "fish"
 	custom_price = PAYCHECK_LOWER
 

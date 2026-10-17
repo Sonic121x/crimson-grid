@@ -1,6 +1,6 @@
 /obj/item/stock_parts/power_store/battery
 	name = "megacell"
-	desc = "A series of rechargeable electrochemical cells wired together to hold significantly more power than a standard power cell."
+	desc = "由多个可充电电化学电池连接而成，储电量远高于标准电池。"
 	icon = 'icons/obj/machines/cell_charger.dmi'
 	icon_state = "cellbig"
 	cell_size_prefix = "cellbig"
@@ -30,7 +30,7 @@
 	chargerate = STANDARD_BATTERY_RATE * 0.5
 
 /obj/item/stock_parts/power_store/battery/high
-	name = "high-capacity megacell"
+	name = "高容量巨型电池"
 	icon_state = "hcellbig"
 	maxcharge = STANDARD_BATTERY_CHARGE * 10
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.2, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3)

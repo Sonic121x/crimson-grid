@@ -32,8 +32,8 @@
 	wound = 15
 
 /obj/item/clothing/suit/space/officer
-	name = "\improper CentCom officer's coat"
-	desc = "An armored, space-proof coat used in special operations."
+	name = "\improper 中央指挥部军官外套"
+	desc = "用于特种作战的装甲外套，可抵御太空环境。"
 	icon_state = "centcom_coat"
 	icon = 'icons/obj/clothing/suits/jacket.dmi'
 	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'

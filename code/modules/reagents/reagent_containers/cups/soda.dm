@@ -9,7 +9,7 @@
 #define SODA_EXPLOSION_PRESSURE 67.458
 
 /obj/item/reagent_containers/cup/soda_cans
-	name = "soda can"
+	name = "汽水罐"
 	icon = 'icons/obj/drinks/soda.dmi'
 	icon_state = "cola"
 	icon_state_preview = "cola"
@@ -42,21 +42,21 @@
 
 /obj/item/reagent_containers/cup/soda_cans/suicide_act(mob/living/user)
 	if(!reagents.total_volume)
-		user.visible_message(span_warning("[user] is trying to take a big sip from [src]... The can is empty!"))
+		user.visible_message(span_warning("[user]试图从[src]里猛喝一口……罐子是空的！"))
 		return SHAME
 	if(!is_drainable())
 		open_soda(user)
 		sleep(1 SECONDS)
-	user.visible_message(span_suicide("[user] takes a big sip from [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]从[src]里猛喝了一大口！看起来是想自杀！"))
 	playsound(user,'sound/items/drink.ogg', 80, TRUE)
 	reagents.trans_to(user, src.reagents.total_volume, transferred_by = user) //a big sip
 	sleep(0.5 SECONDS)
 	user.say(pick(
-		"Now, Outbomb Cuban Pete, THAT was a game.",
-		"All these new fangled arcade games are too slow. I prefer the classics.",
-		"They don't make 'em like Orion Trail anymore.",
-		"You know what they say. Worst day of spess carp fishing is better than the best day at work.",
-		"They don't make 'em like good old-fashioned singularity engines anymore.",
+		"要说游戏，炸翻古巴皮特，那才叫游戏。",
+		"这些新奇的街机游戏节奏都太慢了。我还是喜欢经典。",
+		"现在再也做不出猎户座之旅那样的游戏了。",
+		"老话说得好，钓太空鲤最糟糕的一天，也比上班最美好的一天强。",
+		"现在再也造不出老式奇点引擎那样的好东西了。",
 	))
 
 	if(ishuman(user))
@@ -66,10 +66,10 @@
 			sleep(5 SECONDS)
 			playsound(drinker,'sound/items/drink.ogg', 80, TRUE)
 			drinker.say(pick(
-				"Another day, another dollar.",
-				"I wonder if I should hold?",
-				"Diversifying is for young'ns.",
-				"Yeap, times were good back then.",
+				"又熬一天，又挣一块。",
+				"我是不是该继续持有？",
+				"分散投资是年轻人才玩的。",
+				"没错，那时候的日子真好。",
 			))
 			return MANUAL_SUICIDE_NONLETHAL
 
@@ -82,13 +82,13 @@
 
 	if(target == user)
 		user.visible_message(
-			span_warning("[user] crushes the can of [src] on [user.p_their()] forehead!"),
-			span_notice("You crush the can of [src] on your forehead."),
+			span_warning("[user]用额头撞扁了[src]的罐子！"),
+			span_notice("你用额头撞扁了[src]的罐子。"),
 		)
 	else
 		user.visible_message(
-			span_warning("[user] crushes the can of [src] on [target]'s forehead!"),
-			span_notice("You crush the can of [src] on [target]'s forehead."),
+			span_warning("[user]把[src]的罐子在[target]的额头上撞扁了！"),
+			span_notice("你把[src]的罐子在[target]的额头上撞扁了。"),
 		)
 	playsound(src, 'sound/items/weapons/pierce.ogg', rand(10, 50), TRUE)
 	var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(target.drop_location())
@@ -110,7 +110,7 @@
 
 /obj/item/reagent_containers/cup/soda_cans/proc/open_soda(mob/user)
 	if(tape_color)
-		to_chat(user, "You rip off the tape covering [src]'s hole.")
+		to_chat(user, "你撕掉了盖住[src]开口的胶带。")
 		playsound(user, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
 		tape_color = null
 		add_container_flags(OPENCONTAINER)
@@ -118,11 +118,11 @@
 		return
 
 	if(prob(fizziness))
-		user.visible_message(span_danger("[user] opens [src], and is suddenly sprayed by the fizzing contents!"), span_danger("You pull back the tab of [src], and are suddenly sprayed with a torrent of liquid! Ahhh!!"))
+		user.visible_message(span_danger("[user]打开[src]，突然被冒泡的饮料喷了一身！"), span_danger("你拉开[src]的拉环，突然被一股液体喷中！啊！！"))
 		burst_soda(user)
 		return
 
-	to_chat(user, "You pull back the tab of [src] with a satisfying pop.") //Ahhhhhhhh
+	to_chat(user, "你拉开[src]的拉环，发出令人满足的啪嗒声。") //Ahhhhhhhh
 	add_container_flags(OPENCONTAINER)
 	playsound(src, SFX_CAN_OPEN, 50, TRUE)
 	throwforce = 0
@@ -147,7 +147,7 @@
 
 	playsound(src, 'sound/items/can/can_pop.ogg', 80, TRUE)
 	if(!hide_message)
-		visible_message(span_danger("[src] spills over, fizzing its contents all over [target]!"))
+		visible_message(span_danger("[src]翻倒了，冒泡的内容物洒了[target]一身！"))
 	add_container_flags(OPENCONTAINER)
 	reagents.expose(target, TOUCH)
 	reagents.clear_reagents()
@@ -156,7 +156,7 @@
 /obj/item/reagent_containers/cup/soda_cans/wirecutter_act(mob/living/user, obj/item/tool)
 	if (!fuse_color)
 		return NONE
-	to_chat(user, span_notice("You snip [src]'s fuse off."))
+	to_chat(user, span_notice("你剪掉了[src]的引信。"))
 	tool.play_tool_sound(src, 50)
 	add_fingerprint(user)
 	fuse_color = null
@@ -171,15 +171,15 @@
 /obj/item/reagent_containers/cup/soda_cans/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if (istype(tool, /obj/item/stack/cable_coil))
 		if (fuse_color)
-			to_chat(user, span_warning("[src] already has a fuse attached to it!"))
+			to_chat(user, span_warning("[src]已经装有引信了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (tape_color)
-			to_chat(user, span_warning("[src]'s hole is covered up with tape!"))
+			to_chat(user, span_warning("[src]的开口被胶带封住了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (!is_drainable())
-			to_chat(user, span_warning("[src] hasn't been opened yet!"))
+			to_chat(user, span_warning("[src]还没打开！"))
 			return ITEM_INTERACT_BLOCKING
 
 		var/obj/item/stack/cable_coil/coil = tool
@@ -191,18 +191,18 @@
 		fuse_color = coil_color
 		// Heating replaced with lighting the fuse
 		RemoveElement(/datum/element/reagents_item_heatable)
-		to_chat(user, span_notice("You attach a fuse to [src]."))
+		to_chat(user, span_notice("你给[src]装上了引信。"))
 		log_bomber(user, "attached a fuse to", src)
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 	if (istype(tool, /obj/item/stack/medical/wrap/sticky_tape))
 		if (tape_color)
-			to_chat(user, span_warning("[src]'s hole is already covered up with tape!"))
+			to_chat(user, span_warning("[src]的开口已经被胶带封住了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (!is_drainable())
-			to_chat(user, span_warning("[src] hasn't been opened yet!"))
+			to_chat(user, span_warning("[src]还没打开！"))
 			return ITEM_INTERACT_BLOCKING
 
 		var/obj/item/stack/medical/wrap/sticky_tape/tape = tool
@@ -212,7 +212,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		tape_color = tape_colors[1]
-		to_chat(user, span_notice("You wrap [src] up in [tape]."))
+		to_chat(user, span_notice("你用[tape]包住了[src]。"))
 		reset_container_flags()
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
@@ -221,12 +221,12 @@
 		return ..()
 
 	if (fuse_timer)
-		to_chat(user, span_warning("[src] is already lit!"))
+		to_chat(user, span_warning("[src]已经点燃了！"))
 		return ITEM_INTERACT_BLOCKING
 
 	add_fingerprint(user)
 	log_bomber(user, "has primed a rigged", src)
-	to_chat(user, span_warning("You light [src]'s fuse!"))
+	to_chat(user, span_warning("你点燃了[src]的引信！"))
 	fuse_timer = addtimer(CALLBACK(src, PROC_REF(try_detonate)), rand(2 SECONDS, 4 SECONDS))
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
@@ -274,7 +274,7 @@
 		return
 
 	burst_soda(hit_atom, hide_message = TRUE)
-	visible_message(span_danger("[src]'s impact with [hit_atom] causes it to rupture, spilling everywhere!"))
+	visible_message(span_danger("[src]撞上[hit_atom]后破裂，内容物洒得到处都是！"))
 	var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(loc)
 	crushed_can.icon_state = icon_state
 	moveToNullspace()
@@ -282,7 +282,7 @@
 
 /obj/item/reagent_containers/cup/soda_cans/attack_self(mob/user)
 	if(fuse_timer)
-		balloon_alert(user, "the fuse is on fire!")
+		balloon_alert(user, "引信已经点燃！")
 		return
 
 	if(!is_drainable())
@@ -294,7 +294,7 @@
 /obj/item/reagent_containers/cup/soda_cans/attack_self_secondary(mob/user)
 	if(!is_drainable())
 		playsound(src, 'sound/items/can/can_shake.ogg', 50, TRUE)
-		user.visible_message(span_danger("[user] shakes [src]!"), span_danger("You shake up [src]!"), vision_distance=2)
+		user.visible_message(span_danger("[user]摇晃着[src]！"), span_danger("你摇晃着[src]！"), vision_distance=2)
 		fizziness += SODA_FIZZINESS_SHAKE
 		return
 	return ..()
@@ -304,8 +304,8 @@
 	if(!in_range(user, src))
 		return
 	if(fizziness > 30 && prob(fizziness * 2))
-		. += span_notice("<i>You examine [src] closer, and note the following...</i>")
-		. += "\t[span_warning("You get a menacing aura of fizziness from it...")]"
+		. += span_notice("<i>你仔细检查[src]，发现以下情况……</i>")
+		. += "\t[span_warning("你感觉里面的气泡蓄势待发，令人不安……")]"
 
 /obj/item/reagent_containers/cup/soda_cans/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return ((air.return_pressure() <= SODA_EXPLOSION_PRESSURE) && !(reagents.flags & OPENCONTAINER))
@@ -319,16 +319,16 @@
 #undef SODA_EXPLOSION_PRESSURE
 
 /obj/item/reagent_containers/cup/soda_cans/cola
-	name = "Cola" // DARKPACK EDIT CHANGE
-	desc = "Refreshing and caffinated cola." // DARKPACK EDIT CHANGE
+	name = "可乐" // DARKPACK EDIT CHANGE
+	desc = "含咖啡因的清爽可乐。" // DARKPACK EDIT CHANGE
 	icon_state = "cola"
 	inhand_icon_state = "cola"
 	list_reagents = list(/datum/reagent/consumable/space_cola = 30)
 	drink_type = SUGAR
 
 /obj/item/reagent_containers/cup/soda_cans/tonic
-	name = "T-Bone's tonic water" // DARKPACK EDIT CHANGE
-	desc = "Quinine tastes funny, but at least it'll keep that Malaria away." // DARKPACK EDIT CHANGE
+	name = "丁骨汤力水" // DARKPACK EDIT CHANGE
+	desc = "奎宁味道古怪，但至少能预防疟疾。" // DARKPACK EDIT CHANGE
 	icon_state = "tonic"
 	inhand_icon_state = "tonic"
 	volume = 50
@@ -336,16 +336,16 @@
 	drink_type = ALCOHOL
 
 /obj/item/reagent_containers/cup/soda_cans/sodawater
-	name = "soda water"
-	desc = "A can of soda water. Why not make a scotch and soda?"
+	name = "苏打水"
+	desc = "一罐苏打水。何不调杯苏打威士忌？"
 	icon_state = "sodawater"
 	inhand_icon_state = "sodawater"
 	volume = 50
 	list_reagents = list(/datum/reagent/consumable/sodawater = 50)
 
 /obj/item/reagent_containers/cup/soda_cans/lemon_lime
-	name = "orange soda"
-	desc = "You wanted ORANGE. It gave you Lemon Lime."
+	name = "橙味汽水"
+	desc = "你要的是橙味，它却给了你柠檬青柠味。"
 	icon_state = "lemon-lime"
 	inhand_icon_state = "lemon-lime"
 	list_reagents = list(/datum/reagent/consumable/lemon_lime = 30)
@@ -353,95 +353,95 @@
 
 /obj/item/reagent_containers/cup/soda_cans/lemon_lime/Initialize(mapload)
 	. = ..()
-	name = "lemon-lime soda"
+	name = "柠檬青柠汽水"
 
 /obj/item/reagent_containers/cup/soda_cans/sol_dry
-	name = "Sals Dry" // DARKPACK EDIT CHANGE
-	desc = "Maybe this will help your tummy feel better. Maybe not."
+	name = "萨尔干姜汽水" // DARKPACK EDIT CHANGE
+	desc = "也许能让你的胃舒服些，也许不能。"
 	icon_state = "sol_dry"
 	list_reagents = list(/datum/reagent/consumable/sol_dry = 30)
 	drink_type = SUGAR
 
 /obj/item/reagent_containers/cup/soda_cans/space_up
-	name = "Six-Up!" // DARKPACK EDIT CHANGE
-	desc = "Half as good with none of the caffine!" // DARKPACK EDIT CHANGE
+	name = "六喜！" // DARKPACK EDIT CHANGE
+	desc = "好喝减半，咖啡因全免！" // DARKPACK EDIT CHANGE
 	icon_state = "space-up"
 	inhand_icon_state = "space-up"
 	list_reagents = list(/datum/reagent/consumable/space_up = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/starkist
-	name = "Star-kist"
-	desc = "The taste of a star in liquid form. And, a bit of tuna...?"
+	name = "星吻"
+	desc = "液态星辰的滋味，还有一点金枪鱼味……？"
 	icon_state = "starkist"
 	inhand_icon_state = "starkist"
 	list_reagents = list(/datum/reagent/consumable/space_cola = 15, /datum/reagent/consumable/orangejuice = 15)
 	drink_type = SUGAR | FRUIT | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/space_mountain_wind
-	name = "Mountain Wind" // DARKPACK EDIT CHANGE
-	desc = "Blows right through you like a steep mountain's wind." // DARKPACK EDIT CHANGE
+	name = "山风" // DARKPACK EDIT CHANGE
+	desc = "如高山之风般穿透你的身体。" // DARKPACK EDIT CHANGE
 	icon_state = "space_mountain_wind"
 	inhand_icon_state = "space_mountain_wind"
 	list_reagents = list(/datum/reagent/consumable/spacemountainwind = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/thirteenloko
-	name = "Thirteen Loko"
-	desc = "The FDA has advised citizens that consumption of Thirteen Loko may result in seizures, blindness, drunkenness, or even death. Please Drink Responsibly." // DARKPACK EDIT CHANGE
+	name = "十三疯"
+	desc = "食品药品监督管理局提醒公众，饮用十三疯可能引发癫痫、失明、醉酒甚至死亡。请适量饮酒。" // DARKPACK EDIT CHANGE
 	icon_state = "thirteen_loko"
 	inhand_icon_state = "thirteen_loko"
 	list_reagents = list(/datum/reagent/consumable/ethanol/thirteenloko = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/dr_gibb
-	name = "Dr. Gibb"
-	desc = "A delicious mixture of 42 different flavors."
+	name = "吉布博士"
+	desc = "融合42种不同风味的美味饮料。"
 	icon_state = "dr_gibb"
 	inhand_icon_state = "dr_gibb"
 	list_reagents = list(/datum/reagent/consumable/dr_gibb = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/pwr_game
-	name = "Pwr Game"
-	desc = "The only drink with the PWR that true gamers crave. When a gamer talks about gamerfuel, this is what they're literally referring to."
+	name = "劲玩"
+	desc = "唯一蕴含真正玩家渴求力量的饮料。玩家说起游戏燃料，指的就是它。"
 	icon_state = "purple_can"
 	inhand_icon_state = "purple_can"
 	list_reagents = list(/datum/reagent/consumable/pwr_game = 30)
 
 /obj/item/reagent_containers/cup/soda_cans/shamblers
-	name = "Shambler's juice"
-	desc = "~Shake me up some of that Shambler's Juice!~"
+	name = "蹒跚者果汁"
+	desc = "～给我摇一杯蹒跚者果汁！～"
 	icon_state = "shamblers"
 	list_reagents = list(/datum/reagent/consumable/shamblers = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/shamblers/eldritch
-	name = "Shambler's juice Eldritch Energy!"
-	desc = "~J'I'CE!~"
+	name = "蹒跚者果汁：邪异能量！"
+	desc = "～果！汁！～"
 	icon_state = "shamblerseldritch"
 	volume = 40
 	list_reagents = list(/datum/reagent/consumable/shamblers = 30, /datum/reagent/eldritch = 5)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/wellcheers
-	name = "Wellcheers Juice"
-	desc = "A strange purple drink, smelling of saltwater. Somewhere in the distance, you hear seagulls."
+	name = "畅饮牌果汁"
+	desc = "一种带着海水气味的古怪紫色饮料。你听见远处传来海鸥的叫声。"
 	icon_state = "wellcheers"
 	inhand_icon_state = "wellcheers"
 	list_reagents = list(/datum/reagent/consumable/wellcheers = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/grey_bull
-	name = "Red Bat" // DARKPACK EDIT CHANGE
-	desc = "Red Bat, it gives you wings!" // DARKPACK EDIT CHANGE
+	name = "红蝠" // DARKPACK EDIT CHANGE
+	desc = "红蝠，给你一双翅膀！" // DARKPACK EDIT CHANGE
 	icon_state = "energy_drink"
 	list_reagents = list(/datum/reagent/consumable/grey_bull = 20)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/monkey_energy
-	name = "Monkey Energy"
-	desc = "Unleash the ape!"
+	name = "猴力能量饮料"
+	desc = "释放猿性！"
 	icon_state = "monkey_energy"
 	inhand_icon_state = "monkey_energy"
 	volume = 50
@@ -449,30 +449,30 @@
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/volt_energy
-	name = "24-Volt Energy"
-	desc = "Recharge, with 24-Volt Energy!"
+	name = "24伏能量饮料"
+	desc = "24伏能量饮料，为你充电！"
 	icon_state = "volt_energy"
 	inhand_icon_state = "volt_energy"
 	list_reagents = list(/datum/reagent/consumable/volt_energy = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/melon_soda
-	name = "Kansumi Melon Soda"
-	desc = "Japan's favourite melon soda, now available in can form!"
+	name = "甘澄蜜瓜汽水"
+	desc = "日本最受欢迎的蜜瓜汽水，罐装现已上市！"
 	icon_state = "melon_soda"
 	inhand_icon_state = "melon_soda"
 	list_reagents = list(/datum/reagent/consumable/melon_soda = 30)
 	drink_type = SUGAR | JUNKFOOD
 
 /obj/item/reagent_containers/cup/soda_cans/air
-	name = "canned air"
-	desc = "There is no air shortage. Do not drink."
+	name = "罐装空气"
+	desc = "空气并不短缺，请勿饮用。"
 	icon_state = "air"
 	list_reagents = list(/datum/reagent/nitrogen = 24, /datum/reagent/oxygen = 6)
 
 /obj/item/reagent_containers/cup/soda_cans/beer
-	name = "beer" // DARKPACK EDIT CHANGE
-	desc = "Canned beer." // DARKPACK EDIT CHANGE
+	name = "啤酒" // DARKPACK EDIT CHANGE
+	desc = "罐装啤酒。" // DARKPACK EDIT CHANGE
 	icon_state = "space_beer"
 	inhand_icon_state = "space_beer"
 	volume = 40
@@ -480,8 +480,8 @@
 	drink_type = GRAIN
 
 /obj/item/reagent_containers/cup/soda_cans/beer/rice
-	name = "rice beer"
-	desc = "A light, rice-based lagered beer. Considered a hate crime against Bavarians under the Reinheitsgebot Act of 1516." // DARKPACK EDIT CHANGE
+	name = "米啤酒"
+	desc = "清淡的米酿拉格啤酒。按1516年《啤酒纯酿法》，这是针对巴伐利亚人的仇恨犯罪。" // DARKPACK EDIT CHANGE
 	icon_state = "ebisu"
 	inhand_icon_state = "ebisu"
 	list_reagents = list(/datum/reagent/consumable/ethanol/rice_beer = 40)
@@ -489,14 +489,14 @@
 /obj/item/reagent_containers/cup/soda_cans/beer/rice/Initialize(mapload)
 	. = ..()
 	var/brand = pick("Ebisu Super Dry", "Shimauma Ichiban", "Moonlabor Malt's")
-	name = "[brand]"
+	name = list("Ebisu Super Dry" = "惠比寿超干", "Shimauma Ichiban" = "斑马一番", "Moonlabor Malt's" = "月劳麦芽")[brand]
 	switch(brand)
 		if("Ebisu Super Dry")
 			icon_state = "ebisu"
-			desc = "America's favourite rice beer brand, 200 years running." // DARKPACK EDIT CHANGE
+			desc = "连续两百年深受美国人喜爱的米啤酒品牌。" // DARKPACK EDIT CHANGE
 		if("Shimauma Ichiban")
 			icon_state = "shimauma"
-			desc = "America's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place." // DARKPACK EDIT CHANGE
+			desc = "美国最中庸的米啤酒品牌。虽然不及惠比寿受欢迎，但稳居第二。" // DARKPACK EDIT CHANGE
 		if("Moonlabor Malt's")
 			icon_state = "moonlabor"
-			desc = "America's underdog rice beer brand. Popular amongst the Yakuza, for reasons unknown." // DARKPACK EDIT CHANGE
+			desc = "美国的冷门米啤酒品牌。不知为何很受日本黑帮欢迎。" // DARKPACK EDIT CHANGE

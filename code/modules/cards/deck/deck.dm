@@ -2,8 +2,8 @@
 #define DECK_SYNDIE_SHUFFLE_TIME (3 SECONDS)
 
 /obj/item/toy/cards/deck
-	name = "deck of cards"
-	desc = "A deck of space-grade playing cards."
+	name = "一副扑克牌"
+	desc = "一副太空级扑克牌。"
 	icon = 'icons/obj/toys/playing_cards.dmi'
 	icon_state = "deck_nanotrasen_full"
 	w_class = WEIGHT_CLASS_SMALL
@@ -19,7 +19,7 @@
 	/// The amount of cards to spawn in the deck (optional)
 	var/decksize = 54
 	/// The description of the cardgame that is played with this deck (used for memories)
-	var/cardgame_desc = "card game"
+	var/cardgame_desc = "纸牌游戏"
 	/// The holodeck computer used to spawn a holographic deck (see /obj/item/toy/cards/deck/syndicate/holographic)
 	var/obj/machinery/computer/holodeck/holodeck
 	/// If the cards in the deck have different card faces icons (blank and CAS decks do not)
@@ -53,7 +53,7 @@
 			initial_cards += "[person] of [suit]"
 
 /obj/item/toy/cards/deck/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like their luck ran out!"))
+	user.visible_message(span_suicide("[user]正在用[src]割腕！看来好运已经用尽了！"))
 	playsound(src, 'sound/items/cards/cardshuffle.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -61,7 +61,7 @@
 	. = ..()
 
 	if(HAS_TRAIT(user, TRAIT_XRAY_VISION) && count_cards() > 0)
-		. += span_notice("You scan the deck with your x-ray vision and the top card reads: [fetch_card_atoms()[1].cardname].")
+		. += span_notice("你用X光视野扫过牌堆，最上面一张是：[fetch_card_atoms()[1].cardname]。")
 
 	// This can only happen if card_atoms have been generated
 	if(LAZYLEN(card_atoms) > 0)
@@ -69,29 +69,29 @@
 
 		var/marked_color = card.getMarkedColor(user)
 		if(marked_color)
-			. += span_notice("The top card of the deck has a [marked_color] mark on the corner!")
+			. += span_notice("牌堆最上方纸牌的角落有一个[marked_color]标记！")
 
-	. += span_notice("Click and drag the deck to yourself to pickup.") // This should be a context screentip
+	. += span_notice("单击并将牌堆拖到自己身上即可拿起。") // This should be a context screentip
 
 /obj/item/toy/cards/deck/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(src == held_item)
 		var/obj/item/toy/cards/deck/dealer_deck = held_item
-		context[SCREENTIP_CONTEXT_LMB] = HAS_TRAIT(dealer_deck, TRAIT_WIELDED) ? "Recycle mode" : "Dealer mode"
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Shuffle"
+		context[SCREENTIP_CONTEXT_LMB] = HAS_TRAIT(dealer_deck, TRAIT_WIELDED) ? "收牌模式" : "发牌模式"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "洗牌"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Draw card"
-		context[SCREENTIP_CONTEXT_RMB] = "Draw card faceup"
+		context[SCREENTIP_CONTEXT_LMB] = "抽牌"
+		context[SCREENTIP_CONTEXT_RMB] = "正面朝上抽牌"
 		// add drag & drop screentip here in the future
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(istype(held_item, /obj/item/toy/singlecard))
-		context[SCREENTIP_CONTEXT_LMB] = "Recycle card"
+		context[SCREENTIP_CONTEXT_LMB] = "收回纸牌"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(istype(held_item, /obj/item/toy/cards/cardhand))
-		context[SCREENTIP_CONTEXT_LMB] = "Recycle cards"
+		context[SCREENTIP_CONTEXT_LMB] = "收回纸牌"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	return NONE
@@ -108,7 +108,7 @@
 	COOLDOWN_START(src, shuffle_cooldown, shuffle_time)
 	shuffle_inplace(fetch_card_atoms())
 	playsound(src, 'sound/items/cards/cardshuffle.ogg', 50, TRUE)
-	user.balloon_alert_to_viewers("shuffles the deck")
+	user.balloon_alert_to_viewers("洗了洗牌")
 	addtimer(CALLBACK(src, PROC_REF(CardgameEvent), user), 60 SECONDS, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /**
@@ -116,7 +116,7 @@
  */
 /obj/item/toy/cards/deck/proc/get_top_card(mob/living/user)
 	if(count_cards() == 0)
-		to_chat(user, span_warning("There are no more cards to draw!"))
+		to_chat(user, span_warning("已经没有牌可抽了！"))
 		return
 	var/list/cards = fetch_card_atoms()
 	return cards[1]
@@ -154,7 +154,7 @@
 		card.Flip()
 	card.pickup(user)
 	user.put_in_hands(card)
-	user.balloon_alert_to_viewers("draws a card")
+	user.balloon_alert_to_viewers("抽了一张牌")
 
 /obj/item/toy/cards/deck/attack_hand_secondary(mob/living/user, list/modifiers)
 	attack_hand(user, modifiers, flip_card = TRUE)
@@ -162,7 +162,7 @@
 
 /obj/item/toy/cards/deck/click_alt(mob/living/user)
 	if(!HAS_TRAIT(src, TRAIT_WIELDED))
-		to_chat(user, span_notice("You must hold the [src] with both hands to shuffle."))
+		to_chat(user, span_notice("你必须双手拿着[src]才能洗牌。"))
 		return CLICK_ACTION_BLOCKING
 
 	shuffle_cards(user)
@@ -194,11 +194,11 @@
 		return NONE
 
 	if (!insert(tool))
-		to_chat(user, span_warning("\The [src] is stacked too high!"))
+		to_chat(user, span_warning("[src]堆得太高了！"))
 		return ITEM_INTERACT_BLOCKING
 
-	var/card_grammar = istype(tool, /obj/item/toy/singlecard) ? "card" : "cards"
-	user.balloon_alert_to_viewers("puts [card_grammar] in deck")
+	var/card_grammar = istype(tool, /obj/item/toy/singlecard) ? "一张纸牌" : "几张纸牌"
+	user.balloon_alert_to_viewers("将[card_grammar]放入牌堆")
 	return ITEM_INTERACT_SUCCESS
 
 /// This is how we play 52 card pickup
@@ -211,7 +211,7 @@
 	if(!istype(thrower)) // if a mob didn't throw it (need two people to play 52 pickup)
 		return
 
-	target.visible_message(span_warning("[target] is forced to play 52 card pickup!"), span_warning("You are forced to play 52 card pickup."))
+	target.visible_message(span_warning("[target]被迫玩起了捡起52张牌的游戏！"), span_warning("你被迫玩起了捡起52张牌的游戏。"))
 	target.add_mood_event("lost_52_card_pickup", /datum/mood_event/lost_52_card_pickup)
 	thrower.add_mood_event("won_52_card_pickup", /datum/mood_event/won_52_card_pickup)
 	add_memory_in_range(target, 7, /datum/memory/playing_card_pickup, protagonist = thrower, deuteragonist = target, antagonist = src)
@@ -235,9 +235,9 @@
 
 /// A card shoe. For holding a lot of cards, but not for committing card-based psychological warfare (crashing people by throwing 100+ cards at them).
 /obj/item/toy/cards/deck/cardshoe
-	name = "card shoe"
-	desc = "A clear plastic card dispenser for holding a large amount of cards. For better or for worse, \
-		the dispenser is designed to prevent a haphazard scattering of cards if thrown."
+	name = "发牌盒"
+	desc = "能容纳大量纸牌的透明塑料发牌器。不知是好是坏，\
+		它的设计能防止投掷时纸牌散落一地。"
 	icon_state = "deckshoe_empty" // woe, codersprites upon thee
 	card_limit = 432 // 8 decks of 54 cards. if... you somehow need to do that much card gaming.
 	can_play_52_card_pickup = FALSE

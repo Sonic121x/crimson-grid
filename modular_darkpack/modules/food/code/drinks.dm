@@ -43,7 +43,7 @@
 	reagents.trans_to(M, gulp_size, transferred_by = user)
 
 /datum/reagent/consumable/ethanol/beer/typhon
-	name = "堤丰啤酒"
+	name = "堤丰啤酒"; display_name = "堤丰啤酒"
 	description = "一款酿出血腥风味的酒饮，让人病态地上瘾。"
 	color = "#660000"
 	nutriment_factor = 1 * REAGENTS_METABOLISM

@@ -161,8 +161,8 @@ export const UserDetails = () => {
         </Stack.Item>
         <Stack.Item>
           {user
-            ? `${user.name || 'Unknown'} | ${user.job}`
-            : 'No ID detected! Contact the Head of Personnel.'}
+            ? `${user.name || '未知'} | ${user.job}`
+            : '未检测到身份卡！请联系人事主管。'}
         </Stack.Item>
       </Stack>
     </NoticeBox>
@@ -203,7 +203,7 @@ const ProductDisplay = (props: {
     <Section
       fill
       scrollable
-      title="Products"
+      title="商品"
       buttons={
         <Stack>
           {!all_products_free && user && (
@@ -217,7 +217,7 @@ const ProductDisplay = (props: {
             <Input
               onChange={setStockSearch}
               expensive
-              placeholder="Search..."
+              placeholder="搜索……"
               value={stockSearch}
             />
           </Stack.Item>
@@ -343,7 +343,7 @@ const ProductList = (props: any) => {
           fontSize={0.8}
           color={'rgba(255, 255, 255, 0.5)'}
         >
-          {remaining} left
+          剩余{remaining}件
         </Stack.Item>
         <Stack.Item
           width={3.5}
@@ -376,7 +376,7 @@ const ProductColorSelect = (props: ProductColorSelectProps) => {
       width={fluid ? '32px' : '20px'}
       icon={'palette'}
       color={'transparent'}
-      tooltip={'Change color'}
+      tooltip={'更改颜色'}
       style={disabled ? { pointerEvents: 'none', opacity: 0.5 } : {}}
       onClick={() => act('select_colors', { ref: product.ref })}
     />
@@ -397,7 +397,7 @@ const ProductPrice = (props: ProductPriceProps) => {
   const { discount, free, product, redPrice } = props;
   let standardPrice = `${product.price}`;
   if (free) {
-    standardPrice = 'FREE';
+    standardPrice = '免费';
   } else if (discount) {
     standardPrice = `${redPrice}`;
   }
@@ -431,7 +431,7 @@ const CategorySelector = (props: {
           icon={category.icon}
           onClick={() => onSelect(name)}
         >
-          {name}
+          {({ Products: '商品', Contraband: '违禁品', Premium: '高档商品' } as Record<string, string>)[name] || name}
         </Button>
       ))}
     </Section>

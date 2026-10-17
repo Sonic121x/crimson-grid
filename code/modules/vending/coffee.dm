@@ -1,7 +1,7 @@
 /obj/machinery/vending/coffee
-	name = "\improper Solar's Best Hot Drinks"
-	desc = "A vending machine which dispenses hot drinks."
-	product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
+	name = "\improper 太阳系精选热饮"
+	desc = "一台供应热饮的自动售货机。"
+	product_ads = "来一杯吧！;喝吧！;有益健康！;想来杯热咖啡吗？;为了喝上咖啡，我什么都干得出来！;银河系最好的咖啡豆。;只为你献上最好的佳酿。;嗯，咖啡就是无可替代。;我喜欢咖啡，你呢？;咖啡助你工作！;尝尝茶吧。;愿您钟爱我们的上品！;尝尝我们的新款巧克力！;管理员的阴谋"
 	// DARKPACK EDIT CHANGE START
 	icon = 'modular_darkpack/modules/retail/icons/vendors_shops.dmi'
 	icon_state = "coffee"
@@ -26,7 +26,7 @@
 
 // DARKPACK EDIT ADD START
 /obj/machinery/vending/coffee/private
-	desc = "An employee only vending machine. I love coffee in my coffee hole."
+	desc = "一台员工专用售货机。我就爱把咖啡灌进嘴里。"
 	req_access = null
 	onstation = FALSE
 	all_products_free = TRUE
@@ -42,5 +42,5 @@
 		credits_contained += rand(1, 5)
 
 /obj/item/vending_refill/coffee
-	machine_name = "Solar's Best Hot Drinks"
+	machine_name = "太阳系精选热饮"
 	icon_state = "refill_joe"

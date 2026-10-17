@@ -1,6 +1,6 @@
 /obj/item/implant/storage
-	name = "storage implant"
-	desc = "Stores up to two big items in a bluespace pocket."
+	name = "储物植入体"
+	desc = "能在蓝空间口袋中存放最多两件大件物品。"
 	icon_state = "storage"
 	implant_color = "r"
 	var/max_slot_stacking = 4
@@ -17,7 +17,7 @@
 	for (var/obj/item/stored in contents)
 		stored.add_mob_blood(implantee)
 	atom_storage.remove_all()
-	implantee.visible_message(span_warning("Some items fall to the floor around [implantee]...")) //	DARKPACK EDIT CHANGE - ORIGINAL: implantee.visible_message(span_warning("A bluespace pocket opens around [src] as it exits [implantee], spewing out its contents and rupturing the surrounding tissue!"))
+	implantee.visible_message(span_warning("一些物品掉落在[implantee]周围的地板上……")) //	DARKPACK EDIT CHANGE - ORIGINAL: implantee.visible_message(span_warning("A bluespace pocket opens around [src] as it exits [implantee], spewing out its contents and rupturing the surrounding tissue!"))
 	implantee.apply_damage(20, BRUTE, BODY_ZONE_CHEST)
 	QDEL_NULL(atom_storage)
 	return ..()
@@ -40,5 +40,5 @@
 	return ..()
 
 /obj/item/implanter/storage
-	name = "implanter (storage)"
+	name = "植入器（储物）"
 	imp_type = /obj/item/implant/storage
