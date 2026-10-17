@@ -23,8 +23,8 @@
 	new /obj/item/paper/paperslip/fishing_tip(src)
 
 /obj/item/storage/toolbox/fishing/small
-	name = "compact fishing toolbox"
-	desc = "Contains everything you need for your fishing trip. Except for the bait."
+	name = "便携钓鱼工具箱"
+	desc = "装着钓鱼之旅所需的一切，除了鱼饵。"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 5
 	throwforce = 5
@@ -37,8 +37,8 @@
 	new /obj/item/paper/paperslip/fishing_tip(src)
 
 /obj/item/storage/toolbox/fishing/master
-	name = "super fishing toolbox"
-	desc = "Contains (almost) EVERYTHING you need for your fishing trip."
+	name = "超级钓鱼工具箱"
+	desc = "装着钓鱼之旅所需的（几乎）一切。"
 	icon_state = "gold"
 	inhand_icon_state = "toolbox_gold"
 	fishing_modifier = -10

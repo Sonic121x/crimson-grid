@@ -1,10 +1,10 @@
 /obj/ritual_rune/thaumaturgy/spear_of_damnation
-	name = "wield the spear of damnation"
-	desc = "This ritual recalls the legend of Caine itself, dedicating a weapon to satisfy a vampire’s nature.\
-			Half the lethal damage inflicted by the weapon converts to blood points, filling the wielder’s pool."
+	name = "执掌诅咒之矛"
+	desc = "此仪式追溯该隐的传说，将一件武器献祭给吸血鬼的嗜血天性。\
+			武器造成的致命伤害有一半会转化为血点，补充持有者的血池。"
 	icon_state = "rune9"
 	// Whisper this because...we are saying it outloud as we engrave it I guess
-	word = "#And he said, 'What hast thou done? the voice of thy brother’s blood crieth unto me from the ground.'"
+	word = "#他说：‘你做了什么事呢？你兄弟的血有声音从地里向我哀告。’"
 	level = 3
 	cost = 3
 
@@ -15,13 +15,13 @@
 
 	for(var/obj/item/item in get_turf(src))
 		if(!(item.get_sharpness() & SHARP_EDGED) && !(item.get_sharpness() & SHARP_POINTY))
-			to_chat(last_activator, span_warning("The item must be sharp!"))
+			to_chat(last_activator, span_warning("这件物品必须足够锋利！"))
 			break
 		else
 			weapon = item
 
 	if(!weapon)
-		to_chat(last_activator, span_warning("You need an item to enchant!"))
+		to_chat(last_activator, span_warning("你需要一件可供附魔的物品！"))
 		return
 
 	if(!ritual_roll_datum)
@@ -33,8 +33,8 @@
 	var/theft_per_hit = round(weapon.force / (2 LETHAL_TTRPG_DAMAGE), 0.1)
 
 	weapon.AddComponent(/datum/component/blood_theft, blood_to_steal, theft_per_hit)
-	to_chat(last_activator, span_notice("[weapon] will siphon a total of [blood_to_steal] blood points, harvesting [theft_per_hit] per hit!"))
-	last_activator.visible_message(span_notice("[last_activator] writes something upon [weapon]!"))
+	to_chat(last_activator, span_notice("[weapon]总共能汲取[blood_to_steal]血点，每次命中汲取[theft_per_hit]血点！"))
+	last_activator.visible_message(span_notice("[last_activator]在[weapon]上刻下了一些文字！"))
 
 	qdel(src)
 
@@ -70,7 +70,7 @@
 /datum/component/blood_theft/proc/on_examine(datum/source, mob/viewer, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_cult("You can see some strange words engraved on the [parent]...")
+	examine_list += span_cult("你看到[parent]上刻着一些奇怪的文字……")
 
 /// Signal handler for landing a hit on the target
 /datum/component/blood_theft/proc/on_successful_attack(datum/source, mob/living/target, mob/user, list/modifiers)

@@ -48,8 +48,8 @@
  * Balloons
  */
 /obj/item/toy/waterballoon
-	name = "water balloon"
-	desc = "A translucent balloon. There's nothing in it."
+	name = "水气球"
+	desc = "一个半透明气球，里面空空如也。"
 	icon = 'icons/obj/toys/balloons.dmi'
 	icon_state = "balloon_red-e"
 	inhand_icon_state = "balloon-empty"
@@ -68,13 +68,13 @@
 		return NONE
 	var/obj/structure/reagent_dispensers/RD = interacting_with
 	if(RD.reagents.total_volume <= 0)
-		to_chat(user, span_warning("[RD] is empty."))
+		to_chat(user, span_warning("[RD]已经空了。"))
 	else if(reagents.total_volume >= 10)
-		to_chat(user, span_warning("[src] is full."))
+		to_chat(user, span_warning("[src]已经满了。"))
 	else
 		interacting_with.reagents.trans_to(src, 10, transferred_by = user)
-		to_chat(user, span_notice("You fill the balloon with the contents of [interacting_with]."))
-		desc = "A translucent balloon with some form of liquid sloshing around in it."
+		to_chat(user, span_notice("你将[interacting_with]的内容物灌入气球。"))
+		desc = "一个半透明气球，里面晃荡着某种液体。"
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 	return ITEM_INTERACT_BLOCKING
@@ -82,15 +82,15 @@
 /obj/item/toy/waterballoon/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/reagent_containers/cup) && tool.reagents)
 		if(tool.reagents.total_volume <= 0)
-			to_chat(user, span_warning("[tool] is empty."))
+			to_chat(user, span_warning("[tool]已经空了。"))
 			return ITEM_INTERACT_BLOCKING
 
 		if(reagents.total_volume >= 10)
-			to_chat(user, span_warning("[src] is full."))
+			to_chat(user, span_warning("[src]已经满了。"))
 			return ITEM_INTERACT_BLOCKING
 
-		desc = "A translucent balloon with some form of liquid sloshing around in it."
-		to_chat(user, span_notice("You fill the balloon with the contents of [tool]."))
+		desc = "一个半透明气球，里面晃荡着某种液体。"
+		to_chat(user, span_notice("你将[tool]的内容物灌入气球。"))
 		tool.reagents.trans_to(src, 10, transferred_by = user)
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
@@ -112,7 +112,7 @@
 			T = get_turf(AT)
 		else
 			T = get_turf(src)
-		T.visible_message(span_danger("[src] bursts!"),span_hear("You hear a pop and a splash."))
+		T.visible_message(span_danger("[src]爆开了！"),span_hear("你听到了砰的一声，随后是液体泼溅声。"))
 		reagents.expose(T)
 		for(var/atom/A in T)
 			reagents.expose(A)
@@ -131,8 +131,8 @@
 #define BALLOON_COLORS list("red", "blue", "green", "yellow", "orange", "purple")
 
 /obj/item/toy/balloon
-	name = "balloon"
-	desc = "No birthday is complete without it. Sealed with a mechanical bluespace wrap so it remains floating no matter what."
+	name = "气球"
+	desc = "生日少了它可不完整。采用机械蓝空间封膜，无论如何都会保持漂浮。"
 	icon = 'icons/obj/toys/balloons.dmi'
 	icon_state = "balloon"
 	inhand_icon_state = "balloon"
@@ -149,8 +149,8 @@
 	var/current_color
 
 /obj/item/toy/balloon/long
-	name = "long balloon"
-	desc = "A perfect balloon to contort into goofy forms. Sealed with a mechanical bluespace wrap so it remains floating no matter what."
+	name = "长气球"
+	desc = "非常适合扭成各种滑稽造型的气球。采用机械蓝空间封膜，无论如何都会保持漂浮。"
 	icon_state = "balloon_long"
 	inhand_icon_state = "balloon"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -180,12 +180,12 @@
 
 	var/obj/item/toy/balloon/long/hit_by = tool
 	if(hit_by.current_color == current_color)
-		to_chat(user, span_warning("You must use balloons of different colours to do that!"))
+		to_chat(user, span_warning("必须使用不同颜色的气球才行！"))
 		return ITEM_INTERACT_BLOCKING
 	user.visible_message(
-		span_notice("[user.name] starts contorting up a balloon animal!"),
-		span_notice("You start twisting together a balloon animal!"),
-		span_hear("You hear balloons being contorted."),
+		span_notice("[user.name]开始扭制气球动物！"),
+		span_notice("你开始将气球扭成动物造型！"),
+		span_hear("你听到了气球被扭动的声音。"),
 		vision_distance = 3,
 		ignored_mobs = user,
 	)
@@ -233,7 +233,7 @@
 
 /obj/item/toy/balloon/update_name(updates)
 	. = ..()
-	name = "[current_color ? "[current_color] ":null][initial(name)]"
+	name = "[current_color ? "[list("red" = "红色", "blue" = "蓝色", "green" = "绿色", "yellow" = "黄色", "orange" = "橙色", "purple" = "紫色")[current_color] || current_color]":null][initial(name)]"
 
 /obj/item/toy/balloon/vv_edit_var(vname, vval)
 	. = ..()
@@ -251,15 +251,15 @@
 	update_appearance()
 
 /obj/item/toy/balloon/corgi
-	name = "corgi balloon"
-	desc = "A balloon in the shape of a corgi's head. For the all year good boys."
+	name = "柯基气球"
+	desc = "一个柯基头形状的气球，献给全年乖巧的好狗狗。"
 	icon_state = "corgi"
 	inhand_icon_state = "corgi"
 	random_color = FALSE
 
 /obj/item/toy/balloon/heart
-	name = "heart balloon"
-	desc = "A balloon in the shape of a heart. How lovely"
+	name = "爱心气球"
+	desc = "一个心形气球，多么可爱。"
 	icon_state = "heart"
 	inhand_icon_state = "heart"
 	random_color = FALSE
@@ -288,8 +288,8 @@
 	. = ..()
 
 /obj/item/toy/balloon/arrest
-	name = "arreyst balloon"
-	desc = "A half inflated balloon about a boyband named Arreyst that was popular about ten years ago, famous for making fun of red jumpsuits as unfashionable."
+	name = "阿雷斯特气球"
+	desc = "一个只充了一半气的气球，印着约十年前走红的男团阿雷斯特。他们以嘲笑红色连身服不时髦而闻名。"
 	icon_state = "arrestballoon"
 	inhand_icon_state = "arrestballoon"
 	random_color = FALSE
@@ -315,78 +315,78 @@
 	floor_placeable = TRUE
 
 /obj/item/toy/balloon_animal/guy
-	name = "balloon guy"
-	desc = "A balloon effigy of the everyday standard issue human guy. Wonder if he pays balloon taxes. He probably evades them."
+	name = "气球人"
+	desc = "一个普普通通、标准款人类的气球造型。不知道他交不交气球税，多半在逃税吧。"
 	icon_state = "balloon_guy"
 
 /obj/item/toy/balloon_animal/nukie
-	name = "balloon nukie"
-	desc = "A balloon effigy of syndicate's nuclear operative. Either made to appease them and pray for survival, or to poke fun at them."
+	name = "气球核特工"
+	desc = "辛迪加核特工的气球造型。做它的人要么想讨好特工求条活路，要么就是想嘲弄他们。"
 	icon_state = "balloon_nukie"
 
 /obj/item/toy/balloon_animal/clown
-	name = "balloon clown"
-	desc = "A balloon clown, smiling from ear to ear and beyond!"
+	name = "气球小丑"
+	desc = "一个气球小丑，笑容从一只耳朵咧到另一只，还不止呢！"
 	icon_state = "balloon_clown"
 
 /obj/item/toy/balloon_animal/cat
-	name = "balloon cat"
-	desc = "Without the sharp claws, balloon cats are possibly cuter than their live counterparts, though not as relatable, warm and fuzzy."
+	name = "气球猫"
+	desc = "没有锋利爪子的气球猫也许比真猫更可爱，只是没那么亲切、温暖和毛茸茸。"
 	icon_state = "balloon_cat"
 
 /obj/item/toy/balloon_animal/fly
-	name = "balloon fly"
-	desc = "A balloon effigy of a flyperson. Thankfully, it doesn't come with balloon vomit."
+	name = "气球苍蝇人"
+	desc = "苍蝇人的气球造型。谢天谢地，不附带气球呕吐物。"
 	icon_state = "balloon_fly"
 
 /obj/item/toy/balloon_animal/podguy
-	name = "balloon podguy"
-	desc = "A balloon effigy of a podperson. Though, actual podpeople have heads and not stalks and leaves."
+	name = "气球荚人"
+	desc = "荚人的气球造型。不过真正的荚人长着脑袋，而非茎秆和叶子。"
 	icon_state = "balloon_podguy"
 
 /obj/item/toy/balloon_animal/ai
-	name = "balloon ai core"
-	desc = "A somewhat unrealistic balloon effigy of the station's AI core. Actual AI probably wouldn't smile like this."
+	name = "气球AI核心"
+	desc = "一个不太逼真的空间站AI核心气球造型。真正的AI大概不会笑成这样。"
 	icon_state = "balloon_ai"
 
 /obj/item/toy/balloon_animal/dog
-	name = "balloon dog"
-	desc = "A balloon effigy of the best boy. It cannot truly compare, but it makes an effort."
+	name = "气球狗"
+	desc = "最乖狗狗的气球造型。虽说无法真正相比，但它已经很努力了。"
 	icon_state = "balloon_dog"
 
 /obj/item/toy/balloon_animal/xeno
-	name = "balloon xeno"
-	desc = "A balloon effigy of a spooky xeno! Too squishy to scare anyone itself, though."
+	name = "气球异形"
+	desc = "吓人异形的气球造型！不过本身太软了，吓不到谁。"
 	icon_state = "balloon_xeno"
 
 /obj/item/toy/balloon_animal/banana
-	name = "balloon banana"
-	desc = "A balloon banana. This one can't be slipped on. Good for psychological warfare, though."
+	name = "气球香蕉"
+	desc = "一根气球香蕉，不会把人滑倒。不过很适合心理战。"
 	icon_state = "balloon_banana"
 
 /obj/item/toy/balloon_animal/lizard
-	name = "balloon lizard"
-	desc = "A balloon effigy of a lizard. One of the first species to adapt to clown planet's culture. Perhaps because they are naturally laughable?"
+	name = "气球蜥蜴人"
+	desc = "蜥蜴人的气球造型。他们是最早适应小丑星文化的物种之一，也许因为天生就很可笑？"
 	icon_state = "balloon_lizard"
 
 /obj/item/toy/balloon_animal/slime
-	name = "balloon slime"
-	desc = "A balloon effigy of single specimen of the galaxy-wide slime scourge, of purple variety. Slimes tried to invade clown planet once. They got quickly washed out by water-spitting flowers, though."
+	name = "气球史莱姆"
+	desc = "肆虐银河的史莱姆之一，紫色品种的气球造型。史莱姆曾试图入侵小丑星，结果很快就被喷水花冲走了。"
 	icon_state = "balloon_slime"
 
 /obj/item/toy/balloon_animal/moth
-	name = "balloon moth"
-	desc = "A balloon effigy of a common member of moth flotillas. Very few of them ever decide to settle on the clown planet, but those who do have the best 'piece-of-cloth-disappearing' acts."
+	name = "气球蛾人"
+	desc = "蛾人船队普通成员的气球造型。他们很少定居小丑星，但留下来的总有最精彩的'布料消失'表演。"
 	icon_state = "balloon_moth"
 
 /obj/item/toy/balloon_animal/ethereal
-	name = "balloon ethereal"
-	desc = "A balloon effigy of an ethereal artisan. Clownery is one form of art, and as such, ethereals were both drawn to and readily accepted at clown planet. Don't mind the lighbulb head, it's art too."
+	name = "气球以太人"
+	desc = "以太人工匠的气球造型。小丑表演也是艺术，所以以太人既向往小丑星，也在那里很受欢迎。别在意灯泡脑袋，那也是艺术。"
 	icon_state = "balloon_ethereal"
 
 /obj/item/toy/balloon_animal/plasmaman
-	name = "balloon plasmaman"
-	desc = "A balloon effigy of a plasmaman. Among the rarest on the clown planet, only having appeared recently thanks to ready trade between clown planet and NT."
+	name = "气球等离子人"
+	desc = "等离子人的气球造型，是小丑星上最罕见的种类之一，直到最近小丑星与纳诺传讯贸易便利后才出现。"
 	icon_state = "balloon_plasmaman"
 
 
@@ -431,29 +431,29 @@
 #undef CAPTAINSAID_MODE_OFF
 
 /obj/item/toy/captainsaid/collector
-	name = "\improper Collector's Edition Captain's Aid"
-	desc = "A copy of the first run of Captain's Aid ever released. Functionally the same as the later batches, just more expensive. For the truly aristocratic."
+	name = "\improper 典藏版站长好帮手"
+	desc = "站长好帮手最初发行批次的一件产品。功能和后来批次一样，只是更贵。献给真正的贵族。"
 
 /*
  * Fake singularity
  */
 /obj/item/toy/spinningtoy
-	name = "gravitational singularity"
-	desc = "\"Singulo\" brand spinning toy."
+	name = "引力奇点"
+	desc = "\"奇点\"牌旋转玩具。"
 	icon = 'icons/obj/machines/engine/singularity.dmi'
 	icon_state = "singularity_s1"
 	item_flags = NO_PIXEL_RANDOM_DROP
 
 /obj/item/toy/spinningtoy/suicide_act(mob/living/user)
 	if (!iscarbon(user))
-		user.visible_message(span_suicide("[user] consumes [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]吞下了[src]！看起来是想自杀！"))
 		user.spin(8 SECONDS, 1)
 		return BRUTELOSS
 	var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)
 	if(!myhead)
-		user.visible_message(span_suicide("[user] tries consuming [src]... but [user.p_they()] [user.p_have()] no mouth!")) // and i must scream
+		user.visible_message(span_suicide("[user]试图吞下[src]……可根本没有嘴！")) // and i must scream
 		return SHAME
-	user.visible_message(span_suicide("[user] consumes [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]吞下了[src]！看起来是想自杀！"))
 	playsound(user, 'sound/items/eatfood.ogg', 50, TRUE)
 	user.adjust_nutrition(50) // mmmm delicious
 	addtimer(CALLBACK(src, PROC_REF(manual_suicide), user), (3 SECONDS))
@@ -472,14 +472,14 @@
 	if(!user)
 		return
 	if(!user.is_holding(src)) // Half digestion? Start choking to death
-		user.visible_message(span_suicide("[user] panics and starts choking [user.p_them()]self to death!"))
+		user.visible_message(span_suicide("[user]惊慌失措，开始把自己掐死！"))
 		user.adjust_oxy_loss(200)
 		user.death(FALSE) // unfortunately you have to handle the suiciding yourself with a manual suicide
 		user.ghostize(FALSE) // get the fuck out of our body
 		return
 	var/obj/item/bodypart/chest/CH = user.get_bodypart(BODY_ZONE_CHEST)
 	if(CH.cavity_item) // if he's (un)bright enough to have a round and full belly...
-		user.visible_message(span_danger("[user] regurgitates [src]!")) // I swear i dont have a fetish
+		user.visible_message(span_danger("[user]把[src]吐了出来！")) // I swear i dont have a fetish
 		user.vomit(VOMIT_CATEGORY_BLOOD, lost_nutrition = 100, distance = 0)
 		user.adjust_oxy_loss(120)
 		user.dropItemToGround(src) // incase the crit state doesn't drop the singulo to the floor
@@ -495,11 +495,11 @@
  * Fake dark matter singularity!
  */
 /obj/item/toy/spinningtoy/dark_matter
-	name = "dark matter singularity"
-	desc = "<i>\"Surviving the encounter with the \
-		horrible thing, I realized immediately what I \
-		had to do: sell marketable toys of it. \
-		\"</i><br>- Chief Engineer Tenshin Nakamura"
+	name = "暗物质奇点"
+	desc = "<i>\"从那可怕之物面前\
+		侥幸活下来后，我立刻意识到\
+		自己该做什么：拿它做成畅销玩具来卖。\
+		\"</i><br>——总工程师中村天心"
 	icon = 'icons/obj/machines/engine/singularity.dmi'
 	icon_state = "dark_matter_s1"
 
@@ -507,8 +507,8 @@
  * Toy gun: Why isn't this an /obj/item/gun?
  */
 /obj/item/toy/gun
-	name = "cap gun"
-	desc = "Looks almost like the real thing! Ages 8 and up. Please recycle in an autolathe when you're out of caps."
+	name = "火药纸玩具枪"
+	desc = "看起来几乎跟真枪一样！适合8岁以上人士。火药纸用完后，请放入自动车床回收。"
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "revolver"
 	inhand_icon_state = "gun"
@@ -519,13 +519,13 @@
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT)
-	attack_verb_continuous = list("strikes", "pistol whips", "hits", "bashes")
-	attack_verb_simple = list("strike", "pistol whip", "hit", "bash")
+	attack_verb_continuous = list("击打", "枪柄砸击", "打击", "猛砸")
+	attack_verb_simple = list("击打", "枪柄砸击", "打击", "猛砸")
 	var/bullets = 7
 
 /obj/item/toy/gun/examine(mob/user)
 	. = ..()
-	. += "There [bullets == 1 ? "is" : "are"] [bullets] cap\s left."
+	. += "还剩[bullets]发火药纸。"
 
 /obj/item/toy/gun/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 
@@ -533,17 +533,17 @@
 		return NONE
 	var/obj/item/toy/ammo/gun/ammunition = tool
 	if (bullets >= 7)
-		to_chat(user, span_warning("It's already fully loaded!"))
+		to_chat(user, span_warning("已经装满了！"))
 		return ITEM_INTERACT_BLOCKING
 	if (ammunition.amount_left <= 0)
-		to_chat(user, span_warning("There are no more caps!"))
+		to_chat(user, span_warning("没有火药纸了！"))
 		return ITEM_INTERACT_BLOCKING
 	if (ammunition.amount_left < (7 - bullets))
 		bullets += ammunition.amount_left
-		to_chat(user, span_notice("You reload [ammunition.amount_left] cap\s."))
+		to_chat(user, span_notice("你装入了[ammunition.amount_left]发火药纸。"))
 		ammunition.amount_left = 0
 	else
-		to_chat(user, span_notice("You reload [7 - bullets] cap\s."))
+		to_chat(user, span_notice("你装入了[7 - bullets]发火药纸。"))
 		ammunition.amount_left -= 7 - bullets
 		bullets = 7
 	tool.update_appearance()
@@ -551,26 +551,26 @@
 
 /obj/item/toy/gun/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("You don't have the dexterity to do this!"))
+		to_chat(user, span_warning("你的动作不够灵巧，做不到！"))
 		return ITEM_INTERACT_BLOCKING
 	add_fingerprint(user)
 	if (bullets < 1)
-		user.show_message(span_warning("*click*"), MSG_AUDIBLE)
+		user.show_message(span_warning("*咔嗒*"), MSG_AUDIBLE)
 		playsound(src, 'sound/items/weapons/gun/revolver/dry_fire.ogg', 30, TRUE)
 		return ITEM_INTERACT_SUCCESS
 	playsound(user, 'sound/items/weapons/gun/revolver/shot.ogg', 100, TRUE)
 	bullets--
-	user.visible_message(span_danger("[user] fires [src] at [interacting_with]!"), \
-		span_danger("You fire [src] at [interacting_with]!"), \
-		span_hear("You hear a gunshot!"))
+	user.visible_message(span_danger("[user]用[src]朝[interacting_with]开火！"), \
+		span_danger("你用[src]朝[interacting_with]开火！"), \
+		span_hear("你听到了一声枪响！"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/toy/ammo
 	abstract_type = /obj/item/toy/ammo
 
 /obj/item/toy/ammo/gun
-	name = "capgun ammo"
-	desc = "Make sure to recycle the box in an autolathe when it gets empty."
+	name = "玩具枪火药纸"
+	desc = "用空后，记得将盒子放入自动车床回收。"
 	icon = 'icons/obj/weapons/guns/ammo.dmi'
 	icon_state = "357OLD-7"
 	w_class = WEIGHT_CLASS_TINY
@@ -583,7 +583,7 @@
 
 /obj/item/toy/ammo/gun/examine(mob/user)
 	. = ..()
-	. += "There [amount_left == 1 ? "is" : "are"] [amount_left] cap\s left."
+	. += "还剩[amount_left]发火药纸。"
 
 /*
  * Toy swords
@@ -598,8 +598,8 @@
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb_continuous = list("attacks", "strikes", "hits")
-	attack_verb_simple = list("attack", "strike", "hit")
+	attack_verb_continuous = list("攻击", "击打", "打击")
+	attack_verb_simple = list("攻击", "击打", "打击")
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 1.1, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 	/// Whether our sword has been multitooled to rainbow
 	var/hacked = FALSE
@@ -713,15 +713,15 @@
 	icon_angle = -180
 	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
-	attack_verb_continuous = list("pricks", "absorbs", "gores")
-	attack_verb_simple = list("prick", "absorb", "gore")
+	attack_verb_continuous = list("刺扎", "吸收", "戳刺")
+	attack_verb_simple = list("刺扎", "吸收", "戳刺")
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
 
 /obj/item/toy/windup_toolbox
-	name = "windup toolbox"
-	desc = "A replica toolbox that rumbles when you turn the key."
+	name = "发条工具箱"
+	desc = "拧动钥匙后会隆隆作响的仿制工具箱。"
 	icon = 'icons/obj/storage/toolbox.dmi'
 	icon_state = "green"
 	inhand_icon_state = "toolbox_green"
@@ -730,8 +730,8 @@
 	hitsound = 'sound/items/weapons/smash.ogg'
 	drop_sound = 'sound/items/handling/toolbox/toolbox_drop.ogg'
 	pickup_sound = 'sound/items/handling/toolbox/toolbox_pickup.ogg'
-	attack_verb_continuous = list("robusts")
-	attack_verb_simple = list("robust")
+	attack_verb_continuous = list("狠揍")
+	attack_verb_simple = list("狠揍")
 	var/active = FALSE
 
 /obj/item/toy/windup_toolbox/Initialize(mapload)
@@ -747,14 +747,14 @@
 
 /obj/item/toy/windup_toolbox/attack_self(mob/user)
 	if(!active)
-		to_chat(user, span_notice("You wind up [src], it begins to rumble."))
+		to_chat(user, span_notice("你给[src]上紧发条，它开始隆隆作响。"))
 		active = TRUE
 		update_appearance()
 		playsound(src, 'sound/effects/pope_entry.ogg', 100)
 		Rumble()
 		addtimer(CALLBACK(src, PROC_REF(stopRumble)), 60 SECONDS)
 	else
-		to_chat(user, span_warning("[src] is already active!"))
+		to_chat(user, span_warning("[src]已经启动了！"))
 
 /obj/item/toy/windup_toolbox/proc/Rumble()
 	var/static/list/transforms
@@ -776,7 +776,7 @@
 /obj/item/toy/windup_toolbox/proc/stopRumble()
 	active = FALSE
 	update_appearance()
-	visible_message(span_warning("[src] slowly stops rattling and falls still, its latch snapping shut.")) //subtle difference
+	visible_message(span_warning("[src]的响动逐渐停歇，静了下来，箱扣啪地合上。")) //subtle difference
 	playsound(loc, 'sound/items/weapons/batonextend.ogg', 100, TRUE)
 	animate(src, transform = matrix())
 
@@ -791,10 +791,10 @@
 	throw_speed = 3
 	throw_range = 5
 	two_hand_force = 0
-	attack_verb_continuous = list("attacks", "strikes", "hits")
-	attack_verb_simple = list("attack", "strike", "hit")
+	attack_verb_continuous = list("攻击", "击打", "打击")
+	attack_verb_simple = list("攻击", "击打", "打击")
 
-/obj/item/dualsaber/toy/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+/obj/item/dualsaber/toy/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "攻击", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	return 0
 
 /obj/item/dualsaber/toy/IsReflect() //Stops Toy Dualsabers from reflecting energy projectiles
@@ -805,8 +805,8 @@
 	user.adjust_stamina_loss(25)
 
 /obj/item/toy/katana
-	name = "replica katana"
-	desc = "Woefully underpowered in D20."
+	name = "仿制武士刀"
+	desc = "在D20规则中弱得令人悲伤。"
 	icon = 'icons/obj/weapons/sword.dmi'
 	icon_state = "katana"
 	inhand_icon_state = "katana"
@@ -817,12 +817,12 @@
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("attacks", "slashes", "slices")
-	attack_verb_simple = list("attack", "slash", "slice")
+	attack_verb_continuous = list("攻击", "劈砍", "切削")
+	attack_verb_simple = list("攻击", "劈砍", "切削")
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
-	var/list/alt_continuous = list("stabs", "pierces", "impales")
-	var/list/alt_simple = list("stab", "pierce", "impale")
+	var/list/alt_continuous = list("刺击", "穿刺", "贯穿")
+	var/list/alt_simple = list("刺击", "穿刺", "贯穿")
 
 /obj/item/toy/katana/Initialize(mapload)
 	. = ..()
@@ -872,8 +872,8 @@
 			pop_burst(2, 0)
 
 /obj/item/toy/snappop/phoenix
-	name = "phoenix snap pop"
-	desc = "Wow! And wow! And wow!"
+	name = "凤凰摔炮"
+	desc = "哇！又来一次！再来一次！"
 	ash_type = /obj/effect/decal/cleanable/ash/snappop_phoenix
 
 /obj/effect/decal/cleanable/ash/snappop_phoenix
@@ -888,14 +888,14 @@
 	qdel(src)
 
 /obj/item/toy/talking
-	name = "talking action figure"
-	desc = "A generic action figure modeled after nothing in particular."
+	name = "会说话的动作玩偶"
+	desc = "一个没照着任何特定原型制作的普通动作玩偶。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "owlprize"
 	w_class = WEIGHT_CLASS_SMALL
 	floor_placeable = TRUE
 	var/cooldown = FALSE
-	var/messages = list("I'm super generic!", "Mathematics class is of variable difficulty!")
+	var/messages = list("我超级普通！", "数学课的难度是个变量！")
 	var/span = "danger"
 	var/recharge_time = 30
 
@@ -920,9 +920,9 @@
 
 /obj/item/toy/talking/proc/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] pulls the string on \the [src]."),
-		span_notice("You pull the string on \the [src]."),
-		span_notice("You hear a string being pulled."))
+		span_notice("[user]拉动了[src]的绳子。"),
+		span_notice("你拉动了[src]的绳子。"),
+		span_notice("你听到了拉绳声。"))
 
 /obj/item/toy/talking/proc/generate_messages()
 	return list(pick(messages))
@@ -941,8 +941,8 @@
  * AI core prizes
  */
 /obj/item/toy/talking/ai
-	name = "toy AI"
-	desc = "A little toy model AI core with real law announcing action!"
+	name = "玩具AI"
+	desc = "一个小小的AI核心模型，真的能宣读法则！"
 	icon_state = "AI"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -950,37 +950,37 @@
 	return list(generate_ion_law())
 
 /obj/item/toy/talking/codex_gigas
-	name = "Toy Codex Gigas"
-	desc = "A tool to help you write fictional devils!"
+	name = "玩具巨人抄本"
+	desc = "帮助你编写虚构魔鬼的工具！"
 	icon = 'icons/obj/service/library.dmi'
 	icon_state = "demonomicon"
 	inhand_icon_state = "demonomicon"
 	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
-	messages = list("You must challenge the devil to a dance-off!", "The devils true name is Ian", "The devil hates salt!", "Would you like infinite power?", "Would you like infinite wisdom?", "Would you like infinite healing?")
+	messages = list("你必须向魔鬼发起斗舞挑战！", "魔鬼的真名是伊恩", "魔鬼讨厌盐！", "你想要无穷力量吗？", "你想要无穷智慧吗？", "你想要无限治疗吗？")
 	w_class = WEIGHT_CLASS_SMALL
 	recharge_time = 60
 
 /obj/item/toy/talking/codex_gigas/activation_message(mob/user)
 	user.visible_message(
-		span_notice("[user] presses the button on \the [src]."),
-		span_notice("You press the button on \the [src]."),
-		span_notice("You hear a soft click."))
+		span_notice("[user]按下了[src]上的按钮。"),
+		span_notice("你按下了[src]上的按钮。"),
+		span_notice("你听到了一声轻微的咔嗒声。"))
 
 /obj/item/toy/talking/owl
-	name = "owl action figure"
-	desc = "An action figure modeled after 'The Owl', defender of justice."
+	name = "猫头鹰动作玩偶"
+	desc = "以正义守护者'猫头鹰'为原型的动作玩偶。"
 	icon_state = "owlprize"
-	messages = list("You won't get away this time, Griffin!", "Stop right there, criminal!", "Hoot! Hoot!", "I am the night!")
+	messages = list("狮鹫，这次你跑不掉了！", "站住，罪犯！", "咕！咕！", "我就是黑夜！")
 	chattering = TRUE
 	phomeme = "owl"
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toy/talking/griffin
-	name = "griffin action figure"
-	desc = "An action figure modeled after 'The Griffin', criminal mastermind."
+	name = "狮鹫动作玩偶"
+	desc = "以犯罪首脑'狮鹫'为原型的动作玩偶。"
 	icon_state = "griffinprize"
-	messages = list("You can't stop me, Owl!", "My plan is flawless! The vault is mine!", "Caaaawwww!", "You will never catch me!")
+	messages = list("你阻止不了我，猫头鹰！", "我的计划天衣无缝！金库是我的了！", "嘎——！", "你永远抓不到我！")
 	chattering = TRUE
 	phomeme = "griffin"
 	w_class = WEIGHT_CLASS_SMALL
@@ -989,8 +989,8 @@
  * Fake nuke
  */
 /obj/item/toy/nuke
-	name = "\improper Nuclear Fission Explosive toy"
-	desc = "A plastic model of a Nuclear Fission Explosive."
+	name = "\improper 核裂变爆炸装置玩具"
+	desc = "核裂变爆炸装置的塑料模型。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "nuketoyidle"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1000,16 +1000,16 @@
 /obj/item/toy/nuke/attack_self(mob/user)
 	if (obj_flags & EMAGGED && cooldown < world.time)
 		cooldown = world.time + 600
-		user.audible_message(span_hear("You hear the click of a button."), self_message = span_notice("You activate [src], it plays a loud noise!"))
+		user.audible_message(span_hear("你听到了按钮的咔嗒声。"), self_message = span_notice("你启动[src]，它发出一声巨响！"))
 		sleep(0.5 SECONDS)
 		playsound(src, 'sound/announcer/alarm/nuke_alarm.ogg', 20, FALSE)
 		sleep(14 SECONDS)
-		user.visible_message(span_alert("[src] violently explodes!"))
+		user.visible_message(span_alert("[src]猛烈爆炸！"))
 		explosion(src, light_impact_range = 1)
 		qdel(src)
 	else if (cooldown < world.time)
 		cooldown = world.time + 600 //1 minute
-		user.visible_message(span_warning("[user] presses a button on [src]."), span_notice("You activate [src], it plays a loud noise!"), span_hear("You hear the click of a button."))
+		user.visible_message(span_warning("[user]按下了[src]上的按钮。"), span_notice("你启动[src]，它发出一声巨响！"), span_hear("你听到了按钮的咔嗒声。"))
 		sleep(0.5 SECONDS)
 		icon_state = "nuketoy"
 		playsound(src, 'sound/announcer/alarm/nuke_alarm.ogg', 20, FALSE)
@@ -1019,13 +1019,13 @@
 		icon_state = "nuketoyidle"
 	else
 		var/timeleft = (cooldown - world.time)
-		to_chat(user, span_alert("Nothing happens, and '</span>[round(timeleft/10)]<span class='alert'>' appears on the small display."))
+		to_chat(user, span_alert("什么也没发生，小显示屏上出现了'</span>[round(timeleft/10)]<span class='alert'>'。"))
 		sleep(0.5 SECONDS)
 
 /obj/item/toy/nuke/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if (obj_flags & EMAGGED)
 		return FALSE
-	balloon_alert(user, "explosive simulation enabled")
+	balloon_alert(user, "爆炸模拟已启用")
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -1033,8 +1033,8 @@
  * Fake meteor
  */
 /obj/item/toy/minimeteor
-	name = "\improper Mini-Meteor"
-	desc = "Relive the excitement of a meteor shower! SweetMeat-eor Co. is not responsible for any injuries, headaches or hearing loss caused by Mini-Meteor."
+	name = "\improper 迷你流星"
+	desc = "重温流星雨的刺激！甜肉流星公司不对迷你流星造成的任何受伤、头痛或听力损失负责。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "minimeteor"
 	inhand_icon_state = "minimeteor"
@@ -1044,7 +1044,7 @@
 /obj/item/toy/minimeteor/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if (obj_flags & EMAGGED)
 		return FALSE
-	to_chat(user, span_warning("You short circuit whatever electronics exist inside. The \"meteor\" suddenly feels a lot heavier...?"))
+	to_chat(user, span_warning("你让里面的电子元件短路了。这颗\"流星\"突然感觉重了不少……？"))
 	// not adding a balloon alert here since its hard to actually describe what this emag does in the balloon
 	obj_flags |= EMAGGED
 	return TRUE
@@ -1061,8 +1061,8 @@
  * Toy big red button
  */
 /obj/item/toy/redbutton
-	name = "big red button"
-	desc = "A big, plastic red button. Reads 'From HonkCo Pranks!' on the back."
+	name = "大红按钮"
+	desc = "一个红色塑料大按钮，背面写着'HONK公司恶作剧出品！'。"
 	icon = 'icons/obj/devices/assemblies.dmi'
 	icon_state = "bigred"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1072,7 +1072,7 @@
 /obj/item/toy/redbutton/attack_self(mob/user)
 	if (cooldown < world.time)
 		cooldown = (world.time + 300) // Sets cooldown at 30 seconds
-		user.visible_message(span_warning("[user] presses the big red button."), span_notice("You press the button, it plays a loud noise!"), span_hear("The button clicks loudly."))
+		user.visible_message(span_warning("[user]按下了大红按钮。"), span_notice("你按下按钮，它发出一声巨响！"), span_hear("按钮发出了响亮的咔嗒声。"))
 		playsound(src, 'sound/effects/explosion/explosionfar.ogg', 50, FALSE)
 		for(var/mob/M in urange(10, src)) // Checks range
 			if(!IS_UNCONSCIOUS_OR_CRIT(M) && !isAI(M)) // Checks to make sure whoever's getting shaken is alive/not the AI
@@ -1081,14 +1081,14 @@
 				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(shake_camera), M, 2, 1), 0.8 SECONDS)
 
 	else
-		to_chat(user, span_alert("Nothing happens."))
+		to_chat(user, span_alert("什么也没发生。"))
 
 /*
  * Snowballs
  */
 /obj/item/toy/snowball
-	name = "snowball"
-	desc = "A compact ball of snow. Good for throwing at people."
+	name = "雪球"
+	desc = "一个压实的雪球，很适合拿来砸人。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "snowball"
 	throwforce = 20 //the same damage as a disabler shot
@@ -1108,7 +1108,7 @@
  * Beach ball
  */
 /obj/item/toy/beach_ball
-	name = "beach ball"
+	name = "沙滩球"
 	icon = 'icons/obj/fluff/beach.dmi'
 	icon_state = "ball"
 	inhand_icon_state = "beachball"
@@ -1116,12 +1116,12 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 
 /obj/item/toy/beach_ball/branded
-	name = "\improper Nanotrasen-brand beach ball"
-	desc = "The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen"
+	name = "\improper 纳诺传讯牌沙滩球"
+	desc = "朴素的沙滩球是纳诺传讯最畅销的产品之一。'我们为什么要造沙滩球？因为我们造得出来！（TM）'——纳诺传讯"
 
 /obj/item/toy/beach_ball/baseball
-	name = "baseball"
-	desc = "Enter the world of concussions and become who you were destined to be."
+	name = "棒球"
+	desc = "踏入脑震荡的世界，成为命中注定的自己。"
 	icon = 'icons/obj/toys/balls.dmi'
 	icon_state = "baseball"
 	inhand_icon_state = "baseball"
@@ -1133,8 +1133,8 @@
  * Clockwork Watch
  */
 /obj/item/toy/clockwork_watch
-	name = "steampunk watch"
-	desc = "A stylish steampunk watch made out of thousands of tiny cogwheels."
+	name = "蒸汽朋克怀表"
+	desc = "一块由成千上万个微型齿轮组成的时髦蒸汽朋克怀表。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "dread_ipad"
 	worn_icon_state = "dread_ipad"
@@ -1145,23 +1145,23 @@
 /obj/item/toy/clockwork_watch/attack_self(mob/user)
 	if (cooldown < world.time)
 		cooldown = world.time + 1800 //3 minutes
-		user.visible_message(span_warning("[user] rotates a cogwheel on [src]."), span_notice("You rotate a cogwheel on [src], it plays a loud noise!"), span_hear("You hear cogwheels turning."))
+		user.visible_message(span_warning("[user]转动了[src]上的齿轮。"), span_notice("你转动[src]上的齿轮，它发出一声巨响！"), span_hear("你听到了齿轮转动的声音。"))
 		playsound(src, 'sound/effects/magic/clockwork/ark_activation.ogg', 50, FALSE)
 	else
-		to_chat(user, span_alert("The cogwheels are already turning!"))
+		to_chat(user, span_alert("齿轮已经在转了！"))
 
 /obj/item/toy/clockwork_watch/examine(mob/user)
 	. = ..()
-	. += span_info("Station Time: [server_timestamp(ic_time = TRUE, twelve_hour_clock = user.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]")
+	. += span_info("空间站时间：[server_timestamp(ic_time = TRUE, twelve_hour_clock = user.client?.prefs.read_preference(/datum/preference/toggle/twelve_hour))]")
 	if(user.is_literate())
-		. += span_info("That means it is currently [round_timestamp()] into the shift.")
+		. += span_info("也就是说，本班次已进行[round_timestamp()]。")
 
 /*
  * Toy Dagger
  */
 /obj/item/toy/toy_dagger
-	name = "toy dagger"
-	desc = "A cheap plastic replica of a dagger. Produced by THE ARM Toys, Inc."
+	name = "玩具匕首"
+	desc = "一把廉价的塑料仿制匕首，由手臂玩具公司生产。"
 	icon = 'icons/obj/weapons/khopesh.dmi'
 	icon_state = "render"
 	inhand_icon_state = "cultdagger"
@@ -1176,8 +1176,8 @@
 /obj/item/toy/toy_xeno
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "toy_xeno"
-	name = "xenomorph action figure"
-	desc = "MEGA presents the new Xenos Isolated action figure! Comes complete with realistic sounds! Pull back string to use."
+	name = "异形动作玩偶"
+	desc = "巨量牌推出全新《异形：隔离》动作玩偶！配备逼真音效！拉动背后的绳子即可使用。"
 	w_class = WEIGHT_CLASS_SMALL
 	floor_placeable = TRUE
 	var/cooldown = 0
@@ -1185,22 +1185,22 @@
 /obj/item/toy/toy_xeno/attack_self(mob/user)
 	if(cooldown <= world.time)
 		cooldown = (world.time + 50) //5 second cooldown
-		user.visible_message(span_notice("[user] pulls back the string on [src]."))
+		user.visible_message(span_notice("[user]拉动了[src]背后的绳子。"))
 		icon_state = "[initial(icon_state)]_used"
 		sleep(0.5 SECONDS)
-		audible_message(span_danger("[icon2html(src, viewers(src))] Hiss!"))
+		audible_message(span_danger("[icon2html(src, viewers(src))] 嘶！"))
 		var/list/possible_sounds = list('sound/mobs/non-humanoids/hiss/hiss1.ogg', 'sound/mobs/non-humanoids/hiss/hiss2.ogg', 'sound/mobs/non-humanoids/hiss/hiss3.ogg', 'sound/mobs/non-humanoids/hiss/hiss4.ogg')
 		var/chosen_sound = pick(possible_sounds)
 		playsound(get_turf(src), chosen_sound, 50, TRUE)
 		addtimer(VARSET_CALLBACK(src, icon_state, "[initial(icon_state)]"), 4.5 SECONDS)
 	else
-		to_chat(user, span_warning("The string on [src] hasn't rewound all the way!"))
+		to_chat(user, span_warning("[src]的拉绳还没完全收回！"))
 		return
 
 // TOY MOUSEYS :3 :3 :3
 /obj/item/toy/cattoy
-	name = "toy mouse"
-	desc = "A colorful toy mouse!"
+	name = "玩具老鼠"
+	desc = "一只色彩鲜艳的玩具老鼠！"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "toy_mouse"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1302,7 +1302,7 @@
 /obj/item/toy/figure/clown
 	name = "\improper 小丑手办"
 	icon_state = "clown"
-	toysay = "Honk!"
+	toysay = "HONK！"
 	toysound = 'sound/items/bikehorn.ogg'
 
 /obj/item/toy/figure/ian
@@ -1447,21 +1447,21 @@
 	toysay = "对着警官咳嗽，关十七分钟！"
 
 /obj/item/toy/dummy
-	name = "ventriloquist dummy"
-	desc = "It's a dummy, dummy."
+	name = "腹语木偶"
+	desc = "这是个木偶，木头脑袋。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "puppet"
 	inhand_icon_state = "puppet"
 	floor_placeable = TRUE
-	var/doll_name = "Dummy"
+	var/doll_name = "木偶"
 
 //Add changing looks when i feel suicidal about making 20 inhands for these.
 /obj/item/toy/dummy/attack_self(mob/user)
-	var/new_name = tgui_input_text(usr, "What would you like to name the dummy?", "Doll Name", doll_name, max_length = MAX_NAME_LEN)
+	var/new_name = tgui_input_text(usr, "你想给木偶起什么名字？", "木偶名字", doll_name, max_length = MAX_NAME_LEN)
 	if(!new_name || !user.is_holding(src))
 		return
 	doll_name = new_name
-	to_chat(user, span_notice("You name the dummy as \"[doll_name]\"."))
+	to_chat(user, span_notice("你把木偶命名为\"[doll_name]\"。"))
 	name = "[initial(name)] - [doll_name]"
 
 /obj/item/toy/dummy/Initialize(mapload)
@@ -1472,8 +1472,8 @@
 	return doll_name
 
 /obj/item/toy/seashell
-	name = "seashell"
-	desc = "May you always have a shell in your pocket and sand in your shoes. Whatever that's supposed to mean."
+	name = "贝壳"
+	desc = "愿你口袋里常有贝壳，鞋子里常有沙子。谁知道这到底是什么意思。"
 	icon = 'icons/obj/fluff/beach.dmi'
 	icon_state = "shell1"
 	floor_placeable = TRUE
@@ -1488,8 +1488,8 @@
 	setDir(pick(GLOB.cardinals))
 
 /obj/item/toy/brokenradio
-	name = "broken radio"
-	desc = "An old radio that produces nothing but static when turned on."
+	name = "坏收音机"
+	desc = "一台打开后只会发出杂音的旧收音机。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "broken_radio"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1498,15 +1498,15 @@
 /obj/item/toy/brokenradio/attack_self(mob/user)
 	if(cooldown <= world.time)
 		cooldown = (world.time + 300)
-		user.visible_message(span_notice("[user] adjusts the dial on [src]."))
+		user.visible_message(span_notice("[user]调整了[src]上的旋钮。"))
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, 'sound/items/radiostatic.ogg', 50, FALSE), 0.5 SECONDS)
 	else
-		to_chat(user, span_warning("The dial on [src] jams up"))
+		to_chat(user, span_warning("[src]上的旋钮卡住了"))
 		return
 
 /obj/item/toy/braintoy
-	name = "squeaky brain"
-	desc = "A Mr. Monstrous brand toy made to imitate a human brain in smell and texture."
+	name = "吱吱脑"
+	desc = "怪物先生牌玩具，在气味和触感上模仿人脑。"
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "brain-old"
 	var/cooldown = 0
@@ -1520,15 +1520,15 @@
  * Eldritch Toys
  */
 /obj/item/toy/eldritch_book
-	name = "Codex Cicatrix"
-	desc = "A toy book that closely resembles the Codex Cicatrix. Covered in fake polyester human flesh and has a huge googly eye attached to the cover. The runes are gibberish and cannot be used to summon demons... Hopefully?"
+	name = "瘢痕法典"
+	desc = "一本酷似瘢痕法典的玩具书，覆着聚酯仿人肉，封面还粘着一只巨大的活动假眼。符文全是胡写的，不能用来召唤恶魔……希望如此？"
 	icon = 'icons/obj/antags/eldritch.dmi'
 	base_icon_state = "book"
 	icon_state = "book"
 	worn_icon_state = "book"
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb_continuous = list("sacrifices", "transmutes", "graspes", "curses")
-	attack_verb_simple = list("sacrifice", "transmute", "grasp", "curse")
+	attack_verb_continuous = list("献祭", "嬗变", "抓握", "诅咒")
+	attack_verb_simple = list("献祭", "嬗变", "抓握", "诅咒")
 	/// Helps determine the icon state of this item when it's used on self.
 	var/book_open = FALSE
 	/// id for timer
@@ -1564,15 +1564,15 @@
  * Fake tear
  */
 /obj/item/toy/reality_pierce
-	name = "Pierced reality"
-	desc = "Hah. You thought it was the real deal!"
+	name = "现实裂隙"
+	desc = "哈，你还以为是真家伙呢！"
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "pierced_illusion"
 	item_flags = NO_PIXEL_RANDOM_DROP
 
 /obj/item/toy/foamfinger
-	name = "foam finger"
-	desc = "root for the home team! wait, does this station even have a sports team?"
+	name = "泡沫手指"
+	desc = "为主队加油！等等，这座空间站有运动队吗？"
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "foamfinger"
 	inhand_icon_state = "foamfinger_inhand"
@@ -1585,7 +1585,7 @@
 	if(!COOLDOWN_FINISHED(src, foamfinger_cooldown))
 		return
 	COOLDOWN_START(src, foamfinger_cooldown, 5 SECONDS)
-	user.manual_emote("waves around the foam finger.")
+	user.manual_emote("挥舞着泡沫手指。")
 	var/direction = prob(50) ? -1 : 1
 	if(NSCOMPONENT(user.dir))
 		animate(user, pixel_w = (1 * direction), time = 0.1 SECONDS, easing = SINE_EASING, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
@@ -1846,8 +1846,8 @@ GLOBAL_LIST_EMPTY(intento_players)
  * Runic Scepter
  */
 /obj/item/toy/foam_runic_scepter
-	name = "foam scepter"
-	desc = "A foam replica of the scepters Wizards use on Vendormancy Soccer."
+	name = "泡沫权杖"
+	desc = "仿照巫师在售货机魔法足球中使用的权杖制成的泡沫玩具。"
 	icon_state = "vendor_staff"
 	worn_icon_state = "vendor_staff" //For the back
 	inhand_icon_state = "vendor_staff"
@@ -1855,14 +1855,14 @@ GLOBAL_LIST_EMPTY(intento_players)
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	icon = 'icons/obj/weapons/guns/magic.dmi'
 	slot_flags = ITEM_SLOT_BACK
-	attack_verb_continuous = list("smacks", "clubs", "wacks", "vendors")
-	attack_verb_simple = list("smack", "club", "wack", "vendor")
+	attack_verb_continuous = list("拍打", "棍击", "敲打", "售货击")
+	attack_verb_simple = list("拍打", "棍击", "敲打", "售货击")
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 
 /obj/item/extendohand
-	name = "extendo-hand"
-	desc = "Futuristic tech has allowed these classic spring-boxing toys to essentially act as a fully functional hand-operated hand prosthetic."
+	name = "伸缩手"
+	desc = "未来科技让这种经典弹簧拳击玩具基本能充当功能齐全、由手操控的义手。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "extendohand"
 	inhand_icon_state = "extendohand"
@@ -1875,19 +1875,19 @@ GLOBAL_LIST_EMPTY(intento_players)
 	var/min_reach = 2
 
 /obj/item/extendohand/acme
-	name = "\improper ACME Extendo-Hand"
-	desc = "A novelty extendo-hand produced by the ACME corporation. Originally designed to knock out roadrunners."
+	name = "\improper ACME伸缩手"
+	desc = "ACME公司制造的新奇伸缩手，最初设计用来打晕走鹃。"
 
 /obj/item/extendohand/attack(atom/M, mob/living/carbon/human/user, list/modifiers, list/attack_modifiers)
 	var/dist = get_dist(M, user)
 	if(dist < min_reach)
-		to_chat(user, span_warning("[M] is too close to use [src] on."))
+		to_chat(user, span_warning("[M]太近了，没法使用[src]。"))
 		return
 	M.attack_hand(user, modifiers)
 
 /obj/item/banhammer
-	desc = "A banhammer."
-	name = "banhammer"
+	desc = "一把封禁锤。"
+	name = "封禁锤"
 	icon = 'icons/obj/weapons/hammer.dmi'
 	icon_state = "toyhammer"
 	icon_angle = -45
@@ -1897,8 +1897,8 @@ GLOBAL_LIST_EMPTY(intento_players)
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
 	throw_range = 7
-	attack_verb_continuous = list("bans")
-	attack_verb_simple = list("ban")
+	attack_verb_continuous = list("封禁")
+	attack_verb_simple = list("封禁")
 	max_integrity = 200
 	armor_type = /datum/armor/item_banhammer
 	resistance_flags = FIRE_PROOF
@@ -1912,7 +1912,7 @@ GLOBAL_LIST_EMPTY(intento_players)
 	AddElement(/datum/element/kneejerk)
 
 /obj/item/banhammer/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is hitting [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to ban [user.p_them()]self from life."))
+	user.visible_message(span_suicide("[user]正用[src]打自己！看起来是想把自己从生命中封禁。"))
 	return (BRUTELOSS|FIRELOSS|TOXLOSS|OXYLOSS)
 /*
 oranges says: This is a meme relating to the english translation of the ss13 russian wiki page on lurkmore.
@@ -1921,9 +1921,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 */
 /obj/item/banhammer/attack(mob/M, mob/living/user)
 	if(user.zone_selected == BODY_ZONE_HEAD)
-		M.visible_message(span_danger("[user] are stroking the head of [M] with a bangammer."), span_userdanger("[user] are stroking your head with a bangammer."), span_hear("You hear a bangammer stroking a head.")) // see above comment
+		M.visible_message(span_danger("[user]正用邦伽锤抚摸[M]的头。"), span_userdanger("[user]正用邦伽锤抚摸你的头。"), span_hear("你听到邦伽锤抚摸脑袋的声音。")) // see above comment
 	else
-		M.visible_message(span_danger("[M] has been banned FOR NO REISIN by [user]!"), span_userdanger("You have been banned FOR NO REISIN by [user]!"), span_hear("You hear a banhammer banning someone."))
+		M.visible_message(span_danger("[M]被[user]毫无葡萄干地封禁了！"), span_userdanger("你被[user]毫无葡萄干地封禁了！"), span_hear("你听到封禁锤正在封禁某人。"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15) //keep it at 15% volume so people don't jump out of their skin too much
 	if(user.combat_mode)
 		return ..(M, user)

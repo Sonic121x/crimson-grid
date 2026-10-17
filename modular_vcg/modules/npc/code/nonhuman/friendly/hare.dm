@@ -1,6 +1,6 @@
 /mob/living/basic/hare/vamp
-	name = "hare"
-	desc = "The chunkiest hopper around."
+	name = "野兔"
+	desc = "这附近最圆滚滚的蹦跳小家伙。"
 	icon = 'modular_vcg/modules/npc/icons/32x32small.dmi'
 	icon_state = "hare"
 	icon_living = "hare"
@@ -11,17 +11,17 @@
 	mob_size = MOB_SIZE_SMALL
 	density = FALSE
 	gold_core_spawnable = FRIENDLY_SPAWN
-	speak_emote = list("sniffles", "twitches")
-	response_help_continuous = "pets"
-	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	speak_emote = list("抽动鼻子", "抖动身体")
+	response_help_continuous = "抚摸"
+	response_help_simple = "抚摸"
+	response_disarm_continuous = "轻轻推开"
+	response_disarm_simple = "轻轻推开"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_KICK
-	response_harm_continuous = "kicks"
-	response_harm_simple = "kick"
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	response_harm_continuous = "踢"
+	response_harm_simple = "踢"
+	attack_verb_continuous = "踢"
+	attack_verb_simple = "踢"
 	bloodquality = BLOOD_QUALITY_LOW
 	bloodpool = 1
 	maxbloodpool = 1
@@ -38,7 +38,7 @@
 /datum/emote/hare/leap
 	key = "leap"
 	key_third_person = "leaps"
-	message = "leaps around happily!"
+	message = "欢快地蹦来蹦去！"
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 
 /mob/living/basic/hare/vamp/Initialize(mapload)
@@ -52,9 +52,9 @@
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_BASIC_MOB_SPEAK_LINES = list(
-			BB_EMOTE_SAY = list("Mrrp.", "CHIRP!", "Mrrp?"),
-			BB_EMOTE_HEAR = list("leaps."),
-			BB_EMOTE_SEE = list("leaps around.", "bounces up and down."),
+			BB_EMOTE_SAY = list("咕噜。", "吱！", "咕噜？"),
+			BB_EMOTE_HEAR = list("蹦跳着。"),
+			BB_EMOTE_SEE = list("蹦来蹦去。", "上下跳动着。"),
 			BB_SPEAK_CHANCE = 10,
 		),
 	)

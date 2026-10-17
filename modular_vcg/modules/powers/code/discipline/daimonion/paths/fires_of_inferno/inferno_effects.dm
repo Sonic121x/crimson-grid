@@ -44,9 +44,9 @@
 
 /datum/action/cooldown/spell/cone/staggered/entropic_plume_infernal
 	name = "Infernal Entropic Plume"
-	desc = "Spews forth a disorienting plume that causes enemies to strike each other, \
-		briefly blinds them (increasing with range) and poisons them (decreasing with range). \
-		Also spreads rust in the path of the plume."
+	desc = "喷出令人迷乱的烟流，使敌人互相攻击，\
+		并令其短暂失明（距离越远效果越强）及中毒（距离越远效果越弱）。\
+		烟流经过之处还会蔓延锈蚀。"
 	background_icon_state = "bg_heretic"
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'

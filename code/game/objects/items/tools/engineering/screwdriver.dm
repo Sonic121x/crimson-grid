@@ -65,8 +65,8 @@
 	AddElement(/datum/element/falling_hazard, damage = force, wound_bonus = wound_bonus, hardhat_safety = TRUE, crushes = FALSE, impact_sound = hitsound)
 
 /obj/item/screwdriver/abductor
-	name = "alien screwdriver"
-	desc = "An ultrasonic screwdriver."
+	name = "外星螺丝刀"
+	desc = "一把超声波螺丝刀。"
 	icon = 'icons/obj/antags/abductor.dmi'
 	icon_state = "screwdriver_a"
 	post_init_icon_state = null
@@ -155,8 +155,8 @@
 	return BRUTELOSS
 
 /obj/item/screwdriver/cyborg
-	name = "automated screwdriver"
-	desc = "A powerful automated screwdriver, designed to be both precise and quick."
+	name = "自动螺丝刀"
+	desc = "一把动力强劲的自动螺丝刀，兼顾精确与速度。"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_screwdriver"
 	post_init_icon_state = null

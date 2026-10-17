@@ -71,8 +71,8 @@
 	return BRUTELOSS
 
 /obj/item/wirecutters/abductor
-	name = "alien wirecutters"
-	desc = "Extremely sharp wirecutters, made out of a silvery-green metal."
+	name = "外星剪线钳"
+	desc = "由银绿色金属制成、极其锋利的剪线钳。"
 	icon = 'icons/obj/antags/abductor.dmi'
 	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SHEET_MATERIAL_AMOUNT*1.25, /datum/material/plasma =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/titanium =SHEET_MATERIAL_AMOUNT, /datum/material/diamond =SHEET_MATERIAL_AMOUNT)
 	icon_state = "cutters"
@@ -85,8 +85,8 @@
 	snap_time_strong_handcuffs = 1 SECONDS
 
 /obj/item/wirecutters/cyborg
-	name = "powered wirecutters"
-	desc = "Cuts wires with the power of ELECTRICITY. Faster than normal wirecutters."
+	name = "电动剪线钳"
+	desc = "用电力剪断电线，比普通剪线钳更快。"
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_cutters"
 	worn_icon_state = "cutters"

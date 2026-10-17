@@ -71,11 +71,11 @@
 /obj/item/flashlight/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	// single use lights can be toggled on once
 	if(isnull(held_item) && (toggle_context || !light_on))
-		context[SCREENTIP_CONTEXT_RMB] = "Toggle light"
+		context[SCREENTIP_CONTEXT_RMB] = "开关照明"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(istype(held_item, /obj/item/flashlight) && (toggle_context || !light_on))
-		context[SCREENTIP_CONTEXT_LMB] = "Toggle light"
+		context[SCREENTIP_CONTEXT_LMB] = "开关照明"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	return NONE
@@ -166,7 +166,7 @@
 		if(eyes.penlight_message != /obj/item/organ/eyes::penlight_message) //prevent default eyes from cluttering text, if this still happens somehow it displays "default message please report"
 			. += span_notice_ml("[eyes.penlight_examine(user, src)]\n")
 		if(braaaainz)
-			. += span_danger_ml("<b>[patient.p_Their()] eyes are webbed by fibrous black tendrils!</b>\n")
+			. += span_danger_ml("<b>[patient]的眼睛布满纤维状黑色卷须！</b>\n")
 		if(patient.has_status_effect(/datum/status_effect/drugginess) || patient.has_status_effect(/datum/status_effect/trance))
 			. += span_danger_ml("[patient]的[eyes.pupils_name == "pupils" ? "瞳孔" : eyes.pupils_name]有反应，却完全无法聚焦。")
 		if(patient.has_status_effect(/datum/status_effect/stoned))
@@ -189,11 +189,11 @@
 		for(var/I in 1 to organ_count)
 			if(I > 1)
 				if(I == mouth_organs.len)
-					organ_list += ", and "
+					organ_list += "和"
 				else
-					organ_list += ", "
+					organ_list += "、"
 			var/obj/item/organ/organ_to_display = mouth_organs[I]
-			organ_list += (organ_to_display.gender == "plural" ? organ_to_display.name : "\an [organ_to_display.name]")
+			organ_list += organ_to_display.name
 
 	var/pill_count = 0
 	for(var/datum/action/item_action/activate_pill/AP in patient.actions)
@@ -333,8 +333,8 @@
 	set_light_color(new_light_color)
 
 /obj/item/flashlight/pen
-	name = "penlight"
-	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."
+	name = "笔灯"
+	desc = "医务人员使用的笔状小灯，也能投射全息标记，提醒人们医疗援助即将抵达。"
 	dir = EAST
 	icon_state = "penlight"
 	inhand_icon_state = ""
@@ -350,7 +350,7 @@
 
 /obj/item/flashlight/pen/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!COOLDOWN_FINISHED(src, holosign_cooldown))
-		balloon_alert(user, "not ready!")
+		balloon_alert(user, "尚未就绪！")
 		return ITEM_INTERACT_BLOCKING
 
 	var/turf/target_turf = get_turf(interacting_with)
@@ -359,15 +359,15 @@
 	if(!living_target || (living_target == user))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(living_target, span_boldnotice("[user] is offering medical assistance; please halt your actions."))
+	to_chat(living_target, span_boldnotice("[user]正准备提供医疗援助，请暂停行动。"))
 	new /obj/effect/temp_visual/medical_holosign(target_turf, user) //produce a holographic glow
 	COOLDOWN_START(src, holosign_cooldown, 10 SECONDS)
 	return ITEM_INTERACT_SUCCESS
 
 // see: [/datum/wound/burn/flesh/proc/uv()]
 /obj/item/flashlight/pen/paramedic
-	name = "paramedic penlight"
-	desc = "A high-powered UV penlight intended to help stave off infection in the field on serious burned patients. Probably really bad to look into."
+	name = "急救医护笔灯"
+	desc = "用于在现场帮助重度烧伤病人防止感染的高功率紫外笔灯。直视它大概很伤眼。"
 	icon_state = "penlight_surgical"
 	light_color = LIGHT_COLOR_PURPLE
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
@@ -379,8 +379,8 @@
 	var/uv_power = 1
 
 /obj/effect/temp_visual/medical_holosign
-	name = "medical holosign"
-	desc = "A small holographic glow that indicates a medic is coming to treat a patient."
+	name = "医疗全息标记"
+	desc = "微小的全息光影，表明医护人员正赶来救治病人。"
 	icon_state = "medi_holo"
 	duration = 30
 
@@ -388,7 +388,7 @@
 	. = ..()
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE) //make some noise!
 	if(creator)
-		visible_message(span_danger("[creator] created a medical hologram!"))
+		visible_message(span_danger("[creator]投射了医疗全息标记！"))
 
 /obj/item/flashlight/seclite
 	name = "警用手电筒"
@@ -409,8 +409,8 @@
 
 // the desk lamps are a bit special
 /obj/item/flashlight/lamp
-	name = "desk lamp"
-	desc = "A desk lamp with an adjustable mount."
+	name = "台灯"
+	desc = "一盏支架可调的台灯。"
 	icon_state = "lamp"
 	inhand_icon_state = "lamp"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -427,23 +427,23 @@
 
 // green-shaded desk lamp
 /obj/item/flashlight/lamp/green
-	desc = "A classic green-shaded desk lamp."
+	desc = "一盏采用绿色灯罩的经典台灯。"
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 //Bananalamp
 /obj/item/flashlight/lamp/bananalamp
-	name = "banana lamp"
-	desc = "Only a clown would think to make a ghetto banana-shaped lamp. Even has a goofy pullstring."
+	name = "香蕉灯"
+	desc = "只有小丑才会想到做一盏土制香蕉形灯，甚至还配了条傻乎乎的拉绳。"
 	icon_state = "bananalamp"
 	inhand_icon_state = null
 	light_color = LIGHT_COLOR_BRIGHT_YELLOW
 
 // FLARES
 /obj/item/flashlight/flare
-	name = "flare"
-	desc = "A red flare. There are instructions on the side, it reads 'pull cord, make light'." // DARKPACK EDIT CHANGE
+	name = "信号火炬"
+	desc = "一支红色信号火炬。侧面印着说明：'拉绳，发光'。" // DARKPACK EDIT CHANGE
 	light_range = 7 // Pretty bright.
 	icon_state = "flare"
 	inhand_icon_state = "flare"
@@ -483,8 +483,8 @@
 	if(randomize_fuel)
 		fuel = rand(10 MINUTES, 15 MINUTES)
 	if(light_on)
-		attack_verb_continuous = string_list(list("burns", "singes"))
-		attack_verb_simple = string_list(list("burn", "singe"))
+		attack_verb_continuous = string_list(list("灼烧", "燎烧"))
+		attack_verb_simple = string_list(list("灼烧", "燎烧"))
 		hitsound = 'sound/items/tools/welder.ogg'
 		force = on_damage
 		damtype = BURN
@@ -515,9 +515,9 @@
 		return FALSE
 	. = ..()
 
-	name = "lit [initial(name)]"
-	attack_verb_continuous = string_list(list("burns", "singes"))
-	attack_verb_simple = string_list(list("burn", "singe"))
+	name = "点燃的[initial(name)]"
+	attack_verb_continuous = string_list(list("灼烧", "燎烧"))
+	attack_verb_simple = string_list(list("灼烧", "燎烧"))
 	hitsound = 'sound/items/tools/welder.ogg'
 	force = on_damage
 	damtype = BURN
@@ -562,11 +562,11 @@
 /obj/item/flashlight/flare/proc/ignition(mob/user)
 	if(!fuel)
 		if(user)
-			balloon_alert(user, "out of fuel!")
+			balloon_alert(user, "燃料耗尽！")
 		return NO_FUEL
 	if(light_on)
 		if(user)
-			balloon_alert(user, "already lit!")
+			balloon_alert(user, "已经点燃了！")
 		return ALREADY_LIT
 	if(!toggle_light())
 		return FAILURE
@@ -582,15 +582,15 @@
 
 /obj/item/flashlight/flare/attack_self(mob/user)
 	if(ignition(user) == SUCCESS)
-		user.visible_message(span_notice("[user] lights \the [src]."), span_notice("You light \the [initial(src.name)]!"))
+		user.visible_message(span_notice("[user]点燃了[src]。"), span_notice("你点燃了[initial(src.name)]！"))
 
 /obj/item/flashlight/flare/get_temperature()
 	return light_on * heat
 
 /obj/item/flashlight/flare/candle
-	name = "red candle"
-	desc = "In Greek myth, Prometheus stole fire from the Gods and gave it to \
-		humankind. The jewelry he kept for himself."
+	name = "红蜡烛"
+	desc = "希腊神话中，普罗米修斯从众神手中盗来火种，送给了\
+		人类。珠宝倒是自己留下了。"
 	ONFLOOR_ICON_HELPER(null) // DARKPACK EDIT ADD
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
@@ -669,10 +669,10 @@
 			user.visible_message(success_msg)
 			return SUCCESS
 		if(ALREADY_LIT)
-			balloon_alert(user, "already lit!")
+			balloon_alert(user, "已经点燃了！")
 			return ALREADY_LIT
 		if(NO_FUEL)
-			balloon_alert(user, "out of fuel!")
+			balloon_alert(user, "燃料耗尽！")
 			return NO_FUEL
 
 /obj/item/flashlight/flare/candle/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -683,14 +683,14 @@
 				return NONE
 			if(cig.loc == user)
 				user.visible_message(
-					span_rose("[user] holds [user.p_their()] [cig.name] to [src] and lights it, like a true romantic."),
-					span_rose("You hold your [cig.name] to [src] and light it, like a true romantic."),
+					span_rose("[user]把[cig.name]凑到[src]上点燃，宛如真正的浪漫主义者。"),
+					span_rose("你把[cig.name]凑到[src]上点燃，宛如真正的浪漫主义者。"),
 					visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 				)
 			else
 				user.visible_message(
-					span_rose("[user] lights [cig] with [src], like a true romantic."),
-					span_rose("You light [cig] with [src], like a true romantic."),
+					span_rose("[user]用[src]点燃[cig]，宛如真正的浪漫主义者。"),
+					span_rose("你用[src]点燃[cig]，宛如真正的浪漫主义者。"),
 					visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 				)
 			return ITEM_INTERACT_SUCCESS
@@ -710,28 +710,28 @@
 	if(!get_temperature())
 		return ""
 	if(isitem(A) && A.loc == user)
-		return span_rose("[user] holds [A] in the flame of [src], letting it catch fire.")
-	return span_rose("[user] lights [A] ablaze with [src], like a true romantic.")
+		return span_rose("[user]把[A]放在[src]的火焰中，将其引燃。")
+	return span_rose("[user]用[src]点燃[A]，宛如真正的浪漫主义者。")
 
 /obj/item/flashlight/flare/candle/attack_self(mob/user)
 	if(light_on && (fuel != INFINITY || !can_be_extinguished)) // can't extinguish eternal candles
 		turn_off()
-		user.visible_message(span_notice("[user] snuffs [src]."))
+		user.visible_message(span_notice("[user]熄灭了[src]。"))
 
 /obj/item/flashlight/flare/candle/process(seconds_per_tick)
 	. = ..()
 	check_wax_level()
 
 /obj/item/flashlight/flare/candle/infinite
-	name = "eternal candle"
+	name = "永恒蜡烛"
 	fuel = INFINITY
 	randomize_fuel = FALSE
 	can_be_extinguished = FALSE
 	start_on = TRUE
 
 /obj/item/flashlight/flare/torch
-	name = "torch"
-	desc = "A torch fashioned from some leaves and a log."
+	name = "火把"
+	desc = "用树叶和木头制成的火把。"
 	light_range = 4
 	light_power = 1.3
 	icon_state = "torch"
@@ -749,8 +749,8 @@
 	start_on = TRUE
 
 /obj/item/flashlight/flare/torch/everburning
-	name = "everburning torch"
-	desc = "A torch which burns continuously, even in water!" // DARKPACK EDIT CHANGE
+	name = "永燃火把"
+	desc = "即使在水中也能持续燃烧的火把！" // DARKPACK EDIT CHANGE
 	can_be_extinguished = FALSE
 	fuel = INFINITY
 	randomize_fuel = FALSE
@@ -765,12 +765,12 @@
 	start_on = TRUE
 
 /obj/item/flashlight/lantern
-	name = "lantern"
+	name = "提灯"
 	icon_state = "lantern"
 	inhand_icon_state = "lantern"
 	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
-	desc = "A mining lantern."
+	desc = "一盏采矿提灯。"
 	light_range = 5 // luminosity when on
 	light_power = 1.5
 	light_color = "#ffcc66"
@@ -780,13 +780,13 @@
 	start_on = TRUE
 
 /obj/item/flashlight/lantern/heirloom_moth
-	name = "old lantern"
-	desc = "An old lantern that has seen plenty of use."
+	name = "旧提灯"
+	desc = "一盏久经使用的旧提灯。"
 	light_range = 3.5
 
 /obj/item/flashlight/lantern/syndicate
-	name = "suspicious lantern"
-	desc = "A suspicious looking lantern."
+	name = "可疑提灯"
+	desc = "一盏看起来很可疑的提灯。"
 	icon_state = "syndilantern"
 	inhand_icon_state = "syndilantern"
 	light_range = 6
@@ -794,8 +794,8 @@
 	light_color = "#ffffe6"
 
 /obj/item/flashlight/lantern/jade
-	name = "jade lantern"
-	desc = "An ornate, green lantern."
+	name = "翡翠提灯"
+	desc = "一盏华丽的绿色提灯。"
 	color = LIGHT_COLOR_GREEN
 
 /obj/item/flashlight/lantern/jade/on
@@ -803,8 +803,8 @@
 
 /obj/item/flashlight/slime
 	gender = PLURAL
-	name = "glowing slime extract"
-	desc = "Extract from a yellow slime. It emits a strong light when squeezed."
+	name = "发光史莱姆提取物"
+	desc = "来自黄色史莱姆的提取物，挤压时会发出强光。"
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "slime"
 	inhand_icon_state = null
@@ -855,14 +855,14 @@
 		if(ismob(interacting_with))
 			var/mob/empd = interacting_with
 			log_combat(user, empd, "attacked", "EMP-light")
-			empd.visible_message(span_danger("[user] blinks \the [src] at \the [empd]."), \
-								span_userdanger("[user] blinks \the [src] at you."))
+			empd.visible_message(span_danger("[user]朝[empd]闪动[src]。"), \
+								span_userdanger("[user]朝你闪动[src]。"))
 		else
-			interacting_with.visible_message(span_danger("[user] blinks \the [src] at \the [interacting_with]."))
-		to_chat(user, span_notice("\The [src] now has [emp_cur_charges] charge\s."))
+			interacting_with.visible_message(span_danger("[user]朝[interacting_with]闪动[src]。"))
+		to_chat(user, span_notice("[src]现在有[emp_cur_charges]次充能。"))
 		interacting_with.emp_act(EMP_HEAVY)
 	else
-		to_chat(user, span_warning("\The [src] needs time to recharge!"))
+		to_chat(user, span_warning("[src]需要时间充能！"))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/flashlight/emp/debug //for testing emp_act()
@@ -873,8 +873,8 @@
 // Glowsticks, in the uncomfortable range of similar to flares,
 // Flares need to process (for hotspots) tho so this becomes irrelevant
 /obj/item/flashlight/glowstick
-	name = "glowstick"
-	desc = "A military-grade glowstick."
+	name = "荧光棒"
+	desc = "一根军用级荧光棒。"
 	custom_price = PAYCHECK_LOWER
 	w_class = WEIGHT_CLASS_SMALL
 	light_range = 3.5
@@ -1008,62 +1008,62 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(get_fuel() <= 0)
-		balloon_alert(user, "glowstick is spent!")
+		balloon_alert(user, "荧光棒已耗尽！")
 		return
 	if(light_on)
-		balloon_alert(user, "already lit!")
+		balloon_alert(user, "已经点亮了！")
 		return
 
 	. = ..()
 	if(.)
-		user.visible_message(span_notice("[user] cracks and shakes [src]."), span_notice("You crack and shake [src], turning it on!"))
+		user.visible_message(span_notice("[user]折弯并摇动[src]。"), span_notice("你折弯并摇动[src]，将它点亮！"))
 		turn_on()
 
 /obj/item/flashlight/glowstick/suicide_act(mob/living/user)
 	if(!get_fuel())
-		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but it's empty!"))
+		user.visible_message(span_suicide("[user]试图将[src]里的液体挤进自己眼睛……但它已经空了！"))
 		return SHAME
 	var/obj/item/organ/eyes/eyes = user.get_organ_slot(ORGAN_SLOT_EYES)
 	if(!eyes)
-		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but [user.p_they()] [user.p_do()]n't have any!"))
+		user.visible_message(span_suicide("[user]试图将[src]里的液体挤进自己眼睛……可根本没有眼睛！"))
 		return SHAME
-	user.visible_message(span_suicide("[user] is squirting [src]'s fluids into [user.p_their()] eyes! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正将[src]里的液体挤进自己眼睛！看起来是想自杀！"))
 	burn_loop(get_fuel())
 	return FIRELOSS
 
 /obj/item/flashlight/glowstick/red
-	name = "red glowstick"
+	name = "红色荧光棒"
 	color = COLOR_SOFT_RED
 	fuel_type = /datum/reagent/luminescent_fluid/red
 
 /obj/item/flashlight/glowstick/blue
-	name = "blue glowstick"
+	name = "蓝色荧光棒"
 	color = LIGHT_COLOR_BLUE
 	fuel_type = /datum/reagent/luminescent_fluid/blue
 
 /obj/item/flashlight/glowstick/cyan
-	name = "cyan glowstick"
+	name = "青色荧光棒"
 	color = LIGHT_COLOR_CYAN
 	fuel_type = /datum/reagent/luminescent_fluid/cyan
 
 /obj/item/flashlight/glowstick/orange
-	name = "orange glowstick"
+	name = "橙色荧光棒"
 	color = LIGHT_COLOR_ORANGE
 	fuel_type = /datum/reagent/luminescent_fluid/orange
 
 /obj/item/flashlight/glowstick/yellow
-	name = "yellow glowstick"
+	name = "黄色荧光棒"
 	color = LIGHT_COLOR_DIM_YELLOW
 	fuel_type = /datum/reagent/luminescent_fluid/yellow
 
 /obj/item/flashlight/glowstick/pink
-	name = "pink glowstick"
+	name = "粉色荧光棒"
 	color = LIGHT_COLOR_PINK
 	fuel_type = /datum/reagent/luminescent_fluid/pink
 
 /obj/item/flashlight/spotlight //invisible lighting source
-	name = "disco light"
-	desc = "Groovy..."
+	name = "迪斯科灯"
+	desc = "真带劲……"
 	icon_state = null
 	light_system = OVERLAY_LIGHT
 	light_range = 4
@@ -1091,8 +1091,8 @@
 		set_light_color(_light_color)
 
 /obj/item/flashlight/flashdark
-	name = "flashdark"
-	desc = "A powerful antiphoton projector, capable of projecting a bubble of darkness around the user."
+	name = "手暗筒"
+	desc = "强力反光子投影器，能在使用者周围投射一团黑暗。"
 	icon_state = "flashdark"
 	inhand_icon_state = "flashdark"
 	light_system = COMPLEX_LIGHT //The overlay light component is not yet ready to produce darkness.
@@ -1133,8 +1133,8 @@
 #define SLOWDOWN_ON 1
 
 /obj/item/flashlight/lamp/space_bubble
-	name = "magic furnace" // DARKPACK EDIT CHANGE
-	desc = "A heavy furnace capable of forming a temporary bubble that holds in breathable air."
+	name = "魔法炉" // DARKPACK EDIT CHANGE
+	desc = "一座沉重的炉子，能形成临时气泡，留住可供呼吸的空气。"
 	icon_state = "space_lamp"
 	worn_icon_state = "space_lamp"
 	inhand_icon_state = "space_lamp"
@@ -1188,7 +1188,7 @@
 	if(installed_pyro_core)
 		desc = initial(desc)
 		return
-	desc = initial(desc) + " Requires a pyroclastic anomaly core to function."
+	desc = initial(desc) + " 需要火山碎屑异常核心才能运作。"
 
 /obj/item/flashlight/lamp/space_bubble/get_temperature()
 	return light_on * heat
@@ -1196,12 +1196,12 @@
 /obj/item/flashlight/lamp/space_bubble/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(light_on && istype(tool, /obj/item/cigarette))
-		if(!astype(tool, /obj/item/cigarette).attempt_light(user, src, "[user] lights up \the [tool] using the burning coming out of the [src]. Damn."))
+		if(!astype(tool, /obj/item/cigarette).attempt_light(user, src, "[user]用[src]喷出的火焰点燃了[tool]。真有一手。"))
 			return NONE
 		return ITEM_INTERACT_SUCCESS
 	if(!istype(tool, /obj/item/assembly/signaler/anomaly/pyro) || installed_pyro_core)
 		return NONE
-	user.balloon_alert(user, "core inserted")
+	user.balloon_alert(user, "已插入核心")
 	qdel(tool)
 	installed_pyro_core = TRUE
 	playsound(src, 'sound/machines/crate/crate_open.ogg', 50, FALSE)
@@ -1210,18 +1210,18 @@
 
 /obj/item/flashlight/lamp/space_bubble/toggle_light(mob/user)
 	if(!installed_pyro_core)
-		user.balloon_alert(user, "core missing!")
+		user.balloon_alert(user, "缺少核心！")
 		return FALSE
 	var/datum/gas_mixture/environment = loc?.return_air()
 	var/affected_pressure = environment.return_pressure()
 	if(!light_on && (affected_pressure < ONE_ATMOSPHERE - 1))
-		user.balloon_alert(user, "[affected_pressure < HAZARD_LOW_PRESSURE? "no" : "low"] pressure!")
+		user.balloon_alert(user, "[affected_pressure < HAZARD_LOW_PRESSURE? "没有气压" : "气压过低"]！")
 		return FALSE
 	. = ..()
 	if(light_on)
 		if(istype(space_bubble))
 			QDEL_NULL(space_bubble)
-		bubble_timer = addtimer(CALLBACK(src, PROC_REF(start_bubble_close), "dies down..."), bubble_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE|TIMER_DELETE_ME)
+		bubble_timer = addtimer(CALLBACK(src, PROC_REF(start_bubble_close), "渐渐熄灭……"), bubble_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE|TIMER_DELETE_ME)
 		space_bubble = new(src, 4, FALSE, src)
 		slowdown = SLOWDOWN_ON
 		drag_slowdown = SLOWDOWN_ON

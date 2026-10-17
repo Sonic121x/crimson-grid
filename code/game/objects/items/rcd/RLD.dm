@@ -16,8 +16,8 @@
 #define REMOVE_DELAY 15
 
 /obj/item/construction/rld
-	name = "Rapid Lighting Device"
-	desc = "A device used to rapidly provide lighting sources to an area. Reload with iron, plasteel, glass or compressed matter cartridges."
+	name = "快速照明装置"
+	desc = "用于迅速为区域布设光源的装置，可用铁、等离子钢、玻璃或压缩物质弹匣补充材料。"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rld"
 	inhand_icon_state = "rld"
@@ -48,13 +48,13 @@
 /obj/item/construction/rld/Initialize(mapload)
 	. = ..()
 	for(var/option in original_options)
-		display_options[option] = icon(original_options[option])
+		display_options[option] = localized_radial_choice(icon(original_options[option]), list("Color Pick" = "选择颜色", "Glow Stick" = "荧光棒", "Deconstruct" = "拆除", "Light Fixture" = "灯具")[option] || option)
 
 /obj/item/construction/rld/attack_self(mob/user)
 	. = ..()
 
 	if((construction_upgrades & RCD_UPGRADE_SILO_LINK) && display_options["Silo Link"] == null) //silo upgrade instaled but option was not updated then update it just one
-		display_options["Silo Link"] = icon(icon = 'icons/obj/machines/ore_silo.dmi', icon_state = "silo")
+		display_options["Silo Link"] = localized_radial_choice(icon(icon = 'icons/obj/machines/ore_silo.dmi', icon_state = "silo"), "连接矿物仓")
 
 	var/choice = show_radial_menu(user, src, display_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(!check_menu(user))
@@ -65,12 +65,12 @@
 	switch(choice)
 		if("Light Fixture")
 			mode = LIGHT_MODE
-			to_chat(user, span_notice("You change RLD's mode to 'Permanent Light Construction'."))
+			to_chat(user, span_notice("你将快速照明装置切换为'固定照明建造'模式。"))
 		if("Glow Stick")
 			mode = GLOW_MODE
-			to_chat(user, span_notice("You change RLD's mode to 'Light Launcher'."))
+			to_chat(user, span_notice("你将快速照明装置切换为'光源发射'模式。"))
 		if("Color Pick")
-			var/new_choice = tgui_color_picker(user, "", "Choose Color", color_choice)
+			var/new_choice = tgui_color_picker(user, "", "选择颜色", color_choice)
 			if(new_choice == null)
 				return
 
@@ -80,12 +80,12 @@
 					continue
 				var/icon/icon = icon(original_options[option])
 				icon.SetIntensity(new_rgb[1] / 255, new_rgb[2] / 255, new_rgb[3] / 255) //apply new scale
-				display_options[option] = icon
+				display_options[option] = localized_radial_choice(icon, list("Glow Stick" = "荧光棒", "Light Fixture" = "灯具")[option] || option)
 
 			color_choice = new_choice
 		if("Deconstruct")
 			mode = REMOVE_MODE
-			to_chat(user, span_notice("You change RLD's mode to 'Deconstruct'."))
+			to_chat(user, span_notice("你将快速照明装置切换为'拆除'模式。"))
 		else
 			toggle_silo(user)
 
@@ -170,7 +170,7 @@
 						winner = C
 						winning_dist = contender
 				if(!winner)
-					balloon_alert(user, "no valid target!")
+					balloon_alert(user, "没有有效目标！")
 					return ITEM_INTERACT_BLOCKING
 				var/obj/machinery/light/L = new /obj/machinery/light(get_turf(winner))
 				L.setDir(get_dir(winner, interacting_with))
@@ -218,8 +218,8 @@
 	return NONE
 
 /obj/item/construction/rld/mini
-	name = "mini-rapid-light-device"
-	desc = "A device used to rapidly provide lighting sources to an area. Reload with iron, plasteel, glass or compressed matter cartridges."
+	name = "迷你快速照明装置"
+	desc = "用于迅速为区域布设光源的装置，可用铁、等离子钢、玻璃或压缩物质弹匣补充材料。"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rld"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'

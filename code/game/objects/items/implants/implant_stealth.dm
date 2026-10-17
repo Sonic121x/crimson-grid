@@ -1,26 +1,26 @@
 /obj/item/implant/stealth
-	name = "S3 implant"
-	desc = "Allows you to be hidden in plain sight."
+	name = "S3植入体"
+	desc = "让你在众目睽睽之下隐去身形。"
 	actions_types = list(/datum/action/item_action/agent_box)
 
-	implant_info = "Activated manually. \
-		Fabricates a horrifically fragile cardboard box around the user that has integrated gradual optical camouflage."
+	implant_info = "手动启动。\
+		在使用者周围生成一个脆弱得可怕的纸箱，内置逐步生效的光学迷彩。"
 
-	implant_lore = "The Cybersun S3 Implant, colloquially the \"stealth\" implant, allows users to fabricate, \
-		on the spot, a \"stealth\" box around them, which sacrifices most of its (miniscule) strength as a cardboard box \
-		in order to support an optical camouflage weave. Unfortunately, the optical camouflage cannot instantly initialize; \
-		bumping into living beings will disrupt the camouflage, and after disruption or upon initial activation, \
-		the camouflage system has to recalibrate to its surroundings. However, once calibrated, it is invisible to the naked eye."
+	implant_lore = "赛博太阳S3植入体，俗称\"隐身\"植入体，能让使用者\
+		当场在周围生成一个\"隐身\"纸箱。为了容纳光学迷彩织层，\
+		纸箱牺牲了本就微不足道的结构强度。不幸的是，光学迷彩无法瞬间启动；\
+		撞到生物会打断迷彩，而每次中断后或初次启动时，\
+		迷彩系统都需要重新校准周围环境。不过，一旦校准完成，它便能从肉眼前隐去。"
 
 /obj/item/implanter/stealth
-	name = "implanter (stealth)"
+	name = "植入器（隐身）"
 	imp_type = /obj/item/implant/stealth
 
 //Box Object
 
 /obj/structure/closet/cardboard/agent
-	name = "inconspicious box"
-	desc = "It's so normal that you didn't notice it before."
+	name = "不起眼的纸箱"
+	desc = "它太普通了，你之前根本没注意到。"
 	icon_state = "agentbox"
 	max_integrity = 1 // "This dumb box shouldn't take more than one hit to make it vanish."
 	move_speed_multiplier = 0.5

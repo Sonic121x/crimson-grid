@@ -58,7 +58,7 @@
 		"map" = SSmapping.current_map?.map_name,
 		"nextmap" = SSmap_vote.next_map_config?.map_name,
 		"playercount" = length(GLOB.clients),
-		"playerstring" = "**Total**: [length(GLOB.clients)], **Living**: [length(GLOB.alive_player_list)], **Dead**: [length(GLOB.dead_player_list)], **Observers**: [length(GLOB.current_observers_list)]",
+		"playerstring" = "**总计**：[length(GLOB.clients)]，**存活**：[length(GLOB.alive_player_list)]，**死亡**：[length(GLOB.dead_player_list)]，**观察者**：[length(GLOB.current_observers_list)]",
 	))
 
 /datum/controller/subsystem/plexora/proc/interview(datum/interview/interview)
@@ -118,7 +118,7 @@
 		"round_timer" = round_timestamp(),
 		"map" = SSmapping.current_map?.map_name,
 		"playercount" = length(GLOB.clients),
-		"playerstring" = "**Total**: [length(GLOB.clients)], **Living**: [length(GLOB.alive_player_list)], **Dead**: [length(GLOB.dead_player_list)], **Observers**: [length(GLOB.current_observers_list)]",
+		"playerstring" = "**总计**：[length(GLOB.clients)]，**存活**：[length(GLOB.alive_player_list)]，**死亡**：[length(GLOB.dead_player_list)]，**观察者**：[length(GLOB.current_observers_list)]",
 		"defconstring" = alert,
 		"defconlevel" = level,
 	))

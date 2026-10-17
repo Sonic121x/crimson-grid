@@ -1,6 +1,6 @@
 /obj/item/mop
-	desc = "The world of janitalia wouldn't be complete without a mop."
-	name = "mop"
+	desc = "清洁工的世界少了拖把可不完整。"
+	name = "拖把"
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "mop"
 	inhand_icon_state = "mop"
@@ -12,15 +12,15 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("mops", "bashes", "bludgeons", "whacks")
-	attack_verb_simple = list("mop", "bash", "bludgeon", "whack")
+	attack_verb_continuous = list("拖打", "猛砸", "钝击", "敲打")
+	attack_verb_simple = list("拖打", "猛砸", "钝击", "敲打")
 	resistance_flags = FLAMMABLE
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 	var/mopcount = 0
 	///Maximum volume of reagents it can hold.
 	var/max_reagent_volume = 15
 	var/mopspeed = 1.5 SECONDS
-	force_string = "robust... against germs"
+	force_string = "强力……专治细菌"
 	var/static/list/clean_blacklist = typecacheof(list(
 		/obj/item/reagent_containers/cup/bucket,
 		/obj/structure/mop_bucket,
@@ -52,7 +52,7 @@
 	if(clean_blacklist[atom_to_clean.type])
 		return CLEAN_BLOCKED|CLEAN_DONT_BLOCK_INTERACTION
 	if(reagents.total_volume < 0.1)
-		cleaner.balloon_alert(cleaner, "mop is dry!")
+		cleaner.balloon_alert(cleaner, "拖把干了！")
 		return CLEAN_BLOCKED
 	if(reagents.has_reagent(amount = 1, chemical_flags = REAGENT_CLEANS))
 		return CLEAN_ALLOWED
@@ -76,8 +76,8 @@
 	reagents.remove_all(val2remove) //reaction() doesn't use up the reagents
 
 /obj/item/mop/advanced
-	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
-	name = "advanced mop"
+	desc = "清洁工装备库中最先进的工具，自带冷凝器，能够自动润湿！想想你能用它清理多少内脏吧！"
+	name = "高级拖把"
 	max_reagent_volume = 10
 	icon_state = "advmop"
 	inhand_icon_state = "advmop"
@@ -103,7 +103,7 @@
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj,src)
-	user.balloon_alert(user, "condenser switch [refill_enabled ? "on" : "off"]")
+	user.balloon_alert(user, "冷凝器开关[refill_enabled ? "已开启" : "已关闭"]")
 	playsound(user, 'sound/machines/click.ogg', 30, TRUE)
 
 /obj/item/mop/advanced/process(seconds_per_tick)
@@ -113,7 +113,7 @@
 
 /obj/item/mop/advanced/examine(mob/user)
 	. = ..()
-	. += span_notice("The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")
+	. += span_notice("冷凝器开关<b>[refill_enabled ? "已开启" : "已关闭"]</b>。")
 
 /obj/item/mop/advanced/Destroy()
 	STOP_PROCESSING(SSobj, src)

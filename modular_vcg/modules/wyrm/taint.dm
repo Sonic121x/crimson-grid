@@ -1,6 +1,6 @@
 /datum/reagent/wyrmtaint
-	name = "sludge"
-	description = "unidentified sludge"
+	name = "污泥"
+	description = "成分不明的污泥。"
 	color = "#000000"
 	taste_mult = 0
 	chemical_flags = REAGENT_INVISIBLE
@@ -19,7 +19,7 @@
 	REMOVE_TRAIT(affected_mob, TRAIT_WYRMTAINTED, type)
 
 /datum/reagent/medicine/modafinil/magafinil
-	name = "Magafinil"
+	name = "玛加醒"
 
 /datum/reagent/medicine/modafinil/magafinil/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -36,7 +36,7 @@
 	holder.add_reagent(/datum/reagent/wyrmtaint, 0.1 * metabolization_ratio * seconds_per_tick)
 
 /datum/reagent/drug/happiness/magaloft
-	name = "Magaloft"
+	name = "玛加舒"
 
 /datum/reagent/drug/happiness/magaloft/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, metabolization_ratio)
 	. = ..()

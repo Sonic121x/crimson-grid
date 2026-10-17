@@ -1,5 +1,5 @@
 /obj/item/storage
-	name = "storage"
+	name = "储物容器"
 	icon = 'icons/obj/storage/storage.dmi'
 	abstract_type = /obj/item/storage
 	w_class = WEIGHT_CLASS_NORMAL

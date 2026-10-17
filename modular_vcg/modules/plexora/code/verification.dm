@@ -21,7 +21,7 @@
 			"polling_response" = PLEXORA_CKEYPOLL_LINKED_ALLOWEDWHITELIST,
 			"discord_id" = "0000000000000000000",
 			"discord_username" = !enabled ? "PLEXORA_NOT_ENABLED" : "ckey_whitelisted",
-			"discord_displayname" = !enabled ? "Plexora Not Enabled" : "Ckey Whitelisted",
+			"discord_displayname" = !enabled ? "Plexora未启用" : "账号已列入白名单",
 			"has_requiredrole" = TRUE
 		)
 
@@ -55,18 +55,18 @@
 
 /* Discord Verification Window */
 
-GAME_VERB_DESC(/client, verify_in_discord, "Verify Discord Account", "Verify your discord account with your BYOND account", "OOC")
+GAME_VERB_DESC(/client, verify_in_discord, "验证Discord账号", "将你的Discord账号与BYOND账号关联验证。", "OOC")
 
 	if(!CONFIG_GET(flag/sql_enabled))
-		to_chat(src, span_warning("This feature requires the SQL backend to be running."))
+		to_chat(src, span_warning("此功能需要SQL数据库服务正常运行。"))
 		return
 
 	if(!CONFIG_GET(flag/plexora_enabled))
-		to_chat(src, span_warning("This feature requires Plexora to be running."))
+		to_chat(src, span_warning("此功能需要Plexora服务正常运行。"))
 		return
 
 	if(!SSplexora?.reverify_cache)
-		to_chat(src, span_warning("Wait for the Discord subsystem to finish initialising"))
+		to_chat(src, span_warning("请等待Discord子系统完成初始化。"))
 		return
 
 	var/datum/discord_verification/tgui = new(src)
