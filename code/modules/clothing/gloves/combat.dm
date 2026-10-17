@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/combat
-	name = "combat gloves"
-	desc = "These tactical gloves are fireproof and electrically insulated."
+	name = "战斗手套"
+	desc = "这副战术手套防火且绝缘。"
 	icon_state = "black"
 	greyscale_colors = "#2f2e31"
 	siemens_coefficient = 0

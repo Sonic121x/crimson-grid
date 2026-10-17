@@ -2,8 +2,8 @@
 
 // Ordinary survival box. Every crewmember gets one of these.
 /obj/item/storage/box/survival
-	name = "survival box"
-	desc = "A box with the bare essentials of ensuring the survival of you and others."
+	name = "生存盒"
+	desc = "装有保障你和他人生存所需基本物资的盒子。"
 	icon_state = "internals"
 	illustration = "emergencytank"
 	/// What type of mask are we going to use for this box?
@@ -25,7 +25,7 @@
 		return
 	atom_storage.max_slots += 2
 	atom_storage.max_total_storage += 4
-	name = "large [name]"
+	name = "大型[name]"
 	icon_state = "[icon_state]_large"
 
 /obj/item/storage/box/survival/PopulateContents()
@@ -87,8 +87,8 @@
 
 // Engineer survival box
 /obj/item/storage/box/survival/engineer
-	name = "extended-capacity survival box"
-	desc = "A box with the bare essentials of ensuring the survival of you and others. This one is labelled to contain an extended-capacity tank."
+	name = "增容生存盒"
+	desc = "装有保障你和他人生存所需基本物资的盒子，标签表明内有增容气瓶。"
 	illustration = "extendedtank"
 	internal_type = /obj/item/tank/internals/emergency_oxygen/engi
 
@@ -98,8 +98,8 @@
 
 // Syndie survival box
 /obj/item/storage/box/survival/syndie
-	name = "operation-ready survival box"
-	desc = "A box with the essentials of your operation. This one is labelled to contain an extended-capacity tank and a handy guide on survival."
+	name = "行动生存盒"
+	desc = "装有执行行动所需物资的盒子，标签表明内有增容气瓶和实用生存指南。"
 	icon_state = "syndiebox"
 	illustration = "extendedtank"
 	mask_type = /obj/item/clothing/mask/gas/syndicate
@@ -114,8 +114,8 @@
 	new /obj/item/paper/fluff/operative(src)
 
 /obj/item/storage/box/survival/centcom
-	name = "emergency response survival box"
-	desc = "A box with the bare essentials of ensuring the survival of your team. This one is labelled to contain a double tank."
+	name = "紧急响应生存盒"
+	desc = "装有保障团队生存所需基本物资的盒子，标签表明内有双容量气瓶。"
 	illustration = "extendedtank"
 	internal_type = /obj/item/tank/internals/emergency_oxygen/double
 
@@ -144,8 +144,8 @@
 //Mime spell boxes
 
 /obj/item/storage/box/mime
-	name = "invisible box"
-	desc = "Unfortunately not large enough to trap the mime."
+	name = "隐形盒"
+	desc = "可惜还不够大，装不下默剧演员。"
 	foldable_result = null
 	icon_state = "box"
 	inhand_icon_state = null
@@ -162,8 +162,8 @@
 	return ..()
 
 /obj/item/storage/box/hug
-	name = "box of hugs"
-	desc = "A special box for sensitive people."
+	name = "拥抱盒"
+	desc = "为敏感的人准备的特别盒子。"
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable_result = null
@@ -176,7 +176,7 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, SFX_RUSTLE, 50, vary=TRUE, extrarange=-5)
-	user.visible_message(span_notice("[user] hugs [src]."),span_notice("You hug [src]."))
+	user.visible_message(span_notice("[user]抱住了[src]。"),span_notice("你抱住了[src]。"))
 
 /obj/item/storage/box/hug/black
 	icon_state = "hugbox_black"
@@ -184,8 +184,8 @@
 
 // clown box, we also use this for the honk bot assembly
 /obj/item/storage/box/clown
-	name = "clown box"
-	desc = "A colorful cardboard box for the clown"
+	name = "小丑盒"
+	desc = "为小丑准备的彩色纸盒"
 	illustration = "clown"
 
 /obj/item/storage/box/clown/tool_act(mob/living/user, obj/item/tool, list/modifiers)
@@ -206,11 +206,11 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/storage/box/clown/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] opens [src] and gets consumed by [p_them()]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]打开[src]，却被盒子吞了进去！看起来是想自杀！"))
 	playsound(user, 'sound/misc/scary_horn.ogg', 70, vary = TRUE)
 	forceMove(user.drop_location())
 	var/obj/item/mob_holder/consumed = new(src, user)
-	consumed.desc = "It's [user.real_name]! It looks like [user.p_they()] committed suicide!"
+	consumed.desc = "是[user.real_name]！看起来已经自杀了！"
 	return OXYLOSS
 
 // Special stuff for medical hugboxes.
@@ -221,8 +221,8 @@
 
 //Clown survival box
 /obj/item/storage/box/survival/hug
-	name = "box of hugs"
-	desc = "A special box for sensitive people."
+	name = "拥抱盒"
+	desc = "为敏感的人准备的特别盒子。"
 	icon_state = "hugbox"
 	illustration = "heart"
 	foldable_result = null
@@ -254,12 +254,12 @@
 	..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, SFX_RUSTLE, 50, vary=TRUE, extrarange=-5)
-	user.visible_message(span_notice("[user] hugs [src]."),span_notice("You hug [src]."))
+	user.visible_message(span_notice("[user]抱住了[src]。"),span_notice("你抱住了[src]。"))
 
 /obj/item/storage/box/hug/plushes
-	name = "tactical cuddle kit"
-	desc = "A lovely little box filled with soft, cute plushies, perfect for calming down people who have just suffered a traumatic event. Legend has it there's a special part of hell \
-	for Medical Officers who just take the box for themselves."
+	name = "战术安抚套件"
+	desc = "可爱的小盒子，装满柔软的毛绒玩具，适合安抚刚经历创伤事件的人。据说地狱专门留了一块地方， \
+	给那些把盒子据为己有的医护人员。"
 
 /obj/item/storage/box/hug/plushes/PopulateContents()
 	for(var/i in 1 to 7)
@@ -276,8 +276,8 @@
 	new /obj/item/t_scanner/adv_mining_scanner(src)
 
 /obj/item/storage/box/miner_modkits
-	name = "miner modkit/trophy box"
-	desc = "Contains every modkit and trophy in the game."
+	name = "矿工改装套件与战利品盒"
+	desc = "内含游戏中的每一种改装套件和战利品。"
 
 /obj/item/storage/box/miner_modkits/Initialize(mapload)
 	. = ..()
@@ -295,8 +295,8 @@
 			new modkit(src)
 
 /obj/item/storage/box/skillchips
-	name = "box of skillchips"
-	desc = "Contains one copy of every skillchip"
+	name = "技能芯片盒"
+	desc = "每种技能芯片各有一枚"
 
 /obj/item/storage/box/skillchips/PopulateContents()
 	var/list/skillchips = subtypesof(/obj/item/skillchip)
@@ -305,23 +305,23 @@
 		new skillchip(src)
 
 /obj/item/storage/box/skillchips/science
-	name = "box of science job skillchips"
-	desc = "Contains spares of every science job skillchip."
+	name = "科研职业技能芯片盒"
+	desc = "内有各类科研职业技能芯片的备件。"
 
 /obj/item/storage/box/skillchips/science/PopulateContents()
 	new/obj/item/skillchip/job/roboticist(src)
 	new/obj/item/skillchip/job/roboticist(src)
 
 /obj/item/storage/box/skillchips/engineering
-	name = "box of engineering job skillchips"
-	desc = "Contains spares of every engineering job skillchip."
+	name = "工程职业技能芯片盒"
+	desc = "内有各类工程职业技能芯片的备件。"
 
 /obj/item/storage/box/skillchips/engineering/PopulateContents()
 	new/obj/item/skillchip/job/engineer(src)
 	new/obj/item/skillchip/job/engineer(src)
 
 /obj/item/storage/box/contractor/fulton_extraction
-	name = "Fulton Extraction Kit"
+	name = "富尔顿回收套件"
 	icon_state = "syndiebox"
 	illustration = "writing_syndie"
 

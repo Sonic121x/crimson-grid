@@ -1,5 +1,5 @@
 /obj/item/grenade/flashbang
-	name = "flashbang"
+	name = "闪光震撼弹"
 	icon_state = "flashbang"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -51,7 +51,7 @@
 /obj/item/grenade/flashbang/proc/bang(turf/turf, mob/living/living_mob, soundbang = TRUE)
 	if(living_mob.stat == DEAD) //They're dead!
 		return
-	living_mob.show_message(span_warning("BANG"), MSG_AUDIBLE)
+	living_mob.show_message(span_warning("砰"), MSG_AUDIBLE)
 	var/distance = get_dist(get_turf(src), turf)
 	var/sweetspot_range = clamp(ceil(flashbang_range/sweetspot_divider), 0, flashbang_range)
 
@@ -90,7 +90,7 @@
 	living_mob.dropItemToGround(living_mob.get_inactive_held_item())
 
 /obj/item/grenade/stingbang
-	name = "stingbang"
+	name = "蜂刺震撼弹"
 	icon_state = "timeg_locked"
 	base_icon_state = "timeg"
 	inhand_icon_state = "flashbang"
@@ -120,7 +120,7 @@
 		if(bodypart)
 			forceMove(get_turf(user))
 			var/did_dismember = bodypart.dismember()
-			user.visible_message("<b>[span_danger("[src] goes off in [user]'s hand[did_dismember ? ", blowing [user.p_their()] [bodypart.plaintext_zone] to bloody shreds" : ""]!")]</b>", span_userdanger("[src] goes off in your hand[did_dismember ? ", blowing your [bodypart.plaintext_zone] to bloody shreds" : ""]!"))
+			user.visible_message("<b>[span_danger("[src]在[user]手中爆炸[did_dismember ? "，将其[bodypart.plaintext_zone]炸得血肉模糊" : ""]！")]</b>", span_userdanger("[src]在你手中爆炸[did_dismember ? "，将你的[bodypart.plaintext_zone]炸得血肉模糊" : ""]！"))
 
 	. = ..()
 	if(!.)
@@ -141,7 +141,7 @@
 /obj/item/grenade/stingbang/proc/pop(turf/turf, mob/living/living_mob)
 	if(living_mob.stat == DEAD) //They're dead!
 		return
-	living_mob.show_message(span_warning("POP"), MSG_AUDIBLE)
+	living_mob.show_message(span_warning("啪"), MSG_AUDIBLE)
 	var/distance = get_dist(get_turf(src), turf)
 //Flash
 	if(living_mob.flash_act(affect_silicon = 1))
@@ -154,7 +154,7 @@
 		living_mob.Knockdown(20 SECONDS)
 		living_mob.soundbang_act(SOUNDBANG_NORMAL, 200, 10, 15)
 		if(living_mob.apply_damages(brute = 10, burn = 10))
-			to_chat(living_mob, span_userdanger("The blast from \the [src] bruises and burns you!"))
+			to_chat(living_mob, span_userdanger("[src]的爆炸让你又痛又烫！"))
 
 	// only checking if they're on top of the tile, cause being one tile over will be its own punishment
 

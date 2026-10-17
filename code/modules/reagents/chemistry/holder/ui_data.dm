@@ -1,7 +1,7 @@
 /datum/reagents/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Reagents", "Reaction search")
+		ui = new(user, src, "Reagents", "反应查询")
 		ui.status = UI_INTERACTIVE //How do I prevent a UI from autoclosing if not in LoS
 		ui_tags_selected = NONE //Resync with gui on open (gui expects no flags)
 		ui_reagent_id = null
@@ -71,44 +71,44 @@
 		thermic *= 100 //Because arbitary is a lower scale
 	switch(thermic)
 		if(-INFINITY to -1500)
-			return "Overwhelmingly endothermic"
+			return "超强吸热"
 		if(-1500 to -1000)
-			return "Extremely endothermic"
+			return "极强吸热"
 		if(-1000 to -500)
-			return "Strongly endothermic"
+			return "强烈吸热"
 		if(-500 to -200)
-			return "Moderately endothermic"
+			return "中度吸热"
 		if(-200 to -50)
-			return "Endothermic"
+			return "吸热"
 		if(-50 to 0)
-			return "Weakly endothermic"
+			return "微弱吸热"
 		if(0)
 			return ""
 		if(0 to 50)
-			return "Weakly Exothermic"
+			return "微弱放热"
 		if(50 to 200)
-			return "Exothermic"
+			return "放热"
 		if(200 to 500)
-			return "Moderately exothermic"
+			return "中度放热"
 		if(500 to 1000)
-			return "Strongly exothermic"
+			return "强烈放热"
 		if(1000 to 1500)
-			return "Extremely exothermic"
+			return "极强放热"
 		if(1500 to INFINITY)
-			return "Overwhelmingly exothermic"
+			return "超强放热"
 
 /datum/reagents/proc/parse_addictions(datum/reagent/reagent)
 	var/list/addict_text = list()
 	for(var/entry, threshold in reagent.addiction_types)
 		switch(threshold)
 			if(0 to 10)
-				addict_text += "Potent [GLOB.addictions[entry].name]"
+				addict_text += "极强[GLOB.addictions[entry].name]"
 			if(10 to 30)
-				addict_text += "Strong [GLOB.addictions[entry].name]"
+				addict_text += "强[GLOB.addictions[entry].name]"
 			if(30 to 100)
 				addict_text += "[GLOB.addictions[entry].name]"
 			if(100 to INFINITY)
-				addict_text += "Weak [GLOB.addictions[entry].name]"
+				addict_text += "弱[GLOB.addictions[entry].name]"
 
 	return addict_text
 
@@ -134,16 +134,16 @@
 	if(ui_reagent_id)
 		var/datum/reagent/reagent = GLOB.chemical_reagents_list[ui_reagent_id]
 		if(!reagent)
-			to_chat(user, "Could not find reagent!")
+			to_chat(user, "找不到试剂！")
 			ui_reagent_id = null
 		else
-			data["reagent_mode_reagent"] = list("name" = reagent.name, "id" = reagent.type, "desc" = reagent.description, "reagentCol" = reagent.color, "pH" = reagent.ph, "pHCol" = convert_ph_to_readable_color(reagent.ph), "metaRate" = reagent.metabolization_rate, "OD" = reagent.overdose_threshold)
+			data["reagent_mode_reagent"] = list("name" = reagent.display_name || reagent.name, "wiki_name" = reagent.name, "id" = reagent.type, "desc" = reagent.description, "reagentCol" = reagent.color, "pH" = reagent.ph, "pHCol" = convert_ph_to_readable_color(reagent.ph), "metaRate" = reagent.metabolization_rate, "OD" = reagent.overdose_threshold)
 			data["reagent_mode_reagent"]["addictions"] = list()
 			data["reagent_mode_reagent"]["addictions"] = parse_addictions(reagent)
 
 			var/datum/reagent/inverse_reagent = GLOB.chemical_reagents_list[reagent.inverse_chem]
 			if(inverse_reagent)
-				data["reagent_mode_reagent"] += list("inverseReagent" = inverse_reagent.name, "inverseId" = inverse_reagent.type)
+				data["reagent_mode_reagent"] += list("inverseReagent" = inverse_reagent.display_name || inverse_reagent.name, "inverseId" = inverse_reagent.type)
 
 			if(reagent.chemical_flags & REAGENT_DEAD_PROCESS)
 				data["reagent_mode_reagent"] += list("deadProcess" = TRUE)
@@ -154,7 +154,7 @@
 	if (ui_reaction_id)
 		var/datum/chemical_reaction/reaction = GLOB.chemical_reactions_list[ui_reaction_id]
 		if(!reaction)
-			to_chat(user, "Could not find reaction!")
+			to_chat(user, "找不到反应！")
 			ui_reaction_id = null
 			return data
 		//Required holder
@@ -193,14 +193,14 @@
 					ui_reaction_index = i //update our index
 					break
 				i += 1
-			data["reagent_mode_recipe"] = list("name" = primary_reagent.name, "id" = reaction.type, "hasProduct" = has_product, "reagentCol" = primary_reagent.color, "thermodynamics" = generate_thermodynamic_profile(reaction), "explosive" = generate_explosive_profile(reaction), "lowerpH" = reaction.optimal_ph_min, "upperpH" = reaction.optimal_ph_max, "thermics" = determine_reaction_thermics(reaction), "thermoUpper" = reaction.rate_up_lim, "minPurity" = reaction.purity_min, "inversePurity" = primary_reagent.inverse_chem_val, "tempMin" = reaction.required_temp, "explodeTemp" = reaction.overheat_temp, "reqContainer" = container_name, "subReactLen" = sub_reaction_length, "subReactIndex" = ui_reaction_index)
+			data["reagent_mode_recipe"] = list("name" = primary_reagent.display_name || primary_reagent.name, "id" = reaction.type, "hasProduct" = has_product, "reagentCol" = primary_reagent.color, "thermodynamics" = generate_thermodynamic_profile(reaction), "explosive" = generate_explosive_profile(reaction), "lowerpH" = reaction.optimal_ph_min, "upperpH" = reaction.optimal_ph_max, "thermics" = determine_reaction_thermics(reaction), "thermoUpper" = reaction.rate_up_lim, "minPurity" = reaction.purity_min, "inversePurity" = primary_reagent.inverse_chem_val, "tempMin" = reaction.required_temp, "explodeTemp" = reaction.overheat_temp, "reqContainer" = container_name, "subReactLen" = sub_reaction_length, "subReactIndex" = ui_reaction_index)
 
 		//Results sweep
 		var/has_reagent = "default"
 		for(var/datum/reagent/reagent as anything in reaction.results)
 			if(has_reagent(reagent))
 				has_reagent = "green"
-			data["reagent_mode_recipe"]["products"] += list(list("name" = reagent::name, "id" = reagent, "ratio" = reaction.results[reagent], "hasReagentCol" = has_reagent))
+			data["reagent_mode_recipe"]["products"] += list(list("name" = reagent::display_name || reagent::name, "id" = reagent, "ratio" = reaction.results[reagent], "hasReagentCol" = has_reagent))
 
 		//Reactant sweep
 		for(var/datum/reagent/reagent as anything in reaction.required_reagents)
@@ -222,9 +222,9 @@
 				var/datum/chemical_reaction/sub_reaction = sub_reactions[sub_index]
 				//Subreactions sweep (if any)
 				for(var/datum/reagent/sub_reagent as anything in sub_reaction.required_reagents)
-					tooltip += "[sub_reaction.required_reagents[sub_reagent]]u [sub_reagent::name]\n"
+					tooltip += "[sub_reaction.required_reagents[sub_reagent]]单位 [sub_reagent::display_name || sub_reagent::name]\n"
 					tooltip_bool = TRUE
-			data["reagent_mode_recipe"]["reactants"] += list(list("name" = reagent::name, "id" = reagent, "ratio" = reaction.required_reagents[reagent], "color" = color_r, "tooltipBool" = tooltip_bool, "tooltip" = tooltip))
+			data["reagent_mode_recipe"]["reactants"] += list(list("name" = reagent::display_name || reagent::name, "id" = reagent, "ratio" = reaction.required_reagents[reagent], "color" = color_r, "tooltipBool" = tooltip_bool, "tooltip" = tooltip))
 
 		//Catalyst sweep
 		for(var/datum/reagent/reagent as anything in reaction.required_catalysts)
@@ -238,9 +238,9 @@
 				var/datum/chemical_reaction/sub_reaction = sub_reactions[1]
 				//Subreactions sweep (if any)
 				for(var/datum/reagent/sub_reagent as anything in sub_reaction.required_reagents)
-					tooltip += "[sub_reaction.required_reagents[sub_reagent]]u [sub_reagent::name]\n"
+					tooltip += "[sub_reaction.required_reagents[sub_reagent]]单位 [sub_reagent::display_name || sub_reagent::name]\n"
 					tooltip_bool = TRUE
-			data["reagent_mode_recipe"]["catalysts"] += list(list("name" = reagent::name, "id" = reagent, "ratio" = reaction.required_catalysts[reagent], "color" = color_r, "tooltipBool" = tooltip_bool, "tooltip" = tooltip))
+			data["reagent_mode_recipe"]["catalysts"] += list(list("name" = reagent::display_name || reagent::name, "id" = reagent, "ratio" = reaction.required_catalysts[reagent], "color" = color_r, "tooltipBool" = tooltip_bool, "tooltip" = tooltip))
 		data["reagent_mode_recipe"]["isColdRecipe"] = reaction.is_cold_recipe
 	else
 		data["reagent_mode_recipe"] = null
@@ -257,16 +257,16 @@
 
 	return data
 
-/* Returns a reaction type by index from an input reagent type
-* i.e. the input reagent's associated reactions are found, and the index determines which one to return
-* If the index is out of range, it is set to 1
-*/
+/proc/localized_reagent_choices()
+	. = list()
+	for(var/reagent_type in GLOB.chemical_reagents_list)
+		var/datum/reagent/reagent = GLOB.chemical_reagents_list[reagent_type]; .[reagent.display_name || reagent.name] = reagent.name
 /datum/reagents/proc/get_reaction_from_indexed_possibilities(path, index = null)
 	if(index)
 		ui_reaction_index = index
 	var/list/sub_reactions = GLOB.chemical_reactions_list_product_index[path]
 	if(!length(sub_reactions))
-		to_chat(usr, "There is no recipe associated with this product.")
+		to_chat(usr, "该产物没有对应配方。")
 		return FALSE
 	if(ui_reaction_index > length(sub_reactions))
 		ui_reaction_index = 1
@@ -288,20 +288,20 @@
 			ui_reaction_id = text2path(params["id"])
 			return TRUE
 		if("search_reagents")
-			var/input_reagent = tgui_input_list(usr, "Select reagent", "Reagent", GLOB.name2reagent)
+			var/input_reagent = tgui_input_list(usr, "选择试剂", "试剂", localized_reagent_choices())
 			input_reagent = get_reagent_type_from_product_string(input_reagent) //from string to type
 			var/datum/reagent/reagent = GLOB.chemical_reagents_list[input_reagent]
 			if(!reagent)
-				to_chat(usr, "Could not find reagent!")
+				to_chat(usr, "找不到试剂！")
 				return FALSE
 			ui_reagent_id = reagent.type
 			return TRUE
 		if("search_recipe")
-			var/input_reagent = (input("Enter the name of product reagent", "Input") as text|null)
+			var/input_reagent = (input("输入产物试剂名称", "查询") as text|null)
 			input_reagent = get_reagent_type_from_product_string(input_reagent) //from string to type
 			var/datum/reagent/reagent = GLOB.chemical_reagents_list[input_reagent]
 			if(!reagent)
-				to_chat(usr, "Could not find product reagent!")
+				to_chat(usr, "找不到产物试剂！")
 				return
 			ui_reaction_id = get_reaction_from_indexed_possibilities(reagent.type)
 			return TRUE

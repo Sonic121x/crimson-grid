@@ -6,7 +6,7 @@
 
 // Knife Template, should not appear in game normaly //
 /obj/item/knife
-	name = "knife"
+	name = "刀"
 	icon = 'icons/obj/service/kitchen.dmi'
 	icon_state = "knife"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -14,7 +14,7 @@
 	inhand_icon_state = "knife"
 	worn_icon_state = "knife"
 	icon_angle = -90
-	desc = "The original knife, it is said that all other knives are only copies of this one."
+	desc = "最初的刀，据说其他所有刀都只是它的仿制品。"
 	obj_flags = CONDUCTS_ELECTRICITY
 	force = 10
 	demolition_mod = 0.75
@@ -111,8 +111,8 @@
 		B.add_stacks(bleed_stacks_per_hit)
 
 /obj/item/knife/butcher
-	name = "butcher's cleaver"
-	desc = "A huge thing used for chopping and chopping up meat. This includes clowns and clown by-products."
+	name = "屠夫砍刀"
+	desc = "用于砍切肉类的巨大刀具，包括小丑和小丑副产品。"
 	icon_state = "butch"
 	inhand_icon_state = "butch"
 	icon_angle = -45

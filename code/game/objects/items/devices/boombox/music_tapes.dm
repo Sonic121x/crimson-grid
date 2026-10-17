@@ -1,7 +1,7 @@
 // Tapes containing music.
 /obj/item/music_tape
-	name = "tapedeck"
-	desc = "A special tape that holds music."
+	name = "音乐磁带"
+	desc = "一盘录有音乐的特殊磁带。"
 	icon_state = "tape_white"
 	icon = 'icons/obj/devices/circuitry_n_data.dmi'
 	inhand_icon_state = "analyzer"
@@ -69,7 +69,7 @@
 
 /obj/item/music_tape/robocop
 	song_inside = /datum/looping_sound/boombox/robocop
-	song_name = "Nanotrasen Company Approved Ambiance"
+	song_name = "纳诺传讯公司认证氛围音乐"
 	custom_premium_price = PAYCHECK_COMMAND * 2.5
 
 // This exists mostly for testing

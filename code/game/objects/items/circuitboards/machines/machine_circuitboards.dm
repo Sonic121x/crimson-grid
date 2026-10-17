@@ -667,8 +667,8 @@
 	build_path = /obj/machinery/rnd/production/techfab/department
 
 /obj/item/circuitboard/machine/vendor
-	name = "Custom Vendor"
-	desc = "You can turn the \"brand selection\" dial using a screwdriver."
+	name = "自定义售货机"
+	desc = "可以用螺丝刀转动\"品牌选择\"旋钮。"
 	custom_premium_price = PAYCHECK_CREW * 1.5
 	build_path = /obj/machinery/vending/custom
 	req_components = list(/obj/item/vending_refill/custom = 1)
@@ -688,7 +688,7 @@
 	. = ITEM_INTERACT_FAILURE
 	if(all_products_free)
 		return
-	var/choice = tgui_input_list(user, "Choose a new brand", "Select an Item", sort_list(valid_vendor_names_paths))
+	var/choice = tgui_input_list(user, "选择新品牌", "选择商品", sort_list(valid_vendor_names_paths))
 	if(isnull(choice))
 		return
 	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
@@ -704,7 +704,7 @@
 */
 /obj/item/circuitboard/machine/vendor/proc/set_type(obj/machinery/vending/typepath)
 	build_path = typepath
-	name = "[typepath::name] Vendor"
+	name = "[typepath::name]售货机"
 	req_components = list(initial(typepath.refill_canister) = 1)
 	flatpack_components = list(initial(typepath.refill_canister))
 
@@ -1213,7 +1213,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks
-	name = "Soda Dispenser"
+	name = "汽水分配器"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/chem_dispenser/drinks
 
@@ -1228,7 +1228,7 @@
 	)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
-	name = "Booze Dispenser"
+	name = "酒水分配器"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/chem_dispenser/drinks/beer
 
@@ -1255,7 +1255,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/griddle
-	name = "Griddle"
+	name = "煎烤台"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/griddle
 	req_components = list(/datum/stock_part/micro_laser = 1)
@@ -1362,7 +1362,7 @@
 // DARKPACK EDIT ADD END
 
 /obj/item/circuitboard/machine/microwave
-	name = "Microwave"
+	name = "微波炉"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/microwave
 	req_components = list(
@@ -1374,7 +1374,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/microwave/engineering
-	name = "Wireless Microwave Oven"
+	name = "无线微波炉"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/microwave/engineering
 	req_components = list(

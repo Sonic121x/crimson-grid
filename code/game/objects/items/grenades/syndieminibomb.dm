@@ -27,8 +27,8 @@
 	ex_flame = 3
 
 /obj/item/grenade/frag
-	name = "frag grenade"
-	desc = "An anti-personnel fragmentation grenade, this weapon excels at killing soft targets by shredding them with metal shrapnel."
+	name = "破片手榴弹"
+	desc = "一种杀伤人员用的破片手榴弹，擅长用金属弹片撕裂缺乏防护的目标。"
 	icon_state = "frag"
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 	shrapnel_radius = 4

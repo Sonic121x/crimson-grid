@@ -128,8 +128,8 @@
 	acid = 20
 
 /obj/item/clothing/suit/hooded/wintercoat/centcom
-	name = "centcom winter coat"
-	desc = "A luxurious winter coat woven in the bright green and gold colours of Central Command. It has a small pin in the shape of the Nanotrasen logo for a zipper."
+	name = "中央指挥部冬季外套"
+	desc = "以中央指挥部的鲜绿与金色织成的豪华冬衣。拉链上有一枚纳诺传讯标志形状的小别针。"
 	icon_state = "coatcentcom"
 	inhand_icon_state = null
 	armor_type = /datum/armor/wintercoat_centcom

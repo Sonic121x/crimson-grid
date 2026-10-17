@@ -26,8 +26,8 @@
 
 /obj/item/food/grown/citrus/lime
 	seed = /obj/item/seeds/lime
-	name = "lime"
-	desc = "It's so sour, your face will twist."
+	name = "青柠"
+	desc = "酸得让你的五官都要挤在一起。"
 	icon_state = "lime"
 
 /obj/item/food/grown/citrus/lime/juice_typepath()
@@ -54,8 +54,8 @@
 
 /obj/item/food/grown/citrus/orange
 	seed = /obj/item/seeds/orange
-	name = "orange"
-	desc = "It's a tangy fruit."
+	name = "橙子"
+	desc = "一种酸甜可口的水果。"
 	icon_state = "orange"
 	foodtypes = ORANGES | FRUIT
 	distill_reagent = /datum/reagent/consumable/ethanol/triple_sec
@@ -83,8 +83,8 @@
 
 /obj/item/food/grown/citrus/lemon
 	seed = /obj/item/seeds/lemon
-	name = "lemon"
-	desc = "When life gives you lemons, make lemonade."
+	name = "柠檬"
+	desc = "生活给你柠檬，就拿它做柠檬水。"
 	icon_state = "lemon"
 
 /obj/item/food/grown/citrus/lemon/juice_typepath()

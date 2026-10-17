@@ -181,8 +181,8 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "\improper Space Cigarettes packet"
-	desc = "The most popular brand of cigarettes, sponsors of the Space Olympics. On the back it advertises to be the only brand that can be smoked in the vacuum of space."
+	name = "\improper 太空牌香烟"
+	desc = "最受欢迎的香烟品牌，太空奥运会的赞助商。背面的广告宣称，这是唯一能在太空真空中抽的香烟。"
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig"
 	inhand_icon_state = "cigpacket"
@@ -354,8 +354,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_greytide
-	name = "\improper Mainthol Grey packet"
-	desc = "The thin grey line."
+	name = "\improper 维修薄荷灰牌香烟"
+	desc = "一道细细的灰线。"
 	icon_state = "greytide"
 	base_icon_state = "greytide"
 	spawn_type = /obj/item/cigarette/greytide
@@ -378,8 +378,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_syndicate
-	name = "cigarette packet"
-	desc = "An obscure brand of cigarettes."
+	name = "香烟盒"
+	desc = "一个鲜为人知的香烟品牌。"
 	icon_state = "syndie"
 	base_icon_state = "syndie"
 	spawn_type = /obj/item/cigarette/syndicate
@@ -390,8 +390,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_midori
-	name = "\improper Midori Tabako packet"
-	desc = "You can't understand the runes, but the packet smells funny."
+	name = "\improper 绿叶烟草香烟"
+	desc = "你看不懂上面的符文，但烟盒闻起来怪怪的。"
 	icon_state = "midori"
 	base_icon_state = "midori"
 	spawn_type = /obj/item/cigarette/rollie/nicotine
@@ -402,8 +402,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_candy
-	name = "\improper Timmy's First Candy Smokes packet"
-	desc = "Unsure about smoking? Want to bring your children safely into the family tradition? Look no more with this special packet! Includes 100%* Nicotine-Free candy cigarettes."
+	name = "\improper 蒂米的第一包香烟糖"
+	desc = "对抽烟犹豫不决？想让孩子安全地继承家庭传统？这款特别包装就是你的答案！内含100%*不含尼古丁的香烟糖。"
 	icon_state = "candy"
 	base_icon_state = "candy"
 	contents_tag = "香烟糖"
@@ -422,8 +422,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_shadyjims
-	name = "\improper Shady Jim's Super Slims packet"
-	desc = "Is your weight slowing you down? Having trouble running away from gravitational singularities? Can't stop stuffing your mouth? Smoke Shady Jim's Super Slims and watch all that fat burn away. Guaranteed results!"
+	name = "\improper 阴险吉姆超级纤细香烟"
+	desc = "体重拖慢了你的脚步？逃离引力奇点时力不从心？嘴巴总是停不下来？抽阴险吉姆超级纤细香烟，看着脂肪燃烧殆尽。效果保证！"
 	icon_state = "shadyjim"
 	base_icon_state = "shadyjim"
 	spawn_type = /obj/item/cigarette/shadyjims
@@ -446,8 +446,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_cannabis
-	name = "\improper Freak Brothers' Special packet"
-	desc = "A label on the packaging reads, \"Endorsed by Phineas, Freddy and Franklin.\""
+	name = "\improper 怪咖兄弟特制香烟"
+	desc = "包装标签上写着：\"菲尼亚斯、弗雷迪和富兰克林联名推荐。\""
 	icon_state = "midori"
 	base_icon_state = "midori"
 	spawn_type = /obj/item/cigarette/rollie/cannabis
@@ -458,8 +458,8 @@
 	open_status = FANCY_CONTAINER_OPEN
 
 /obj/item/storage/fancy/cigarettes/cigpack_mindbreaker
-	name = "\improper Leary's Delight packet"
-	desc = "Banned in over 36 galaxies."
+	name = "\improper 利里的欢愉香烟"
+	desc = "已在超过36个星系被禁售。"
 	icon_state = "shadyjim"
 	base_icon_state = "shadyjim"
 	spawn_type = /obj/item/cigarette/rollie/mindbreaker
@@ -473,8 +473,8 @@
 	spawn_type = /obj/item/cigarette/flash_powder
 
 /obj/item/storage/fancy/rollingpapers
-	name = "rolling paper pack"
-	desc = "A pack of Rollers brand rolling papers." // DARKPACK EDIT CHANGE
+	name = "卷烟纸包"
+	desc = "一包卷手牌卷烟纸。" // DARKPACK EDIT CHANGE
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper_pack"

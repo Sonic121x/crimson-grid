@@ -65,8 +65,8 @@
 	custom_price = 30 // DARKPACK EDIT ADD - ECONOMY
 
 /obj/item/fishing_lure
-	name = "fishing lure"
-	desc = "It's just that, a plastic piece of fishing equipment, yet fish yearn with every last molecule of their bodies to take a bite of it."
+	name = "拟饵"
+	desc = "不过是一块塑料钓具，鱼儿却全身每个分子都渴望咬上一口。"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "minnow"
 	w_class = WEIGHT_CLASS_SMALL
@@ -97,9 +97,9 @@
 
 /obj/item/fishing_lure/examine(mob/user)
 	. = ..()
-	. += span_info("It has to be spun with a frequency of [spin_frequency[1] * 0.1] to [spin_frequency[2] * 0.1] seconds while fishing.")
+	. += span_info("钓鱼时需要每隔[spin_frequency[1] * 0.1]至[spin_frequency[2] * 0.1]秒抽动一次。")
 	if(HAS_MIND_TRAIT(user, TRAIT_EXAMINE_FISHING_SPOT))
-		. += span_tinynotice("Thanks to your experience, you can examine it again to get a list of fish you can catch with it.")
+		. += span_tinynotice("凭借你的经验，再次查看可了解它能钓到哪些鱼。")
 
 /obj/item/fishing_lure/examine_more(mob/user)
 	. = ..()
@@ -114,7 +114,7 @@
 	if(!length(known_fishes))
 		return
 
-	. += span_info("You can catch the following fish with this lure: [english_list(known_fishes)].")
+	. += span_info("这种拟饵可以钓到以下鱼类：[english_list(known_fishes, and_text = "和", comma_text = "、")]。")
 
 ///Check if the fish is in the list of catchable fish for this fishing lure. Return value is a multiplier.
 /obj/item/fishing_lure/check_bait(obj/item/fish/fish)
@@ -131,8 +131,8 @@
 	return multiplier
 
 /obj/item/fishing_lure/minnow
-	name = "artificial minnow"
-	desc = "A fishing lure that may attract small fish. Too tiny, too large, or too picky prey won't be interested in it, though."
+	name = "仿真米诺拟饵"
+	desc = "能吸引小鱼的拟饵，太小、太大或太挑食的猎物不会感兴趣。"
 	icon_state = "minnow"
 
 /obj/item/fishing_lure/minnow/is_catchable_fish(obj/item/fish/fish, list/fish_properties)
@@ -144,8 +144,8 @@
 	return TRUE
 
 /obj/item/fishing_lure/plug
-	name = "artificial plug lure"
-	desc = "A bigger fishing lure that may attract larger fish. Tiny or picky prey will remain uninterested."
+	name = "仿真硬饵"
+	desc = "较大的拟饵，可吸引大鱼，但微小或挑食的猎物不会感兴趣。"
 	icon_state = "plug"
 
 /obj/item/fishing_lure/plug/is_catchable_fish(obj/item/fish/fish, list/fish_properties)
@@ -156,8 +156,8 @@
 	return TRUE
 
 /obj/item/fishing_lure/dropping
-	name = "plastic dropping"
-	desc = "A fishing lure to catch all sort of slimy, ratty, disgusting and/or junk-loving fish."
+	name = "塑料粪便拟饵"
+	desc = "用来钓各种黏腻、猥琐、恶心或喜欢垃圾的鱼。"
 	icon_state = "dropping"
 	spin_frequency = list(1.5 SECONDS, 2.8 SECONDS)
 
@@ -176,8 +176,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/spoon
-	name = "\improper Indy spoon lure"
-	desc = "A lustrous piece of metal mimicking the scales of a fish. It specializes in catching small-to-medium-sized fish that live in freshwater."
+	name = "\improper 印迪亮片拟饵"
+	desc = "模仿鱼鳞的亮金属片，专门用于钓淡水中的中小型鱼。"
 	icon_state = "spoon"
 	spin_frequency = list(1.25 SECONDS, 2.25 SECONDS)
 
@@ -194,8 +194,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/artificial_fly
-	name = "\improper Silkbuzz artificial fly"
-	desc = "A fishing lure resembling a large wooly fly. Unlike most other lures, it's fancy enough to catch the interest of picky fish, but only those."
+	name = "\improper 丝鸣仿真飞蝇"
+	desc = "模仿大型毛绒飞虫的拟饵，足够精巧，能吸引挑食的鱼，但也只吸引它们。"
 	icon_state = "artificial_fly"
 	spin_frequency = list(1.1 SECONDS, 2 SECONDS)
 
@@ -205,8 +205,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/led
-	name = "\improper LED fishing lure"
-	desc = "A heavy, waterproof and fish-looking LED stick, specialized to catch only nocturnal and deep-dwelling fish."
+	name = "\improper LED发光拟饵"
+	desc = "沉重、防水、外形似鱼的LED棒，专门钓夜行和深水鱼类。"
 	icon_state = "led"
 	spin_frequency = list(3 SECONDS, 3.8 SECONDS)
 
@@ -232,8 +232,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/lucky_coin
-	name = "\improper Maneki-Coin lure"
-	desc = "A faux-gold lure. Catches the attention of fishies that love shinies. Not nearly tasty-looking enough for anything else."
+	name = "\improper 招财金币拟饵"
+	desc = "仿金拟饵，吸引喜欢亮闪闪东西的鱼，其他鱼可不觉得它好吃。"
 	icon_state = "lucky_coin"
 	spin_frequency = list(1.5 SECONDS, 2.7 SECONDS)
 
@@ -251,8 +251,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/algae
-	name = "plastic algae lure"
-	desc = "A soft clump of fake algae. Herbivores love it. Nothing else does, not even omnivores."
+	name = "塑料水藻拟饵"
+	desc = "柔软的仿真水藻团，草食鱼最爱，其他鱼连杂食的都不喜欢。"
 	icon_state = "algae"
 	spin_frequency = list(3 SECONDS, 5 SECONDS)
 
@@ -262,8 +262,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/grub
-	name = "\improper Twister Worm lure"
-	desc = "A soft plastic lure with the body of a grub and a twisting tail. Specialized for catching small fish, as long as they aren't herbivores, picky, or picky herbivores."
+	name = "\improper 扭尾虫拟饵"
+	desc = "幼虫身躯配扭曲尾巴的软塑料拟饵，专钓小鱼，只要它们不草食、不挑食，也不既草食又挑食。"
 	icon_state = "grub"
 	spin_frequency = list(1 SECONDS, 2.7 SECONDS)
 
@@ -275,8 +275,8 @@
 	return TRUE
 
 /obj/item/fishing_lure/buzzbait
-	name = "\improper Electric-Buzz lure"
-	desc = "A metallic, colored clanker attached to a series of cables that somehow attract shock-worthy fish."
+	name = "\improper 电鸣拟饵"
+	desc = "彩色金属响片连着一串电缆，不知怎么就能吸引会放电的鱼。"
 	icon_state = "buzzbait"
 	spin_frequency = list(0.8 SECONDS, 1.7 SECONDS)
 
@@ -286,8 +286,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/spinnerbait
-	name = "spinnerbait lure"
-	desc = "A spinny, vulnerable lure, great for attracting freshwater predators, though omnivores won't be interested in it."
+	name = "复合旋转拟饵"
+	desc = "会旋转、看着容易捕食的拟饵，善于吸引淡水掠食鱼，杂食鱼则不感兴趣。"
 	icon_state = "spinnerbait"
 	spin_frequency = list(2 SECONDS, 4 SECONDS)
 
@@ -302,8 +302,8 @@
 	return FALSE
 
 /obj/item/fishing_lure/daisy_chain
-	name = "daisy chain lure"
-	desc = "A lure resembling a small school of fish. Saltwater predators love it, but not much else will."
+	name = "串联鱼群拟饵"
+	desc = "模仿小鱼群的拟饵，海水掠食鱼很喜欢，其他鱼大多不感兴趣。"
 	icon_state = "daisy_chain"
 	spin_frequency = list(2 SECONDS, 4 SECONDS)
 

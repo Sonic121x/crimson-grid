@@ -2,7 +2,7 @@
 
 /obj/item/reagent_containers/cup/bottle
 	name = "bottle"
-	desc = "A small bottle."
+	desc = "一个小瓶子。"
 	icon_state = "bottle"
 	fill_icon_state = "bottle"
 	inhand_icon_state = "atoxinbottle"
@@ -442,7 +442,7 @@
 	list_reagents = list(/datum/reagent/water = 30)
 
 /obj/item/reagent_containers/cup/bottle/ethanol
-	name = "ethanol bottle"
+	name = "乙醇瓶"
 	list_reagents = list(/datum/reagent/consumable/ethanol = 30)
 
 /obj/item/reagent_containers/cup/bottle/sugar

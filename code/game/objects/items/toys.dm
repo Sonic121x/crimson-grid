@@ -265,8 +265,8 @@
 	random_color = FALSE
 
 /obj/item/toy/balloon/syndicate
-	name = "syndicate balloon"
-	desc = "There is a tag on the back that reads \"FUK NT!11!\"."
+	name = "辛迪加气球"
+	desc = "背面的标签上写着\"去他妈的纳诺传讯！11！\"。"
 	icon_state = "syndballoon"
 	inhand_icon_state = "syndballoon"
 	random_color = FALSE
@@ -396,8 +396,8 @@
 #define CAPTAINSAID_MODE_OFF 1
 
 /obj/item/toy/captainsaid
-	name = "\improper Captain's Aid"
-	desc = "Every captain's greatest ally when exploring the vast emptiness of space, now with a color display!"
+	name = "\improper 站长好帮手"
+	desc = "每位站长探索浩瀚虚空时的最佳伙伴，如今配备彩色显示屏！"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "captainsaid_off"
 	custom_price = PAYCHECK_COMMAND * 1.25
@@ -415,15 +415,15 @@
 
 /obj/item/toy/captainsaid/examine_more(mob/user)
 	. = ..()
-	. += span_notice("You could swear you've been hearing advertisments for the 'soon upcoming' release of a tablet version for the better part of 3 years...")
+	. += span_notice("你敢发誓，那个平板版'即将推出'的广告，你已经听了快三年了……")
 
 /obj/item/toy/captainsaid/attack_self(mob/living/user)
 	current_mode++
 	playsound(src, 'sound/items/tools/screwdriver2.ogg', 50, vary = TRUE)
 	if (current_mode <= modes.len)
-		balloon_alert(user, "set to [current_mode]")
+		balloon_alert(user, "已设为模式[current_mode]")
 	else
-		balloon_alert(user, "turned off")
+		balloon_alert(user, "已关闭")
 		current_mode = CAPTAINSAID_MODE_OFF
 	icon_state = "captainsaid_[modes[current_mode]]"
 	update_appearance(UPDATE_ICON)
@@ -589,8 +589,8 @@
  * Toy swords
  */
 /obj/item/toy/sword
-	name = "toy sword"
-	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
+	name = "玩具剑"
+	desc = "能量剑的廉价塑料仿制品。音效逼真！适合8岁及以上儿童。"
 	icon_state = "e_sword"
 	inhand_icon_state = "e_sword"
 	icon_angle = -45
@@ -634,7 +634,7 @@
 	SIGNAL_HANDLER
 
 	if(user)
-		balloon_alert(user, "[active ? "flicked out":"pushed in"] [src]")
+		balloon_alert(user, "[active ? "弹出":"收起"][src]")
 
 	playsound(src, active ? 'sound/items/weapons/saberon.ogg' : 'sound/items/weapons/saberoff.ogg', 20, TRUE)
 	update_appearance(UPDATE_ICON)
@@ -642,7 +642,7 @@
 
 /obj/item/toy/sword/examine(mob/user)
 	. = ..()
-	. += span_notice("It has a lighting dial currently set to [saber_color] which looks like it can be turned with a <b>screwdriver</b>.")
+	. += span_notice("灯光旋钮目前设为[list("red" = "红色", "blue" = "蓝色", "green" = "绿色", "purple" = "紫色", "rainbow" = "彩虹色")[saber_color] || saber_color]，似乎能用<b>螺丝刀</b>转动。")
 
 /obj/item/toy/sword/screwdriver_act(mob/living/user, obj/item/tool)
 	switch(saber_color)
@@ -656,7 +656,7 @@
 			saber_color = "red"
 		else
 			return ITEM_INTERACT_SUCCESS
-	balloon_alert(user, "changed to [saber_color]")
+	balloon_alert(user, "已改为[list("red" = "红色", "blue" = "蓝色", "green" = "绿色", "purple" = "紫色")[saber_color] || saber_color]")
 	update_appearance(UPDATE_ICON)
 	return ITEM_INTERACT_SUCCESS
 
@@ -673,11 +673,11 @@
 
 /obj/item/toy/sword/multitool_act(mob/living/user, obj/item/tool)
 	if(hacked)
-		to_chat(user, span_warning("It's already fabulous!"))
+		to_chat(user, span_warning("已经够绚丽了！"))
 		return
 	hacked = TRUE
 	saber_color = "rainbow"
-	to_chat(user, span_warning("RNBW_ENGAGE"))
+	to_chat(user, span_warning("彩虹模式启动"))
 	update_appearance(UPDATE_ICON)
 
 /obj/item/toy/sword/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -685,13 +685,13 @@
 		return NONE
 	var/obj/item/toy/sword/attatched_sword = tool
 	if(HAS_TRAIT(tool, TRAIT_NODROP))
-		to_chat(user, span_warning("[tool] is stuck to your hand, you can't attach it to [src]!"))
+		to_chat(user, span_warning("[tool]粘在你手上了，无法把它装到[src]上！"))
 		return ITEM_INTERACT_BLOCKING
 	if(HAS_TRAIT(src, TRAIT_NODROP))
-		to_chat(user, span_warning("[src] is stuck to your hand, you can't attach it to [tool]!"))
+		to_chat(user, span_warning("[src]粘在你手上了，无法把它装到[tool]上！"))
 		return ITEM_INTERACT_BLOCKING
 
-	to_chat(user, span_notice("You attach the ends of the two plastic swords, making a single double-bladed toy! You're fake-cool."))
+	to_chat(user, span_notice("你把两把塑料剑的尾部接在一起，做成了一把双刃玩具剑！你可真会装酷。"))
 	var/obj/item/dualsaber/toy/new_saber = new /obj/item/dualsaber/toy(user.loc)
 	if(attatched_sword.hacked || hacked)
 		new_saber.hacked = TRUE
@@ -705,8 +705,8 @@
  * Foam armblade
  */
 /obj/item/toy/foamblade
-	name = "foam armblade"
-	desc = "It says \"Sternside Changs #1 fan\" on it."
+	name = "泡沫臂刃"
+	desc = "上面写着\"艉区异形头号粉丝\"。"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "foamblade"
 	inhand_icon_state = "arm_blade"
@@ -784,8 +784,8 @@
  * Subtype of Double-Bladed Energy Swords
  */
 /obj/item/dualsaber/toy
-	name = "double-bladed toy sword"
-	desc = "A cheap, plastic replica of TWO energy swords.  Double the fun!"
+	name = "双刃玩具剑"
+	desc = "两把能量剑的廉价塑料仿制品。双倍快乐！"
 	force = 0
 	throwforce = 0
 	throw_speed = 3
@@ -801,7 +801,7 @@
 	return 0
 
 /obj/item/dualsaber/toy/impale(mob/living/user)//Stops Toy Dualsabers from injuring clowns
-	to_chat(user, span_warning("You twirl around a bit before losing your balance and impaling yourself on [src]."))
+	to_chat(user, span_warning("你转了几圈，随后失去平衡，把自己戳在了[src]上。"))
 	user.adjust_stamina_loss(25)
 
 /obj/item/toy/katana
@@ -834,8 +834,8 @@
  * Snap pops
  */
 /obj/item/toy/snappop
-	name = "snap pop"
-	desc = "Wow!"
+	name = "摔炮"
+	desc = "哇！"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "snappop"
 	w_class = WEIGHT_CLASS_TINY
@@ -844,8 +844,8 @@
 /obj/item/toy/snappop/proc/pop_burst(n = 3, c = TRUE)
 	do_sparks(n, c, src)
 	new ash_type(loc)
-	visible_message(span_warning("[src] explodes!"),
-		span_hear("You hear a snap!"))
+	visible_message(span_warning("[src]炸响了！"),
+		span_hear("你听到啪的一声！"))
 	playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
@@ -868,7 +868,7 @@
 	if(ishuman(H) || issilicon(H)) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
 		if(issilicon(H) || M.move_intent == MOVE_INTENT_RUN)
-			to_chat(M, span_danger("You step on the snap pop!"))
+			to_chat(M, span_danger("你踩到了摔炮！"))
 			pop_burst(2, 0)
 
 /obj/item/toy/snappop/phoenix
@@ -1212,239 +1212,239 @@
  * Action Figures
  */
 /obj/item/toy/figure
-	name = "\improper Non-Specific Action Figure action figure"
+	name = "\improper 普通角色手办"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "nuketoy"
 	w_class = WEIGHT_CLASS_SMALL
 	floor_placeable = TRUE
 	var/cooldown = 0
-	var/toysay = "What the fuck did you do?"
+	var/toysay = "你他妈干了什么？"
 	var/toysound = 'sound/machines/click.ogg'
 
 /obj/item/toy/figure/Initialize(mapload)
 	. = ..()
-	desc = "A \"Black Dog Games Factory\" brand [src]." // DARKPACK EDIT CHANGE
+	desc = "黑犬游戏工厂出品的[src]。" // DARKPACK EDIT CHANGE
 	AddElement(/datum/element/toy_talk)
 
 /obj/item/toy/figure/attack_self(mob/user as mob)
 	if(cooldown <= world.time)
 		cooldown = world.time + 50
-		to_chat(user, span_notice("[src] says \"[toysay]\""))
+		to_chat(user, span_notice("[src]说：“[toysay]”"))
 		playsound(user, toysound, 20, TRUE)
 
 /obj/item/toy/figure/cmo
-	name = "\improper Chief Medical Officer action figure"
+	name = "\improper 医疗主管手办"
 	icon_state = "cmo"
-	toysay = "Suit sensors!"
+	toysay = "打开制服传感器！"
 
 /obj/item/toy/figure/assistant
-	name = "\improper Assistant action figure"
+	name = "\improper 助理手办"
 	icon_state = "assistant"
 	inhand_icon_state = "assistant"
-	toysay = "Greytide world wide!"
+	toysay = "灰潮席卷全球！"
 
 /obj/item/toy/figure/atmos
-	name = "\improper Atmospheric Technician action figure"
+	name = "\improper 大气技师手办"
 	icon_state = "atmos"
-	toysay = "Glory to Atmosia!"
+	toysay = "荣耀归于大气之国！"
 
 /obj/item/toy/figure/bartender
-	name = "\improper Bartender action figure"
+	name = "\improper 调酒师手办"
 	icon_state = "bartender"
-	toysay = "Where is Pun Pun?"
+	toysay = "庞庞在哪儿？"
 
 /obj/item/toy/figure/bitrunner
-	name = "\improper Bitrunner action figure"
+	name = "\improper 比特潜行者手办"
 	icon_state = "bitrunner"
-	toysay = "I'm in..."
+	toysay = "我进来了……"
 
 /obj/item/toy/figure/borg
-	name = "\improper Cyborg action figure"
+	name = "\improper 机器人手办"
 	icon_state = "borg"
-	toysay = "I. LIVE. AGAIN."
+	toysay = "我。又。活了。"
 	toysound = 'sound/mobs/non-humanoids/cyborg/liveagain.ogg'
 
 /obj/item/toy/figure/botanist
-	name = "\improper Botanist action figure"
+	name = "\improper 植物学家手办"
 	icon_state = "botanist"
-	toysay = "Blaze it!"
+	toysay = "抽起来！"
 
 /obj/item/toy/figure/captain
-	name = "\improper Captain action figure"
+	name = "\improper 站长手办"
 	icon_state = "captain"
-	toysay = "Any heads of staff?"
+	toysay = "有部门主管在吗？"
 
 /obj/item/toy/figure/cargotech
-	name = "\improper Cargo Technician action figure"
+	name = "\improper 货运技师手办"
 	icon_state = "cargotech"
-	toysay = "For Cargonia!"
+	toysay = "为了货运国！"
 
 /obj/item/toy/figure/ce
-	name = "\improper Chief Engineer action figure"
+	name = "\improper 总工程师手办"
 	icon_state = "ce"
-	toysay = "Wire the solars!"
+	toysay = "给太阳能板接线！"
 
 /obj/item/toy/figure/chaplain
-	name = "\improper Chaplain action figure"
+	name = "\improper 随站牧师手办"
 	icon_state = "chaplain"
-	toysay = "Praise Space Jesus!"
+	toysay = "赞美太空耶稣！"
 
 /obj/item/toy/figure/chef
-	name = "\improper Cook action figure"
+	name = "\improper 厨师手办"
 	icon_state = "chef"
-	toysay = "I'll make you into a burger!"
+	toysay = "我要把你做成汉堡！"
 
 /obj/item/toy/figure/chemist
-	name = "\improper Chemist action figure"
+	name = "\improper 化学家手办"
 	icon_state = "chemist"
-	toysay = "Get your pills!"
+	toysay = "快来领药！"
 
 /obj/item/toy/figure/clown
-	name = "\improper Clown action figure"
+	name = "\improper 小丑手办"
 	icon_state = "clown"
 	toysay = "Honk!"
 	toysound = 'sound/items/bikehorn.ogg'
 
 /obj/item/toy/figure/ian
-	name = "\improper Ian action figure"
+	name = "\improper 伊恩手办"
 	icon_state = "ian"
-	toysay = "Arf!"
+	toysay = "汪！"
 
 /obj/item/toy/figure/detective
-	name = "\improper Detective action figure"
+	name = "\improper 侦探手办"
 	icon_state = "detective"
-	toysay = "This airlock has grey jumpsuit and insulated glove fibers on it."
+	toysay = "这扇气闸上有灰色连体服和绝缘手套的纤维。"
 
 /obj/item/toy/figure/dsquad
-	name = "\improper Deathsquad Officer action figure"
+	name = "\improper 死亡小队队员手办"
 	icon_state = "dsquad"
-	toysay = "Kill 'em all!"
+	toysay = "杀光他们！"
 
 /obj/item/toy/figure/engineer
-	name = "\improper Station Engineer action figure"
+	name = "\improper 空间站工程师手办"
 	icon_state = "engineer"
-	toysay = "Oh god, the singularity is loose!"
+	toysay = "天啊，奇点失控了！"
 
 /obj/item/toy/figure/geneticist
-	name = "\improper Geneticist action figure"
+	name = "\improper 遗传学家手办"
 	icon_state = "geneticist"
-	toysay = "Smash!"
+	toysay = "砸烂！"
 
 /obj/item/toy/figure/hop
-	name = "\improper Head of Personnel action figure"
+	name = "\improper 人事主管手办"
 	icon_state = "hop"
-	toysay = "Giving out all access!"
+	toysay = "人人都有全站通行权！"
 
 /obj/item/toy/figure/hos
-	name = "\improper Head of Security action figure"
+	name = "\improper 安保主管手办"
 	icon_state = "hos"
-	toysay = "Go ahead, make my day."
+	toysay = "来啊，让我痛快一回。"
 
 /obj/item/toy/figure/qm
-	name = "\improper Quartermaster action figure"
+	name = "\improper 军需官手办"
 	icon_state = "qm"
-	toysay = "Please sign this form in triplicate and we will see about geting you a welding mask within 3 business days."
+	toysay = "请签署这份一式三份的表格，我们会争取在三个工作日内给您配发焊接面罩。"
 
 /obj/item/toy/figure/janitor
-	name = "\improper Janitor action figure"
+	name = "\improper 清洁工手办"
 	icon_state = "janitor"
-	toysay = "Look at the signs, you idiot."
+	toysay = "看警示牌啊，白痴。"
 
 /obj/item/toy/figure/lawyer
-	name = "\improper Lawyer action figure"
+	name = "\improper 律师手办"
 	icon_state = "lawyer"
-	toysay = "My client is a dirty traitor!"
+	toysay = "我的当事人是个卑鄙的叛徒！"
 
 /obj/item/toy/figure/curator
-	name = "\improper Curator action figure"
+	name = "\improper 馆员手办"
 	icon_state = "curator"
-	toysay = "One day while..."
+	toysay = "有一天……"
 
 /obj/item/toy/figure/md
-	name = "\improper Medical Doctor action figure"
+	name = "\improper 医生手办"
 	icon_state = "md"
-	toysay = "The patient is already dead!"
+	toysay = "病人已经死了！"
 
 /obj/item/toy/figure/coroner
-	name = "\improper Coroner action figure"
+	name = "\improper 法医手办"
 	icon_state = "coroner"
-	toysay = "Get the damn Revenant outta here!"
+	toysay = "把那该死的亡魂赶出去！"
 
 /obj/item/toy/figure/paramedic
-	name = "\improper Paramedic action figure"
+	name = "\improper 急救员手办"
 	icon_state = "paramedic"
-	toysay = "And the best part? I'm not even a real doctor!"
+	toysay = "最妙的是？我甚至不是真正的医生！"
 
 /obj/item/toy/figure/psychologist
-	name = "\improper Psychologist action figure"
+	name = "\improper 心理医生手办"
 	icon_state = "psychologist"
-	toysay = "Alright, just take these happy pills!"
+	toysay = "好啦，把这些快乐药丸吃下去！"
 
 /obj/item/toy/figure/prisoner
-	name = "\improper Prisoner action figure"
+	name = "\improper 囚犯手办"
 	icon_state = "prisoner"
-	toysay = "I did not hit her! I did not!"
+	toysay = "我没有打她！我没有！"
 
 /obj/item/toy/figure/mime
-	name = "\improper Mime action figure"
+	name = "\improper 默剧演员手办"
 	icon_state = "mime"
 	toysay = "..."
 	toysound = null
 
 /obj/item/toy/figure/miner
-	name = "\improper Shaft Miner action figure"
+	name = "\improper 矿工手办"
 	icon_state = "miner"
-	toysay = "COLOSSUS RIGHT OUTSIDE THE BASE!"
+	toysay = "巨像就在基地外面！"
 
 /obj/item/toy/figure/ninja
-	name = "\improper Space Ninja action figure"
+	name = "\improper 太空忍者手办"
 	icon_state = "ninja"
-	toysay = "I am the shadow warrior!"
+	toysay = "我是暗影武士！"
 
 /obj/item/toy/figure/wizard
-	name = "\improper Wizard action figure"
+	name = "\improper 巫师手办"
 	icon_state = "wizard"
-	toysay = "EI NATH!"
+	toysay = "化为尘埃！"
 	toysound = 'sound/effects/magic/disintegrate.ogg'
 
 /obj/item/toy/figure/wizard/special
-	name = "\improper Wizard action figure special edition"
-	toysay = "CLANG!";
+	name = "\improper 巫师手办特别版"
+	toysay = "铛！";
 	toysound = 'sound/effects/clang.ogg'
 
 /obj/item/toy/figure/rd
-	name = "\improper Research Director action figure"
+	name = "\improper 科研主管手办"
 	icon_state = "rd"
-	toysay = "Blowing all of the borgs!"
+	toysay = "引爆所有机器人！"
 
 /obj/item/toy/figure/roboticist
-	name = "\improper Roboticist action figure"
+	name = "\improper 机器人专家手办"
 	icon_state = "roboticist"
-	toysay = "Big stompy mechs!"
+	toysay = "轰隆作响的大机甲！"
 	toysound = 'sound/vehicles/mecha/mechstep.ogg'
 
 /obj/item/toy/figure/scientist
-	name = "\improper Scientist action figure"
+	name = "\improper 科学家手办"
 	icon_state = "scientist"
-	toysay = "I call ordnance."
+	toysay = "军械实验归我。"
 	toysound = 'sound/effects/explosion/explosionfar.ogg'
 
 /obj/item/toy/figure/syndie
-	name = "\improper Nuclear Operative action figure"
+	name = "\improper 核武特工手办"
 	icon_state = "syndie"
-	toysay = "Get that fucking disk!"
+	toysay = "快拿到那该死的磁盘！"
 
 /obj/item/toy/figure/secofficer
-	name = "\improper Security Officer action figure"
+	name = "\improper 安保员手办"
 	icon_state = "secofficer"
-	toysay = "I am the law!"
+	toysay = "我就是法律！"
 	toysound = 'sound/runtime/complionator/dredd.ogg'
 
 
 /obj/item/toy/figure/warden
-	name = "\improper Warden action figure"
+	name = "\improper 典狱长手办"
 	icon_state = "warden"
-	toysay = "Seventeen minutes for coughing at an officer!"
+	toysay = "对着警官咳嗽，关十七分钟！"
 
 /obj/item/toy/dummy
 	name = "ventriloquist dummy"
@@ -1626,8 +1626,8 @@ GLOBAL_LIST_EMPTY(intento_players)
 #define TIME_TO_RESET_ICON (0.5 SECONDS)
 
 /obj/item/toy/intento
-	name = "\improper Intento"
-	desc = "Fundamentally useless for all intents and purposes."
+	name = "\improper 意任堂"
+	desc = "无论有意无意，基本都派不上用场。"
 	icon = 'icons/obj/toys/intents.dmi'
 	icon_state = "blank"
 	custom_price = PAYCHECK_COMMAND * 1.25
@@ -1682,7 +1682,7 @@ GLOBAL_LIST_EMPTY(intento_players)
 	player_input(user, input)
 
 /obj/item/toy/intento/proc/boot()
-	say("Game starting!")
+	say("游戏开始！")
 	playsound(src, 'sound/machines/synth/synth_yes.ogg', 50, FALSE)
 
 	state = STATE_STARTING
@@ -1761,12 +1761,12 @@ GLOBAL_LIST_EMPTY(intento_players)
 		if(award_score > 0)
 			user.client.give_award(/datum/award/score/intento_score, user, award_score)
 
-	say("GAME OVER. Your score was [score]!")
+	say("游戏结束。你的得分为[score]！")
 	playsound(src, 'sound/machines/synth/synth_no.ogg', 50, FALSE)
 
 	if(user && loc == user && obj_flags & EMAGGED)
 		ADD_TRAIT(src, TRAIT_NODROP, type)
-		to_chat(user, span_userdanger("Bad mistake."))
+		to_chat(user, span_userdanger("大错特错。"))
 
 		state = STATE_RETALIATION
 		next_process = world.time
@@ -1784,16 +1784,16 @@ GLOBAL_LIST_EMPTY(intento_players)
 	render(intent)
 	switch(intent)
 		if(HELP)
-			to_chat(victim, span_danger("[src] hugs you to make you feel better!"))
+			to_chat(victim, span_danger("[src]抱了抱你，想让你好受一点！"))
 			victim.add_mood_event("hug", /datum/mood_event/hug)
 		if(DISARM)
-			to_chat(victim, span_danger("You're knocked down from a shove by [src]!"))
+			to_chat(victim, span_danger("[src]一把将你推倒了！"))
 			victim.Knockdown(2 SECONDS)
 		if(GRAB)
-			to_chat(victim, span_danger("[src] grabs you aggressively!"))
+			to_chat(victim, span_danger("[src]凶狠地抓住了你！"))
 			victim.Stun(2 SECONDS)
 		if(HARM)
-			to_chat(victim, span_danger("You're punched by [src]!"))
+			to_chat(victim, span_danger("[src]打了你一拳！"))
 			victim.apply_damage(rand(20, 30), BRUTE)
 
 	index += 1
@@ -1820,7 +1820,7 @@ GLOBAL_LIST_EMPTY(intento_players)
 	if(obj_flags & EMAGGED)
 		return FALSE
 	obj_flags |= EMAGGED
-	balloon_alert(user, "negative feedback loop enabled")
+	balloon_alert(user, "负反馈循环已启用")
 	return TRUE
 
 /obj/item/toy/intento/Destroy()

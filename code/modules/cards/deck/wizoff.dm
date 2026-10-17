@@ -1,8 +1,8 @@
 //It's Wiz-Off, the wizard themed card game! It's modular too, in case you might want to make it Syndie, Sec and Clown themed or something stupid like that.
 /obj/item/toy/cards/deck/wizoff
-	name = "\improper Wiz-Off deck"
-	desc = "A Wiz-Off deck. Fight an arcane battle for the fate of the universe: Draw 5! Play 5! Best of 5! A rules card is attached."
-	cardgame_desc = "Wiz-Off game"
+	name = "\improper 巫师对决牌组"
+	desc = "一副巫师对决牌。为宇宙命运展开奥术大战：抽五张！出五张！五局三胜！附有规则卡。"
+	cardgame_desc = "巫师对决游戏"
 	icon_state = "deck_wizoff_full"
 	deckstyle = "wizoff"
 
@@ -13,20 +13,20 @@
 		initial_cards += card
 
 /obj/item/toy/singlecard/wizoff_ruleset
-	desc = "A ruleset for the playing card game Wiz-Off."
-	cardname = "Wizoff Ruleset"
+	desc = "纸牌游戏巫师对决的规则。"
+	cardname = "巫师对决规则"
 	deckstyle = "black"
 	has_unique_card_icons = FALSE
 	icon_state = "singlecard_down_black"
 
 /obj/item/toy/singlecard/wizoff_ruleset/examine(mob/living/carbon/human/user)
 	. = ..()
-	. += span_notice("Remember the rules of Wiz-Off!")
-	. += span_info("Each player draws 5 cards.")
-	. += span_info("There are five rounds. Each round, a player selects a card to play, and the winner is selected based on the following rules:")
-	. += span_info("Defensive beats Offensive!")
-	. += span_info("Offensive beats Utility!")
-	. += span_info("Utility beats Defensive!")
-	. += span_info("If both players play the same type of spell, the higher number wins!")
-	. += span_info("The player who wins the most of the 5 rounds wins the game!")
-	. += span_notice("Now get ready to battle for the fate of the universe: Wiz-Off!")
+	. += span_notice("记住巫师对决的规则！")
+	. += span_info("每位玩家抽取5张牌。")
+	. += span_info("游戏共五轮。每轮各选一张牌打出，并按以下规则决出胜负：")
+	. += span_info("防御克制进攻！")
+	. += span_info("进攻克制辅助！")
+	. += span_info("辅助克制防御！")
+	. += span_info("双方打出相同类型的法术时，点数更高者获胜！")
+	. += span_info("五轮中获胜次数最多的玩家赢得游戏！")
+	. += span_notice("准备为宇宙的命运而战：巫师对决！")

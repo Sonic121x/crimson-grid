@@ -28,7 +28,7 @@ export function TagBox(props: ReagentsProps) {
   return (
     <LabeledList>
       {Object.entries(categorizedBitflags).map(([category, metas]) => (
-        <LabeledList.Item label={category} key={category}>
+        <LabeledList.Item label={({ Affects: '影响', Type: '类型', Difficulty: '难度' } as Record<string, string>)[category] || category} key={category}>
           {metas.map((meta) => {
             const flag = bitflags[meta.flag];
             return (
@@ -42,7 +42,7 @@ export function TagBox(props: ReagentsProps) {
                   setPage(1);
                 }}
               >
-                {meta.flag}
+                {({ BRUTE: '物理', BURN: '烧伤', TOXIN: '毒素', OXY: '窒息', HEALING: '治疗', DAMAGING: '伤害', EXPLOSIVE: '爆炸', OTHER: '其他', DANGEROUS: '危险', EASY: '简单', MODERATE: '中等', HARD: '困难', ORGAN: '器官', DRINK: '饮品', FOOD: '食物', SLIME: '史莱姆', DRUG: '药物', UNIQUE: '特殊', CHEMICAL: '化学', PLANT: '植物', COMPETITIVE: '竞争', COMPONENT: '原料', ACTIVE: '即时' } as Record<string, string>)[meta.flag] || meta.flag}
               </Button>
             );
           })}

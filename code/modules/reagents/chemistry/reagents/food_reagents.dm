@@ -308,8 +308,8 @@
 	return 0
 
 /datum/reagent/consumable/sugar
-	name = "Sugar"
-	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+	name = "Sugar"; display_name = "糖"
+	description = "通常称为食糖或蔗糖的有机化合物。这种白色无味的结晶粉末带有令人愉悦的甜味。"
 	color = COLOR_WHITE // rgb: 255, 255, 255
 	taste_mult = 1.5 // stop sugar drowning out other flavours
 	nutriment_factor = 2

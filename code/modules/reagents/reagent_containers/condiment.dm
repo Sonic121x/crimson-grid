@@ -135,8 +135,8 @@
 	. += span_notice("[flour_required] flour, [sugar_required] sugar, and either [eggyolk_required] egg yolk + [eggwhite_required] egg white or [soymilk_required] soy milk yields a cake dough. You can make pie dough from it.")
 
 /obj/item/reagent_containers/condiment/saltshaker //Separate from above since it's a small shaker rather then
-	name = "salt shaker" // a large one.
-	desc = "Salt. From space oceans, presumably."
+	name = "盐罐" // a large one.
+	desc = "盐，大概来自太空海洋。"
 	icon_state = "saltshakersmall"
 	icon_empty = "emptyshaker"
 	inhand_icon_state = ""
@@ -147,12 +147,12 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/condiment/saltshaker/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins to swap forms with the salt shaker! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]开始和盐罐交换形态！看起来是想自杀！"))
 	var/newname = "[name]"
 	name = "[user.name]"
 	user.name = newname
 	user.real_name = newname
-	desc = "Salt. From dead crew, presumably."
+	desc = "盐，大概来自死去的船员。"
 	return TOXLOSS
 
 /obj/item/reagent_containers/condiment/saltshaker/interact_with_atom(atom/target, mob/living/user, list/modifiers)
@@ -161,17 +161,17 @@
 		return .
 	if(isturf(target))
 		if(!reagents.has_reagent(/datum/reagent/consumable/salt, 2))
-			to_chat(user, span_warning("You don't have enough salt to make a pile!"))
+			to_chat(user, span_warning("盐不够，撒不成一堆！"))
 			return
-		user.visible_message(span_notice("[user] shakes some salt onto [target]."), span_notice("You shake some salt onto [target]."))
+		user.visible_message(span_notice("[user]往[target]上撒了点盐。"), span_notice("你往[target]上撒了点盐。"))
 		reagents.remove_reagent(/datum/reagent/consumable/salt, 2)
 		new/obj/effect/decal/cleanable/food/salt(target)
 		return ITEM_INTERACT_SUCCESS
 	return .
 
 /obj/item/reagent_containers/condiment/peppermill
-	name = "pepper mill"
-	desc = "Often used to flavor food or make people sneeze."
+	name = "胡椒研磨器"
+	desc = "常用于给食物调味，或让人打喷嚏。"
 	icon_state = "peppermillsmall"
 	icon_empty = "emptyshaker"
 	inhand_icon_state = ""
@@ -442,7 +442,7 @@
 
 /obj/item/reagent_containers/condiment/pack
 	name = "condiment pack"
-	desc = "A small plastic pack with condiments to put on your food."
+	desc = "装有食物调味料的小塑料包。"
 	icon_state = "condi_empty"
 	initial_reagent_flags = parent_type::initial_reagent_flags | NO_SPLASH
 	volume = 10
@@ -468,7 +468,7 @@
 		/datum/reagent/consumable/mayonnaise = list("condi_mayo", "Mayonnaise", "Not an instrument."),
 	)
 	/// Can't use initial(name) for this. This stores the name set by condimasters.
-	var/originalname = "condiment"
+	var/originalname = "调味料"
 
 /obj/item/reagent_containers/condiment/pack/create_reagents(max_vol, flags)
 	. = ..()
@@ -485,14 +485,14 @@
 	//You can tear the bag open above food to put the condiments on it, obviously.
 	if(IS_EDIBLE(target))
 		if(!reagents.total_volume)
-			to_chat(user, span_warning("You tear open [src], but there's nothing in it."))
+			to_chat(user, span_warning("你撕开了[src]，但里面什么也没有。"))
 			qdel(src)
 			return ITEM_INTERACT_BLOCKING
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, span_warning("You tear open [src], but [target] is stacked so high that it just drips off!") )
+			to_chat(user, span_warning("你撕开了[src]，但[target]堆得太高，调味料全滴下去了！") )
 			qdel(src)
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You tear open [src] above [target] and the condiments drip onto it."))
+		to_chat(user, span_notice("你在[target]上方撕开了[src]，调味料滴了上去。"))
 		reagents.trans_to(target, amount_per_transfer_from_this, transferred_by = user)
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS
@@ -504,7 +504,7 @@
 
 	if(!reagents.total_volume)
 		icon_state = "condi_empty"
-		desc = "A small condiment pack. It is empty."
+		desc = "一个小调味包，已经空了。"
 		return
 	var/datum/reagent/main_reagent = reagents.get_master_reagent()
 
@@ -514,52 +514,52 @@
 		desc = temp_list[3]
 	else
 		icon_state = "condi_mixed"
-		desc = "A small condiment pack. The label says it contains [originalname]."
+		desc = "一个小调味包。标签上写着内含[originalname]。"
 
 //Ketchup
 /obj/item/reagent_containers/condiment/pack/ketchup
-	name = "ketchup pack"
-	originalname = "ketchup"
+	name = "番茄酱包"
+	originalname = "番茄酱"
 	list_reagents = list(/datum/reagent/consumable/ketchup = 10)
 
 //Hot sauce
 /obj/item/reagent_containers/condiment/pack/hotsauce
-	name = "hotsauce pack"
-	originalname = "hotsauce"
+	name = "辣酱包"
+	originalname = "辣酱"
 	list_reagents = list(/datum/reagent/consumable/capsaicin = 10)
 
 /obj/item/reagent_containers/condiment/pack/astrotame
-	name = "astrotame pack"
-	originalname = "astrotame"
+	name = "太空甜味剂包"
+	originalname = "太空甜味剂"
 	volume = 5
 	list_reagents = list(/datum/reagent/consumable/astrotame = 5)
 
 /obj/item/reagent_containers/condiment/pack/bbqsauce
-	name = "bbq sauce pack"
-	originalname = "bbq sauce"
+	name = "烧烤酱包"
+	originalname = "烧烤酱"
 	list_reagents = list(/datum/reagent/consumable/bbqsauce = 10)
 
 /obj/item/reagent_containers/condiment/pack/creamer
 	name = "creamer pack"
-	originalname = "creamer"
+	originalname = "奶精"
 	volume = 5
 	list_reagents = list(/datum/reagent/consumable/cream = 5)
 
 /obj/item/reagent_containers/condiment/pack/sugar
 	name = "sugar pack"
-	originalname = "sugar"
+	originalname = "糖"
 	volume = 5
 	list_reagents = list(/datum/reagent/consumable/sugar = 5)
 
 /obj/item/reagent_containers/condiment/pack/soysauce
-	name = "soy sauce pack"
-	originalname = "soy sauce"
+	name = "酱油包"
+	originalname = "酱油"
 	volume = 5
 	list_reagents = list(/datum/reagent/consumable/soysauce = 5)
 
 /obj/item/reagent_containers/condiment/pack/mayonnaise
-	name = "mayonnaise pack"
-	originalname = "mayonnaise"
+	name = "蛋黄酱包"
+	originalname = "蛋黄酱"
 	volume = 5
 	list_reagents = list(/datum/reagent/consumable/mayonnaise = 5)
 

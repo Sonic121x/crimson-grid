@@ -1,8 +1,8 @@
 /obj/machinery/vending/snack
-	name = "\improper Getmore Chocolate Corp"
-	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
-	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
-	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
+	name = "\improper 多多巧克力公司"
+	desc = "一台由总部位于火星的多多巧克力公司提供的零食售货机。"
+	product_slogans = "尝尝我们的新款牛轧糖棒！;一半的价格，双倍的热量！"
+	product_ads = "最健康！;获奖巧克力棒！;嗯！真好吃！;天哪，太多汁了！;吃点零食吧。;零食有益健康！;多多零食，多吃一点！;火星直送的优质零食。;我们爱巧克力！;尝尝我们的新款肉干！"
 	icon_state = "snack"
 	panel_type = "panel2"
 	light_mask = "snack-light-mask"
@@ -56,7 +56,7 @@
 		credits_contained += rand(1, 5)
 
 /obj/item/vending_refill/snack
-	machine_name = "Getmore Chocolate Corp"
+	machine_name = "多多巧克力公司"
 
 /obj/machinery/vending/snack/blue
 	icon_state = "snackblue"

@@ -535,8 +535,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/board/microwave
-	name = "Microwave Board"
-	desc = "Used to build a microwave."
+	name = "微波炉电路板"
+	desc = "用于制造微波炉。"
 	build_path = /obj/item/circuitboard/machine/microwave
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_KITCHEN
@@ -544,8 +544,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/microwave_engineering
-	name = "Wireless Microwave Board"
-	desc = "Used to build a cell-powered microwave."
+	name = "无线微波炉电路板"
+	desc = "用于制造电池供电的微波炉。"
 	build_path = /obj/item/circuitboard/machine/microwave/engineering
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_KITCHEN
@@ -616,8 +616,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/soda_dispenser
-	name = "Portable Soda Dispenser Board"
-	desc = "Used to build a soda dispenser."
+	name = "便携汽水分配器电路板"
+	desc = "用于制造汽水分配器。"
 	build_path = /obj/item/circuitboard/machine/chem_dispenser/drinks
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_BAR
@@ -625,8 +625,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/beer_dispenser
-	name = "Portable Booze Dispenser Board"
-	desc = "Used to build a booze dispenser."
+	name = "便携酒水分配器电路板"
+	desc = "用于制造酒水分配器。"
 	build_path = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_BAR
@@ -788,8 +788,8 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/board/griddle
-	name = "Griddle Board"
-	desc = "Used to build a griddle."
+	name = "煎烤台电路板"
+	desc = "用于制造煎烤台。"
 	build_path = /obj/item/circuitboard/machine/griddle
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_KITCHEN

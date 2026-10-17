@@ -164,8 +164,8 @@
  * Emergency Oxygen
  */
 /obj/item/tank/internals/emergency_oxygen
-	name = "emergency oxygen tank"
-	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
+	name = "应急氧气罐"
+	desc = "用于紧急情况。氧气含量很少，请留到真正需要时再使用。"
 	icon_state = "emergency"
 	inhand_icon_state = "emergency_tank"
 	worn_icon_state = "emergency"

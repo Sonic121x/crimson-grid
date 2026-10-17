@@ -107,8 +107,8 @@
 	acid = 50
 
 /obj/item/clothing/gloves/latex
-	name = "latex gloves"
-	desc = "Cheap sterile gloves made from latex. Provides quicker carrying from a good grip."
+	name = "乳胶手套"
+	desc = "廉价的无菌乳胶手套，握持牢靠，搬运更快。"
 	icon_state = "latex"
 	inhand_icon_state = "latex_gloves"
 	greyscale_colors = null

@@ -1,8 +1,8 @@
 // This contains all boxes that will possess something wearable, like an outfit or something similar.area
 
 /obj/item/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains sterile latex gloves."
+	name = "乳胶手套盒"
+	desc = "内有无菌乳胶手套。"
 	illustration = "latex"
 
 /obj/item/storage/box/gloves/PopulateContents()
@@ -10,8 +10,8 @@
 		new /obj/item/clothing/gloves/latex(src)
 
 /obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains sterile medical masks."
+	name = "无菌口罩盒"
+	desc = "盒内装有无菌医用口罩。"
 	illustration = "sterile"
 
 /obj/item/storage/box/masks/PopulateContents()
@@ -19,8 +19,8 @@
 		new /obj/item/clothing/mask/surgical(src)
 
 /obj/item/storage/box/rxglasses
-	name = "box of prescription glasses"
-	desc = "This box contains nerd glasses."
+	name = "矫正眼镜盒"
+	desc = "盒内装有书呆子眼镜。"
 	illustration = "glasses"
 
 /obj/item/storage/box/rxglasses/PopulateContents()
@@ -29,8 +29,8 @@
 
 //it needs to be linked, hence a kit.
 /obj/item/storage/box/rxglasses/spyglasskit
-	name = "spyglass kit"
-	desc = "this box contains <i>cool</i> nerd glasses; with built-in displays to view a linked camera."
+	name = "间谍眼镜套件"
+	desc = "盒内装有<i>很酷的</i>书呆子眼镜，内置显示屏可查看连接的摄像头。"
 
 /obj/item/storage/box/rxglasses/spyglasskit/PopulateContents()
 	var/obj/item/clothing/accessory/spy_bug/newbug = new(src)
@@ -40,8 +40,8 @@
 	new /obj/item/paper/fluff/nerddocs(src)
 
 /obj/item/storage/box/tape_wizard
-	name = "Tape Wizard - Episode 23"
-	desc = "A box containing the costume used by legendary entertainment icon 'Super Tape Wizard'. It got a little stuck on its way out."
+	name = "胶带巫师——第二十三集"
+	desc = "盒内装着传奇娱乐偶像“超级胶带巫师”穿过的服装，取出来时有点粘。"
 
 /obj/item/storage/box/tape_wizard/PopulateContents()
 	new /obj/item/clothing/head/wizard/tape/fake(src)
@@ -50,8 +50,8 @@
 	new /obj/item/stack/medical/wrap/sticky_tape(src)
 
 /obj/item/storage/box/fakesyndiesuit
-	name = "boxed replica space suit and helmet"
-	desc = "A sleek, sturdy box used to hold toy spacesuits."
+	name = "仿制太空服与头盔盒"
+	desc = "用于存放玩具太空服的光滑结实盒子。"
 	icon_state = "syndiebox"
 	illustration = "syndiesuit"
 
@@ -60,8 +60,8 @@
 	new /obj/item/clothing/suit/syndicatefake(src)
 
 /obj/item/storage/box/syndie_kit/battle_royale
-	name = "rumble royale broadcast kit"
-	desc = "Contains everything you need to host the galaxy's greatest show; Rumble Royale."
+	name = "皇家乱斗转播套件"
+	desc = "主持银河最精彩节目《皇家乱斗》所需的一切。"
 
 /obj/item/storage/box/syndie_kit/battle_royale/PopulateContents()
 	var/obj/item/royale_implanter/implanter = new(src)
@@ -69,8 +69,8 @@
 	remote.link_implanter(implanter)
 
 /obj/item/storage/box/deputy
-	name = "box of deputy armbands"
-	desc = "To be issued to those authorized to act as deputy of security."
+	name = "辅警臂章盒"
+	desc = "发给获准担任安保辅警的人员。"
 	icon_state = "secbox"
 	illustration = "depband"
 
@@ -79,8 +79,8 @@
 		new /obj/item/clothing/accessory/armband/deputy(src)
 
 /obj/item/storage/box/hero
-	name = "Courageous Tomb Raider - 1940's."
-	desc = "This legendary figure of still dubious historical accuracy is thought to have been a world-famous archeologist who embarked on countless adventures in far away lands, along with his trademark whip and fedora hat."
+	name = "勇敢的古墓探险家——20世纪40年代"
+	desc = "这位历史真实性尚存疑的传奇人物，据说是一位世界闻名的考古学家，带着标志性的长鞭和软呢帽，在遥远异域经历无数冒险。"
 
 /obj/item/storage/box/hero/PopulateContents()
 	new /obj/item/clothing/head/fedora/curator(src)
@@ -90,8 +90,8 @@
 	new /obj/item/melee/curator_whip(src)
 
 /obj/item/storage/box/hero/astronaut
-	name = "First Man on the Moon - 1960's."
-	desc = "One small step for a man, one giant leap for mankind. Relive the beginnings of space exploration with this fully functional set of vintage EVA equipment."
+	name = "首位登月者——20世纪60年代"
+	desc = "个人的一小步，人类的一大步。穿上这套功能完备的复古舱外作业装备，重温太空探索的开端。"
 
 /obj/item/storage/box/hero/astronaut/PopulateContents()
 	new /obj/item/clothing/suit/space/nasavoid(src)
@@ -100,8 +100,8 @@
 	new /obj/item/gps(src)
 
 /obj/item/storage/box/hero/scottish
-	name = "Braveheart, the Scottish rebel - 1300's."
-	desc = "Seemingly a legendary figure in the battle for Scottish independence, this historical figure is closely associated with blue facepaint, big swords, strange man skirts, and his ever enduring catchphrase: 'FREEDOM!!'"
+	name = "勇敢的心，苏格兰反抗者——14世纪"
+	desc = "似乎是苏格兰独立战争中的传奇人物，蓝色脸彩、大剑、奇怪的男式裙子，还有永不磨灭的口号：“自由！！”都与他紧密相连。"
 
 /obj/item/storage/box/hero/scottish/PopulateContents()
 	new /obj/item/claymore/weak/ceremonial(src)
@@ -110,8 +110,8 @@
 	new /obj/item/toy/crayon/spraycan(src)
 
 /obj/item/storage/box/hero/carphunter
-	name = "Carp Hunter, Wildlife Expert - 2506."
-	desc = "Despite his nickname, this wildlife expert was mainly known as a passionate environmentalist and conservationist, often coming in contact with dangerous wildlife to teach about the beauty of nature."
+	name = "猎鲤人，野生动物专家——2506年"
+	desc = "虽然有这个绰号，他主要以热情的环保与保育工作闻名，常接触危险野生动物，向人们展示自然之美。"
 
 /obj/item/storage/box/hero/carphunter/PopulateContents()
 	new /obj/item/clothing/mask/gas/carp(src)
@@ -120,8 +120,8 @@
 	new /obj/item/storage/box/papersack/meat(src)
 
 /obj/item/storage/box/hero/mothpioneer
-	name = "Mothic Fleet Pioneer - 2429."
-	desc = "Some claim that the fleet engineers are directly responsible for most modern advancements in spacefaring designs. Although the exact details of their past contributions are somewhat fuzzy, their ingenuity remains unmatched and unquestioned to this day."
+	name = "蛾人舰队先驱——2429年"
+	desc = "有人认为，现代航天设计的大部分进步直接归功于舰队工程师。尽管过去贡献的细节有些模糊，他们的才智至今仍无可匹敌、无可置疑。"
 
 /obj/item/storage/box/hero/mothpioneer/PopulateContents()
 	new /obj/item/clothing/head/mothcap/original(src)
@@ -134,8 +134,8 @@
 	new /obj/item/wrench(src)
 
 /obj/item/storage/box/hero/etherealwarden
-	name = "Ethereal Trailwarden - 2450's."
-	desc = "Many fantastical stories are told of valiant trail wardens, even by offworlders who, thanks to their guidance, avoided an untimely demise while traveling the sometimes treacherous roads of Sprout. In truth their job entails far more walking and fixing roads than slaying dragons, but it is no less important and well respected: keeping the roads and trails safe and well maintained is for many settlements a matter of survival."
+	name = "以太人巡路卫士——2450年代"
+	desc = "英勇巡路卫士的奇闻广为流传，连在其指引下躲过萌芽星险路厄运的外星旅客也津津乐道。实际工作中，他们走路修路远比屠龙多，但同样重要、备受尊敬：对许多聚落而言，维护道路安全关乎生死。"
 
 /obj/item/storage/box/hero/etherealwarden/PopulateContents()
 	new /obj/item/clothing/suit/hooded/ethereal_raincoat/trailwarden(src)
@@ -143,8 +143,8 @@
 	new /obj/item/storage/backpack/saddlepack(src)
 
 /obj/item/storage/box/hero/journalist
-	name = "Assassinated by CIA - 1984." // Literally
-	desc = "Many courageous individuals risked their lives to report on events the government sought to keep hidden from the public, ensuring that the truth remained buried and unheard. These garments are replicas of the clothing worn by one such 'journalist,' a silent sentinel in the fight for truth."
+	name = "被中情局暗杀——1984年" // Literally
+	desc = "许多勇敢的人冒死报道政府试图隐瞒的事件，确保真相仍被埋藏、无人知晓。这套衣服仿制自一位这样的“记者”，一名争取真相的沉默哨兵。"
 
 /obj/item/storage/box/hero/journalist/PopulateContents()
 	new /obj/item/clothing/under/costume/buttondown/slacks(src)
@@ -161,7 +161,7 @@
 	new /obj/item/wallframe/telescreen/entertainment(src)
 
 /obj/item/storage/box/holy
-	name = "Templar Kit"
+	name = "圣殿骑士套装"
 	/// This item is used to generate a preview image for this set.
 	/// It could be any item, doesn't even necessarily need to be something in the kit
 	var/obj/item/typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/templar
@@ -171,7 +171,7 @@
 	new /obj/item/clothing/suit/chaplainsuit/armor/templar(src)
 
 /obj/item/storage/box/holy/clock
-	name = "Forgotten kit"
+	name = "遗忘者套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/clock
 
 /obj/item/storage/box/holy/clock/PopulateContents()
@@ -179,7 +179,7 @@
 	new /obj/item/clothing/suit/chaplainsuit/armor/clock(src)
 
 /obj/item/storage/box/holy/student
-	name = "Profane Scholar Kit"
+	name = "亵渎学者套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/studentuni
 
 /obj/item/storage/box/holy/student/PopulateContents()
@@ -187,7 +187,7 @@
 	new /obj/item/clothing/head/helmet/chaplain/cage(src)
 
 /obj/item/storage/box/holy/sentinel
-	name = "Stone Sentinel Kit"
+	name = "磐石哨兵套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/ancient
 
 /obj/item/storage/box/holy/sentinel/PopulateContents()
@@ -195,7 +195,7 @@
 	new /obj/item/clothing/head/helmet/chaplain/ancient(src)
 
 /obj/item/storage/box/holy/witchhunter
-	name = "Witchhunter Kit"
+	name = "猎巫人套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/witchhunter
 
 /obj/item/storage/box/holy/witchhunter/PopulateContents()
@@ -203,7 +203,7 @@
 	new /obj/item/clothing/head/helmet/chaplain/witchunter_hat(src)
 
 /obj/item/storage/box/holy/adept
-	name = "Divine Adept Kit"
+	name = "神圣修士套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/adept
 
 /obj/item/storage/box/holy/adept/PopulateContents()
@@ -212,7 +212,7 @@
 	new /obj/item/clothing/gloves/bracer(src)
 
 /obj/item/storage/box/holy/follower
-	name = "Followers of the Chaplain Kit"
+	name = "牧师追随者套装"
 	typepath_for_preview = /obj/item/clothing/suit/hooded/chaplain_hoodie/leader
 
 /obj/item/storage/box/holy/follower/PopulateContents()
@@ -223,7 +223,7 @@
 	new /obj/item/clothing/suit/hooded/chaplain_hoodie/leader(src)
 
 /obj/item/storage/box/holy/divine_archer
-	name = "Divine Archer Kit"
+	name = "神圣弓手套装"
 	typepath_for_preview = /obj/item/clothing/suit/hooded/chaplain_hoodie/divine_archer
 
 /obj/item/storage/box/holy/divine_archer/PopulateContents()
@@ -233,7 +233,7 @@
 	new /obj/item/clothing/shoes/divine_archer(src)
 
 /obj/item/storage/box/holy/heretic
-	name = "Occult Practitioner Kit"
+	name = "秘术修行者套装"
 	typepath_for_preview = /obj/item/clothing/suit/chaplainsuit/armor/heretic
 
 /obj/item/storage/box/holy/heretic/PopulateContents()
@@ -241,12 +241,12 @@
 	new /obj/item/clothing/head/helmet/chaplain/heretic(src)
 
 /obj/item/storage/box/floor_camo
-	name = "floor tile camo box"
-	desc = "Thank you for shopping from Camo-J's, our uniquely designed \
-		floor-tile 'NT scum' styled camouflage fatigues is the ultimate \
-		espionage uniform used by the very best. Providing the best \
-		flexibility, with our latest Camo-tech threads. Perfect for \
-		risky-espionage hallway operations. Enjoy our product!"
+	name = "地砖迷彩盒"
+	desc = "感谢惠顾迷彩杰。我们独家设计的 \
+		地砖“纳诺传讯渣滓”风格迷彩服，是顶级间谍使用的 \
+		终极制服。采用最新迷彩科技面料， \
+		提供绝佳灵活性，完美适用于 \
+		高风险走廊谍报行动。祝使用愉快！"
 
 /obj/item/storage/box/floor_camo/PopulateContents()
 	new /obj/item/clothing/under/syndicate/floortilecamo(src)
@@ -256,8 +256,8 @@
 	new /obj/item/storage/backpack/floortile(src)
 
 /obj/item/storage/box/collar_bomb
-	name = "collar bomb box"
-	desc = "A small print on the back reads 'For research purposes only. Handle with care. In case of emergency, call the following number:'... the rest is scratched out with a marker..."
+	name = "项圈炸弹盒"
+	desc = "背面小字写着：“仅供研究。小心操作。紧急情况下请拨打以下号码：”……剩下的被记号笔涂掉了……"
 
 /obj/item/storage/box/collar_bomb/PopulateContents()
 	var/obj/item/collar_bomb_button/button = new(src)
@@ -276,7 +276,7 @@
 	new /obj/item/clothing/shoes/plate/red(src)
 
 /obj/item/storage/box/wizard_kit
-	name = "Generic Wizard Cosplay Kit"
+	name = "普通巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/PopulateContents()
 	new /obj/item/clothing/head/wizard(src)
@@ -284,7 +284,7 @@
 	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/red
-	name = "Evocation Wizard Cosplay Kit"
+	name = "塑能巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/red/PopulateContents()
 	new /obj/item/clothing/head/wizard/red(src)
@@ -292,7 +292,7 @@
 	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/yellow
-	name = "Translocation Wizard Cosplay Kit"
+	name = "移位巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/yellow/PopulateContents()
 	new /obj/item/clothing/head/wizard/yellow(src)
@@ -300,7 +300,7 @@
 	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/magusred
-	name = "Conjuration Wizard Cosplay Kit"
+	name = "咒法巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/yellow/PopulateContents()
 	new /obj/item/clothing/head/wizard/magus(src)
@@ -308,7 +308,7 @@
 	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/magusblue
-	name = "Transmutation Wizard Cosplay Kit"
+	name = "变化巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/yellow/PopulateContents()
 	new /obj/item/clothing/head/wizard/magus(src)
@@ -316,7 +316,7 @@
 	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/black
-	name = "Necromancy Wizard Cosplay Kit"
+	name = "死灵巫师角色扮演套装"
 
 /obj/item/storage/box/wizard_kit/black/PopulateContents()
 	new /obj/item/clothing/head/wizard/black(src)

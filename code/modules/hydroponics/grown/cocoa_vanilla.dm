@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/cocoapod
 	seed = /obj/item/seeds/cocoapod
-	name = "cocoa pod"
-	desc = "Fattening... Mmmmm... chucklate."
+	name = "可可荚"
+	desc = "会长胖的……嗯……巧克力。"
 	icon_state = "cocoapod"
 	bite_consumption_mod = 2
 	foodtypes = FRUIT

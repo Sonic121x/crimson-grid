@@ -45,15 +45,15 @@
 
 /obj/item/light/suicide_act(mob/living/user)
 	if (status == LIGHT_BROKEN)
-		user.visible_message(span_suicide("[user] begins to stab [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]开始用[src]刺自己！看起来是想自杀！"))
 	else
-		user.visible_message(span_suicide("[user] begins to eat \the [src]! It looks like [user.p_theyre()] not very bright!"))
+		user.visible_message(span_suicide("[user]开始吃[src]！看起来脑子不太灵光！"))
 		shatter()
 	return BRUTELOSS
 
 /obj/item/light/tube
-	name = "light tube"
-	desc = "A replacement light tube."
+	name = "灯管"
+	desc = "一根替换用灯管。"
 	icon_state = "ltube"
 	base_state = "ltube"
 	worn_icon = "ltube"
@@ -75,8 +75,8 @@
 	sharpness = SHARP_POINTY
 
 /obj/item/light/bulb
-	name = "light bulb"
-	desc = "A replacement light bulb."
+	name = "灯泡"
+	desc = "一个替换用灯泡。"
 	icon_state = "lbulb"
 	base_state = "lbulb"
 	icon_angle = -90
@@ -111,11 +111,11 @@
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
-			desc = "A replacement [name]."
+			desc = "替换用的[name]。"
 		if(LIGHT_BURNED)
-			desc = "A burnt-out [name]."
+			desc = "烧坏的[name]。"
 		if(LIGHT_BROKEN)
-			desc = "A broken [name]."
+			desc = "破碎的[name]。"
 
 /obj/item/light/proc/on_entered(datum/source, atom/movable/moving_atom)
 	SIGNAL_HANDLER
@@ -137,12 +137,12 @@
 
 /obj/item/light/proc/shatter(target)
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		visible_message(span_danger("[src] shatters."),span_hear("You hear a small glass object shatter."))
+		visible_message(span_danger("[src]碎了。"),span_hear("你听见一个小玻璃物件碎裂的声音。"))
 		status = LIGHT_BROKEN
 		force = 5
 		sharpness = SHARP_POINTY
 		playsound(loc, 'sound/effects/glass/glasshit.ogg', 75, TRUE)
 		if(length(reagents.reagent_list))
-			visible_message(span_danger("The contents of [src] splash onto you as you step on it!"),span_hear("You feel the contents of [src] splash onto you as you step on it!."))
+			visible_message(span_danger("你踩上[src]，里面的东西溅到了你身上！"),span_hear("你踩上[src]时，感觉里面的东西溅到了身上！"))
 			reagents.expose(target, TOUCH)
 		update_appearance(UPDATE_DESC | UPDATE_ICON)

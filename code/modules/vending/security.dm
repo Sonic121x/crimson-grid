@@ -1,7 +1,7 @@
 /obj/machinery/vending/security
-	name = "\improper SecTech"
-	desc = "A security equipment vendor."
-	product_ads = "Crack communist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
+	name = "\improper 安保科技"
+	desc = "一台安保设备售货机。"
+	product_ads = "敲碎共产主义者的脑壳！;把他们打得头破血流！;别忘了，伤害是好事！;你的武器就在这里。;手铐！;不许动，混蛋！;兄弟，别电我！;电他们，兄弟。;何不来个甜甜圈？"
 	icon_state = "sec"
 	icon_deny = "sec-deny"
 	panel_type = "panel6"
@@ -48,5 +48,5 @@
 		thrown_flashlight.update_brightness()
 
 /obj/item/vending_refill/security
-	machine_name = "SecTech"
+	machine_name = "安保科技"
 	icon_state = "refill_sec"

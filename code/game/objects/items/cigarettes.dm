@@ -851,8 +851,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 
 /obj/item/cigarette/dart
-	name = "fat dart"
-	desc = "Chuff back this fat dart"
+	name = "粗卷烟"
+	desc = "猛吸一口这根粗卷烟。"
 	icon_state = "bigon"
 	icon_on = "bigon"
 	icon_off = "bigoff"
@@ -1138,12 +1138,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return FALSE
 
 	if (obj_flags & EMAGGED)
-		balloon_alert(user, "already emagged!")
+		balloon_alert(user, "已被电磁卡破解！")
 		return FALSE
 
 	obj_flags |= EMAGGED
 	super = FALSE
-	balloon_alert(user, "voltage maximized")
+	balloon_alert(user, "电压已调至最大")
 	icon_state = "vapeopen_high"
 	set_greyscale(new_config = /datum/greyscale_config/vape/open_high)
 	do_sparks(5, TRUE, src)

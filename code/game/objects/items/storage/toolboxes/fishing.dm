@@ -1,7 +1,7 @@
 
 /obj/item/storage/toolbox/fishing
-	name = "fishing toolbox"
-	desc = "Contains everything you need for your fishing trip."
+	name = "钓鱼工具箱"
+	desc = "装着钓鱼之旅所需的一切。"
 	icon_state = "teal"
 	inhand_icon_state = "toolbox_teal"
 	material_flags = NONE

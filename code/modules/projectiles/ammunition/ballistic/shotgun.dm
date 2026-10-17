@@ -28,8 +28,8 @@
 	projectile_type = /obj/projectile/bullet/shotgun_slug/pulverizer
 
 /obj/item/ammo_casing/shotgun/beanbag
-	name = "beanbag slug"
-	desc = "A weak beanbag slug for riot control."
+	name = "布袋弹"
+	desc = "用于防暴的低威力布袋弹。"
 	icon_state = "bshell"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3)
 	projectile_type = /obj/projectile/bullet/shotgun_beanbag

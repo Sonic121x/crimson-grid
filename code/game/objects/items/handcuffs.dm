@@ -142,7 +142,7 @@
 /obj/item/restraints/handcuffs/proc/handcuffs_clumsiness_check(mob/user)
 	if(!iscarbon(user) || !HAS_TRAIT(user, TRAIT_CLUMSY) || prob(50)) //Clumsy people have a 50% chance to handcuff themselves instead of their target.
 		return FALSE
-	to_chat(user, span_warning("Uh... how do those things work?!"))
+	to_chat(user, span_warning("呃……这玩意怎么用来着？！"))
 	apply_cuffs(user, user)
 	return TRUE
 /**
@@ -208,8 +208,8 @@
  * Ghetto handcuffs. Removing those is faster.
 */
 /obj/item/restraints/handcuffs/cable
-	name = "cable restraints"
-	desc = "Looks like some cables tied together. Could be used to tie something up."
+	name = "电线束缚带"
+	desc = "看起来是几根绑在一起的电线，可以用来捆住东西。"
 	icon_state = "cuff"
 	inhand_icon_state = "coil_red"
 	color = CABLE_HEX_COLOR_RED
@@ -229,7 +229,7 @@
 
 	var/static/list/hovering_item_typechecks = list(
 		/obj/item/stack/sheet/iron = list(
-			SCREENTIP_CONTEXT_LMB = "Craft bola",
+			SCREENTIP_CONTEXT_LMB = "制作流星锤",
 		),
 	)
 
@@ -352,8 +352,8 @@
  * One-use handcuffs that take 45 seconds to resist out of instead of one minute. This turns into the used version when applied.
 */
 /obj/item/restraints/handcuffs/cable/zipties
-	name = "zipties"
-	desc = "Plastic, disposable zipties that can be used to restrain temporarily but are destroyed after use."
+	name = "扎带"
+	desc = "一次性塑料扎带，可用于临时束缚，但使用后就会损坏。"
 	icon_state = "cuff"
 	inhand_icon_state = "cuff_white"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -366,7 +366,7 @@
 
 /obj/item/restraints/handcuffs/cable/zipties/on_uncuffed(datum/source, mob/living/wearer)
 	. = ..()
-	desc = "A pair of broken zipties."
+	desc = "一副断掉的扎带。"
 	icon_state = "cuff_used"
 	used = TRUE
 
@@ -675,8 +675,8 @@
  * It's harder to remove, smaller and has a defined price.
  */
 /obj/item/restraints/legcuffs/bola/energy
-	name = "energy bola"
-	desc = "A specialized hard-light bola designed to ensnare fleeing criminals and aid in arrests."
+	name = "能量流星索"
+	desc = "一种特制的硬光流星索，用来绊住逃犯，协助逮捕。"
 	icon_state = "ebola"
 	inhand_icon_state = "ebola"
 	hitsound = 'sound/items/weapons/taserhit.ogg'

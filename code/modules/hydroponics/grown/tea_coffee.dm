@@ -69,8 +69,8 @@
 
 /obj/item/food/grown/coffee
 	seed = /obj/item/seeds/coffee
-	name = "coffee arabica beans"
-	desc = "Dry them out to make coffee."
+	name = "阿拉比卡咖啡豆"
+	desc = "晒干后可以用来煮咖啡。"
 	icon_state = "coffee_arabica"
 	dry_grind = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/kahlua
@@ -92,8 +92,8 @@
 
 /obj/item/food/grown/coffee/robusta
 	seed = /obj/item/seeds/coffee/robusta
-	name = "coffee robusta beans"
-	desc = "Increases robustness by 37 percent!"
+	name = "罗布斯塔咖啡豆"
+	desc = "让你的强悍程度提升37%！"
 	icon_state = "coffee_robusta"
 
 /obj/item/food/grown/coffee/robusta/grind_results()

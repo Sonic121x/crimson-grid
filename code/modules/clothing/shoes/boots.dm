@@ -43,8 +43,8 @@
 	acid = 50
 
 /obj/item/clothing/shoes/jackboots
-	name = "jackboots"
-	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
+	name = "军用长靴"
+	desc = "纳诺传讯配发的安保战斗靴，用于作战场景或作战情况。时时刻刻，战斗不息。"
 	icon_state = "jackboots"
 	inhand_icon_state = "jackboots"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK

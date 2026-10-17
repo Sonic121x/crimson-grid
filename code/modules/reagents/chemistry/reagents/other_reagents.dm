@@ -124,8 +124,8 @@
 	src.data = cached_data
 
 /datum/reagent/water
-	name = "Water"
-	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen."
+	name = "Water"; display_name = "水"
+	description = "一种由氢和氧组成、随处可见的化学物质。"
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha)
 	taste_description = "water"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS
@@ -139,8 +139,8 @@
 
 /datum/glass_style/drinking_glass/water
 	required_drink_type = /datum/reagent/water
-	name = "glass of water"
-	desc = "The father of all refreshments."
+	name = "一杯水"
+	desc = "一切清凉饮品的源头。"
 	icon_state = "glass_clear"
 
 /*
@@ -270,7 +270,7 @@
 	mytray.reagents.remove_reagent(type, volume)
 
 /datum/reagent/water/mineral
-	name = "Mineral Water"
+	name = "Mineral Water"; display_name = "矿泉水"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE|REAGENT_CLEANS
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
@@ -280,8 +280,8 @@
 	return UPDATE_MOB_HEALTH
 
 /datum/reagent/water/salt
-	name = "Saltwater"
-	description = "Water, but salty. Smells like... the station infirmary?"
+	name = "Saltwater"; display_name = "盐水"
+	description = "咸味的水。闻起来像是……站上的医务室？"
 	color = "#aaaaaa9d" // rgb: 170, 170, 170, 77 (alpha)
 	taste_description = "the sea"
 	cooling_temperature = 3
@@ -330,8 +330,8 @@
 	return
 
 /datum/reagent/water/holywater
-	name = "Holy Water"
-	description = "Water blessed by some deity."
+	name = "Holy Water"; display_name = "圣水"
+	description = "得到某位神祇祝福的水。"
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
 	ph = 7.5 //God is alkaline
@@ -343,8 +343,8 @@
 
 /datum/glass_style/drinking_glass/holywater
 	required_drink_type = /datum/reagent/water/holywater
-	name = "glass of holy water"
-	desc = "A glass of holy water."
+	name = "一杯圣水"
+	desc = "一杯圣水。"
 	icon_state = "glass_clear"
 
 /datum/reagent/water/holywater/on_new(list/data)
@@ -436,8 +436,8 @@
 	exposed_turf.bless_turf()
 
 /datum/reagent/water/hollowwater
-	name = "Hollow Water"
-	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, but it looks kinda hollow."
+	name = "Hollow Water"; display_name = "空心水"
+	description = "一种由氢和氧组成、随处可见的化学物质，不过看起来有些空洞。"
 	color = "#88878777"
 	taste_description = "emptyiness"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
@@ -2019,8 +2019,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet
-	name = "Carpet"
-	description = "For those that need a more creative way to roll out a red carpet."
+	name = "Carpet"; display_name = "地毯"
+	description = "献给想用更有创意的方式铺开红毯的人。"
 	color = "#771100"
 	taste_description = "carpet" // Your tounge feels furry.
 	var/carpet_type = /turf/open/floor/carpet
@@ -2033,8 +2033,8 @@
 	..()
 
 /datum/reagent/carpet/black
-	name = "Black Carpet"
-	description = "The carpet also comes in... BLAPCK" //yes, the typo is intentional
+	name = "Black Carpet"; display_name = "黑色地毯"
+	description = "这地毯还有……嘿色款！" //yes, the typo is intentional
 	color = "#1E1E1E"
 	taste_description = "licorice"
 	carpet_type = /turf/open/floor/carpet/black
@@ -2042,8 +2042,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/blue
-	name = "Blue Carpet"
-	description = "For those that really need to chill out for a while."
+	name = "Blue Carpet"; display_name = "蓝色地毯"
+	description = "献给真需要冷静一阵子的人。"
 	color = "#0000DC"
 	taste_description = "frozen carpet"
 	carpet_type = /turf/open/floor/carpet/blue
@@ -2051,8 +2051,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/cyan
-	name = "Cyan Carpet"
-	description = "For those that need a throwback to the years of using poison as a construction material. Smells like asbestos."
+	name = "Cyan Carpet"; display_name = "青色地毯"
+	description = "献给怀念用有毒物质盖房子那段岁月的人。闻起来像石棉。"
 	color = "#00B4FF"
 	taste_description = "asbestos"
 	carpet_type = /turf/open/floor/carpet/cyan
@@ -2060,8 +2060,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/green
-	name = "Green Carpet"
-	description = "For those that need the perfect flourish for green eggs and ham."
+	name = "Green Carpet"; display_name = "绿色地毯"
+	description = "献给想为绿鸡蛋和火腿配上完美点缀的人。"
 	color = COLOR_CRAYON_GREEN
 	taste_description = "Green" //the caps is intentional
 	carpet_type = /turf/open/floor/carpet/green
@@ -2069,8 +2069,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/orange
-	name = "Orange Carpet"
-	description = "For those that prefer a healthy carpet to go along with their healthy diet."
+	name = "Orange Carpet"; display_name = "橙色地毯"
+	description = "献给想用健康地毯搭配健康饮食的人。"
 	color = "#E78108"
 	taste_description = "orange juice"
 	carpet_type = /turf/open/floor/carpet/orange
@@ -2078,8 +2078,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/purple
-	name = "Purple Carpet"
-	description = "For those that need to waste copious amounts of healing jelly in order to look fancy."
+	name = "Purple Carpet"; display_name = "紫色地毯"
+	description = "献给为了显得气派，不惜浪费大量治疗凝胶的人。"
 	color = "#91D865"
 	taste_description = "jelly"
 	carpet_type = /turf/open/floor/carpet/purple
@@ -2087,8 +2087,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/red
-	name = "Red Carpet"
-	description = "For those that need an even redder carpet."
+	name = "Red Carpet"; display_name = "红色地毯"
+	description = "献给想要更红的地毯的人。"
 	color = "#731008"
 	taste_description = "blood and gibs"
 	carpet_type = /turf/open/floor/carpet/red
@@ -2096,8 +2096,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/royal
-	name = "Royal Carpet?"
-	description = "For those that break the game and need to make an issue report."
+	name = "Royal Carpet?"; display_name = "皇家地毯？"
+	description = "献给把游戏弄坏、需要提交问题报告的人。"
 
 /datum/reagent/carpet/royal/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
 	. = ..()
@@ -2106,18 +2106,18 @@
 		// Heads of staff and the captain have a "royal metabolism"
 		if(HAS_TRAIT(liver, TRAIT_ROYAL_METABOLISM))
 			if(SPT_PROB(5, seconds_per_tick))
-				to_chat(affected_mob, "You feel like royalty.")
+				to_chat(affected_mob, "你感觉自己就是王室。")
 			if(SPT_PROB(2.5, seconds_per_tick))
-				affected_mob.say(pick("Peasants..","This carpet is worth more than your contracts!","I could fire you at any time..."), forced = "royal carpet")
+				affected_mob.say(pick("贱民……","这地毯比你们的合同都值钱！","我随时都能解雇你……"), forced = "royal carpet")
 
 		// The quartermaster, as a semi-head, has a "pretender royal" metabolism
 		else if(HAS_TRAIT(liver, TRAIT_PRETENDER_ROYAL_METABOLISM))
 			if(SPT_PROB(8, seconds_per_tick))
-				to_chat(affected_mob, "You feel like an impostor...")
+				to_chat(affected_mob, "你感觉自己像个冒牌货……")
 
 /datum/reagent/carpet/royal/black
-	name = "Royal Black Carpet"
-	description = "For those that feel the need to show off their time-wasting skills."
+	name = "Royal Black Carpet"; display_name = "皇家黑色地毯"
+	description = "献给想炫耀自己浪费时间本领的人。"
 	color = COLOR_BLACK
 	taste_description = "royalty"
 	carpet_type = /turf/open/floor/carpet/royalblack
@@ -2125,8 +2125,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/royal/blue
-	name = "Royal Blue Carpet"
-	description = "For those that feel the need to show off their time-wasting skills... in BLUE."
+	name = "Royal Blue Carpet"; display_name = "皇家蓝色地毯"
+	description = "献给想炫耀自己浪费时间本领的人……还是蓝色的。"
 	color = "#5A64C8"
 	taste_description = "blueyalty" //also intentional
 	carpet_type = /turf/open/floor/carpet/royalblue
@@ -2134,8 +2134,8 @@
 	randomized_spawns = REAGENT_SPAWN_ALL_RANDOM_SPAWNS
 
 /datum/reagent/carpet/neon
-	name = "Neon Carpet"
-	description = "For those who like the 1980s, Vegas, and debugging."
+	name = "Neon Carpet"; display_name = "霓虹地毯"
+	description = "献给喜欢二十世纪八十年代、拉斯维加斯和调试的人。"
 	color = COLOR_ALMOST_BLACK
 	taste_description = "neon"
 	ph = 6
@@ -2144,8 +2144,8 @@
 	carpet_type = /turf/open/floor/carpet/neon
 
 /datum/reagent/carpet/neon/simple_white
-	name = "Simple White Neon Carpet"
-	description = "For those who like fluorescent lighting."
+	name = "Simple White Neon Carpet"; display_name = "简洁白色霓虹地毯"
+	description = "献给喜欢荧光照明的人。"
 	color = LIGHT_COLOR_HALOGEN
 	taste_description = "sodium vapor"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2153,8 +2153,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/white
 
 /datum/reagent/carpet/neon/simple_red
-	name = "Simple Red Neon Carpet"
-	description = "For those who like a bit of uncertainty."
+	name = "Simple Red Neon Carpet"; display_name = "简洁红色霓虹地毯"
+	description = "献给喜欢一点不确定性的人。"
 	color = COLOR_RED
 	taste_description = "neon hallucinations"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2162,8 +2162,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/red
 
 /datum/reagent/carpet/neon/simple_orange
-	name = "Simple Orange Neon Carpet"
-	description = "For those who like some sharp edges."
+	name = "Simple Orange Neon Carpet"; display_name = "简洁橙色霓虹地毯"
+	description = "献给喜欢棱角分明的人。"
 	color = COLOR_ORANGE
 	taste_description = "neon spines"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2171,8 +2171,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/orange
 
 /datum/reagent/carpet/neon/simple_yellow
-	name = "Simple Yellow Neon Carpet"
-	description = "For those who need a little stability in their lives."
+	name = "Simple Yellow Neon Carpet"; display_name = "简洁黄色霓虹地毯"
+	description = "献给生活中需要一点稳定的人。"
 	color = COLOR_YELLOW
 	taste_description = "stabilized neon"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2180,8 +2180,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/yellow
 
 /datum/reagent/carpet/neon/simple_lime
-	name = "Simple Lime Neon Carpet"
-	description = "For those who need a little bitterness."
+	name = "Simple Lime Neon Carpet"; display_name = "简洁黄绿色霓虹地毯"
+	description = "献给需要一点苦涩的人。"
 	color = COLOR_LIME
 	taste_description = "neon citrus"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2189,8 +2189,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/lime
 
 /datum/reagent/carpet/neon/simple_green
-	name = "Simple Green Neon Carpet"
-	description = "For those who need a little bit of change in their lives."
+	name = "Simple Green Neon Carpet"; display_name = "简洁绿色霓虹地毯"
+	description = "献给生活中需要一点变化的人。"
 	color = COLOR_GREEN
 	taste_description = "radium"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2198,8 +2198,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/green
 
 /datum/reagent/carpet/neon/simple_teal
-	name = "Simple Teal Neon Carpet"
-	description = "For those who need a smoke."
+	name = "Simple Teal Neon Carpet"; display_name = "简洁蓝绿色霓虹地毯"
+	description = "献给需要抽根烟的人。"
 	color = COLOR_TEAL
 	taste_description = "neon tobacco"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2207,8 +2207,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/teal
 
 /datum/reagent/carpet/neon/simple_cyan
-	name = "Simple Cyan Neon Carpet"
-	description = "For those who need to take a breath."
+	name = "Simple Cyan Neon Carpet"; display_name = "简洁青色霓虹地毯"
+	description = "献给需要喘口气的人。"
 	color = COLOR_DARK_CYAN
 	taste_description = "neon air"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2216,8 +2216,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/cyan
 
 /datum/reagent/carpet/neon/simple_blue
-	name = "Simple Blue Neon Carpet"
-	description = "For those who need to feel joy again."
+	name = "Simple Blue Neon Carpet"; display_name = "简洁蓝色霓虹地毯"
+	description = "献给想再次感受快乐的人。"
 	color = COLOR_NAVY
 	taste_description = "neon blue"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2225,8 +2225,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/blue
 
 /datum/reagent/carpet/neon/simple_purple
-	name = "Simple Purple Neon Carpet"
-	description = "For those that need a little bit of exploration."
+	name = "Simple Purple Neon Carpet"; display_name = "简洁紫色霓虹地毯"
+	description = "献给需要一点探索的人。"
 	color = COLOR_PURPLE
 	taste_description = "neon hell"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2234,8 +2234,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/purple
 
 /datum/reagent/carpet/neon/simple_violet
-	name = "Simple Violet Neon Carpet"
-	description = "For those who want to temp fate."
+	name = "Simple Violet Neon Carpet"; display_name = "简洁紫罗兰色霓虹地毯"
+	description = "献给想试探命运的人。"
 	color = COLOR_VIOLET
 	taste_description = "neon hell"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2243,8 +2243,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/violet
 
 /datum/reagent/carpet/neon/simple_pink
-	name = "Simple Pink Neon Carpet"
-	description = "For those just want to stop thinking so much."
+	name = "Simple Pink Neon Carpet"; display_name = "简洁粉色霓虹地毯"
+	description = "献给只想别再想那么多的人。"
 	color = COLOR_PINK
 	taste_description = "neon pink"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -2252,8 +2252,8 @@
 	carpet_type = /turf/open/floor/carpet/neon/simple/pink
 
 /datum/reagent/carpet/neon/simple_black
-	name = "Simple Black Neon Carpet"
-	description = "For those who need to catch their breath."
+	name = "Simple Black Neon Carpet"; display_name = "简洁黑色霓虹地毯"
+	description = "献给需要歇口气的人。"
 	color = COLOR_BLACK
 	taste_description = "neon ash"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

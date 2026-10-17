@@ -28,33 +28,33 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 //Rating 1
 
 /obj/item/stock_parts/capacitor
-	name = "capacitor"
-	desc = "A basic capacitor used in the construction of a variety of devices."
+	name = "电容器"
+	desc = "用于制造各类设备的基础电容器。"
 	icon_state = "capacitor"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/stock_parts/scanning_module
-	name = "scanning module"
-	desc = "A compact, high resolution scanning module used in the construction of certain devices."
+	name = "扫描模块"
+	desc = "用于制造某些设备的小型高分辨率扫描模块。"
 	icon_state = "scan_module"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/stock_parts/servo
-	name = "micro-servo"
-	desc = "A tiny little servo motor used in the construction of certain devices."
+	name = "微型伺服器"
+	desc = "用于制造某些设备的微型伺服电机。"
 	icon_state = "micro_servo"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT)
 	base_name = "servo"
 
 /obj/item/stock_parts/micro_laser
-	name = "micro-laser"
-	desc = "A tiny laser used in certain devices."
+	name = "微型激光器"
+	desc = "用于某些设备的微型激光器。"
 	icon_state = "micro_laser"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/item/stock_parts/matter_bin
-	name = "matter bin"
-	desc = "A container designed to hold compressed matter awaiting reconstruction."
+	name = "物质容器"
+	desc = "专门存放待重构压缩物质的容器。"
 	icon_state = "matter_bin"
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT)
 

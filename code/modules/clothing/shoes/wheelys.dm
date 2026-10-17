@@ -63,8 +63,8 @@
 	. = ..()
 
 /obj/item/clothing/shoes/wheelys/rollerskates
-	name = "roller skates"
-	desc = "An EightO brand pair of roller skates. The wheels are retractable, though're quite bulky to walk in."
+	name = "轮滑鞋"
+	desc = "一双八零牌轮滑鞋。轮子可收起，但走路时仍相当笨重。"
 	icon = 'icons/obj/clothing/shoes.dmi'
 	icon_state = "rollerskates"
 	post_init_icon_state = null
@@ -78,8 +78,8 @@
 	custom_price = 30 // DARKPACK EDIT CHANGE - ECONOMY
 
 /obj/item/clothing/shoes/wheelys/skishoes
-	name = "ski shoes"
-	desc = "A pair of shoes equipped with foldable skis! Very handy to move in snowy environments unimpeded."
+	name = "滑雪鞋"
+	desc = "一双装有折叠滑雪板的鞋！便于在雪地中畅行无阻。"
 	icon = 'icons/obj/clothing/shoes.dmi'
 	icon_state = "skishoes"
 	post_init_icon_state = null

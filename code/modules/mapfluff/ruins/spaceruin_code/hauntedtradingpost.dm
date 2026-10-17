@@ -83,8 +83,8 @@
 // loot & weird items that should only exist in hauntedtradingpost.dmm
 //aquarium with two donkfish in it
 /obj/structure/aquarium/donkfish
-	name = "office aquarium"
-	desc = "A home for captive fish. This one has 'DONK CO' engraved on the glass."
+	name = "办公室鱼缸"
+	desc = "供圈养鱼类居住的家。玻璃上刻着“当克公司”。"
 	init_mode = AQUARIUM_MODE_SAFE
 
 /obj/structure/aquarium/donkfish/Initialize(mapload)

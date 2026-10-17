@@ -181,10 +181,10 @@
 		var/robot_is_damaged = robotic_pal.get_brute_loss()
 
 		if(!robot_is_damaged)
-			user.balloon_alert(user, "[robotic_pal] is not damaged!")
+			user.balloon_alert(user, "[robotic_pal]没有受损！")
 			return ITEM_INTERACT_BLOCKING
 
-		user.visible_message(span_notice("[user] begins repairing [robotic_pal] with [src]."), span_notice("You begin repairing [robotic_pal] with [src]."))
+		user.visible_message(span_notice("[user]开始用[src]维修[robotic_pal]。"), span_notice("你开始用[src]维修[robotic_pal]。"))
 		playsound(user, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
 
 		if(!do_after(user, 3 SECONDS, target = robotic_pal))
@@ -192,24 +192,24 @@
 
 		robotic_pal.adjust_brute_loss(-object_repair_value)
 		use(1)
-		to_chat(user, span_notice("You finish repairing [interacting_with] with [src]."))
+		to_chat(user, span_notice("你用[src]修好了[interacting_with]。"))
 		return ITEM_INTERACT_SUCCESS
 
 	if(!isobj(interacting_with) || iseffect(interacting_with))
 		return NONE
 
 	if(HAS_TRAIT(interacting_with, TRAIT_DUCT_TAPE_UNREPAIRABLE))
-		user.balloon_alert(user, "cannot be repaired with duct tape!")
+		user.balloon_alert(user, "无法用强力胶带维修！")
 		return ITEM_INTERACT_BLOCKING
 
 	var/obj/item/object_to_repair = interacting_with
 	var/object_is_damaged = object_to_repair.get_integrity() < object_to_repair.max_integrity
 
 	if(!object_is_damaged)
-		user.balloon_alert(user, "[object_to_repair] is not damaged!")
+		user.balloon_alert(user, "[object_to_repair]没有受损！")
 		return ITEM_INTERACT_BLOCKING
 
-	user.visible_message(span_notice("[user] begins repairing [object_to_repair] with [src]."), span_notice("You begin repairing [object_to_repair] with [src]."))
+	user.visible_message(span_notice("[user]开始用[src]维修[object_to_repair]。"), span_notice("你开始用[src]维修[object_to_repair]。"))
 	playsound(user, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
 
 	if(!do_after(user, 3 SECONDS, target = object_to_repair))
@@ -222,5 +222,5 @@
 		object_to_repair.repair_damage(object_repair_value)
 
 	use(1)
-	to_chat(user, span_notice("You finish repairing [interacting_with] with [src]."))
+	to_chat(user, span_notice("你用[src]修好了[interacting_with]。"))
 	return ITEM_INTERACT_SUCCESS

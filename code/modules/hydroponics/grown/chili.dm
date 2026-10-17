@@ -21,8 +21,8 @@
 
 /obj/item/food/grown/chili
 	seed = /obj/item/seeds/chili
-	name = "chili"
-	desc = "It's spicy! Wait... IT'S BURNING ME!!"
+	name = "辣椒"
+	desc = "好辣！等等……辣得我着火了！！"
 	icon_state = "chilipepper"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES

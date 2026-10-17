@@ -4,8 +4,8 @@
 
 ///holding bag for dice
 /obj/item/storage/dice
-	name = "bag of dice"
-	desc = "Contains all the luck you'll ever need."
+	name = "骰子袋"
+	desc = "装着你需要的全部好运。"
 	icon = 'icons/obj/toys/dice.dmi'
 	icon_state = "dicebag"
 	w_class = WEIGHT_CLASS_SMALL
@@ -31,7 +31,7 @@
 	new picked(src)
 
 /obj/item/storage/dice/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正在与死神对赌！看起来是想自杀！"))
 	return OXYLOSS
 
 /obj/item/storage/dice/hazard/PopulateContents()
@@ -191,8 +191,8 @@
 	<li>Have fun!</li>\
 	</ul>"
 /obj/item/dice/fudge
-	name = "fudge die"
-	desc = "A die with six sides but only three results. Is this a plus or a minus? Your mind is drawing a blank..."
+	name = "软糖骰子"
+	desc = "六个面，却只有三种结果。这是加还是减？你的脑中一片空白……"
 	sides = 3 //shhh
 	icon_state = "fudge"
 	special_faces = list("minus","blank" = "You aren't sure how to feel.","plus")

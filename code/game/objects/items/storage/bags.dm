@@ -25,8 +25,8 @@
 	storage_type = /datum/storage/bag
 
 /obj/item/storage/bag/trash
-	name = "trash bag"
-	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
+	name = "垃圾袋"
+	desc = "结实耐用的黑色聚合物垃圾袋。该倒垃圾了！"
 	icon = 'icons/obj/service/janitor.dmi'
 	icon_state = "trashbag"
 	inhand_icon_state = "trashbag"
@@ -54,13 +54,13 @@
 	// Otherwise, we're gonna dump into the dest object
 	var/turf/dump_onto = get_turf(dest_object)
 	user.visible_message(
-		span_notice("[user] dumps the contents of [src] all out on \the [dump_onto]"),
-		span_notice("The remaining trash in \the [src] falls out onto \the [dump_onto]"),
+		span_notice("[user]将[src]里的东西全倒在[dump_onto]上"),
+		span_notice("[src]里剩余的垃圾掉到了[dump_onto]上"),
 	)
 	source.remove_all(dump_onto)
 
 /obj/item/storage/bag/trash/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] puts [src] over [user.p_their()] head and starts chomping at the insides! Disgusting!"))
+	user.visible_message(span_suicide("[user]将[src]套在头上，开始大嚼里面的东西！真恶心！"))
 	playsound(loc, 'sound/items/eatfood.ogg', 50, TRUE, -1)
 	return TOXLOSS
 
@@ -83,8 +83,8 @@
 	update_icon_state()
 
 /obj/item/storage/bag/trash/bluespace
-	name = "trash bag of holding"
-	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
+	name = "次元垃圾袋"
+	desc = "清洁便利技术的最新杰作，能容纳海量垃圾的垃圾袋。"
 	icon_state = "bluetrashbag"
 	worn_icon_state = "bluetrashbag"
 	inhand_icon_state = "bluetrashbag"
@@ -351,11 +351,11 @@
 	storage_type = /datum/storage/bag/books
 
 /obj/item/storage/bag/tray
-	name = "serving tray"
+	name = "餐盘托盘"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "tray"
 	worn_icon_state = "tray"
-	desc = "A metal tray to lay food on."
+	desc = "用来放食物的金属托盘。"
 	force = 5
 	throwforce = 10
 	throw_speed = 3

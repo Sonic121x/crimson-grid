@@ -210,8 +210,8 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 // You can spin the chamber to randomize the position of the bullet.
 
 /obj/item/gun/ballistic/revolver/russian
-	name = "\improper Russian revolver"
-	desc = "A Russian-made revolver for drinking games. Uses .357 ammo, and has a mechanism requiring you to spin the chamber before each trigger pull."
+	name = "\improper 俄制左轮手枪"
+	desc = "用于酒桌游戏的俄制左轮手枪。使用.357弹药，其机制要求每次扣扳机前都先转动弹巢。"
 	icon_state = "russianrevolver"
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rus357
 	hidden_chambered = TRUE //Cheater.
@@ -225,17 +225,17 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 
 /obj/item/gun/ballistic/revolver/russian/examine(mob/user)
 	. = ..()
-	. += span_notice("You can change length of your pause before pulling the trigger with [EXAMINE_HINT("alt-right-click")].")
+	. += span_notice("可用[EXAMINE_HINT("Alt右键单击")]调整扣动扳机前的停顿时长。")
 
 /obj/item/gun/ballistic/revolver/russian/click_alt_secondary(mob/user)
 	if(loc != user)
-		to_chat(user, span_warning("You need to be holding the gun to determine how long you are going to pause!"))
+		to_chat(user, span_warning("你必须拿着枪才能设置停顿时长！"))
 		return CLICK_ACTION_BLOCKING
-	var/new_aim_time = tgui_input_number(user, "How long will you pause before pulling the trigger (seconds)?", "Do you feel lucky?", (aim_time / (1 SECONDS)), 10, 0)
+	var/new_aim_time = tgui_input_number(user, "扣动扳机前要停顿几秒？", "觉得自己走运吗？", (aim_time / (1 SECONDS)), 10, 0)
 	if(loc != user || user.incapacitated)
 		return CLICK_ACTION_BLOCKING
 	aim_time = new_aim_time * (1 SECONDS)
-	to_chat(user, span_warning("You're going to pause [aim_time] second\s before pulling the trigger[aim_time == 0 ? "... Good luck" : ""]."))
+	to_chat(user, span_warning("你将在扣动扳机前停顿[aim_time]秒[aim_time == 0 ? "……祝你好运" : ""]。"))
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/gun/ballistic/revolver/russian/dropped(mob/user, silent)
@@ -278,21 +278,21 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 		shoot_with_empty_chamber(user)
 		spun = FALSE
 		user.visible_message(
-			span_danger("[user] tries to fire \the [src] aimed at something else, but only succeeds at looking like an idiot."),
-			span_danger("\The [src]'s anti-combat mechanism prevents you from firing it at anyone but yourself!"),
+			span_danger("[user]试图用[src]射击别的目标，结果只让自己看起来像个傻子。"),
+			span_danger("[src]的非战斗机制阻止你射击自己以外的任何人！"),
 		)
 		return TRUE // no melee attack
 	if(!spun)
-		to_chat(user, span_warning("You need to spin \the [src]'s chamber first!"))
+		to_chat(user, span_warning("你需要先转动[src]的弹巢！"))
 		return TRUE // no melee attack
 	if(HAS_TRAIT(user, TRAIT_CURSED)) // I cannot live, I cannot die, trapped in myself, body my holding cell.
-		to_chat(user, span_warning("What a horrible night... To have a curse!"))
+		to_chat(user, span_warning("多么可怕的夜晚……偏偏还中了诅咒！"))
 		return TRUE // no melee attack
 	if(loc != user)
 		if(tk_firing(user))
-			to_chat(user, span_warning("Russian roulette is stressful enough without trying to focus on telekinesis!"))
+			to_chat(user, span_warning("俄罗斯轮盘赌已经够紧张了，可别还想着集中精神使用念力！"))
 		else
-			to_chat(user, span_warning("You need to be holding the gun to fire it!"))
+			to_chat(user, span_warning("你必须拿着枪才能开火！"))
 		return TRUE // no melee attack
 
 	return ..() // try to shoot the gun
@@ -302,8 +302,8 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 	if(aim_time <= 0)
 		return FALSE
 	user.visible_message(
-		span_danger("[user] aims \the [src] at [user.p_their()] [parse_zone(user.zone_selected)]..."),
-		span_userdanger("You aim \the [src] at your [parse_zone(user.zone_selected)]..."),
+		span_danger("[user]把[src]对准了自己的[parse_zone(user.zone_selected)]……"),
+		span_userdanger("你把[src]对准了自己的[parse_zone(user.zone_selected)]……"),
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)
 	if(prob(10) && !HAS_TRAIT(user, TRAIT_FEARLESS))
@@ -311,8 +311,8 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 	if(!do_after(user, aim_time, target))
 		if(!user.incapacitated)
 			user.visible_message(
-				span_danger("[user] loses [user.p_their()] nerve and puts \the [src] down."),
-				span_userdanger("You lose your nerve and put \the [src] down."),
+				span_danger("[user]失去了勇气，放下了[src]。"),
+				span_userdanger("你失去了勇气，放下了[src]。"),
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		return TRUE
@@ -349,18 +349,18 @@ GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "转动弹巢", null)
 		if(loaded_rounds && is_target_face)
 			user.add_mood_event("russian_roulette_win", /datum/mood_event/russian_roulette_win, loaded_rounds)
 		user.visible_message(
-			span_danger("[user][is_target_face ? "": " cowardly"] points \the [src] at [user.p_their()] [aimed_at_readable], pulls the trigger, and... nothing happens!"),
-			span_danger("You[is_target_face ? "": " cowardly"] point \the [src] at your [aimed_at_readable], pull the trigger, and... nothing happens!"),
-			span_hear("You hear a click!"),
+			span_danger("[user][is_target_face ? "": "怯懦地"]将[src]对准自己的[aimed_at_readable]，扣动扳机，然后……什么也没发生！"),
+			span_danger("你[is_target_face ? "": "怯懦地"]将[src]对准自己的[aimed_at_readable]，扣动扳机，然后……什么也没发生！"),
+			span_hear("你听见咔哒一声！"),
 			vision_distance = COMBAT_MESSAGE_RANGE,
 			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		)
 		return TRUE // so they don't hit themselves in the forehead. because returning FALSE translates to "do melee attack" for whatever reason
 
 	user.visible_message(
-		span_danger("[user][is_target_face ? "": " cowardly"] aims \the [src] at [user.p_their()] [aimed_at_readable] as it goes off!"),
-		span_danger("You[is_target_face ? "": " cowardly"] aim \the [src] at your [aimed_at_readable] as it goes off![user.stat >= HARD_CRIT ? " <b>Everything suddenly goes black.</b>" : ""]"),
-		span_hear("You hear a grunt[!IS_UNCONSCIOUS_OR_CRIT(user) ? "" : ", followed by a thud"]!"),
+		span_danger("[user][is_target_face ? "": "怯懦地"]把[src]对准自己的[aimed_at_readable]，枪响了！"),
+		span_danger("你[is_target_face ? "": "怯懦地"]把[src]对准自己的[aimed_at_readable]，枪响了！[user.stat >= HARD_CRIT ? " <b>眼前突然一片漆黑。</b>" : ""]"),
+		span_hear("你听见一声闷哼[!IS_UNCONSCIOUS_OR_CRIT(user) ? "" : "，随后是倒地声"]！"),
 		vision_distance = COMBAT_MESSAGE_RANGE,
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 	)

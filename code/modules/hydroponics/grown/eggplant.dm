@@ -17,8 +17,8 @@
 
 /obj/item/food/grown/eggplant
 	seed = /obj/item/seeds/eggplant
-	name = "eggplant"
-	desc = "Maybe there's a chicken inside?"
+	name = "茄子"
+	desc = "里面说不定有只鸡？"
 	icon_state = "eggplant"
 	foodtypes = VEGETABLES
 	wine_power = 20

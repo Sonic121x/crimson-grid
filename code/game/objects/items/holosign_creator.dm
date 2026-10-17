@@ -123,8 +123,8 @@
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/holosign_creator/security
-	name = "security holobarrier projector"
-	desc = "A holographic projector that creates holographic security barriers. You can remotely open barriers with it."
+	name = "安保全息屏障投影器"
+	desc = "能够生成全息安保屏障的投影器，也可用它远程打开屏障。"
 	icon_state = "signmaker_sec"
 	holosign_type = /obj/structure/holosign/barrier
 	creation_time = 2 SECONDS

@@ -20,8 +20,8 @@
 	)
  */
 /obj/item/clothing/gloves/color/black/security
-	name = "security gloves"
-	desc = "These security gloves come with microchips that help the user quickly restrain suspects."
+	name = "安保手套"
+	desc = "这些安保手套配有微芯片，帮助使用者迅速束缚嫌疑人。"
 	icon_state = "sec"
 	clothing_traits = list(TRAIT_FAST_CUFFING)
 

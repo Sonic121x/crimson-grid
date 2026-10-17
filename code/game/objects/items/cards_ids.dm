@@ -19,8 +19,8 @@
  */
 
 /obj/item/card
-	name = "card"
-	desc = "Does card things."
+	name = "卡片"
+	desc = "能做卡片该做的事。"
 	icon = 'icons/obj/card.dmi'
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
@@ -37,7 +37,7 @@
 	var/honorific_title
 
 /obj/item/card/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins to swipe [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]开始用[src]划自己的脖子！看起来是想自杀！"))
 	return BRUTELOSS
 
 /obj/item/card/update_overlays()
@@ -61,8 +61,8 @@
 
 /// "Retro" ID card that renders itself as the icon state with no overlays.
 /obj/item/card/id
-	name = "retro identification card"
-	desc = "A card used to provide ID and determine access across the station."
+	name = "复古身份卡"
+	desc = "用于证明身份并确定站内各区域通行权限的卡片。"
 	icon_state = "card_grey"
 	worn_icon_state = "nothing"
 	slot_flags = ITEM_SLOT_ID
@@ -96,7 +96,7 @@
 	/// Minimum forced fee for holopay stations. Registers as "pay what you want."
 	var/holopay_min_fee = 0
 	/// The holopay name chosen by the user
-	var/holopay_name = "holographic pay stand"
+	var/holopay_name = "全息收款台"
 
 	/// Registered owner's age.
 	var/registered_age = 30
@@ -569,8 +569,8 @@
 	if(Adjacent(user))
 		var/minor
 		if(registered_name && registered_age && registered_age < AGE_MINOR)
-			minor = " <b>(MINOR)</b>"
-		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show \the [src.name][minor]."))
+			minor = " <b>（未成年）</b>"
+		user.visible_message(span_notice("[user]向你出示了：[icon2html(src, viewers(user))] [src.name][minor]。"), span_notice("你出示了[src.name][minor]。"))
 	add_fingerprint(user)
 
 /obj/item/card/id/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
@@ -589,14 +589,14 @@
 /obj/item/card/id/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_RMB] = "Project pay stand"
+	context[SCREENTIP_CONTEXT_RMB] = "投影收款台"
 
 	if(isnull(held_item) || (held_item == src))
-		context[SCREENTIP_CONTEXT_LMB] = "Show ID"
+		context[SCREENTIP_CONTEXT_LMB] = "出示身份卡"
 	else if(iscash(held_item) || istype(held_item, /obj/item/storage/bag/money))
-		context[SCREENTIP_CONTEXT_LMB] = "Insert"
+		context[SCREENTIP_CONTEXT_LMB] = "存入"
 	else if(istype(held_item, /obj/item/rupee))
-		context[SCREENTIP_CONTEXT_LMB] = "Insert?"
+		context[SCREENTIP_CONTEXT_LMB] = "存入？"
 
 	/* // DARKPACK EDIT REMOVAL - ECONOMY
 	if(isnull(registered_account) || registered_account.replaceable) //Same check we use when we check if we can assign an account
@@ -605,22 +605,22 @@
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Withdraw [MONEY_NAME]"
 	*/
 	if(trim && length(trim.honorifics))
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Toggle honorific"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "切换头衔"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/card/id/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
 	. = ..()
 	if(iscash(target))
-		context[SCREENTIP_CONTEXT_LMB] = "Insert into card"
+		context[SCREENTIP_CONTEXT_LMB] = "存入身份卡"
 		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/card/id/proc/try_project_paystand(mob/user, turf/target)
 	if(!COOLDOWN_FINISHED(src, last_holopay_projection))
-		balloon_alert(user, "still recharging")
+		balloon_alert(user, "仍在充能")
 		return
 	if(!can_be_used_in_payment(user))
-		balloon_alert(user, "no account!")
-		to_chat(user, span_warning("You need a valid bank account to do this."))
+		balloon_alert(user, "没有账户！")
+		to_chat(user, span_warning("你需要有效的银行账户才能这样做。"))
 		return
 	/// Determines where the holopay will be placed based on tile contents
 	var/turf/projection
@@ -633,8 +633,8 @@
 	else if(can_proj_holopay(user_loc))
 		projection = user_loc
 	if(!projection)
-		balloon_alert(user, "no space")
-		to_chat(user, span_warning("You need to be standing on or near an open tile to do this."))
+		balloon_alert(user, "没有空间")
+		to_chat(user, span_warning("你需要站在空地上或空地旁才能这样做。"))
 		return
 	/// Success: Valid tile for holopay placement
 	if(my_store)
@@ -701,7 +701,7 @@
  */
 /obj/item/card/id/proc/set_holopay_name(name)
 	if(length(name) < 3 || length(name) > MAX_NAME_LEN)
-		to_chat(usr, span_warning("Must be between 3 - 42 characters."))
+		to_chat(usr, span_warning("长度必须在3至42个字符之间。"))
 	else
 		holopay_name = html_encode(trim(name, MAX_NAME_LEN))
 
@@ -719,7 +719,7 @@
 
 /obj/item/card/id/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/rupee))
-		to_chat(user, span_warning("Your ID smartly rejects the strange shard of glass. Who knew, apparently it's not ACTUALLY valuable!"))
+		to_chat(user, span_warning("你的身份卡明智地拒收了这块奇怪的玻璃碎片。谁能想到，它居然并不值钱！"))
 		return ITEM_INTERACT_BLOCKING
 	else if(iscash(tool))
 		return insert_money(tool, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
@@ -729,7 +729,7 @@
 		var/money_added = mass_insert_money(money_contained, user)
 		if(!money_added)
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You stuff the contents into the card! They disappear in a puff of bluespace smoke, adding [money_added] worth of [MONEY_NAME] to the linked account."))
+		to_chat(user, span_notice("你把袋里的钱塞进了身份卡！它们消失在一阵蓝空间烟雾中，为关联账户增加了[money_added][MONEY_NAME]。"))
 		return ITEM_INTERACT_SUCCESS
 	return NONE
 
@@ -748,21 +748,21 @@
 		physical_currency = TRUE
 
 	if(!registered_account)
-		to_chat(user, span_warning("[src] doesn't have a linked account to deposit [money] into!"))
+		to_chat(user, span_warning("[src]没有关联账户，无法存入[money]！"))
 		return FALSE
 	var/cash_money = money.get_item_credit_value()
 	if(!cash_money)
-		to_chat(user, span_warning("[money] doesn't seem to be worth anything!"))
+		to_chat(user, span_warning("[money]似乎一文不值！"))
 		return FALSE
 	registered_account.adjust_money(cash_money, "System: Deposit")
 	SSblackbox.record_feedback("amount", "credits_inserted", cash_money)
 	log_econ("[cash_money] [MONEY_NAME] were inserted into [src] owned by [src.registered_name]")
 	if(physical_currency)
-		to_chat(user, span_notice("You stuff [money] into [src]. It disappears in a small puff of bluespace smoke, adding [cash_money] [MONEY_NAME] to the linked account."))
+		to_chat(user, span_notice("你把[money]塞进了[src]。它消失在一小团蓝空间烟雾中，为关联账户增加了[cash_money][MONEY_NAME]。"))
 	else
-		to_chat(user, span_notice("You insert [money] into [src], adding [cash_money] [MONEY_NAME] to the linked account."))
+		to_chat(user, span_notice("你把[money]插入[src]，为关联账户增加了[cash_money][MONEY_NAME]。"))
 
-	to_chat(user, span_notice("The linked account now reports a balance of [registered_account.account_balance] [MONEY_SYMBOL]."))
+	to_chat(user, span_notice("关联账户的当前余额为[registered_account.account_balance][MONEY_SYMBOL]。"))
 	qdel(money)
 	return TRUE
 
@@ -775,7 +775,7 @@
  */
 /obj/item/card/id/proc/mass_insert_money(list/money, mob/user)
 	if(!registered_account)
-		to_chat(user, span_warning("[src] doesn't have a linked account to deposit into!"))
+		to_chat(user, span_warning("[src]没有可供存款的关联账户！"))
 		return FALSE
 
 	if (!money || !length(money))
@@ -804,23 +804,23 @@
 /obj/item/card/id/proc/set_new_account(mob/living/user)
 	. = FALSE
 	if(loc != user)
-		to_chat(user, span_warning("You must be holding the ID to continue!"))
+		to_chat(user, span_warning("你必须拿着身份卡才能继续！"))
 		return FALSE
 	var/list/user_memories = user.mind.memories
 	var/datum/memory/key/account/user_key = user_memories[/datum/memory/key/account]
 	var/default_account = (istype(user_key) && user_key.remembered_id) || 11111
-	var/new_bank_id = tgui_input_number(user, "Enter the account ID to associate with this card.", "Link Bank Account", default_account, 999999, 111111)
+	var/new_bank_id = tgui_input_number(user, "输入要与这张卡关联的账户编号。", "关联银行账户", default_account, 999999, 111111)
 	if(!new_bank_id || QDELETED(user) || QDELETED(src) || issilicon(user) || !alt_click_can_use_id(user) || loc != user)
 		return FALSE
 	if(registered_account?.account_id == new_bank_id)
-		to_chat(user, span_warning("The account ID was already assigned to this card."))
+		to_chat(user, span_warning("这张卡已经关联了该账户编号。"))
 		return FALSE
 	var/datum/bank_account/account = SSeconomy.bank_accounts_by_id["[new_bank_id]"]
 	if(isnull(account))
-		to_chat(user, span_warning("The account ID number provided is invalid."))
+		to_chat(user, span_warning("提供的账户编号无效。"))
 		return FALSE
 	set_account(account, transfer_funds = TRUE)
-	to_chat(user, span_notice("The provided account has been linked to this ID card. It contains [account.account_balance] [MONEY_NAME]."))
+	to_chat(user, span_notice("提供的账户已关联到这张身份卡，余额为[account.account_balance][MONEY_NAME]。"))
 	return TRUE
 
 /obj/item/card/id/click_alt(mob/living/user)
@@ -830,34 +830,34 @@
 		registered_account.bank_card_talk(span_warning("内部服务器错误"), TRUE)
 		return CLICK_ACTION_SUCCESS
 	if(registered_account.account_debt)
-		var/choice = tgui_alert(user, "Choose An Action", "Bank Account", list("Withdraw", "Pay Debt"))
+		var/choice = tgui_alert(user, "选择操作", "银行账户", list("取款", "偿还债务"))
 		if(!choice || QDELETED(user) || QDELETED(src) || !alt_click_can_use_id(user) || loc != user)
 			return CLICK_ACTION_BLOCKING
-		if(choice == "Pay Debt")
+		if(choice == "偿还债务")
 			pay_debt(user)
 			return CLICK_ACTION_SUCCESS
 	if(loc != user)
-		to_chat(user, span_warning("You must be holding the ID to continue!"))
+		to_chat(user, span_warning("你必须拿着身份卡才能继续！"))
 		return CLICK_ACTION_BLOCKING
 	if(registered_account.replaceable && !registered_account.account_balance)
-		var/choice = tgui_alert(user, "This card's account is unassigned. Would you like to link a bank account?", "Bank Account", list("Link Account", "Leave Unassigned"))
+		var/choice = tgui_alert(user, "这张卡尚未关联账户。要关联银行账户吗？", "银行账户", list("关联账户", "暂不关联"))
 		if(!choice || QDELETED(user) || QDELETED(src) || !alt_click_can_use_id(user) || loc != user)
 			return CLICK_ACTION_BLOCKING
-		if(choice == "Link Account")
+		if(choice == "关联账户")
 			set_new_account(user)
 			return CLICK_ACTION_SUCCESS
-	var/amount_to_remove = tgui_input_number(user, "How much do you want to withdraw? (Max: [registered_account.account_balance] [MONEY_SYMBOL])", "Withdraw Funds", max_value = registered_account.account_balance)
+	var/amount_to_remove = tgui_input_number(user, "你想取出多少？（最多：[registered_account.account_balance][MONEY_SYMBOL]）", "取款", max_value = registered_account.account_balance)
 	if(!amount_to_remove || QDELETED(user) || QDELETED(src) || issilicon(user) || loc != user)
 		return CLICK_ACTION_BLOCKING
 	if(!alt_click_can_use_id(user))
 		return CLICK_ACTION_BLOCKING
 	if(!registered_account.adjust_money(-amount_to_remove, "System: Withdrawal"))
 		var/difference = amount_to_remove - registered_account.account_balance
-		registered_account.bank_card_talk(span_warning("ERROR: The linked account requires [difference] more [MONEY_NAME_AUTOPURAL(difference)] to perform that withdrawal."), TRUE)
+		registered_account.bank_card_talk(span_warning("错误：关联账户还差[difference][MONEY_NAME_AUTOPURAL(difference)]才能完成取款。"), TRUE)
 		return CLICK_ACTION_BLOCKING
 	var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 	user.put_in_hands(holochip)
-	to_chat(user, span_notice("You withdraw [amount_to_remove] [MONEY_NAME] into a holochip."))
+	to_chat(user, span_notice("你提取了[amount_to_remove][MONEY_NAME]，存入一枚全息信用芯片。"))
 	SSblackbox.record_feedback("amount", "credits_removed", amount_to_remove)
 	log_econ("[amount_to_remove] [MONEY_NAME] were removed from [src] owned by [registered_name]")
 	return CLICK_ACTION_SUCCESS
@@ -870,15 +870,15 @@
 		set_new_account(user)
 
 /obj/item/card/id/proc/pay_debt(user)
-	var/amount_to_pay = tgui_input_number(user, "How much do you want to pay? (Max: [registered_account.account_balance] [MONEY_SYMBOL])", "Debt Payment", max_value = min(registered_account.account_balance, registered_account.account_debt))
+	var/amount_to_pay = tgui_input_number(user, "你想偿还多少？（最多：[registered_account.account_balance][MONEY_SYMBOL]）", "偿还债务", max_value = min(registered_account.account_balance, registered_account.account_debt))
 	if(!amount_to_pay || QDELETED(src) || loc != user || !alt_click_can_use_id(user))
 		return
 	var/prev_debt = registered_account.account_debt
 	var/amount_paid = registered_account.pay_debt(amount_to_pay)
 	if(amount_paid)
-		var/message = span_notice("You pay [amount_to_pay] [MONEY_NAME] of a [prev_debt] [MONEY_SYMBOL] debt. [registered_account.account_debt] [MONEY_SYMBOL] to go.")
+		var/message = span_notice("你偿还了[amount_to_pay][MONEY_NAME]，原债务为[prev_debt][MONEY_SYMBOL]，还剩[registered_account.account_debt][MONEY_SYMBOL]。")
 		if(!registered_account.account_debt)
-			message = span_nicegreen("You pay the last [amount_to_pay] [MONEY_NAME] of your debt, extinguishing it. Congratulations!")
+			message = span_nicegreen("你偿还了最后[amount_to_pay][MONEY_NAME]，债务已经结清。恭喜！")
 		to_chat(user, message)
 
 /obj/item/card/id/examine(mob/user)
@@ -897,17 +897,17 @@
 	*/
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
-		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
+		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("嗯……没错，这张身份卡由中央指挥部签发！") : span_boldnotice("这张身份卡是在本星区制作的，并非由中央指挥部签发。")
 		if(HAS_TRAIT(src, TRAIT_TASTEFULLY_THICK_ID_CARD) && (user.is_holding(src) || (IsReachableBy(user) && user.put_in_hands(src, ignore_animation = FALSE))))
 			ADD_TRAIT(src, TRAIT_NODROP, "psycho")
-			. += span_hypnophrase("Look at that subtle coloring... The tasteful thickness of it. Oh my God, it even has a watermark...")
+			. += span_hypnophrase("看看这细腻的配色……恰到好处的厚度。天啊，竟然还有水印……")
 			var/sound/slowbeat = sound('sound/effects/health/slowbeat.ogg', repeat = TRUE)
 			user.playsound_local(get_turf(src), slowbeat, 40, 0, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
 			if(isliving(user))
 				var/mob/living/living_user = user
 				living_user.adjust_jitter(10 SECONDS)
 			addtimer(CALLBACK(src, PROC_REF(drop_card), user), 10 SECONDS)
-	. += span_notice("<i>There's more information below, you can look again to take a closer look...</i>")
+	. += span_notice("<i>下面还有更多信息，你可以再次查看以仔细阅读……</i>")
 
 /obj/item/card/id/proc/drop_card(mob/user)
 	user.stop_sound_channel(CHANNEL_HEARTBEAT)
@@ -917,7 +917,7 @@
 	for(var/mob/living/carbon/human/viewing_mob in viewers(2, user))
 		if(IS_UNCONSCIOUS_OR_CRIT(viewing_mob) || viewing_mob == user)
 			continue
-		viewing_mob.say("Is something wrong? [first_name(user.name)]... you're sweating.", forced = "psycho")
+		viewing_mob.say("有什么不对吗？[first_name(user.name)]……你在冒汗。", forced = "psycho")
 		break
 
 /obj/item/card/id/examine_more(mob/user)
@@ -925,10 +925,10 @@
 	if(!user.can_read(src))
 		return
 
-	. += span_notice("<i>You examine [src] closer, and note the following...</i>")
+	. += span_notice("<i>你仔细查看[src]，注意到了以下信息……</i>")
 
 	if(registered_age)
-		. += "The card indicates that the holder is [registered_age] years old. [(registered_age < AGE_MINOR) ? "There's a holographic stripe that reads <b>[span_danger("'MINOR: DO NOT SERVE ALCOHOL OR TOBACCO'")]</b> along the bottom of the card." : ""]"
+		. += "卡片上标明持卡人[registered_age]岁。[(registered_age < AGE_MINOR) ? "卡片底部的全息条纹写着<b>[span_danger("“未成年：禁止出售烟酒”")]</b>。" : ""]"
 	/* // DARKPACK EDIT REMOVAL - ECONOMY
 	if(registered_account)
 		if(registered_account.mining_points)
@@ -988,9 +988,9 @@
 	var/name_string
 	if(registered_name)
 		if(trim && (honorific_position & ~HONORIFIC_POSITION_NONE))
-			name_string = "[update_honorific()]'s ID Card"
+			name_string = "[update_honorific()]的身份卡"
 		else
-			name_string = "[registered_name]'s ID Card"
+			name_string = "[registered_name]的身份卡"
 	else
 		name_string = initial(name)
 
@@ -998,9 +998,9 @@
 
 	if(is_intern)
 		if(assignment)
-			assignment_string = trim?.intern_alt_name || "Intern [assignment]"
+			assignment_string = trim?.intern_alt_name || "实习[assignment]"
 		else
-			assignment_string = "Intern"
+			assignment_string = "实习生"
 	else
 		assignment_string = assignment
 
@@ -1045,11 +1045,11 @@
 		return
 
 	if(!trim)
-		balloon_alert(user, "card has no trim!")
+		balloon_alert(user, "卡片没有职位样式！")
 		return
 
 	if(!length(trim.honorifics))
-		balloon_alert(user, "card has no honorific to use!")
+		balloon_alert(user, "卡片没有可用头衔！")
 		return
 
 	var/list/choices = list()
@@ -1058,7 +1058,7 @@
 		if(trim.honorific_positions & readable_names[i]) //If the positions list has the same bit value as the readable list.
 			choices += i
 
-	var/chosen_position = tgui_input_list(user, "What position do you want your honorific in?", "Flair!", choices)
+	var/chosen_position = tgui_input_list(user, "你希望头衔显示在哪里？", "个性装饰！", choices)
 	if(user.incapacitated || !in_contents_of(user))
 		return
 	var/honorific_position_to_use = readable_names[chosen_position]
@@ -1067,25 +1067,25 @@
 	honorific_title = null //We reset this regardless so that we don't stack titles on accident.
 
 	if(honorific_position_to_use & HONORIFIC_POSITION_NONE)
-		balloon_alert(user, "honorific disabled")
+		balloon_alert(user, "已禁用头衔")
 	else
-		var/new_honorific = tgui_input_list(user, "What honorific do you want to use?", "Flair!!!", trim.honorifics)
+		var/new_honorific = tgui_input_list(user, "你想使用哪个头衔？", "个性装饰！", trim.honorifics)
 		if(!new_honorific || user.incapacitated || !in_contents_of(user))
 			return
 		chosen_honorific = new_honorific
 		switch(honorific_position_to_use)
 			if(HONORIFIC_POSITION_FIRST)
 				honorific_position = HONORIFIC_POSITION_FIRST
-				balloon_alert(user, "honorific set: display first name")
+				balloon_alert(user, "头衔设为：显示名字")
 			if(HONORIFIC_POSITION_LAST)
 				honorific_position = HONORIFIC_POSITION_LAST
-				balloon_alert(user, "honorific set: display last name")
+				balloon_alert(user, "头衔设为：显示姓氏")
 			if(HONORIFIC_POSITION_FIRST_FULL)
 				honorific_position = HONORIFIC_POSITION_FIRST_FULL
-				balloon_alert(user, "honorific set: start of full name")
+				balloon_alert(user, "头衔设为：全名前")
 			if(HONORIFIC_POSITION_LAST_FULL)
 				honorific_position = HONORIFIC_POSITION_LAST_FULL
-				balloon_alert(user, "honorific set: end of full name")
+				balloon_alert(user, "头衔设为：全名后")
 
 	update_label()
 
@@ -1175,8 +1175,8 @@
 	return CLICK_ACTION_BLOCKING
 
 /obj/item/card/id/advanced
-	name = "identification card"
-	desc = "A card used to provide ID and determine access across the station. Has an integrated digital display and advanced microchips."
+	name = "身份卡"
+	desc = "用于证明身份并确定站内各区域通行权限的卡片，集成了数字显示屏和先进微芯片。"
 	icon_state = "card_grey"
 
 	wildcard_slots = WILDCARD_LIMIT_GREY
@@ -1218,7 +1218,7 @@
 /obj/item/card/id/advanced/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	if(istype(held_item, /obj/item/toy/crayon))
-		context[SCREENTIP_CONTEXT_LMB] = "Recolor ID"
+		context[SCREENTIP_CONTEXT_LMB] = "重涂身份卡"
 		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/card/id/advanced/proc/after_input_check(mob/user)
@@ -1236,9 +1236,9 @@
 
 /obj/item/card/id/advanced/proc/recolor_id(mob/living/user, obj/item/toy/crayon/our_crayon)
 	if(our_crayon.is_capped)
-		balloon_alert(user, "take the cap off first!")
+		balloon_alert(user, "先取下笔盖！")
 		return ITEM_INTERACT_BLOCKING
-	var/choice = tgui_alert(usr, "Recolor Department or Subdepartment?", "Recoloring ID...", list("Department", "Subdepartment"))
+	var/choice = tgui_alert(usr, "要重涂部门还是子部门颜色？", "重涂身份卡……", list("部门", "子部门"))
 	if(isnull(choice) \
 		|| QDELETED(user) \
 		|| QDELETED(src) \
@@ -1249,16 +1249,16 @@
 		return ITEM_INTERACT_BLOCKING
 
 	switch(choice)
-		if("Department")
+		if("部门")
 			if(!do_after(user, 2 SECONDS))
 				return ITEM_INTERACT_BLOCKING
 			department_color_override = our_crayon.paint_color
-			balloon_alert(user, "recolored")
-		if("Subdepartment")
+			balloon_alert(user, "已重涂")
+		if("子部门")
 			if(!do_after(user, 1 SECONDS))
 				return ITEM_INTERACT_BLOCKING
 			subdepartment_color_override = our_crayon.paint_color
-			balloon_alert(user, "recolored")
+			balloon_alert(user, "已重涂")
 	update_icon()
 	return ITEM_INTERACT_SUCCESS
 
@@ -1361,8 +1361,8 @@
 	icon_state = "card_rainbow"
 
 /obj/item/card/id/advanced/silver
-	name = "silver identification card"
-	desc = "A silver card which shows honour and dedication."
+	name = "银色身份卡"
+	desc = "一张彰显荣誉与奉献的银色卡片。"
 	icon_state = "card_silver"
 	inhand_icon_state = "silver_id"
 	assigned_icon_state = "assigned_silver"

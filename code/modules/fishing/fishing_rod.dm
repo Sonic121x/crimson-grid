@@ -677,14 +677,14 @@
 	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/fishing_rod/telescopic
-	name = "telescopic fishing rod"
+	name = "伸缩钓竿"
 	icon_state = "fishing_rod_telescopic"
-	desc = "A lightweight, ergonomic, easy to store telescopic fishing rod. "
+	desc = "一根轻便、符合人体工学且易于收纳的伸缩钓竿。"
 	inhand_icon_state = null
 	custom_price = PAYCHECK_CREW * 9
 	force = 0
 	w_class = WEIGHT_CLASS_NORMAL
-	ui_description = "A collapsible fishing rod that can fit within a backpack."
+	ui_description = "一根可折叠收进背包的钓竿。"
 	wiki_description = "<b>It has to be bought from Cargo</b>."
 	reel_overlay = "reel_telescopic"
 	frame_state = "frame_telescopic"
@@ -704,13 +704,13 @@
 
 /obj/item/fishing_rod/telescopic/reason_we_cant_fish(datum/fish_source/target_fish_source)
 	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
-		return "You need to extend your fishing rod before you can cast the line."
+		return "你需要先展开钓竿才能抛线。"
 	return ..()
 
 /obj/item/fishing_rod/telescopic/cast_line(atom/target, mob/user, proximity_flag)
 	if(!HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		if(!proximity_flag)
-			balloon_alert(user, "extend the rod first!")
+			balloon_alert(user, "先展开钓竿！")
 		return
 	return ..()
 
@@ -739,7 +739,7 @@
 
 	inhand_icon_state = active ? "rod" : null // When inactive, there is no inhand icon_state.
 	if(user)
-		balloon_alert(user, active ? "extended" : "collapsed")
+		balloon_alert(user, active ? "已展开" : "已收起")
 	playsound(src, 'sound/items/weapons/batonextend.ogg', 50, TRUE)
 	update_appearance()
 	QDEL_NULL(fishing_line)

@@ -178,8 +178,8 @@ By design, d1 is the smallest direction and d2 is the highest
 ////////////////////////////////
 
 /obj/item/stack/pipe_cleaner_coil
-	name = "pipe cleaner coil"
-	desc = "A coil of pipe cleaners. Good for arts and crafts, not to build with."
+	name = "扭扭棒卷"
+	desc = "一卷扭扭棒。适合手工制作，不适合建筑施工。"
 	custom_price = PAYCHECK_CREW * 0.5
 	gender = NEUTER //That's a pipe_cleaner coil sounds better than that's some pipe_cleaner coils
 	icon = 'icons/obj/stack_objects.dmi'
@@ -200,7 +200,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	slot_flags = ITEM_SLOT_BELT
 	attack_verb_continuous = list("whips", "lashes", "disciplines", "flogs")
 	attack_verb_simple = list("whip", "lash", "discipline", "flog")
-	singular_name = "pipe cleaner piece"
+	singular_name = "扭扭棒段"
 	full_w_class = WEIGHT_CLASS_SMALL
 	usesound = 'sound/items/deconstruct.ogg'
 	cost = 1
@@ -247,9 +247,9 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/pipe_cleaner_coil/suicide_act(mob/living/user)
 	if(locate(/obj/structure/chair/stool) in get_turf(user))
-		user.visible_message(span_suicide("[user] is making a noose with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]正在用[src]打绞索！看起来是想自杀！"))
 	else
-		user.visible_message(span_suicide("[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user]正在用[src]勒住自己的脖子！看起来是想自杀！"))
 	return OXYLOSS
 
 /obj/item/stack/pipe_cleaner_coil/Initialize(mapload, new_amount = null, list/mat_override=null, mat_amt=1, param_color = null)
@@ -273,7 +273,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/pipe_cleaner_coil/update_name()
 	. = ..()
-	name = "pipe cleaner [amount < 3 ? "piece" : "coil"]"
+	name = "扭扭棒[amount < 3 ? "段" : "卷"]"
 
 /obj/item/stack/pipe_cleaner_coil/update_icon_state()
 	. = ..()

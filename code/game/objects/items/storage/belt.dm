@@ -272,8 +272,8 @@
 	update_appearance()
 
 /obj/item/storage/belt/security/webbing
-	name = "security webbing"
-	desc = "Unique and versatile chest rig, can hold security gear."
+	name = "安保胸挂"
+	desc = "独特而多用途的胸挂，可收纳安保装备。"
 	icon_state = "securitywebbing"
 	inhand_icon_state = "securitywebbing"
 	worn_icon_state = "securitywebbing"
@@ -936,8 +936,8 @@
 	stored_blade = /obj/item/claymore/gladius
 
 /obj/item/storage/belt/sheath/katana
-	name = "katana sheath"
-	desc = "A sheath that houses the nimble katana."
+	name = "武士刀鞘"
+	desc = "收纳轻巧武士刀的刀鞘。"
 	icon_state = "katana_sheath"
 	inhand_icon_state = "katana_sheath"
 	worn_icon_state = "katana_sheath"

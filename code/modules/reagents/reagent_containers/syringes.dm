@@ -198,7 +198,7 @@
 	SIGNAL_HANDLER
 	if(!reagents.total_volume || !user.reagents || !user.try_inject(user, user.get_active_hand()))
 		return
-	to_chat(user, span_danger("As you open [letter], you prick yourself on a syringe inside!"))
+	to_chat(user, span_danger("你打开[letter]时，被里面的注射器扎了一下！"))
 	reagents.trans_to(user, min(reagents.total_volume, 5))
 	forceMove(user.loc)
 	return COMPONENT_TRAITOR_MAIL_HANDLED
@@ -292,8 +292,8 @@
 	list_reagents = list(/datum/reagent/toxin/plasma = 15)
 
 /obj/item/reagent_containers/syringe/lethal
-	name = "lethal injection syringe"
-	desc = "A syringe used for lethal injections. It can hold up to 50 units."
+	name = "致命注射器"
+	desc = "用于执行致命注射的注射器，最多可容纳50单位液体。"
 	amount_per_transfer_from_this = 50
 	has_variable_transfer_amount = FALSE
 	volume = 50
@@ -321,8 +321,8 @@
 	list_reagents = list(/datum/reagent/gluttonytoxin = 1)
 
 /obj/item/reagent_containers/syringe/bluespace
-	name = "bluespace syringe"
-	desc = "An advanced syringe that can hold 60 units of chemicals."
+	name = "蓝空间注射器"
+	desc = "可容纳60单位化学品的先进注射器。"
 	icon_state = "bluespace_0"
 	inhand_icon_state = "bluespace_0"
 	base_icon_state = "bluespace"
@@ -334,8 +334,8 @@
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/syringe/piercing
-	name = "piercing syringe"
-	desc = "A diamond-tipped syringe that pierces armor when launched at high velocity. It can hold up to 10 units."
+	name = "穿甲注射器"
+	desc = "配有钻石针尖的注射器，高速发射时能穿透护甲。最多可容纳10单位液体。"
 	icon_state = "piercing_0"
 	inhand_icon_state = "piercing_0"
 	base_icon_state = "piercing"

@@ -4,7 +4,7 @@
 
 	/// datums don't have names by default
 	var/name = ""
-	/// nor do they have descriptions
+	var/display_name
 	var/description = ""
 	///J/(K*mol)
 	var/specific_heat = SPECIFIC_HEAT_DEFAULT

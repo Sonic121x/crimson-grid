@@ -1,6 +1,6 @@
 //CREATOR'S NOTE: DO NOT FUCKING GIVE THIS TO BOTANY!
 /obj/item/hot_potato
-	name = "hot potato"
+	name = "烫手山芋"
 	desc = "A label on the side of this potato reads \"Product of Donk Co. Service Wing. Activate far away from populated areas. Device will only attach to sapient creatures.\" <span class='boldnotice'>You can attack anyone with it to force it on them instead of yourself!</span>"
 	icon = 'icons/obj/service/hydroponics/harvest.dmi'
 	icon_state = "potato"
@@ -182,7 +182,7 @@
 	detonate_explosion = FALSE
 
 /obj/item/hot_potato/harmless/toy
-	desc = "A label on the side of this potato reads \"Product of Donk Co. Toys and Recreation department.\" <span class='boldnotice'>You can attack anyone with it to put it on them instead, if they have a free hand to take it!</span>"
+	desc = "土豆侧面的标签上写着\"当克公司玩具与娱乐部门出品。\"<span class='boldnotice'>只要对方有空手接住，你就能用它攻击对方，把它转交出去！</span>"
 	sticky = FALSE
 	reusable = TRUE
 	forceful_attachment = FALSE

@@ -268,8 +268,8 @@
 	hitsound = 'sound/items/bikehorn.ogg'
 
 /obj/item/instrument/musicalmoth
-	name = "musical moth"
-	desc = "Despite its popularity, this controversial musical toy was eventually banned due to its unethically sampled sounds of moths screaming in agony."
+	name = "音乐蛾"
+	desc = "这款备受争议的音乐玩具虽广受欢迎，却因不道德地采样蛾人痛苦的尖叫而最终遭禁。"
 	icon_state = "mothsician"
 	allowed_instrument_ids = "mothscream"
 	attack_verb_continuous = list("flutters", "flaps")

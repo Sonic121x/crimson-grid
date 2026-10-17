@@ -4,16 +4,16 @@
  * Can be scribbed upon to add extra text for future readers.
  */
 /obj/item/newspaper
-	name = "newspaper"
-	desc = "An issue of " + NEWSPAPER_COMPANY + ", the newspaper circulating around " + CITY_NAME + " and surrounding cities." // DARKPACK EDIT CHANGE
+	name = "报纸"
+	desc = "一份在本市及周边城市发行的报纸。" // DARKPACK EDIT CHANGE
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "newspaper"
 	inhand_icon_state = "newspaper"
 	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb_continuous = list("baps")
-	attack_verb_simple = list("bap")
+	attack_verb_continuous = list("拍打")
+	attack_verb_simple = list("拍打")
 	resistance_flags = FLAMMABLE
 
 	///List of news feeed channels the newspaper can see.
@@ -38,7 +38,7 @@
 
 /obj/item/newspaper/Initialize(mapload)
 	. = ..()
-	register_context()
+	register_context(); desc = "一期《[NEWSPAPER_COMPANY == "Angel Times" ? "天使时报" : NEWSPAPER_COMPANY]》，在[CITY_NAME == "San Francisco" ? "旧金山" : CITY_NAME]及周边城市发行。"
 	AddComponent(\
 		/datum/component/two_handed,\
 		wield_callback = CALLBACK(src, PROC_REF(on_wielded)),\
@@ -60,10 +60,10 @@
 /obj/item/newspaper/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(held_item)
 		if(IS_WRITING_UTENSIL(held_item))
-			context[SCREENTIP_CONTEXT_LMB] = "Scribble"
+			context[SCREENTIP_CONTEXT_LMB] = "涂写"
 			return CONTEXTUAL_SCREENTIP_SET
 		if(held_item.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
-			context[SCREENTIP_CONTEXT_LMB] = "Burn"
+			context[SCREENTIP_CONTEXT_LMB] = "点燃"
 			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/newspaper/proc/close_paper_ui()
@@ -72,29 +72,29 @@
 
 /obj/item/newspaper/suicide_act(mob/living/user)
 	user.visible_message(span_suicide(\
-		"[user] is focusing intently on [src]! It looks like [user.p_theyre()] trying to commit sudoku... \
-		until [user.p_their()] eyes light up with realization!"\
+		"[user]正聚精会神地盯着[src]！看起来是在解数独…… \
+		突然眼前一亮，似乎明白了什么！"\
 	))
-	user.say(";JOURNALISM IS MY CALLING! EVERYBODY APPRECIATES UNBIASED REPORTI-GLORF", forced = "newspaper suicide")
+	user.say(";新闻事业是我的天职！人人都喜欢公正的报——咕噜", forced = "newspaper suicide")
 	var/obj/item/reagent_containers/cup/glass/bottle/whiskey/last_drink = new(user.loc)
 	playsound(user, 'sound/items/drink.ogg', vol = rand(10, 50), vary = TRUE)
 	last_drink.reagents.trans_to(user, last_drink.reagents.total_volume, transferred_by = user)
-	user.visible_message(span_suicide("[user] downs the contents of [last_drink.name] in one gulp! Shoulda stuck to sudoku!"))
+	user.visible_message(span_suicide("[user]将[last_drink.name]一饮而尽！还是继续做数独比较好！"))
 	return TOXLOSS
 
 /obj/item/newspaper/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if (tool.tool_behaviour == TOOL_SCREWDRIVER || tool.tool_behaviour == TOOL_WIRECUTTER || tool.sharpness)
 		if (punctured)
-			balloon_alert(user, "already has holes!")
+			balloon_alert(user, "已经有孔了！")
 			return ITEM_INTERACT_BLOCKING
 
-		var/used_verb = "cutting out"
+		var/used_verb = "正在剪出"
 		if (tool.sharpness != SHARP_EDGED || tool.tool_behaviour == TOOL_SCREWDRIVER)
-			used_verb = "puncturing"
+			used_verb = "正在戳出"
 
-		balloon_alert(user, "[used_verb] peekholes...")
+		balloon_alert(user, "[used_verb]窥视孔……")
 		if (!do_after(user, 3 SECONDS, src))
-			balloon_alert(user, "interrupted!")
+			balloon_alert(user, "被打断了！")
 			return ITEM_INTERACT_BLOCKING
 
 		playsound(src, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
@@ -110,21 +110,21 @@
 		return NONE
 
 	if (scribble_page == current_page)
-		user.balloon_alert(user, "already scribbled!")
+		user.balloon_alert(user, "已经涂写过了！")
 		return ITEM_INTERACT_BLOCKING
 
-	var/new_scribble_text = tgui_input_text(user, "What do you want to scribble?", "Write something", max_length = MAX_MESSAGE_LEN)
+	var/new_scribble_text = tgui_input_text(user, "你想涂写什么？", "写点东西", max_length = MAX_MESSAGE_LEN)
 	if (isnull(new_scribble_text))
 		return ITEM_INTERACT_BLOCKING
 
 	add_fingerprint(user)
-	user.balloon_alert(user, "scribbling...")
+	user.balloon_alert(user, "正在涂写……")
 	playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 	if (!do_after(user, 2 SECONDS, src))
-		balloon_alert(user, "interrupted!")
+		balloon_alert(user, "被打断了！")
 		return ITEM_INTERACT_BLOCKING
 
-	user.balloon_alert(user, "scribbled!")
+	user.balloon_alert(user, "涂写完成！")
 	scribble_page = current_page
 	scribble_text = new_scribble_text
 	return ITEM_INTERACT_SUCCESS
@@ -176,9 +176,9 @@
 /obj/item/newspaper/examine(mob/user)
 	. = ..()
 	if (punctured)
-		. += span_notice("It has a pair of small peek holes punctured near the top.")
+		. += span_notice("报纸靠近顶部的地方戳着两个小小的窥视孔。")
 	else
-		. += span_notice("You can cut out some peek holes using something [span_bolditalic("sharp")] or [span_bolditalic("pointy")]...")
+		. += span_notice("你可以用[span_bolditalic("锋利")]或[span_bolditalic("尖锐")]的东西开几个窥视孔……")
 
 /// Called when someone tries to figure out what our identity is, but they can't see it because of the newspaper
 /obj/item/newspaper/proc/holder_checked_name(mob/living/carbon/human/source, list/identity)
@@ -231,10 +231,10 @@
 	data["channels"] = list()
 	for(var/datum/feed_channel/news_channels as anything in news_content)
 		data["channels"] += list(list(
-			"name" = news_channels.channel_name,
+			"name" = news_channels.channel_name == "Angel Times" ? "天使时报" : news_channels.channel_name,
 			"page_number" = news_content.Find(news_channels),
 		))
-	data["newspaper_company"] = NEWSPAPER_COMPANY // DARKPACK EDIT ADD
+	data["newspaper_company"] = NEWSPAPER_COMPANY == "Angel Times" ? "天使时报" : NEWSPAPER_COMPANY // DARKPACK EDIT ADD
 	return data
 
 /obj/item/newspaper/ui_data(mob/user)
@@ -257,8 +257,8 @@
 		return data
 	var/datum/feed_channel/current_channel = news_content[current_page]
 	if(istype(current_channel))
-		channel_data["channel_name"] = current_channel.channel_name
-		channel_data["author_name"] = current_channel.return_author(censored_check(current_channel.author_censor_time))
+		channel_data["channel_name"] = current_channel.channel_name == "Angel Times" ? "天使时报" : current_channel.channel_name
+		channel_data["author_name"] = current_channel.return_author(censored_check(current_channel.author_censor_time)); if(channel_data["author_name"] == "Angel Times") channel_data["author_name"] = "天使时报"
 		channel_data["is_censored"] = censored_check(current_channel.D_class_censor_time)
 		channel_data["channel_messages"] = list()
 		for(var/datum/feed_message/feed_messages as anything in current_channel.messages)

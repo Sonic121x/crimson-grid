@@ -6,8 +6,8 @@
 	attachment_slot = NONE
 
 /obj/item/clothing/accessory/armband/deputy
-	name = "security deputy armband"
-	desc = "An armband, worn by personnel authorized to act as a deputy of station security."
+	name = "安保辅警臂章"
+	desc = "供获准担任空间站安保辅警的人员佩戴的臂章。"
 
 /obj/item/clothing/accessory/armband/cargo
 	name = "cargo bay guard armband"

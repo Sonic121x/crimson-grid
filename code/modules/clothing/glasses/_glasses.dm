@@ -38,7 +38,7 @@
 		AddElement(/datum/element/wearable_client_colour, glass_colour_type, ITEM_SLOT_EYES, GLASSES_TRAIT, forced = forced_glass_color, comsig_toggle = COMSIG_CLICK_ALT_SECONDARY)
 
 /obj/item/clothing/glasses/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is stabbing \the [src] into [user.p_their()] eyes! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]正用[src]刺向自己的眼睛！看起来是想自杀！"))
 	return BRUTELOSS
 
 /obj/item/clothing/glasses/visor_toggling()
@@ -88,7 +88,7 @@
 		var/obj/item/organ/eyes/eyes = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(!H.is_blind())
 			if(H.glasses == src)
-				to_chat(H, span_danger("[src] overloads and blinds you!"))
+				to_chat(H, span_danger("[src]过载，把你闪瞎了！"))
 				H.flash_act(visual = 1)
 				H.adjust_temp_blindness(6 SECONDS)
 				H.set_eye_blur_if_lower(10 SECONDS)
@@ -337,8 +337,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
 /obj/item/clothing/glasses/regular
-	name = "prescription glasses"
-	desc = "Made by Nerd. Co."
+	name = "矫正眼镜"
+	desc = "由书呆子公司制造。"
 	icon_state = "glasses_regular"
 	inhand_icon_state = "glasses"
 	flags_cover = GLASSESCOVERSEYES
@@ -363,7 +363,7 @@
 		var/mob/living/crusher = movable
 		if(crusher.move_intent != MOVE_INTENT_WALK && (!(crusher.movement_type & MOVETYPES_NOT_TOUCHING_GROUND) || crusher.buckled))
 			playsound(src, 'sound/effects/footstep/glass_step.ogg', 30, TRUE)
-			visible_message(span_warning("[crusher] steps on [src], damaging it!"))
+			visible_message(span_warning("[crusher]踩坏了[src]！"))
 			take_damage(100, sound_effect = FALSE)
 
 /obj/item/clothing/glasses/regular/atom_destruction(damage_flag)
@@ -377,8 +377,8 @@
 	if(!I.tool_start_check(user, amount=1))
 		return
 	if(I.use_tool(src, user, 10, volume=30))
-		user.visible_message(span_notice("[user] welds [src] back together."),\
-					span_notice("You weld [src] back together."))
+		user.visible_message(span_notice("[user]把[src]重新焊接起来。"),\
+					span_notice("你把[src]重新焊接起来。"))
 		repair()
 		return TRUE
 
@@ -412,8 +412,8 @@
 //Here lies green glasses, so ugly they died. RIP
 
 /obj/item/clothing/glasses/sunglasses
-	name = "sunglasses"
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks flashes."
+	name = "太阳镜"
+	desc = "一种古老得出奇的技术，为眼睛提供基础遮护。强化防护层可阻挡闪光。"
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
 	flags_cover = GLASSESCOVERSEYES

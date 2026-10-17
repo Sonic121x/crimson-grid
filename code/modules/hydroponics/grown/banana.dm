@@ -18,8 +18,8 @@
 
 /obj/item/food/grown/banana
 	seed = /obj/item/seeds/banana
-	name = "banana"
-	desc = "It's an excellent prop for a clown."
+	name = "香蕉"
+	desc = "小丑的绝佳道具。"
 	icon_state = "banana"
 	inhand_icon_state = "banana_peel"
 	trash_type = /obj/item/grown/bananapeel
@@ -37,7 +37,7 @@
 /obj/item/food/grown/banana/Initialize(mapload)
 	. = ..()
 	if(prob(1))
-		AddComponent(/datum/component/boomerang, boomerang_throw_range = throw_range + 4, thrower_easy_catch_enabled = TRUE, examine_message = span_green("The curve on this one looks particularly acute."))
+		AddComponent(/datum/component/boomerang, boomerang_throw_range = throw_range + 4, thrower_easy_catch_enabled = TRUE, examine_message = span_green("这一根的弯曲角度格外明显。"))
 
 ///Clowns will always like bananas.
 /obj/item/food/grown/banana/proc/check_liked(mob/living/carbon/human/consumer)
@@ -46,7 +46,7 @@
 		return FOOD_LIKED
 
 /obj/item/food/grown/banana/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is aiming [src] at [user.p_them()]self! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]把[src]对准了自己！看起来是想自杀！"))
 	playsound(loc, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
 	sleep(2.5 SECONDS)
 	if(!user)
@@ -55,7 +55,7 @@
 	sleep(2.5 SECONDS)
 	if(!user)
 		return OXYLOSS
-	user.visible_message("<B>[user]</B> laughs so hard they begin to suffocate!")
+	user.visible_message("<B>[user]</B>笑得喘不过气来，开始窒息了！")
 	return OXYLOSS
 
 //Banana Peel

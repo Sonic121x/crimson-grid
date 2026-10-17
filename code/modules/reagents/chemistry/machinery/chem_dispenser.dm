@@ -1,6 +1,6 @@
 /obj/machinery/chem_dispenser
-	name = "chem dispenser"
-	desc = "Creates and dispenses chemicals."
+	name = "化学分配器"
+	desc = "制造并分配化学物质。"
 	density = TRUE
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "dispenser"
@@ -130,12 +130,12 @@
 /obj/machinery/chem_dispenser/examine(mob/user)
 	. = ..()
 	if(panel_open)
-		. += span_notice("[src]'s maintenance hatch is open!")
+		. += span_notice("[src]的检修盖开着！")
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads:\n\
-		Recharge rate: <b>[display_power(recharge_amount, convert = FALSE)]</b>.\n\
-		Energy cost: <b>[siunit(power_cost, "J/u", 3)]</b>.")
-	. += span_notice("Use <b>RMB</b> to eject a stored beaker.")
+		. += span_notice("状态显示屏显示：\n\
+		充电速率：<b>[display_power(recharge_amount, convert = FALSE)]</b>。\n\
+		能耗：<b>[siunit(power_cost, "J/u", 3)]</b>。")
+	. += span_notice("使用<b>鼠标右键</b>弹出已放入的烧杯。")
 
 /obj/machinery/chem_dispenser/on_set_is_operational(old_value)
 	if(old_value) //Turned off
@@ -175,9 +175,9 @@
 
 /obj/machinery/chem_dispenser/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
-		balloon_alert(user, "already emagged!")
+		balloon_alert(user, "已被电磁破解！")
 		return FALSE
-	balloon_alert(user, "safeties shorted out")
+	balloon_alert(user, "安全保护已短路")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 	return TRUE
@@ -241,7 +241,7 @@
 			if(is_hallucinating && prob(5))
 				chemname = "[pick_list_replacements("hallucination.json", "chemicals")]"
 				chemcolor = random_colour()
-			chemicals += list(list("title" = chemname, "id" = temp.name, "pH" = temp.ph, "color" = chemcolor, "pHCol" = convert_ph_to_readable_color(temp.ph)))
+			chemicals += list(list("title" = chemname, "display_name" = chemname == temp.name ? (temp.display_name || temp.name) : chemname, "id" = temp.name, "pH" = temp.ph, "color" = chemcolor, "pHCol" = convert_ph_to_readable_color(temp.ph)))
 	.["chemicals"] = chemicals
 	.["recipes"] = saved_recipes
 
@@ -262,7 +262,7 @@
 		var/list/beakerContents = list()
 		if(length(beaker.reagents.reagent_list))
 			for(var/datum/reagent/reagent as anything in beaker.reagents.reagent_list)
-				beakerContents += list(list("name" = reagent.name, "volume" = round(reagent.volume, CHEMICAL_VOLUME_ROUNDING))) // list in a list because Byond merges the first list...
+				beakerContents += list(list("name" = reagent.display_name || reagent.name, "volume" = round(reagent.volume, CHEMICAL_VOLUME_ROUNDING))) // list in a list because Byond merges the first list...
 		beaker_data["contents"] = beakerContents
 	.["beaker"] = beaker_data
 
@@ -303,10 +303,10 @@
 					var/datum/reagents/holder = beaker.reagents
 					var/to_dispense = max(0, min(amount, holder.maximum_volume - holder.total_volume))
 					if(!to_dispense)
-						say("The container is full!")
+						say("容器已满！")
 						return
 					if(!cell.use(to_dispense * power_cost))
-						say("Not enough energy to complete operation!")
+						say("电量不足，无法完成操作！")
 						return
 					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
@@ -356,7 +356,7 @@
 					if(!to_dispense)
 						continue
 					if(!cell.use(to_dispense * power_cost))
-						say("Not enough energy to complete operation!")
+						say("电量不足，无法完成操作！")
 						return
 					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
@@ -366,7 +366,7 @@
 			return TRUE
 
 		if("clear_recipes")
-			if(is_operational && tgui_alert(ui.user, "Clear all recipes?", "Clear?", list("Yes", "No")) == "Yes")
+			if(is_operational && tgui_alert(ui.user, "清空所有配方？", "清空配方", list("是", "否")) == "是")
 				saved_recipes = list()
 				return TRUE
 
@@ -378,17 +378,17 @@
 		if("save_recording")
 			if(!is_operational)
 				return
-			var/name = tgui_input_text(ui.user, "What do you want to name this recipe?", "Recipe Name", max_length = MAX_NAME_LEN, encode = FALSE)
+			var/name = tgui_input_text(ui.user, "你想给这个配方起什么名字？", "配方名称", max_length = MAX_NAME_LEN, encode = FALSE)
 			if(!ui.user.can_perform_action(src, ALLOW_SILICON_REACH))
 				return
-			if(saved_recipes[name] && tgui_alert(ui.user, "\"[name]\" already exists, do you want to overwrite it?",, list("Yes", "No")) == "No")
+			if(saved_recipes[name] && tgui_alert(ui.user, "“[name]”已存在，要覆盖吗？",, list("是", "否")) == "否")
 				return
 			if(name && recording_recipe)
 				for(var/reagent in recording_recipe)
 					var/reagent_id = GLOB.name2reagent[reagent]
 					if(!dispensable_reagents.Find(reagent_id))
-						visible_message(span_warning("[src] buzzes."), span_hear("You hear a faint buzz."))
-						to_chat(ui.user, span_warning("[src] cannot find <b>[reagent]</b>!"))
+						visible_message(span_warning("[src]发出蜂鸣声。"), span_hear("你听见微弱的蜂鸣声。"))
+						to_chat(ui.user, span_warning("[src]找不到<b>[reagent]</b>！"))
 						playsound(src, 'sound/machines/buzz/buzz-two.ogg', 50, TRUE)
 						return
 				saved_recipes[name] = recording_recipe
@@ -454,7 +454,7 @@
 	cell.use(total * power_cost)
 	cell.emp_act(severity)
 	work_animation()
-	visible_message(span_danger("[src] malfunctions, spraying chemicals everywhere!"))
+	visible_message(span_danger("[src]发生故障，把化学品喷得到处都是！"))
 
 /obj/machinery/chem_dispenser/RefreshParts()
 	. = ..()
@@ -542,14 +542,14 @@
 			var/index = result_datum.name
 			var/list/new_info = get_reaction_info(reaction)
 			new_info["description"] = result_datum.description
-			new_info["color"] = result_datum.color
+			new_info["color"] = result_datum.color; new_info["display_name"] = result_datum.display_name || result_datum.name
 
 			var/num_alts = 0
 			while(new_reaction_list[index])
 				num_alts++
 				index = "[result_datum.name] (Alt[num_alts == 1 ? "" : " #[num_alts]"])"
 
-			new_reaction_list[index] = new_info
+			new_reaction_list[index] = new_info; if(num_alts) new_info["display_name"] += "（备选配方[num_alts == 1 ? "" : " #[num_alts]"]）"
 
 	reaction_list[type] = new_reaction_list
 	return reaction_list[type]
@@ -570,15 +570,15 @@
 	var/list/info = list()
 	for(var/datum/reagent/reagent_typepath as anything in reagent_list)
 		info += list(list(
-			"name" = reagent_typepath::name,
+			"name" = reagent_typepath::name, "display_name" = reagent_typepath::display_name || reagent_typepath::name,
 			"amount" = reagent_list[reagent_typepath],
 			"typepath" = reagent_typepath,
 		))
 	return info
 
 /obj/machinery/chem_dispenser/drinks
-	name = "soda dispenser"
-	desc = "Contains a large reservoir of soft drinks."
+	name = "汽水分配器"
+	desc = "储有大量软饮料。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "soda_dispenser"
 	base_icon_state = "soda_dispenser"
@@ -666,7 +666,7 @@
 	return b_o
 
 /obj/machinery/chem_dispenser/drinks/fullupgrade //fully ugpraded stock parts, emagged
-	desc = "Contains a large reservoir of soft drinks. This model has had its safeties shorted out."
+	desc = "储有大量软饮料，这台设备的安全装置已被短接。"
 	obj_flags = CAN_BE_HIT | EMAGGED
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/fullupgrade
 
@@ -675,8 +675,8 @@
 	dispensable_reagents |= emagged_reagents //adds emagged reagents
 
 /obj/machinery/chem_dispenser/drinks/beer
-	name = "booze dispenser"
-	desc = "Contains a large reservoir of the good stuff."
+	name = "酒水分配器"
+	desc = "储有大量好酒。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "booze_dispenser"
 	base_icon_state = "booze_dispenser"
@@ -726,7 +726,7 @@
 	. = ..()
 
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade //fully ugpraded stock parts, emagged
-	desc = "Contains a large reservoir of the good stuff. This model has had its safeties shorted out."
+	desc = "储有大量好酒，这台设备的安全装置已被短接。"
 	obj_flags = CAN_BE_HIT | EMAGGED
 	circuit = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer/fullupgrade
 

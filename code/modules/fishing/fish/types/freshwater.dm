@@ -1,8 +1,8 @@
 /obj/item/fish/goldfish
-	name = "goldfish"
+	name = "金鱼"
 	fish_id = "goldfish"
-	desc = "Despite common belief, goldfish do not have three-second memories. \
-		They can actually remember things that happened up to three months ago."
+	desc = "与普遍的说法不同，金鱼的记忆并非只有三秒。\
+		它们实际上能记住三个月前发生的事。"
 	icon_state = "goldfish"
 	dedicated_in_aquarium_icon_state = "fish_greyscale"
 	aquarium_vc_color = "#D8540D"
@@ -73,9 +73,9 @@
 	return list("raw fish" = 2.5, "objection" = 1)
 
 /obj/item/fish/angelfish
-	name = "angelfish"
+	name = "神仙鱼"
 	fish_id = "angelfish"
-	desc = "Young Angelfish often live in groups, while adults prefer solitary life. They become territorial and aggressive toward other fish when they reach adulthood."
+	desc = "幼年神仙鱼通常成群生活，成鱼则偏爱独居。它们成年后会产生领地意识，并攻击其他鱼类。"
 	icon_state = "angelfish"
 	sprite_width = 4
 	sprite_height = 7
@@ -87,9 +87,9 @@
 	required_temperature_max = MIN_AQUARIUM_TEMP+30
 
 /obj/item/fish/guppy
-	name = "guppy"
+	name = "孔雀鱼"
 	fish_id = "guppy"
-	desc = "Guppy is also known as rainbow fish because of the brightly colored body and fins."
+	desc = "孔雀鱼因体色和鱼鳍鲜艳，也被称为彩虹鱼。"
 	icon_state = "guppy"
 	sprite_width = 5
 	sprite_height = 2

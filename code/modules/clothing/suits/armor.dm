@@ -133,8 +133,8 @@
 	slowdown = 1
 
 /obj/item/clothing/suit/armor/vest/blueshirt
-	name = "large armor vest"
-	desc = "A large, yet comfortable piece of armor, protecting you from some threats."
+	name = "大型护甲背心"
+	desc = "一件宽大而舒适的护甲，能抵御部分威胁。"
 	icon_state = "blueshift"
 	inhand_icon_state = null
 	custom_premium_price = PAYCHECK_COMMAND
@@ -671,8 +671,8 @@
 	wound = 15
 
 /obj/item/clothing/suit/armor/centcom_formal
-	name = "\improper CentCom formal coat"
-	desc = "A stylish coat given to CentCom Commanders. Perfect for sending ERTs to suicide missions with style!"
+	name = "\improper 中央指挥部礼服外套"
+	desc = "发给中央指挥部指挥官的时髦外套。派应急响应队去送死时也能风度翩翩！"
 	icon_state = "centcom_formal"
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|ARMS

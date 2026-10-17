@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/cup
-	name = "open container"
+	name = "敞口容器"
 	abstract_type = /obj/item/reagent_containers/cup
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5, 10, 15, 20, 25, 30, 50)
@@ -54,31 +54,31 @@
 /obj/item/reagent_containers/cup/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	if(cell_wired && held_item.tool_behaviour == TOOL_WIRECUTTER)
-		context[SCREENTIP_CONTEXT_LMB] = "Cut wires"
+		context[SCREENTIP_CONTEXT_LMB] = "剪断电线"
 		return CONTEXTUAL_SCREENTIP_SET
 
 	if(!can_lid)
 		return
 	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_ALT_LMB] = lid_assembly ? "Detach assembly" : "Toggle lid"
+		context[SCREENTIP_CONTEXT_ALT_LMB] = lid_assembly ? "拆下组件" : "开关杯盖"
 		return CONTEXTUAL_SCREENTIP_SET
 	if(isnull(lid_assembly) && istype(held_item, /obj/item/assembly_holder))
-		context[SCREENTIP_CONTEXT_LMB] = "Attach assembly"
+		context[SCREENTIP_CONTEXT_LMB] = "安装组件"
 		return CONTEXTUAL_SCREENTIP_SET
 	if(isnull(attached_cell) && !isnull(lid_assembly) && istype(held_item, /obj/item/stock_parts/power_store/cell))
-		context[SCREENTIP_CONTEXT_LMB] = "Attach cell"
+		context[SCREENTIP_CONTEXT_LMB] = "安装电池"
 		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/reagent_containers/cup/examine(mob/user)
 	. = ..()
 	if(drink_type)
-		var/list/types = bitfield_to_list(drink_type, FOOD_FLAGS)
-		. += span_notice("The label says it contains [LOWER_TEXT(english_list(types))] ingredients.")
+		var/list/types = bitfield_to_list(drink_type, FOOD_FLAGS_IC)
+		. += span_notice("标签上写着内含[LOWER_TEXT(english_list(types))]类原料。")
 	if(can_lid)
 		if(has_lid)
-			. += span_notice("Its sealed with a bright orange rubber lid[!isnull(lid_assembly) ? "with an assembly attached ontop of it" : ""].")
+			. += span_notice("它用亮橙色橡胶盖密封着[!isnull(lid_assembly) ? "，盖上还装有组件" : ""]。")
 		else
-			. += span_notice("It can be sealed with a lid using [EXAMINE_HINT("Alt-Click")].")
+			. += span_notice("[EXAMINE_HINT("Alt-点击")]可以盖上盖子密封。")
 
 /**
  * Checks if the mob actually liked drinking this cup.
@@ -99,15 +99,15 @@
 	var/food_taste_reaction = gourmand.get_food_taste_reaction(src, drink_type)
 	switch(food_taste_reaction)
 		if(FOOD_TOXIC)
-			to_chat(gourmand,span_warning("What the hell was that thing?!"))
+			to_chat(gourmand,span_warning("这到底是什么鬼东西？！"))
 			gourmand.adjust_disgust(25 + 30 * fraction)
 			gourmand.add_mood_event("toxic_food", /datum/mood_event/disgusting_food)
 		if(FOOD_DISLIKED)
-			to_chat(gourmand,span_notice("That didn't taste very good..."))
+			to_chat(gourmand,span_notice("这味道不太好……"))
 			gourmand.adjust_disgust(11 + 15 * fraction)
 			gourmand.add_mood_event("gross_food", /datum/mood_event/gross_food)
 		if(FOOD_LIKED)
-			to_chat(gourmand,span_notice("I love this taste!"))
+			to_chat(gourmand,span_notice("我喜欢这个味道！"))
 			gourmand.adjust_disgust(-5 + -2.5 * fraction)
 			gourmand.add_mood_event("fav_food", /datum/mood_event/favorite_food)
 
@@ -204,18 +204,18 @@
 	if (!pour_amount)
 		return NONE
 	if (concrete.volume < pour_amount)
-		user.balloon_alert(user, "not enough to pour")
+		user.balloon_alert(user, "液体不足")
 		return ITEM_INTERACT_FAILURE
-	user.balloon_alert(user, "pouring...")
+	user.balloon_alert(user, "正在浇注……")
 	user.visible_message(
-		span_notice("[user] starts pouring concrete onto \a [target]."),
-		span_notice("You start pouring concrete onto \a [target]..."),
+		span_notice("[user]开始向[target]浇注混凝土。"),
+		span_notice("你开始向[target]浇注混凝土……"),
 	)
 	if (!do_after(user, 1 SECONDS, target=target))
-		user.balloon_alert(user, "interrupted")
+		user.balloon_alert(user, "已中断")
 		return ITEM_INTERACT_FAILURE
 	if(concrete.volume < pour_amount) // check if volume has changed during do_after
-		user.balloon_alert(user, "not enough to pour")
+		user.balloon_alert(user, "液体不足")
 		return ITEM_INTERACT_FAILURE
 	playsound(src, 'sound/effects/slosh.ogg', 25, TRUE)
 	concrete.expose_atom(target, pour_amount, TOUCH)
@@ -237,7 +237,7 @@
 /obj/item/reagent_containers/cup/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(has_lid && istype(tool, /obj/item/assembly_holder))
 		if (lid_assembly)
-			to_chat(user, span_warning("[src]'s lid already has an assembly attached to it!"))
+			to_chat(user, span_warning("[src]的盖子上已经装有组件了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (attach_assembly(tool, user))
@@ -247,18 +247,18 @@
 
 	if (lid_assembly && istype(tool, /obj/item/stock_parts/power_store/cell))
 		if (attached_cell)
-			to_chat(user, span_warning("[src] already has \a [attached_cell] attached to it!"))
+			to_chat(user, span_warning("[src]上已经装有[attached_cell]了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (isnull(locate(/obj/item/assembly/igniter) in lid_assembly))
-			to_chat(user, span_warning("[lid_assembly] doesn't have an igniter to connect [src] to!"))
+			to_chat(user, span_warning("[lid_assembly]没有可供[src]连接的点火器！"))
 			return ITEM_INTERACT_BLOCKING
 
 		if (!user.transferItemToLoc(tool, src))
-			to_chat(user, span_warning("[tool] is stuck to your hand!"))
+			to_chat(user, span_warning("[tool]粘在了你的手上！"))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You attach [tool] underneath [src]'s lid."))
+		to_chat(user, span_notice("你把[tool]装在了[src]的盖子下。"))
 		add_fingerprint(user)
 		log_bomber(user, "attached [tool.name] to", src)
 		attached_cell = tool
@@ -270,15 +270,15 @@
 
 	if (attached_cell && istype(tool, /obj/item/stack/cable_coil))
 		if (cell_wired)
-			to_chat(user, span_warning("[attached_cell] is already wired to [lid_assembly]!"))
+			to_chat(user, span_warning("[attached_cell]已经接到[lid_assembly]上了！"))
 			return ITEM_INTERACT_BLOCKING
 
 		var/obj/item/stack/cable_coil/cable = tool
 		if (!cable.use(5))
-			to_chat(user, span_warning("You need at least 5 cable pieces to wire [attached_cell]!"))
+			to_chat(user, span_warning("至少需要5段电线才能给[attached_cell]接线！"))
 			return ITEM_INTERACT_BLOCKING
 
-		to_chat(user, span_notice("You wire [attached_cell] to [lid_assembly]."))
+		to_chat(user, span_notice("你把[attached_cell]接到了[lid_assembly]上。"))
 		add_fingerprint(user)
 		cell_wired = TRUE
 		update_appearance()
@@ -289,9 +289,9 @@
 
 	if(istype(tool, /obj/item/food/egg)) //breaking eggs
 		if(reagents.holder_full())
-			to_chat(user, span_notice("[src] is full."))
+			to_chat(user, span_notice("[src]已经满了。"))
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You break [tool] in [src]."))
+		to_chat(user, span_notice("你把[tool]打进了[src]里。"))
 		tool.reagents.trans_to(src, tool.reagents.total_volume, transferred_by = user)
 		qdel(tool)
 		return ITEM_INTERACT_SUCCESS
@@ -348,7 +348,7 @@
 		return NONE
 
 	if (cell_wired)
-		balloon_alert(user, "cut the wiring first!")
+		balloon_alert(user, "先剪断电线！")
 		return CLICK_ACTION_BLOCKING
 
 	if (attached_cell)
@@ -356,7 +356,7 @@
 		// Exited() automatically clears it
 		our_cell.forceMove(drop_location())
 		user.put_in_hands(our_cell)
-		balloon_alert(user, "cell detached")
+		balloon_alert(user, "已拆下电池")
 		update_appearance()
 		return CLICK_ACTION_SUCCESS
 
@@ -364,13 +364,13 @@
 		var/obj/item/our_assembly = lid_assembly
 		our_assembly.forceMove(drop_location())
 		user.put_in_hands(our_assembly)
-		balloon_alert(user, "assembly detached")
+		balloon_alert(user, "已拆下组件")
 		update_appearance()
 		return CLICK_ACTION_SUCCESS
 
 	has_lid = !has_lid
 	update_appearance()
-	balloon_alert(user, "lid [has_lid ? "sealed" : "unsealed"]")
+	balloon_alert(user, "盖子已[has_lid ? "密封" : "打开"]")
 	if (has_lid)
 		add_container_flags(SEALED_CONTAINER)
 	else
@@ -384,16 +384,16 @@
 	new /obj/item/stack/cable_coil(drop_location(), 5)
 	cell_wired = FALSE
 	update_appearance()
-	balloon_alert(user, "wiring cut")
+	balloon_alert(user, "已剪断电线")
 	tool.play_tool_sound(src, 50)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/reagent_containers/cup/proc/attach_assembly(obj/item/assembly_holder/assembly, mob/living/user)
 	if (!user.transferItemToLoc(assembly, src))
-		to_chat(user, span_warning("[assembly] is stuck to your hand!"))
+		to_chat(user, span_warning("[assembly]粘在了你的手上！"))
 		return FALSE
 
-	to_chat(user, span_notice("You attach [assembly] to [src]'s lid."))
+	to_chat(user, span_notice("你把[assembly]装到了[src]的盖子上。"))
 	add_fingerprint(user)
 	lid_assembly = assembly
 	lid_assembly.master = src
@@ -440,8 +440,8 @@
 		reagents.expose_temperature(igniter_temp)
 
 /obj/item/reagent_containers/cup/beaker
-	name = "beaker"
-	desc = "A beaker. It can hold up to 50 units."
+	name = "烧杯"
+	desc = "一个烧杯，最多可容纳50单位液体。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "beaker"
 	inhand_icon_state = "beaker"
@@ -464,15 +464,15 @@
 	return reagents.maximum_volume
 
 /obj/item/reagent_containers/cup/beaker/jar
-	name = "honey jar"
-	desc = "A jar for honey. It can hold up to 50 units of sweet delight."
+	name = "蜂蜜罐"
+	desc = "盛放蜂蜜的罐子，最多可装下50单位甜蜜滋味。"
 	icon = 'icons/obj/medical/chemical.dmi'
 	icon_state = "vapour"
 	can_lid = FALSE
 
 /obj/item/reagent_containers/cup/beaker/large
-	name = "large beaker"
-	desc = "A large beaker. Can hold up to 100 units."
+	name = "大烧杯"
+	desc = "一个大烧杯，最多可容纳100单位液体。"
 	icon_state = "beakerlarge"
 	custom_materials = list(/datum/material/glass= SHEET_MATERIAL_AMOUNT*1.25)
 	volume = 100

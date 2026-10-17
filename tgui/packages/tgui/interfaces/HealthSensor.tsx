@@ -23,19 +23,19 @@ export const HealthSensor = (props) => {
     <Window width={360} height={115}>
       <Window.Content>
         <Section
-          title="Health Sensor"
+          title="健康传感器"
           buttons={
             <>
               <Button
                 icon={scanning ? 'power-off' : 'times'}
-                content={scanning ? 'On' : 'Off'}
+                content={scanning ? '已开启' : '已关闭'}
                 selected={scanning}
                 onClick={() => act('scanning')}
               />
               <Button
                 icon={target ? 'skull' : 'heartbeat'}
                 color="red"
-                content={target ? 'Checking for Death' : 'Checking for Crit'}
+                content={target ? '监测死亡' : '监测危重'}
                 onClick={() => act('target')}
               />
             </>
@@ -50,7 +50,7 @@ export const HealthSensor = (props) => {
                 bad: [-Infinity, 0.2],
               }}
             >
-              {scanning ? <AnimatedNumber value={health} /> : 'Off'}
+              {scanning ? <AnimatedNumber value={health} /> : '已关闭'}
             </ProgressBar>
           )}
         </Section>

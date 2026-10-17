@@ -1,8 +1,8 @@
 /obj/machinery/vending/cigarette
-	name = "\improper ShadyCigs Deluxe"
-	desc = "If you want to get cancer, might as well do it in style."
-	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
-	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
+	name = "\improper 暗巷烟草豪华版"
+	desc = "既然想得癌症，何不也讲究点格调。"
+	product_slogans = "太空香烟，抽出香烟该有的好味道。;宁挨工具箱，不换别家烟。;抽起来！;别信那些报告，今天就抽！"
+	product_ads = "多半无害！;别信科学家！;有益健康！;别戒烟，多买点！;抽起来！;尼古丁天堂。;自2150年起供应上等香烟。;获奖香烟。"
 	icon_state = "cigs"
 	panel_type = "panel5"
 	products = list(
@@ -85,7 +85,7 @@
 	allow_custom = FALSE
 
 /obj/item/vending_refill/cigarette
-	machine_name = "ShadyCigs Deluxe"
+	machine_name = "暗巷烟草豪华版"
 	icon_state = "refill_smoke"
 
 /obj/machinery/vending/cigarette/pre_throw(obj/item/thrown_item)

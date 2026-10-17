@@ -727,11 +727,11 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 	machine_name = "DetDrobe"
 
 /obj/machinery/vending/wardrobe/cent_wardrobe
-	name = "\improper CentDrobe"
-	desc = "A one-of-a-kind vending machine for all your centcom aesthetic needs!"
+	name = "\improper 中央衣柜"
+	desc = "一台独一无二的售货机，满足你对中央指挥部风格的一切审美需求！"
 	icon_state = "centdrobe"
-	product_ads = "Show those ERTs who's the most stylish in the briefing room!"
-	vend_reply = "Thank you for using the CentDrobe!"
+	product_ads = "让那些应急响应队员看看，简报室里谁最时髦！"
+	vend_reply = "感谢使用中央衣柜！"
 	products = list(
 		/obj/item/clothing/glasses/sunglasses = 3,
 		/obj/item/clothing/head/hats/centcom_cap = 3,
@@ -753,7 +753,7 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 	refill_canister = /obj/item/vending_refill/wardrobe/cent_wardrobe
 
 /obj/item/vending_refill/wardrobe/cent_wardrobe
-	machine_name = "CentDrobe"
+	machine_name = "中央衣柜"
 	icon_state = "refill_centdrobe"
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
 

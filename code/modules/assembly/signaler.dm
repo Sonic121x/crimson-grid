@@ -1,6 +1,6 @@
 /obj/item/assembly/signaler
-	name = "remote signaling device"
-	desc = "Used to remotely activate devices. Allows for syncing when using a secure signaler on another."
+	name = "遥控信号器"
+	desc = "用于远程启动设备。将固定好的信号器用于另一台信号器，可同步设置。"
 	icon_state = "signaller"
 	inhand_icon_state = "signaler"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
@@ -30,7 +30,7 @@
 	var/range = 0 //Everywhere
 
 /obj/item/assembly/signaler/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] eats \the [src]! If it is signaled, [user.p_they()] will die!"))
+	user.visible_message(span_suicide("[user]吞下了[src]！一旦接收到信号，[user]就会死亡！"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	moveToNullspace()
 	suicider = user.mind
@@ -43,7 +43,7 @@
 		return
 	if(suicide_mob != REF(user))
 		return
-	user.visible_message(span_suicide("[user]'s [src] receives a signal, killing [user.p_them()] instantly!"))
+	user.visible_message(span_suicide("[user]体内的[src]接收到信号，[user]当场死亡！"))
 	user.set_suicide(TRUE)
 	user.adjust_oxy_loss(200)//it sends an electrical pulse to their heart, killing them. or something.
 	user.death(FALSE)
@@ -99,11 +99,11 @@
 		if("signal")
 			if(cooldown_length > 0)
 				if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_SIGNALLER_SEND))
-					balloon_alert(ui.user, "recharging!")
+					balloon_alert(ui.user, "正在充能！")
 					return
 				TIMER_COOLDOWN_START(src, COOLDOWN_SIGNALLER_SEND, cooldown_length)
 			INVOKE_ASYNC(src, PROC_REF(signal))
-			balloon_alert(ui.user, "signaled")
+			balloon_alert(ui.user, "信号已发送")
 			. = TRUE
 		if("freq")
 			var/new_frequency = sanitize_frequency(unformat_frequency(params["freq"]), TRUE)
@@ -132,7 +132,7 @@
 
 	code = sister_signaler.code
 	set_frequency(sister_signaler.frequency)
-	to_chat(user, "You transfer the frequency and code of \the [sister_signaler.name] to \the [name]")
+	to_chat(user, "你将[sister_signaler.name]的频率和代码复制到了[name]")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/assembly/signaler/attack_self_secondary(mob/user, modifiers)
@@ -142,7 +142,7 @@
 	if(!ishuman(user))
 		return
 	if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_SIGNALLER_SEND))
-		balloon_alert(user, "still recharging...")
+		balloon_alert(user, "仍在充能……")
 		return
 	TIMER_COOLDOWN_START(src, COOLDOWN_SIGNALLER_SEND, 1 SECONDS)
 	INVOKE_ASYNC(src, PROC_REF(signal))
@@ -175,7 +175,7 @@
 	last_receive_signal_log = istype(holder, /obj/item/transfer_valve) ? signal.logging_data : null
 
 	pulse()
-	audible_message(span_infoplain("[icon2html(src, hearers(src))] *beep* *beep* *beep*"), null, hearing_range)
+	audible_message(span_infoplain("[icon2html(src, hearers(src))] *哔* *哔* *哔*"), null, hearing_range)
 	for(var/mob/hearing_mob in get_hearers_in_view(hearing_range, src))
 		hearing_mob.playsound_local(get_turf(src), 'sound/machines/beep/triple_beep.ogg', ASSEMBLY_BEEP_VOLUME, TRUE)
 	return TRUE
@@ -188,7 +188,7 @@
 
 /obj/item/assembly/signaler/proc/on_mail_unwrap(atom/source, mob/user, obj/item/mail/traitor/letter)
 	SIGNAL_HANDLER
-	to_chat(user, span_danger("As you open [letter], you accidentally press a button on [src]!"))
+	to_chat(user, span_danger("你打开[letter]时，不小心按下了[src]上的按钮！"))
 	INVOKE_ASYNC(src, PROC_REF(signal)) // No need to check for cooldown, the cooldown is shorter than the do_after for opening mail
 	return NONE //don't return handled, we want in hands and open ui
 
@@ -201,7 +201,7 @@
 	return ITEM_INTERACT_BLOCKING
 
 /obj/item/assembly/signaler/internal
-	name = "internal remote signaling device"
+	name = "内置遥控信号器"
 
 /obj/item/assembly/signaler/internal/ui_state(mob/user)
 	return GLOB.inventory_state
@@ -218,6 +218,6 @@
 	. = ..()
 
 /obj/item/assembly/signaler/low_range
-	name = "low-power remote signaling device"
-	desc = "Used to remotely activate devices, within a small range of 9 tiles. Allows for syncing when using a secure signaler on another."
+	name = "低功率遥控信号器"
+	desc = "用于在9格的小范围内远程启动设备。将固定好的信号器用于另一台信号器，可同步设置。"
 	range = 9

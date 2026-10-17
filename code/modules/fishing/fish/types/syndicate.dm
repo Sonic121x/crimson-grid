@@ -18,9 +18,9 @@
 	return list("raw fish" = 2, "acid" = 1) //no scales
 
 /obj/item/fish/donkfish
-	name = "donk co. company patent donkfish"
+	name = "当克公司专利当克鱼"
 	fish_id = "donkfish"
-	desc = "A lab-grown donkfish. Its invention was an accident for the most part, as it was intended to be consumed in donk pockets. Unfortunately, it tastes horrible, so it has now become a pseudo-mascot."
+	desc = "实验室培育的当克鱼。它的诞生多半是场意外，本来打算作为当克口袋饼的馅料。可惜味道太差，如今成了半个吉祥物。"
 	icon_state = "donkfish"
 	random_case_rarity = FISH_RARITY_VERY_RARE
 	stable_population = 4
@@ -33,7 +33,7 @@
 	beauty = FISH_BEAUTY_EXCELLENT
 
 /obj/item/fish/donkfish/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] swallows [src] whole! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user]把[src]整个吞了下去！看起来是想自杀！"))
 	if(!ishuman(user))
 		return TOXLOSS
 
